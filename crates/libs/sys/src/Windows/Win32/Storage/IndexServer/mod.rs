@@ -188,6 +188,7 @@ pub type IFILTER_FLAGS = i32;
 pub type IFILTER_INIT = i32;
 pub type WORDREP_BREAK_TYPE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CI_STATE {
     pub cbStruct: u32,
     pub cWordList: u32,
@@ -205,126 +206,67 @@ pub struct CI_STATE {
     pub cSecQDocuments: u32,
     pub dwPropCacheSize: u32,
 }
-impl Copy for CI_STATE {}
-impl Clone for CI_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct DBID {
     pub uGuid: DBID_0,
     pub eKind: u32,
     pub uName: DBID_1,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for DBID {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for DBID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub union DBID_0 {
     pub guid: windows_sys::core::GUID,
     pub pguid: *mut windows_sys::core::GUID,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for DBID_0 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for DBID_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub union DBID_1 {
     pub pwszName: windows_sys::core::PWSTR,
     pub ulPropid: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for DBID_1 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for DBID_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct DBID {
     pub uGuid: DBID_0,
     pub eKind: u32,
     pub uName: DBID_1,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for DBID {}
-#[cfg(target_arch = "x86")]
-impl Clone for DBID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub union DBID_0 {
     pub guid: windows_sys::core::GUID,
     pub pguid: *mut windows_sys::core::GUID,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for DBID_0 {}
-#[cfg(target_arch = "x86")]
-impl Clone for DBID_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub union DBID_1 {
     pub pwszName: windows_sys::core::PWSTR,
     pub ulPropid: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for DBID_1 {}
-#[cfg(target_arch = "x86")]
-impl Clone for DBID_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILTERREGION {
     pub idChunk: u32,
     pub cwcStart: u32,
     pub cwcExtent: u32,
 }
-impl Copy for FILTERREGION {}
-impl Clone for FILTERREGION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[derive(Clone, Copy)]
 pub struct FULLPROPSPEC {
     pub guidPropSet: windows_sys::core::GUID,
     pub psProperty: super::super::System::Com::StructuredStorage::PROPSPEC,
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl Copy for FULLPROPSPEC {}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl Clone for FULLPROPSPEC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[derive(Clone, Copy)]
 pub struct STAT_CHUNK {
     pub idChunk: u32,
     pub breakType: CHUNK_BREAKTYPE,
@@ -334,12 +276,4 @@ pub struct STAT_CHUNK {
     pub idChunkSource: u32,
     pub cwcStartSource: u32,
     pub cwcLenSource: u32,
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl Copy for STAT_CHUNK {}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl Clone for STAT_CHUNK {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

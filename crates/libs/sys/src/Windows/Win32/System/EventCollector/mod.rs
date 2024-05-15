@@ -96,18 +96,14 @@ pub type EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID = i32;
 pub type EC_SUBSCRIPTION_TYPE = i32;
 pub type EC_VARIANT_TYPE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EC_VARIANT {
     pub Anonymous: EC_VARIANT_0,
     pub Count: u32,
     pub Type: u32,
 }
-impl Copy for EC_VARIANT {}
-impl Clone for EC_VARIANT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union EC_VARIANT_0 {
     pub BooleanVal: super::super::Foundation::BOOL,
     pub UInt32Val: u32,
@@ -118,10 +114,4 @@ pub union EC_VARIANT_0 {
     pub Int32Arr: *mut i32,
     pub StringArr: *mut windows_sys::core::PWSTR,
     pub PropertyHandleVal: isize,
-}
-impl Copy for EC_VARIANT_0 {}
-impl Clone for EC_VARIANT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

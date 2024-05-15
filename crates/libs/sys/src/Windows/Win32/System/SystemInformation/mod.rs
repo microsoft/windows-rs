@@ -476,6 +476,7 @@ pub type RTL_SYSTEM_GLOBAL_DATA_ID = i32;
 pub type USER_CET_ENVIRONMENT = u32;
 pub type VER_FLAGS = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CACHE_DESCRIPTOR {
     pub Level: u8,
     pub Associativity: u8,
@@ -483,13 +484,8 @@ pub struct CACHE_DESCRIPTOR {
     pub Size: u32,
     pub Type: PROCESSOR_CACHE_TYPE,
 }
-impl Copy for CACHE_DESCRIPTOR {}
-impl Clone for CACHE_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CACHE_RELATIONSHIP {
     pub Level: u8,
     pub Associativity: u8,
@@ -500,49 +496,29 @@ pub struct CACHE_RELATIONSHIP {
     pub GroupCount: u16,
     pub Anonymous: CACHE_RELATIONSHIP_0,
 }
-impl Copy for CACHE_RELATIONSHIP {}
-impl Clone for CACHE_RELATIONSHIP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CACHE_RELATIONSHIP_0 {
     pub GroupMask: GROUP_AFFINITY,
     pub GroupMasks: [GROUP_AFFINITY; 1],
 }
-impl Copy for CACHE_RELATIONSHIP_0 {}
-impl Clone for CACHE_RELATIONSHIP_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GROUP_AFFINITY {
     pub Mask: usize,
     pub Group: u16,
     pub Reserved: [u16; 3],
 }
-impl Copy for GROUP_AFFINITY {}
-impl Clone for GROUP_AFFINITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GROUP_RELATIONSHIP {
     pub MaximumGroupCount: u16,
     pub ActiveGroupCount: u16,
     pub Reserved: [u8; 20],
     pub GroupInfo: [PROCESSOR_GROUP_INFO; 1],
 }
-impl Copy for GROUP_RELATIONSHIP {}
-impl Clone for GROUP_RELATIONSHIP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MEMORYSTATUS {
     pub dwLength: u32,
     pub dwMemoryLoad: u32,
@@ -553,13 +529,8 @@ pub struct MEMORYSTATUS {
     pub dwTotalVirtual: usize,
     pub dwAvailVirtual: usize,
 }
-impl Copy for MEMORYSTATUS {}
-impl Clone for MEMORYSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MEMORYSTATUSEX {
     pub dwLength: u32,
     pub dwMemoryLoad: u32,
@@ -571,37 +542,22 @@ pub struct MEMORYSTATUSEX {
     pub ullAvailVirtual: u64,
     pub ullAvailExtendedVirtual: u64,
 }
-impl Copy for MEMORYSTATUSEX {}
-impl Clone for MEMORYSTATUSEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NUMA_NODE_RELATIONSHIP {
     pub NodeNumber: u32,
     pub Reserved: [u8; 18],
     pub GroupCount: u16,
     pub Anonymous: NUMA_NODE_RELATIONSHIP_0,
 }
-impl Copy for NUMA_NODE_RELATIONSHIP {}
-impl Clone for NUMA_NODE_RELATIONSHIP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union NUMA_NODE_RELATIONSHIP_0 {
     pub GroupMask: GROUP_AFFINITY,
     pub GroupMasks: [GROUP_AFFINITY; 1],
 }
-impl Copy for NUMA_NODE_RELATIONSHIP_0 {}
-impl Clone for NUMA_NODE_RELATIONSHIP_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OSVERSIONINFOA {
     pub dwOSVersionInfoSize: u32,
     pub dwMajorVersion: u32,
@@ -610,13 +566,8 @@ pub struct OSVERSIONINFOA {
     pub dwPlatformId: u32,
     pub szCSDVersion: [i8; 128],
 }
-impl Copy for OSVERSIONINFOA {}
-impl Clone for OSVERSIONINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OSVERSIONINFOEXA {
     pub dwOSVersionInfoSize: u32,
     pub dwMajorVersion: u32,
@@ -630,13 +581,8 @@ pub struct OSVERSIONINFOEXA {
     pub wProductType: u8,
     pub wReserved: u8,
 }
-impl Copy for OSVERSIONINFOEXA {}
-impl Clone for OSVERSIONINFOEXA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OSVERSIONINFOEXW {
     pub dwOSVersionInfoSize: u32,
     pub dwMajorVersion: u32,
@@ -650,13 +596,8 @@ pub struct OSVERSIONINFOEXW {
     pub wProductType: u8,
     pub wReserved: u8,
 }
-impl Copy for OSVERSIONINFOEXW {}
-impl Clone for OSVERSIONINFOEXW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OSVERSIONINFOW {
     pub dwOSVersionInfoSize: u32,
     pub dwMajorVersion: u32,
@@ -665,26 +606,16 @@ pub struct OSVERSIONINFOW {
     pub dwPlatformId: u32,
     pub szCSDVersion: [u16; 128],
 }
-impl Copy for OSVERSIONINFOW {}
-impl Clone for OSVERSIONINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESSOR_GROUP_INFO {
     pub MaximumProcessorCount: u8,
     pub ActiveProcessorCount: u8,
     pub Reserved: [u8; 38],
     pub ActiveProcessorMask: usize,
 }
-impl Copy for PROCESSOR_GROUP_INFO {}
-impl Clone for PROCESSOR_GROUP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESSOR_RELATIONSHIP {
     pub Flags: u8,
     pub EfficiencyClass: u8,
@@ -692,35 +623,20 @@ pub struct PROCESSOR_RELATIONSHIP {
     pub GroupCount: u16,
     pub GroupMask: [GROUP_AFFINITY; 1],
 }
-impl Copy for PROCESSOR_RELATIONSHIP {}
-impl Clone for PROCESSOR_RELATIONSHIP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_CPU_SET_INFORMATION {
     pub Size: u32,
     pub Type: CPU_SET_INFORMATION_TYPE,
     pub Anonymous: SYSTEM_CPU_SET_INFORMATION_0,
 }
-impl Copy for SYSTEM_CPU_SET_INFORMATION {}
-impl Clone for SYSTEM_CPU_SET_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SYSTEM_CPU_SET_INFORMATION_0 {
     pub CpuSet: SYSTEM_CPU_SET_INFORMATION_0_0,
 }
-impl Copy for SYSTEM_CPU_SET_INFORMATION_0 {}
-impl Clone for SYSTEM_CPU_SET_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_CPU_SET_INFORMATION_0_0 {
     pub Id: u32,
     pub Group: u16,
@@ -733,45 +649,25 @@ pub struct SYSTEM_CPU_SET_INFORMATION_0_0 {
     pub Anonymous2: SYSTEM_CPU_SET_INFORMATION_0_0_1,
     pub AllocationTag: u64,
 }
-impl Copy for SYSTEM_CPU_SET_INFORMATION_0_0 {}
-impl Clone for SYSTEM_CPU_SET_INFORMATION_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SYSTEM_CPU_SET_INFORMATION_0_0_0 {
     pub AllFlags: u8,
     pub Anonymous: SYSTEM_CPU_SET_INFORMATION_0_0_0_0,
 }
-impl Copy for SYSTEM_CPU_SET_INFORMATION_0_0_0 {}
-impl Clone for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
     pub _bitfield: u8,
 }
-impl Copy for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {}
-impl Clone for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SYSTEM_CPU_SET_INFORMATION_0_0_1 {
     pub Reserved: u32,
     pub SchedulingClass: u8,
 }
-impl Copy for SYSTEM_CPU_SET_INFORMATION_0_0_1 {}
-impl Clone for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_INFO {
     pub Anonymous: SYSTEM_INFO_0,
     pub dwPageSize: u32,
@@ -784,133 +680,72 @@ pub struct SYSTEM_INFO {
     pub wProcessorLevel: u16,
     pub wProcessorRevision: u16,
 }
-impl Copy for SYSTEM_INFO {}
-impl Clone for SYSTEM_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SYSTEM_INFO_0 {
     pub dwOemId: u32,
     pub Anonymous: SYSTEM_INFO_0_0,
 }
-impl Copy for SYSTEM_INFO_0 {}
-impl Clone for SYSTEM_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_INFO_0_0 {
     pub wProcessorArchitecture: PROCESSOR_ARCHITECTURE,
     pub wReserved: u16,
 }
-impl Copy for SYSTEM_INFO_0_0 {}
-impl Clone for SYSTEM_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
     pub ProcessorMask: usize,
     pub Relationship: LOGICAL_PROCESSOR_RELATIONSHIP,
     pub Anonymous: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0,
 }
-impl Copy for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {}
-impl Clone for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
     pub ProcessorCore: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1,
     pub NumaNode: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0,
     pub Cache: CACHE_DESCRIPTOR,
     pub Reserved: [u64; 2],
 }
-impl Copy for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {}
-impl Clone for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
     pub NodeNumber: u32,
 }
-impl Copy for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {}
-impl Clone for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
     pub Flags: u8,
 }
-impl Copy for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {}
-impl Clone for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
     pub Relationship: LOGICAL_PROCESSOR_RELATIONSHIP,
     pub Size: u32,
     pub Anonymous: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0,
 }
-impl Copy for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {}
-impl Clone for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
     pub Processor: PROCESSOR_RELATIONSHIP,
     pub NumaNode: NUMA_NODE_RELATIONSHIP,
     pub Cache: CACHE_RELATIONSHIP,
     pub Group: GROUP_RELATIONSHIP,
 }
-impl Copy for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {}
-impl Clone for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_POOL_ZEROING_INFORMATION {
     pub PoolZeroingSupportPresent: super::super::Foundation::BOOLEAN,
 }
-impl Copy for SYSTEM_POOL_ZEROING_INFORMATION {}
-impl Clone for SYSTEM_POOL_ZEROING_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
     pub CycleTime: u64,
 }
-impl Copy for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {}
-impl Clone for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
     pub _bitfield: u32,
-}
-impl Copy for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {}
-impl Clone for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type PGET_SYSTEM_WOW64_DIRECTORY_A = Option<unsafe extern "system" fn(lpbuffer: windows_sys::core::PSTR, usize: u32) -> u32>;
 pub type PGET_SYSTEM_WOW64_DIRECTORY_W = Option<unsafe extern "system" fn(lpbuffer: windows_sys::core::PWSTR, usize: u32) -> u32>;

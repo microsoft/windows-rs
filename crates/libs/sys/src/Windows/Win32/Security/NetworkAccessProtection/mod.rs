@@ -46,96 +46,57 @@ pub type NapNotifyType = i32;
 pub type NapTracingLevel = i32;
 pub type RemoteConfigurationType = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CorrelationId {
     pub connId: windows_sys::core::GUID,
     pub timeStamp: super::super::Foundation::FILETIME,
 }
-impl Copy for CorrelationId {}
-impl Clone for CorrelationId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CountedString {
     pub length: u16,
     pub string: windows_sys::core::PWSTR,
 }
-impl Copy for CountedString {}
-impl Clone for CountedString {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FailureCategoryMapping {
     pub mappingCompliance: [super::super::Foundation::BOOL; 5],
 }
-impl Copy for FailureCategoryMapping {}
-impl Clone for FailureCategoryMapping {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FixupInfo {
     pub state: FixupState,
     pub percentage: u8,
     pub resultCodes: ResultCodes,
     pub fixupMsgId: u32,
 }
-impl Copy for FixupInfo {}
-impl Clone for FixupInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct Ipv4Address {
     pub addr: [u8; 4],
 }
-impl Copy for Ipv4Address {}
-impl Clone for Ipv4Address {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct Ipv6Address {
     pub addr: [u8; 16],
 }
-impl Copy for Ipv6Address {}
-impl Clone for Ipv6Address {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IsolationInfo {
     pub isolationState: IsolationState,
     pub probEndTime: super::super::Foundation::FILETIME,
     pub failureUrl: CountedString,
 }
-impl Copy for IsolationInfo {}
-impl Clone for IsolationInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IsolationInfoEx {
     pub isolationState: IsolationState,
     pub extendedIsolationState: ExtendedIsolationState,
     pub probEndTime: super::super::Foundation::FILETIME,
     pub failureUrl: CountedString,
 }
-impl Copy for IsolationInfoEx {}
-impl Clone for IsolationInfoEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NapComponentRegistrationInfo {
     pub id: u32,
     pub friendlyName: CountedString,
@@ -147,78 +108,42 @@ pub struct NapComponentRegistrationInfo {
     pub registrationDate: super::super::Foundation::FILETIME,
     pub componentType: u32,
 }
-impl Copy for NapComponentRegistrationInfo {}
-impl Clone for NapComponentRegistrationInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NetworkSoH {
     pub size: u16,
     pub data: *mut u8,
 }
-impl Copy for NetworkSoH {}
-impl Clone for NetworkSoH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PrivateData {
     pub size: u16,
     pub data: *mut u8,
 }
-impl Copy for PrivateData {}
-impl Clone for PrivateData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ResultCodes {
     pub count: u16,
     pub results: *mut windows_sys::core::HRESULT,
 }
-impl Copy for ResultCodes {}
-impl Clone for ResultCodes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SoH {
     pub count: u16,
     pub attributes: *mut SoHAttribute,
 }
-impl Copy for SoH {}
-impl Clone for SoH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SoHAttribute {
     pub r#type: u16,
     pub size: u16,
     pub value: *mut u8,
 }
-impl Copy for SoHAttribute {}
-impl Clone for SoHAttribute {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SystemHealthAgentState {
     pub id: u32,
     pub shaResultCodes: ResultCodes,
     pub failureCategory: FailureCategory,
     pub fixupInfo: FixupInfo,
-}
-impl Copy for SystemHealthAgentState {}
-impl Clone for SystemHealthAgentState {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

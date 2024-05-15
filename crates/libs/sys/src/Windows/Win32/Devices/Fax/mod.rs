@@ -515,6 +515,7 @@ pub type FAX_SMTP_AUTHENTICATION_TYPE_ENUM = i32;
 pub type STI_DEVICE_MJ_TYPE = i32;
 pub type SendToMode = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_CONFIGURATIONA {
     pub SizeOfStruct: u32,
     pub Retries: u32,
@@ -530,13 +531,8 @@ pub struct FAX_CONFIGURATIONA {
     pub ArchiveDirectory: windows_sys::core::PCSTR,
     pub Reserved: windows_sys::core::PCSTR,
 }
-impl Copy for FAX_CONFIGURATIONA {}
-impl Clone for FAX_CONFIGURATIONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_CONFIGURATIONW {
     pub SizeOfStruct: u32,
     pub Retries: u32,
@@ -552,43 +548,24 @@ pub struct FAX_CONFIGURATIONW {
     pub ArchiveDirectory: windows_sys::core::PCWSTR,
     pub Reserved: windows_sys::core::PCWSTR,
 }
-impl Copy for FAX_CONFIGURATIONW {}
-impl Clone for FAX_CONFIGURATIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct FAX_CONTEXT_INFOA {
     pub SizeOfStruct: u32,
     pub hDC: super::super::Graphics::Gdi::HDC,
     pub ServerName: [i8; 16],
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for FAX_CONTEXT_INFOA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for FAX_CONTEXT_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct FAX_CONTEXT_INFOW {
     pub SizeOfStruct: u32,
     pub hDC: super::super::Graphics::Gdi::HDC,
     pub ServerName: [u16; 16],
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for FAX_CONTEXT_INFOW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for FAX_CONTEXT_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_COVERPAGE_INFOA {
     pub SizeOfStruct: u32,
     pub CoverPageName: windows_sys::core::PCSTR,
@@ -620,13 +597,8 @@ pub struct FAX_COVERPAGE_INFOA {
     pub TimeSent: super::super::Foundation::SYSTEMTIME,
     pub PageCount: u32,
 }
-impl Copy for FAX_COVERPAGE_INFOA {}
-impl Clone for FAX_COVERPAGE_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_COVERPAGE_INFOW {
     pub SizeOfStruct: u32,
     pub CoverPageName: windows_sys::core::PCWSTR,
@@ -658,13 +630,8 @@ pub struct FAX_COVERPAGE_INFOW {
     pub TimeSent: super::super::Foundation::SYSTEMTIME,
     pub PageCount: u32,
 }
-impl Copy for FAX_COVERPAGE_INFOW {}
-impl Clone for FAX_COVERPAGE_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_DEVICE_STATUSA {
     pub SizeOfStruct: u32,
     pub CallerId: windows_sys::core::PCSTR,
@@ -687,13 +654,8 @@ pub struct FAX_DEVICE_STATUSA {
     pub Tsid: windows_sys::core::PCSTR,
     pub UserName: windows_sys::core::PCSTR,
 }
-impl Copy for FAX_DEVICE_STATUSA {}
-impl Clone for FAX_DEVICE_STATUSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_DEVICE_STATUSW {
     pub SizeOfStruct: u32,
     pub CallerId: windows_sys::core::PCWSTR,
@@ -716,13 +678,8 @@ pub struct FAX_DEVICE_STATUSW {
     pub Tsid: windows_sys::core::PCWSTR,
     pub UserName: windows_sys::core::PCWSTR,
 }
-impl Copy for FAX_DEVICE_STATUSW {}
-impl Clone for FAX_DEVICE_STATUSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_DEV_STATUS {
     pub SizeOfStruct: u32,
     pub StatusId: u32,
@@ -734,13 +691,8 @@ pub struct FAX_DEV_STATUS {
     pub ErrorCode: u32,
     pub Reserved: [u32; 3],
 }
-impl Copy for FAX_DEV_STATUS {}
-impl Clone for FAX_DEV_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_EVENTA {
     pub SizeOfStruct: u32,
     pub TimeStamp: super::super::Foundation::FILETIME,
@@ -748,13 +700,8 @@ pub struct FAX_EVENTA {
     pub EventId: u32,
     pub JobId: u32,
 }
-impl Copy for FAX_EVENTA {}
-impl Clone for FAX_EVENTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_EVENTW {
     pub SizeOfStruct: u32,
     pub TimeStamp: super::super::Foundation::FILETIME,
@@ -762,13 +709,8 @@ pub struct FAX_EVENTW {
     pub EventId: u32,
     pub JobId: u32,
 }
-impl Copy for FAX_EVENTW {}
-impl Clone for FAX_EVENTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_GLOBAL_ROUTING_INFOA {
     pub SizeOfStruct: u32,
     pub Priority: u32,
@@ -778,13 +720,8 @@ pub struct FAX_GLOBAL_ROUTING_INFOA {
     pub ExtensionImageName: windows_sys::core::PCSTR,
     pub ExtensionFriendlyName: windows_sys::core::PCSTR,
 }
-impl Copy for FAX_GLOBAL_ROUTING_INFOA {}
-impl Clone for FAX_GLOBAL_ROUTING_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_GLOBAL_ROUTING_INFOW {
     pub SizeOfStruct: u32,
     pub Priority: u32,
@@ -794,13 +731,8 @@ pub struct FAX_GLOBAL_ROUTING_INFOW {
     pub ExtensionImageName: windows_sys::core::PCWSTR,
     pub ExtensionFriendlyName: windows_sys::core::PCWSTR,
 }
-impl Copy for FAX_GLOBAL_ROUTING_INFOW {}
-impl Clone for FAX_GLOBAL_ROUTING_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_JOB_ENTRYA {
     pub SizeOfStruct: u32,
     pub JobId: u32,
@@ -823,13 +755,8 @@ pub struct FAX_JOB_ENTRYA {
     pub DeliveryReportAddress: windows_sys::core::PCSTR,
     pub DocumentName: windows_sys::core::PCSTR,
 }
-impl Copy for FAX_JOB_ENTRYA {}
-impl Clone for FAX_JOB_ENTRYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_JOB_ENTRYW {
     pub SizeOfStruct: u32,
     pub JobId: u32,
@@ -852,13 +779,8 @@ pub struct FAX_JOB_ENTRYW {
     pub DeliveryReportAddress: windows_sys::core::PCWSTR,
     pub DocumentName: windows_sys::core::PCWSTR,
 }
-impl Copy for FAX_JOB_ENTRYW {}
-impl Clone for FAX_JOB_ENTRYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_JOB_PARAMA {
     pub SizeOfStruct: u32,
     pub RecipientNumber: windows_sys::core::PCSTR,
@@ -876,13 +798,8 @@ pub struct FAX_JOB_PARAMA {
     pub CallHandle: u32,
     pub Reserved: [usize; 3],
 }
-impl Copy for FAX_JOB_PARAMA {}
-impl Clone for FAX_JOB_PARAMA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_JOB_PARAMW {
     pub SizeOfStruct: u32,
     pub RecipientNumber: windows_sys::core::PCWSTR,
@@ -900,37 +817,22 @@ pub struct FAX_JOB_PARAMW {
     pub CallHandle: u32,
     pub Reserved: [usize; 3],
 }
-impl Copy for FAX_JOB_PARAMW {}
-impl Clone for FAX_JOB_PARAMW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_LOG_CATEGORYA {
     pub Name: windows_sys::core::PCSTR,
     pub Category: u32,
     pub Level: u32,
 }
-impl Copy for FAX_LOG_CATEGORYA {}
-impl Clone for FAX_LOG_CATEGORYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_LOG_CATEGORYW {
     pub Name: windows_sys::core::PCWSTR,
     pub Category: u32,
     pub Level: u32,
 }
-impl Copy for FAX_LOG_CATEGORYW {}
-impl Clone for FAX_LOG_CATEGORYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_PORT_INFOA {
     pub SizeOfStruct: u32,
     pub DeviceId: u32,
@@ -942,13 +844,8 @@ pub struct FAX_PORT_INFOA {
     pub Tsid: windows_sys::core::PCSTR,
     pub Csid: windows_sys::core::PCSTR,
 }
-impl Copy for FAX_PORT_INFOA {}
-impl Clone for FAX_PORT_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_PORT_INFOW {
     pub SizeOfStruct: u32,
     pub DeviceId: u32,
@@ -960,13 +857,8 @@ pub struct FAX_PORT_INFOW {
     pub Tsid: windows_sys::core::PCWSTR,
     pub Csid: windows_sys::core::PCWSTR,
 }
-impl Copy for FAX_PORT_INFOW {}
-impl Clone for FAX_PORT_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_PRINT_INFOA {
     pub SizeOfStruct: u32,
     pub DocName: windows_sys::core::PCSTR,
@@ -980,13 +872,8 @@ pub struct FAX_PRINT_INFOA {
     pub DrEmailAddress: windows_sys::core::PCSTR,
     pub OutputFileName: windows_sys::core::PCSTR,
 }
-impl Copy for FAX_PRINT_INFOA {}
-impl Clone for FAX_PRINT_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_PRINT_INFOW {
     pub SizeOfStruct: u32,
     pub DocName: windows_sys::core::PCWSTR,
@@ -1000,13 +887,8 @@ pub struct FAX_PRINT_INFOW {
     pub DrEmailAddress: windows_sys::core::PCWSTR,
     pub OutputFileName: windows_sys::core::PCWSTR,
 }
-impl Copy for FAX_PRINT_INFOW {}
-impl Clone for FAX_PRINT_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_RECEIVE {
     pub SizeOfStruct: u32,
     pub FileName: windows_sys::core::PWSTR,
@@ -1014,13 +896,8 @@ pub struct FAX_RECEIVE {
     pub ReceiverNumber: windows_sys::core::PWSTR,
     pub Reserved: [u32; 4],
 }
-impl Copy for FAX_RECEIVE {}
-impl Clone for FAX_RECEIVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_ROUTE {
     pub SizeOfStruct: u32,
     pub JobId: u32,
@@ -1038,13 +915,8 @@ pub struct FAX_ROUTE {
     pub RoutingInfoData: *mut u8,
     pub RoutingInfoDataSize: u32,
 }
-impl Copy for FAX_ROUTE {}
-impl Clone for FAX_ROUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_ROUTE_CALLBACKROUTINES {
     pub SizeOfStruct: u32,
     pub FaxRouteAddFile: PFAXROUTEADDFILE,
@@ -1053,13 +925,8 @@ pub struct FAX_ROUTE_CALLBACKROUTINES {
     pub FaxRouteEnumFiles: PFAXROUTEENUMFILES,
     pub FaxRouteModifyRoutingData: PFAXROUTEMODIFYROUTINGDATA,
 }
-impl Copy for FAX_ROUTE_CALLBACKROUTINES {}
-impl Clone for FAX_ROUTE_CALLBACKROUTINES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_ROUTING_METHODA {
     pub SizeOfStruct: u32,
     pub DeviceId: u32,
@@ -1071,13 +938,8 @@ pub struct FAX_ROUTING_METHODA {
     pub ExtensionImageName: windows_sys::core::PCSTR,
     pub ExtensionFriendlyName: windows_sys::core::PCSTR,
 }
-impl Copy for FAX_ROUTING_METHODA {}
-impl Clone for FAX_ROUTING_METHODA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_ROUTING_METHODW {
     pub SizeOfStruct: u32,
     pub DeviceId: u32,
@@ -1089,13 +951,8 @@ pub struct FAX_ROUTING_METHODW {
     pub ExtensionImageName: windows_sys::core::PCWSTR,
     pub ExtensionFriendlyName: windows_sys::core::PCWSTR,
 }
-impl Copy for FAX_ROUTING_METHODW {}
-impl Clone for FAX_ROUTING_METHODW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_SEND {
     pub SizeOfStruct: u32,
     pub FileName: windows_sys::core::PWSTR,
@@ -1107,22 +964,11 @@ pub struct FAX_SEND {
     pub CallHandle: u32,
     pub Reserved: [u32; 3],
 }
-impl Copy for FAX_SEND {}
-impl Clone for FAX_SEND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAX_TIME {
     pub Hour: u16,
     pub Minute: u16,
-}
-impl Copy for FAX_TIME {}
-impl Clone for FAX_TIME {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const FaxAccount: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa7e0647f_4524_4464_a56d_b9fe666f715e);
 pub const FaxAccountFolders: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x85398f49_c034_4a3f_821c_db7d685e8129);
@@ -1175,18 +1021,14 @@ pub const FaxSecurity2: windows_sys::core::GUID = windows_sys::core::GUID::from_
 pub const FaxSender: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x265d84d0_1850_4360_b7c8_758bbb5f0b96);
 pub const FaxServer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcda8acb0_8cf5_4f6c_9ba2_5931d40c8cae);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STINOTIFY {
     pub dwSize: u32,
     pub guidNotificationCode: windows_sys::core::GUID,
     pub abNotificationData: [u8; 64],
 }
-impl Copy for STINOTIFY {}
-impl Clone for STINOTIFY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STISUBSCRIBE {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1195,13 +1037,8 @@ pub struct STISUBSCRIBE {
     pub hEvent: super::super::Foundation::HANDLE,
     pub uiNotificationMessage: u32,
 }
-impl Copy for STISUBSCRIBE {}
-impl Clone for STISUBSCRIBE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STI_DEVICE_INFORMATIONW {
     pub dwSize: u32,
     pub DeviceType: u32,
@@ -1214,13 +1051,8 @@ pub struct STI_DEVICE_INFORMATIONW {
     pub pszPropProvider: windows_sys::core::PWSTR,
     pub pszLocalName: windows_sys::core::PWSTR,
 }
-impl Copy for STI_DEVICE_INFORMATIONW {}
-impl Clone for STI_DEVICE_INFORMATIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STI_DEVICE_STATUS {
     pub dwSize: u32,
     pub StatusMask: u32,
@@ -1229,23 +1061,13 @@ pub struct STI_DEVICE_STATUS {
     pub dwEventHandlingState: u32,
     pub dwPollingInterval: u32,
 }
-impl Copy for STI_DEVICE_STATUS {}
-impl Clone for STI_DEVICE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STI_DEV_CAPS {
     pub dwGeneric: u32,
 }
-impl Copy for STI_DEV_CAPS {}
-impl Clone for STI_DEV_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STI_DIAG {
     pub dwSize: u32,
     pub dwBasicDiagCode: u32,
@@ -1253,24 +1075,14 @@ pub struct STI_DIAG {
     pub dwStatusMask: u32,
     pub sErrorInfo: _ERROR_INFOW,
 }
-impl Copy for STI_DIAG {}
-impl Clone for STI_DIAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STI_USD_CAPS {
     pub dwVersion: u32,
     pub dwGenericCaps: u32,
 }
-impl Copy for STI_USD_CAPS {}
-impl Clone for STI_USD_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STI_WIA_DEVICE_INFORMATIONW {
     pub dwSize: u32,
     pub DeviceType: u32,
@@ -1285,24 +1097,13 @@ pub struct STI_WIA_DEVICE_INFORMATIONW {
     pub pszUiDll: windows_sys::core::PWSTR,
     pub pszServer: windows_sys::core::PWSTR,
 }
-impl Copy for STI_WIA_DEVICE_INFORMATIONW {}
-impl Clone for STI_WIA_DEVICE_INFORMATIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _ERROR_INFOW {
     pub dwSize: u32,
     pub dwGenericError: u32,
     pub dwVendorError: u32,
     pub szExtendedErrorText: [u16; 255],
-}
-impl Copy for _ERROR_INFOW {}
-impl Clone for _ERROR_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type PFAXABORT = Option<unsafe extern "system" fn(faxhandle: super::super::Foundation::HANDLE, jobid: u32) -> super::super::Foundation::BOOL>;
 pub type PFAXACCESSCHECK = Option<unsafe extern "system" fn(faxhandle: super::super::Foundation::HANDLE, accessmask: u32) -> super::super::Foundation::BOOL>;

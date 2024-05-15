@@ -25,16 +25,11 @@ pub type COMPRESS_ALGORITHM = u32;
 pub type COMPRESS_INFORMATION_CLASS = i32;
 pub type COMPRESSOR_HANDLE = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COMPRESS_ALLOCATION_ROUTINES {
     pub Allocate: PFN_COMPRESS_ALLOCATE,
     pub Free: PFN_COMPRESS_FREE,
     pub UserContext: *mut core::ffi::c_void,
-}
-impl Copy for COMPRESS_ALLOCATION_ROUTINES {}
-impl Clone for COMPRESS_ALLOCATION_ROUTINES {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type PFN_COMPRESS_ALLOCATE = Option<unsafe extern "system" fn(usercontext: *const core::ffi::c_void, size: usize) -> *mut core::ffi::c_void>;
 pub type PFN_COMPRESS_FREE = Option<unsafe extern "system" fn(usercontext: *const core::ffi::c_void, memory: *const core::ffi::c_void)>;

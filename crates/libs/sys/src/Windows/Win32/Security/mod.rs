@@ -581,30 +581,21 @@ pub type TOKEN_PRIVILEGES_ATTRIBUTES = u32;
 pub type TOKEN_TYPE = i32;
 pub type WELL_KNOWN_SID_TYPE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACCESS_ALLOWED_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for ACCESS_ALLOWED_ACE {}
-impl Clone for ACCESS_ALLOWED_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACCESS_ALLOWED_CALLBACK_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for ACCESS_ALLOWED_CALLBACK_ACE {}
-impl Clone for ACCESS_ALLOWED_CALLBACK_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -613,13 +604,8 @@ pub struct ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
     pub InheritedObjectType: windows_sys::core::GUID,
     pub SidStart: u32,
 }
-impl Copy for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {}
-impl Clone for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACCESS_ALLOWED_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -628,37 +614,22 @@ pub struct ACCESS_ALLOWED_OBJECT_ACE {
     pub InheritedObjectType: windows_sys::core::GUID,
     pub SidStart: u32,
 }
-impl Copy for ACCESS_ALLOWED_OBJECT_ACE {}
-impl Clone for ACCESS_ALLOWED_OBJECT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACCESS_DENIED_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for ACCESS_DENIED_ACE {}
-impl Clone for ACCESS_DENIED_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACCESS_DENIED_CALLBACK_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for ACCESS_DENIED_CALLBACK_ACE {}
-impl Clone for ACCESS_DENIED_CALLBACK_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACCESS_DENIED_CALLBACK_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -667,13 +638,8 @@ pub struct ACCESS_DENIED_CALLBACK_OBJECT_ACE {
     pub InheritedObjectType: windows_sys::core::GUID,
     pub SidStart: u32,
 }
-impl Copy for ACCESS_DENIED_CALLBACK_OBJECT_ACE {}
-impl Clone for ACCESS_DENIED_CALLBACK_OBJECT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACCESS_DENIED_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -682,35 +648,20 @@ pub struct ACCESS_DENIED_OBJECT_ACE {
     pub InheritedObjectType: windows_sys::core::GUID,
     pub SidStart: u32,
 }
-impl Copy for ACCESS_DENIED_OBJECT_ACE {}
-impl Clone for ACCESS_DENIED_OBJECT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACCESS_REASONS {
     pub Data: [u32; 32],
 }
-impl Copy for ACCESS_REASONS {}
-impl Clone for ACCESS_REASONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACE_HEADER {
     pub AceType: u8,
     pub AceFlags: u8,
     pub AceSize: u16,
 }
-impl Copy for ACE_HEADER {}
-impl Clone for ACE_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACL {
     pub AclRevision: u8,
     pub Sbz1: u8,
@@ -718,80 +669,45 @@ pub struct ACL {
     pub AceCount: u16,
     pub Sbz2: u16,
 }
-impl Copy for ACL {}
-impl Clone for ACL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACL_REVISION_INFORMATION {
     pub AclRevision: u32,
 }
-impl Copy for ACL_REVISION_INFORMATION {}
-impl Clone for ACL_REVISION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACL_SIZE_INFORMATION {
     pub AceCount: u32,
     pub AclBytesInUse: u32,
     pub AclBytesFree: u32,
 }
-impl Copy for ACL_SIZE_INFORMATION {}
-impl Clone for ACL_SIZE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
     pub Version: u16,
     pub Reserved: u16,
     pub AttributeCount: u32,
     pub Attribute: CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0,
 }
-impl Copy for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {}
-impl Clone for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
     pub pAttributeV1: *mut CLAIM_SECURITY_ATTRIBUTE_V1,
 }
-impl Copy for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {}
-impl Clone for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
     pub Version: u64,
     pub Name: windows_sys::core::PWSTR,
 }
-impl Copy for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {}
-impl Clone for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     pub pValue: *mut core::ffi::c_void,
     pub ValueLength: u32,
 }
-impl Copy for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {}
-impl Clone for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
     pub Name: u32,
     pub ValueType: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE,
@@ -800,13 +716,8 @@ pub struct CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
     pub ValueCount: u32,
     pub Values: CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0,
 }
-impl Copy for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {}
-impl Clone for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
     pub pInt64: [u32; 1],
     pub pUint64: [u32; 1],
@@ -814,13 +725,8 @@ pub union CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
     pub pFqbn: [u32; 1],
     pub pOctetString: [u32; 1],
 }
-impl Copy for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {}
-impl Clone for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_V1 {
     pub Name: windows_sys::core::PWSTR,
     pub ValueType: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE,
@@ -829,13 +735,8 @@ pub struct CLAIM_SECURITY_ATTRIBUTE_V1 {
     pub ValueCount: u32,
     pub Values: CLAIM_SECURITY_ATTRIBUTE_V1_0,
 }
-impl Copy for CLAIM_SECURITY_ATTRIBUTE_V1 {}
-impl Clone for CLAIM_SECURITY_ATTRIBUTE_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CLAIM_SECURITY_ATTRIBUTE_V1_0 {
     pub pInt64: *mut i64,
     pub pUint64: *mut u64,
@@ -843,24 +744,13 @@ pub union CLAIM_SECURITY_ATTRIBUTE_V1_0 {
     pub pFqbn: *mut CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE,
     pub pOctetString: *mut CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE,
 }
-impl Copy for CLAIM_SECURITY_ATTRIBUTE_V1_0 {}
-impl Clone for CLAIM_SECURITY_ATTRIBUTE_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GENERIC_MAPPING {
     pub GenericRead: u32,
     pub GenericWrite: u32,
     pub GenericExecute: u32,
     pub GenericAll: u32,
-}
-impl Copy for GENERIC_MAPPING {}
-impl Clone for GENERIC_MAPPING {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type HDIAGNOSTIC_DATA_QUERY_SESSION = isize;
 pub type HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION = isize;
@@ -869,65 +759,41 @@ pub type HDIAGNOSTIC_EVENT_TAG_DESCRIPTION = isize;
 pub type HDIAGNOSTIC_RECORD = isize;
 pub type HDIAGNOSTIC_REPORT = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LLFILETIME {
     pub Anonymous: LLFILETIME_0,
 }
-impl Copy for LLFILETIME {}
-impl Clone for LLFILETIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union LLFILETIME_0 {
     pub ll: i64,
     pub ft: super::Foundation::FILETIME,
 }
-impl Copy for LLFILETIME_0 {}
-impl Clone for LLFILETIME_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LUID_AND_ATTRIBUTES {
     pub Luid: super::Foundation::LUID,
     pub Attributes: TOKEN_PRIVILEGES_ATTRIBUTES,
 }
-impl Copy for LUID_AND_ATTRIBUTES {}
-impl Clone for LUID_AND_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type NCRYPT_DESCRIPTOR_HANDLE = isize;
 pub type NCRYPT_STREAM_HANDLE = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OBJECT_TYPE_LIST {
     pub Level: u16,
     pub Sbz: u16,
     pub ObjectType: *mut windows_sys::core::GUID,
 }
-impl Copy for OBJECT_TYPE_LIST {}
-impl Clone for OBJECT_TYPE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRIVILEGE_SET {
     pub PrivilegeCount: u32,
     pub Control: u32,
     pub Privilege: [LUID_AND_ATTRIBUTES; 1],
 }
-impl Copy for PRIVILEGE_SET {}
-impl Clone for PRIVILEGE_SET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type PSECURITY_DESCRIPTOR = *mut core::ffi::c_void;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct QUOTA_LIMITS {
     pub PagedPoolLimit: usize,
     pub NonPagedPoolLimit: usize,
@@ -936,40 +802,25 @@ pub struct QUOTA_LIMITS {
     pub PagefileLimit: usize,
     pub TimeLimit: i64,
 }
-impl Copy for QUOTA_LIMITS {}
-impl Clone for QUOTA_LIMITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type SAFER_LEVEL_HANDLE = isize;
 pub type SC_HANDLE = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SECURITY_ATTRIBUTES {
     pub nLength: u32,
     pub lpSecurityDescriptor: *mut core::ffi::c_void,
     pub bInheritHandle: super::Foundation::BOOL,
 }
-impl Copy for SECURITY_ATTRIBUTES {}
-impl Clone for SECURITY_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SECURITY_CAPABILITIES {
     pub AppContainerSid: super::Foundation::PSID,
     pub Capabilities: *mut SID_AND_ATTRIBUTES,
     pub CapabilityCount: u32,
     pub Reserved: u32,
 }
-impl Copy for SECURITY_CAPABILITIES {}
-impl Clone for SECURITY_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SECURITY_DESCRIPTOR {
     pub Revision: u8,
     pub Sbz1: u8,
@@ -979,13 +830,8 @@ pub struct SECURITY_DESCRIPTOR {
     pub Sacl: *mut ACL,
     pub Dacl: *mut ACL,
 }
-impl Copy for SECURITY_DESCRIPTOR {}
-impl Clone for SECURITY_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SECURITY_DESCRIPTOR_RELATIVE {
     pub Revision: u8,
     pub Sbz1: u8,
@@ -995,26 +841,16 @@ pub struct SECURITY_DESCRIPTOR_RELATIVE {
     pub Sacl: u32,
     pub Dacl: u32,
 }
-impl Copy for SECURITY_DESCRIPTOR_RELATIVE {}
-impl Clone for SECURITY_DESCRIPTOR_RELATIVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SECURITY_QUALITY_OF_SERVICE {
     pub Length: u32,
     pub ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL,
     pub ContextTrackingMode: u8,
     pub EffectiveOnly: super::Foundation::BOOLEAN,
 }
-impl Copy for SECURITY_QUALITY_OF_SERVICE {}
-impl Clone for SECURITY_QUALITY_OF_SERVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SE_ACCESS_REPLY {
     pub Size: u32,
     pub ResultListCount: u32,
@@ -1023,13 +859,8 @@ pub struct SE_ACCESS_REPLY {
     pub AccessReason: *mut ACCESS_REASONS,
     pub Privileges: *mut *mut PRIVILEGE_SET,
 }
-impl Copy for SE_ACCESS_REPLY {}
-impl Clone for SE_ACCESS_REPLY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SE_ACCESS_REQUEST {
     pub Size: u32,
     pub SeSecurityDescriptor: *mut SE_SECURITY_DESCRIPTOR,
@@ -1040,131 +871,76 @@ pub struct SE_ACCESS_REQUEST {
     pub ObjectTypeListCount: u32,
     pub ObjectTypeList: *mut OBJECT_TYPE_LIST,
 }
-impl Copy for SE_ACCESS_REQUEST {}
-impl Clone for SE_ACCESS_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SE_IMPERSONATION_STATE {
     pub Token: *mut core::ffi::c_void,
     pub CopyOnOpen: super::Foundation::BOOLEAN,
     pub EffectiveOnly: super::Foundation::BOOLEAN,
     pub Level: SECURITY_IMPERSONATION_LEVEL,
 }
-impl Copy for SE_IMPERSONATION_STATE {}
-impl Clone for SE_IMPERSONATION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SE_SECURITY_DESCRIPTOR {
     pub Size: u32,
     pub Flags: u32,
     pub SecurityDescriptor: PSECURITY_DESCRIPTOR,
 }
-impl Copy for SE_SECURITY_DESCRIPTOR {}
-impl Clone for SE_SECURITY_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SE_SID {
     pub Sid: SID,
     pub Buffer: [u8; 68],
 }
-impl Copy for SE_SID {}
-impl Clone for SE_SID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SID {
     pub Revision: u8,
     pub SubAuthorityCount: u8,
     pub IdentifierAuthority: SID_IDENTIFIER_AUTHORITY,
     pub SubAuthority: [u32; 1],
 }
-impl Copy for SID {}
-impl Clone for SID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SID_AND_ATTRIBUTES {
     pub Sid: super::Foundation::PSID,
     pub Attributes: u32,
 }
-impl Copy for SID_AND_ATTRIBUTES {}
-impl Clone for SID_AND_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SID_AND_ATTRIBUTES_HASH {
     pub SidCount: u32,
     pub SidAttr: *mut SID_AND_ATTRIBUTES,
     pub Hash: [usize; 32],
 }
-impl Copy for SID_AND_ATTRIBUTES_HASH {}
-impl Clone for SID_AND_ATTRIBUTES_HASH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SID_IDENTIFIER_AUTHORITY {
     pub Value: [u8; 6],
 }
-impl Copy for SID_IDENTIFIER_AUTHORITY {}
-impl Clone for SID_IDENTIFIER_AUTHORITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_ACCESS_FILTER_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_ACCESS_FILTER_ACE {}
-impl Clone for SYSTEM_ACCESS_FILTER_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_ALARM_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_ALARM_ACE {}
-impl Clone for SYSTEM_ALARM_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_ALARM_CALLBACK_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_ALARM_CALLBACK_ACE {}
-impl Clone for SYSTEM_ALARM_CALLBACK_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -1173,13 +949,8 @@ pub struct SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
     pub InheritedObjectType: windows_sys::core::GUID,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {}
-impl Clone for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_ALARM_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -1188,37 +959,22 @@ pub struct SYSTEM_ALARM_OBJECT_ACE {
     pub InheritedObjectType: windows_sys::core::GUID,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_ALARM_OBJECT_ACE {}
-impl Clone for SYSTEM_ALARM_OBJECT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_AUDIT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_AUDIT_ACE {}
-impl Clone for SYSTEM_AUDIT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_AUDIT_CALLBACK_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_AUDIT_CALLBACK_ACE {}
-impl Clone for SYSTEM_AUDIT_CALLBACK_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -1227,13 +983,8 @@ pub struct SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
     pub InheritedObjectType: windows_sys::core::GUID,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {}
-impl Clone for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_AUDIT_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -1242,61 +993,36 @@ pub struct SYSTEM_AUDIT_OBJECT_ACE {
     pub InheritedObjectType: windows_sys::core::GUID,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_AUDIT_OBJECT_ACE {}
-impl Clone for SYSTEM_AUDIT_OBJECT_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_MANDATORY_LABEL_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_MANDATORY_LABEL_ACE {}
-impl Clone for SYSTEM_MANDATORY_LABEL_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_PROCESS_TRUST_LABEL_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_PROCESS_TRUST_LABEL_ACE {}
-impl Clone for SYSTEM_PROCESS_TRUST_LABEL_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_RESOURCE_ATTRIBUTE_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_RESOURCE_ATTRIBUTE_ACE {}
-impl Clone for SYSTEM_RESOURCE_ATTRIBUTE_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_SCOPED_POLICY_ID_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
 }
-impl Copy for SYSTEM_SCOPED_POLICY_ID_ACE {}
-impl Clone for SYSTEM_SCOPED_POLICY_ID_ACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TOKEN_ACCESS_INFORMATION {
     pub SidHash: *mut SID_AND_ATTRIBUTES_HASH,
     pub RestrictedSidHash: *mut SID_AND_ATTRIBUTES_HASH,
@@ -1312,87 +1038,47 @@ pub struct TOKEN_ACCESS_INFORMATION {
     pub TrustLevelSid: super::Foundation::PSID,
     pub SecurityAttributes: *mut core::ffi::c_void,
 }
-impl Copy for TOKEN_ACCESS_INFORMATION {}
-impl Clone for TOKEN_ACCESS_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TOKEN_APPCONTAINER_INFORMATION {
     pub TokenAppContainer: super::Foundation::PSID,
 }
-impl Copy for TOKEN_APPCONTAINER_INFORMATION {}
-impl Clone for TOKEN_APPCONTAINER_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TOKEN_AUDIT_POLICY {
     pub PerUserPolicy: [u8; 30],
 }
-impl Copy for TOKEN_AUDIT_POLICY {}
-impl Clone for TOKEN_AUDIT_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TOKEN_CONTROL {
     pub TokenId: super::Foundation::LUID,
     pub AuthenticationId: super::Foundation::LUID,
     pub ModifiedId: super::Foundation::LUID,
     pub TokenSource: TOKEN_SOURCE,
 }
-impl Copy for TOKEN_CONTROL {}
-impl Clone for TOKEN_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TOKEN_DEFAULT_DACL {
     pub DefaultDacl: *mut ACL,
 }
-impl Copy for TOKEN_DEFAULT_DACL {}
-impl Clone for TOKEN_DEFAULT_DACL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TOKEN_DEVICE_CLAIMS {
     pub DeviceClaims: *mut core::ffi::c_void,
 }
-impl Copy for TOKEN_DEVICE_CLAIMS {}
-impl Clone for TOKEN_DEVICE_CLAIMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TOKEN_ELEVATION {
     pub TokenIsElevated: u32,
 }
-impl Copy for TOKEN_ELEVATION {}
-impl Clone for TOKEN_ELEVATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TOKEN_GROUPS {
     pub GroupCount: u32,
     pub Groups: [SID_AND_ATTRIBUTES; 1],
 }
-impl Copy for TOKEN_GROUPS {}
-impl Clone for TOKEN_GROUPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TOKEN_GROUPS_AND_PRIVILEGES {
     pub SidCount: u32,
     pub SidLength: u32,
@@ -1405,95 +1091,50 @@ pub struct TOKEN_GROUPS_AND_PRIVILEGES {
     pub Privileges: *mut LUID_AND_ATTRIBUTES,
     pub AuthenticationId: super::Foundation::LUID,
 }
-impl Copy for TOKEN_GROUPS_AND_PRIVILEGES {}
-impl Clone for TOKEN_GROUPS_AND_PRIVILEGES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TOKEN_LINKED_TOKEN {
     pub LinkedToken: super::Foundation::HANDLE,
 }
-impl Copy for TOKEN_LINKED_TOKEN {}
-impl Clone for TOKEN_LINKED_TOKEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TOKEN_MANDATORY_LABEL {
     pub Label: SID_AND_ATTRIBUTES,
 }
-impl Copy for TOKEN_MANDATORY_LABEL {}
-impl Clone for TOKEN_MANDATORY_LABEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TOKEN_MANDATORY_POLICY {
     pub Policy: TOKEN_MANDATORY_POLICY_ID,
 }
-impl Copy for TOKEN_MANDATORY_POLICY {}
-impl Clone for TOKEN_MANDATORY_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TOKEN_ORIGIN {
     pub OriginatingLogonSession: super::Foundation::LUID,
 }
-impl Copy for TOKEN_ORIGIN {}
-impl Clone for TOKEN_ORIGIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TOKEN_OWNER {
     pub Owner: super::Foundation::PSID,
 }
-impl Copy for TOKEN_OWNER {}
-impl Clone for TOKEN_OWNER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TOKEN_PRIMARY_GROUP {
     pub PrimaryGroup: super::Foundation::PSID,
 }
-impl Copy for TOKEN_PRIMARY_GROUP {}
-impl Clone for TOKEN_PRIMARY_GROUP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TOKEN_PRIVILEGES {
     pub PrivilegeCount: u32,
     pub Privileges: [LUID_AND_ATTRIBUTES; 1],
 }
-impl Copy for TOKEN_PRIVILEGES {}
-impl Clone for TOKEN_PRIVILEGES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TOKEN_SOURCE {
     pub SourceName: [i8; 8],
     pub SourceIdentifier: super::Foundation::LUID,
 }
-impl Copy for TOKEN_SOURCE {}
-impl Clone for TOKEN_SOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TOKEN_STATISTICS {
     pub TokenId: super::Foundation::LUID,
     pub AuthenticationId: super::Foundation::LUID,
@@ -1506,31 +1147,15 @@ pub struct TOKEN_STATISTICS {
     pub PrivilegeCount: u32,
     pub ModifiedId: super::Foundation::LUID,
 }
-impl Copy for TOKEN_STATISTICS {}
-impl Clone for TOKEN_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TOKEN_USER {
     pub User: SID_AND_ATTRIBUTES,
 }
-impl Copy for TOKEN_USER {}
-impl Clone for TOKEN_USER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TOKEN_USER_CLAIMS {
     pub UserClaims: *mut core::ffi::c_void,
-}
-impl Copy for TOKEN_USER_CLAIMS {}
-impl Clone for TOKEN_USER_CLAIMS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type PLSA_AP_CALL_PACKAGE_UNTRUSTED = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::Foundation::NTSTATUS>;
 pub type SEC_THREAD_START = Option<unsafe extern "system" fn(lpthreadparameter: *mut core::ffi::c_void) -> u32>;

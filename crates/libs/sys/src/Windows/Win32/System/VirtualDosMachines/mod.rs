@@ -94,6 +94,7 @@ pub const VDM_KGDT_R3_CODE: u32 = 24u32;
 pub const VDM_MAXIMUM_SUPPORTED_EXTENSION: u32 = 512u32;
 pub const WOW_SYSTEM: u32 = 1u32;
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct GLOBALENTRY {
     pub dwSize: u32,
     pub dwAddress: u32,
@@ -109,26 +110,16 @@ pub struct GLOBALENTRY {
     pub dwNext: u32,
     pub dwNextAlt: u32,
 }
-impl Copy for GLOBALENTRY {}
-impl Clone for GLOBALENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_NOTE {
     pub Module: [i8; 10],
     pub FileName: [i8; 256],
     pub hModule: u16,
     pub hTask: u16,
 }
-impl Copy for IMAGE_NOTE {}
-impl Clone for IMAGE_NOTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct MODULEENTRY {
     pub dwSize: u32,
     pub szModule: [i8; 10],
@@ -137,13 +128,8 @@ pub struct MODULEENTRY {
     pub szExePath: [i8; 256],
     pub wNext: u16,
 }
-impl Copy for MODULEENTRY {}
-impl Clone for MODULEENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SEGMENT_NOTE {
     pub Selector1: u16,
     pub Selector2: u16,
@@ -153,27 +139,17 @@ pub struct SEGMENT_NOTE {
     pub Type: u16,
     pub Length: u32,
 }
-impl Copy for SEGMENT_NOTE {}
-impl Clone for SEGMENT_NOTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TEMP_BP_NOTE {
     pub Seg: u16,
     pub Offset: u32,
     pub bPM: super::super::Foundation::BOOL,
 }
-impl Copy for TEMP_BP_NOTE {}
-impl Clone for TEMP_BP_NOTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct VDMCONTEXT {
     pub ContextFlags: u32,
     pub Dr0: u32,
@@ -201,18 +177,9 @@ pub struct VDMCONTEXT {
     pub SegSs: u32,
     pub ExtendedRegisters: [u8; 512],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for VDMCONTEXT {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for VDMCONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct VDMCONTEXT_WITHOUT_XSAVE {
     pub ContextFlags: u32,
     pub Dr0: u32,
@@ -239,73 +206,38 @@ pub struct VDMCONTEXT_WITHOUT_XSAVE {
     pub Esp: u32,
     pub SegSs: u32,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for VDMCONTEXT_WITHOUT_XSAVE {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for VDMCONTEXT_WITHOUT_XSAVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct VDMLDT_ENTRY {
     pub LimitLow: u16,
     pub BaseLow: u16,
     pub HighWord: VDMLDT_ENTRY_0,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for VDMLDT_ENTRY {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for VDMLDT_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub union VDMLDT_ENTRY_0 {
     pub Bytes: VDMLDT_ENTRY_0_1,
     pub Bits: VDMLDT_ENTRY_0_0,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for VDMLDT_ENTRY_0 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for VDMLDT_ENTRY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct VDMLDT_ENTRY_0_0 {
     pub _bitfield: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for VDMLDT_ENTRY_0_0 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for VDMLDT_ENTRY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct VDMLDT_ENTRY_0_1 {
     pub BaseMid: u8,
     pub Flags1: u8,
     pub Flags2: u8,
     pub BaseHi: u8,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for VDMLDT_ENTRY_0_1 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for VDMLDT_ENTRY_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VDM_SEGINFO {
     pub Selector: u16,
     pub SegNumber: u16,
@@ -313,12 +245,6 @@ pub struct VDM_SEGINFO {
     pub Type: u16,
     pub ModuleName: [i8; 9],
     pub FileName: [i8; 255],
-}
-impl Copy for VDM_SEGINFO {}
-impl Clone for VDM_SEGINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub type DEBUGEVENTPROC = Option<unsafe extern "system" fn(param0: *mut super::Diagnostics::Debug::DEBUG_EVENT, param1: *mut core::ffi::c_void) -> u32>;

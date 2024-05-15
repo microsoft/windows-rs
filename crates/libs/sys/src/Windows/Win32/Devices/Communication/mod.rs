@@ -202,6 +202,7 @@ pub type MODEM_SPEAKER_VOLUME = u32;
 pub type MODEM_STATUS_FLAGS = u32;
 pub type PURGE_COMM_FLAGS = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COMMCONFIG {
     pub dwSize: u32,
     pub wVersion: u16,
@@ -212,13 +213,8 @@ pub struct COMMCONFIG {
     pub dwProviderSize: u32,
     pub wcProviderData: [u16; 1],
 }
-impl Copy for COMMCONFIG {}
-impl Clone for COMMCONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COMMPROP {
     pub wPacketLength: u16,
     pub wPacketVersion: u16,
@@ -239,13 +235,8 @@ pub struct COMMPROP {
     pub dwProvSpec2: u32,
     pub wcProvChar: [u16; 1],
 }
-impl Copy for COMMPROP {}
-impl Clone for COMMPROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COMMTIMEOUTS {
     pub ReadIntervalTimeout: u32,
     pub ReadTotalTimeoutMultiplier: u32,
@@ -253,25 +244,15 @@ pub struct COMMTIMEOUTS {
     pub WriteTotalTimeoutMultiplier: u32,
     pub WriteTotalTimeoutConstant: u32,
 }
-impl Copy for COMMTIMEOUTS {}
-impl Clone for COMMTIMEOUTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COMSTAT {
     pub _bitfield: u32,
     pub cbInQue: u32,
     pub cbOutQue: u32,
 }
-impl Copy for COMSTAT {}
-impl Clone for COMSTAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DCB {
     pub DCBlength: u32,
     pub BaudRate: u32,
@@ -289,13 +270,8 @@ pub struct DCB {
     pub EvtChar: i8,
     pub wReserved1: u16,
 }
-impl Copy for DCB {}
-impl Clone for DCB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MODEMDEVCAPS {
     pub dwActualSize: u32,
     pub dwRequiredSize: u32,
@@ -318,13 +294,8 @@ pub struct MODEMDEVCAPS {
     pub dwMaxDCERate: u32,
     pub abVariablePortion: [u8; 1],
 }
-impl Copy for MODEMDEVCAPS {}
-impl Clone for MODEMDEVCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MODEMSETTINGS {
     pub dwActualSize: u32,
     pub dwRequiredSize: u32,
@@ -338,10 +309,4 @@ pub struct MODEMSETTINGS {
     pub dwNegotiatedModemOptions: u32,
     pub dwNegotiatedDCERate: u32,
     pub abVariablePortion: [u8; 1],
-}
-impl Copy for MODEMSETTINGS {}
-impl Clone for MODEMSETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

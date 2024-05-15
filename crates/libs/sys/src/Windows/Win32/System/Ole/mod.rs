@@ -1732,105 +1732,62 @@ pub type WPCSETTING = i32;
 pub type XFORMCOORDS = i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
 pub struct ARRAYDESC {
     pub tdescElem: super::Com::TYPEDESC,
     pub cDims: u16,
     pub rgbounds: [super::Com::SAFEARRAYBOUND; 1],
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl Copy for ARRAYDESC {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl Clone for ARRAYDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CADWORD {
     pub cElems: u32,
     pub pElems: *mut u32,
 }
-impl Copy for CADWORD {}
-impl Clone for CADWORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CALPOLESTR {
     pub cElems: u32,
     pub pElems: *mut windows_sys::core::PWSTR,
 }
-impl Copy for CALPOLESTR {}
-impl Clone for CALPOLESTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CAUUID {
     pub cElems: u32,
     pub pElems: *mut windows_sys::core::GUID,
 }
-impl Copy for CAUUID {}
-impl Clone for CAUUID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLEANLOCALSTORAGE {
     pub pInterface: *mut core::ffi::c_void,
     pub pStorage: *mut core::ffi::c_void,
     pub flags: u32,
 }
-impl Copy for CLEANLOCALSTORAGE {}
-impl Clone for CLEANLOCALSTORAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct CONTROLINFO {
     pub cb: u32,
     pub hAccel: super::super::UI::WindowsAndMessaging::HACCEL,
     pub cAccel: u16,
     pub dwFlags: u32,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for CONTROLINFO {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for CONTROLINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DVASPECTINFO {
     pub cb: u32,
     pub dwFlags: u32,
 }
-impl Copy for DVASPECTINFO {}
-impl Clone for DVASPECTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DVEXTENTINFO {
     pub cb: u32,
     pub dwExtentMode: u32,
     pub sizelProposed: super::super::Foundation::SIZE,
 }
-impl Copy for DVEXTENTINFO {}
-impl Clone for DVEXTENTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct FONTDESC {
     pub cbSizeofstruct: u32,
     pub lpstrName: windows_sys::core::PWSTR,
@@ -1841,42 +1798,23 @@ pub struct FONTDESC {
     pub fUnderline: super::super::Foundation::BOOL,
     pub fStrikethrough: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for FONTDESC {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for FONTDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
 pub struct INTERFACEDATA {
     pub pmethdata: *mut METHODDATA,
     pub cMembers: u32,
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl Copy for INTERFACEDATA {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl Clone for INTERFACEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LICINFO {
     pub cbLicInfo: i32,
     pub fRuntimeKeyAvail: super::super::Foundation::BOOL,
     pub fLicVerified: super::super::Foundation::BOOL,
 }
-impl Copy for LICINFO {}
-impl Clone for LICINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
 pub struct METHODDATA {
     pub szName: windows_sys::core::PWSTR,
     pub ppdata: *mut PARAMDATA,
@@ -1887,15 +1825,8 @@ pub struct METHODDATA {
     pub wFlags: u16,
     pub vtReturn: super::Variant::VARENUM,
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl Copy for METHODDATA {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl Clone for METHODDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NUMPARSE {
     pub cDig: i32,
     pub dwInFlags: NUMPARSE_FLAGS,
@@ -1904,13 +1835,8 @@ pub struct NUMPARSE {
     pub nBaseShift: i32,
     pub nPwr10: i32,
 }
-impl Copy for NUMPARSE {}
-impl Clone for NUMPARSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OBJECTDESCRIPTOR {
     pub cbSize: u32,
     pub clsid: windows_sys::core::GUID,
@@ -1921,13 +1847,8 @@ pub struct OBJECTDESCRIPTOR {
     pub dwFullUserTypeName: u32,
     pub dwSrcOfCopy: u32,
 }
-impl Copy for OBJECTDESCRIPTOR {}
-impl Clone for OBJECTDESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OCPFIPARAMS {
     pub cbStructSize: u32,
     pub hWndOwner: super::super::Foundation::HWND,
@@ -1941,38 +1862,23 @@ pub struct OCPFIPARAMS {
     pub lcid: u32,
     pub dispidInitialProperty: i32,
 }
-impl Copy for OCPFIPARAMS {}
-impl Clone for OCPFIPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OLECMD {
     pub cmdID: u32,
     pub cmdf: u32,
 }
-impl Copy for OLECMD {}
-impl Clone for OLECMD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OLECMDTEXT {
     pub cmdtextf: u32,
     pub cwActual: u32,
     pub cwBuf: u32,
     pub rgwz: [u16; 1],
 }
-impl Copy for OLECMDTEXT {}
-impl Clone for OLECMDTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct OLEINPLACEFRAMEINFO {
     pub cb: u32,
     pub fMDIApp: super::super::Foundation::BOOL,
@@ -1980,26 +1886,14 @@ pub struct OLEINPLACEFRAMEINFO {
     pub haccel: super::super::UI::WindowsAndMessaging::HACCEL,
     pub cAccelEntries: u32,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for OLEINPLACEFRAMEINFO {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for OLEINPLACEFRAMEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OLEMENUGROUPWIDTHS {
     pub width: [i32; 6],
 }
-impl Copy for OLEMENUGROUPWIDTHS {}
-impl Clone for OLEMENUGROUPWIDTHS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Media")]
+#[derive(Clone, Copy)]
 pub struct OLEUIBUSYA {
     pub cbStruct: u32,
     pub dwFlags: BUSY_DIALOG_FLAGS,
@@ -2013,16 +1907,9 @@ pub struct OLEUIBUSYA {
     pub hTask: super::super::Media::HTASK,
     pub lphWndDialog: *mut super::super::Foundation::HWND,
 }
-#[cfg(feature = "Win32_Media")]
-impl Copy for OLEUIBUSYA {}
-#[cfg(feature = "Win32_Media")]
-impl Clone for OLEUIBUSYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Media")]
+#[derive(Clone, Copy)]
 pub struct OLEUIBUSYW {
     pub cbStruct: u32,
     pub dwFlags: BUSY_DIALOG_FLAGS,
@@ -2036,15 +1923,8 @@ pub struct OLEUIBUSYW {
     pub hTask: super::super::Media::HTASK,
     pub lphWndDialog: *mut super::super::Foundation::HWND,
 }
-#[cfg(feature = "Win32_Media")]
-impl Copy for OLEUIBUSYW {}
-#[cfg(feature = "Win32_Media")]
-impl Clone for OLEUIBUSYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OLEUICHANGEICONA {
     pub cbStruct: u32,
     pub dwFlags: CHANGE_ICON_FLAGS,
@@ -2060,13 +1940,8 @@ pub struct OLEUICHANGEICONA {
     pub szIconExe: [i8; 260],
     pub cchIconExe: i32,
 }
-impl Copy for OLEUICHANGEICONA {}
-impl Clone for OLEUICHANGEICONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OLEUICHANGEICONW {
     pub cbStruct: u32,
     pub dwFlags: CHANGE_ICON_FLAGS,
@@ -2082,14 +1957,9 @@ pub struct OLEUICHANGEICONW {
     pub szIconExe: [u16; 260],
     pub cchIconExe: i32,
 }
-impl Copy for OLEUICHANGEICONW {}
-impl Clone for OLEUICHANGEICONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
+#[derive(Clone, Copy)]
 pub struct OLEUICHANGESOURCEA {
     pub cbStruct: u32,
     pub dwFlags: CHANGE_SOURCE_FLAGS,
@@ -2109,16 +1979,9 @@ pub struct OLEUICHANGESOURCEA {
     pub lpszFrom: windows_sys::core::PSTR,
     pub lpszTo: windows_sys::core::PSTR,
 }
-#[cfg(feature = "Win32_UI_Controls_Dialogs")]
-impl Copy for OLEUICHANGESOURCEA {}
-#[cfg(feature = "Win32_UI_Controls_Dialogs")]
-impl Clone for OLEUICHANGESOURCEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
+#[derive(Clone, Copy)]
 pub struct OLEUICHANGESOURCEW {
     pub cbStruct: u32,
     pub dwFlags: CHANGE_SOURCE_FLAGS,
@@ -2138,15 +2001,8 @@ pub struct OLEUICHANGESOURCEW {
     pub lpszFrom: windows_sys::core::PWSTR,
     pub lpszTo: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_UI_Controls_Dialogs")]
-impl Copy for OLEUICHANGESOURCEW {}
-#[cfg(feature = "Win32_UI_Controls_Dialogs")]
-impl Clone for OLEUICHANGESOURCEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OLEUICONVERTA {
     pub cbStruct: u32,
     pub dwFlags: UI_CONVERT_FLAGS,
@@ -2171,13 +2027,8 @@ pub struct OLEUICONVERTA {
     pub cClsidExclude: u32,
     pub lpClsidExclude: *mut windows_sys::core::GUID,
 }
-impl Copy for OLEUICONVERTA {}
-impl Clone for OLEUICONVERTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OLEUICONVERTW {
     pub cbStruct: u32,
     pub dwFlags: UI_CONVERT_FLAGS,
@@ -2202,13 +2053,8 @@ pub struct OLEUICONVERTW {
     pub cClsidExclude: u32,
     pub lpClsidExclude: *mut windows_sys::core::GUID,
 }
-impl Copy for OLEUICONVERTW {}
-impl Clone for OLEUICONVERTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OLEUIEDITLINKSA {
     pub cbStruct: u32,
     pub dwFlags: EDIT_LINKS_FLAGS,
@@ -2221,13 +2067,8 @@ pub struct OLEUIEDITLINKSA {
     pub hResource: super::super::Foundation::HRSRC,
     pub lpOleUILinkContainer: *mut core::ffi::c_void,
 }
-impl Copy for OLEUIEDITLINKSA {}
-impl Clone for OLEUIEDITLINKSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OLEUIEDITLINKSW {
     pub cbStruct: u32,
     pub dwFlags: EDIT_LINKS_FLAGS,
@@ -2240,14 +2081,9 @@ pub struct OLEUIEDITLINKSW {
     pub hResource: super::super::Foundation::HRSRC,
     pub lpOleUILinkContainer: *mut core::ffi::c_void,
 }
-impl Copy for OLEUIEDITLINKSW {}
-impl Clone for OLEUIEDITLINKSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct OLEUIGNRLPROPSA {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -2257,16 +2093,9 @@ pub struct OLEUIGNRLPROPSA {
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSA,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for OLEUIGNRLPROPSA {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for OLEUIGNRLPROPSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct OLEUIGNRLPROPSW {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -2276,16 +2105,9 @@ pub struct OLEUIGNRLPROPSW {
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSW,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for OLEUIGNRLPROPSW {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for OLEUIGNRLPROPSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct OLEUIINSERTOBJECTA {
     pub cbStruct: u32,
     pub dwFlags: INSERT_OBJECT_FLAGS,
@@ -2310,16 +2132,9 @@ pub struct OLEUIINSERTOBJECTA {
     pub sc: i32,
     pub hMetaPict: super::super::Foundation::HGLOBAL,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for OLEUIINSERTOBJECTA {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for OLEUIINSERTOBJECTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct OLEUIINSERTOBJECTW {
     pub cbStruct: u32,
     pub dwFlags: INSERT_OBJECT_FLAGS,
@@ -2344,16 +2159,9 @@ pub struct OLEUIINSERTOBJECTW {
     pub sc: i32,
     pub hMetaPict: super::super::Foundation::HGLOBAL,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for OLEUIINSERTOBJECTW {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for OLEUIINSERTOBJECTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct OLEUILINKPROPSA {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -2363,16 +2171,9 @@ pub struct OLEUILINKPROPSA {
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSA,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for OLEUILINKPROPSA {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for OLEUILINKPROPSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct OLEUILINKPROPSW {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -2382,16 +2183,9 @@ pub struct OLEUILINKPROPSW {
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSW,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for OLEUILINKPROPSW {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for OLEUILINKPROPSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct OLEUIOBJECTPROPSA {
     pub cbStruct: u32,
     pub dwFlags: OBJECT_PROPERTIES_FLAGS,
@@ -2404,16 +2198,9 @@ pub struct OLEUIOBJECTPROPSA {
     pub lpVP: *mut OLEUIVIEWPROPSA,
     pub lpLP: *mut OLEUILINKPROPSA,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for OLEUIOBJECTPROPSA {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for OLEUIOBJECTPROPSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct OLEUIOBJECTPROPSW {
     pub cbStruct: u32,
     pub dwFlags: OBJECT_PROPERTIES_FLAGS,
@@ -2426,16 +2213,9 @@ pub struct OLEUIOBJECTPROPSW {
     pub lpVP: *mut OLEUIVIEWPROPSW,
     pub lpLP: *mut OLEUILINKPROPSW,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for OLEUIOBJECTPROPSW {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for OLEUIOBJECTPROPSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct OLEUIPASTEENTRYA {
     pub fmtetc: super::Com::FORMATETC,
     pub lpstrFormatName: windows_sys::core::PCSTR,
@@ -2443,16 +2223,9 @@ pub struct OLEUIPASTEENTRYA {
     pub dwFlags: u32,
     pub dwScratchSpace: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for OLEUIPASTEENTRYA {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for OLEUIPASTEENTRYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct OLEUIPASTEENTRYW {
     pub fmtetc: super::Com::FORMATETC,
     pub lpstrFormatName: windows_sys::core::PCWSTR,
@@ -2460,16 +2233,9 @@ pub struct OLEUIPASTEENTRYW {
     pub dwFlags: u32,
     pub dwScratchSpace: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for OLEUIPASTEENTRYW {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for OLEUIPASTEENTRYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct OLEUIPASTESPECIALA {
     pub cbStruct: u32,
     pub dwFlags: PASTE_SPECIAL_FLAGS,
@@ -2492,16 +2258,9 @@ pub struct OLEUIPASTESPECIALA {
     pub hMetaPict: super::super::Foundation::HGLOBAL,
     pub sizel: super::super::Foundation::SIZE,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for OLEUIPASTESPECIALA {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for OLEUIPASTESPECIALA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct OLEUIPASTESPECIALW {
     pub cbStruct: u32,
     pub dwFlags: PASTE_SPECIAL_FLAGS,
@@ -2524,16 +2283,9 @@ pub struct OLEUIPASTESPECIALW {
     pub hMetaPict: super::super::Foundation::HGLOBAL,
     pub sizel: super::super::Foundation::SIZE,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for OLEUIPASTESPECIALW {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for OLEUIPASTESPECIALW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct OLEUIVIEWPROPSA {
     pub cbStruct: u32,
     pub dwFlags: VIEW_OBJECT_PROPERTIES_FLAGS,
@@ -2545,16 +2297,9 @@ pub struct OLEUIVIEWPROPSA {
     pub nScaleMin: i32,
     pub nScaleMax: i32,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for OLEUIVIEWPROPSA {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for OLEUIVIEWPROPSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct OLEUIVIEWPROPSW {
     pub cbStruct: u32,
     pub dwFlags: VIEW_OBJECT_PROPERTIES_FLAGS,
@@ -2566,43 +2311,24 @@ pub struct OLEUIVIEWPROPSW {
     pub nScaleMin: i32,
     pub nScaleMax: i32,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for OLEUIVIEWPROPSW {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for OLEUIVIEWPROPSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct OLEVERB {
     pub lVerb: OLEIVERB,
     pub lpszVerbName: windows_sys::core::PWSTR,
     pub fuFlags: super::super::UI::WindowsAndMessaging::MENU_ITEM_FLAGS,
     pub grfAttribs: u32,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for OLEVERB {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for OLEVERB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type OLE_HANDLE = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PAGERANGE {
     pub nFromPage: i32,
     pub nToPage: i32,
 }
-impl Copy for PAGERANGE {}
-impl Clone for PAGERANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PAGESET {
     pub cbStruct: u32,
     pub fOddPages: super::super::Foundation::BOOL,
@@ -2610,152 +2336,79 @@ pub struct PAGESET {
     pub cPageRange: u32,
     pub rgPages: [PAGERANGE; 1],
 }
-impl Copy for PAGESET {}
-impl Clone for PAGESET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy)]
 pub struct PARAMDATA {
     pub szName: windows_sys::core::PWSTR,
     pub vt: super::Variant::VARENUM,
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl Copy for PARAMDATA {}
-#[cfg(feature = "Win32_System_Variant")]
-impl Clone for PARAMDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
 pub struct PARAMDESC {
     pub pparamdescex: *mut PARAMDESCEX,
     pub wParamFlags: PARAMFLAGS,
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl Copy for PARAMDESC {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl Clone for PARAMDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
 pub struct PARAMDESCEX {
     pub cBytes: u32,
     pub varDefaultValue: super::Variant::VARIANT,
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl Copy for PARAMDESCEX {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl Clone for PARAMDESCEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct PICTDESC {
     pub cbSizeofstruct: u32,
     pub picType: u32,
     pub Anonymous: PICTDESC_0,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PICTDESC {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PICTDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PICTDESC_0 {
     pub bmp: PICTDESC_0_0,
     pub wmf: PICTDESC_0_3,
     pub icon: PICTDESC_0_2,
     pub emf: PICTDESC_0_1,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PICTDESC_0 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PICTDESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct PICTDESC_0_0 {
     pub hbitmap: super::super::Graphics::Gdi::HBITMAP,
     pub hpal: super::super::Graphics::Gdi::HPALETTE,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PICTDESC_0_0 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PICTDESC_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct PICTDESC_0_1 {
     pub hemf: super::super::Graphics::Gdi::HENHMETAFILE,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PICTDESC_0_1 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PICTDESC_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct PICTDESC_0_2 {
     pub hicon: super::super::UI::WindowsAndMessaging::HICON,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PICTDESC_0_2 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PICTDESC_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct PICTDESC_0_3 {
     pub hmeta: super::super::Graphics::Gdi::HMETAFILE,
     pub xExt: i32,
     pub yExt: i32,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PICTDESC_0_3 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PICTDESC_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POINTF {
     pub x: f32,
     pub y: f32,
 }
-impl Copy for POINTF {}
-impl Clone for POINTF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROPPAGEINFO {
     pub cb: u32,
     pub pszTitle: windows_sys::core::PWSTR,
@@ -2764,14 +2417,9 @@ pub struct PROPPAGEINFO {
     pub pszHelpFile: windows_sys::core::PWSTR,
     pub dwHelpContext: u32,
 }
-impl Copy for PROPPAGEINFO {}
-impl Clone for PROPPAGEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct QACONTAINER {
     pub cbSize: u32,
     pub pClientSite: *mut core::ffi::c_void,
@@ -2790,15 +2438,8 @@ pub struct QACONTAINER {
     pub pOleControlSite: *mut core::ffi::c_void,
     pub pServiceProvider: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for QACONTAINER {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for QACONTAINER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct QACONTROL {
     pub cbSize: u32,
     pub dwMiscStatus: u32,
@@ -2807,28 +2448,16 @@ pub struct QACONTROL {
     pub dwPropNotifyCookie: u32,
     pub dwPointerActivationPolicy: u32,
 }
-impl Copy for QACONTROL {}
-impl Clone for QACONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct SAFEARRAYUNION {
     pub sfType: u32,
     pub u: SAFEARRAYUNION_0,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for SAFEARRAYUNION {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for SAFEARRAYUNION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub union SAFEARRAYUNION_0 {
     pub BstrStr: SAFEARR_BSTR,
     pub UnknownStr: SAFEARR_UNKNOWN,
@@ -2841,113 +2470,62 @@ pub union SAFEARRAYUNION_0 {
     pub LongStr: super::Com::DWORD_SIZEDARR,
     pub HyperStr: super::Com::HYPER_SIZEDARR,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for SAFEARRAYUNION_0 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for SAFEARRAYUNION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SAFEARR_BRECORD {
     pub Size: u32,
     pub aRecord: *mut *mut _wireBRECORD,
 }
-impl Copy for SAFEARR_BRECORD {}
-impl Clone for SAFEARR_BRECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct SAFEARR_BSTR {
     pub Size: u32,
     pub aBstr: *mut *mut super::Com::FLAGGED_WORD_BLOB,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for SAFEARR_BSTR {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for SAFEARR_BSTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SAFEARR_DISPATCH {
     pub Size: u32,
     pub apDispatch: *mut *mut core::ffi::c_void,
 }
-impl Copy for SAFEARR_DISPATCH {}
-impl Clone for SAFEARR_DISPATCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SAFEARR_HAVEIID {
     pub Size: u32,
     pub apUnknown: *mut *mut core::ffi::c_void,
     pub iid: windows_sys::core::GUID,
 }
-impl Copy for SAFEARR_HAVEIID {}
-impl Clone for SAFEARR_HAVEIID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SAFEARR_UNKNOWN {
     pub Size: u32,
     pub apUnknown: *mut *mut core::ffi::c_void,
 }
-impl Copy for SAFEARR_UNKNOWN {}
-impl Clone for SAFEARR_UNKNOWN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct SAFEARR_VARIANT {
     pub Size: u32,
     pub aVariant: *mut *mut _wireVARIANT,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for SAFEARR_VARIANT {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for SAFEARR_VARIANT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UDATE {
     pub st: super::super::Foundation::SYSTEMTIME,
     pub wDayOfYear: u16,
 }
-impl Copy for UDATE {}
-impl Clone for UDATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _wireBRECORD {
     pub fFlags: u32,
     pub clSize: u32,
     pub pRecInfo: *mut core::ffi::c_void,
     pub pRecord: *mut u8,
 }
-impl Copy for _wireBRECORD {}
-impl Clone for _wireBRECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct _wireSAFEARRAY {
     pub cDims: u16,
     pub fFeatures: u16,
@@ -2956,16 +2534,9 @@ pub struct _wireSAFEARRAY {
     pub uArrayStructs: SAFEARRAYUNION,
     pub rgsabound: [super::Com::SAFEARRAYBOUND; 1],
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for _wireSAFEARRAY {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for _wireSAFEARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct _wireVARIANT {
     pub clSize: u32,
     pub rpcReserved: u32,
@@ -2975,16 +2546,9 @@ pub struct _wireVARIANT {
     pub wReserved3: u16,
     pub Anonymous: _wireVARIANT_0,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for _wireVARIANT {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for _wireVARIANT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub union _wireVARIANT_0 {
     pub llVal: i64,
     pub lVal: i32,
@@ -3030,14 +2594,6 @@ pub union _wireVARIANT_0 {
     pub pullVal: *mut u64,
     pub pintVal: *mut i32,
     pub puintVal: *mut u32,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for _wireVARIANT_0 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for _wireVARIANT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type LPFNOLEUIHOOK = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> u32>;
 pub type OLESTREAMQUERYCONVERTOLELINKCALLBACK = Option<unsafe extern "system" fn(pclsid: *const windows_sys::core::GUID, szclass: windows_sys::core::PCWSTR, sztopicname: windows_sys::core::PCWSTR, szitemname: windows_sys::core::PCWSTR, szuncname: windows_sys::core::PCWSTR, linkupdatingoption: u32, pvcontext: *const core::ffi::c_void) -> windows_sys::core::HRESULT>;

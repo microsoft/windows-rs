@@ -334,55 +334,36 @@ pub type SERVICE_TRIGGER_ACTION = u32;
 pub type SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = u32;
 pub type SERVICE_TRIGGER_TYPE = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ENUM_SERVICE_STATUSA {
     pub lpServiceName: windows_sys::core::PSTR,
     pub lpDisplayName: windows_sys::core::PSTR,
     pub ServiceStatus: SERVICE_STATUS,
 }
-impl Copy for ENUM_SERVICE_STATUSA {}
-impl Clone for ENUM_SERVICE_STATUSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ENUM_SERVICE_STATUSW {
     pub lpServiceName: windows_sys::core::PWSTR,
     pub lpDisplayName: windows_sys::core::PWSTR,
     pub ServiceStatus: SERVICE_STATUS,
 }
-impl Copy for ENUM_SERVICE_STATUSW {}
-impl Clone for ENUM_SERVICE_STATUSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ENUM_SERVICE_STATUS_PROCESSA {
     pub lpServiceName: windows_sys::core::PSTR,
     pub lpDisplayName: windows_sys::core::PSTR,
     pub ServiceStatusProcess: SERVICE_STATUS_PROCESS,
 }
-impl Copy for ENUM_SERVICE_STATUS_PROCESSA {}
-impl Clone for ENUM_SERVICE_STATUS_PROCESSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ENUM_SERVICE_STATUS_PROCESSW {
     pub lpServiceName: windows_sys::core::PWSTR,
     pub lpDisplayName: windows_sys::core::PWSTR,
     pub ServiceStatusProcess: SERVICE_STATUS_PROCESS,
 }
-impl Copy for ENUM_SERVICE_STATUS_PROCESSW {}
-impl Clone for ENUM_SERVICE_STATUS_PROCESSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type PSC_NOTIFICATION_REGISTRATION = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct QUERY_SERVICE_CONFIGA {
     pub dwServiceType: ENUM_SERVICE_TYPE,
     pub dwStartType: SERVICE_START_TYPE,
@@ -394,13 +375,8 @@ pub struct QUERY_SERVICE_CONFIGA {
     pub lpServiceStartName: windows_sys::core::PSTR,
     pub lpDisplayName: windows_sys::core::PSTR,
 }
-impl Copy for QUERY_SERVICE_CONFIGA {}
-impl Clone for QUERY_SERVICE_CONFIGA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct QUERY_SERVICE_CONFIGW {
     pub dwServiceType: ENUM_SERVICE_TYPE,
     pub dwStartType: SERVICE_START_TYPE,
@@ -412,134 +388,74 @@ pub struct QUERY_SERVICE_CONFIGW {
     pub lpServiceStartName: windows_sys::core::PWSTR,
     pub lpDisplayName: windows_sys::core::PWSTR,
 }
-impl Copy for QUERY_SERVICE_CONFIGW {}
-impl Clone for QUERY_SERVICE_CONFIGW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct QUERY_SERVICE_LOCK_STATUSA {
     pub fIsLocked: u32,
     pub lpLockOwner: windows_sys::core::PSTR,
     pub dwLockDuration: u32,
 }
-impl Copy for QUERY_SERVICE_LOCK_STATUSA {}
-impl Clone for QUERY_SERVICE_LOCK_STATUSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct QUERY_SERVICE_LOCK_STATUSW {
     pub fIsLocked: u32,
     pub lpLockOwner: windows_sys::core::PWSTR,
     pub dwLockDuration: u32,
 }
-impl Copy for QUERY_SERVICE_LOCK_STATUSW {}
-impl Clone for QUERY_SERVICE_LOCK_STATUSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SC_ACTION {
     pub Type: SC_ACTION_TYPE,
     pub Delay: u32,
 }
-impl Copy for SC_ACTION {}
-impl Clone for SC_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_CONTROL_STATUS_REASON_PARAMSA {
     pub dwReason: u32,
     pub pszComment: windows_sys::core::PSTR,
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
 }
-impl Copy for SERVICE_CONTROL_STATUS_REASON_PARAMSA {}
-impl Clone for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_CONTROL_STATUS_REASON_PARAMSW {
     pub dwReason: u32,
     pub pszComment: windows_sys::core::PWSTR,
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
 }
-impl Copy for SERVICE_CONTROL_STATUS_REASON_PARAMSW {}
-impl Clone for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
     pub u: SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0,
 }
-impl Copy for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {}
-impl Clone for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
     pub CustomStateId: SERVICE_TRIGGER_CUSTOM_STATE_ID,
     pub s: SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0,
 }
-impl Copy for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {}
-impl Clone for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
     pub DataOffset: u32,
     pub Data: [u8; 1],
 }
-impl Copy for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {}
-impl Clone for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_DELAYED_AUTO_START_INFO {
     pub fDelayedAutostart: super::super::Foundation::BOOL,
 }
-impl Copy for SERVICE_DELAYED_AUTO_START_INFO {}
-impl Clone for SERVICE_DELAYED_AUTO_START_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_DESCRIPTIONA {
     pub lpDescription: windows_sys::core::PSTR,
 }
-impl Copy for SERVICE_DESCRIPTIONA {}
-impl Clone for SERVICE_DESCRIPTIONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_DESCRIPTIONW {
     pub lpDescription: windows_sys::core::PWSTR,
 }
-impl Copy for SERVICE_DESCRIPTIONW {}
-impl Clone for SERVICE_DESCRIPTIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_FAILURE_ACTIONSA {
     pub dwResetPeriod: u32,
     pub lpRebootMsg: windows_sys::core::PSTR,
@@ -547,13 +463,8 @@ pub struct SERVICE_FAILURE_ACTIONSA {
     pub cActions: u32,
     pub lpsaActions: *mut SC_ACTION,
 }
-impl Copy for SERVICE_FAILURE_ACTIONSA {}
-impl Clone for SERVICE_FAILURE_ACTIONSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_FAILURE_ACTIONSW {
     pub dwResetPeriod: u32,
     pub lpRebootMsg: windows_sys::core::PWSTR,
@@ -561,33 +472,18 @@ pub struct SERVICE_FAILURE_ACTIONSW {
     pub cActions: u32,
     pub lpsaActions: *mut SC_ACTION,
 }
-impl Copy for SERVICE_FAILURE_ACTIONSW {}
-impl Clone for SERVICE_FAILURE_ACTIONSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_FAILURE_ACTIONS_FLAG {
     pub fFailureActionsOnNonCrashFailures: super::super::Foundation::BOOL,
 }
-impl Copy for SERVICE_FAILURE_ACTIONS_FLAG {}
-impl Clone for SERVICE_FAILURE_ACTIONS_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_LAUNCH_PROTECTED_INFO {
     pub dwLaunchProtected: u32,
 }
-impl Copy for SERVICE_LAUNCH_PROTECTED_INFO {}
-impl Clone for SERVICE_LAUNCH_PROTECTED_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_NOTIFY_1 {
     pub dwVersion: u32,
     pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
@@ -595,13 +491,8 @@ pub struct SERVICE_NOTIFY_1 {
     pub dwNotificationStatus: u32,
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
 }
-impl Copy for SERVICE_NOTIFY_1 {}
-impl Clone for SERVICE_NOTIFY_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_NOTIFY_2A {
     pub dwVersion: u32,
     pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
@@ -611,13 +502,8 @@ pub struct SERVICE_NOTIFY_2A {
     pub dwNotificationTriggered: u32,
     pub pszServiceNames: windows_sys::core::PSTR,
 }
-impl Copy for SERVICE_NOTIFY_2A {}
-impl Clone for SERVICE_NOTIFY_2A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_NOTIFY_2W {
     pub dwVersion: u32,
     pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
@@ -627,74 +513,39 @@ pub struct SERVICE_NOTIFY_2W {
     pub dwNotificationTriggered: u32,
     pub pszServiceNames: windows_sys::core::PWSTR,
 }
-impl Copy for SERVICE_NOTIFY_2W {}
-impl Clone for SERVICE_NOTIFY_2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_PREFERRED_NODE_INFO {
     pub usPreferredNode: u16,
     pub fDelete: super::super::Foundation::BOOLEAN,
 }
-impl Copy for SERVICE_PREFERRED_NODE_INFO {}
-impl Clone for SERVICE_PREFERRED_NODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_PRESHUTDOWN_INFO {
     pub dwPreshutdownTimeout: u32,
 }
-impl Copy for SERVICE_PRESHUTDOWN_INFO {}
-impl Clone for SERVICE_PRESHUTDOWN_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_REQUIRED_PRIVILEGES_INFOA {
     pub pmszRequiredPrivileges: windows_sys::core::PSTR,
 }
-impl Copy for SERVICE_REQUIRED_PRIVILEGES_INFOA {}
-impl Clone for SERVICE_REQUIRED_PRIVILEGES_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_REQUIRED_PRIVILEGES_INFOW {
     pub pmszRequiredPrivileges: windows_sys::core::PWSTR,
 }
-impl Copy for SERVICE_REQUIRED_PRIVILEGES_INFOW {}
-impl Clone for SERVICE_REQUIRED_PRIVILEGES_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_SID_INFO {
     pub dwServiceSidType: u32,
 }
-impl Copy for SERVICE_SID_INFO {}
-impl Clone for SERVICE_SID_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_START_REASON {
     pub dwReason: u32,
 }
-impl Copy for SERVICE_START_REASON {}
-impl Clone for SERVICE_START_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_STATUS {
     pub dwServiceType: ENUM_SERVICE_TYPE,
     pub dwCurrentState: SERVICE_STATUS_CURRENT_STATE,
@@ -704,14 +555,9 @@ pub struct SERVICE_STATUS {
     pub dwCheckPoint: u32,
     pub dwWaitHint: u32,
 }
-impl Copy for SERVICE_STATUS {}
-impl Clone for SERVICE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type SERVICE_STATUS_HANDLE = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_STATUS_PROCESS {
     pub dwServiceType: ENUM_SERVICE_TYPE,
     pub dwCurrentState: SERVICE_STATUS_CURRENT_STATE,
@@ -723,46 +569,26 @@ pub struct SERVICE_STATUS_PROCESS {
     pub dwProcessId: u32,
     pub dwServiceFlags: SERVICE_RUNS_IN_PROCESS,
 }
-impl Copy for SERVICE_STATUS_PROCESS {}
-impl Clone for SERVICE_STATUS_PROCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_TABLE_ENTRYA {
     pub lpServiceName: windows_sys::core::PSTR,
     pub lpServiceProc: LPSERVICE_MAIN_FUNCTIONA,
 }
-impl Copy for SERVICE_TABLE_ENTRYA {}
-impl Clone for SERVICE_TABLE_ENTRYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_TABLE_ENTRYW {
     pub lpServiceName: windows_sys::core::PWSTR,
     pub lpServiceProc: LPSERVICE_MAIN_FUNCTIONW,
 }
-impl Copy for SERVICE_TABLE_ENTRYW {}
-impl Clone for SERVICE_TABLE_ENTRYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_TIMECHANGE_INFO {
     pub liNewTime: i64,
     pub liOldTime: i64,
 }
-impl Copy for SERVICE_TIMECHANGE_INFO {}
-impl Clone for SERVICE_TIMECHANGE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_TRIGGER {
     pub dwTriggerType: SERVICE_TRIGGER_TYPE,
     pub dwAction: SERVICE_TRIGGER_ACTION,
@@ -770,45 +596,24 @@ pub struct SERVICE_TRIGGER {
     pub cDataItems: u32,
     pub pDataItems: *mut SERVICE_TRIGGER_SPECIFIC_DATA_ITEM,
 }
-impl Copy for SERVICE_TRIGGER {}
-impl Clone for SERVICE_TRIGGER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_TRIGGER_CUSTOM_STATE_ID {
     pub Data: [u32; 2],
 }
-impl Copy for SERVICE_TRIGGER_CUSTOM_STATE_ID {}
-impl Clone for SERVICE_TRIGGER_CUSTOM_STATE_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_TRIGGER_INFO {
     pub cTriggers: u32,
     pub pTriggers: *mut SERVICE_TRIGGER,
     pub pReserved: *mut u8,
 }
-impl Copy for SERVICE_TRIGGER_INFO {}
-impl Clone for SERVICE_TRIGGER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
     pub dwDataType: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE,
     pub cbData: u32,
     pub pData: *mut u8,
-}
-impl Copy for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {}
-impl Clone for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type HANDLER_FUNCTION = Option<unsafe extern "system" fn(dwcontrol: u32)>;
 pub type HANDLER_FUNCTION_EX = Option<unsafe extern "system" fn(dwcontrol: u32, dweventtype: u32, lpeventdata: *mut core::ffi::c_void, lpcontext: *mut core::ffi::c_void) -> u32>;

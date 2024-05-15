@@ -24,95 +24,50 @@ pub const PWM_IOCTL_ID_PIN_START: i32 = 104i32;
 pub const PWM_IOCTL_ID_PIN_STOP: i32 = 105i32;
 pub type PWM_POLARITY = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
     pub ActualPeriod: u64,
 }
-impl Copy for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {}
-impl Clone for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PWM_CONTROLLER_INFO {
     pub Size: usize,
     pub PinCount: u32,
     pub MinimumPeriod: u64,
     pub MaximumPeriod: u64,
 }
-impl Copy for PWM_CONTROLLER_INFO {}
-impl Clone for PWM_CONTROLLER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
     pub DesiredPeriod: u64,
 }
-impl Copy for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {}
-impl Clone for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {
     pub ActualPeriod: u64,
 }
-impl Copy for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {}
-impl Clone for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {
     pub Percentage: u64,
 }
-impl Copy for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {}
-impl Clone for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PWM_PIN_GET_POLARITY_OUTPUT {
     pub Polarity: PWM_POLARITY,
 }
-impl Copy for PWM_PIN_GET_POLARITY_OUTPUT {}
-impl Clone for PWM_PIN_GET_POLARITY_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PWM_PIN_IS_STARTED_OUTPUT {
     pub IsStarted: super::super::Foundation::BOOLEAN,
 }
-impl Copy for PWM_PIN_IS_STARTED_OUTPUT {}
-impl Clone for PWM_PIN_IS_STARTED_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {
     pub Percentage: u64,
 }
-impl Copy for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {}
-impl Clone for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PWM_PIN_SET_POLARITY_INPUT {
     pub Polarity: PWM_POLARITY,
-}
-impl Copy for PWM_PIN_SET_POLARITY_INPUT {}
-impl Clone for PWM_PIN_SET_POLARITY_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

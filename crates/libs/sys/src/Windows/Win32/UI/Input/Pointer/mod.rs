@@ -83,40 +83,26 @@ pub type POINTER_BUTTON_CHANGE_TYPE = i32;
 pub type POINTER_FLAGS = u32;
 pub type TOUCH_FEEDBACK_MODE = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INPUT_INJECTION_VALUE {
     pub page: u16,
     pub usage: u16,
     pub value: i32,
     pub index: u16,
 }
-impl Copy for INPUT_INJECTION_VALUE {}
-impl Clone for INPUT_INJECTION_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INPUT_TRANSFORM {
     pub Anonymous: INPUT_TRANSFORM_0,
 }
-impl Copy for INPUT_TRANSFORM {}
-impl Clone for INPUT_TRANSFORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union INPUT_TRANSFORM_0 {
     pub Anonymous: INPUT_TRANSFORM_0_0,
     pub m: [f32; 16],
 }
-impl Copy for INPUT_TRANSFORM_0 {}
-impl Clone for INPUT_TRANSFORM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INPUT_TRANSFORM_0_0 {
     pub _11: f32,
     pub _12: f32,
@@ -135,14 +121,9 @@ pub struct INPUT_TRANSFORM_0_0 {
     pub _43: f32,
     pub _44: f32,
 }
-impl Copy for INPUT_TRANSFORM_0_0 {}
-impl Clone for INPUT_TRANSFORM_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct POINTER_INFO {
     pub pointerType: super::super::WindowsAndMessaging::POINTER_INPUT_TYPE,
     pub pointerId: u32,
@@ -161,16 +142,9 @@ pub struct POINTER_INFO {
     pub PerformanceCount: u64,
     pub ButtonChangeType: POINTER_BUTTON_CHANGE_TYPE,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for POINTER_INFO {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for POINTER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct POINTER_PEN_INFO {
     pub pointerInfo: POINTER_INFO,
     pub penFlags: u32,
@@ -180,16 +154,9 @@ pub struct POINTER_PEN_INFO {
     pub tiltX: i32,
     pub tiltY: i32,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for POINTER_PEN_INFO {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for POINTER_PEN_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct POINTER_TOUCH_INFO {
     pub pointerInfo: POINTER_INFO,
     pub touchFlags: u32,
@@ -198,12 +165,4 @@ pub struct POINTER_TOUCH_INFO {
     pub rcContactRaw: super::super::super::Foundation::RECT,
     pub orientation: u32,
     pub pressure: u32,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for POINTER_TOUCH_INFO {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for POINTER_TOUCH_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

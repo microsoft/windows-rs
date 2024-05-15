@@ -440,106 +440,62 @@ pub type HTTP_SERVICE_CONFIG_TIMEOUT_KEY = i32;
 pub type HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = i32;
 pub type HTTP_VERB = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP2_SETTINGS_LIMITS_PARAM {
     pub Http2MaxSettingsPerFrame: u32,
     pub Http2MaxSettingsPerMinute: u32,
 }
-impl Copy for HTTP2_SETTINGS_LIMITS_PARAM {}
-impl Clone for HTTP2_SETTINGS_LIMITS_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP2_WINDOW_SIZE_PARAM {
     pub Http2ReceiveWindowSize: u32,
 }
-impl Copy for HTTP2_WINDOW_SIZE_PARAM {}
-impl Clone for HTTP2_WINDOW_SIZE_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTPAPI_VERSION {
     pub HttpApiMajorVersion: u16,
     pub HttpApiMinorVersion: u16,
 }
-impl Copy for HTTPAPI_VERSION {}
-impl Clone for HTTPAPI_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_BANDWIDTH_LIMIT_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub MaxBandwidth: u32,
 }
-impl Copy for HTTP_BANDWIDTH_LIMIT_INFO {}
-impl Clone for HTTP_BANDWIDTH_LIMIT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_BINDING_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub RequestQueueHandle: super::super::Foundation::HANDLE,
 }
-impl Copy for HTTP_BINDING_INFO {}
-impl Clone for HTTP_BINDING_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_BYTE_RANGE {
     pub StartingOffset: u64,
     pub Length: u64,
 }
-impl Copy for HTTP_BYTE_RANGE {}
-impl Clone for HTTP_BYTE_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_CACHE_POLICY {
     pub Policy: HTTP_CACHE_POLICY_TYPE,
     pub SecondsToLive: u32,
 }
-impl Copy for HTTP_CACHE_POLICY {}
-impl Clone for HTTP_CACHE_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_CHANNEL_BIND_INFO {
     pub Hardening: HTTP_AUTHENTICATION_HARDENING_LEVELS,
     pub Flags: u32,
     pub ServiceNames: *mut *mut HTTP_SERVICE_BINDING_BASE,
     pub NumberOfServiceNames: u32,
 }
-impl Copy for HTTP_CHANNEL_BIND_INFO {}
-impl Clone for HTTP_CHANNEL_BIND_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_CONNECTION_LIMIT_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub MaxConnections: u32,
 }
-impl Copy for HTTP_CONNECTION_LIMIT_INFO {}
-impl Clone for HTTP_CONNECTION_LIMIT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_COOKED_URL {
     pub FullUrlLength: u16,
     pub HostLength: u16,
@@ -550,36 +506,21 @@ pub struct HTTP_COOKED_URL {
     pub pAbsPath: windows_sys::core::PCWSTR,
     pub pQueryString: windows_sys::core::PCWSTR,
 }
-impl Copy for HTTP_COOKED_URL {}
-impl Clone for HTTP_COOKED_URL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
     pub PropertyId: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID,
     pub PropertyInfoLength: u32,
     pub PropertyInfo: *mut core::ffi::c_void,
 }
-impl Copy for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {}
-impl Clone for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK {
     pub DataChunkType: HTTP_DATA_CHUNK_TYPE,
     pub Anonymous: HTTP_DATA_CHUNK_0,
 }
-impl Copy for HTTP_DATA_CHUNK {}
-impl Clone for HTTP_DATA_CHUNK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union HTTP_DATA_CHUNK_0 {
     pub FromMemory: HTTP_DATA_CHUNK_0_3,
     pub FromFileHandle: HTTP_DATA_CHUNK_0_0,
@@ -587,128 +528,73 @@ pub union HTTP_DATA_CHUNK_0 {
     pub FromFragmentCacheEx: HTTP_DATA_CHUNK_0_1,
     pub Trailers: HTTP_DATA_CHUNK_0_4,
 }
-impl Copy for HTTP_DATA_CHUNK_0 {}
-impl Clone for HTTP_DATA_CHUNK_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK_0_0 {
     pub ByteRange: HTTP_BYTE_RANGE,
     pub FileHandle: super::super::Foundation::HANDLE,
 }
-impl Copy for HTTP_DATA_CHUNK_0_0 {}
-impl Clone for HTTP_DATA_CHUNK_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK_0_1 {
     pub ByteRange: HTTP_BYTE_RANGE,
     pub pFragmentName: windows_sys::core::PCWSTR,
 }
-impl Copy for HTTP_DATA_CHUNK_0_1 {}
-impl Clone for HTTP_DATA_CHUNK_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK_0_2 {
     pub FragmentNameLength: u16,
     pub pFragmentName: windows_sys::core::PCWSTR,
 }
-impl Copy for HTTP_DATA_CHUNK_0_2 {}
-impl Clone for HTTP_DATA_CHUNK_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK_0_3 {
     pub pBuffer: *mut core::ffi::c_void,
     pub BufferLength: u32,
 }
-impl Copy for HTTP_DATA_CHUNK_0_3 {}
-impl Clone for HTTP_DATA_CHUNK_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK_0_4 {
     pub TrailerCount: u16,
     pub pTrailers: *mut HTTP_UNKNOWN_HEADER,
 }
-impl Copy for HTTP_DATA_CHUNK_0_4 {}
-impl Clone for HTTP_DATA_CHUNK_0_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
     pub PropertyId: HTTP_DELEGATE_REQUEST_PROPERTY_ID,
     pub PropertyInfoLength: u32,
     pub PropertyInfo: *mut core::ffi::c_void,
 }
-impl Copy for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {}
-impl Clone for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_ERROR_HEADERS_PARAM {
     pub StatusCode: u16,
     pub HeaderCount: u16,
     pub Headers: *mut HTTP_UNKNOWN_HEADER,
 }
-impl Copy for HTTP_ERROR_HEADERS_PARAM {}
-impl Clone for HTTP_ERROR_HEADERS_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_FLOWRATE_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub MaxBandwidth: u32,
     pub MaxPeakBandwidth: u32,
     pub BurstSize: u32,
 }
-impl Copy for HTTP_FLOWRATE_INFO {}
-impl Clone for HTTP_FLOWRATE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_KNOWN_HEADER {
     pub RawValueLength: u16,
     pub pRawValue: windows_sys::core::PCSTR,
 }
-impl Copy for HTTP_KNOWN_HEADER {}
-impl Clone for HTTP_KNOWN_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_LISTEN_ENDPOINT_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub EnableSharing: super::super::Foundation::BOOLEAN,
 }
-impl Copy for HTTP_LISTEN_ENDPOINT_INFO {}
-impl Clone for HTTP_LISTEN_ENDPOINT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct HTTP_LOGGING_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub LoggingFlags: u32,
@@ -725,25 +611,13 @@ pub struct HTTP_LOGGING_INFO {
     pub RolloverSize: u32,
     pub pSecurityDescriptor: super::super::Security::PSECURITY_DESCRIPTOR,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for HTTP_LOGGING_INFO {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for HTTP_LOGGING_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_LOG_DATA {
     pub Type: HTTP_LOG_DATA_TYPE,
 }
-impl Copy for HTTP_LOG_DATA {}
-impl Clone for HTTP_LOG_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_LOG_FIELDS_DATA {
     pub Base: HTTP_LOG_DATA,
     pub UserNameLength: u16,
@@ -776,101 +650,56 @@ pub struct HTTP_LOG_FIELDS_DATA {
     pub MethodNum: HTTP_VERB,
     pub SubStatus: u16,
 }
-impl Copy for HTTP_LOG_FIELDS_DATA {}
-impl Clone for HTTP_LOG_FIELDS_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_MULTIPLE_KNOWN_HEADERS {
     pub HeaderId: HTTP_HEADER_ID,
     pub Flags: u32,
     pub KnownHeaderCount: u16,
     pub KnownHeaders: *mut HTTP_KNOWN_HEADER,
 }
-impl Copy for HTTP_MULTIPLE_KNOWN_HEADERS {}
-impl Clone for HTTP_MULTIPLE_KNOWN_HEADERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_PERFORMANCE_PARAM {
     pub Type: HTTP_PERFORMANCE_PARAM_TYPE,
     pub BufferSize: u32,
     pub Buffer: *mut core::ffi::c_void,
 }
-impl Copy for HTTP_PERFORMANCE_PARAM {}
-impl Clone for HTTP_PERFORMANCE_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_PROPERTY_FLAGS {
     pub _bitfield: u32,
 }
-impl Copy for HTTP_PROPERTY_FLAGS {}
-impl Clone for HTTP_PROPERTY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_PROTECTION_LEVEL_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub Level: HTTP_PROTECTION_LEVEL_TYPE,
 }
-impl Copy for HTTP_PROTECTION_LEVEL_INFO {}
-impl Clone for HTTP_PROTECTION_LEVEL_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_QOS_SETTING_INFO {
     pub QosType: HTTP_QOS_SETTING_TYPE,
     pub QosSetting: *mut core::ffi::c_void,
 }
-impl Copy for HTTP_QOS_SETTING_INFO {}
-impl Clone for HTTP_QOS_SETTING_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
     pub Freshness: u64,
 }
-impl Copy for HTTP_QUERY_REQUEST_QUALIFIER_QUIC {}
-impl Clone for HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_QUERY_REQUEST_QUALIFIER_TCP {
     pub Freshness: u64,
 }
-impl Copy for HTTP_QUERY_REQUEST_QUALIFIER_TCP {}
-impl Clone for HTTP_QUERY_REQUEST_QUALIFIER_TCP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_QUIC_API_TIMINGS {
     pub ConnectionTimings: HTTP_QUIC_CONNECTION_API_TIMINGS,
     pub StreamTimings: HTTP_QUIC_STREAM_API_TIMINGS,
 }
-impl Copy for HTTP_QUIC_API_TIMINGS {}
-impl Clone for HTTP_QUIC_API_TIMINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_QUIC_CONNECTION_API_TIMINGS {
     pub OpenTime: u64,
     pub CloseTime: u64,
@@ -886,13 +715,8 @@ pub struct HTTP_QUIC_CONNECTION_API_TIMINGS {
     pub SetCallbackHandlerSum: u64,
     pub ControlStreamTimings: HTTP_QUIC_STREAM_API_TIMINGS,
 }
-impl Copy for HTTP_QUIC_CONNECTION_API_TIMINGS {}
-impl Clone for HTTP_QUIC_CONNECTION_API_TIMINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_QUIC_STREAM_API_TIMINGS {
     pub OpenCount: u64,
     pub OpenSum: u64,
@@ -913,13 +737,8 @@ pub struct HTTP_QUIC_STREAM_API_TIMINGS {
     pub SetCallbackHandlerCount: u64,
     pub SetCallbackHandlerSum: u64,
 }
-impl Copy for HTTP_QUIC_STREAM_API_TIMINGS {}
-impl Clone for HTTP_QUIC_STREAM_API_TIMINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_QUIC_STREAM_REQUEST_STATS {
     pub StreamWaitStart: u64,
     pub StreamWaitEnd: u64,
@@ -930,13 +749,8 @@ pub struct HTTP_QUIC_STREAM_REQUEST_STATS {
     pub RequestHeadersCompressedSize: u64,
     pub ResponseHeadersCompressedSize: u64,
 }
-impl Copy for HTTP_QUIC_STREAM_REQUEST_STATS {}
-impl Clone for HTTP_QUIC_STREAM_REQUEST_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_AUTH_INFO {
     pub AuthStatus: HTTP_AUTH_STATUS,
     pub SecStatus: windows_sys::core::HRESULT,
@@ -952,26 +766,16 @@ pub struct HTTP_REQUEST_AUTH_INFO {
     pub PackageNameLength: u16,
     pub pPackageName: windows_sys::core::PWSTR,
 }
-impl Copy for HTTP_REQUEST_AUTH_INFO {}
-impl Clone for HTTP_REQUEST_AUTH_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_CHANNEL_BIND_STATUS {
     pub ServiceName: *mut HTTP_SERVICE_BINDING_BASE,
     pub ChannelToken: *mut u8,
     pub ChannelTokenSize: u32,
     pub Flags: u32,
 }
-impl Copy for HTTP_REQUEST_CHANNEL_BIND_STATUS {}
-impl Clone for HTTP_REQUEST_CHANNEL_BIND_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_HEADERS {
     pub UnknownHeaderCount: u16,
     pub pUnknownHeaders: *mut HTTP_UNKNOWN_HEADER,
@@ -979,70 +783,40 @@ pub struct HTTP_REQUEST_HEADERS {
     pub pTrailers: *mut HTTP_UNKNOWN_HEADER,
     pub KnownHeaders: [HTTP_KNOWN_HEADER; 41],
 }
-impl Copy for HTTP_REQUEST_HEADERS {}
-impl Clone for HTTP_REQUEST_HEADERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_INFO {
     pub InfoType: HTTP_REQUEST_INFO_TYPE,
     pub InfoLength: u32,
     pub pInfo: *mut core::ffi::c_void,
 }
-impl Copy for HTTP_REQUEST_INFO {}
-impl Clone for HTTP_REQUEST_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_PROPERTY_SNI {
     pub Hostname: [u16; 256],
     pub Flags: u32,
 }
-impl Copy for HTTP_REQUEST_PROPERTY_SNI {}
-impl Clone for HTTP_REQUEST_PROPERTY_SNI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_PROPERTY_STREAM_ERROR {
     pub ErrorCode: u32,
 }
-impl Copy for HTTP_REQUEST_PROPERTY_STREAM_ERROR {}
-impl Clone for HTTP_REQUEST_PROPERTY_STREAM_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_SIZING_INFO {
     pub Flags: u64,
     pub RequestIndex: u32,
     pub RequestSizingCount: u32,
     pub RequestSizing: [u64; 5],
 }
-impl Copy for HTTP_REQUEST_SIZING_INFO {}
-impl Clone for HTTP_REQUEST_SIZING_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_TIMING_INFO {
     pub RequestTimingCount: u32,
     pub RequestTiming: [u64; 30],
 }
-impl Copy for HTTP_REQUEST_TIMING_INFO {}
-impl Clone for HTTP_REQUEST_TIMING_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_TOKEN_BINDING_INFO {
     pub TokenBinding: *mut u8,
     pub TokenBindingSize: u32,
@@ -1050,14 +824,9 @@ pub struct HTTP_REQUEST_TOKEN_BINDING_INFO {
     pub EKMSize: u32,
     pub KeyType: u8,
 }
-impl Copy for HTTP_REQUEST_TOKEN_BINDING_INFO {}
-impl Clone for HTTP_REQUEST_TOKEN_BINDING_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_V1 {
     pub Flags: u32,
     pub ConnectionId: u64,
@@ -1078,30 +847,16 @@ pub struct HTTP_REQUEST_V1 {
     pub RawConnectionId: u64,
     pub pSslInfo: *mut HTTP_SSL_INFO,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for HTTP_REQUEST_V1 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for HTTP_REQUEST_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_V2 {
     pub Base: HTTP_REQUEST_V1,
     pub RequestInfoCount: u16,
     pub pRequestInfo: *mut HTTP_REQUEST_INFO,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for HTTP_REQUEST_V2 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for HTTP_REQUEST_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_RESPONSE_HEADERS {
     pub UnknownHeaderCount: u16,
     pub pUnknownHeaders: *mut HTTP_UNKNOWN_HEADER,
@@ -1109,25 +864,15 @@ pub struct HTTP_RESPONSE_HEADERS {
     pub pTrailers: *mut HTTP_UNKNOWN_HEADER,
     pub KnownHeaders: [HTTP_KNOWN_HEADER; 30],
 }
-impl Copy for HTTP_RESPONSE_HEADERS {}
-impl Clone for HTTP_RESPONSE_HEADERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_RESPONSE_INFO {
     pub Type: HTTP_RESPONSE_INFO_TYPE,
     pub Length: u32,
     pub pInfo: *mut core::ffi::c_void,
 }
-impl Copy for HTTP_RESPONSE_INFO {}
-impl Clone for HTTP_RESPONSE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_RESPONSE_V1 {
     pub Flags: u32,
     pub Version: HTTP_VERSION,
@@ -1138,49 +883,29 @@ pub struct HTTP_RESPONSE_V1 {
     pub EntityChunkCount: u16,
     pub pEntityChunks: *mut HTTP_DATA_CHUNK,
 }
-impl Copy for HTTP_RESPONSE_V1 {}
-impl Clone for HTTP_RESPONSE_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_RESPONSE_V2 {
     pub Base: HTTP_RESPONSE_V1,
     pub ResponseInfoCount: u16,
     pub pResponseInfo: *mut HTTP_RESPONSE_INFO,
 }
-impl Copy for HTTP_RESPONSE_V2 {}
-impl Clone for HTTP_RESPONSE_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
     pub RealmLength: u16,
     pub Realm: windows_sys::core::PWSTR,
 }
-impl Copy for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {}
-impl Clone for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
     pub DomainNameLength: u16,
     pub DomainName: windows_sys::core::PWSTR,
     pub RealmLength: u16,
     pub Realm: windows_sys::core::PWSTR,
 }
-impl Copy for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {}
-impl Clone for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVER_AUTHENTICATION_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub AuthSchemes: u32,
@@ -1191,195 +916,102 @@ pub struct HTTP_SERVER_AUTHENTICATION_INFO {
     pub DigestParams: HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS,
     pub BasicParams: HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS,
 }
-impl Copy for HTTP_SERVER_AUTHENTICATION_INFO {}
-impl Clone for HTTP_SERVER_AUTHENTICATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_BINDING_A {
     pub Base: HTTP_SERVICE_BINDING_BASE,
     pub Buffer: windows_sys::core::PSTR,
     pub BufferSize: u32,
 }
-impl Copy for HTTP_SERVICE_BINDING_A {}
-impl Clone for HTTP_SERVICE_BINDING_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_BINDING_BASE {
     pub Type: HTTP_SERVICE_BINDING_TYPE,
 }
-impl Copy for HTTP_SERVICE_BINDING_BASE {}
-impl Clone for HTTP_SERVICE_BINDING_BASE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_BINDING_W {
     pub Base: HTTP_SERVICE_BINDING_BASE,
     pub Buffer: windows_sys::core::PWSTR,
     pub BufferSize: u32,
 }
-impl Copy for HTTP_SERVICE_BINDING_W {}
-impl Clone for HTTP_SERVICE_BINDING_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_CACHE_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_CACHE_KEY,
     pub ParamDesc: u32,
 }
-impl Copy for HTTP_SERVICE_CONFIG_CACHE_SET {}
-impl Clone for HTTP_SERVICE_CONFIG_CACHE_SET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
     pub AddrLength: u16,
     pub pAddress: *mut super::WinSock::SOCKADDR,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
     pub AddrCount: u32,
     pub AddrList: [super::WinSock::SOCKADDR_STORAGE; 1],
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SETTING_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SETTING_KEY,
     pub ParamDesc: u32,
 }
-impl Copy for HTTP_SERVICE_CONFIG_SETTING_SET {}
-impl Clone for HTTP_SERVICE_CONFIG_SETTING_SET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
     pub LocalAddress: super::WinSock::SOCKADDR_STORAGE,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
     pub dwToken: u32,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
     pub dwToken: u32,
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for HTTP_SERVICE_CONFIG_SSL_CCS_SET {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_KEY {
     pub pIpPort: *mut super::WinSock::SOCKADDR,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for HTTP_SERVICE_CONFIG_SSL_KEY {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for HTTP_SERVICE_CONFIG_SSL_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_KEY_EX {
     pub IpPort: super::WinSock::SOCKADDR_STORAGE,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for HTTP_SERVICE_CONFIG_SSL_KEY_EX {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_PARAM {
     pub SslHashLength: u32,
     pub pSslHash: *mut core::ffi::c_void,
@@ -1392,25 +1024,15 @@ pub struct HTTP_SERVICE_CONFIG_SSL_PARAM {
     pub pDefaultSslCtlStoreName: windows_sys::core::PWSTR,
     pub DefaultFlags: u32,
 }
-impl Copy for HTTP_SERVICE_CONFIG_SSL_PARAM {}
-impl Clone for HTTP_SERVICE_CONFIG_SSL_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
     pub Flags: u64,
     pub Anonymous: HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0,
 }
-impl Copy for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {}
-impl Clone for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
     pub Http2WindowSizeParam: HTTP2_WINDOW_SIZE_PARAM,
     pub Http2SettingsLimitsParam: HTTP2_SETTINGS_LIMITS_PARAM,
@@ -1419,199 +1041,106 @@ pub union HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
     pub HttpErrorHeadersParam: HTTP_ERROR_HEADERS_PARAM,
     pub HttpTlsSessionTicketKeysParam: HTTP_TLS_SESSION_TICKET_KEYS_PARAM,
 }
-impl Copy for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {}
-impl Clone for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY,
     pub dwToken: u32,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for HTTP_SERVICE_CONFIG_SSL_QUERY {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for HTTP_SERVICE_CONFIG_SSL_QUERY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY_EX,
     pub dwToken: u32,
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for HTTP_SERVICE_CONFIG_SSL_SET {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for HTTP_SERVICE_CONFIG_SSL_SET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY_EX,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for HTTP_SERVICE_CONFIG_SSL_SET_EX {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for HTTP_SERVICE_CONFIG_SSL_SET_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
     pub IpPort: super::WinSock::SOCKADDR_STORAGE,
     pub Host: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
     pub dwToken: u32,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
     pub dwToken: u32,
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for HTTP_SERVICE_CONFIG_SSL_SNI_SET {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_TIMEOUT_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_TIMEOUT_KEY,
     pub ParamDesc: u16,
 }
-impl Copy for HTTP_SERVICE_CONFIG_TIMEOUT_SET {}
-impl Clone for HTTP_SERVICE_CONFIG_TIMEOUT_SET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_URLACL_KEY {
     pub pUrlPrefix: windows_sys::core::PWSTR,
 }
-impl Copy for HTTP_SERVICE_CONFIG_URLACL_KEY {}
-impl Clone for HTTP_SERVICE_CONFIG_URLACL_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_URLACL_PARAM {
     pub pStringSecurityDescriptor: windows_sys::core::PWSTR,
 }
-impl Copy for HTTP_SERVICE_CONFIG_URLACL_PARAM {}
-impl Clone for HTTP_SERVICE_CONFIG_URLACL_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_URLACL_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_URLACL_KEY,
     pub dwToken: u32,
 }
-impl Copy for HTTP_SERVICE_CONFIG_URLACL_QUERY {}
-impl Clone for HTTP_SERVICE_CONFIG_URLACL_QUERY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_URLACL_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_URLACL_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_URLACL_PARAM,
 }
-impl Copy for HTTP_SERVICE_CONFIG_URLACL_SET {}
-impl Clone for HTTP_SERVICE_CONFIG_URLACL_SET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SSL_CLIENT_CERT_INFO {
     pub CertFlags: u32,
     pub CertEncodedSize: u32,
@@ -1619,13 +1148,8 @@ pub struct HTTP_SSL_CLIENT_CERT_INFO {
     pub Token: super::super::Foundation::HANDLE,
     pub CertDeniedByMapper: super::super::Foundation::BOOLEAN,
 }
-impl Copy for HTTP_SSL_CLIENT_CERT_INFO {}
-impl Clone for HTTP_SSL_CLIENT_CERT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SSL_INFO {
     pub ServerCertKeySize: u16,
     pub ConnectionKeySize: u16,
@@ -1636,13 +1160,8 @@ pub struct HTTP_SSL_INFO {
     pub pClientCertInfo: *mut HTTP_SSL_CLIENT_CERT_INFO,
     pub SslClientCertNegotiated: u32,
 }
-impl Copy for HTTP_SSL_INFO {}
-impl Clone for HTTP_SSL_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_SSL_PROTOCOL_INFO {
     pub Protocol: u32,
     pub CipherType: u32,
@@ -1652,24 +1171,14 @@ pub struct HTTP_SSL_PROTOCOL_INFO {
     pub KeyExchangeType: u32,
     pub KeyExchangeStrength: u32,
 }
-impl Copy for HTTP_SSL_PROTOCOL_INFO {}
-impl Clone for HTTP_SSL_PROTOCOL_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_STATE_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub State: HTTP_ENABLED_STATE,
 }
-impl Copy for HTTP_STATE_INFO {}
-impl Clone for HTTP_STATE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_TIMEOUT_LIMIT_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub EntityBody: u16,
@@ -1679,73 +1188,41 @@ pub struct HTTP_TIMEOUT_LIMIT_INFO {
     pub HeaderWait: u16,
     pub MinSendRate: u32,
 }
-impl Copy for HTTP_TIMEOUT_LIMIT_INFO {}
-impl Clone for HTTP_TIMEOUT_LIMIT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_TLS_RESTRICTIONS_PARAM {
     pub RestrictionCount: u32,
     pub TlsRestrictions: *mut core::ffi::c_void,
 }
-impl Copy for HTTP_TLS_RESTRICTIONS_PARAM {}
-impl Clone for HTTP_TLS_RESTRICTIONS_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
     pub SessionTicketKeyCount: u32,
     pub SessionTicketKeys: *mut core::ffi::c_void,
 }
-impl Copy for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {}
-impl Clone for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct HTTP_TRANSPORT_ADDRESS {
     pub pRemoteAddress: *mut super::WinSock::SOCKADDR,
     pub pLocalAddress: *mut super::WinSock::SOCKADDR,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for HTTP_TRANSPORT_ADDRESS {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for HTTP_TRANSPORT_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_UNKNOWN_HEADER {
     pub NameLength: u16,
     pub RawValueLength: u16,
     pub pName: windows_sys::core::PCSTR,
     pub pRawValue: windows_sys::core::PCSTR,
 }
-impl Copy for HTTP_UNKNOWN_HEADER {}
-impl Clone for HTTP_UNKNOWN_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
 }
-impl Copy for HTTP_VERSION {}
-impl Clone for HTTP_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_WSK_API_TIMINGS {
     pub ConnectCount: u64,
     pub ConnectSum: u64,
@@ -1759,10 +1236,4 @@ pub struct HTTP_WSK_API_TIMINGS {
     pub ReleaseSum: u64,
     pub ControlSocketCount: u64,
     pub ControlSocketSum: u64,
-}
-impl Copy for HTTP_WSK_API_TIMINGS {}
-impl Clone for HTTP_WSK_API_TIMINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

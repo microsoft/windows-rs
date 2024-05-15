@@ -66,6 +66,7 @@ pub type _DMO_QUALITY_STATUS_FLAGS = i32;
 pub type _DMO_SET_TYPE_FLAGS = i32;
 pub type _DMO_VIDEO_OUTPUT_STREAM_FLAGS = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DMO_MEDIA_TYPE {
     pub majortype: windows_sys::core::GUID,
     pub subtype: windows_sys::core::GUID,
@@ -77,33 +78,17 @@ pub struct DMO_MEDIA_TYPE {
     pub cbFormat: u32,
     pub pbFormat: *mut u8,
 }
-impl Copy for DMO_MEDIA_TYPE {}
-impl Clone for DMO_MEDIA_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DMO_OUTPUT_DATA_BUFFER {
     pub pBuffer: *mut core::ffi::c_void,
     pub dwStatus: u32,
     pub rtTimestamp: i64,
     pub rtTimelength: i64,
 }
-impl Copy for DMO_OUTPUT_DATA_BUFFER {}
-impl Clone for DMO_OUTPUT_DATA_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DMO_PARTIAL_MEDIATYPE {
     pub r#type: windows_sys::core::GUID,
     pub subtype: windows_sys::core::GUID,
-}
-impl Copy for DMO_PARTIAL_MEDIATYPE {}
-impl Clone for DMO_PARTIAL_MEDIATYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

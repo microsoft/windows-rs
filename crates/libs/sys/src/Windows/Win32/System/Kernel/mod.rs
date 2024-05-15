@@ -67,33 +67,22 @@ pub type SUITE_TYPE = i32;
 pub type TIMER_TYPE = i32;
 pub type WAIT_TYPE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CSTRING {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Buffer: windows_sys::core::PCSTR,
 }
-impl Copy for CSTRING {}
-impl Clone for CSTRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
 pub struct EXCEPTION_REGISTRATION_RECORD {
     pub Next: *mut EXCEPTION_REGISTRATION_RECORD,
     pub Handler: EXCEPTION_ROUTINE,
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Copy for EXCEPTION_REGISTRATION_RECORD {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Clone for EXCEPTION_REGISTRATION_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct FLOATING_SAVE_AREA {
     pub ControlWord: u32,
     pub StatusWord: u32,
@@ -105,16 +94,9 @@ pub struct FLOATING_SAVE_AREA {
     pub RegisterArea: [u8; 80],
     pub Cr0NpxState: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for FLOATING_SAVE_AREA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for FLOATING_SAVE_AREA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct FLOATING_SAVE_AREA {
     pub ControlWord: u32,
     pub StatusWord: u32,
@@ -126,49 +108,27 @@ pub struct FLOATING_SAVE_AREA {
     pub RegisterArea: [u8; 80],
     pub Spare0: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for FLOATING_SAVE_AREA {}
-#[cfg(target_arch = "x86")]
-impl Clone for FLOATING_SAVE_AREA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LIST_ENTRY {
     pub Flink: *mut LIST_ENTRY,
     pub Blink: *mut LIST_ENTRY,
 }
-impl Copy for LIST_ENTRY {}
-impl Clone for LIST_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LIST_ENTRY32 {
     pub Flink: u32,
     pub Blink: u32,
 }
-impl Copy for LIST_ENTRY32 {}
-impl Clone for LIST_ENTRY32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LIST_ENTRY64 {
     pub Flink: u64,
     pub Blink: u64,
 }
-impl Copy for LIST_ENTRY64 {}
-impl Clone for LIST_ENTRY64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
 pub struct NT_TIB {
     pub ExceptionList: *mut EXCEPTION_REGISTRATION_RECORD,
     pub StackBase: *mut core::ffi::c_void,
@@ -178,304 +138,158 @@ pub struct NT_TIB {
     pub ArbitraryUserPointer: *mut core::ffi::c_void,
     pub Self_: *mut NT_TIB,
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Copy for NT_TIB {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Clone for NT_TIB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
 pub union NT_TIB_0 {
     pub FiberData: *mut core::ffi::c_void,
     pub Version: u32,
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Copy for NT_TIB_0 {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Clone for NT_TIB_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OBJECTID {
     pub Lineage: windows_sys::core::GUID,
     pub Uniquifier: u32,
 }
-impl Copy for OBJECTID {}
-impl Clone for OBJECTID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESSOR_NUMBER {
     pub Group: u16,
     pub Number: u8,
     pub Reserved: u8,
 }
-impl Copy for PROCESSOR_NUMBER {}
-impl Clone for PROCESSOR_NUMBER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct QUAD {
     pub Anonymous: QUAD_0,
 }
-impl Copy for QUAD {}
-impl Clone for QUAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union QUAD_0 {
     pub UseThisFieldToCopy: i64,
     pub DoNotUseThisField: f64,
 }
-impl Copy for QUAD_0 {}
-impl Clone for QUAD_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTL_BALANCED_NODE {
     pub Anonymous1: RTL_BALANCED_NODE_0,
     pub Anonymous2: RTL_BALANCED_NODE_1,
 }
-impl Copy for RTL_BALANCED_NODE {}
-impl Clone for RTL_BALANCED_NODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union RTL_BALANCED_NODE_0 {
     pub Children: [*mut RTL_BALANCED_NODE; 2],
     pub Anonymous: RTL_BALANCED_NODE_0_0,
 }
-impl Copy for RTL_BALANCED_NODE_0 {}
-impl Clone for RTL_BALANCED_NODE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTL_BALANCED_NODE_0_0 {
     pub Left: *mut RTL_BALANCED_NODE,
     pub Right: *mut RTL_BALANCED_NODE,
 }
-impl Copy for RTL_BALANCED_NODE_0_0 {}
-impl Clone for RTL_BALANCED_NODE_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union RTL_BALANCED_NODE_1 {
     pub _bitfield: u8,
     pub ParentValue: usize,
 }
-impl Copy for RTL_BALANCED_NODE_1 {}
-impl Clone for RTL_BALANCED_NODE_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SINGLE_LIST_ENTRY {
     pub Next: *mut SINGLE_LIST_ENTRY,
 }
-impl Copy for SINGLE_LIST_ENTRY {}
-impl Clone for SINGLE_LIST_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SINGLE_LIST_ENTRY32 {
     pub Next: u32,
 }
-impl Copy for SINGLE_LIST_ENTRY32 {}
-impl Clone for SINGLE_LIST_ENTRY32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SLIST_ENTRY {
     pub Next: *mut SLIST_ENTRY,
 }
-impl Copy for SLIST_ENTRY {}
-impl Clone for SLIST_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[derive(Clone, Copy)]
 pub union SLIST_HEADER {
     pub Anonymous: SLIST_HEADER_0,
     pub HeaderArm64: SLIST_HEADER_1,
 }
-#[cfg(target_arch = "aarch64")]
-impl Copy for SLIST_HEADER {}
-#[cfg(target_arch = "aarch64")]
-impl Clone for SLIST_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[derive(Clone, Copy)]
 pub struct SLIST_HEADER_0 {
     pub Alignment: u64,
     pub Region: u64,
 }
-#[cfg(target_arch = "aarch64")]
-impl Copy for SLIST_HEADER_0 {}
-#[cfg(target_arch = "aarch64")]
-impl Clone for SLIST_HEADER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[derive(Clone, Copy)]
 pub struct SLIST_HEADER_1 {
     pub _bitfield1: u64,
     pub _bitfield2: u64,
 }
-#[cfg(target_arch = "aarch64")]
-impl Copy for SLIST_HEADER_1 {}
-#[cfg(target_arch = "aarch64")]
-impl Clone for SLIST_HEADER_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub union SLIST_HEADER {
     pub Anonymous: SLIST_HEADER_0,
     pub HeaderX64: SLIST_HEADER_1,
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SLIST_HEADER {}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SLIST_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SLIST_HEADER_0 {
     pub Alignment: u64,
     pub Region: u64,
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SLIST_HEADER_0 {}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SLIST_HEADER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SLIST_HEADER_1 {
     pub _bitfield1: u64,
     pub _bitfield2: u64,
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SLIST_HEADER_1 {}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SLIST_HEADER_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub union SLIST_HEADER {
     pub Alignment: u64,
     pub Anonymous: SLIST_HEADER_0,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SLIST_HEADER {}
-#[cfg(target_arch = "x86")]
-impl Clone for SLIST_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SLIST_HEADER_0 {
     pub Next: SINGLE_LIST_ENTRY,
     pub Depth: u16,
     pub CpuId: u16,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SLIST_HEADER_0 {}
-#[cfg(target_arch = "x86")]
-impl Clone for SLIST_HEADER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STRING {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Buffer: windows_sys::core::PSTR,
 }
-impl Copy for STRING {}
-impl Clone for STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STRING32 {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Buffer: u32,
 }
-impl Copy for STRING32 {}
-impl Clone for STRING32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STRING64 {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Buffer: u64,
 }
-impl Copy for STRING64 {}
-impl Clone for STRING64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WNF_STATE_NAME {
     pub Data: [u32; 2],
-}
-impl Copy for WNF_STATE_NAME {}
-impl Clone for WNF_STATE_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub type EXCEPTION_ROUTINE = Option<unsafe extern "system" fn(exceptionrecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, establisherframe: *const core::ffi::c_void, contextrecord: *mut super::Diagnostics::Debug::CONTEXT, dispatchercontext: *const core::ffi::c_void) -> EXCEPTION_DISPOSITION>;

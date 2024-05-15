@@ -387,30 +387,21 @@ pub type WDS_CLI_IMAGE_PARAM_TYPE = i32;
 pub type WDS_CLI_IMAGE_TYPE = i32;
 pub type WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PXE_ADDRESS {
     pub uFlags: u32,
     pub Anonymous: PXE_ADDRESS_0,
     pub uAddrLen: u32,
     pub uPort: u16,
 }
-impl Copy for PXE_ADDRESS {}
-impl Clone for PXE_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PXE_ADDRESS_0 {
     pub bAddress: [u8; 16],
     pub uIpAddress: u32,
 }
-impl Copy for PXE_ADDRESS_0 {}
-impl Clone for PXE_ADDRESS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PXE_DHCPV6_MESSAGE {
     pub MessageType: u8,
     pub TransactionIDByte1: u8,
@@ -418,49 +409,29 @@ pub struct PXE_DHCPV6_MESSAGE {
     pub TransactionIDByte3: u8,
     pub Options: [PXE_DHCPV6_OPTION; 1],
 }
-impl Copy for PXE_DHCPV6_MESSAGE {}
-impl Clone for PXE_DHCPV6_MESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PXE_DHCPV6_MESSAGE_HEADER {
     pub MessageType: u8,
     pub Message: [u8; 1],
 }
-impl Copy for PXE_DHCPV6_MESSAGE_HEADER {}
-impl Clone for PXE_DHCPV6_MESSAGE_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PXE_DHCPV6_NESTED_RELAY_MESSAGE {
     pub pRelayMessage: *mut PXE_DHCPV6_RELAY_MESSAGE,
     pub cbRelayMessage: u32,
     pub pInterfaceIdOption: *mut core::ffi::c_void,
     pub cbInterfaceIdOption: u16,
 }
-impl Copy for PXE_DHCPV6_NESTED_RELAY_MESSAGE {}
-impl Clone for PXE_DHCPV6_NESTED_RELAY_MESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PXE_DHCPV6_OPTION {
     pub OptionCode: u16,
     pub DataLength: u16,
     pub Data: [u8; 1],
 }
-impl Copy for PXE_DHCPV6_OPTION {}
-impl Clone for PXE_DHCPV6_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PXE_DHCPV6_RELAY_MESSAGE {
     pub MessageType: u8,
     pub HopCount: u8,
@@ -468,13 +439,8 @@ pub struct PXE_DHCPV6_RELAY_MESSAGE {
     pub PeerAddress: [u8; 16],
     pub Options: [PXE_DHCPV6_OPTION; 1],
 }
-impl Copy for PXE_DHCPV6_RELAY_MESSAGE {}
-impl Clone for PXE_DHCPV6_RELAY_MESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PXE_DHCP_MESSAGE {
     pub Operation: u8,
     pub HardwareAddressType: u8,
@@ -493,36 +459,21 @@ pub struct PXE_DHCP_MESSAGE {
     pub Anonymous: PXE_DHCP_MESSAGE_0,
     pub Option: PXE_DHCP_OPTION,
 }
-impl Copy for PXE_DHCP_MESSAGE {}
-impl Clone for PXE_DHCP_MESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union PXE_DHCP_MESSAGE_0 {
     pub bMagicCookie: [u8; 4],
     pub uMagicCookie: u32,
 }
-impl Copy for PXE_DHCP_MESSAGE_0 {}
-impl Clone for PXE_DHCP_MESSAGE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PXE_DHCP_OPTION {
     pub OptionType: u8,
     pub OptionLength: u8,
     pub OptionValue: [u8; 1],
 }
-impl Copy for PXE_DHCP_OPTION {}
-impl Clone for PXE_DHCP_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PXE_PROVIDER {
     pub uSizeOfStruct: u32,
     pub pwszName: windows_sys::core::PWSTR,
@@ -530,37 +481,22 @@ pub struct PXE_PROVIDER {
     pub bIsCritical: super::super::Foundation::BOOL,
     pub uIndex: u32,
 }
-impl Copy for PXE_PROVIDER {}
-impl Clone for PXE_PROVIDER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRANSPORTCLIENT_SESSION_INFO {
     pub ulStructureLength: u32,
     pub ullFileSize: u64,
     pub ulBlockSize: u32,
 }
-impl Copy for TRANSPORTCLIENT_SESSION_INFO {}
-impl Clone for TRANSPORTCLIENT_SESSION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WDS_CLI_CRED {
     pub pwszUserName: windows_sys::core::PCWSTR,
     pub pwszDomain: windows_sys::core::PCWSTR,
     pub pwszPassword: windows_sys::core::PCWSTR,
 }
-impl Copy for WDS_CLI_CRED {}
-impl Clone for WDS_CLI_CRED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WDS_TRANSPORTCLIENT_CALLBACKS {
     pub SessionStart: PFN_WdsTransportClientSessionStart,
     pub SessionStartEx: PFN_WdsTransportClientSessionStartEx,
@@ -569,13 +505,8 @@ pub struct WDS_TRANSPORTCLIENT_CALLBACKS {
     pub SessionComplete: PFN_WdsTransportClientSessionComplete,
     pub SessionNegotiate: PFN_WdsTransportClientSessionNegotiate,
 }
-impl Copy for WDS_TRANSPORTCLIENT_CALLBACKS {}
-impl Clone for WDS_TRANSPORTCLIENT_CALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WDS_TRANSPORTCLIENT_REQUEST {
     pub ulLength: u32,
     pub ulApiVersion: u32,
@@ -588,38 +519,20 @@ pub struct WDS_TRANSPORTCLIENT_REQUEST {
     pub pvProtocolData: *mut core::ffi::c_void,
     pub ulProtocolDataLength: u32,
 }
-impl Copy for WDS_TRANSPORTCLIENT_REQUEST {}
-impl Clone for WDS_TRANSPORTCLIENT_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
 pub struct WDS_TRANSPORTPROVIDER_INIT_PARAMS {
     pub ulLength: u32,
     pub ulMcServerVersion: u32,
     pub hRegistryKey: super::Registry::HKEY,
     pub hProvider: super::super::Foundation::HANDLE,
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl Copy for WDS_TRANSPORTPROVIDER_INIT_PARAMS {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for WDS_TRANSPORTPROVIDER_INIT_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WDS_TRANSPORTPROVIDER_SETTINGS {
     pub ulLength: u32,
     pub ulProviderVersion: u32,
-}
-impl Copy for WDS_TRANSPORTPROVIDER_SETTINGS {}
-impl Clone for WDS_TRANSPORTPROVIDER_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const WdsTransportCacheable: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x70590b16_f146_46bd_bd9d_4aaa90084bf5);
 pub const WdsTransportClient: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x66d2c5e9_0ff6_49ec_9733_dafb1e01df1c);

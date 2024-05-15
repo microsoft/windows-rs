@@ -550,29 +550,20 @@ pub type WM_SFEX_TYPE = i32;
 pub type WM_SF_TYPE = i32;
 pub type _AM_ASFWRITERCONFIG_PARAM = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AM_WMT_EVENT_DATA {
     pub hrStatus: windows_sys::core::HRESULT,
     pub pData: *mut core::ffi::c_void,
 }
-impl Copy for AM_WMT_EVENT_DATA {}
-impl Clone for AM_WMT_EVENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRM_COPY_OPL {
     pub wMinimumCopyLevel: u16,
     pub oplIdIncludes: DRM_OPL_OUTPUT_IDS,
     pub oplIdExcludes: DRM_OPL_OUTPUT_IDS,
 }
-impl Copy for DRM_COPY_OPL {}
-impl Clone for DRM_COPY_OPL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
     pub wCompressedDigitalVideo: u16,
     pub wUncompressedDigitalVideo: u16,
@@ -580,68 +571,38 @@ pub struct DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
     pub wCompressedDigitalAudio: u16,
     pub wUncompressedDigitalAudio: u16,
 }
-impl Copy for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {}
-impl Clone for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRM_OPL_OUTPUT_IDS {
     pub cIds: u16,
     pub rgIds: *mut windows_sys::core::GUID,
 }
-impl Copy for DRM_OPL_OUTPUT_IDS {}
-impl Clone for DRM_OPL_OUTPUT_IDS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRM_OUTPUT_PROTECTION {
     pub guidId: windows_sys::core::GUID,
     pub bConfigData: u8,
 }
-impl Copy for DRM_OUTPUT_PROTECTION {}
-impl Clone for DRM_OUTPUT_PROTECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRM_PLAY_OPL {
     pub minOPL: DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS,
     pub oplIdReserved: DRM_OPL_OUTPUT_IDS,
     pub vopi: DRM_VIDEO_OUTPUT_PROTECTION_IDS,
 }
-impl Copy for DRM_PLAY_OPL {}
-impl Clone for DRM_PLAY_OPL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRM_VAL16 {
     pub val: [u8; 16],
 }
-impl Copy for DRM_VAL16 {}
-impl Clone for DRM_VAL16 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRM_VIDEO_OUTPUT_PROTECTION_IDS {
     pub cEntries: u16,
     pub rgVop: *mut DRM_OUTPUT_PROTECTION,
 }
-impl Copy for DRM_VIDEO_OUTPUT_PROTECTION_IDS {}
-impl Clone for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WMDRM_IMPORT_INIT_STRUCT {
     pub dwVersion: u32,
     pub cbEncryptedSessionKeyMessage: u32,
@@ -649,14 +610,9 @@ pub struct WMDRM_IMPORT_INIT_STRUCT {
     pub cbEncryptedKeyMessage: u32,
     pub pbEncryptedKeyMessage: *mut u8,
 }
-impl Copy for WMDRM_IMPORT_INIT_STRUCT {}
-impl Clone for WMDRM_IMPORT_INIT_STRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct WMMPEG2VIDEOINFO {
     pub hdr: WMVIDEOINFOHEADER2,
     pub dwStartTimeCode: u32,
@@ -666,49 +622,27 @@ pub struct WMMPEG2VIDEOINFO {
     pub dwFlags: u32,
     pub dwSequenceHeader: [u32; 1],
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for WMMPEG2VIDEOINFO {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for WMMPEG2VIDEOINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WMSCRIPTFORMAT {
     pub scriptType: windows_sys::core::GUID,
 }
-impl Copy for WMSCRIPTFORMAT {}
-impl Clone for WMSCRIPTFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WMT_BUFFER_SEGMENT {
     pub pBuffer: *mut core::ffi::c_void,
     pub cbOffset: u32,
     pub cbLength: u32,
 }
-impl Copy for WMT_BUFFER_SEGMENT {}
-impl Clone for WMT_BUFFER_SEGMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WMT_COLORSPACEINFO_EXTENSION_DATA {
     pub ucColorPrimaries: u8,
     pub ucColorTransferChar: u8,
     pub ucColorMatrixCoef: u8,
 }
-impl Copy for WMT_COLORSPACEINFO_EXTENSION_DATA {}
-impl Clone for WMT_COLORSPACEINFO_EXTENSION_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WMT_FILESINK_DATA_UNIT {
     pub packetHeaderBuffer: WMT_BUFFER_SEGMENT,
     pub cPayloads: u32,
@@ -716,37 +650,22 @@ pub struct WMT_FILESINK_DATA_UNIT {
     pub cPayloadDataFragments: u32,
     pub pPayloadDataFragments: *mut WMT_PAYLOAD_FRAGMENT,
 }
-impl Copy for WMT_FILESINK_DATA_UNIT {}
-impl Clone for WMT_FILESINK_DATA_UNIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WMT_PAYLOAD_FRAGMENT {
     pub dwPayloadIndex: u32,
     pub segmentData: WMT_BUFFER_SEGMENT,
 }
-impl Copy for WMT_PAYLOAD_FRAGMENT {}
-impl Clone for WMT_PAYLOAD_FRAGMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct WMT_TIMECODE_EXTENSION_DATA {
     pub wRange: u16,
     pub dwTimecode: u32,
     pub dwUserbits: u32,
     pub dwAmFlags: u32,
 }
-impl Copy for WMT_TIMECODE_EXTENSION_DATA {}
-impl Clone for WMT_TIMECODE_EXTENSION_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WMT_VIDEOIMAGE_SAMPLE {
     pub dwMagic: u32,
     pub cbStruct: u32,
@@ -770,13 +689,8 @@ pub struct WMT_VIDEOIMAGE_SAMPLE {
     pub lPrevBlendCoef1: i32,
     pub lPrevBlendCoef2: i32,
 }
-impl Copy for WMT_VIDEOIMAGE_SAMPLE {}
-impl Clone for WMT_VIDEOIMAGE_SAMPLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WMT_VIDEOIMAGE_SAMPLE2 {
     pub dwMagic: u32,
     pub dwStructSize: u32,
@@ -806,39 +720,24 @@ pub struct WMT_VIDEOIMAGE_SAMPLE2 {
     pub fEffectPara4: f32,
     pub bKeepPrevImage: super::super::Foundation::BOOL,
 }
-impl Copy for WMT_VIDEOIMAGE_SAMPLE2 {}
-impl Clone for WMT_VIDEOIMAGE_SAMPLE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WMT_WATERMARK_ENTRY {
     pub wmetType: WMT_WATERMARK_ENTRY_TYPE,
     pub clsid: windows_sys::core::GUID,
     pub cbDisplayName: u32,
     pub pwszDisplayName: windows_sys::core::PWSTR,
 }
-impl Copy for WMT_WATERMARK_ENTRY {}
-impl Clone for WMT_WATERMARK_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WMT_WEBSTREAM_FORMAT {
     pub cbSize: u16,
     pub cbSampleHeaderFixedData: u16,
     pub wVersion: u16,
     pub wReserved: u16,
 }
-impl Copy for WMT_WEBSTREAM_FORMAT {}
-impl Clone for WMT_WEBSTREAM_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WMT_WEBSTREAM_SAMPLE_HEADER {
     pub cbLength: u16,
     pub wPart: u16,
@@ -846,14 +745,9 @@ pub struct WMT_WEBSTREAM_SAMPLE_HEADER {
     pub wSampleType: u16,
     pub wszURL: [u16; 1],
 }
-impl Copy for WMT_WEBSTREAM_SAMPLE_HEADER {}
-impl Clone for WMT_WEBSTREAM_SAMPLE_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct WMVIDEOINFOHEADER {
     pub rcSource: super::super::Foundation::RECT,
     pub rcTarget: super::super::Foundation::RECT,
@@ -862,16 +756,9 @@ pub struct WMVIDEOINFOHEADER {
     pub AvgTimePerFrame: i64,
     pub bmiHeader: super::super::Graphics::Gdi::BITMAPINFOHEADER,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for WMVIDEOINFOHEADER {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for WMVIDEOINFOHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct WMVIDEOINFOHEADER2 {
     pub rcSource: super::super::Foundation::RECT,
     pub rcTarget: super::super::Foundation::RECT,
@@ -886,61 +773,34 @@ pub struct WMVIDEOINFOHEADER2 {
     pub dwReserved2: u32,
     pub bmiHeader: super::super::Graphics::Gdi::BITMAPINFOHEADER,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for WMVIDEOINFOHEADER2 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for WMVIDEOINFOHEADER2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WM_ADDRESS_ACCESSENTRY {
     pub dwIPAddress: u32,
     pub dwMask: u32,
 }
-impl Copy for WM_ADDRESS_ACCESSENTRY {}
-impl Clone for WM_ADDRESS_ACCESSENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WM_CLIENT_PROPERTIES {
     pub dwIPAddress: u32,
     pub dwPort: u32,
 }
-impl Copy for WM_CLIENT_PROPERTIES {}
-impl Clone for WM_CLIENT_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WM_CLIENT_PROPERTIES_EX {
     pub cbSize: u32,
     pub pwszIPAddress: windows_sys::core::PCWSTR,
     pub pwszPort: windows_sys::core::PCWSTR,
     pub pwszDNSName: windows_sys::core::PCWSTR,
 }
-impl Copy for WM_CLIENT_PROPERTIES_EX {}
-impl Clone for WM_CLIENT_PROPERTIES_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WM_LEAKY_BUCKET_PAIR {
     pub dwBitrate: u32,
     pub msBufferWindow: u32,
 }
-impl Copy for WM_LEAKY_BUCKET_PAIR {}
-impl Clone for WM_LEAKY_BUCKET_PAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WM_MEDIA_TYPE {
     pub majortype: windows_sys::core::GUID,
     pub subtype: windows_sys::core::GUID,
@@ -952,13 +812,8 @@ pub struct WM_MEDIA_TYPE {
     pub cbFormat: u32,
     pub pbFormat: *mut u8,
 }
-impl Copy for WM_MEDIA_TYPE {}
-impl Clone for WM_MEDIA_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WM_PICTURE {
     pub pwszMIMEType: windows_sys::core::PWSTR,
     pub bPictureType: u8,
@@ -966,24 +821,14 @@ pub struct WM_PICTURE {
     pub dwDataLen: u32,
     pub pbData: *mut u8,
 }
-impl Copy for WM_PICTURE {}
-impl Clone for WM_PICTURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WM_PORT_NUMBER_RANGE {
     pub wPortBegin: u16,
     pub wPortEnd: u16,
 }
-impl Copy for WM_PORT_NUMBER_RANGE {}
-impl Clone for WM_PORT_NUMBER_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WM_READER_CLIENTINFO {
     pub cbSize: u32,
     pub wszLang: windows_sys::core::PWSTR,
@@ -995,13 +840,8 @@ pub struct WM_READER_CLIENTINFO {
     pub qwHostVersion: u64,
     pub wszPlayerUserAgent: windows_sys::core::PWSTR,
 }
-impl Copy for WM_READER_CLIENTINFO {}
-impl Clone for WM_READER_CLIENTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WM_READER_STATISTICS {
     pub cbSize: u32,
     pub dwBandwidth: u32,
@@ -1010,35 +850,20 @@ pub struct WM_READER_STATISTICS {
     pub cPacketsLost: u32,
     pub wQuality: u16,
 }
-impl Copy for WM_READER_STATISTICS {}
-impl Clone for WM_READER_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct WM_STREAM_PRIORITY_RECORD {
     pub wStreamNumber: u16,
     pub fMandatory: super::super::Foundation::BOOL,
 }
-impl Copy for WM_STREAM_PRIORITY_RECORD {}
-impl Clone for WM_STREAM_PRIORITY_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WM_STREAM_TYPE_INFO {
     pub guidMajorType: windows_sys::core::GUID,
     pub cbFormat: u32,
 }
-impl Copy for WM_STREAM_TYPE_INFO {}
-impl Clone for WM_STREAM_TYPE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WM_SYNCHRONISED_LYRICS {
     pub bTimeStampFormat: u8,
     pub bContentType: u8,
@@ -1046,35 +871,20 @@ pub struct WM_SYNCHRONISED_LYRICS {
     pub dwLyricsLen: u32,
     pub pbLyrics: *mut u8,
 }
-impl Copy for WM_SYNCHRONISED_LYRICS {}
-impl Clone for WM_SYNCHRONISED_LYRICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WM_USER_TEXT {
     pub pwszDescription: windows_sys::core::PWSTR,
     pub pwszText: windows_sys::core::PWSTR,
 }
-impl Copy for WM_USER_TEXT {}
-impl Clone for WM_USER_TEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WM_USER_WEB_URL {
     pub pwszDescription: windows_sys::core::PWSTR,
     pub pwszURL: windows_sys::core::PWSTR,
 }
-impl Copy for WM_USER_WEB_URL {}
-impl Clone for WM_USER_WEB_URL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WM_WRITER_STATISTICS {
     pub qwSampleCount: u64,
     pub qwByteCount: u64,
@@ -1087,13 +897,8 @@ pub struct WM_WRITER_STATISTICS {
     pub dwAverageSampleRate: u32,
     pub dwExpectedSampleRate: u32,
 }
-impl Copy for WM_WRITER_STATISTICS {}
-impl Clone for WM_WRITER_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WM_WRITER_STATISTICS_EX {
     pub dwBitratePlusOverhead: u32,
     pub dwCurrentSampleDropRateInQueue: u32,
@@ -1102,10 +907,4 @@ pub struct WM_WRITER_STATISTICS_EX {
     pub dwTotalSampleDropsInQueue: u32,
     pub dwTotalSampleDropsInCodec: u32,
     pub dwTotalSampleDropsInMultiplexer: u32,
-}
-impl Copy for WM_WRITER_STATISTICS_EX {}
-impl Clone for WM_WRITER_STATISTICS_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

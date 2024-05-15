@@ -2166,6 +2166,7 @@ pub type X509SCEPProcessMessageFlags = i32;
 pub type XEKL_KEYSIZE = i32;
 pub type XEKL_KEYSPEC = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CAINFO {
     pub cbSize: u32,
     pub CAType: ENUM_CATYPES,
@@ -2177,12 +2178,6 @@ pub struct CAINFO {
     pub cKRACertUsedCount: u32,
     pub cKRACertCount: u32,
     pub fAdvancedServer: u32,
-}
-impl Copy for CAINFO {}
-impl Clone for CAINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const CAlternativeName: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x884e2013_217d_11da_b2a4_000e7bbb2b09);
 pub const CAlternativeNames: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x884e2014_217d_11da_b2a4_000e7bbb2b09);
@@ -2223,29 +2218,19 @@ pub const CCspInformation: windows_sys::core::GUID = windows_sys::core::GUID::fr
 pub const CCspInformations: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x884e2008_217d_11da_b2a4_000e7bbb2b09);
 pub const CCspStatus: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x884e2009_217d_11da_b2a4_000e7bbb2b09);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERTTRANSBLOB {
     pub cb: u32,
     pub pb: *mut u8,
 }
-impl Copy for CERTTRANSBLOB {}
-impl Clone for CERTTRANSBLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERTVIEWRESTRICTION {
     pub ColumnIndex: u32,
     pub SeekOperator: i32,
     pub SortOrder: i32,
     pub pbValue: *mut u8,
     pub cbValue: u32,
-}
-impl Copy for CERTVIEWRESTRICTION {}
-impl Clone for CERTVIEWRESTRICTION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const CEnroll: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x43f8f289_7a20_11d0_8f06_00c04fc295e1);
 pub const CEnroll2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x127698e4_e730_4e5c_a2b1_21490a70c8a1);
@@ -2254,15 +2239,10 @@ pub const CObjectIds: windows_sys::core::GUID = windows_sys::core::GUID::from_u1
 pub const CPolicyQualifier: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x884e201c_217d_11da_b2a4_000e7bbb2b09);
 pub const CPolicyQualifiers: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x884e201d_217d_11da_b2a4_000e7bbb2b09);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CSEDB_RSTMAPW {
     pub pwszDatabaseName: windows_sys::core::PWSTR,
     pub pwszNewDatabaseName: windows_sys::core::PWSTR,
-}
-impl Copy for CSEDB_RSTMAPW {}
-impl Clone for CSEDB_RSTMAPW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const CSignerCertificate: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x884e203d_217d_11da_b2a4_000e7bbb2b09);
 pub const CSmimeCapabilities: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x884e201a_217d_11da_b2a4_000e7bbb2b09);

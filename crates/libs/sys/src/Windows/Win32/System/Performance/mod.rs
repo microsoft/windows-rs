@@ -512,6 +512,7 @@ pub const LegacyTraceSessionCollection: windows_sys::core::GUID = windows_sys::c
 pub const LogFileItem: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x16ec5be8_df93_4237_94e4_9ee918111d71);
 pub const LogFiles: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2735d9fd_f6b9_4f19_a5d9_e2d068584bc5);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_BROWSE_DLG_CONFIG_A {
     pub _bitfield: u32,
     pub hWndOwner: super::super::Foundation::HWND,
@@ -524,13 +525,8 @@ pub struct PDH_BROWSE_DLG_CONFIG_A {
     pub dwDefaultDetailLevel: PERF_DETAIL,
     pub szDialogBoxCaption: windows_sys::core::PSTR,
 }
-impl Copy for PDH_BROWSE_DLG_CONFIG_A {}
-impl Clone for PDH_BROWSE_DLG_CONFIG_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_BROWSE_DLG_CONFIG_HA {
     pub _bitfield: u32,
     pub hWndOwner: super::super::Foundation::HWND,
@@ -543,13 +539,8 @@ pub struct PDH_BROWSE_DLG_CONFIG_HA {
     pub dwDefaultDetailLevel: PERF_DETAIL,
     pub szDialogBoxCaption: windows_sys::core::PSTR,
 }
-impl Copy for PDH_BROWSE_DLG_CONFIG_HA {}
-impl Clone for PDH_BROWSE_DLG_CONFIG_HA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_BROWSE_DLG_CONFIG_HW {
     pub _bitfield: u32,
     pub hWndOwner: super::super::Foundation::HWND,
@@ -562,13 +553,8 @@ pub struct PDH_BROWSE_DLG_CONFIG_HW {
     pub dwDefaultDetailLevel: PERF_DETAIL,
     pub szDialogBoxCaption: windows_sys::core::PWSTR,
 }
-impl Copy for PDH_BROWSE_DLG_CONFIG_HW {}
-impl Clone for PDH_BROWSE_DLG_CONFIG_HW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_BROWSE_DLG_CONFIG_W {
     pub _bitfield: u32,
     pub hWndOwner: super::super::Foundation::HWND,
@@ -581,13 +567,8 @@ pub struct PDH_BROWSE_DLG_CONFIG_W {
     pub dwDefaultDetailLevel: PERF_DETAIL,
     pub szDialogBoxCaption: windows_sys::core::PWSTR,
 }
-impl Copy for PDH_BROWSE_DLG_CONFIG_W {}
-impl Clone for PDH_BROWSE_DLG_CONFIG_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_COUNTER_INFO_A {
     pub dwLength: u32,
     pub dwType: u32,
@@ -602,25 +583,15 @@ pub struct PDH_COUNTER_INFO_A {
     pub szExplainText: windows_sys::core::PSTR,
     pub DataBuffer: [u32; 1],
 }
-impl Copy for PDH_COUNTER_INFO_A {}
-impl Clone for PDH_COUNTER_INFO_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PDH_COUNTER_INFO_A_0 {
     pub DataItemPath: PDH_DATA_ITEM_PATH_ELEMENTS_A,
     pub CounterPath: PDH_COUNTER_PATH_ELEMENTS_A,
     pub Anonymous: PDH_COUNTER_INFO_A_0_0,
 }
-impl Copy for PDH_COUNTER_INFO_A_0 {}
-impl Clone for PDH_COUNTER_INFO_A_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_COUNTER_INFO_A_0_0 {
     pub szMachineName: windows_sys::core::PSTR,
     pub szObjectName: windows_sys::core::PSTR,
@@ -629,13 +600,8 @@ pub struct PDH_COUNTER_INFO_A_0_0 {
     pub dwInstanceIndex: u32,
     pub szCounterName: windows_sys::core::PSTR,
 }
-impl Copy for PDH_COUNTER_INFO_A_0_0 {}
-impl Clone for PDH_COUNTER_INFO_A_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_COUNTER_INFO_W {
     pub dwLength: u32,
     pub dwType: u32,
@@ -650,25 +616,15 @@ pub struct PDH_COUNTER_INFO_W {
     pub szExplainText: windows_sys::core::PWSTR,
     pub DataBuffer: [u32; 1],
 }
-impl Copy for PDH_COUNTER_INFO_W {}
-impl Clone for PDH_COUNTER_INFO_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PDH_COUNTER_INFO_W_0 {
     pub DataItemPath: PDH_DATA_ITEM_PATH_ELEMENTS_W,
     pub CounterPath: PDH_COUNTER_PATH_ELEMENTS_W,
     pub Anonymous: PDH_COUNTER_INFO_W_0_0,
 }
-impl Copy for PDH_COUNTER_INFO_W_0 {}
-impl Clone for PDH_COUNTER_INFO_W_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_COUNTER_INFO_W_0_0 {
     pub szMachineName: windows_sys::core::PWSTR,
     pub szObjectName: windows_sys::core::PWSTR,
@@ -677,13 +633,8 @@ pub struct PDH_COUNTER_INFO_W_0_0 {
     pub dwInstanceIndex: u32,
     pub szCounterName: windows_sys::core::PWSTR,
 }
-impl Copy for PDH_COUNTER_INFO_W_0_0 {}
-impl Clone for PDH_COUNTER_INFO_W_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_COUNTER_PATH_ELEMENTS_A {
     pub szMachineName: windows_sys::core::PSTR,
     pub szObjectName: windows_sys::core::PSTR,
@@ -692,13 +643,8 @@ pub struct PDH_COUNTER_PATH_ELEMENTS_A {
     pub dwInstanceIndex: u32,
     pub szCounterName: windows_sys::core::PSTR,
 }
-impl Copy for PDH_COUNTER_PATH_ELEMENTS_A {}
-impl Clone for PDH_COUNTER_PATH_ELEMENTS_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_COUNTER_PATH_ELEMENTS_W {
     pub szMachineName: windows_sys::core::PWSTR,
     pub szObjectName: windows_sys::core::PWSTR,
@@ -707,50 +653,30 @@ pub struct PDH_COUNTER_PATH_ELEMENTS_W {
     pub dwInstanceIndex: u32,
     pub szCounterName: windows_sys::core::PWSTR,
 }
-impl Copy for PDH_COUNTER_PATH_ELEMENTS_W {}
-impl Clone for PDH_COUNTER_PATH_ELEMENTS_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_DATA_ITEM_PATH_ELEMENTS_A {
     pub szMachineName: windows_sys::core::PSTR,
     pub ObjectGUID: windows_sys::core::GUID,
     pub dwItemId: u32,
     pub szInstanceName: windows_sys::core::PSTR,
 }
-impl Copy for PDH_DATA_ITEM_PATH_ELEMENTS_A {}
-impl Clone for PDH_DATA_ITEM_PATH_ELEMENTS_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_DATA_ITEM_PATH_ELEMENTS_W {
     pub szMachineName: windows_sys::core::PWSTR,
     pub ObjectGUID: windows_sys::core::GUID,
     pub dwItemId: u32,
     pub szInstanceName: windows_sys::core::PWSTR,
 }
-impl Copy for PDH_DATA_ITEM_PATH_ELEMENTS_W {}
-impl Clone for PDH_DATA_ITEM_PATH_ELEMENTS_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_FMT_COUNTERVALUE {
     pub CStatus: u32,
     pub Anonymous: PDH_FMT_COUNTERVALUE_0,
 }
-impl Copy for PDH_FMT_COUNTERVALUE {}
-impl Clone for PDH_FMT_COUNTERVALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PDH_FMT_COUNTERVALUE_0 {
     pub longValue: i32,
     pub doubleValue: f64,
@@ -758,35 +684,20 @@ pub union PDH_FMT_COUNTERVALUE_0 {
     pub AnsiStringValue: windows_sys::core::PCSTR,
     pub WideStringValue: windows_sys::core::PCWSTR,
 }
-impl Copy for PDH_FMT_COUNTERVALUE_0 {}
-impl Clone for PDH_FMT_COUNTERVALUE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_FMT_COUNTERVALUE_ITEM_A {
     pub szName: windows_sys::core::PSTR,
     pub FmtValue: PDH_FMT_COUNTERVALUE,
 }
-impl Copy for PDH_FMT_COUNTERVALUE_ITEM_A {}
-impl Clone for PDH_FMT_COUNTERVALUE_ITEM_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_FMT_COUNTERVALUE_ITEM_W {
     pub szName: windows_sys::core::PWSTR,
     pub FmtValue: PDH_FMT_COUNTERVALUE,
 }
-impl Copy for PDH_FMT_COUNTERVALUE_ITEM_W {}
-impl Clone for PDH_FMT_COUNTERVALUE_ITEM_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -798,24 +709,14 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_A {
     pub dwReserved: u32,
     pub Anonymous: PDH_LOG_SERVICE_QUERY_INFO_A_0,
 }
-impl Copy for PDH_LOG_SERVICE_QUERY_INFO_A {}
-impl Clone for PDH_LOG_SERVICE_QUERY_INFO_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PDH_LOG_SERVICE_QUERY_INFO_A_0 {
     pub Anonymous1: PDH_LOG_SERVICE_QUERY_INFO_A_0_0,
     pub Anonymous2: PDH_LOG_SERVICE_QUERY_INFO_A_0_1,
 }
-impl Copy for PDH_LOG_SERVICE_QUERY_INFO_A_0 {}
-impl Clone for PDH_LOG_SERVICE_QUERY_INFO_A_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     pub PdlAutoNameInterval: u32,
     pub PdlAutoNameUnits: u32,
@@ -826,13 +727,8 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     pub PdlLogStartTime: super::super::Foundation::FILETIME,
     pub PdlLogEndTime: super::super::Foundation::FILETIME,
 }
-impl Copy for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {}
-impl Clone for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
     pub TlNumberOfBuffers: u32,
     pub TlMinimumBuffers: u32,
@@ -845,13 +741,8 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
     pub TlLogHandle: u32,
     pub TlLogFileName: windows_sys::core::PSTR,
 }
-impl Copy for PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {}
-impl Clone for PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -863,24 +754,14 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_W {
     pub dwReserved: u32,
     pub Anonymous: PDH_LOG_SERVICE_QUERY_INFO_W_0,
 }
-impl Copy for PDH_LOG_SERVICE_QUERY_INFO_W {}
-impl Clone for PDH_LOG_SERVICE_QUERY_INFO_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PDH_LOG_SERVICE_QUERY_INFO_W_0 {
     pub Anonymous1: PDH_LOG_SERVICE_QUERY_INFO_W_0_0,
     pub Anonymous2: PDH_LOG_SERVICE_QUERY_INFO_W_0_1,
 }
-impl Copy for PDH_LOG_SERVICE_QUERY_INFO_W_0 {}
-impl Clone for PDH_LOG_SERVICE_QUERY_INFO_W_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     pub PdlAutoNameInterval: u32,
     pub PdlAutoNameUnits: u32,
@@ -891,13 +772,8 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     pub PdlLogStartTime: super::super::Foundation::FILETIME,
     pub PdlLogEndTime: super::super::Foundation::FILETIME,
 }
-impl Copy for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {}
-impl Clone for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
     pub TlNumberOfBuffers: u32,
     pub TlMinimumBuffers: u32,
@@ -910,13 +786,8 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
     pub TlLogHandle: u32,
     pub TlLogFileName: windows_sys::core::PWSTR,
 }
-impl Copy for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {}
-impl Clone for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_RAW_COUNTER {
     pub CStatus: u32,
     pub TimeStamp: super::super::Foundation::FILETIME,
@@ -924,48 +795,28 @@ pub struct PDH_RAW_COUNTER {
     pub SecondValue: i64,
     pub MultiCount: u32,
 }
-impl Copy for PDH_RAW_COUNTER {}
-impl Clone for PDH_RAW_COUNTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_RAW_COUNTER_ITEM_A {
     pub szName: windows_sys::core::PSTR,
     pub RawValue: PDH_RAW_COUNTER,
 }
-impl Copy for PDH_RAW_COUNTER_ITEM_A {}
-impl Clone for PDH_RAW_COUNTER_ITEM_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_RAW_COUNTER_ITEM_W {
     pub szName: windows_sys::core::PWSTR,
     pub RawValue: PDH_RAW_COUNTER,
 }
-impl Copy for PDH_RAW_COUNTER_ITEM_W {}
-impl Clone for PDH_RAW_COUNTER_ITEM_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_RAW_LOG_RECORD {
     pub dwStructureSize: u32,
     pub dwRecordType: PDH_LOG_TYPE,
     pub dwItems: u32,
     pub RawBytes: [u8; 1],
 }
-impl Copy for PDH_RAW_LOG_RECORD {}
-impl Clone for PDH_RAW_LOG_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_STATISTICS {
     pub dwFormat: u32,
     pub count: u32,
@@ -973,38 +824,23 @@ pub struct PDH_STATISTICS {
     pub max: PDH_FMT_COUNTERVALUE,
     pub mean: PDH_FMT_COUNTERVALUE,
 }
-impl Copy for PDH_STATISTICS {}
-impl Clone for PDH_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PDH_TIME_INFO {
     pub StartTime: i64,
     pub EndTime: i64,
     pub SampleCount: u32,
 }
-impl Copy for PDH_TIME_INFO {}
-impl Clone for PDH_TIME_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PERF_COUNTERSET_INFO {
     pub CounterSetGuid: windows_sys::core::GUID,
     pub ProviderGuid: windows_sys::core::GUID,
     pub NumCounters: u32,
     pub InstanceType: u32,
 }
-impl Copy for PERF_COUNTERSET_INFO {}
-impl Clone for PERF_COUNTERSET_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PERF_COUNTERSET_INSTANCE {
     pub CounterSetGuid: windows_sys::core::GUID,
     pub dwSize: u32,
@@ -1012,13 +848,8 @@ pub struct PERF_COUNTERSET_INSTANCE {
     pub InstanceNameOffset: u32,
     pub InstanceNameSize: u32,
 }
-impl Copy for PERF_COUNTERSET_INSTANCE {}
-impl Clone for PERF_COUNTERSET_INSTANCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PERF_COUNTERSET_REG_INFO {
     pub CounterSetGuid: windows_sys::core::GUID,
     pub CounterSetType: u32,
@@ -1026,35 +857,20 @@ pub struct PERF_COUNTERSET_REG_INFO {
     pub NumCounters: u32,
     pub InstanceType: u32,
 }
-impl Copy for PERF_COUNTERSET_REG_INFO {}
-impl Clone for PERF_COUNTERSET_REG_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PERF_COUNTER_BLOCK {
     pub ByteLength: u32,
 }
-impl Copy for PERF_COUNTER_BLOCK {}
-impl Clone for PERF_COUNTER_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PERF_COUNTER_DATA {
     pub dwDataSize: u32,
     pub dwSize: u32,
 }
-impl Copy for PERF_COUNTER_DATA {}
-impl Clone for PERF_COUNTER_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct PERF_COUNTER_DEFINITION {
     pub ByteLength: u32,
     pub CounterNameTitleIndex: u32,
@@ -1067,16 +883,9 @@ pub struct PERF_COUNTER_DEFINITION {
     pub CounterSize: u32,
     pub CounterOffset: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for PERF_COUNTER_DEFINITION {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for PERF_COUNTER_DEFINITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct PERF_COUNTER_DEFINITION {
     pub ByteLength: u32,
     pub CounterNameTitleIndex: u32,
@@ -1089,28 +898,16 @@ pub struct PERF_COUNTER_DEFINITION {
     pub CounterSize: u32,
     pub CounterOffset: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for PERF_COUNTER_DEFINITION {}
-#[cfg(target_arch = "x86")]
-impl Clone for PERF_COUNTER_DEFINITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PERF_COUNTER_HEADER {
     pub dwStatus: u32,
     pub dwType: PerfCounterDataType,
     pub dwSize: u32,
     pub Reserved: u32,
 }
-impl Copy for PERF_COUNTER_HEADER {}
-impl Clone for PERF_COUNTER_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PERF_COUNTER_IDENTIFIER {
     pub CounterSetGuid: windows_sys::core::GUID,
     pub Status: u32,
@@ -1120,13 +917,8 @@ pub struct PERF_COUNTER_IDENTIFIER {
     pub Index: u32,
     pub Reserved: u32,
 }
-impl Copy for PERF_COUNTER_IDENTIFIER {}
-impl Clone for PERF_COUNTER_IDENTIFIER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PERF_COUNTER_IDENTITY {
     pub CounterSetGuid: windows_sys::core::GUID,
     pub BufferSize: u32,
@@ -1136,13 +928,8 @@ pub struct PERF_COUNTER_IDENTITY {
     pub NameOffset: u32,
     pub Reserved: u32,
 }
-impl Copy for PERF_COUNTER_IDENTITY {}
-impl Clone for PERF_COUNTER_IDENTITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PERF_COUNTER_INFO {
     pub CounterId: u32,
     pub Type: u32,
@@ -1152,13 +939,8 @@ pub struct PERF_COUNTER_INFO {
     pub Scale: i32,
     pub Offset: u32,
 }
-impl Copy for PERF_COUNTER_INFO {}
-impl Clone for PERF_COUNTER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PERF_COUNTER_REG_INFO {
     pub CounterId: u32,
     pub Type: u32,
@@ -1172,13 +954,8 @@ pub struct PERF_COUNTER_REG_INFO {
     pub AggregateFunc: PERF_COUNTER_AGGREGATE_FUNC,
     pub Reserved: u32,
 }
-impl Copy for PERF_COUNTER_REG_INFO {}
-impl Clone for PERF_COUNTER_REG_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PERF_DATA_BLOCK {
     pub Signature: [u16; 4],
     pub LittleEndian: u32,
@@ -1195,13 +972,8 @@ pub struct PERF_DATA_BLOCK {
     pub SystemNameLength: u32,
     pub SystemNameOffset: u32,
 }
-impl Copy for PERF_DATA_BLOCK {}
-impl Clone for PERF_DATA_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PERF_DATA_HEADER {
     pub dwTotalSize: u32,
     pub dwNumCounters: u32,
@@ -1210,13 +982,8 @@ pub struct PERF_DATA_HEADER {
     pub PerfFreq: i64,
     pub SystemTime: super::super::Foundation::SYSTEMTIME,
 }
-impl Copy for PERF_DATA_HEADER {}
-impl Clone for PERF_DATA_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PERF_INSTANCE_DEFINITION {
     pub ByteLength: u32,
     pub ParentObjectTitleIndex: u32,
@@ -1225,47 +992,27 @@ pub struct PERF_INSTANCE_DEFINITION {
     pub NameOffset: u32,
     pub NameLength: u32,
 }
-impl Copy for PERF_INSTANCE_DEFINITION {}
-impl Clone for PERF_INSTANCE_DEFINITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PERF_INSTANCE_HEADER {
     pub Size: u32,
     pub InstanceId: u32,
 }
-impl Copy for PERF_INSTANCE_HEADER {}
-impl Clone for PERF_INSTANCE_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PERF_MULTI_COUNTERS {
     pub dwSize: u32,
     pub dwCounters: u32,
 }
-impl Copy for PERF_MULTI_COUNTERS {}
-impl Clone for PERF_MULTI_COUNTERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PERF_MULTI_INSTANCES {
     pub dwTotalSize: u32,
     pub dwInstances: u32,
 }
-impl Copy for PERF_MULTI_INSTANCES {}
-impl Clone for PERF_MULTI_INSTANCES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct PERF_OBJECT_TYPE {
     pub TotalByteLength: u32,
     pub DefinitionLength: u32,
@@ -1282,16 +1029,9 @@ pub struct PERF_OBJECT_TYPE {
     pub PerfTime: i64,
     pub PerfFreq: i64,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for PERF_OBJECT_TYPE {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for PERF_OBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct PERF_OBJECT_TYPE {
     pub TotalByteLength: u32,
     pub DefinitionLength: u32,
@@ -1308,15 +1048,8 @@ pub struct PERF_OBJECT_TYPE {
     pub PerfTime: i64,
     pub PerfFreq: i64,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for PERF_OBJECT_TYPE {}
-#[cfg(target_arch = "x86")]
-impl Clone for PERF_OBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PERF_PROVIDER_CONTEXT {
     pub ContextSize: u32,
     pub Reserved: u32,
@@ -1325,33 +1058,17 @@ pub struct PERF_PROVIDER_CONTEXT {
     pub MemFreeRoutine: PERF_MEM_FREE,
     pub pMemContext: *mut core::ffi::c_void,
 }
-impl Copy for PERF_PROVIDER_CONTEXT {}
-impl Clone for PERF_PROVIDER_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PERF_STRING_BUFFER_HEADER {
     pub dwSize: u32,
     pub dwCounters: u32,
 }
-impl Copy for PERF_STRING_BUFFER_HEADER {}
-impl Clone for PERF_STRING_BUFFER_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PERF_STRING_COUNTER_HEADER {
     pub dwCounterId: u32,
     pub dwOffset: u32,
-}
-impl Copy for PERF_STRING_COUNTER_HEADER {}
-impl Clone for PERF_STRING_COUNTER_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const ServerDataCollectorSet: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x03837531_098b_11d8_9414_505054503030);
 pub const ServerDataCollectorSetCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x03837532_098b_11d8_9414_505054503030);

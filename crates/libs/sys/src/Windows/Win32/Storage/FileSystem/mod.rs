@@ -1553,6 +1553,7 @@ pub type VS_FIXEDFILEINFO_FILE_SUBTYPE = i32;
 pub type VS_FIXEDFILEINFO_FILE_TYPE = i32;
 pub type WIN_STREAM_ID = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BY_HANDLE_FILE_INFORMATION {
     pub dwFileAttributes: u32,
     pub ftCreationTime: super::super::Foundation::FILETIME,
@@ -1565,36 +1566,21 @@ pub struct BY_HANDLE_FILE_INFORMATION {
     pub nFileIndexHigh: u32,
     pub nFileIndexLow: u32,
 }
-impl Copy for BY_HANDLE_FILE_INFORMATION {}
-impl Clone for BY_HANDLE_FILE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLFS_LOG_NAME_INFORMATION {
     pub NameLengthInBytes: u16,
     pub Name: [u16; 1],
 }
-impl Copy for CLFS_LOG_NAME_INFORMATION {}
-impl Clone for CLFS_LOG_NAME_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLFS_MGMT_NOTIFICATION {
     pub Notification: CLFS_MGMT_NOTIFICATION_TYPE,
     pub Lsn: CLS_LSN,
     pub LogIsPinned: u16,
 }
-impl Copy for CLFS_MGMT_NOTIFICATION {}
-impl Clone for CLFS_MGMT_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLFS_MGMT_POLICY {
     pub Version: u32,
     pub LengthInBytes: u32,
@@ -1602,13 +1588,8 @@ pub struct CLFS_MGMT_POLICY {
     pub PolicyType: CLFS_MGMT_POLICY_TYPE,
     pub PolicyParameters: CLFS_MGMT_POLICY_0,
 }
-impl Copy for CLFS_MGMT_POLICY {}
-impl Clone for CLFS_MGMT_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CLFS_MGMT_POLICY_0 {
     pub MaximumSize: CLFS_MGMT_POLICY_0_4,
     pub MinimumSize: CLFS_MGMT_POLICY_0_5,
@@ -1621,162 +1602,87 @@ pub union CLFS_MGMT_POLICY_0 {
     pub NewContainerSuffix: CLFS_MGMT_POLICY_0_9,
     pub NewContainerExtension: CLFS_MGMT_POLICY_0_6,
 }
-impl Copy for CLFS_MGMT_POLICY_0 {}
-impl Clone for CLFS_MGMT_POLICY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLFS_MGMT_POLICY_0_0 {
     pub Enabled: u32,
 }
-impl Copy for CLFS_MGMT_POLICY_0_0 {}
-impl Clone for CLFS_MGMT_POLICY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLFS_MGMT_POLICY_0_1 {
     pub Percentage: u32,
 }
-impl Copy for CLFS_MGMT_POLICY_0_1 {}
-impl Clone for CLFS_MGMT_POLICY_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLFS_MGMT_POLICY_0_2 {
     pub AbsoluteGrowthInContainers: u32,
     pub RelativeGrowthPercentage: u32,
 }
-impl Copy for CLFS_MGMT_POLICY_0_2 {}
-impl Clone for CLFS_MGMT_POLICY_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLFS_MGMT_POLICY_0_3 {
     pub MinimumAvailablePercentage: u32,
     pub MinimumAvailableContainers: u32,
 }
-impl Copy for CLFS_MGMT_POLICY_0_3 {}
-impl Clone for CLFS_MGMT_POLICY_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLFS_MGMT_POLICY_0_4 {
     pub Containers: u32,
 }
-impl Copy for CLFS_MGMT_POLICY_0_4 {}
-impl Clone for CLFS_MGMT_POLICY_0_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLFS_MGMT_POLICY_0_5 {
     pub Containers: u32,
 }
-impl Copy for CLFS_MGMT_POLICY_0_5 {}
-impl Clone for CLFS_MGMT_POLICY_0_5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLFS_MGMT_POLICY_0_6 {
     pub ExtensionLengthInBytes: u16,
     pub ExtensionString: [u16; 1],
 }
-impl Copy for CLFS_MGMT_POLICY_0_6 {}
-impl Clone for CLFS_MGMT_POLICY_0_6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLFS_MGMT_POLICY_0_7 {
     pub PrefixLengthInBytes: u16,
     pub PrefixString: [u16; 1],
 }
-impl Copy for CLFS_MGMT_POLICY_0_7 {}
-impl Clone for CLFS_MGMT_POLICY_0_7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLFS_MGMT_POLICY_0_8 {
     pub SizeInBytes: u32,
 }
-impl Copy for CLFS_MGMT_POLICY_0_8 {}
-impl Clone for CLFS_MGMT_POLICY_0_8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLFS_MGMT_POLICY_0_9 {
     pub NextContainerSuffix: u64,
 }
-impl Copy for CLFS_MGMT_POLICY_0_9 {}
-impl Clone for CLFS_MGMT_POLICY_0_9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLFS_NODE_ID {
     pub cType: u32,
     pub cbNode: u32,
 }
-impl Copy for CLFS_NODE_ID {}
-impl Clone for CLFS_NODE_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLFS_PHYSICAL_LSN_INFORMATION {
     pub StreamIdentifier: u8,
     pub VirtualLsn: CLS_LSN,
     pub PhysicalLsn: CLS_LSN,
 }
-impl Copy for CLFS_PHYSICAL_LSN_INFORMATION {}
-impl Clone for CLFS_PHYSICAL_LSN_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLFS_STREAM_ID_INFORMATION {
     pub StreamIdentifier: u8,
 }
-impl Copy for CLFS_STREAM_ID_INFORMATION {}
-impl Clone for CLFS_STREAM_ID_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLS_ARCHIVE_DESCRIPTOR {
     pub coffLow: u64,
     pub coffHigh: u64,
     pub infoContainer: CLS_CONTAINER_INFORMATION,
 }
-impl Copy for CLS_ARCHIVE_DESCRIPTOR {}
-impl Clone for CLS_ARCHIVE_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLS_CONTAINER_INFORMATION {
     pub FileAttributes: u32,
     pub CreationTime: u64,
@@ -1790,13 +1696,8 @@ pub struct CLS_CONTAINER_INFORMATION {
     pub PhysicalContainerId: u32,
     pub LogicalContainerId: u32,
 }
-impl Copy for CLS_CONTAINER_INFORMATION {}
-impl Clone for CLS_CONTAINER_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLS_INFORMATION {
     pub TotalAvailable: i64,
     pub CurrentAvailable: i64,
@@ -1816,13 +1717,8 @@ pub struct CLS_INFORMATION {
     pub RestartLsn: CLS_LSN,
     pub Identity: windows_sys::core::GUID,
 }
-impl Copy for CLS_INFORMATION {}
-impl Clone for CLS_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLS_IO_STATISTICS {
     pub hdrIoStats: CLS_IO_STATISTICS_HEADER,
     pub cFlush: u64,
@@ -1830,13 +1726,8 @@ pub struct CLS_IO_STATISTICS {
     pub cMetaFlush: u64,
     pub cbMetaFlush: u64,
 }
-impl Copy for CLS_IO_STATISTICS {}
-impl Clone for CLS_IO_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLS_IO_STATISTICS_HEADER {
     pub ubMajorVersion: u8,
     pub ubMinorVersion: u8,
@@ -1844,23 +1735,13 @@ pub struct CLS_IO_STATISTICS_HEADER {
     pub cbLength: u16,
     pub coffData: u32,
 }
-impl Copy for CLS_IO_STATISTICS_HEADER {}
-impl Clone for CLS_IO_STATISTICS_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLS_LSN {
     pub Internal: u64,
 }
-impl Copy for CLS_LSN {}
-impl Clone for CLS_LSN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLS_SCAN_CONTEXT {
     pub cidNode: CLFS_NODE_ID,
     pub hLog: super::super::Foundation::HANDLE,
@@ -1870,34 +1751,19 @@ pub struct CLS_SCAN_CONTEXT {
     pub eScanMode: u8,
     pub pinfoContainer: *mut CLS_CONTAINER_INFORMATION,
 }
-impl Copy for CLS_SCAN_CONTEXT {}
-impl Clone for CLS_SCAN_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLS_WRITE_ENTRY {
     pub Buffer: *mut core::ffi::c_void,
     pub ByteLength: u32,
 }
-impl Copy for CLS_WRITE_ENTRY {}
-impl Clone for CLS_WRITE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CONNECTION_INFO_0 {
     pub coni0_id: u32,
 }
-impl Copy for CONNECTION_INFO_0 {}
-impl Clone for CONNECTION_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CONNECTION_INFO_1 {
     pub coni1_id: u32,
     pub coni1_type: SHARE_TYPE,
@@ -1907,13 +1773,8 @@ pub struct CONNECTION_INFO_1 {
     pub coni1_username: windows_sys::core::PWSTR,
     pub coni1_netname: windows_sys::core::PWSTR,
 }
-impl Copy for CONNECTION_INFO_1 {}
-impl Clone for CONNECTION_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COPYFILE2_EXTENDED_PARAMETERS {
     pub dwSize: u32,
     pub dwCopyFlags: u32,
@@ -1921,13 +1782,8 @@ pub struct COPYFILE2_EXTENDED_PARAMETERS {
     pub pProgressRoutine: PCOPYFILE2_PROGRESS_ROUTINE,
     pub pvCallbackContext: *mut core::ffi::c_void,
 }
-impl Copy for COPYFILE2_EXTENDED_PARAMETERS {}
-impl Clone for COPYFILE2_EXTENDED_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COPYFILE2_EXTENDED_PARAMETERS_V2 {
     pub dwSize: u32,
     pub dwCopyFlags: u32,
@@ -1939,25 +1795,15 @@ pub struct COPYFILE2_EXTENDED_PARAMETERS_V2 {
     pub ioDesiredRate: u32,
     pub reserved: [*mut core::ffi::c_void; 8],
 }
-impl Copy for COPYFILE2_EXTENDED_PARAMETERS_V2 {}
-impl Clone for COPYFILE2_EXTENDED_PARAMETERS_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COPYFILE2_MESSAGE {
     pub Type: COPYFILE2_MESSAGE_TYPE,
     pub dwPadding: u32,
     pub Info: COPYFILE2_MESSAGE_0,
 }
-impl Copy for COPYFILE2_MESSAGE {}
-impl Clone for COPYFILE2_MESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union COPYFILE2_MESSAGE_0 {
     pub ChunkStarted: COPYFILE2_MESSAGE_0_1,
     pub ChunkFinished: COPYFILE2_MESSAGE_0_0,
@@ -1966,13 +1812,8 @@ pub union COPYFILE2_MESSAGE_0 {
     pub PollContinue: COPYFILE2_MESSAGE_0_3,
     pub Error: COPYFILE2_MESSAGE_0_2,
 }
-impl Copy for COPYFILE2_MESSAGE_0 {}
-impl Clone for COPYFILE2_MESSAGE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COPYFILE2_MESSAGE_0_0 {
     pub dwStreamNumber: u32,
     pub dwFlags: u32,
@@ -1985,13 +1826,8 @@ pub struct COPYFILE2_MESSAGE_0_0 {
     pub uliTotalFileSize: u64,
     pub uliTotalBytesTransferred: u64,
 }
-impl Copy for COPYFILE2_MESSAGE_0_0 {}
-impl Clone for COPYFILE2_MESSAGE_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COPYFILE2_MESSAGE_0_1 {
     pub dwStreamNumber: u32,
     pub dwReserved: u32,
@@ -2002,13 +1838,8 @@ pub struct COPYFILE2_MESSAGE_0_1 {
     pub uliStreamSize: u64,
     pub uliTotalFileSize: u64,
 }
-impl Copy for COPYFILE2_MESSAGE_0_1 {}
-impl Clone for COPYFILE2_MESSAGE_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COPYFILE2_MESSAGE_0_2 {
     pub CopyPhase: COPYFILE2_COPY_PHASE,
     pub dwStreamNumber: u32,
@@ -2020,23 +1851,13 @@ pub struct COPYFILE2_MESSAGE_0_2 {
     pub uliTotalFileSize: u64,
     pub uliTotalBytesTransferred: u64,
 }
-impl Copy for COPYFILE2_MESSAGE_0_2 {}
-impl Clone for COPYFILE2_MESSAGE_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COPYFILE2_MESSAGE_0_3 {
     pub dwReserved: u32,
 }
-impl Copy for COPYFILE2_MESSAGE_0_3 {}
-impl Clone for COPYFILE2_MESSAGE_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COPYFILE2_MESSAGE_0_4 {
     pub dwStreamNumber: u32,
     pub dwReserved: u32,
@@ -2047,13 +1868,8 @@ pub struct COPYFILE2_MESSAGE_0_4 {
     pub uliTotalFileSize: u64,
     pub uliTotalBytesTransferred: u64,
 }
-impl Copy for COPYFILE2_MESSAGE_0_4 {}
-impl Clone for COPYFILE2_MESSAGE_0_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COPYFILE2_MESSAGE_0_5 {
     pub dwStreamNumber: u32,
     pub dwReserved: u32,
@@ -2062,14 +1878,9 @@ pub struct COPYFILE2_MESSAGE_0_5 {
     pub uliStreamSize: u64,
     pub uliTotalFileSize: u64,
 }
-impl Copy for COPYFILE2_MESSAGE_0_5 {}
-impl Clone for COPYFILE2_MESSAGE_0_5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct CREATEFILE2_EXTENDED_PARAMETERS {
     pub dwSize: u32,
     pub dwFileAttributes: u32,
@@ -2078,27 +1889,15 @@ pub struct CREATEFILE2_EXTENDED_PARAMETERS {
     pub lpSecurityAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
     pub hTemplateFile: super::super::Foundation::HANDLE,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for CREATEFILE2_EXTENDED_PARAMETERS {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for CREATEFILE2_EXTENDED_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DISKQUOTA_USER_INFORMATION {
     pub QuotaUsed: i64,
     pub QuotaThreshold: i64,
     pub QuotaLimit: i64,
 }
-impl Copy for DISKQUOTA_USER_INFORMATION {}
-impl Clone for DISKQUOTA_USER_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DISK_SPACE_INFORMATION {
     pub ActualTotalAllocationUnits: u64,
     pub ActualAvailableAllocationUnits: u64,
@@ -2114,223 +1913,122 @@ pub struct DISK_SPACE_INFORMATION {
     pub SectorsPerAllocationUnit: u32,
     pub BytesPerSector: u32,
 }
-impl Copy for DISK_SPACE_INFORMATION {}
-impl Clone for DISK_SPACE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EFS_CERTIFICATE_BLOB {
     pub dwCertEncodingType: u32,
     pub cbData: u32,
     pub pbData: *mut u8,
 }
-impl Copy for EFS_CERTIFICATE_BLOB {}
-impl Clone for EFS_CERTIFICATE_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EFS_COMPATIBILITY_INFO {
     pub EfsVersion: u32,
 }
-impl Copy for EFS_COMPATIBILITY_INFO {}
-impl Clone for EFS_COMPATIBILITY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EFS_DECRYPTION_STATUS_INFO {
     pub dwDecryptionError: u32,
     pub dwHashOffset: u32,
     pub cbHash: u32,
 }
-impl Copy for EFS_DECRYPTION_STATUS_INFO {}
-impl Clone for EFS_DECRYPTION_STATUS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EFS_ENCRYPTION_STATUS_INFO {
     pub bHasCurrentKey: super::super::Foundation::BOOL,
     pub dwEncryptionError: u32,
 }
-impl Copy for EFS_ENCRYPTION_STATUS_INFO {}
-impl Clone for EFS_ENCRYPTION_STATUS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EFS_HASH_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
 }
-impl Copy for EFS_HASH_BLOB {}
-impl Clone for EFS_HASH_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct EFS_KEY_INFO {
     pub dwVersion: u32,
     pub Entropy: u32,
     pub Algorithm: super::super::Security::Cryptography::ALG_ID,
     pub KeyLength: u32,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for EFS_KEY_INFO {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for EFS_KEY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EFS_PIN_BLOB {
     pub cbPadding: u32,
     pub cbData: u32,
     pub pbData: *mut u8,
 }
-impl Copy for EFS_PIN_BLOB {}
-impl Clone for EFS_PIN_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EFS_RPC_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
 }
-impl Copy for EFS_RPC_BLOB {}
-impl Clone for EFS_RPC_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EFS_VERSION_INFO {
     pub EfsVersion: u32,
     pub SubVersion: u32,
 }
-impl Copy for EFS_VERSION_INFO {}
-impl Clone for EFS_VERSION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct ENCRYPTED_FILE_METADATA_SIGNATURE {
     pub dwEfsAccessType: u32,
     pub pCertificatesAdded: *mut ENCRYPTION_CERTIFICATE_HASH_LIST,
     pub pEncryptionCertificate: *mut ENCRYPTION_CERTIFICATE,
     pub pEfsStreamSignature: *mut EFS_RPC_BLOB,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for ENCRYPTED_FILE_METADATA_SIGNATURE {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for ENCRYPTED_FILE_METADATA_SIGNATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct ENCRYPTION_CERTIFICATE {
     pub cbTotalLength: u32,
     pub pUserSid: *mut super::super::Security::SID,
     pub pCertBlob: *mut EFS_CERTIFICATE_BLOB,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for ENCRYPTION_CERTIFICATE {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for ENCRYPTION_CERTIFICATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct ENCRYPTION_CERTIFICATE_HASH {
     pub cbTotalLength: u32,
     pub pUserSid: *mut super::super::Security::SID,
     pub pHash: *mut EFS_HASH_BLOB,
     pub lpDisplayInformation: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for ENCRYPTION_CERTIFICATE_HASH {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for ENCRYPTION_CERTIFICATE_HASH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct ENCRYPTION_CERTIFICATE_HASH_LIST {
     pub nCert_Hash: u32,
     pub pUsers: *mut *mut ENCRYPTION_CERTIFICATE_HASH,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for ENCRYPTION_CERTIFICATE_HASH_LIST {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for ENCRYPTION_CERTIFICATE_HASH_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct ENCRYPTION_CERTIFICATE_LIST {
     pub nUsers: u32,
     pub pUsers: *mut *mut ENCRYPTION_CERTIFICATE,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for ENCRYPTION_CERTIFICATE_LIST {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for ENCRYPTION_CERTIFICATE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct ENCRYPTION_PROTECTOR {
     pub cbTotalLength: u32,
     pub pUserSid: *mut super::super::Security::SID,
     pub lpProtectorDescriptor: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for ENCRYPTION_PROTECTOR {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for ENCRYPTION_PROTECTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct ENCRYPTION_PROTECTOR_LIST {
     pub nProtectors: u32,
     pub pProtectors: *mut *mut ENCRYPTION_PROTECTOR,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for ENCRYPTION_PROTECTOR_LIST {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for ENCRYPTION_PROTECTOR_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FH_OVERLAPPED {
     pub Internal: usize,
     pub InternalHigh: usize,
@@ -2343,44 +2041,24 @@ pub struct FH_OVERLAPPED {
     pub Reserved3: usize,
     pub Reserved4: usize,
 }
-impl Copy for FH_OVERLAPPED {}
-impl Clone for FH_OVERLAPPED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_ALIGNMENT_INFO {
     pub AlignmentRequirement: u32,
 }
-impl Copy for FILE_ALIGNMENT_INFO {}
-impl Clone for FILE_ALIGNMENT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_ALLOCATION_INFO {
     pub AllocationSize: i64,
 }
-impl Copy for FILE_ALLOCATION_INFO {}
-impl Clone for FILE_ALLOCATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_ATTRIBUTE_TAG_INFO {
     pub FileAttributes: u32,
     pub ReparseTag: u32,
 }
-impl Copy for FILE_ATTRIBUTE_TAG_INFO {}
-impl Clone for FILE_ATTRIBUTE_TAG_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_BASIC_INFO {
     pub CreationTime: i64,
     pub LastAccessTime: i64,
@@ -2388,13 +2066,8 @@ pub struct FILE_BASIC_INFO {
     pub ChangeTime: i64,
     pub FileAttributes: u32,
 }
-impl Copy for FILE_BASIC_INFO {}
-impl Clone for FILE_BASIC_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_COMPRESSION_INFO {
     pub CompressedFileSize: i64,
     pub CompressionFormat: COMPRESSION_FORMAT,
@@ -2403,54 +2076,29 @@ pub struct FILE_COMPRESSION_INFO {
     pub ClusterShift: u8,
     pub Reserved: [u8; 3],
 }
-impl Copy for FILE_COMPRESSION_INFO {}
-impl Clone for FILE_COMPRESSION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_DISPOSITION_INFO {
     pub DeleteFile: super::super::Foundation::BOOLEAN,
 }
-impl Copy for FILE_DISPOSITION_INFO {}
-impl Clone for FILE_DISPOSITION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_DISPOSITION_INFO_EX {
     pub Flags: FILE_DISPOSITION_INFO_EX_FLAGS,
 }
-impl Copy for FILE_DISPOSITION_INFO_EX {}
-impl Clone for FILE_DISPOSITION_INFO_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_END_OF_FILE_INFO {
     pub EndOfFile: i64,
 }
-impl Copy for FILE_END_OF_FILE_INFO {}
-impl Clone for FILE_END_OF_FILE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_EXTENT {
     pub VolumeOffset: u64,
     pub ExtentLength: u64,
 }
-impl Copy for FILE_EXTENT {}
-impl Clone for FILE_EXTENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_FULL_DIR_INFO {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -2465,23 +2113,13 @@ pub struct FILE_FULL_DIR_INFO {
     pub EaSize: u32,
     pub FileName: [u16; 1],
 }
-impl Copy for FILE_FULL_DIR_INFO {}
-impl Clone for FILE_FULL_DIR_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_ID_128 {
     pub Identifier: [u8; 16],
 }
-impl Copy for FILE_ID_128 {}
-impl Clone for FILE_ID_128 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_ID_BOTH_DIR_INFO {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -2499,37 +2137,22 @@ pub struct FILE_ID_BOTH_DIR_INFO {
     pub FileId: i64,
     pub FileName: [u16; 1],
 }
-impl Copy for FILE_ID_BOTH_DIR_INFO {}
-impl Clone for FILE_ID_BOTH_DIR_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_ID_DESCRIPTOR {
     pub dwSize: u32,
     pub Type: FILE_ID_TYPE,
     pub Anonymous: FILE_ID_DESCRIPTOR_0,
 }
-impl Copy for FILE_ID_DESCRIPTOR {}
-impl Clone for FILE_ID_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union FILE_ID_DESCRIPTOR_0 {
     pub FileId: i64,
     pub ObjectId: windows_sys::core::GUID,
     pub ExtendedFileId: FILE_ID_128,
 }
-impl Copy for FILE_ID_DESCRIPTOR_0 {}
-impl Clone for FILE_ID_DESCRIPTOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_ID_EXTD_DIR_INFO {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -2546,34 +2169,19 @@ pub struct FILE_ID_EXTD_DIR_INFO {
     pub FileId: FILE_ID_128,
     pub FileName: [u16; 1],
 }
-impl Copy for FILE_ID_EXTD_DIR_INFO {}
-impl Clone for FILE_ID_EXTD_DIR_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_ID_INFO {
     pub VolumeSerialNumber: u64,
     pub FileId: FILE_ID_128,
 }
-impl Copy for FILE_ID_INFO {}
-impl Clone for FILE_ID_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_INFO_2 {
     pub fi2_id: u32,
 }
-impl Copy for FILE_INFO_2 {}
-impl Clone for FILE_INFO_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_INFO_3 {
     pub fi3_id: u32,
     pub fi3_permissions: FILE_INFO_FLAGS_PERMISSIONS,
@@ -2581,34 +2189,19 @@ pub struct FILE_INFO_3 {
     pub fi3_pathname: windows_sys::core::PWSTR,
     pub fi3_username: windows_sys::core::PWSTR,
 }
-impl Copy for FILE_INFO_3 {}
-impl Clone for FILE_INFO_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_IO_PRIORITY_HINT_INFO {
     pub PriorityHint: PRIORITY_HINT,
 }
-impl Copy for FILE_IO_PRIORITY_HINT_INFO {}
-impl Clone for FILE_IO_PRIORITY_HINT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_NAME_INFO {
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
 }
-impl Copy for FILE_NAME_INFO {}
-impl Clone for FILE_NAME_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_NOTIFY_EXTENDED_INFORMATION {
     pub NextEntryOffset: u32,
     pub Action: FILE_ACTION,
@@ -2625,37 +2218,22 @@ pub struct FILE_NOTIFY_EXTENDED_INFORMATION {
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
 }
-impl Copy for FILE_NOTIFY_EXTENDED_INFORMATION {}
-impl Clone for FILE_NOTIFY_EXTENDED_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union FILE_NOTIFY_EXTENDED_INFORMATION_0 {
     pub ReparsePointTag: u32,
     pub EaSize: u32,
 }
-impl Copy for FILE_NOTIFY_EXTENDED_INFORMATION_0 {}
-impl Clone for FILE_NOTIFY_EXTENDED_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_NOTIFY_INFORMATION {
     pub NextEntryOffset: u32,
     pub Action: FILE_ACTION,
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
 }
-impl Copy for FILE_NOTIFY_INFORMATION {}
-impl Clone for FILE_NOTIFY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_REMOTE_PROTOCOL_INFO {
     pub StructureVersion: u16,
     pub StructureSize: u16,
@@ -2668,101 +2246,56 @@ pub struct FILE_REMOTE_PROTOCOL_INFO {
     pub GenericReserved: FILE_REMOTE_PROTOCOL_INFO_0,
     pub ProtocolSpecific: FILE_REMOTE_PROTOCOL_INFO_1,
 }
-impl Copy for FILE_REMOTE_PROTOCOL_INFO {}
-impl Clone for FILE_REMOTE_PROTOCOL_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_REMOTE_PROTOCOL_INFO_0 {
     pub Reserved: [u32; 8],
 }
-impl Copy for FILE_REMOTE_PROTOCOL_INFO_0 {}
-impl Clone for FILE_REMOTE_PROTOCOL_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union FILE_REMOTE_PROTOCOL_INFO_1 {
     pub Smb2: FILE_REMOTE_PROTOCOL_INFO_1_0,
     pub Reserved: [u32; 16],
 }
-impl Copy for FILE_REMOTE_PROTOCOL_INFO_1 {}
-impl Clone for FILE_REMOTE_PROTOCOL_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_REMOTE_PROTOCOL_INFO_1_0 {
     pub Server: FILE_REMOTE_PROTOCOL_INFO_1_0_0,
     pub Share: FILE_REMOTE_PROTOCOL_INFO_1_0_1,
 }
-impl Copy for FILE_REMOTE_PROTOCOL_INFO_1_0 {}
-impl Clone for FILE_REMOTE_PROTOCOL_INFO_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
     pub Capabilities: u32,
 }
-impl Copy for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {}
-impl Clone for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
     pub Capabilities: u32,
     pub ShareFlags: u32,
 }
-impl Copy for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {}
-impl Clone for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_RENAME_INFO {
     pub Anonymous: FILE_RENAME_INFO_0,
     pub RootDirectory: super::super::Foundation::HANDLE,
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
 }
-impl Copy for FILE_RENAME_INFO {}
-impl Clone for FILE_RENAME_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union FILE_RENAME_INFO_0 {
     pub ReplaceIfExists: super::super::Foundation::BOOLEAN,
     pub Flags: u32,
 }
-impl Copy for FILE_RENAME_INFO_0 {}
-impl Clone for FILE_RENAME_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union FILE_SEGMENT_ELEMENT {
     pub Buffer: *mut core::ffi::c_void,
     pub Alignment: u64,
 }
-impl Copy for FILE_SEGMENT_ELEMENT {}
-impl Clone for FILE_SEGMENT_ELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_STANDARD_INFO {
     pub AllocationSize: i64,
     pub EndOfFile: i64,
@@ -2770,13 +2303,8 @@ pub struct FILE_STANDARD_INFO {
     pub DeletePending: super::super::Foundation::BOOLEAN,
     pub Directory: super::super::Foundation::BOOLEAN,
 }
-impl Copy for FILE_STANDARD_INFO {}
-impl Clone for FILE_STANDARD_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_STORAGE_INFO {
     pub LogicalBytesPerSector: u32,
     pub PhysicalBytesPerSectorForAtomicity: u32,
@@ -2786,13 +2314,8 @@ pub struct FILE_STORAGE_INFO {
     pub ByteOffsetForSectorAlignment: u32,
     pub ByteOffsetForPartitionAlignment: u32,
 }
-impl Copy for FILE_STORAGE_INFO {}
-impl Clone for FILE_STORAGE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_STREAM_INFO {
     pub NextEntryOffset: u32,
     pub StreamNameLength: u32,
@@ -2800,13 +2323,8 @@ pub struct FILE_STREAM_INFO {
     pub StreamAllocationSize: i64,
     pub StreamName: [u16; 1],
 }
-impl Copy for FILE_STREAM_INFO {}
-impl Clone for FILE_STREAM_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FIO_CONTEXT {
     pub m_dwTempHack: u32,
     pub m_dwSignature: u32,
@@ -2814,142 +2332,82 @@ pub struct FIO_CONTEXT {
     pub m_dwLinesOffset: u32,
     pub m_dwHeaderLength: u32,
 }
-impl Copy for FIO_CONTEXT {}
-impl Clone for FIO_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type HIORING = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IORING_BUFFER_INFO {
     pub Address: *mut core::ffi::c_void,
     pub Length: u32,
 }
-impl Copy for IORING_BUFFER_INFO {}
-impl Clone for IORING_BUFFER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IORING_BUFFER_REF {
     pub Kind: IORING_REF_KIND,
     pub Buffer: IORING_BUFFER_REF_0,
 }
-impl Copy for IORING_BUFFER_REF {}
-impl Clone for IORING_BUFFER_REF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IORING_BUFFER_REF_0 {
     pub Address: *mut core::ffi::c_void,
     pub IndexAndOffset: IORING_REGISTERED_BUFFER,
 }
-impl Copy for IORING_BUFFER_REF_0 {}
-impl Clone for IORING_BUFFER_REF_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IORING_CAPABILITIES {
     pub MaxVersion: IORING_VERSION,
     pub MaxSubmissionQueueSize: u32,
     pub MaxCompletionQueueSize: u32,
     pub FeatureFlags: IORING_FEATURE_FLAGS,
 }
-impl Copy for IORING_CAPABILITIES {}
-impl Clone for IORING_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IORING_CQE {
     pub UserData: usize,
     pub ResultCode: windows_sys::core::HRESULT,
     pub Information: usize,
 }
-impl Copy for IORING_CQE {}
-impl Clone for IORING_CQE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IORING_CREATE_FLAGS {
     pub Required: IORING_CREATE_REQUIRED_FLAGS,
     pub Advisory: IORING_CREATE_ADVISORY_FLAGS,
 }
-impl Copy for IORING_CREATE_FLAGS {}
-impl Clone for IORING_CREATE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IORING_HANDLE_REF {
     pub Kind: IORING_REF_KIND,
     pub Handle: IORING_HANDLE_REF_0,
 }
-impl Copy for IORING_HANDLE_REF {}
-impl Clone for IORING_HANDLE_REF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IORING_HANDLE_REF_0 {
     pub Handle: super::super::Foundation::HANDLE,
     pub Index: u32,
 }
-impl Copy for IORING_HANDLE_REF_0 {}
-impl Clone for IORING_HANDLE_REF_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IORING_INFO {
     pub IoRingVersion: IORING_VERSION,
     pub Flags: IORING_CREATE_FLAGS,
     pub SubmissionQueueSize: u32,
     pub CompletionQueueSize: u32,
 }
-impl Copy for IORING_INFO {}
-impl Clone for IORING_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IORING_REGISTERED_BUFFER {
     pub BufferIndex: u32,
     pub Offset: u32,
 }
-impl Copy for IORING_REGISTERED_BUFFER {}
-impl Clone for IORING_REGISTERED_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KCRM_MARSHAL_HEADER {
     pub VersionMajor: u32,
     pub VersionMinor: u32,
     pub NumProtocols: u32,
     pub Unused: u32,
 }
-impl Copy for KCRM_MARSHAL_HEADER {}
-impl Clone for KCRM_MARSHAL_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KCRM_PROTOCOL_BLOB {
     pub ProtocolId: windows_sys::core::GUID,
     pub StaticInfoLength: u32,
@@ -2957,13 +2415,8 @@ pub struct KCRM_PROTOCOL_BLOB {
     pub Unused1: u32,
     pub Unused2: u32,
 }
-impl Copy for KCRM_PROTOCOL_BLOB {}
-impl Clone for KCRM_PROTOCOL_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KCRM_TRANSACTION_BLOB {
     pub UOW: windows_sys::core::GUID,
     pub TmIdentity: windows_sys::core::GUID,
@@ -2972,61 +2425,36 @@ pub struct KCRM_TRANSACTION_BLOB {
     pub Timeout: u32,
     pub Description: [u16; 64],
 }
-impl Copy for KCRM_TRANSACTION_BLOB {}
-impl Clone for KCRM_TRANSACTION_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LOG_MANAGEMENT_CALLBACKS {
     pub CallbackContext: *mut core::ffi::c_void,
     pub AdvanceTailCallback: PLOG_TAIL_ADVANCE_CALLBACK,
     pub LogFullHandlerCallback: PLOG_FULL_HANDLER_CALLBACK,
     pub LogUnpinnedCallback: PLOG_UNPINNED_CALLBACK,
 }
-impl Copy for LOG_MANAGEMENT_CALLBACKS {}
-impl Clone for LOG_MANAGEMENT_CALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MediaLabelInfo {
     pub LabelType: [u16; 64],
     pub LabelIDSize: u32,
     pub LabelID: [u8; 256],
     pub LabelAppDescr: [u16; 256],
 }
-impl Copy for MediaLabelInfo {}
-impl Clone for MediaLabelInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NAME_CACHE_CONTEXT {
     pub m_dwSignature: u32,
 }
-impl Copy for NAME_CACHE_CONTEXT {}
-impl Clone for NAME_CACHE_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_ALLOCATION_INFORMATION {
     pub dwSize: u32,
     pub lpReserved: *mut core::ffi::c_void,
     pub AllocatedFrom: windows_sys::core::GUID,
 }
-impl Copy for NTMS_ALLOCATION_INFORMATION {}
-impl Clone for NTMS_ALLOCATION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_ASYNC_IO {
     pub OperationId: windows_sys::core::GUID,
     pub EventId: windows_sys::core::GUID,
@@ -3036,13 +2464,8 @@ pub struct NTMS_ASYNC_IO {
     pub hEvent: super::super::Foundation::HANDLE,
     pub bOnStateChange: super::super::Foundation::BOOL,
 }
-impl Copy for NTMS_ASYNC_IO {}
-impl Clone for NTMS_ASYNC_IO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_CHANGERINFORMATIONA {
     pub Number: u32,
     pub ChangerType: windows_sys::core::GUID,
@@ -3055,13 +2478,8 @@ pub struct NTMS_CHANGERINFORMATIONA {
     pub ScsiLun: u16,
     pub Library: windows_sys::core::GUID,
 }
-impl Copy for NTMS_CHANGERINFORMATIONA {}
-impl Clone for NTMS_CHANGERINFORMATIONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_CHANGERINFORMATIONW {
     pub Number: u32,
     pub ChangerType: windows_sys::core::GUID,
@@ -3074,37 +2492,22 @@ pub struct NTMS_CHANGERINFORMATIONW {
     pub ScsiLun: u16,
     pub Library: windows_sys::core::GUID,
 }
-impl Copy for NTMS_CHANGERINFORMATIONW {}
-impl Clone for NTMS_CHANGERINFORMATIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_CHANGERTYPEINFORMATIONA {
     pub szVendor: [i8; 128],
     pub szProduct: [i8; 128],
     pub DeviceType: u32,
 }
-impl Copy for NTMS_CHANGERTYPEINFORMATIONA {}
-impl Clone for NTMS_CHANGERTYPEINFORMATIONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_CHANGERTYPEINFORMATIONW {
     pub szVendor: [u16; 128],
     pub szProduct: [u16; 128],
     pub DeviceType: u32,
 }
-impl Copy for NTMS_CHANGERTYPEINFORMATIONW {}
-impl Clone for NTMS_CHANGERTYPEINFORMATIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_COMPUTERINFORMATION {
     pub dwLibRequestPurgeTime: u32,
     pub dwOpRequestPurgeTime: u32,
@@ -3112,13 +2515,8 @@ pub struct NTMS_COMPUTERINFORMATION {
     pub dwOpRequestFlags: u32,
     pub dwMediaPoolPolicy: u32,
 }
-impl Copy for NTMS_COMPUTERINFORMATION {}
-impl Clone for NTMS_COMPUTERINFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_DRIVEINFORMATIONA {
     pub Number: u32,
     pub State: u32,
@@ -3137,13 +2535,8 @@ pub struct NTMS_DRIVEINFORMATIONA {
     pub Reserved: windows_sys::core::GUID,
     pub dwDeferDismountDelay: u32,
 }
-impl Copy for NTMS_DRIVEINFORMATIONA {}
-impl Clone for NTMS_DRIVEINFORMATIONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_DRIVEINFORMATIONW {
     pub Number: u32,
     pub State: u32,
@@ -3162,51 +2555,31 @@ pub struct NTMS_DRIVEINFORMATIONW {
     pub Reserved: windows_sys::core::GUID,
     pub dwDeferDismountDelay: u32,
 }
-impl Copy for NTMS_DRIVEINFORMATIONW {}
-impl Clone for NTMS_DRIVEINFORMATIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_DRIVETYPEINFORMATIONA {
     pub szVendor: [i8; 128],
     pub szProduct: [i8; 128],
     pub NumberOfHeads: u32,
     pub DeviceType: FILE_DEVICE_TYPE,
 }
-impl Copy for NTMS_DRIVETYPEINFORMATIONA {}
-impl Clone for NTMS_DRIVETYPEINFORMATIONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_DRIVETYPEINFORMATIONW {
     pub szVendor: [u16; 128],
     pub szProduct: [u16; 128],
     pub NumberOfHeads: u32,
     pub DeviceType: FILE_DEVICE_TYPE,
 }
-impl Copy for NTMS_DRIVETYPEINFORMATIONW {}
-impl Clone for NTMS_DRIVETYPEINFORMATIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_FILESYSTEM_INFO {
     pub FileSystemType: [u16; 64],
     pub VolumeName: [u16; 256],
     pub SerialNumber: u32,
 }
-impl Copy for NTMS_FILESYSTEM_INFO {}
-impl Clone for NTMS_FILESYSTEM_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_I1_LIBRARYINFORMATION {
     pub LibraryType: u32,
     pub CleanerSlot: windows_sys::core::GUID,
@@ -3230,13 +2603,8 @@ pub struct NTMS_I1_LIBRARYINFORMATION {
     pub dwNumberOfLibRequests: u32,
     pub Reserved: windows_sys::core::GUID,
 }
-impl Copy for NTMS_I1_LIBRARYINFORMATION {}
-impl Clone for NTMS_I1_LIBRARYINFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_I1_LIBREQUESTINFORMATIONA {
     pub OperationCode: u32,
     pub OperationOption: u32,
@@ -3252,13 +2620,8 @@ pub struct NTMS_I1_LIBREQUESTINFORMATIONA {
     pub szUser: [i8; 64],
     pub szComputer: [i8; 64],
 }
-impl Copy for NTMS_I1_LIBREQUESTINFORMATIONA {}
-impl Clone for NTMS_I1_LIBREQUESTINFORMATIONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_I1_LIBREQUESTINFORMATIONW {
     pub OperationCode: u32,
     pub OperationOption: u32,
@@ -3274,13 +2637,8 @@ pub struct NTMS_I1_LIBREQUESTINFORMATIONW {
     pub szUser: [u16; 64],
     pub szComputer: [u16; 64],
 }
-impl Copy for NTMS_I1_LIBREQUESTINFORMATIONW {}
-impl Clone for NTMS_I1_LIBREQUESTINFORMATIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_I1_OBJECTINFORMATIONA {
     pub dwSize: u32,
     pub dwType: u32,
@@ -3293,13 +2651,8 @@ pub struct NTMS_I1_OBJECTINFORMATIONA {
     pub szDescription: [i8; 127],
     pub Info: NTMS_I1_OBJECTINFORMATIONA_0,
 }
-impl Copy for NTMS_I1_OBJECTINFORMATIONA {}
-impl Clone for NTMS_I1_OBJECTINFORMATIONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union NTMS_I1_OBJECTINFORMATIONA_0 {
     pub Drive: NTMS_DRIVEINFORMATIONA,
     pub DriveType: NTMS_DRIVETYPEINFORMATIONA,
@@ -3317,13 +2670,8 @@ pub union NTMS_I1_OBJECTINFORMATIONA_0 {
     pub LibRequest: NTMS_I1_LIBREQUESTINFORMATIONA,
     pub OpRequest: NTMS_I1_OPREQUESTINFORMATIONA,
 }
-impl Copy for NTMS_I1_OBJECTINFORMATIONA_0 {}
-impl Clone for NTMS_I1_OBJECTINFORMATIONA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_I1_OBJECTINFORMATIONW {
     pub dwSize: u32,
     pub dwType: u32,
@@ -3336,13 +2684,8 @@ pub struct NTMS_I1_OBJECTINFORMATIONW {
     pub szDescription: [u16; 127],
     pub Info: NTMS_I1_OBJECTINFORMATIONW_0,
 }
-impl Copy for NTMS_I1_OBJECTINFORMATIONW {}
-impl Clone for NTMS_I1_OBJECTINFORMATIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union NTMS_I1_OBJECTINFORMATIONW_0 {
     pub Drive: NTMS_DRIVEINFORMATIONW,
     pub DriveType: NTMS_DRIVETYPEINFORMATIONW,
@@ -3360,13 +2703,8 @@ pub union NTMS_I1_OBJECTINFORMATIONW_0 {
     pub LibRequest: NTMS_I1_LIBREQUESTINFORMATIONW,
     pub OpRequest: NTMS_I1_OPREQUESTINFORMATIONW,
 }
-impl Copy for NTMS_I1_OBJECTINFORMATIONW_0 {}
-impl Clone for NTMS_I1_OBJECTINFORMATIONW_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_I1_OPREQUESTINFORMATIONA {
     pub Request: u32,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
@@ -3380,13 +2718,8 @@ pub struct NTMS_I1_OPREQUESTINFORMATIONA {
     pub szUser: [i8; 64],
     pub szComputer: [i8; 64],
 }
-impl Copy for NTMS_I1_OPREQUESTINFORMATIONA {}
-impl Clone for NTMS_I1_OPREQUESTINFORMATIONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_I1_OPREQUESTINFORMATIONW {
     pub Request: u32,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
@@ -3400,13 +2733,8 @@ pub struct NTMS_I1_OPREQUESTINFORMATIONW {
     pub szUser: [u16; 64],
     pub szComputer: [u16; 64],
 }
-impl Copy for NTMS_I1_OPREQUESTINFORMATIONW {}
-impl Clone for NTMS_I1_OPREQUESTINFORMATIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_I1_PARTITIONINFORMATIONA {
     pub PhysicalMedia: windows_sys::core::GUID,
     pub LogicalMedia: windows_sys::core::GUID,
@@ -3419,13 +2747,8 @@ pub struct NTMS_I1_PARTITIONINFORMATIONA {
     pub dwMountCount: u32,
     pub dwAllocateCount: u32,
 }
-impl Copy for NTMS_I1_PARTITIONINFORMATIONA {}
-impl Clone for NTMS_I1_PARTITIONINFORMATIONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_I1_PARTITIONINFORMATIONW {
     pub PhysicalMedia: windows_sys::core::GUID,
     pub LogicalMedia: windows_sys::core::GUID,
@@ -3438,13 +2761,8 @@ pub struct NTMS_I1_PARTITIONINFORMATIONW {
     pub dwMountCount: u32,
     pub dwAllocateCount: u32,
 }
-impl Copy for NTMS_I1_PARTITIONINFORMATIONW {}
-impl Clone for NTMS_I1_PARTITIONINFORMATIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_I1_PMIDINFORMATIONA {
     pub CurrentLibrary: windows_sys::core::GUID,
     pub MediaPool: windows_sys::core::GUID,
@@ -3458,13 +2776,8 @@ pub struct NTMS_I1_PMIDINFORMATIONA {
     pub MediaState: u32,
     pub dwNumberOfPartitions: u32,
 }
-impl Copy for NTMS_I1_PMIDINFORMATIONA {}
-impl Clone for NTMS_I1_PMIDINFORMATIONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_I1_PMIDINFORMATIONW {
     pub CurrentLibrary: windows_sys::core::GUID,
     pub MediaPool: windows_sys::core::GUID,
@@ -3478,26 +2791,16 @@ pub struct NTMS_I1_PMIDINFORMATIONW {
     pub MediaState: u32,
     pub dwNumberOfPartitions: u32,
 }
-impl Copy for NTMS_I1_PMIDINFORMATIONW {}
-impl Clone for NTMS_I1_PMIDINFORMATIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_IEDOORINFORMATION {
     pub Number: u32,
     pub State: u32,
     pub MaxOpenSecs: u16,
     pub Library: windows_sys::core::GUID,
 }
-impl Copy for NTMS_IEDOORINFORMATION {}
-impl Clone for NTMS_IEDOORINFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_IEPORTINFORMATION {
     pub Number: u32,
     pub Content: u32,
@@ -3505,13 +2808,8 @@ pub struct NTMS_IEPORTINFORMATION {
     pub MaxExtendSecs: u16,
     pub Library: windows_sys::core::GUID,
 }
-impl Copy for NTMS_IEPORTINFORMATION {}
-impl Clone for NTMS_IEPORTINFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_LIBRARYINFORMATION {
     pub LibraryType: u32,
     pub CleanerSlot: windows_sys::core::GUID,
@@ -3537,13 +2835,8 @@ pub struct NTMS_LIBRARYINFORMATION {
     pub AutoRecovery: super::super::Foundation::BOOL,
     pub dwFlags: u32,
 }
-impl Copy for NTMS_LIBRARYINFORMATION {}
-impl Clone for NTMS_LIBRARYINFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_LIBREQUESTINFORMATIONA {
     pub OperationCode: u32,
     pub OperationOption: u32,
@@ -3562,13 +2855,8 @@ pub struct NTMS_LIBREQUESTINFORMATIONA {
     pub WorkItemId: windows_sys::core::GUID,
     pub dwPriority: u32,
 }
-impl Copy for NTMS_LIBREQUESTINFORMATIONA {}
-impl Clone for NTMS_LIBREQUESTINFORMATIONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_LIBREQUESTINFORMATIONW {
     pub OperationCode: u32,
     pub OperationOption: u32,
@@ -3587,24 +2875,14 @@ pub struct NTMS_LIBREQUESTINFORMATIONW {
     pub WorkItemId: windows_sys::core::GUID,
     pub dwPriority: u32,
 }
-impl Copy for NTMS_LIBREQUESTINFORMATIONW {}
-impl Clone for NTMS_LIBREQUESTINFORMATIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_LMIDINFORMATION {
     pub MediaPool: windows_sys::core::GUID,
     pub dwNumberOfPartitions: u32,
 }
-impl Copy for NTMS_LMIDINFORMATION {}
-impl Clone for NTMS_LMIDINFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_MEDIAPOOLINFORMATION {
     pub PoolType: u32,
     pub MediaType: windows_sys::core::GUID,
@@ -3616,48 +2894,28 @@ pub struct NTMS_MEDIAPOOLINFORMATION {
     pub dwNumberOfLogicalMedia: u32,
     pub dwNumberOfMediaPools: u32,
 }
-impl Copy for NTMS_MEDIAPOOLINFORMATION {}
-impl Clone for NTMS_MEDIAPOOLINFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_MEDIATYPEINFORMATION {
     pub MediaType: u32,
     pub NumberOfSides: u32,
     pub ReadWriteCharacteristics: u32,
     pub DeviceType: FILE_DEVICE_TYPE,
 }
-impl Copy for NTMS_MEDIATYPEINFORMATION {}
-impl Clone for NTMS_MEDIATYPEINFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_MOUNT_INFORMATION {
     pub dwSize: u32,
     pub lpReserved: *mut core::ffi::c_void,
 }
-impl Copy for NTMS_MOUNT_INFORMATION {}
-impl Clone for NTMS_MOUNT_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_NOTIFICATIONINFORMATION {
     pub dwOperation: u32,
     pub ObjectId: windows_sys::core::GUID,
 }
-impl Copy for NTMS_NOTIFICATIONINFORMATION {}
-impl Clone for NTMS_NOTIFICATIONINFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_OBJECTINFORMATIONA {
     pub dwSize: u32,
     pub dwType: u32,
@@ -3670,13 +2928,8 @@ pub struct NTMS_OBJECTINFORMATIONA {
     pub szDescription: [i8; 127],
     pub Info: NTMS_OBJECTINFORMATIONA_0,
 }
-impl Copy for NTMS_OBJECTINFORMATIONA {}
-impl Clone for NTMS_OBJECTINFORMATIONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union NTMS_OBJECTINFORMATIONA_0 {
     pub Drive: NTMS_DRIVEINFORMATIONA,
     pub DriveType: NTMS_DRIVETYPEINFORMATIONA,
@@ -3695,13 +2948,8 @@ pub union NTMS_OBJECTINFORMATIONA_0 {
     pub OpRequest: NTMS_OPREQUESTINFORMATIONA,
     pub Computer: NTMS_COMPUTERINFORMATION,
 }
-impl Copy for NTMS_OBJECTINFORMATIONA_0 {}
-impl Clone for NTMS_OBJECTINFORMATIONA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_OBJECTINFORMATIONW {
     pub dwSize: u32,
     pub dwType: u32,
@@ -3714,13 +2962,8 @@ pub struct NTMS_OBJECTINFORMATIONW {
     pub szDescription: [u16; 127],
     pub Info: NTMS_OBJECTINFORMATIONW_0,
 }
-impl Copy for NTMS_OBJECTINFORMATIONW {}
-impl Clone for NTMS_OBJECTINFORMATIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union NTMS_OBJECTINFORMATIONW_0 {
     pub Drive: NTMS_DRIVEINFORMATIONW,
     pub DriveType: NTMS_DRIVETYPEINFORMATIONW,
@@ -3739,13 +2982,8 @@ pub union NTMS_OBJECTINFORMATIONW_0 {
     pub OpRequest: NTMS_OPREQUESTINFORMATIONW,
     pub Computer: NTMS_COMPUTERINFORMATION,
 }
-impl Copy for NTMS_OBJECTINFORMATIONW_0 {}
-impl Clone for NTMS_OBJECTINFORMATIONW_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_OPREQUESTINFORMATIONA {
     pub Request: u32,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
@@ -3759,13 +2997,8 @@ pub struct NTMS_OPREQUESTINFORMATIONA {
     pub szUser: [i8; 64],
     pub szComputer: [i8; 64],
 }
-impl Copy for NTMS_OPREQUESTINFORMATIONA {}
-impl Clone for NTMS_OPREQUESTINFORMATIONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_OPREQUESTINFORMATIONW {
     pub Request: u32,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
@@ -3779,13 +3012,8 @@ pub struct NTMS_OPREQUESTINFORMATIONW {
     pub szUser: [u16; 64],
     pub szComputer: [u16; 64],
 }
-impl Copy for NTMS_OPREQUESTINFORMATIONW {}
-impl Clone for NTMS_OPREQUESTINFORMATIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_PARTITIONINFORMATIONA {
     pub PhysicalMedia: windows_sys::core::GUID,
     pub LogicalMedia: windows_sys::core::GUID,
@@ -3799,13 +3027,8 @@ pub struct NTMS_PARTITIONINFORMATIONA {
     pub dwAllocateCount: u32,
     pub Capacity: i64,
 }
-impl Copy for NTMS_PARTITIONINFORMATIONA {}
-impl Clone for NTMS_PARTITIONINFORMATIONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_PARTITIONINFORMATIONW {
     pub PhysicalMedia: windows_sys::core::GUID,
     pub LogicalMedia: windows_sys::core::GUID,
@@ -3819,13 +3042,8 @@ pub struct NTMS_PARTITIONINFORMATIONW {
     pub dwAllocateCount: u32,
     pub Capacity: i64,
 }
-impl Copy for NTMS_PARTITIONINFORMATIONW {}
-impl Clone for NTMS_PARTITIONINFORMATIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_PMIDINFORMATIONA {
     pub CurrentLibrary: windows_sys::core::GUID,
     pub MediaPool: windows_sys::core::GUID,
@@ -3842,13 +3060,8 @@ pub struct NTMS_PMIDINFORMATIONA {
     pub dwDensityCode: u32,
     pub MountedPartition: windows_sys::core::GUID,
 }
-impl Copy for NTMS_PMIDINFORMATIONA {}
-impl Clone for NTMS_PMIDINFORMATIONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_PMIDINFORMATIONW {
     pub CurrentLibrary: windows_sys::core::GUID,
     pub MediaPool: windows_sys::core::GUID,
@@ -3865,25 +3078,15 @@ pub struct NTMS_PMIDINFORMATIONW {
     pub dwDensityCode: u32,
     pub MountedPartition: windows_sys::core::GUID,
 }
-impl Copy for NTMS_PMIDINFORMATIONW {}
-impl Clone for NTMS_PMIDINFORMATIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTMS_STORAGESLOTINFORMATION {
     pub Number: u32,
     pub State: u32,
     pub Library: windows_sys::core::GUID,
 }
-impl Copy for NTMS_STORAGESLOTINFORMATION {}
-impl Clone for NTMS_STORAGESLOTINFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OFSTRUCT {
     pub cBytes: u8,
     pub fFixedDisk: u8,
@@ -3892,13 +3095,8 @@ pub struct OFSTRUCT {
     pub Reserved2: u16,
     pub szPathName: [i8; 128],
 }
-impl Copy for OFSTRUCT {}
-impl Clone for OFSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REPARSE_GUID_DATA_BUFFER {
     pub ReparseTag: u32,
     pub ReparseDataLength: u16,
@@ -3906,36 +3104,21 @@ pub struct REPARSE_GUID_DATA_BUFFER {
     pub ReparseGuid: windows_sys::core::GUID,
     pub GenericReparseBuffer: REPARSE_GUID_DATA_BUFFER_0,
 }
-impl Copy for REPARSE_GUID_DATA_BUFFER {}
-impl Clone for REPARSE_GUID_DATA_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REPARSE_GUID_DATA_BUFFER_0 {
     pub DataBuffer: [u8; 1],
 }
-impl Copy for REPARSE_GUID_DATA_BUFFER_0 {}
-impl Clone for REPARSE_GUID_DATA_BUFFER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_ALIAS_INFO_0 {
     pub srvai0_alias: windows_sys::core::PWSTR,
     pub srvai0_target: windows_sys::core::PWSTR,
     pub srvai0_default: super::super::Foundation::BOOLEAN,
     pub srvai0_reserved: u32,
 }
-impl Copy for SERVER_ALIAS_INFO_0 {}
-impl Clone for SERVER_ALIAS_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_CERTIFICATE_INFO_0 {
     pub srvci0_name: windows_sys::core::PWSTR,
     pub srvci0_subject: windows_sys::core::PWSTR,
@@ -3951,23 +3134,13 @@ pub struct SERVER_CERTIFICATE_INFO_0 {
     pub srvci0_flags: u32,
     pub srvci0_mapping_status: u32,
 }
-impl Copy for SERVER_CERTIFICATE_INFO_0 {}
-impl Clone for SERVER_CERTIFICATE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SESSION_INFO_0 {
     pub sesi0_cname: windows_sys::core::PWSTR,
 }
-impl Copy for SESSION_INFO_0 {}
-impl Clone for SESSION_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SESSION_INFO_1 {
     pub sesi1_cname: windows_sys::core::PWSTR,
     pub sesi1_username: windows_sys::core::PWSTR,
@@ -3976,26 +3149,16 @@ pub struct SESSION_INFO_1 {
     pub sesi1_idle_time: u32,
     pub sesi1_user_flags: SESSION_INFO_USER_FLAGS,
 }
-impl Copy for SESSION_INFO_1 {}
-impl Clone for SESSION_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SESSION_INFO_10 {
     pub sesi10_cname: windows_sys::core::PWSTR,
     pub sesi10_username: windows_sys::core::PWSTR,
     pub sesi10_time: u32,
     pub sesi10_idle_time: u32,
 }
-impl Copy for SESSION_INFO_10 {}
-impl Clone for SESSION_INFO_10 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SESSION_INFO_2 {
     pub sesi2_cname: windows_sys::core::PWSTR,
     pub sesi2_username: windows_sys::core::PWSTR,
@@ -4005,13 +3168,8 @@ pub struct SESSION_INFO_2 {
     pub sesi2_user_flags: SESSION_INFO_USER_FLAGS,
     pub sesi2_cltype_name: windows_sys::core::PWSTR,
 }
-impl Copy for SESSION_INFO_2 {}
-impl Clone for SESSION_INFO_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SESSION_INFO_502 {
     pub sesi502_cname: windows_sys::core::PWSTR,
     pub sesi502_username: windows_sys::core::PWSTR,
@@ -4022,89 +3180,47 @@ pub struct SESSION_INFO_502 {
     pub sesi502_cltype_name: windows_sys::core::PWSTR,
     pub sesi502_transport: windows_sys::core::PWSTR,
 }
-impl Copy for SESSION_INFO_502 {}
-impl Clone for SESSION_INFO_502 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SHARE_INFO_0 {
     pub shi0_netname: windows_sys::core::PWSTR,
 }
-impl Copy for SHARE_INFO_0 {}
-impl Clone for SHARE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SHARE_INFO_1 {
     pub shi1_netname: windows_sys::core::PWSTR,
     pub shi1_type: SHARE_TYPE,
     pub shi1_remark: windows_sys::core::PWSTR,
 }
-impl Copy for SHARE_INFO_1 {}
-impl Clone for SHARE_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SHARE_INFO_1004 {
     pub shi1004_remark: windows_sys::core::PWSTR,
 }
-impl Copy for SHARE_INFO_1004 {}
-impl Clone for SHARE_INFO_1004 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SHARE_INFO_1005 {
     pub shi1005_flags: u32,
 }
-impl Copy for SHARE_INFO_1005 {}
-impl Clone for SHARE_INFO_1005 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SHARE_INFO_1006 {
     pub shi1006_max_uses: u32,
 }
-impl Copy for SHARE_INFO_1006 {}
-impl Clone for SHARE_INFO_1006 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct SHARE_INFO_1501 {
     pub shi1501_reserved: u32,
     pub shi1501_security_descriptor: super::super::Security::PSECURITY_DESCRIPTOR,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for SHARE_INFO_1501 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for SHARE_INFO_1501 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SHARE_INFO_1503 {
     pub shi1503_sharefilter: windows_sys::core::GUID,
 }
-impl Copy for SHARE_INFO_1503 {}
-impl Clone for SHARE_INFO_1503 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SHARE_INFO_2 {
     pub shi2_netname: windows_sys::core::PWSTR,
     pub shi2_type: SHARE_TYPE,
@@ -4115,27 +3231,17 @@ pub struct SHARE_INFO_2 {
     pub shi2_path: windows_sys::core::PWSTR,
     pub shi2_passwd: windows_sys::core::PWSTR,
 }
-impl Copy for SHARE_INFO_2 {}
-impl Clone for SHARE_INFO_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SHARE_INFO_501 {
     pub shi501_netname: windows_sys::core::PWSTR,
     pub shi501_type: SHARE_TYPE,
     pub shi501_remark: windows_sys::core::PWSTR,
     pub shi501_flags: u32,
 }
-impl Copy for SHARE_INFO_501 {}
-impl Clone for SHARE_INFO_501 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct SHARE_INFO_502 {
     pub shi502_netname: windows_sys::core::PWSTR,
     pub shi502_type: SHARE_TYPE,
@@ -4148,16 +3254,9 @@ pub struct SHARE_INFO_502 {
     pub shi502_reserved: u32,
     pub shi502_security_descriptor: super::super::Security::PSECURITY_DESCRIPTOR,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for SHARE_INFO_502 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for SHARE_INFO_502 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct SHARE_INFO_503 {
     pub shi503_netname: windows_sys::core::PWSTR,
     pub shi503_type: SHARE_TYPE,
@@ -4171,15 +3270,8 @@ pub struct SHARE_INFO_503 {
     pub shi503_reserved: u32,
     pub shi503_security_descriptor: super::super::Security::PSECURITY_DESCRIPTOR,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for SHARE_INFO_503 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for SHARE_INFO_503 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STAT_SERVER_0 {
     pub sts0_start: u32,
     pub sts0_fopens: u32,
@@ -4199,13 +3291,8 @@ pub struct STAT_SERVER_0 {
     pub sts0_reqbufneed: u32,
     pub sts0_bigbufneed: u32,
 }
-impl Copy for STAT_SERVER_0 {}
-impl Clone for STAT_SERVER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STAT_WORKSTATION_0 {
     pub StatisticsStartTime: i64,
     pub BytesReceived: i64,
@@ -4248,162 +3335,92 @@ pub struct STAT_WORKSTATION_0 {
     pub FailedUseCount: u32,
     pub CurrentCommands: u32,
 }
-impl Copy for STAT_WORKSTATION_0 {}
-impl Clone for STAT_WORKSTATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TAPE_ERASE {
     pub Type: ERASE_TAPE_TYPE,
     pub Immediate: super::super::Foundation::BOOLEAN,
 }
-impl Copy for TAPE_ERASE {}
-impl Clone for TAPE_ERASE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TAPE_GET_POSITION {
     pub Type: TAPE_POSITION_TYPE,
     pub Partition: u32,
     pub Offset: i64,
 }
-impl Copy for TAPE_GET_POSITION {}
-impl Clone for TAPE_GET_POSITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TAPE_PREPARE {
     pub Operation: PREPARE_TAPE_OPERATION,
     pub Immediate: super::super::Foundation::BOOLEAN,
 }
-impl Copy for TAPE_PREPARE {}
-impl Clone for TAPE_PREPARE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TAPE_SET_POSITION {
     pub Method: TAPE_POSITION_METHOD,
     pub Partition: u32,
     pub Offset: i64,
     pub Immediate: super::super::Foundation::BOOLEAN,
 }
-impl Copy for TAPE_SET_POSITION {}
-impl Clone for TAPE_SET_POSITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TAPE_WRITE_MARKS {
     pub Type: TAPEMARK_TYPE,
     pub Count: u32,
     pub Immediate: super::super::Foundation::BOOLEAN,
 }
-impl Copy for TAPE_WRITE_MARKS {}
-impl Clone for TAPE_WRITE_MARKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRANSACTION_NOTIFICATION {
     pub TransactionKey: *mut core::ffi::c_void,
     pub TransactionNotification: u32,
     pub TmVirtualClock: i64,
     pub ArgumentLength: u32,
 }
-impl Copy for TRANSACTION_NOTIFICATION {}
-impl Clone for TRANSACTION_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
     pub MarshalCookie: u32,
     pub UOW: windows_sys::core::GUID,
 }
-impl Copy for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {}
-impl Clone for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
     pub PropagationCookie: u32,
     pub UOW: windows_sys::core::GUID,
     pub TmIdentity: windows_sys::core::GUID,
     pub BufferLength: u32,
 }
-impl Copy for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {}
-impl Clone for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
     pub EnlistmentId: windows_sys::core::GUID,
     pub UOW: windows_sys::core::GUID,
 }
-impl Copy for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {}
-impl Clone for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
     pub SavepointId: u32,
 }
-impl Copy for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {}
-impl Clone for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
     pub TmIdentity: windows_sys::core::GUID,
     pub Flags: u32,
 }
-impl Copy for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {}
-impl Clone for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct TXF_ID {
     pub Anonymous: TXF_ID_0,
 }
-impl Copy for TXF_ID {}
-impl Clone for TXF_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct TXF_ID_0 {
     pub LowPart: i64,
     pub HighPart: i64,
 }
-impl Copy for TXF_ID_0 {}
-impl Clone for TXF_ID_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct TXF_LOG_RECORD_AFFECTED_FILE {
     pub Version: u16,
     pub RecordLength: u32,
@@ -4413,25 +3430,15 @@ pub struct TXF_LOG_RECORD_AFFECTED_FILE {
     pub FileNameLength: u32,
     pub FileNameByteOffsetInStructure: u32,
 }
-impl Copy for TXF_LOG_RECORD_AFFECTED_FILE {}
-impl Clone for TXF_LOG_RECORD_AFFECTED_FILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct TXF_LOG_RECORD_BASE {
     pub Version: u16,
     pub RecordType: TXF_LOG_RECORD_TYPE,
     pub RecordLength: u32,
 }
-impl Copy for TXF_LOG_RECORD_BASE {}
-impl Clone for TXF_LOG_RECORD_BASE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct TXF_LOG_RECORD_TRUNCATE {
     pub Version: u16,
     pub RecordType: u16,
@@ -4443,13 +3450,8 @@ pub struct TXF_LOG_RECORD_TRUNCATE {
     pub FileNameLength: u32,
     pub FileNameByteOffsetInStructure: u32,
 }
-impl Copy for TXF_LOG_RECORD_TRUNCATE {}
-impl Clone for TXF_LOG_RECORD_TRUNCATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct TXF_LOG_RECORD_WRITE {
     pub Version: u16,
     pub RecordType: u16,
@@ -4463,13 +3465,8 @@ pub struct TXF_LOG_RECORD_WRITE {
     pub FileNameLength: u32,
     pub FileNameByteOffsetInStructure: u32,
 }
-impl Copy for TXF_LOG_RECORD_WRITE {}
-impl Clone for TXF_LOG_RECORD_WRITE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VOLUME_ALLOCATE_BC_STREAM_INPUT {
     pub Version: u32,
     pub RequestsPerPeriod: u32,
@@ -4482,69 +3479,39 @@ pub struct VOLUME_ALLOCATE_BC_STREAM_INPUT {
     pub AccessType: u32,
     pub AccessMode: u32,
 }
-impl Copy for VOLUME_ALLOCATE_BC_STREAM_INPUT {}
-impl Clone for VOLUME_ALLOCATE_BC_STREAM_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
     pub RequestSize: u64,
     pub NumOutStandingRequests: u32,
 }
-impl Copy for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {}
-impl Clone for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VOLUME_ALLOCATION_HINT_INPUT {
     pub ClusterSize: u32,
     pub NumberOfClusters: u32,
     pub StartingClusterNumber: i64,
 }
-impl Copy for VOLUME_ALLOCATION_HINT_INPUT {}
-impl Clone for VOLUME_ALLOCATION_HINT_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VOLUME_ALLOCATION_HINT_OUTPUT {
     pub Bitmap: [u32; 1],
 }
-impl Copy for VOLUME_ALLOCATION_HINT_OUTPUT {}
-impl Clone for VOLUME_ALLOCATION_HINT_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VOLUME_CRITICAL_IO {
     pub AccessType: u32,
     pub ExtentsCount: u32,
     pub Extents: [FILE_EXTENT; 1],
 }
-impl Copy for VOLUME_CRITICAL_IO {}
-impl Clone for VOLUME_CRITICAL_IO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VOLUME_FAILOVER_SET {
     pub NumberOfDisks: u32,
     pub DiskNumbers: [u32; 1],
 }
-impl Copy for VOLUME_FAILOVER_SET {}
-impl Clone for VOLUME_FAILOVER_SET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VOLUME_GET_BC_PROPERTIES_INPUT {
     pub Version: u32,
     pub Reserved1: u32,
@@ -4553,13 +3520,8 @@ pub struct VOLUME_GET_BC_PROPERTIES_INPUT {
     pub AccessType: u32,
     pub AccessMode: u32,
 }
-impl Copy for VOLUME_GET_BC_PROPERTIES_INPUT {}
-impl Clone for VOLUME_GET_BC_PROPERTIES_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VOLUME_GET_BC_PROPERTIES_OUTPUT {
     pub MaximumRequestsPerPeriod: u32,
     pub MinimumPeriod: u32,
@@ -4568,68 +3530,38 @@ pub struct VOLUME_GET_BC_PROPERTIES_OUTPUT {
     pub NumOutStandingRequests: u32,
     pub RequestSize: u64,
 }
-impl Copy for VOLUME_GET_BC_PROPERTIES_OUTPUT {}
-impl Clone for VOLUME_GET_BC_PROPERTIES_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VOLUME_LOGICAL_OFFSET {
     pub LogicalOffset: i64,
 }
-impl Copy for VOLUME_LOGICAL_OFFSET {}
-impl Clone for VOLUME_LOGICAL_OFFSET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VOLUME_NUMBER {
     pub VolumeNumber: u32,
     pub VolumeManagerName: [u16; 8],
 }
-impl Copy for VOLUME_NUMBER {}
-impl Clone for VOLUME_NUMBER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VOLUME_PHYSICAL_OFFSET {
     pub DiskNumber: u32,
     pub Offset: i64,
 }
-impl Copy for VOLUME_PHYSICAL_OFFSET {}
-impl Clone for VOLUME_PHYSICAL_OFFSET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VOLUME_PHYSICAL_OFFSETS {
     pub NumberOfPhysicalOffsets: u32,
     pub PhysicalOffset: [VOLUME_PHYSICAL_OFFSET; 1],
 }
-impl Copy for VOLUME_PHYSICAL_OFFSETS {}
-impl Clone for VOLUME_PHYSICAL_OFFSETS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VOLUME_READ_PLEX_INPUT {
     pub ByteOffset: i64,
     pub Length: u32,
     pub PlexNumber: u32,
 }
-impl Copy for VOLUME_READ_PLEX_INPUT {}
-impl Clone for VOLUME_READ_PLEX_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
     pub GptAttributes: u64,
     pub RevertOnClose: super::super::Foundation::BOOLEAN,
@@ -4637,23 +3569,13 @@ pub struct VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
     pub Reserved1: u16,
     pub Reserved2: u32,
 }
-impl Copy for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {}
-impl Clone for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VOLUME_SHRINK_INFO {
     pub VolumeSize: u64,
 }
-impl Copy for VOLUME_SHRINK_INFO {}
-impl Clone for VOLUME_SHRINK_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VS_FIXEDFILEINFO {
     pub dwSignature: u32,
     pub dwStrucVersion: u32,
@@ -4669,13 +3591,8 @@ pub struct VS_FIXEDFILEINFO {
     pub dwFileDateMS: u32,
     pub dwFileDateLS: u32,
 }
-impl Copy for VS_FIXEDFILEINFO {}
-impl Clone for VS_FIXEDFILEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WIM_ENTRY_INFO {
     pub WimEntryInfoSize: u32,
     pub WimType: u32,
@@ -4685,25 +3602,15 @@ pub struct WIM_ENTRY_INFO {
     pub WimIndex: u32,
     pub Flags: u32,
 }
-impl Copy for WIM_ENTRY_INFO {}
-impl Clone for WIM_ENTRY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WIM_EXTERNAL_FILE_INFO {
     pub DataSourceId: i64,
     pub ResourceHash: [u8; 20],
     pub Flags: u32,
 }
-impl Copy for WIM_EXTERNAL_FILE_INFO {}
-impl Clone for WIM_EXTERNAL_FILE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WIN32_FILE_ATTRIBUTE_DATA {
     pub dwFileAttributes: u32,
     pub ftCreationTime: super::super::Foundation::FILETIME,
@@ -4712,13 +3619,8 @@ pub struct WIN32_FILE_ATTRIBUTE_DATA {
     pub nFileSizeHigh: u32,
     pub nFileSizeLow: u32,
 }
-impl Copy for WIN32_FILE_ATTRIBUTE_DATA {}
-impl Clone for WIN32_FILE_ATTRIBUTE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WIN32_FIND_DATAA {
     pub dwFileAttributes: u32,
     pub ftCreationTime: super::super::Foundation::FILETIME,
@@ -4731,13 +3633,8 @@ pub struct WIN32_FIND_DATAA {
     pub cFileName: [i8; 260],
     pub cAlternateFileName: [i8; 14],
 }
-impl Copy for WIN32_FIND_DATAA {}
-impl Clone for WIN32_FIND_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WIN32_FIND_DATAW {
     pub dwFileAttributes: u32,
     pub ftCreationTime: super::super::Foundation::FILETIME,
@@ -4750,24 +3647,14 @@ pub struct WIN32_FIND_DATAW {
     pub cFileName: [u16; 260],
     pub cAlternateFileName: [u16; 14],
 }
-impl Copy for WIN32_FIND_DATAW {}
-impl Clone for WIN32_FIND_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WIN32_FIND_STREAM_DATA {
     pub StreamSize: i64,
     pub cStreamName: [u16; 296],
 }
-impl Copy for WIN32_FIND_STREAM_DATA {}
-impl Clone for WIN32_FIND_STREAM_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WIN32_STREAM_ID {
     pub dwStreamId: WIN_STREAM_ID,
     pub dwStreamAttributes: u32,
@@ -4775,32 +3662,16 @@ pub struct WIN32_STREAM_ID {
     pub dwStreamNameSize: u32,
     pub cStreamName: [u16; 1],
 }
-impl Copy for WIN32_STREAM_ID {}
-impl Clone for WIN32_STREAM_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WOF_FILE_COMPRESSION_INFO_V0 {
     pub Algorithm: u32,
 }
-impl Copy for WOF_FILE_COMPRESSION_INFO_V0 {}
-impl Clone for WOF_FILE_COMPRESSION_INFO_V0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WOF_FILE_COMPRESSION_INFO_V1 {
     pub Algorithm: u32,
     pub Flags: u32,
-}
-impl Copy for WOF_FILE_COMPRESSION_INFO_V1 {}
-impl Clone for WOF_FILE_COMPRESSION_INFO_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Security")]
 pub type CACHE_ACCESS_CHECK = Option<unsafe extern "system" fn(psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, hclienttoken: super::super::Foundation::HANDLE, dwdesiredaccess: u32, genericmapping: *mut super::super::Security::GENERIC_MAPPING, privilegeset: *mut super::super::Security::PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;

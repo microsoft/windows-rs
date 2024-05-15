@@ -498,53 +498,34 @@ pub type MOUSE_EVENT_FLAGS = u32;
 pub type TRACKMOUSEEVENT_FLAGS = u32;
 pub type VIRTUAL_KEY = u16;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEADKEY {
     pub dwBoth: u32,
     pub wchComposed: u16,
     pub uFlags: u16,
 }
-impl Copy for DEADKEY {}
-impl Clone for DEADKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HARDWAREINPUT {
     pub uMsg: u32,
     pub wParamL: u16,
     pub wParamH: u16,
 }
-impl Copy for HARDWAREINPUT {}
-impl Clone for HARDWAREINPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INPUT {
     pub r#type: INPUT_TYPE,
     pub Anonymous: INPUT_0,
 }
-impl Copy for INPUT {}
-impl Clone for INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union INPUT_0 {
     pub mi: MOUSEINPUT,
     pub ki: KEYBDINPUT,
     pub hi: HARDWAREINPUT,
 }
-impl Copy for INPUT_0 {}
-impl Clone for INPUT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KBDNLSTABLES {
     pub OEMIdentifier: u16,
     pub LayoutInformation: u16,
@@ -553,13 +534,8 @@ pub struct KBDNLSTABLES {
     pub NumOfMouseVKey: i32,
     pub pusMouseVKey: *mut u16,
 }
-impl Copy for KBDNLSTABLES {}
-impl Clone for KBDNLSTABLES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KBDTABLES {
     pub pCharModifiers: *mut MODIFIERS,
     pub pVkToWcharTable: *mut VK_TO_WCHAR_TABLE,
@@ -578,48 +554,28 @@ pub struct KBDTABLES {
     pub dwType: u32,
     pub dwSubType: u32,
 }
-impl Copy for KBDTABLES {}
-impl Clone for KBDTABLES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KBDTABLE_DESC {
     pub wszDllName: [u16; 32],
     pub dwType: u32,
     pub dwSubType: u32,
 }
-impl Copy for KBDTABLE_DESC {}
-impl Clone for KBDTABLE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KBDTABLE_MULTI {
     pub nTables: u32,
     pub aKbdTables: [KBDTABLE_DESC; 8],
 }
-impl Copy for KBDTABLE_MULTI {}
-impl Clone for KBDTABLE_MULTI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KBD_TYPE_INFO {
     pub dwVersion: u32,
     pub dwType: u32,
     pub dwSubType: u32,
 }
-impl Copy for KBD_TYPE_INFO {}
-impl Clone for KBD_TYPE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEYBDINPUT {
     pub wVk: VIRTUAL_KEY,
     pub wScan: u16,
@@ -627,96 +583,56 @@ pub struct KEYBDINPUT {
     pub time: u32,
     pub dwExtraInfo: usize,
 }
-impl Copy for KEYBDINPUT {}
-impl Clone for KEYBDINPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LASTINPUTINFO {
     pub cbSize: u32,
     pub dwTime: u32,
 }
-impl Copy for LASTINPUTINFO {}
-impl Clone for LASTINPUTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LIGATURE1 {
     pub VirtualKey: u8,
     pub ModificationNumber: u16,
     pub wch: [u16; 1],
 }
-impl Copy for LIGATURE1 {}
-impl Clone for LIGATURE1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LIGATURE2 {
     pub VirtualKey: u8,
     pub ModificationNumber: u16,
     pub wch: [u16; 2],
 }
-impl Copy for LIGATURE2 {}
-impl Clone for LIGATURE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LIGATURE3 {
     pub VirtualKey: u8,
     pub ModificationNumber: u16,
     pub wch: [u16; 3],
 }
-impl Copy for LIGATURE3 {}
-impl Clone for LIGATURE3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LIGATURE4 {
     pub VirtualKey: u8,
     pub ModificationNumber: u16,
     pub wch: [u16; 4],
 }
-impl Copy for LIGATURE4 {}
-impl Clone for LIGATURE4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LIGATURE5 {
     pub VirtualKey: u8,
     pub ModificationNumber: u16,
     pub wch: [u16; 5],
 }
-impl Copy for LIGATURE5 {}
-impl Clone for LIGATURE5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MODIFIERS {
     pub pVkToBit: *mut VK_TO_BIT,
     pub wMaxModBits: u16,
     pub ModNumber: [u8; 1],
 }
-impl Copy for MODIFIERS {}
-impl Clone for MODIFIERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MOUSEINPUT {
     pub dx: i32,
     pub dy: i32,
@@ -725,39 +641,24 @@ pub struct MOUSEINPUT {
     pub time: u32,
     pub dwExtraInfo: usize,
 }
-impl Copy for MOUSEINPUT {}
-impl Clone for MOUSEINPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MOUSEMOVEPOINT {
     pub x: i32,
     pub y: i32,
     pub time: u32,
     pub dwExtraInfo: usize,
 }
-impl Copy for MOUSEMOVEPOINT {}
-impl Clone for MOUSEMOVEPOINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRACKMOUSEEVENT {
     pub cbSize: u32,
     pub dwFlags: TRACKMOUSEEVENT_FLAGS,
     pub hwndTrack: super::super::super::Foundation::HWND,
     pub dwHoverTime: u32,
 }
-impl Copy for TRACKMOUSEEVENT {}
-impl Clone for TRACKMOUSEEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VK_F {
     pub Vk: u8,
     pub NLSFEProcType: u8,
@@ -766,196 +667,110 @@ pub struct VK_F {
     pub NLSFEProc: [VK_FPARAM; 8],
     pub NLSFEProcAlt: [VK_FPARAM; 8],
 }
-impl Copy for VK_F {}
-impl Clone for VK_F {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VK_FPARAM {
     pub NLSFEProcIndex: u8,
     pub NLSFEProcParam: u32,
 }
-impl Copy for VK_FPARAM {}
-impl Clone for VK_FPARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VK_TO_BIT {
     pub Vk: u8,
     pub ModBits: u8,
 }
-impl Copy for VK_TO_BIT {}
-impl Clone for VK_TO_BIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VK_TO_WCHARS1 {
     pub VirtualKey: u8,
     pub Attributes: u8,
     pub wch: [u16; 1],
 }
-impl Copy for VK_TO_WCHARS1 {}
-impl Clone for VK_TO_WCHARS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VK_TO_WCHARS10 {
     pub VirtualKey: u8,
     pub Attributes: u8,
     pub wch: [u16; 10],
 }
-impl Copy for VK_TO_WCHARS10 {}
-impl Clone for VK_TO_WCHARS10 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VK_TO_WCHARS2 {
     pub VirtualKey: u8,
     pub Attributes: u8,
     pub wch: [u16; 2],
 }
-impl Copy for VK_TO_WCHARS2 {}
-impl Clone for VK_TO_WCHARS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VK_TO_WCHARS3 {
     pub VirtualKey: u8,
     pub Attributes: u8,
     pub wch: [u16; 3],
 }
-impl Copy for VK_TO_WCHARS3 {}
-impl Clone for VK_TO_WCHARS3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VK_TO_WCHARS4 {
     pub VirtualKey: u8,
     pub Attributes: u8,
     pub wch: [u16; 4],
 }
-impl Copy for VK_TO_WCHARS4 {}
-impl Clone for VK_TO_WCHARS4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VK_TO_WCHARS5 {
     pub VirtualKey: u8,
     pub Attributes: u8,
     pub wch: [u16; 5],
 }
-impl Copy for VK_TO_WCHARS5 {}
-impl Clone for VK_TO_WCHARS5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VK_TO_WCHARS6 {
     pub VirtualKey: u8,
     pub Attributes: u8,
     pub wch: [u16; 6],
 }
-impl Copy for VK_TO_WCHARS6 {}
-impl Clone for VK_TO_WCHARS6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VK_TO_WCHARS7 {
     pub VirtualKey: u8,
     pub Attributes: u8,
     pub wch: [u16; 7],
 }
-impl Copy for VK_TO_WCHARS7 {}
-impl Clone for VK_TO_WCHARS7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VK_TO_WCHARS8 {
     pub VirtualKey: u8,
     pub Attributes: u8,
     pub wch: [u16; 8],
 }
-impl Copy for VK_TO_WCHARS8 {}
-impl Clone for VK_TO_WCHARS8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VK_TO_WCHARS9 {
     pub VirtualKey: u8,
     pub Attributes: u8,
     pub wch: [u16; 9],
 }
-impl Copy for VK_TO_WCHARS9 {}
-impl Clone for VK_TO_WCHARS9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VK_TO_WCHAR_TABLE {
     pub pVkToWchars: *mut VK_TO_WCHARS1,
     pub nModifications: u8,
     pub cbSize: u8,
 }
-impl Copy for VK_TO_WCHAR_TABLE {}
-impl Clone for VK_TO_WCHAR_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VK_VSC {
     pub Vk: u8,
     pub Vsc: u8,
 }
-impl Copy for VK_VSC {}
-impl Clone for VK_VSC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VSC_LPWSTR {
     pub vsc: u8,
     pub pwsz: windows_sys::core::PWSTR,
 }
-impl Copy for VSC_LPWSTR {}
-impl Clone for VSC_LPWSTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VSC_VK {
     pub Vsc: u8,
     pub Vk: u16,
-}
-impl Copy for VSC_VK {}
-impl Clone for VSC_VK {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

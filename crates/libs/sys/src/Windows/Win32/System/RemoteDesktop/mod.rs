@@ -662,6 +662,7 @@ pub type WTS_SECURITY_FLAGS = u32;
 pub type WTS_TYPE_CLASS = i32;
 pub type WTS_VIRTUAL_CLASS = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AAAccountingData {
     pub userName: windows_sys::core::BSTR,
     pub clientName: windows_sys::core::BSTR,
@@ -675,14 +676,9 @@ pub struct AAAccountingData {
     pub mainSessionId: windows_sys::core::GUID,
     pub subSessionId: i32,
 }
-impl Copy for AAAccountingData {}
-impl Clone for AAAccountingData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const ADsTSUserEx: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe2e9cae6_1e7b_4b8e_babd_e9bf6292ac29);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AE_CURRENT_POSITION {
     pub u64DevicePosition: u64,
     pub u64StreamPosition: u64,
@@ -691,35 +687,20 @@ pub struct AE_CURRENT_POSITION {
     pub f32FramesPerSecond: f32,
     pub Flag: AE_POSITION_FLAGS,
 }
-impl Copy for AE_CURRENT_POSITION {}
-impl Clone for AE_CURRENT_POSITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BITMAP_RENDERER_STATISTICS {
     pub dwFramesDelivered: u32,
     pub dwFramesDropped: u32,
 }
-impl Copy for BITMAP_RENDERER_STATISTICS {}
-impl Clone for BITMAP_RENDERER_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct CHANNEL_DEF {
     pub name: [i8; 8],
     pub options: u32,
 }
-impl Copy for CHANNEL_DEF {}
-impl Clone for CHANNEL_DEF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CHANNEL_ENTRY_POINTS {
     pub cbSize: u32,
     pub protocolVersion: u32,
@@ -728,58 +709,33 @@ pub struct CHANNEL_ENTRY_POINTS {
     pub pVirtualChannelClose: PVIRTUALCHANNELCLOSE,
     pub pVirtualChannelWrite: PVIRTUALCHANNELWRITE,
 }
-impl Copy for CHANNEL_ENTRY_POINTS {}
-impl Clone for CHANNEL_ENTRY_POINTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CHANNEL_PDU_HEADER {
     pub length: u32,
     pub flags: u32,
 }
-impl Copy for CHANNEL_PDU_HEADER {}
-impl Clone for CHANNEL_PDU_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLIENT_DISPLAY {
     pub HorizontalResolution: u32,
     pub VerticalResolution: u32,
     pub ColorDepth: u32,
 }
-impl Copy for CLIENT_DISPLAY {}
-impl Clone for CLIENT_DISPLAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRODUCT_INFOA {
     pub CompanyName: [i8; 256],
     pub ProductID: [i8; 4],
 }
-impl Copy for PRODUCT_INFOA {}
-impl Clone for PRODUCT_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRODUCT_INFOW {
     pub CompanyName: [u16; 256],
     pub ProductID: [u16; 4],
 }
-impl Copy for PRODUCT_INFOW {}
-impl Clone for PRODUCT_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RFX_GFX_MONITOR_INFO {
     pub left: i32,
     pub top: i32,
@@ -790,23 +746,13 @@ pub struct RFX_GFX_MONITOR_INFO {
     pub orientation: u32,
     pub primary: super::super::Foundation::BOOL,
 }
-impl Copy for RFX_GFX_MONITOR_INFO {}
-impl Clone for RFX_GFX_MONITOR_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
     pub channelHdr: RFX_GFX_MSG_HEADER,
 }
-impl Copy for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {}
-impl Clone for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub reserved: u32,
@@ -814,23 +760,13 @@ pub struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
     pub MonitorData: [RFX_GFX_MONITOR_INFO; 16],
     pub clientUniqueId: [u16; 32],
 }
-impl Copy for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {}
-impl Clone for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
     pub channelHdr: RFX_GFX_MSG_HEADER,
 }
-impl Copy for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {}
-impl Clone for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub ulWidth: u32,
@@ -838,150 +774,85 @@ pub struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
     pub ulBpp: u32,
     pub Reserved: u32,
 }
-impl Copy for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {}
-impl Clone for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RFX_GFX_MSG_DESKTOP_INPUT_RESET {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub ulWidth: u32,
     pub ulHeight: u32,
 }
-impl Copy for RFX_GFX_MSG_DESKTOP_INPUT_RESET {}
-impl Clone for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub RedrawRect: RFX_GFX_RECT,
 }
-impl Copy for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {}
-impl Clone for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RFX_GFX_MSG_DISCONNECT_NOTIFY {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub DisconnectReason: u32,
 }
-impl Copy for RFX_GFX_MSG_DISCONNECT_NOTIFY {}
-impl Clone for RFX_GFX_MSG_DISCONNECT_NOTIFY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RFX_GFX_MSG_HEADER {
     pub uMSGType: u16,
     pub cbSize: u16,
 }
-impl Copy for RFX_GFX_MSG_HEADER {}
-impl Clone for RFX_GFX_MSG_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RFX_GFX_MSG_RDP_DATA {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub rdpData: [u8; 1],
 }
-impl Copy for RFX_GFX_MSG_RDP_DATA {}
-impl Clone for RFX_GFX_MSG_RDP_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RFX_GFX_RECT {
     pub left: i32,
     pub top: i32,
     pub right: i32,
     pub bottom: i32,
 }
-impl Copy for RFX_GFX_RECT {}
-impl Clone for RFX_GFX_RECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TSSD_ConnectionPoint {
     pub ServerAddressB: [u8; 16],
     pub AddressType: TSSD_AddrV46Type,
     pub PortNumber: u16,
     pub AddressScope: u32,
 }
-impl Copy for TSSD_ConnectionPoint {}
-impl Clone for TSSD_ConnectionPoint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const TSUserExInterfaces: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0910dd01_df8c_11d1_ae27_00c04fa35813);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VM_NOTIFY_ENTRY {
     pub VmName: [u16; 128],
     pub VmHost: [u16; 128],
 }
-impl Copy for VM_NOTIFY_ENTRY {}
-impl Clone for VM_NOTIFY_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VM_NOTIFY_INFO {
     pub dwNumEntries: u32,
     pub ppVmEntries: *mut *mut VM_NOTIFY_ENTRY,
 }
-impl Copy for VM_NOTIFY_INFO {}
-impl Clone for VM_NOTIFY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VM_PATCH_INFO {
     pub dwNumEntries: u32,
     pub pVmNames: *mut windows_sys::core::PWSTR,
 }
-impl Copy for VM_PATCH_INFO {}
-impl Clone for VM_PATCH_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WRDS_CONNECTION_SETTING {
     pub WRdsConnectionSettings1: WRDS_CONNECTION_SETTINGS_1,
 }
-impl Copy for WRDS_CONNECTION_SETTING {}
-impl Clone for WRDS_CONNECTION_SETTING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WRDS_CONNECTION_SETTINGS {
     pub WRdsConnectionSettingLevel: WRDS_CONNECTION_SETTING_LEVEL,
     pub WRdsConnectionSetting: WRDS_CONNECTION_SETTING,
 }
-impl Copy for WRDS_CONNECTION_SETTINGS {}
-impl Clone for WRDS_CONNECTION_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WRDS_CONNECTION_SETTINGS_1 {
     pub fInheritInitialProgram: super::super::Foundation::BOOLEAN,
     pub fInheritColorDepth: super::super::Foundation::BOOLEAN,
@@ -1049,13 +920,8 @@ pub struct WRDS_CONNECTION_SETTINGS_1 {
     pub ContextSize: u32,
     pub ContextData: *mut u8,
 }
-impl Copy for WRDS_CONNECTION_SETTINGS_1 {}
-impl Clone for WRDS_CONNECTION_SETTINGS_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
     pub Bias: i32,
     pub StandardName: [u16; 32],
@@ -1067,68 +933,38 @@ pub struct WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
     pub TimeZoneKeyName: [u16; 128],
     pub DynamicDaylightTimeDisabled: u16,
 }
-impl Copy for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {}
-impl Clone for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WRDS_LISTENER_SETTING {
     pub WRdsListenerSettings1: WRDS_LISTENER_SETTINGS_1,
 }
-impl Copy for WRDS_LISTENER_SETTING {}
-impl Clone for WRDS_LISTENER_SETTING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WRDS_LISTENER_SETTINGS {
     pub WRdsListenerSettingLevel: WRDS_LISTENER_SETTING_LEVEL,
     pub WRdsListenerSetting: WRDS_LISTENER_SETTING,
 }
-impl Copy for WRDS_LISTENER_SETTINGS {}
-impl Clone for WRDS_LISTENER_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WRDS_LISTENER_SETTINGS_1 {
     pub MaxProtocolListenerConnectionCount: u32,
     pub SecurityDescriptorSize: u32,
     pub pSecurityDescriptor: *mut u8,
 }
-impl Copy for WRDS_LISTENER_SETTINGS_1 {}
-impl Clone for WRDS_LISTENER_SETTINGS_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WRDS_SETTING {
     pub WRdsSettings1: WRDS_SETTINGS_1,
 }
-impl Copy for WRDS_SETTING {}
-impl Clone for WRDS_SETTING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WRDS_SETTINGS {
     pub WRdsSettingType: WRDS_SETTING_TYPE,
     pub WRdsSettingLevel: WRDS_SETTING_LEVEL,
     pub WRdsSetting: WRDS_SETTING,
 }
-impl Copy for WRDS_SETTINGS {}
-impl Clone for WRDS_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WRDS_SETTINGS_1 {
     pub WRdsDisableClipStatus: WRDS_SETTING_STATUS,
     pub WRdsDisableClipValue: u32,
@@ -1162,13 +998,8 @@ pub struct WRDS_SETTINGS_1 {
     pub WRdsKeepAliveStartValue: super::super::Foundation::BOOLEAN,
     pub WRdsKeepAliveIntervalValue: u32,
 }
-impl Copy for WRDS_SETTINGS_1 {}
-impl Clone for WRDS_SETTINGS_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTSCLIENTA {
     pub ClientName: [i8; 21],
     pub Domain: [i8; 18],
@@ -1190,13 +1021,8 @@ pub struct WTSCLIENTA {
     pub OutBufLength: u16,
     pub DeviceId: [i8; 261],
 }
-impl Copy for WTSCLIENTA {}
-impl Clone for WTSCLIENTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTSCLIENTW {
     pub ClientName: [u16; 21],
     pub Domain: [u16; 18],
@@ -1218,13 +1044,8 @@ pub struct WTSCLIENTW {
     pub OutBufLength: u16,
     pub DeviceId: [u16; 261],
 }
-impl Copy for WTSCLIENTW {}
-impl Clone for WTSCLIENTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTSCONFIGINFOA {
     pub version: u32,
     pub fConnectClientDrivesAtLogon: u32,
@@ -1238,13 +1059,8 @@ pub struct WTSCONFIGINFOA {
     pub InitialProgram: [i8; 261],
     pub ApplicationName: [i8; 261],
 }
-impl Copy for WTSCONFIGINFOA {}
-impl Clone for WTSCONFIGINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTSCONFIGINFOW {
     pub version: u32,
     pub fConnectClientDrivesAtLogon: u32,
@@ -1258,13 +1074,8 @@ pub struct WTSCONFIGINFOW {
     pub InitialProgram: [u16; 261],
     pub ApplicationName: [u16; 261],
 }
-impl Copy for WTSCONFIGINFOW {}
-impl Clone for WTSCONFIGINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTSINFOA {
     pub State: WTS_CONNECTSTATE_CLASS,
     pub SessionId: u32,
@@ -1283,35 +1094,20 @@ pub struct WTSINFOA {
     pub LogonTime: i64,
     pub CurrentTime: i64,
 }
-impl Copy for WTSINFOA {}
-impl Clone for WTSINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTSINFOEXA {
     pub Level: u32,
     pub Data: WTSINFOEX_LEVEL_A,
 }
-impl Copy for WTSINFOEXA {}
-impl Clone for WTSINFOEXA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTSINFOEXW {
     pub Level: u32,
     pub Data: WTSINFOEX_LEVEL_W,
 }
-impl Copy for WTSINFOEXW {}
-impl Clone for WTSINFOEXW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTSINFOEX_LEVEL1_A {
     pub SessionId: u32,
     pub SessionState: WTS_CONNECTSTATE_CLASS,
@@ -1331,13 +1127,8 @@ pub struct WTSINFOEX_LEVEL1_A {
     pub IncomingCompressedBytes: u32,
     pub OutgoingCompressedBytes: u32,
 }
-impl Copy for WTSINFOEX_LEVEL1_A {}
-impl Clone for WTSINFOEX_LEVEL1_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTSINFOEX_LEVEL1_W {
     pub SessionId: u32,
     pub SessionState: WTS_CONNECTSTATE_CLASS,
@@ -1357,33 +1148,18 @@ pub struct WTSINFOEX_LEVEL1_W {
     pub IncomingCompressedBytes: u32,
     pub OutgoingCompressedBytes: u32,
 }
-impl Copy for WTSINFOEX_LEVEL1_W {}
-impl Clone for WTSINFOEX_LEVEL1_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WTSINFOEX_LEVEL_A {
     pub WTSInfoExLevel1: WTSINFOEX_LEVEL1_A,
 }
-impl Copy for WTSINFOEX_LEVEL_A {}
-impl Clone for WTSINFOEX_LEVEL_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WTSINFOEX_LEVEL_W {
     pub WTSInfoExLevel1: WTSINFOEX_LEVEL1_W,
 }
-impl Copy for WTSINFOEX_LEVEL_W {}
-impl Clone for WTSINFOEX_LEVEL_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTSINFOW {
     pub State: WTS_CONNECTSTATE_CLASS,
     pub SessionId: u32,
@@ -1402,13 +1178,8 @@ pub struct WTSINFOW {
     pub LogonTime: i64,
     pub CurrentTime: i64,
 }
-impl Copy for WTSINFOW {}
-impl Clone for WTSINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTSLISTENERCONFIGA {
     pub version: u32,
     pub fEnableListener: u32,
@@ -1442,13 +1213,8 @@ pub struct WTSLISTENERCONFIGA {
     pub WorkDirectory: [i8; 261],
     pub InitialProgram: [i8; 261],
 }
-impl Copy for WTSLISTENERCONFIGA {}
-impl Clone for WTSLISTENERCONFIGA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTSLISTENERCONFIGW {
     pub version: u32,
     pub fEnableListener: u32,
@@ -1482,39 +1248,24 @@ pub struct WTSLISTENERCONFIGW {
     pub WorkDirectory: [u16; 261],
     pub InitialProgram: [u16; 261],
 }
-impl Copy for WTSLISTENERCONFIGW {}
-impl Clone for WTSLISTENERCONFIGW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTSSBX_IP_ADDRESS {
     pub AddressFamily: WTSSBX_ADDRESS_FAMILY,
     pub Address: [u8; 16],
     pub PortNumber: u16,
     pub dwScope: u32,
 }
-impl Copy for WTSSBX_IP_ADDRESS {}
-impl Clone for WTSSBX_IP_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTSSBX_MACHINE_CONNECT_INFO {
     pub wczMachineFQDN: [u16; 257],
     pub wczMachineNetBiosName: [u16; 17],
     pub dwNumOfIPAddr: u32,
     pub IPaddr: [WTSSBX_IP_ADDRESS; 12],
 }
-impl Copy for WTSSBX_MACHINE_CONNECT_INFO {}
-impl Clone for WTSSBX_MACHINE_CONNECT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTSSBX_MACHINE_INFO {
     pub ClientConnectInfo: WTSSBX_MACHINE_CONNECT_INFO,
     pub wczFarmName: [u16; 257],
@@ -1525,13 +1276,8 @@ pub struct WTSSBX_MACHINE_INFO {
     pub InDrain: WTSSBX_MACHINE_DRAIN,
     pub MachineState: WTSSBX_MACHINE_STATE,
 }
-impl Copy for WTSSBX_MACHINE_INFO {}
-impl Clone for WTSSBX_MACHINE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTSSBX_SESSION_INFO {
     pub wszUserName: [u16; 105],
     pub wszDomainName: [u16; 257],
@@ -1541,24 +1287,14 @@ pub struct WTSSBX_SESSION_INFO {
     pub DisconnectTime: super::super::Foundation::FILETIME,
     pub SessionState: WTSSBX_SESSION_STATE,
 }
-impl Copy for WTSSBX_SESSION_INFO {}
-impl Clone for WTSSBX_SESSION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTSSESSION_NOTIFICATION {
     pub cbSize: u32,
     pub dwSessionId: u32,
 }
-impl Copy for WTSSESSION_NOTIFICATION {}
-impl Clone for WTSSESSION_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTSUSERCONFIGA {
     pub Source: u32,
     pub InheritInitialProgram: u32,
@@ -1579,13 +1315,8 @@ pub struct WTSUSERCONFIGA {
     pub TerminalServerHomeDir: [i8; 261],
     pub TerminalServerHomeDirDrive: [i8; 4],
 }
-impl Copy for WTSUSERCONFIGA {}
-impl Clone for WTSUSERCONFIGA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTSUSERCONFIGW {
     pub Source: u32,
     pub InheritInitialProgram: u32,
@@ -1606,49 +1337,29 @@ pub struct WTSUSERCONFIGW {
     pub TerminalServerHomeDir: [u16; 261],
     pub TerminalServerHomeDirDrive: [u16; 4],
 }
-impl Copy for WTSUSERCONFIGW {}
-impl Clone for WTSUSERCONFIGW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_CACHE_STATS {
     pub Specific: u32,
     pub Data: WTS_CACHE_STATS_UN,
     pub ProtocolType: u16,
     pub Length: u16,
 }
-impl Copy for WTS_CACHE_STATS {}
-impl Clone for WTS_CACHE_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WTS_CACHE_STATS_UN {
     pub ProtocolCache: [WTS_PROTOCOL_CACHE; 4],
     pub TShareCacheStats: u32,
     pub Reserved: [u32; 20],
 }
-impl Copy for WTS_CACHE_STATS_UN {}
-impl Clone for WTS_CACHE_STATS_UN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_CLIENT_ADDRESS {
     pub AddressFamily: u32,
     pub Address: [u8; 20],
 }
-impl Copy for WTS_CLIENT_ADDRESS {}
-impl Clone for WTS_CLIENT_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_CLIENT_DATA {
     pub fDisableCtrlAltDel: super::super::Foundation::BOOLEAN,
     pub fDoubleClickDetect: super::super::Foundation::BOOLEAN,
@@ -1706,36 +1417,21 @@ pub struct WTS_CLIENT_DATA {
     pub fDisableClip: super::super::Foundation::BOOLEAN,
     pub fDisablePNP: super::super::Foundation::BOOLEAN,
 }
-impl Copy for WTS_CLIENT_DATA {}
-impl Clone for WTS_CLIENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_CLIENT_DISPLAY {
     pub HorizontalResolution: u32,
     pub VerticalResolution: u32,
     pub ColorDepth: u32,
 }
-impl Copy for WTS_CLIENT_DISPLAY {}
-impl Clone for WTS_CLIENT_DISPLAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_DISPLAY_IOCTL {
     pub pDisplayIOCtlData: [u8; 256],
     pub cbDisplayIOCtlData: u32,
 }
-impl Copy for WTS_DISPLAY_IOCTL {}
-impl Clone for WTS_DISPLAY_IOCTL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_LICENSE_CAPABILITIES {
     pub KeyExchangeAlg: u32,
     pub ProtocolVer: u32,
@@ -1744,13 +1440,8 @@ pub struct WTS_LICENSE_CAPABILITIES {
     pub cbClientName: u32,
     pub rgbClientName: [u8; 42],
 }
-impl Copy for WTS_LICENSE_CAPABILITIES {}
-impl Clone for WTS_LICENSE_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_POLICY_DATA {
     pub fDisableEncryption: super::super::Foundation::BOOLEAN,
     pub fDisableAutoReconnect: super::super::Foundation::BOOLEAN,
@@ -1763,39 +1454,24 @@ pub struct WTS_POLICY_DATA {
     pub fDisableClip: super::super::Foundation::BOOLEAN,
     pub fDisablePNPRedir: super::super::Foundation::BOOLEAN,
 }
-impl Copy for WTS_POLICY_DATA {}
-impl Clone for WTS_POLICY_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_PROCESS_INFOA {
     pub SessionId: u32,
     pub ProcessId: u32,
     pub pProcessName: windows_sys::core::PSTR,
     pub pUserSid: super::super::Foundation::PSID,
 }
-impl Copy for WTS_PROCESS_INFOA {}
-impl Clone for WTS_PROCESS_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_PROCESS_INFOW {
     pub SessionId: u32,
     pub ProcessId: u32,
     pub pProcessName: windows_sys::core::PWSTR,
     pub pUserSid: super::super::Foundation::PSID,
 }
-impl Copy for WTS_PROCESS_INFOW {}
-impl Clone for WTS_PROCESS_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_PROCESS_INFO_EXA {
     pub SessionId: u32,
     pub ProcessId: u32,
@@ -1810,13 +1486,8 @@ pub struct WTS_PROCESS_INFO_EXA {
     pub UserTime: i64,
     pub KernelTime: i64,
 }
-impl Copy for WTS_PROCESS_INFO_EXA {}
-impl Clone for WTS_PROCESS_INFO_EXA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_PROCESS_INFO_EXW {
     pub SessionId: u32,
     pub ProcessId: u32,
@@ -1831,70 +1502,40 @@ pub struct WTS_PROCESS_INFO_EXW {
     pub UserTime: i64,
     pub KernelTime: i64,
 }
-impl Copy for WTS_PROCESS_INFO_EXW {}
-impl Clone for WTS_PROCESS_INFO_EXW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_PROPERTY_VALUE {
     pub Type: u16,
     pub u: WTS_PROPERTY_VALUE_0,
 }
-impl Copy for WTS_PROPERTY_VALUE {}
-impl Clone for WTS_PROPERTY_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WTS_PROPERTY_VALUE_0 {
     pub ulVal: u32,
     pub strVal: WTS_PROPERTY_VALUE_0_1,
     pub bVal: WTS_PROPERTY_VALUE_0_0,
     pub guidVal: windows_sys::core::GUID,
 }
-impl Copy for WTS_PROPERTY_VALUE_0 {}
-impl Clone for WTS_PROPERTY_VALUE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_PROPERTY_VALUE_0_0 {
     pub size: u32,
     pub pbVal: windows_sys::core::PSTR,
 }
-impl Copy for WTS_PROPERTY_VALUE_0_0 {}
-impl Clone for WTS_PROPERTY_VALUE_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_PROPERTY_VALUE_0_1 {
     pub size: u32,
     pub pstrVal: windows_sys::core::PWSTR,
 }
-impl Copy for WTS_PROPERTY_VALUE_0_1 {}
-impl Clone for WTS_PROPERTY_VALUE_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_PROTOCOL_CACHE {
     pub CacheReads: u32,
     pub CacheHits: u32,
 }
-impl Copy for WTS_PROTOCOL_CACHE {}
-impl Clone for WTS_PROTOCOL_CACHE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_PROTOCOL_COUNTERS {
     pub WdBytes: u32,
     pub WdFrames: u32,
@@ -1915,13 +1556,8 @@ pub struct WTS_PROTOCOL_COUNTERS {
     pub Specific: u16,
     pub Reserved: [u32; 100],
 }
-impl Copy for WTS_PROTOCOL_COUNTERS {}
-impl Clone for WTS_PROTOCOL_COUNTERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_PROTOCOL_STATUS {
     pub Output: WTS_PROTOCOL_COUNTERS,
     pub Input: WTS_PROTOCOL_COUNTERS,
@@ -1930,90 +1566,50 @@ pub struct WTS_PROTOCOL_STATUS {
     pub AsyncSignalMask: u32,
     pub Counters: [i64; 100],
 }
-impl Copy for WTS_PROTOCOL_STATUS {}
-impl Clone for WTS_PROTOCOL_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_SERVER_INFOA {
     pub pServerName: windows_sys::core::PSTR,
 }
-impl Copy for WTS_SERVER_INFOA {}
-impl Clone for WTS_SERVER_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_SERVER_INFOW {
     pub pServerName: windows_sys::core::PWSTR,
 }
-impl Copy for WTS_SERVER_INFOW {}
-impl Clone for WTS_SERVER_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_SERVICE_STATE {
     pub RcmServiceState: WTS_RCM_SERVICE_STATE,
     pub RcmDrainState: WTS_RCM_DRAIN_STATE,
 }
-impl Copy for WTS_SERVICE_STATE {}
-impl Clone for WTS_SERVICE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_SESSION_ADDRESS {
     pub AddressFamily: u32,
     pub Address: [u8; 20],
 }
-impl Copy for WTS_SESSION_ADDRESS {}
-impl Clone for WTS_SESSION_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_SESSION_ID {
     pub SessionUniqueGuid: windows_sys::core::GUID,
     pub SessionId: u32,
 }
-impl Copy for WTS_SESSION_ID {}
-impl Clone for WTS_SESSION_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_SESSION_INFOA {
     pub SessionId: u32,
     pub pWinStationName: windows_sys::core::PSTR,
     pub State: WTS_CONNECTSTATE_CLASS,
 }
-impl Copy for WTS_SESSION_INFOA {}
-impl Clone for WTS_SESSION_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_SESSION_INFOW {
     pub SessionId: u32,
     pub pWinStationName: windows_sys::core::PWSTR,
     pub State: WTS_CONNECTSTATE_CLASS,
 }
-impl Copy for WTS_SESSION_INFOW {}
-impl Clone for WTS_SESSION_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_SESSION_INFO_1A {
     pub ExecEnvId: u32,
     pub State: WTS_CONNECTSTATE_CLASS,
@@ -2024,13 +1620,8 @@ pub struct WTS_SESSION_INFO_1A {
     pub pDomainName: windows_sys::core::PSTR,
     pub pFarmName: windows_sys::core::PSTR,
 }
-impl Copy for WTS_SESSION_INFO_1A {}
-impl Clone for WTS_SESSION_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_SESSION_INFO_1W {
     pub ExecEnvId: u32,
     pub State: WTS_CONNECTSTATE_CLASS,
@@ -2041,73 +1632,43 @@ pub struct WTS_SESSION_INFO_1W {
     pub pDomainName: windows_sys::core::PWSTR,
     pub pFarmName: windows_sys::core::PWSTR,
 }
-impl Copy for WTS_SESSION_INFO_1W {}
-impl Clone for WTS_SESSION_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_SMALL_RECT {
     pub Left: i16,
     pub Top: i16,
     pub Right: i16,
     pub Bottom: i16,
 }
-impl Copy for WTS_SMALL_RECT {}
-impl Clone for WTS_SMALL_RECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_SOCKADDR {
     pub sin_family: u16,
     pub u: WTS_SOCKADDR_0,
 }
-impl Copy for WTS_SOCKADDR {}
-impl Clone for WTS_SOCKADDR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WTS_SOCKADDR_0 {
     pub ipv4: WTS_SOCKADDR_0_0,
     pub ipv6: WTS_SOCKADDR_0_1,
 }
-impl Copy for WTS_SOCKADDR_0 {}
-impl Clone for WTS_SOCKADDR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_SOCKADDR_0_0 {
     pub sin_port: u16,
     pub IN_ADDR: u32,
     pub sin_zero: [u8; 8],
 }
-impl Copy for WTS_SOCKADDR_0_0 {}
-impl Clone for WTS_SOCKADDR_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_SOCKADDR_0_1 {
     pub sin6_port: u16,
     pub sin6_flowinfo: u32,
     pub sin6_addr: [u16; 8],
     pub sin6_scope_id: u32,
 }
-impl Copy for WTS_SOCKADDR_0_1 {}
-impl Clone for WTS_SOCKADDR_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_SYSTEMTIME {
     pub wYear: u16,
     pub wMonth: u16,
@@ -2118,13 +1679,8 @@ pub struct WTS_SYSTEMTIME {
     pub wSecond: u16,
     pub wMilliseconds: u16,
 }
-impl Copy for WTS_SYSTEMTIME {}
-impl Clone for WTS_SYSTEMTIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_TIME_ZONE_INFORMATION {
     pub Bias: i32,
     pub StandardName: [u16; 32],
@@ -2134,37 +1690,22 @@ pub struct WTS_TIME_ZONE_INFORMATION {
     pub DaylightDate: WTS_SYSTEMTIME,
     pub DaylightBias: i32,
 }
-impl Copy for WTS_TIME_ZONE_INFORMATION {}
-impl Clone for WTS_TIME_ZONE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_USER_CREDENTIAL {
     pub UserName: [u16; 256],
     pub Password: [u16; 256],
     pub Domain: [u16; 256],
 }
-impl Copy for WTS_USER_CREDENTIAL {}
-impl Clone for WTS_USER_CREDENTIAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_USER_DATA {
     pub WorkDirectory: [u16; 257],
     pub InitialProgram: [u16; 257],
     pub UserTimeZone: WTS_TIME_ZONE_INFORMATION,
 }
-impl Copy for WTS_USER_DATA {}
-impl Clone for WTS_USER_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_VALIDATION_INFORMATIONA {
     pub ProductInfo: PRODUCT_INFOA,
     pub License: [u8; 16384],
@@ -2172,13 +1713,8 @@ pub struct WTS_VALIDATION_INFORMATIONA {
     pub HardwareID: [u8; 20],
     pub HardwareIDLength: u32,
 }
-impl Copy for WTS_VALIDATION_INFORMATIONA {}
-impl Clone for WTS_VALIDATION_INFORMATIONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_VALIDATION_INFORMATIONW {
     pub ProductInfo: PRODUCT_INFOW,
     pub License: [u8; 16384],
@@ -2186,14 +1722,9 @@ pub struct WTS_VALIDATION_INFORMATIONW {
     pub HardwareID: [u8; 20],
     pub HardwareIDLength: u32,
 }
-impl Copy for WTS_VALIDATION_INFORMATIONW {}
-impl Clone for WTS_VALIDATION_INFORMATIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const Workspace: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4f1dfca6_3aad_48e1_8406_4bc21a501d7c);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct pluginResource {
     pub alias: [u16; 256],
     pub name: [u16; 256],
@@ -2207,13 +1738,8 @@ pub struct pluginResource {
     pub pcePluginBlobSize: u32,
     pub blobContents: *mut u8,
 }
-impl Copy for pluginResource {}
-impl Clone for pluginResource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct pluginResource2 {
     pub resourceV1: pluginResource,
     pub pceFileAssocListSize: u32,
@@ -2222,24 +1748,13 @@ pub struct pluginResource2 {
     pub pceFolderListSize: u32,
     pub folderList: *mut *mut u16,
 }
-impl Copy for pluginResource2 {}
-impl Clone for pluginResource2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct pluginResource2FileAssociation {
     pub extName: [u16; 256],
     pub primaryHandler: u8,
     pub pceIconSize: u32,
     pub iconContents: *mut u8,
-}
-impl Copy for pluginResource2FileAssociation {}
-impl Clone for pluginResource2FileAssociation {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type PCHANNEL_INIT_EVENT_FN = Option<unsafe extern "system" fn(pinithandle: *mut core::ffi::c_void, event: u32, pdata: *mut core::ffi::c_void, datalength: u32)>;
 pub type PCHANNEL_OPEN_EVENT_FN = Option<unsafe extern "system" fn(openhandle: u32, event: u32, pdata: *mut core::ffi::c_void, datalength: u32, totallength: u32, dataflags: u32)>;

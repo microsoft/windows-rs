@@ -4788,61 +4788,40 @@ pub type WRENCHSTATES = i32;
 pub type WSB_PROP = i32;
 pub type _LI_METRIC = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BP_ANIMATIONPARAMS {
     pub cbSize: u32,
     pub dwFlags: u32,
     pub style: BP_ANIMATIONSTYLE,
     pub dwDuration: u32,
 }
-impl Copy for BP_ANIMATIONPARAMS {}
-impl Clone for BP_ANIMATIONPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct BP_PAINTPARAMS {
     pub cbSize: u32,
     pub dwFlags: BP_PAINTPARAMS_FLAGS,
     pub prcExclude: *const super::super::Foundation::RECT,
     pub pBlendFunction: *const super::super::Graphics::Gdi::BLENDFUNCTION,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for BP_PAINTPARAMS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for BP_PAINTPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BUTTON_IMAGELIST {
     pub himl: HIMAGELIST,
     pub margin: super::super::Foundation::RECT,
     pub uAlign: BUTTON_IMAGELIST_ALIGN,
 }
-impl Copy for BUTTON_IMAGELIST {}
-impl Clone for BUTTON_IMAGELIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BUTTON_SPLITINFO {
     pub mask: u32,
     pub himlGlyph: HIMAGELIST,
     pub uSplitStyle: u32,
     pub size: super::super::Foundation::SIZE,
 }
-impl Copy for BUTTON_SPLITINFO {}
-impl Clone for BUTTON_SPLITINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct CCINFOA {
     pub szClass: [i8; 32],
     pub flOptions: u32,
@@ -4860,16 +4839,9 @@ pub struct CCINFOA {
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for CCINFOA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for CCINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct CCINFOW {
     pub szClass: [u16; 32],
     pub flOptions: u32,
@@ -4887,15 +4859,8 @@ pub struct CCINFOW {
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for CCINFOW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for CCINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CCSTYLEA {
     pub flStyle: u32,
     pub flExtStyle: u32,
@@ -4903,37 +4868,22 @@ pub struct CCSTYLEA {
     pub lgid: u16,
     pub wReserved1: u16,
 }
-impl Copy for CCSTYLEA {}
-impl Clone for CCSTYLEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CCSTYLEFLAGA {
     pub flStyle: u32,
     pub flStyleMask: u32,
     pub pszStyle: windows_sys::core::PSTR,
 }
-impl Copy for CCSTYLEFLAGA {}
-impl Clone for CCSTYLEFLAGA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CCSTYLEFLAGW {
     pub flStyle: u32,
     pub flStyleMask: u32,
     pub pszStyle: windows_sys::core::PWSTR,
 }
-impl Copy for CCSTYLEFLAGW {}
-impl Clone for CCSTYLEFLAGW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CCSTYLEW {
     pub flStyle: u32,
     pub flExtStyle: u32,
@@ -4941,36 +4891,21 @@ pub struct CCSTYLEW {
     pub lgid: u16,
     pub wReserved1: u16,
 }
-impl Copy for CCSTYLEW {}
-impl Clone for CCSTYLEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COLORMAP {
     pub from: super::super::Foundation::COLORREF,
     pub to: super::super::Foundation::COLORREF,
 }
-impl Copy for COLORMAP {}
-impl Clone for COLORMAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COLORSCHEME {
     pub dwSize: u32,
     pub clrBtnHighlight: super::super::Foundation::COLORREF,
     pub clrBtnShadow: super::super::Foundation::COLORREF,
 }
-impl Copy for COLORSCHEME {}
-impl Clone for COLORSCHEME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COMBOBOXEXITEMA {
     pub mask: COMBOBOX_EX_ITEM_FLAGS,
     pub iItem: isize,
@@ -4982,13 +4917,8 @@ pub struct COMBOBOXEXITEMA {
     pub iIndent: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl Copy for COMBOBOXEXITEMA {}
-impl Clone for COMBOBOXEXITEMA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COMBOBOXEXITEMW {
     pub mask: COMBOBOX_EX_ITEM_FLAGS,
     pub iItem: isize,
@@ -5000,13 +4930,8 @@ pub struct COMBOBOXEXITEMW {
     pub iIndent: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl Copy for COMBOBOXEXITEMW {}
-impl Clone for COMBOBOXEXITEMW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COMBOBOXINFO {
     pub cbSize: u32,
     pub rcItem: super::super::Foundation::RECT,
@@ -5016,13 +4941,8 @@ pub struct COMBOBOXINFO {
     pub hwndItem: super::super::Foundation::HWND,
     pub hwndList: super::super::Foundation::HWND,
 }
-impl Copy for COMBOBOXINFO {}
-impl Clone for COMBOBOXINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COMPAREITEMSTRUCT {
     pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
     pub CtlID: u32,
@@ -5033,13 +4953,8 @@ pub struct COMPAREITEMSTRUCT {
     pub itemData2: usize,
     pub dwLocaleId: u32,
 }
-impl Copy for COMPAREITEMSTRUCT {}
-impl Clone for COMPAREITEMSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DATETIMEPICKERINFO {
     pub cbSize: u32,
     pub rcCheck: super::super::Foundation::RECT,
@@ -5050,13 +4965,8 @@ pub struct DATETIMEPICKERINFO {
     pub hwndUD: super::super::Foundation::HWND,
     pub hwndDropDown: super::super::Foundation::HWND,
 }
-impl Copy for DATETIMEPICKERINFO {}
-impl Clone for DATETIMEPICKERINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DELETEITEMSTRUCT {
     pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
     pub CtlID: u32,
@@ -5064,37 +4974,22 @@ pub struct DELETEITEMSTRUCT {
     pub hwndItem: super::super::Foundation::HWND,
     pub itemData: usize,
 }
-impl Copy for DELETEITEMSTRUCT {}
-impl Clone for DELETEITEMSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DPASTREAMINFO {
     pub iPos: i32,
     pub pvItem: *mut core::ffi::c_void,
 }
-impl Copy for DPASTREAMINFO {}
-impl Clone for DPASTREAMINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRAGLISTINFO {
     pub uNotification: DRAGLISTINFO_NOTIFICATION_FLAGS,
     pub hWnd: super::super::Foundation::HWND,
     pub ptCursor: super::super::Foundation::POINT,
 }
-impl Copy for DRAGLISTINFO {}
-impl Clone for DRAGLISTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct DRAWITEMSTRUCT {
     pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
     pub CtlID: u32,
@@ -5106,28 +5001,16 @@ pub struct DRAWITEMSTRUCT {
     pub rcItem: super::super::Foundation::RECT,
     pub itemData: usize,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DRAWITEMSTRUCT {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DRAWITEMSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DTBGOPTS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub rcClip: super::super::Foundation::RECT,
 }
-impl Copy for DTBGOPTS {}
-impl Clone for DTBGOPTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct DTTOPTS {
     pub dwSize: u32,
     pub dwFlags: DTTOPTS_FLAGS,
@@ -5145,41 +5028,24 @@ pub struct DTTOPTS {
     pub pfnDrawTextCallback: DTT_CALLBACK_PROC,
     pub lParam: super::super::Foundation::LPARAM,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DTTOPTS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DTTOPTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EDITBALLOONTIP {
     pub cbStruct: u32,
     pub pszTitle: windows_sys::core::PCWSTR,
     pub pszText: windows_sys::core::PCWSTR,
     pub ttiIcon: EDITBALLOONTIP_ICON,
 }
-impl Copy for EDITBALLOONTIP {}
-impl Clone for EDITBALLOONTIP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HDHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
     pub flags: HEADER_HITTEST_INFO_FLAGS,
     pub iItem: i32,
 }
-impl Copy for HDHITTESTINFO {}
-impl Clone for HDHITTESTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct HDITEMA {
     pub mask: HDI_MASK,
     pub cxy: i32,
@@ -5194,16 +5060,9 @@ pub struct HDITEMA {
     pub pvFilter: *mut core::ffi::c_void,
     pub state: HEADER_CONTROL_FORMAT_STATE,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for HDITEMA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for HDITEMA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct HDITEMW {
     pub mask: HDI_MASK,
     pub cxy: i32,
@@ -5218,51 +5077,26 @@ pub struct HDITEMW {
     pub pvFilter: *mut core::ffi::c_void,
     pub state: HEADER_CONTROL_FORMAT_STATE,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for HDITEMW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for HDITEMW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct HDLAYOUT {
     pub prc: *mut super::super::Foundation::RECT,
     pub pwpos: *mut super::WindowsAndMessaging::WINDOWPOS,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for HDLAYOUT {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for HDLAYOUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type HDPA = isize;
 pub type HDSA = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HD_TEXTFILTERA {
     pub pszText: windows_sys::core::PSTR,
     pub cchTextMax: i32,
 }
-impl Copy for HD_TEXTFILTERA {}
-impl Clone for HD_TEXTFILTERA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HD_TEXTFILTERW {
     pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
-}
-impl Copy for HD_TEXTFILTERW {}
-impl Clone for HD_TEXTFILTERW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type HIMAGELIST = isize;
 pub type HPROPSHEETPAGE = isize;
@@ -5271,6 +5105,7 @@ pub type HTHEME = isize;
 pub type HTREEITEM = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct IMAGEINFO {
     pub hbmImage: super::super::Graphics::Gdi::HBITMAP,
     pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
@@ -5278,16 +5113,9 @@ pub struct IMAGEINFO {
     pub Unused2: i32,
     pub rcImage: super::super::Foundation::RECT,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for IMAGEINFO {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for IMAGEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct IMAGELISTDRAWPARAMS {
     pub cbSize: u32,
     pub himl: HIMAGELIST,
@@ -5307,62 +5135,35 @@ pub struct IMAGELISTDRAWPARAMS {
     pub Frame: u32,
     pub crEffect: super::super::Foundation::COLORREF,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for IMAGELISTDRAWPARAMS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for IMAGELISTDRAWPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMAGELISTSTATS {
     pub cbSize: u32,
     pub cAlloc: i32,
     pub cUsed: i32,
     pub cStandby: i32,
 }
-impl Copy for IMAGELISTSTATS {}
-impl Clone for IMAGELISTSTATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INITCOMMONCONTROLSEX {
     pub dwSize: u32,
     pub dwICC: INITCOMMONCONTROLSEX_ICC,
 }
-impl Copy for INITCOMMONCONTROLSEX {}
-impl Clone for INITCOMMONCONTROLSEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTLIST {
     pub iValueCount: i32,
     pub iValues: [i32; 402],
 }
-impl Copy for INTLIST {}
-impl Clone for INTLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const ImageList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7c476ba2_02b1_48f4_8048_b24619ddc058);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
     pub item: LITEM,
 }
-impl Copy for LHITTESTINFO {}
-impl Clone for LHITTESTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LITEM {
     pub mask: LIST_ITEM_FLAGS,
     pub iLink: i32,
@@ -5371,14 +5172,9 @@ pub struct LITEM {
     pub szID: [u16; 48],
     pub szUrl: [u16; 2084],
 }
-impl Copy for LITEM {}
-impl Clone for LITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct LVBKIMAGEA {
     pub ulFlags: LIST_VIEW_BACKGROUND_IMAGE_FLAGS,
     pub hbm: super::super::Graphics::Gdi::HBITMAP,
@@ -5387,16 +5183,9 @@ pub struct LVBKIMAGEA {
     pub xOffsetPercent: i32,
     pub yOffsetPercent: i32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for LVBKIMAGEA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for LVBKIMAGEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct LVBKIMAGEW {
     pub ulFlags: LIST_VIEW_BACKGROUND_IMAGE_FLAGS,
     pub hbm: super::super::Graphics::Gdi::HBITMAP,
@@ -5405,15 +5194,8 @@ pub struct LVBKIMAGEW {
     pub xOffsetPercent: i32,
     pub yOffsetPercent: i32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for LVBKIMAGEW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for LVBKIMAGEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LVCOLUMNA {
     pub mask: LVCOLUMNW_MASK,
     pub fmt: LVCOLUMNW_FORMAT,
@@ -5427,13 +5209,8 @@ pub struct LVCOLUMNA {
     pub cxDefault: i32,
     pub cxIdeal: i32,
 }
-impl Copy for LVCOLUMNA {}
-impl Clone for LVCOLUMNA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LVCOLUMNW {
     pub mask: LVCOLUMNW_MASK,
     pub fmt: LVCOLUMNW_FORMAT,
@@ -5447,13 +5224,8 @@ pub struct LVCOLUMNW {
     pub cxDefault: i32,
     pub cxIdeal: i32,
 }
-impl Copy for LVCOLUMNW {}
-impl Clone for LVCOLUMNW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LVFINDINFOA {
     pub flags: LVFINDINFOW_FLAGS,
     pub psz: windows_sys::core::PCSTR,
@@ -5461,13 +5233,8 @@ pub struct LVFINDINFOA {
     pub pt: super::super::Foundation::POINT,
     pub vkDirection: u32,
 }
-impl Copy for LVFINDINFOA {}
-impl Clone for LVFINDINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LVFINDINFOW {
     pub flags: LVFINDINFOW_FLAGS,
     pub psz: windows_sys::core::PCWSTR,
@@ -5475,26 +5242,16 @@ pub struct LVFINDINFOW {
     pub pt: super::super::Foundation::POINT,
     pub vkDirection: u32,
 }
-impl Copy for LVFINDINFOW {}
-impl Clone for LVFINDINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LVFOOTERINFO {
     pub mask: u32,
     pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
     pub cItems: u32,
 }
-impl Copy for LVFOOTERINFO {}
-impl Clone for LVFOOTERINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LVFOOTERITEM {
     pub mask: LVFOOTERITEM_MASK,
     pub iItem: i32,
@@ -5503,13 +5260,8 @@ pub struct LVFOOTERITEM {
     pub state: u32,
     pub stateMask: u32,
 }
-impl Copy for LVFOOTERITEM {}
-impl Clone for LVFOOTERITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LVGROUP {
     pub cbSize: u32,
     pub mask: LVGROUP_MASK,
@@ -5536,13 +5288,8 @@ pub struct LVGROUP {
     pub pszSubsetTitle: windows_sys::core::PWSTR,
     pub cchSubsetTitle: u32,
 }
-impl Copy for LVGROUP {}
-impl Clone for LVGROUP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LVGROUPMETRICS {
     pub cbSize: u32,
     pub mask: u32,
@@ -5557,13 +5304,8 @@ pub struct LVGROUPMETRICS {
     pub crHeader: super::super::Foundation::COLORREF,
     pub crFooter: super::super::Foundation::COLORREF,
 }
-impl Copy for LVGROUPMETRICS {}
-impl Clone for LVGROUPMETRICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LVHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
     pub flags: LVHITTESTINFO_FLAGS,
@@ -5571,38 +5313,23 @@ pub struct LVHITTESTINFO {
     pub iSubItem: i32,
     pub iGroup: i32,
 }
-impl Copy for LVHITTESTINFO {}
-impl Clone for LVHITTESTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LVINSERTGROUPSORTED {
     pub pfnGroupCompare: PFNLVGROUPCOMPARE,
     pub pvData: *mut core::ffi::c_void,
     pub lvGroup: LVGROUP,
 }
-impl Copy for LVINSERTGROUPSORTED {}
-impl Clone for LVINSERTGROUPSORTED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LVINSERTMARK {
     pub cbSize: u32,
     pub dwFlags: u32,
     pub iItem: i32,
     pub dwReserved: u32,
 }
-impl Copy for LVINSERTMARK {}
-impl Clone for LVINSERTMARK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LVITEMA {
     pub mask: LIST_VIEW_ITEM_FLAGS,
     pub iItem: i32,
@@ -5620,24 +5347,14 @@ pub struct LVITEMA {
     pub piColFmt: *mut LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS,
     pub iGroup: i32,
 }
-impl Copy for LVITEMA {}
-impl Clone for LVITEMA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LVITEMINDEX {
     pub iItem: i32,
     pub iGroup: i32,
 }
-impl Copy for LVITEMINDEX {}
-impl Clone for LVITEMINDEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LVITEMW {
     pub mask: LIST_VIEW_ITEM_FLAGS,
     pub iItem: i32,
@@ -5655,13 +5372,8 @@ pub struct LVITEMW {
     pub piColFmt: *mut LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS,
     pub iGroup: i32,
 }
-impl Copy for LVITEMW {}
-impl Clone for LVITEMW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LVSETINFOTIP {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -5669,13 +5381,8 @@ pub struct LVSETINFOTIP {
     pub iItem: i32,
     pub iSubItem: i32,
 }
-impl Copy for LVSETINFOTIP {}
-impl Clone for LVSETINFOTIP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LVTILEINFO {
     pub cbSize: u32,
     pub iItem: i32,
@@ -5683,13 +5390,8 @@ pub struct LVTILEINFO {
     pub puColumns: *mut u32,
     pub piColFmt: *mut i32,
 }
-impl Copy for LVTILEINFO {}
-impl Clone for LVTILEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LVTILEVIEWINFO {
     pub cbSize: u32,
     pub dwMask: LVTILEVIEWINFO_MASK,
@@ -5698,26 +5400,16 @@ pub struct LVTILEVIEWINFO {
     pub cLines: i32,
     pub rcLabelMargin: super::super::Foundation::RECT,
 }
-impl Copy for LVTILEVIEWINFO {}
-impl Clone for LVTILEVIEWINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MARGINS {
     pub cxLeftWidth: i32,
     pub cxRightWidth: i32,
     pub cyTopHeight: i32,
     pub cyBottomHeight: i32,
 }
-impl Copy for MARGINS {}
-impl Clone for MARGINS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MCGRIDINFO {
     pub cbSize: u32,
     pub dwPart: MCGRIDINFO_PART,
@@ -5732,13 +5424,8 @@ pub struct MCGRIDINFO {
     pub pszName: windows_sys::core::PWSTR,
     pub cchName: usize,
 }
-impl Copy for MCGRIDINFO {}
-impl Clone for MCGRIDINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MCHITTESTINFO {
     pub cbSize: u32,
     pub pt: super::super::Foundation::POINT,
@@ -5749,13 +5436,8 @@ pub struct MCHITTESTINFO {
     pub iRow: i32,
     pub iCol: i32,
 }
-impl Copy for MCHITTESTINFO {}
-impl Clone for MCHITTESTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MEASUREITEMSTRUCT {
     pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
     pub CtlID: u32,
@@ -5764,59 +5446,34 @@ pub struct MEASUREITEMSTRUCT {
     pub itemHeight: u32,
     pub itemData: usize,
 }
-impl Copy for MEASUREITEMSTRUCT {}
-impl Clone for MEASUREITEMSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMBCDROPDOWN {
     pub hdr: NMHDR,
     pub rcButton: super::super::Foundation::RECT,
 }
-impl Copy for NMBCDROPDOWN {}
-impl Clone for NMBCDROPDOWN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMBCHOTITEM {
     pub hdr: NMHDR,
     pub dwFlags: NMTBHOTITEM_FLAGS,
 }
-impl Copy for NMBCHOTITEM {}
-impl Clone for NMBCHOTITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMCBEDRAGBEGINA {
     pub hdr: NMHDR,
     pub iItemid: i32,
     pub szText: [i8; 260],
 }
-impl Copy for NMCBEDRAGBEGINA {}
-impl Clone for NMCBEDRAGBEGINA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMCBEDRAGBEGINW {
     pub hdr: NMHDR,
     pub iItemid: i32,
     pub szText: [u16; 260],
 }
-impl Copy for NMCBEDRAGBEGINW {}
-impl Clone for NMCBEDRAGBEGINW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMCBEENDEDITA {
     pub hdr: NMHDR,
     pub fChanged: super::super::Foundation::BOOL,
@@ -5824,13 +5481,8 @@ pub struct NMCBEENDEDITA {
     pub szText: [i8; 260],
     pub iWhy: i32,
 }
-impl Copy for NMCBEENDEDITA {}
-impl Clone for NMCBEENDEDITA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMCBEENDEDITW {
     pub hdr: NMHDR,
     pub fChanged: super::super::Foundation::BOOL,
@@ -5838,49 +5490,29 @@ pub struct NMCBEENDEDITW {
     pub szText: [u16; 260],
     pub iWhy: i32,
 }
-impl Copy for NMCBEENDEDITW {}
-impl Clone for NMCBEENDEDITW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMCHAR {
     pub hdr: NMHDR,
     pub ch: u32,
     pub dwItemPrev: u32,
     pub dwItemNext: u32,
 }
-impl Copy for NMCHAR {}
-impl Clone for NMCHAR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMCOMBOBOXEXA {
     pub hdr: NMHDR,
     pub ceItem: COMBOBOXEXITEMA,
 }
-impl Copy for NMCOMBOBOXEXA {}
-impl Clone for NMCOMBOBOXEXA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMCOMBOBOXEXW {
     pub hdr: NMHDR,
     pub ceItem: COMBOBOXEXITEMW,
 }
-impl Copy for NMCOMBOBOXEXW {}
-impl Clone for NMCOMBOBOXEXW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct NMCUSTOMDRAW {
     pub hdr: NMHDR,
     pub dwDrawStage: NMCUSTOMDRAW_DRAW_STAGE,
@@ -5890,29 +5522,17 @@ pub struct NMCUSTOMDRAW {
     pub uItemState: NMCUSTOMDRAW_DRAW_STATE_FLAGS,
     pub lItemlParam: super::super::Foundation::LPARAM,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for NMCUSTOMDRAW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for NMCUSTOMDRAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMCUSTOMSPLITRECTINFO {
     pub hdr: NMHDR,
     pub rcClient: super::super::Foundation::RECT,
     pub rcButton: super::super::Foundation::RECT,
     pub rcSplit: super::super::Foundation::RECT,
 }
-impl Copy for NMCUSTOMSPLITRECTINFO {}
-impl Clone for NMCUSTOMSPLITRECTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct NMCUSTOMTEXT {
     pub hdr: NMHDR,
     pub hDC: super::super::Graphics::Gdi::HDC,
@@ -5922,27 +5542,15 @@ pub struct NMCUSTOMTEXT {
     pub uFormat: u32,
     pub fLink: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for NMCUSTOMTEXT {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for NMCUSTOMTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMDATETIMECHANGE {
     pub nmhdr: NMHDR,
     pub dwFlags: NMDATETIMECHANGE_FLAGS,
     pub st: super::super::Foundation::SYSTEMTIME,
 }
-impl Copy for NMDATETIMECHANGE {}
-impl Clone for NMDATETIMECHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMDATETIMEFORMATA {
     pub nmhdr: NMHDR,
     pub pszFormat: windows_sys::core::PCSTR,
@@ -5950,37 +5558,22 @@ pub struct NMDATETIMEFORMATA {
     pub pszDisplay: windows_sys::core::PCSTR,
     pub szDisplay: [i8; 64],
 }
-impl Copy for NMDATETIMEFORMATA {}
-impl Clone for NMDATETIMEFORMATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMDATETIMEFORMATQUERYA {
     pub nmhdr: NMHDR,
     pub pszFormat: windows_sys::core::PCSTR,
     pub szMax: super::super::Foundation::SIZE,
 }
-impl Copy for NMDATETIMEFORMATQUERYA {}
-impl Clone for NMDATETIMEFORMATQUERYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMDATETIMEFORMATQUERYW {
     pub nmhdr: NMHDR,
     pub pszFormat: windows_sys::core::PCWSTR,
     pub szMax: super::super::Foundation::SIZE,
 }
-impl Copy for NMDATETIMEFORMATQUERYW {}
-impl Clone for NMDATETIMEFORMATQUERYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMDATETIMEFORMATW {
     pub nmhdr: NMHDR,
     pub pszFormat: windows_sys::core::PCWSTR,
@@ -5988,78 +5581,48 @@ pub struct NMDATETIMEFORMATW {
     pub pszDisplay: windows_sys::core::PCWSTR,
     pub szDisplay: [u16; 64],
 }
-impl Copy for NMDATETIMEFORMATW {}
-impl Clone for NMDATETIMEFORMATW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMDATETIMESTRINGA {
     pub nmhdr: NMHDR,
     pub pszUserString: windows_sys::core::PCSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
     pub dwFlags: u32,
 }
-impl Copy for NMDATETIMESTRINGA {}
-impl Clone for NMDATETIMESTRINGA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMDATETIMESTRINGW {
     pub nmhdr: NMHDR,
     pub pszUserString: windows_sys::core::PCWSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
     pub dwFlags: u32,
 }
-impl Copy for NMDATETIMESTRINGW {}
-impl Clone for NMDATETIMESTRINGW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMDATETIMEWMKEYDOWNA {
     pub nmhdr: NMHDR,
     pub nVirtKey: i32,
     pub pszFormat: windows_sys::core::PCSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
 }
-impl Copy for NMDATETIMEWMKEYDOWNA {}
-impl Clone for NMDATETIMEWMKEYDOWNA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMDATETIMEWMKEYDOWNW {
     pub nmhdr: NMHDR,
     pub nVirtKey: i32,
     pub pszFormat: windows_sys::core::PCWSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
 }
-impl Copy for NMDATETIMEWMKEYDOWNW {}
-impl Clone for NMDATETIMEWMKEYDOWNW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMDAYSTATE {
     pub nmhdr: NMHDR,
     pub stStart: super::super::Foundation::SYSTEMTIME,
     pub cDayState: i32,
     pub prgDayState: *mut u32,
 }
-impl Copy for NMDAYSTATE {}
-impl Clone for NMDAYSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMHDDISPINFOA {
     pub hdr: NMHDR,
     pub iItem: i32,
@@ -6069,13 +5632,8 @@ pub struct NMHDDISPINFOA {
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl Copy for NMHDDISPINFOA {}
-impl Clone for NMHDDISPINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMHDDISPINFOW {
     pub hdr: NMHDR,
     pub iItem: i32,
@@ -6085,81 +5643,47 @@ pub struct NMHDDISPINFOW {
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl Copy for NMHDDISPINFOW {}
-impl Clone for NMHDDISPINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMHDFILTERBTNCLICK {
     pub hdr: NMHDR,
     pub iItem: i32,
     pub rc: super::super::Foundation::RECT,
 }
-impl Copy for NMHDFILTERBTNCLICK {}
-impl Clone for NMHDFILTERBTNCLICK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMHDR {
     pub hwndFrom: super::super::Foundation::HWND,
     pub idFrom: usize,
     pub code: u32,
 }
-impl Copy for NMHDR {}
-impl Clone for NMHDR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct NMHEADERA {
     pub hdr: NMHDR,
     pub iItem: i32,
     pub iButton: HEADER_CONTROL_NOTIFICATION_BUTTON,
     pub pitem: *mut HDITEMA,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for NMHEADERA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for NMHEADERA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct NMHEADERW {
     pub hdr: NMHDR,
     pub iItem: i32,
     pub iButton: HEADER_CONTROL_NOTIFICATION_BUTTON,
     pub pitem: *mut HDITEMW,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for NMHEADERW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for NMHEADERW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMIPADDRESS {
     pub hdr: NMHDR,
     pub iField: i32,
     pub iValue: i32,
 }
-impl Copy for NMIPADDRESS {}
-impl Clone for NMIPADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMITEMACTIVATE {
     pub hdr: NMHDR,
     pub iItem: i32,
@@ -6171,36 +5695,21 @@ pub struct NMITEMACTIVATE {
     pub lParam: super::super::Foundation::LPARAM,
     pub uKeyFlags: u32,
 }
-impl Copy for NMITEMACTIVATE {}
-impl Clone for NMITEMACTIVATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMKEY {
     pub hdr: NMHDR,
     pub nVKey: u32,
     pub uFlags: u32,
 }
-impl Copy for NMKEY {}
-impl Clone for NMKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMLINK {
     pub hdr: NMHDR,
     pub item: LITEM,
 }
-impl Copy for NMLINK {}
-impl Clone for NMLINK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMLISTVIEW {
     pub hdr: NMHDR,
     pub iItem: i32,
@@ -6211,26 +5720,16 @@ pub struct NMLISTVIEW {
     pub ptAction: super::super::Foundation::POINT,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl Copy for NMLISTVIEW {}
-impl Clone for NMLISTVIEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMLVCACHEHINT {
     pub hdr: NMHDR,
     pub iFrom: i32,
     pub iTo: i32,
 }
-impl Copy for NMLVCACHEHINT {}
-impl Clone for NMLVCACHEHINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct NMLVCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
     pub clrText: super::super::Foundation::COLORREF,
@@ -6245,73 +5744,41 @@ pub struct NMLVCUSTOMDRAW {
     pub rcText: super::super::Foundation::RECT,
     pub uAlign: LIST_VIEW_GROUP_ALIGN_FLAGS,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for NMLVCUSTOMDRAW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for NMLVCUSTOMDRAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMLVDISPINFOA {
     pub hdr: NMHDR,
     pub item: LVITEMA,
 }
-impl Copy for NMLVDISPINFOA {}
-impl Clone for NMLVDISPINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMLVDISPINFOW {
     pub hdr: NMHDR,
     pub item: LVITEMW,
 }
-impl Copy for NMLVDISPINFOW {}
-impl Clone for NMLVDISPINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMLVEMPTYMARKUP {
     pub hdr: NMHDR,
     pub dwFlags: NMLVEMPTYMARKUP_FLAGS,
     pub szMarkup: [u16; 2084],
 }
-impl Copy for NMLVEMPTYMARKUP {}
-impl Clone for NMLVEMPTYMARKUP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMLVFINDITEMA {
     pub hdr: NMHDR,
     pub iStart: i32,
     pub lvfi: LVFINDINFOA,
 }
-impl Copy for NMLVFINDITEMA {}
-impl Clone for NMLVFINDITEMA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMLVFINDITEMW {
     pub hdr: NMHDR,
     pub iStart: i32,
     pub lvfi: LVFINDINFOW,
 }
-impl Copy for NMLVFINDITEMW {}
-impl Clone for NMLVFINDITEMW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMLVGETINFOTIPA {
     pub hdr: NMHDR,
     pub dwFlags: NMLVGETINFOTIP_FLAGS,
@@ -6321,13 +5788,8 @@ pub struct NMLVGETINFOTIPA {
     pub iSubItem: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl Copy for NMLVGETINFOTIPA {}
-impl Clone for NMLVGETINFOTIPA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMLVGETINFOTIPW {
     pub hdr: NMHDR,
     pub dwFlags: NMLVGETINFOTIP_FLAGS,
@@ -6337,38 +5799,23 @@ pub struct NMLVGETINFOTIPW {
     pub iSubItem: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl Copy for NMLVGETINFOTIPW {}
-impl Clone for NMLVGETINFOTIPW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct NMLVKEYDOWN {
     pub hdr: NMHDR,
     pub wVKey: u16,
     pub flags: u32,
 }
-impl Copy for NMLVKEYDOWN {}
-impl Clone for NMLVKEYDOWN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMLVLINK {
     pub hdr: NMHDR,
     pub link: LITEM,
     pub iItem: i32,
     pub iSubItem: i32,
 }
-impl Copy for NMLVLINK {}
-impl Clone for NMLVLINK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMLVODSTATECHANGE {
     pub hdr: NMHDR,
     pub iFrom: i32,
@@ -6376,25 +5823,15 @@ pub struct NMLVODSTATECHANGE {
     pub uNewState: LIST_VIEW_ITEM_STATE_FLAGS,
     pub uOldState: LIST_VIEW_ITEM_STATE_FLAGS,
 }
-impl Copy for NMLVODSTATECHANGE {}
-impl Clone for NMLVODSTATECHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMLVSCROLL {
     pub hdr: NMHDR,
     pub dx: i32,
     pub dy: i32,
 }
-impl Copy for NMLVSCROLL {}
-impl Clone for NMLVSCROLL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMMOUSE {
     pub hdr: NMHDR,
     pub dwItemSpec: usize,
@@ -6402,13 +5839,8 @@ pub struct NMMOUSE {
     pub pt: super::super::Foundation::POINT,
     pub dwHitInfo: super::super::Foundation::LPARAM,
 }
-impl Copy for NMMOUSE {}
-impl Clone for NMMOUSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMOBJECTNOTIFY {
     pub hdr: NMHDR,
     pub iItem: i32,
@@ -6417,39 +5849,24 @@ pub struct NMOBJECTNOTIFY {
     pub hResult: windows_sys::core::HRESULT,
     pub dwFlags: u32,
 }
-impl Copy for NMOBJECTNOTIFY {}
-impl Clone for NMOBJECTNOTIFY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMPGCALCSIZE {
     pub hdr: NMHDR,
     pub dwFlag: NMPGCALCSIZE_FLAGS,
     pub iWidth: i32,
     pub iHeight: i32,
 }
-impl Copy for NMPGCALCSIZE {}
-impl Clone for NMPGCALCSIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMPGHOTITEM {
     pub hdr: NMHDR,
     pub idOld: i32,
     pub idNew: i32,
     pub dwFlags: u32,
 }
-impl Copy for NMPGHOTITEM {}
-impl Clone for NMPGHOTITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct NMPGSCROLL {
     pub hdr: NMHDR,
     pub fwKeys: NMPGSCROLL_KEYS,
@@ -6459,26 +5876,16 @@ pub struct NMPGSCROLL {
     pub iYpos: i32,
     pub iScroll: i32,
 }
-impl Copy for NMPGSCROLL {}
-impl Clone for NMPGSCROLL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMRBAUTOSIZE {
     pub hdr: NMHDR,
     pub fChanged: super::super::Foundation::BOOL,
     pub rcTarget: super::super::Foundation::RECT,
     pub rcActual: super::super::Foundation::RECT,
 }
-impl Copy for NMRBAUTOSIZE {}
-impl Clone for NMRBAUTOSIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMREBAR {
     pub hdr: NMHDR,
     pub dwMask: NMREBAR_MASK_FLAGS,
@@ -6487,13 +5894,8 @@ pub struct NMREBAR {
     pub wID: u32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl Copy for NMREBAR {}
-impl Clone for NMREBAR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMREBARAUTOBREAK {
     pub hdr: NMHDR,
     pub uBand: u32,
@@ -6503,13 +5905,8 @@ pub struct NMREBARAUTOBREAK {
     pub fStyleCurrent: u32,
     pub fAutoBreak: super::super::Foundation::BOOL,
 }
-impl Copy for NMREBARAUTOBREAK {}
-impl Clone for NMREBARAUTOBREAK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMREBARCHEVRON {
     pub hdr: NMHDR,
     pub uBand: u32,
@@ -6518,13 +5915,8 @@ pub struct NMREBARCHEVRON {
     pub rc: super::super::Foundation::RECT,
     pub lParamNM: super::super::Foundation::LPARAM,
 }
-impl Copy for NMREBARCHEVRON {}
-impl Clone for NMREBARCHEVRON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMREBARCHILDSIZE {
     pub hdr: NMHDR,
     pub uBand: u32,
@@ -6532,50 +5924,30 @@ pub struct NMREBARCHILDSIZE {
     pub rcChild: super::super::Foundation::RECT,
     pub rcBand: super::super::Foundation::RECT,
 }
-impl Copy for NMREBARCHILDSIZE {}
-impl Clone for NMREBARCHILDSIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMREBARSPLITTER {
     pub hdr: NMHDR,
     pub rcSizing: super::super::Foundation::RECT,
 }
-impl Copy for NMREBARSPLITTER {}
-impl Clone for NMREBARSPLITTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMSEARCHWEB {
     pub hdr: NMHDR,
     pub entrypoint: EC_SEARCHWEB_ENTRYPOINT,
     pub hasQueryText: super::super::Foundation::BOOL,
     pub invokeSucceeded: super::super::Foundation::BOOL,
 }
-impl Copy for NMSEARCHWEB {}
-impl Clone for NMSEARCHWEB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMSELCHANGE {
     pub nmhdr: NMHDR,
     pub stSelStart: super::super::Foundation::SYSTEMTIME,
     pub stSelEnd: super::super::Foundation::SYSTEMTIME,
 }
-impl Copy for NMSELCHANGE {}
-impl Clone for NMSELCHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct NMTBCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
     pub hbrMonoDither: super::super::Graphics::Gdi::HBRUSH,
@@ -6592,15 +5964,8 @@ pub struct NMTBCUSTOMDRAW {
     pub nHLStringBkMode: i32,
     pub iListGap: i32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for NMTBCUSTOMDRAW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for NMTBCUSTOMDRAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMTBDISPINFOA {
     pub hdr: NMHDR,
     pub dwMask: NMTBDISPINFOW_MASK,
@@ -6610,13 +5975,8 @@ pub struct NMTBDISPINFOA {
     pub pszText: windows_sys::core::PSTR,
     pub cchText: i32,
 }
-impl Copy for NMTBDISPINFOA {}
-impl Clone for NMTBDISPINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMTBDISPINFOW {
     pub hdr: NMHDR,
     pub dwMask: NMTBDISPINFOW_MASK,
@@ -6626,13 +5986,8 @@ pub struct NMTBDISPINFOW {
     pub pszText: windows_sys::core::PWSTR,
     pub cchText: i32,
 }
-impl Copy for NMTBDISPINFOW {}
-impl Clone for NMTBDISPINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMTBGETINFOTIPA {
     pub hdr: NMHDR,
     pub pszText: windows_sys::core::PSTR,
@@ -6640,13 +5995,8 @@ pub struct NMTBGETINFOTIPA {
     pub iItem: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl Copy for NMTBGETINFOTIPA {}
-impl Clone for NMTBGETINFOTIPA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMTBGETINFOTIPW {
     pub hdr: NMHDR,
     pub pszText: windows_sys::core::PWSTR,
@@ -6654,26 +6004,16 @@ pub struct NMTBGETINFOTIPW {
     pub iItem: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl Copy for NMTBGETINFOTIPW {}
-impl Clone for NMTBGETINFOTIPW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMTBHOTITEM {
     pub hdr: NMHDR,
     pub idOld: i32,
     pub idNew: i32,
     pub dwFlags: NMTBHOTITEM_FLAGS,
 }
-impl Copy for NMTBHOTITEM {}
-impl Clone for NMTBHOTITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMTBRESTORE {
     pub hdr: NMHDR,
     pub pData: *mut u32,
@@ -6684,13 +6024,8 @@ pub struct NMTBRESTORE {
     pub cbBytesPerRecord: i32,
     pub tbButton: TBBUTTON,
 }
-impl Copy for NMTBRESTORE {}
-impl Clone for NMTBRESTORE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMTBSAVE {
     pub hdr: NMHDR,
     pub pData: *mut u32,
@@ -6700,25 +6035,15 @@ pub struct NMTBSAVE {
     pub cButtons: i32,
     pub tbButton: TBBUTTON,
 }
-impl Copy for NMTBSAVE {}
-impl Clone for NMTBSAVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct NMTCKEYDOWN {
     pub hdr: NMHDR,
     pub wVKey: u16,
     pub flags: u32,
 }
-impl Copy for NMTCKEYDOWN {}
-impl Clone for NMTCKEYDOWN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMTOOLBARA {
     pub hdr: NMHDR,
     pub iItem: i32,
@@ -6727,13 +6052,8 @@ pub struct NMTOOLBARA {
     pub pszText: windows_sys::core::PSTR,
     pub rcButton: super::super::Foundation::RECT,
 }
-impl Copy for NMTOOLBARA {}
-impl Clone for NMTOOLBARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMTOOLBARW {
     pub hdr: NMHDR,
     pub iItem: i32,
@@ -6742,36 +6062,21 @@ pub struct NMTOOLBARW {
     pub pszText: windows_sys::core::PWSTR,
     pub rcButton: super::super::Foundation::RECT,
 }
-impl Copy for NMTOOLBARW {}
-impl Clone for NMTOOLBARW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMTOOLTIPSCREATED {
     pub hdr: NMHDR,
     pub hwndToolTips: super::super::Foundation::HWND,
 }
-impl Copy for NMTOOLTIPSCREATED {}
-impl Clone for NMTOOLTIPSCREATED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMTRBTHUMBPOSCHANGING {
     pub hdr: NMHDR,
     pub dwPos: u32,
     pub nReason: i32,
 }
-impl Copy for NMTRBTHUMBPOSCHANGING {}
-impl Clone for NMTRBTHUMBPOSCHANGING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMTREEVIEWA {
     pub hdr: NMHDR,
     pub action: NM_TREEVIEW_ACTION,
@@ -6779,13 +6084,8 @@ pub struct NMTREEVIEWA {
     pub itemNew: TVITEMA,
     pub ptDrag: super::super::Foundation::POINT,
 }
-impl Copy for NMTREEVIEWA {}
-impl Clone for NMTREEVIEWA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMTREEVIEWW {
     pub hdr: NMHDR,
     pub action: NM_TREEVIEW_ACTION,
@@ -6793,27 +6093,15 @@ pub struct NMTREEVIEWW {
     pub itemNew: TVITEMW,
     pub ptDrag: super::super::Foundation::POINT,
 }
-impl Copy for NMTREEVIEWW {}
-impl Clone for NMTREEVIEWW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct NMTTCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
     pub uDrawFlags: u32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for NMTTCUSTOMDRAW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for NMTTCUSTOMDRAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMTTDISPINFOA {
     pub hdr: NMHDR,
     pub lpszText: windows_sys::core::PSTR,
@@ -6822,13 +6110,8 @@ pub struct NMTTDISPINFOA {
     pub uFlags: TOOLTIP_FLAGS,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl Copy for NMTTDISPINFOA {}
-impl Clone for NMTTDISPINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMTTDISPINFOW {
     pub hdr: NMHDR,
     pub lpszText: windows_sys::core::PWSTR,
@@ -6837,14 +6120,9 @@ pub struct NMTTDISPINFOW {
     pub uFlags: TOOLTIP_FLAGS,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl Copy for NMTTDISPINFOW {}
-impl Clone for NMTTDISPINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct NMTVASYNCDRAW {
     pub hdr: NMHDR,
     pub pimldp: *mut IMAGELISTDRAWPARAMS,
@@ -6854,75 +6132,41 @@ pub struct NMTVASYNCDRAW {
     pub dwRetFlags: u32,
     pub iRetImageIndex: i32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for NMTVASYNCDRAW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for NMTVASYNCDRAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct NMTVCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
     pub clrText: super::super::Foundation::COLORREF,
     pub clrTextBk: super::super::Foundation::COLORREF,
     pub iLevel: i32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for NMTVCUSTOMDRAW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for NMTVCUSTOMDRAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMTVDISPINFOA {
     pub hdr: NMHDR,
     pub item: TVITEMA,
 }
-impl Copy for NMTVDISPINFOA {}
-impl Clone for NMTVDISPINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMTVDISPINFOEXA {
     pub hdr: NMHDR,
     pub item: TVITEMEXA,
 }
-impl Copy for NMTVDISPINFOEXA {}
-impl Clone for NMTVDISPINFOEXA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMTVDISPINFOEXW {
     pub hdr: NMHDR,
     pub item: TVITEMEXW,
 }
-impl Copy for NMTVDISPINFOEXW {}
-impl Clone for NMTVDISPINFOEXW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMTVDISPINFOW {
     pub hdr: NMHDR,
     pub item: TVITEMW,
 }
-impl Copy for NMTVDISPINFOW {}
-impl Clone for NMTVDISPINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMTVGETINFOTIPA {
     pub hdr: NMHDR,
     pub pszText: windows_sys::core::PSTR,
@@ -6930,13 +6174,8 @@ pub struct NMTVGETINFOTIPA {
     pub hItem: HTREEITEM,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl Copy for NMTVGETINFOTIPA {}
-impl Clone for NMTVGETINFOTIPA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMTVGETINFOTIPW {
     pub hdr: NMHDR,
     pub pszText: windows_sys::core::PWSTR,
@@ -6944,13 +6183,8 @@ pub struct NMTVGETINFOTIPW {
     pub hItem: HTREEITEM,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl Copy for NMTVGETINFOTIPW {}
-impl Clone for NMTVGETINFOTIPW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMTVITEMCHANGE {
     pub hdr: NMHDR,
     pub uChanged: u32,
@@ -6959,85 +6193,50 @@ pub struct NMTVITEMCHANGE {
     pub uStateOld: u32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl Copy for NMTVITEMCHANGE {}
-impl Clone for NMTVITEMCHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct NMTVKEYDOWN {
     pub hdr: NMHDR,
     pub wVKey: u16,
     pub flags: u32,
 }
-impl Copy for NMTVKEYDOWN {}
-impl Clone for NMTVKEYDOWN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMTVSTATEIMAGECHANGING {
     pub hdr: NMHDR,
     pub hti: HTREEITEM,
     pub iOldStateImageIndex: i32,
     pub iNewStateImageIndex: i32,
 }
-impl Copy for NMTVSTATEIMAGECHANGING {}
-impl Clone for NMTVSTATEIMAGECHANGING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMUPDOWN {
     pub hdr: NMHDR,
     pub iPos: i32,
     pub iDelta: i32,
 }
-impl Copy for NMUPDOWN {}
-impl Clone for NMUPDOWN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NMVIEWCHANGE {
     pub nmhdr: NMHDR,
     pub dwOldView: MONTH_CALDENDAR_MESSAGES_VIEW,
     pub dwNewView: MONTH_CALDENDAR_MESSAGES_VIEW,
 }
-impl Copy for NMVIEWCHANGE {}
-impl Clone for NMVIEWCHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PBRANGE {
     pub iLow: i32,
     pub iHigh: i32,
 }
-impl Copy for PBRANGE {}
-impl Clone for PBRANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POINTER_DEVICE_CURSOR_INFO {
     pub cursorId: u32,
     pub cursor: POINTER_DEVICE_CURSOR_TYPE,
 }
-impl Copy for POINTER_DEVICE_CURSOR_INFO {}
-impl Clone for POINTER_DEVICE_CURSOR_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct POINTER_DEVICE_INFO {
     pub displayOrientation: u32,
     pub device: super::super::Foundation::HANDLE,
@@ -7047,15 +6246,8 @@ pub struct POINTER_DEVICE_INFO {
     pub maxActiveContacts: u16,
     pub productString: [u16; 520],
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for POINTER_DEVICE_INFO {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for POINTER_DEVICE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POINTER_DEVICE_PROPERTY {
     pub logicalMin: i32,
     pub logicalMax: i32,
@@ -7066,42 +6258,23 @@ pub struct POINTER_DEVICE_PROPERTY {
     pub usagePageId: u16,
     pub usageId: u16,
 }
-impl Copy for POINTER_DEVICE_PROPERTY {}
-impl Clone for POINTER_DEVICE_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct POINTER_TYPE_INFO {
     pub r#type: super::WindowsAndMessaging::POINTER_INPUT_TYPE,
     pub Anonymous: POINTER_TYPE_INFO_0,
 }
-#[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for POINTER_TYPE_INFO {}
-#[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for POINTER_TYPE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union POINTER_TYPE_INFO_0 {
     pub touchInfo: super::Input::Pointer::POINTER_TOUCH_INFO,
     pub penInfo: super::Input::Pointer::POINTER_PEN_INFO,
 }
-#[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for POINTER_TYPE_INFO_0 {}
-#[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for POINTER_TYPE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct PROPSHEETHEADERA_V1 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -7114,58 +6287,30 @@ pub struct PROPSHEETHEADERA_V1 {
     pub Anonymous3: PROPSHEETHEADERA_V1_2,
     pub pfnCallback: PFNPROPSHEETCALLBACK,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETHEADERA_V1 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETHEADERA_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V1_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCSTR,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETHEADERA_V1_0 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETHEADERA_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V1_1 {
     pub nStartPage: u32,
     pub pStartPage: windows_sys::core::PCSTR,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETHEADERA_V1_1 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETHEADERA_V1_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V1_2 {
     pub ppsp: *mut PROPSHEETPAGEA,
     pub phpage: *mut HPROPSHEETPAGE,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETHEADERA_V1_2 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETHEADERA_V1_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct PROPSHEETHEADERA_V2 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -7181,86 +6326,44 @@ pub struct PROPSHEETHEADERA_V2 {
     pub hplWatermark: super::super::Graphics::Gdi::HPALETTE,
     pub Anonymous5: PROPSHEETHEADERA_V2_4,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETHEADERA_V2 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETHEADERA_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V2_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCSTR,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETHEADERA_V2_0 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETHEADERA_V2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V2_1 {
     pub nStartPage: u32,
     pub pStartPage: windows_sys::core::PCSTR,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETHEADERA_V2_1 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETHEADERA_V2_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V2_2 {
     pub ppsp: *mut PROPSHEETPAGEA,
     pub phpage: *mut HPROPSHEETPAGE,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETHEADERA_V2_2 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETHEADERA_V2_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V2_3 {
     pub hbmWatermark: super::super::Graphics::Gdi::HBITMAP,
     pub pszbmWatermark: windows_sys::core::PCSTR,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETHEADERA_V2_3 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETHEADERA_V2_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V2_4 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
     pub pszbmHeader: windows_sys::core::PCSTR,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETHEADERA_V2_4 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETHEADERA_V2_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct PROPSHEETHEADERW_V1 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -7273,58 +6376,30 @@ pub struct PROPSHEETHEADERW_V1 {
     pub Anonymous3: PROPSHEETHEADERW_V1_2,
     pub pfnCallback: PFNPROPSHEETCALLBACK,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETHEADERW_V1 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETHEADERW_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V1_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCWSTR,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETHEADERW_V1_0 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETHEADERW_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V1_1 {
     pub nStartPage: u32,
     pub pStartPage: windows_sys::core::PCWSTR,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETHEADERW_V1_1 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETHEADERW_V1_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V1_2 {
     pub ppsp: *mut PROPSHEETPAGEW,
     pub phpage: *mut HPROPSHEETPAGE,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETHEADERW_V1_2 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETHEADERW_V1_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct PROPSHEETHEADERW_V2 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -7340,86 +6415,44 @@ pub struct PROPSHEETHEADERW_V2 {
     pub hplWatermark: super::super::Graphics::Gdi::HPALETTE,
     pub Anonymous5: PROPSHEETHEADERW_V2_4,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETHEADERW_V2 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETHEADERW_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V2_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCWSTR,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETHEADERW_V2_0 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETHEADERW_V2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V2_1 {
     pub nStartPage: u32,
     pub pStartPage: windows_sys::core::PCWSTR,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETHEADERW_V2_1 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETHEADERW_V2_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V2_2 {
     pub ppsp: *mut PROPSHEETPAGEW,
     pub phpage: *mut HPROPSHEETPAGE,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETHEADERW_V2_2 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETHEADERW_V2_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V2_3 {
     pub hbmWatermark: super::super::Graphics::Gdi::HBITMAP,
     pub pszbmWatermark: windows_sys::core::PCWSTR,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETHEADERW_V2_3 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETHEADERW_V2_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V2_4 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
     pub pszbmHeader: windows_sys::core::PCWSTR,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETHEADERW_V2_4 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETHEADERW_V2_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct PROPSHEETPAGEA {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -7436,58 +6469,30 @@ pub struct PROPSHEETPAGEA {
     pub hActCtx: super::super::Foundation::HANDLE,
     pub Anonymous3: PROPSHEETPAGEA_2,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEA {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_0 {
     pub pszTemplate: windows_sys::core::PCSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEA_0 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCSTR,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEA_1 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEA_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_2 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
     pub pszbmHeader: windows_sys::core::PCSTR,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEA_2 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEA_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct PROPSHEETPAGEA_V1 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -7500,44 +6505,23 @@ pub struct PROPSHEETPAGEA_V1 {
     pub pfnCallback: LPFNPSPCALLBACKA,
     pub pcRefParent: *mut u32,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEA_V1 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEA_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_V1_0 {
     pub pszTemplate: windows_sys::core::PCSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEA_V1_0 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEA_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_V1_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCSTR,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEA_V1_1 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEA_V1_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct PROPSHEETPAGEA_V2 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -7552,44 +6536,23 @@ pub struct PROPSHEETPAGEA_V2 {
     pub pszHeaderTitle: windows_sys::core::PCSTR,
     pub pszHeaderSubTitle: windows_sys::core::PCSTR,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEA_V2 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEA_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_V2_0 {
     pub pszTemplate: windows_sys::core::PCSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEA_V2_0 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEA_V2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_V2_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCSTR,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEA_V2_1 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEA_V2_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct PROPSHEETPAGEA_V3 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -7605,44 +6568,23 @@ pub struct PROPSHEETPAGEA_V3 {
     pub pszHeaderSubTitle: windows_sys::core::PCSTR,
     pub hActCtx: super::super::Foundation::HANDLE,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEA_V3 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEA_V3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_V3_0 {
     pub pszTemplate: windows_sys::core::PCSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEA_V3_0 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEA_V3_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_V3_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCSTR,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEA_V3_1 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEA_V3_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct PROPSHEETPAGEW {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -7659,58 +6601,30 @@ pub struct PROPSHEETPAGEW {
     pub hActCtx: super::super::Foundation::HANDLE,
     pub Anonymous3: PROPSHEETPAGEW_2,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEW {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_0 {
     pub pszTemplate: windows_sys::core::PCWSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEW_0 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEW_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCWSTR,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEW_1 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEW_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_2 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
     pub pszbmHeader: windows_sys::core::PCWSTR,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEW_2 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEW_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct PROPSHEETPAGEW_V1 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -7723,44 +6637,23 @@ pub struct PROPSHEETPAGEW_V1 {
     pub pfnCallback: LPFNPSPCALLBACKW,
     pub pcRefParent: *mut u32,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEW_V1 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEW_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_V1_0 {
     pub pszTemplate: windows_sys::core::PCWSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEW_V1_0 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEW_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_V1_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCWSTR,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEW_V1_1 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEW_V1_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct PROPSHEETPAGEW_V2 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -7775,44 +6668,23 @@ pub struct PROPSHEETPAGEW_V2 {
     pub pszHeaderTitle: windows_sys::core::PCWSTR,
     pub pszHeaderSubTitle: windows_sys::core::PCWSTR,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEW_V2 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEW_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_V2_0 {
     pub pszTemplate: windows_sys::core::PCWSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEW_V2_0 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEW_V2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_V2_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCWSTR,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEW_V2_1 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEW_V2_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct PROPSHEETPAGEW_V3 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -7828,67 +6700,36 @@ pub struct PROPSHEETPAGEW_V3 {
     pub pszHeaderSubTitle: windows_sys::core::PCWSTR,
     pub hActCtx: super::super::Foundation::HANDLE,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEW_V3 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEW_V3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_V3_0 {
     pub pszTemplate: windows_sys::core::PCWSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEW_V3_0 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEW_V3_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_V3_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCWSTR,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for PROPSHEETPAGEW_V3_1 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for PROPSHEETPAGEW_V3_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSHNOTIFY {
     pub hdr: NMHDR,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl Copy for PSHNOTIFY {}
-impl Clone for PSHNOTIFY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RBHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
     pub flags: u32,
     pub iBand: i32,
 }
-impl Copy for RBHITTESTINFO {}
-impl Clone for RBHITTESTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct REBARBANDINFOA {
     pub cbSize: u32,
     pub fMask: u32,
@@ -7913,16 +6754,9 @@ pub struct REBARBANDINFOA {
     pub rcChevronLocation: super::super::Foundation::RECT,
     pub uChevronState: u32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for REBARBANDINFOA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for REBARBANDINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct REBARBANDINFOW {
     pub cbSize: u32,
     pub fMask: u32,
@@ -7947,28 +6781,16 @@ pub struct REBARBANDINFOW {
     pub rcChevronLocation: super::super::Foundation::RECT,
     pub uChevronState: u32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for REBARBANDINFOW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for REBARBANDINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REBARINFO {
     pub cbSize: u32,
     pub fMask: u32,
     pub himl: HIMAGELIST,
 }
-impl Copy for REBARINFO {}
-impl Clone for REBARINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct TASKDIALOGCONFIG {
     pub cbSize: u32,
     pub hwndParent: super::super::Foundation::HWND,
@@ -7995,54 +6817,28 @@ pub struct TASKDIALOGCONFIG {
     pub lpCallbackData: isize,
     pub cxWidth: u32,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for TASKDIALOGCONFIG {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for TASKDIALOGCONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub union TASKDIALOGCONFIG_0 {
     pub hMainIcon: super::WindowsAndMessaging::HICON,
     pub pszMainIcon: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for TASKDIALOGCONFIG_0 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for TASKDIALOGCONFIG_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub union TASKDIALOGCONFIG_1 {
     pub hFooterIcon: super::WindowsAndMessaging::HICON,
     pub pszFooterIcon: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for TASKDIALOGCONFIG_1 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for TASKDIALOGCONFIG_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct TASKDIALOG_BUTTON {
     pub nButtonID: i32,
     pub pszButtonText: windows_sys::core::PCWSTR,
 }
-impl Copy for TASKDIALOG_BUTTON {}
-impl Clone for TASKDIALOG_BUTTON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TA_CUBIC_BEZIER {
     pub header: TA_TIMINGFUNCTION,
     pub rX0: f32,
@@ -8050,23 +6846,13 @@ pub struct TA_CUBIC_BEZIER {
     pub rX1: f32,
     pub rY1: f32,
 }
-impl Copy for TA_CUBIC_BEZIER {}
-impl Clone for TA_CUBIC_BEZIER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TA_TIMINGFUNCTION {
     pub eTimingFunctionType: TA_TIMINGFUNCTION_TYPE,
 }
-impl Copy for TA_TIMINGFUNCTION {}
-impl Clone for TA_TIMINGFUNCTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TA_TRANSFORM {
     pub eTransformType: TA_TRANSFORM_TYPE,
     pub dwTimingFunctionId: u32,
@@ -8074,13 +6860,8 @@ pub struct TA_TRANSFORM {
     pub dwDurationTime: u32,
     pub eFlags: TA_TRANSFORM_FLAG,
 }
-impl Copy for TA_TRANSFORM {}
-impl Clone for TA_TRANSFORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TA_TRANSFORM_2D {
     pub header: TA_TRANSFORM,
     pub rX: f32,
@@ -8090,13 +6871,8 @@ pub struct TA_TRANSFORM_2D {
     pub rOriginX: f32,
     pub rOriginY: f32,
 }
-impl Copy for TA_TRANSFORM_2D {}
-impl Clone for TA_TRANSFORM_2D {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TA_TRANSFORM_CLIP {
     pub header: TA_TRANSFORM,
     pub rLeft: f32,
@@ -8108,37 +6884,22 @@ pub struct TA_TRANSFORM_CLIP {
     pub rInitialRight: f32,
     pub rInitialBottom: f32,
 }
-impl Copy for TA_TRANSFORM_CLIP {}
-impl Clone for TA_TRANSFORM_CLIP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TA_TRANSFORM_OPACITY {
     pub header: TA_TRANSFORM,
     pub rOpacity: f32,
     pub rInitialOpacity: f32,
 }
-impl Copy for TA_TRANSFORM_OPACITY {}
-impl Clone for TA_TRANSFORM_OPACITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TBADDBITMAP {
     pub hInst: super::super::Foundation::HINSTANCE,
     pub nID: usize,
 }
-impl Copy for TBADDBITMAP {}
-impl Clone for TBADDBITMAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct TBBUTTON {
     pub iBitmap: i32,
     pub idCommand: i32,
@@ -8148,16 +6909,9 @@ pub struct TBBUTTON {
     pub dwData: usize,
     pub iString: isize,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for TBBUTTON {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for TBBUTTON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct TBBUTTON {
     pub iBitmap: i32,
     pub idCommand: i32,
@@ -8167,15 +6921,8 @@ pub struct TBBUTTON {
     pub dwData: usize,
     pub iString: isize,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for TBBUTTON {}
-#[cfg(target_arch = "x86")]
-impl Clone for TBBUTTON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TBBUTTONINFOA {
     pub cbSize: u32,
     pub dwMask: TBBUTTONINFOW_MASK,
@@ -8188,13 +6935,8 @@ pub struct TBBUTTONINFOA {
     pub pszText: windows_sys::core::PSTR,
     pub cchText: i32,
 }
-impl Copy for TBBUTTONINFOA {}
-impl Clone for TBBUTTONINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TBBUTTONINFOW {
     pub cbSize: u32,
     pub dwMask: TBBUTTONINFOW_MASK,
@@ -8207,24 +6949,14 @@ pub struct TBBUTTONINFOW {
     pub pszText: windows_sys::core::PWSTR,
     pub cchText: i32,
 }
-impl Copy for TBBUTTONINFOW {}
-impl Clone for TBBUTTONINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TBINSERTMARK {
     pub iButton: i32,
     pub dwFlags: TBINSERTMARK_FLAGS,
 }
-impl Copy for TBINSERTMARK {}
-impl Clone for TBINSERTMARK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TBMETRICS {
     pub cbSize: u32,
     pub dwMask: u32,
@@ -8235,13 +6967,8 @@ pub struct TBMETRICS {
     pub cxButtonSpacing: i32,
     pub cyButtonSpacing: i32,
 }
-impl Copy for TBMETRICS {}
-impl Clone for TBMETRICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TBREPLACEBITMAP {
     pub hInstOld: super::super::Foundation::HINSTANCE,
     pub nIDOld: usize,
@@ -8249,54 +6976,30 @@ pub struct TBREPLACEBITMAP {
     pub nIDNew: usize,
     pub nButtons: i32,
 }
-impl Copy for TBREPLACEBITMAP {}
-impl Clone for TBREPLACEBITMAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
 pub struct TBSAVEPARAMSA {
     pub hkr: super::super::System::Registry::HKEY,
     pub pszSubKey: windows_sys::core::PCSTR,
     pub pszValueName: windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl Copy for TBSAVEPARAMSA {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for TBSAVEPARAMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
 pub struct TBSAVEPARAMSW {
     pub hkr: super::super::System::Registry::HKEY,
     pub pszSubKey: windows_sys::core::PCWSTR,
     pub pszValueName: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl Copy for TBSAVEPARAMSW {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for TBSAVEPARAMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TCHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
     pub flags: TCHITTESTINFO_FLAGS,
 }
-impl Copy for TCHITTESTINFO {}
-impl Clone for TCHITTESTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TCITEMA {
     pub mask: TCITEMHEADERA_MASK,
     pub dwState: TAB_CONTROL_ITEM_STATE,
@@ -8306,13 +7009,8 @@ pub struct TCITEMA {
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl Copy for TCITEMA {}
-impl Clone for TCITEMA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TCITEMHEADERA {
     pub mask: TCITEMHEADERA_MASK,
     pub lpReserved1: u32,
@@ -8321,13 +7019,8 @@ pub struct TCITEMHEADERA {
     pub cchTextMax: i32,
     pub iImage: i32,
 }
-impl Copy for TCITEMHEADERA {}
-impl Clone for TCITEMHEADERA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TCITEMHEADERW {
     pub mask: TCITEMHEADERA_MASK,
     pub lpReserved1: u32,
@@ -8336,13 +7029,8 @@ pub struct TCITEMHEADERW {
     pub cchTextMax: i32,
     pub iImage: i32,
 }
-impl Copy for TCITEMHEADERW {}
-impl Clone for TCITEMHEADERW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TCITEMW {
     pub mask: TCITEMHEADERA_MASK,
     pub dwState: TAB_CONTROL_ITEM_STATE,
@@ -8352,13 +7040,8 @@ pub struct TCITEMW {
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl Copy for TCITEMW {}
-impl Clone for TCITEMW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TOUCH_HIT_TESTING_INPUT {
     pub pointerId: u32,
     pub point: super::super::Foundation::POINT,
@@ -8366,61 +7049,36 @@ pub struct TOUCH_HIT_TESTING_INPUT {
     pub nonOccludedBoundingBox: super::super::Foundation::RECT,
     pub orientation: u32,
 }
-impl Copy for TOUCH_HIT_TESTING_INPUT {}
-impl Clone for TOUCH_HIT_TESTING_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
     pub score: u16,
     pub adjustedPoint: super::super::Foundation::POINT,
 }
-impl Copy for TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {}
-impl Clone for TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TTGETTITLE {
     pub dwSize: u32,
     pub uTitleBitmap: u32,
     pub cch: u32,
     pub pszTitle: windows_sys::core::PWSTR,
 }
-impl Copy for TTGETTITLE {}
-impl Clone for TTGETTITLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TTHITTESTINFOA {
     pub hwnd: super::super::Foundation::HWND,
     pub pt: super::super::Foundation::POINT,
     pub ti: TTTOOLINFOA,
 }
-impl Copy for TTHITTESTINFOA {}
-impl Clone for TTHITTESTINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TTHITTESTINFOW {
     pub hwnd: super::super::Foundation::HWND,
     pub pt: super::super::Foundation::POINT,
     pub ti: TTTOOLINFOW,
 }
-impl Copy for TTHITTESTINFOW {}
-impl Clone for TTHITTESTINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TTTOOLINFOA {
     pub cbSize: u32,
     pub uFlags: TOOLTIP_FLAGS,
@@ -8432,13 +7090,8 @@ pub struct TTTOOLINFOA {
     pub lParam: super::super::Foundation::LPARAM,
     pub lpReserved: *mut core::ffi::c_void,
 }
-impl Copy for TTTOOLINFOA {}
-impl Clone for TTTOOLINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TTTOOLINFOW {
     pub cbSize: u32,
     pub uFlags: TOOLTIP_FLAGS,
@@ -8450,83 +7103,48 @@ pub struct TTTOOLINFOW {
     pub lParam: super::super::Foundation::LPARAM,
     pub lpReserved: *mut core::ffi::c_void,
 }
-impl Copy for TTTOOLINFOW {}
-impl Clone for TTTOOLINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TVGETITEMPARTRECTINFO {
     pub hti: HTREEITEM,
     pub prc: *mut super::super::Foundation::RECT,
     pub partID: TVITEMPART,
 }
-impl Copy for TVGETITEMPARTRECTINFO {}
-impl Clone for TVGETITEMPARTRECTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TVHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
     pub flags: TVHITTESTINFO_FLAGS,
     pub hItem: HTREEITEM,
 }
-impl Copy for TVHITTESTINFO {}
-impl Clone for TVHITTESTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TVINSERTSTRUCTA {
     pub hParent: HTREEITEM,
     pub hInsertAfter: HTREEITEM,
     pub Anonymous: TVINSERTSTRUCTA_0,
 }
-impl Copy for TVINSERTSTRUCTA {}
-impl Clone for TVINSERTSTRUCTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union TVINSERTSTRUCTA_0 {
     pub itemex: TVITEMEXA,
     pub item: TVITEMA,
 }
-impl Copy for TVINSERTSTRUCTA_0 {}
-impl Clone for TVINSERTSTRUCTA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TVINSERTSTRUCTW {
     pub hParent: HTREEITEM,
     pub hInsertAfter: HTREEITEM,
     pub Anonymous: TVINSERTSTRUCTW_0,
 }
-impl Copy for TVINSERTSTRUCTW {}
-impl Clone for TVINSERTSTRUCTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union TVINSERTSTRUCTW_0 {
     pub itemex: TVITEMEXW,
     pub item: TVITEMW,
 }
-impl Copy for TVINSERTSTRUCTW_0 {}
-impl Clone for TVINSERTSTRUCTW_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TVITEMA {
     pub mask: TVITEM_MASK,
     pub hItem: HTREEITEM,
@@ -8539,13 +7157,8 @@ pub struct TVITEMA {
     pub cChildren: TVITEMEXW_CHILDREN,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl Copy for TVITEMA {}
-impl Clone for TVITEMA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TVITEMEXA {
     pub mask: TVITEM_MASK,
     pub hItem: HTREEITEM,
@@ -8563,13 +7176,8 @@ pub struct TVITEMEXA {
     pub iExpandedImage: i32,
     pub iReserved: i32,
 }
-impl Copy for TVITEMEXA {}
-impl Clone for TVITEMEXA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TVITEMEXW {
     pub mask: TVITEM_MASK,
     pub hItem: HTREEITEM,
@@ -8587,13 +7195,8 @@ pub struct TVITEMEXW {
     pub iExpandedImage: i32,
     pub iReserved: i32,
 }
-impl Copy for TVITEMEXW {}
-impl Clone for TVITEMEXW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TVITEMW {
     pub mask: TVITEM_MASK,
     pub hItem: HTREEITEM,
@@ -8606,36 +7209,21 @@ pub struct TVITEMW {
     pub cChildren: TVITEMEXW_CHILDREN,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl Copy for TVITEMW {}
-impl Clone for TVITEMW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TVSORTCB {
     pub hParent: HTREEITEM,
     pub lpfnCompare: PFNTVCOMPARE,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl Copy for TVSORTCB {}
-impl Clone for TVSORTCB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UDACCEL {
     pub nSec: u32,
     pub nInc: u32,
 }
-impl Copy for UDACCEL {}
-impl Clone for UDACCEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USAGE_PROPERTIES {
     pub level: u16,
     pub page: u16,
@@ -8648,22 +7236,11 @@ pub struct USAGE_PROPERTIES {
     pub physicalMinimum: i32,
     pub physicalMaximum: i32,
 }
-impl Copy for USAGE_PROPERTIES {}
-impl Clone for USAGE_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTA_OPTIONS {
     pub dwFlags: u32,
     pub dwMask: u32,
-}
-impl Copy for WTA_OPTIONS {}
-impl Clone for WTA_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type DTT_CALLBACK_PROC = Option<unsafe extern "system" fn(hdc: super::super::Graphics::Gdi::HDC, psztext: windows_sys::core::PWSTR, cchtext: i32, prc: *mut super::super::Foundation::RECT, dwflags: u32, lparam: super::super::Foundation::LPARAM) -> i32>;

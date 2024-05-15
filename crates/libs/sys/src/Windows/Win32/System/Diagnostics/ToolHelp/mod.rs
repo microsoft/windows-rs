@@ -30,6 +30,7 @@ pub const TH32CS_SNAPTHREAD: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 4u32;
 pub type CREATE_TOOLHELP_SNAPSHOT_FLAGS = u32;
 pub type HEAPENTRY32_FLAGS = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HEAPENTRY32 {
     pub dwSize: usize,
     pub hHandle: super::super::super::Foundation::HANDLE,
@@ -41,26 +42,16 @@ pub struct HEAPENTRY32 {
     pub th32ProcessID: u32,
     pub th32HeapID: usize,
 }
-impl Copy for HEAPENTRY32 {}
-impl Clone for HEAPENTRY32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HEAPLIST32 {
     pub dwSize: usize,
     pub th32ProcessID: u32,
     pub th32HeapID: usize,
     pub dwFlags: u32,
 }
-impl Copy for HEAPLIST32 {}
-impl Clone for HEAPLIST32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MODULEENTRY32 {
     pub dwSize: u32,
     pub th32ModuleID: u32,
@@ -73,13 +64,8 @@ pub struct MODULEENTRY32 {
     pub szModule: [i8; 256],
     pub szExePath: [i8; 260],
 }
-impl Copy for MODULEENTRY32 {}
-impl Clone for MODULEENTRY32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MODULEENTRY32W {
     pub dwSize: u32,
     pub th32ModuleID: u32,
@@ -92,13 +78,8 @@ pub struct MODULEENTRY32W {
     pub szModule: [u16; 256],
     pub szExePath: [u16; 260],
 }
-impl Copy for MODULEENTRY32W {}
-impl Clone for MODULEENTRY32W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESSENTRY32 {
     pub dwSize: u32,
     pub cntUsage: u32,
@@ -111,13 +92,8 @@ pub struct PROCESSENTRY32 {
     pub dwFlags: u32,
     pub szExeFile: [i8; 260],
 }
-impl Copy for PROCESSENTRY32 {}
-impl Clone for PROCESSENTRY32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESSENTRY32W {
     pub dwSize: u32,
     pub cntUsage: u32,
@@ -130,13 +106,8 @@ pub struct PROCESSENTRY32W {
     pub dwFlags: u32,
     pub szExeFile: [u16; 260],
 }
-impl Copy for PROCESSENTRY32W {}
-impl Clone for PROCESSENTRY32W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct THREADENTRY32 {
     pub dwSize: u32,
     pub cntUsage: u32,
@@ -145,10 +116,4 @@ pub struct THREADENTRY32 {
     pub tpBasePri: i32,
     pub tpDeltaPri: i32,
     pub dwFlags: u32,
-}
-impl Copy for THREADENTRY32 {}
-impl Clone for THREADENTRY32 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

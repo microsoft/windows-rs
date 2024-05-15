@@ -241,136 +241,77 @@ pub type TAKE_SNAPSHOT_VHDSET_FLAG = i32;
 pub type TAKE_SNAPSHOT_VHDSET_VERSION = i32;
 pub type VIRTUAL_DISK_ACCESS_MASK = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct APPLY_SNAPSHOT_VHDSET_PARAMETERS {
     pub Version: APPLY_SNAPSHOT_VHDSET_VERSION,
     pub Anonymous: APPLY_SNAPSHOT_VHDSET_PARAMETERS_0,
 }
-impl Copy for APPLY_SNAPSHOT_VHDSET_PARAMETERS {}
-impl Clone for APPLY_SNAPSHOT_VHDSET_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
     pub Version1: APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0,
 }
-impl Copy for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {}
-impl Clone for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     pub SnapshotId: windows_sys::core::GUID,
     pub LeafSnapshotId: windows_sys::core::GUID,
 }
-impl Copy for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {}
-impl Clone for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ATTACH_VIRTUAL_DISK_PARAMETERS {
     pub Version: ATTACH_VIRTUAL_DISK_VERSION,
     pub Anonymous: ATTACH_VIRTUAL_DISK_PARAMETERS_0,
 }
-impl Copy for ATTACH_VIRTUAL_DISK_PARAMETERS {}
-impl Clone for ATTACH_VIRTUAL_DISK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: ATTACH_VIRTUAL_DISK_PARAMETERS_0_0,
     pub Version2: ATTACH_VIRTUAL_DISK_PARAMETERS_0_1,
 }
-impl Copy for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {}
-impl Clone for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub Reserved: u32,
 }
-impl Copy for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl Clone for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub RestrictedOffset: u64,
     pub RestrictedLength: u64,
 }
-impl Copy for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {}
-impl Clone for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COMPACT_VIRTUAL_DISK_PARAMETERS {
     pub Version: COMPACT_VIRTUAL_DISK_VERSION,
     pub Anonymous: COMPACT_VIRTUAL_DISK_PARAMETERS_0,
 }
-impl Copy for COMPACT_VIRTUAL_DISK_PARAMETERS {}
-impl Clone for COMPACT_VIRTUAL_DISK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: COMPACT_VIRTUAL_DISK_PARAMETERS_0_0,
 }
-impl Copy for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {}
-impl Clone for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub Reserved: u32,
 }
-impl Copy for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl Clone for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS {
     pub Version: CREATE_VIRTUAL_DISK_VERSION,
     pub Anonymous: CREATE_VIRTUAL_DISK_PARAMETERS_0,
 }
-impl Copy for CREATE_VIRTUAL_DISK_PARAMETERS {}
-impl Clone for CREATE_VIRTUAL_DISK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CREATE_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: CREATE_VIRTUAL_DISK_PARAMETERS_0_0,
     pub Version2: CREATE_VIRTUAL_DISK_PARAMETERS_0_1,
     pub Version3: CREATE_VIRTUAL_DISK_PARAMETERS_0_2,
     pub Version4: CREATE_VIRTUAL_DISK_PARAMETERS_0_3,
 }
-impl Copy for CREATE_VIRTUAL_DISK_PARAMETERS_0 {}
-impl Clone for CREATE_VIRTUAL_DISK_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub UniqueId: windows_sys::core::GUID,
     pub MaximumSize: u64,
@@ -379,13 +320,8 @@ pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub ParentPath: windows_sys::core::PCWSTR,
     pub SourcePath: windows_sys::core::PCWSTR,
 }
-impl Copy for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl Clone for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub UniqueId: windows_sys::core::GUID,
     pub MaximumSize: u64,
@@ -399,13 +335,8 @@ pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub SourceVirtualStorageType: VIRTUAL_STORAGE_TYPE,
     pub ResiliencyGuid: windows_sys::core::GUID,
 }
-impl Copy for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {}
-impl Clone for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
     pub UniqueId: windows_sys::core::GUID,
     pub MaximumSize: u64,
@@ -421,13 +352,8 @@ pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
     pub SourceLimitPath: windows_sys::core::PCWSTR,
     pub BackingStorageType: VIRTUAL_STORAGE_TYPE,
 }
-impl Copy for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {}
-impl Clone for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
     pub UniqueId: windows_sys::core::GUID,
     pub MaximumSize: u64,
@@ -445,117 +371,62 @@ pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
     pub PmemAddressAbstractionType: windows_sys::core::GUID,
     pub DataAlignment: u64,
 }
-impl Copy for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {}
-impl Clone for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DELETE_SNAPSHOT_VHDSET_PARAMETERS {
     pub Version: DELETE_SNAPSHOT_VHDSET_VERSION,
     pub Anonymous: DELETE_SNAPSHOT_VHDSET_PARAMETERS_0,
 }
-impl Copy for DELETE_SNAPSHOT_VHDSET_PARAMETERS {}
-impl Clone for DELETE_SNAPSHOT_VHDSET_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
     pub Version1: DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0,
 }
-impl Copy for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {}
-impl Clone for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     pub SnapshotId: windows_sys::core::GUID,
 }
-impl Copy for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {}
-impl Clone for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXPAND_VIRTUAL_DISK_PARAMETERS {
     pub Version: EXPAND_VIRTUAL_DISK_VERSION,
     pub Anonymous: EXPAND_VIRTUAL_DISK_PARAMETERS_0,
 }
-impl Copy for EXPAND_VIRTUAL_DISK_PARAMETERS {}
-impl Clone for EXPAND_VIRTUAL_DISK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: EXPAND_VIRTUAL_DISK_PARAMETERS_0_0,
 }
-impl Copy for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {}
-impl Clone for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub NewSize: u64,
 }
-impl Copy for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl Clone for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FORK_VIRTUAL_DISK_PARAMETERS {
     pub Version: FORK_VIRTUAL_DISK_VERSION,
     pub Anonymous: FORK_VIRTUAL_DISK_PARAMETERS_0,
 }
-impl Copy for FORK_VIRTUAL_DISK_PARAMETERS {}
-impl Clone for FORK_VIRTUAL_DISK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union FORK_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: FORK_VIRTUAL_DISK_PARAMETERS_0_0,
 }
-impl Copy for FORK_VIRTUAL_DISK_PARAMETERS_0 {}
-impl Clone for FORK_VIRTUAL_DISK_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub ForkedVirtualDiskPath: windows_sys::core::PCWSTR,
 }
-impl Copy for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl Clone for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GET_VIRTUAL_DISK_INFO {
     pub Version: GET_VIRTUAL_DISK_INFO_VERSION,
     pub Anonymous: GET_VIRTUAL_DISK_INFO_0,
 }
-impl Copy for GET_VIRTUAL_DISK_INFO {}
-impl Clone for GET_VIRTUAL_DISK_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union GET_VIRTUAL_DISK_INFO_0 {
     pub Size: GET_VIRTUAL_DISK_INFO_0_3,
     pub Identifier: windows_sys::core::GUID,
@@ -573,260 +444,145 @@ pub union GET_VIRTUAL_DISK_INFO_0 {
     pub VirtualDiskId: windows_sys::core::GUID,
     pub ChangeTrackingState: GET_VIRTUAL_DISK_INFO_0_0,
 }
-impl Copy for GET_VIRTUAL_DISK_INFO_0 {}
-impl Clone for GET_VIRTUAL_DISK_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GET_VIRTUAL_DISK_INFO_0_0 {
     pub Enabled: super::super::Foundation::BOOL,
     pub NewerChanges: super::super::Foundation::BOOL,
     pub MostRecentId: [u16; 1],
 }
-impl Copy for GET_VIRTUAL_DISK_INFO_0_0 {}
-impl Clone for GET_VIRTUAL_DISK_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GET_VIRTUAL_DISK_INFO_0_1 {
     pub ParentResolved: super::super::Foundation::BOOL,
     pub ParentLocationBuffer: [u16; 1],
 }
-impl Copy for GET_VIRTUAL_DISK_INFO_0_1 {}
-impl Clone for GET_VIRTUAL_DISK_INFO_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GET_VIRTUAL_DISK_INFO_0_2 {
     pub LogicalSectorSize: u32,
     pub PhysicalSectorSize: u32,
     pub IsRemote: super::super::Foundation::BOOL,
 }
-impl Copy for GET_VIRTUAL_DISK_INFO_0_2 {}
-impl Clone for GET_VIRTUAL_DISK_INFO_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GET_VIRTUAL_DISK_INFO_0_3 {
     pub VirtualSize: u64,
     pub PhysicalSize: u64,
     pub BlockSize: u32,
     pub SectorSize: u32,
 }
-impl Copy for GET_VIRTUAL_DISK_INFO_0_3 {}
-impl Clone for GET_VIRTUAL_DISK_INFO_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MERGE_VIRTUAL_DISK_PARAMETERS {
     pub Version: MERGE_VIRTUAL_DISK_VERSION,
     pub Anonymous: MERGE_VIRTUAL_DISK_PARAMETERS_0,
 }
-impl Copy for MERGE_VIRTUAL_DISK_PARAMETERS {}
-impl Clone for MERGE_VIRTUAL_DISK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MERGE_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: MERGE_VIRTUAL_DISK_PARAMETERS_0_0,
     pub Version2: MERGE_VIRTUAL_DISK_PARAMETERS_0_1,
 }
-impl Copy for MERGE_VIRTUAL_DISK_PARAMETERS_0 {}
-impl Clone for MERGE_VIRTUAL_DISK_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub MergeDepth: u32,
 }
-impl Copy for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl Clone for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub MergeSourceDepth: u32,
     pub MergeTargetDepth: u32,
 }
-impl Copy for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {}
-impl Clone for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MIRROR_VIRTUAL_DISK_PARAMETERS {
     pub Version: MIRROR_VIRTUAL_DISK_VERSION,
     pub Anonymous: MIRROR_VIRTUAL_DISK_PARAMETERS_0,
 }
-impl Copy for MIRROR_VIRTUAL_DISK_PARAMETERS {}
-impl Clone for MIRROR_VIRTUAL_DISK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: MIRROR_VIRTUAL_DISK_PARAMETERS_0_0,
 }
-impl Copy for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {}
-impl Clone for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub MirrorVirtualDiskPath: windows_sys::core::PCWSTR,
 }
-impl Copy for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl Clone for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MODIFY_VHDSET_PARAMETERS {
     pub Version: MODIFY_VHDSET_VERSION,
     pub Anonymous: MODIFY_VHDSET_PARAMETERS_0,
 }
-impl Copy for MODIFY_VHDSET_PARAMETERS {}
-impl Clone for MODIFY_VHDSET_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MODIFY_VHDSET_PARAMETERS_0 {
     pub SnapshotPath: MODIFY_VHDSET_PARAMETERS_0_0,
     pub SnapshotId: windows_sys::core::GUID,
     pub DefaultFilePath: windows_sys::core::PCWSTR,
 }
-impl Copy for MODIFY_VHDSET_PARAMETERS_0 {}
-impl Clone for MODIFY_VHDSET_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MODIFY_VHDSET_PARAMETERS_0_0 {
     pub SnapshotId: windows_sys::core::GUID,
     pub SnapshotFilePath: windows_sys::core::PCWSTR,
 }
-impl Copy for MODIFY_VHDSET_PARAMETERS_0_0 {}
-impl Clone for MODIFY_VHDSET_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS {
     pub Version: OPEN_VIRTUAL_DISK_VERSION,
     pub Anonymous: OPEN_VIRTUAL_DISK_PARAMETERS_0,
 }
-impl Copy for OPEN_VIRTUAL_DISK_PARAMETERS {}
-impl Clone for OPEN_VIRTUAL_DISK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union OPEN_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: OPEN_VIRTUAL_DISK_PARAMETERS_0_0,
     pub Version2: OPEN_VIRTUAL_DISK_PARAMETERS_0_1,
     pub Version3: OPEN_VIRTUAL_DISK_PARAMETERS_0_2,
 }
-impl Copy for OPEN_VIRTUAL_DISK_PARAMETERS_0 {}
-impl Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub RWDepth: u32,
 }
-impl Copy for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub GetInfoOnly: super::super::Foundation::BOOL,
     pub ReadOnly: super::super::Foundation::BOOL,
     pub ResiliencyGuid: windows_sys::core::GUID,
 }
-impl Copy for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {}
-impl Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
     pub GetInfoOnly: super::super::Foundation::BOOL,
     pub ReadOnly: super::super::Foundation::BOOL,
     pub ResiliencyGuid: windows_sys::core::GUID,
     pub SnapshotId: windows_sys::core::GUID,
 }
-impl Copy for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {}
-impl Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct QUERY_CHANGES_VIRTUAL_DISK_RANGE {
     pub ByteOffset: u64,
     pub ByteLength: u64,
     pub Reserved: u64,
 }
-impl Copy for QUERY_CHANGES_VIRTUAL_DISK_RANGE {}
-impl Clone for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
     pub Version: RAW_SCSI_VIRTUAL_DISK_VERSION,
     pub Anonymous: RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0,
 }
-impl Copy for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {}
-impl Clone for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0,
 }
-impl Copy for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {}
-impl Clone for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub RSVDHandle: super::super::Foundation::BOOL,
     pub DataIn: u8,
@@ -838,88 +594,48 @@ pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub SenseInfo: *mut u8,
     pub Cdb: *mut u8,
 }
-impl Copy for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl Clone for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RAW_SCSI_VIRTUAL_DISK_RESPONSE {
     pub Version: RAW_SCSI_VIRTUAL_DISK_VERSION,
     pub Anonymous: RAW_SCSI_VIRTUAL_DISK_RESPONSE_0,
 }
-impl Copy for RAW_SCSI_VIRTUAL_DISK_RESPONSE {}
-impl Clone for RAW_SCSI_VIRTUAL_DISK_RESPONSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
     pub Version1: RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0,
 }
-impl Copy for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {}
-impl Clone for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
     pub ScsiStatus: u8,
     pub SenseInfoLength: u8,
     pub DataTransferLength: u32,
 }
-impl Copy for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {}
-impl Clone for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RESIZE_VIRTUAL_DISK_PARAMETERS {
     pub Version: RESIZE_VIRTUAL_DISK_VERSION,
     pub Anonymous: RESIZE_VIRTUAL_DISK_PARAMETERS_0,
 }
-impl Copy for RESIZE_VIRTUAL_DISK_PARAMETERS {}
-impl Clone for RESIZE_VIRTUAL_DISK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: RESIZE_VIRTUAL_DISK_PARAMETERS_0_0,
 }
-impl Copy for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {}
-impl Clone for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub NewSize: u64,
 }
-impl Copy for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl Clone for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SET_VIRTUAL_DISK_INFO {
     pub Version: SET_VIRTUAL_DISK_INFO_VERSION,
     pub Anonymous: SET_VIRTUAL_DISK_INFO_0,
 }
-impl Copy for SET_VIRTUAL_DISK_INFO {}
-impl Clone for SET_VIRTUAL_DISK_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SET_VIRTUAL_DISK_INFO_0 {
     pub ParentFilePath: windows_sys::core::PCWSTR,
     pub UniqueIdentifier: windows_sys::core::GUID,
@@ -929,70 +645,40 @@ pub union SET_VIRTUAL_DISK_INFO_0 {
     pub ChangeTrackingEnabled: super::super::Foundation::BOOL,
     pub ParentLocator: SET_VIRTUAL_DISK_INFO_0_0,
 }
-impl Copy for SET_VIRTUAL_DISK_INFO_0 {}
-impl Clone for SET_VIRTUAL_DISK_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SET_VIRTUAL_DISK_INFO_0_0 {
     pub LinkageId: windows_sys::core::GUID,
     pub ParentFilePath: windows_sys::core::PCWSTR,
 }
-impl Copy for SET_VIRTUAL_DISK_INFO_0_0 {}
-impl Clone for SET_VIRTUAL_DISK_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SET_VIRTUAL_DISK_INFO_0_1 {
     pub ChildDepth: u32,
     pub ParentFilePath: windows_sys::core::PCWSTR,
 }
-impl Copy for SET_VIRTUAL_DISK_INFO_0_1 {}
-impl Clone for SET_VIRTUAL_DISK_INFO_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STORAGE_DEPENDENCY_INFO {
     pub Version: STORAGE_DEPENDENCY_INFO_VERSION,
     pub NumberEntries: u32,
     pub Anonymous: STORAGE_DEPENDENCY_INFO_0,
 }
-impl Copy for STORAGE_DEPENDENCY_INFO {}
-impl Clone for STORAGE_DEPENDENCY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union STORAGE_DEPENDENCY_INFO_0 {
     pub Version1Entries: [STORAGE_DEPENDENCY_INFO_TYPE_1; 1],
     pub Version2Entries: [STORAGE_DEPENDENCY_INFO_TYPE_2; 1],
 }
-impl Copy for STORAGE_DEPENDENCY_INFO_0 {}
-impl Clone for STORAGE_DEPENDENCY_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STORAGE_DEPENDENCY_INFO_TYPE_1 {
     pub DependencyTypeFlags: DEPENDENT_DISK_FLAG,
     pub ProviderSpecificFlags: u32,
     pub VirtualStorageType: VIRTUAL_STORAGE_TYPE,
 }
-impl Copy for STORAGE_DEPENDENCY_INFO_TYPE_1 {}
-impl Clone for STORAGE_DEPENDENCY_INFO_TYPE_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STORAGE_DEPENDENCY_INFO_TYPE_2 {
     pub DependencyTypeFlags: DEPENDENT_DISK_FLAG,
     pub ProviderSpecificFlags: u32,
@@ -1003,63 +689,32 @@ pub struct STORAGE_DEPENDENCY_INFO_TYPE_2 {
     pub DependentVolumeName: windows_sys::core::PWSTR,
     pub DependentVolumeRelativePath: windows_sys::core::PWSTR,
 }
-impl Copy for STORAGE_DEPENDENCY_INFO_TYPE_2 {}
-impl Clone for STORAGE_DEPENDENCY_INFO_TYPE_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TAKE_SNAPSHOT_VHDSET_PARAMETERS {
     pub Version: TAKE_SNAPSHOT_VHDSET_VERSION,
     pub Anonymous: TAKE_SNAPSHOT_VHDSET_PARAMETERS_0,
 }
-impl Copy for TAKE_SNAPSHOT_VHDSET_PARAMETERS {}
-impl Clone for TAKE_SNAPSHOT_VHDSET_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
     pub Version1: TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0,
 }
-impl Copy for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {}
-impl Clone for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     pub SnapshotId: windows_sys::core::GUID,
 }
-impl Copy for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {}
-impl Clone for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VIRTUAL_DISK_PROGRESS {
     pub OperationStatus: u32,
     pub CurrentValue: u64,
     pub CompletionValue: u64,
 }
-impl Copy for VIRTUAL_DISK_PROGRESS {}
-impl Clone for VIRTUAL_DISK_PROGRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VIRTUAL_STORAGE_TYPE {
     pub DeviceId: u32,
     pub VendorId: windows_sys::core::GUID,
-}
-impl Copy for VIRTUAL_STORAGE_TYPE {}
-impl Clone for VIRTUAL_STORAGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

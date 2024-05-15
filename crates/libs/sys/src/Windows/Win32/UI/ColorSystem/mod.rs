@@ -341,30 +341,21 @@ pub type LCSCSTYPE = i32;
 pub type WCS_DEVICE_CAPABILITIES_TYPE = i32;
 pub type WCS_PROFILE_MANAGEMENT_SCOPE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BlackInformation {
     pub fBlackOnly: super::super::Foundation::BOOL,
     pub blackWeight: f32,
 }
-impl Copy for BlackInformation {}
-impl Clone for BlackInformation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMYKCOLOR {
     pub cyan: u16,
     pub magenta: u16,
     pub yellow: u16,
     pub black: u16,
 }
-impl Copy for CMYKCOLOR {}
-impl Clone for CMYKCOLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union COLOR {
     pub gray: GRAYCOLOR,
     pub rgb: RGBCOLOR,
@@ -377,25 +368,15 @@ pub union COLOR {
     pub hifi: HiFiCOLOR,
     pub Anonymous: COLOR_0,
 }
-impl Copy for COLOR {}
-impl Clone for COLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COLOR_0 {
     pub reserved1: u32,
     pub reserved2: *mut core::ffi::c_void,
 }
-impl Copy for COLOR_0 {}
-impl Clone for COLOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct COLORMATCHSETUPA {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -417,16 +398,9 @@ pub struct COLORMATCHSETUPA {
     pub lpfnApplyCallback: PCMSCALLBACKA,
     pub lParamApplyCallback: super::super::Foundation::LPARAM,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for COLORMATCHSETUPA {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for COLORMATCHSETUPA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct COLORMATCHSETUPW {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -448,31 +422,17 @@ pub struct COLORMATCHSETUPW {
     pub lpfnApplyCallback: PCMSCALLBACKW,
     pub lParamApplyCallback: super::super::Foundation::LPARAM,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for COLORMATCHSETUPW {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for COLORMATCHSETUPW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct EMRCREATECOLORSPACE {
     pub emr: super::super::Graphics::Gdi::EMR,
     pub ihCS: u32,
     pub lcs: LOGCOLORSPACEA,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for EMRCREATECOLORSPACE {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for EMRCREATECOLORSPACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct EMRCREATECOLORSPACEW {
     pub emr: super::super::Graphics::Gdi::EMR,
     pub ihCS: u32,
@@ -481,15 +441,8 @@ pub struct EMRCREATECOLORSPACEW {
     pub cbData: u32,
     pub Data: [u8; 1],
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for EMRCREATECOLORSPACEW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for EMRCREATECOLORSPACEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ENUMTYPEA {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -512,13 +465,8 @@ pub struct ENUMTYPEA {
     pub dwCreator: u32,
     pub dwDeviceClass: u32,
 }
-impl Copy for ENUMTYPEA {}
-impl Clone for ENUMTYPEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ENUMTYPEW {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -541,35 +489,20 @@ pub struct ENUMTYPEW {
     pub dwCreator: u32,
     pub dwDeviceClass: u32,
 }
-impl Copy for ENUMTYPEW {}
-impl Clone for ENUMTYPEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GENERIC3CHANNEL {
     pub ch1: u16,
     pub ch2: u16,
     pub ch3: u16,
 }
-impl Copy for GENERIC3CHANNEL {}
-impl Clone for GENERIC3CHANNEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GRAYCOLOR {
     pub gray: u16,
 }
-impl Copy for GRAYCOLOR {}
-impl Clone for GRAYCOLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GamutBoundaryDescription {
     pub pPrimaries: *mut PrimaryJabColors,
     pub cNeutralSamples: u32,
@@ -578,13 +511,8 @@ pub struct GamutBoundaryDescription {
     pub pPlausibleShell: *mut GamutShell,
     pub pPossibleShell: *mut GamutShell,
 }
-impl Copy for GamutBoundaryDescription {}
-impl Clone for GamutBoundaryDescription {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GamutShell {
     pub JMin: f32,
     pub JMax: f32,
@@ -593,59 +521,34 @@ pub struct GamutShell {
     pub pVertices: *mut JabColorF,
     pub pTriangles: *mut GamutShellTriangle,
 }
-impl Copy for GamutShell {}
-impl Clone for GamutShell {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GamutShellTriangle {
     pub aVertexIndex: [u32; 3],
 }
-impl Copy for GamutShellTriangle {}
-impl Clone for GamutShellTriangle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type HCOLORSPACE = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HiFiCOLOR {
     pub channel: [u8; 8],
 }
-impl Copy for HiFiCOLOR {}
-impl Clone for HiFiCOLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JChColorF {
     pub J: f32,
     pub C: f32,
     pub h: f32,
 }
-impl Copy for JChColorF {}
-impl Clone for JChColorF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JabColorF {
     pub J: f32,
     pub a: f32,
     pub b: f32,
 }
-impl Copy for JabColorF {}
-impl Clone for JabColorF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct LOGCOLORSPACEA {
     pub lcsSignature: u32,
     pub lcsVersion: u32,
@@ -658,16 +561,9 @@ pub struct LOGCOLORSPACEA {
     pub lcsGammaBlue: u32,
     pub lcsFilename: [i8; 260],
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for LOGCOLORSPACEA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for LOGCOLORSPACEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct LOGCOLORSPACEW {
     pub lcsSignature: u32,
     pub lcsVersion: u32,
@@ -680,37 +576,20 @@ pub struct LOGCOLORSPACEW {
     pub lcsGammaBlue: u32,
     pub lcsFilename: [u16; 260],
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for LOGCOLORSPACEW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for LOGCOLORSPACEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LabCOLOR {
     pub L: u16,
     pub a: u16,
     pub b: u16,
 }
-impl Copy for LabCOLOR {}
-impl Clone for LabCOLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NAMEDCOLOR {
     pub dwIndex: u32,
 }
-impl Copy for NAMEDCOLOR {}
-impl Clone for NAMEDCOLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NAMED_PROFILE_INFO {
     pub dwFlags: u32,
     pub dwCount: u32,
@@ -718,26 +597,16 @@ pub struct NAMED_PROFILE_INFO {
     pub szPrefix: [i8; 32],
     pub szSuffix: [i8; 32],
 }
-impl Copy for NAMED_PROFILE_INFO {}
-impl Clone for NAMED_PROFILE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROFILE {
     pub dwType: u32,
     pub pProfileData: *mut core::ffi::c_void,
     pub cbDataSize: u32,
 }
-impl Copy for PROFILE {}
-impl Clone for PROFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct PROFILEHEADER {
     pub phSize: u32,
     pub phCMMType: u32,
@@ -757,15 +626,8 @@ pub struct PROFILEHEADER {
     pub phCreator: u32,
     pub phReserved: [u8; 44],
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for PROFILEHEADER {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for PROFILEHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PrimaryJabColors {
     pub red: JabColorF,
     pub yellow: JabColorF,
@@ -776,13 +638,8 @@ pub struct PrimaryJabColors {
     pub black: JabColorF,
     pub white: JabColorF,
 }
-impl Copy for PrimaryJabColors {}
-impl Clone for PrimaryJabColors {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PrimaryXYZColors {
     pub red: XYZColorF,
     pub yellow: XYZColorF,
@@ -793,25 +650,15 @@ pub struct PrimaryXYZColors {
     pub black: XYZColorF,
     pub white: XYZColorF,
 }
-impl Copy for PrimaryXYZColors {}
-impl Clone for PrimaryXYZColors {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RGBCOLOR {
     pub red: u16,
     pub green: u16,
     pub blue: u16,
 }
-impl Copy for RGBCOLOR {}
-impl Clone for RGBCOLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WCS_DEVICE_MHC2_CAPABILITIES {
     pub Size: u32,
     pub SupportsMhc2: super::super::Foundation::BOOL,
@@ -819,58 +666,32 @@ pub struct WCS_DEVICE_MHC2_CAPABILITIES {
     pub CscXyzMatrixRows: u32,
     pub CscXyzMatrixColumns: u32,
 }
-impl Copy for WCS_DEVICE_MHC2_CAPABILITIES {}
-impl Clone for WCS_DEVICE_MHC2_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WCS_DEVICE_VCGT_CAPABILITIES {
     pub Size: u32,
     pub SupportsVcgt: super::super::Foundation::BOOL,
 }
-impl Copy for WCS_DEVICE_VCGT_CAPABILITIES {}
-impl Clone for WCS_DEVICE_VCGT_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct XYZCOLOR {
     pub X: u16,
     pub Y: u16,
     pub Z: u16,
 }
-impl Copy for XYZCOLOR {}
-impl Clone for XYZCOLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct XYZColorF {
     pub X: f32,
     pub Y: f32,
     pub Z: f32,
 }
-impl Copy for XYZColorF {}
-impl Clone for XYZColorF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct YxyCOLOR {
     pub Y: u16,
     pub x: u16,
     pub y: u16,
-}
-impl Copy for YxyCOLOR {}
-impl Clone for YxyCOLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type ICMENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: super::super::Foundation::LPARAM) -> i32>;
 pub type ICMENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::super::Foundation::LPARAM) -> i32>;

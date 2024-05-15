@@ -648,14 +648,9 @@ pub const FsiFileItem: windows_sys::core::GUID = windows_sys::core::GUID::from_u
 pub const FsiNamedStreams: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc6b6f8ed_6d19_44b4_b539_b159b793a32d);
 pub const FsiStream: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2c941fcd_975b_59be_a960_9a2a262853a5);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMMP_MPV_STORE_DRIVER_HANDLE {
     pub guidSignature: windows_sys::core::GUID,
-}
-impl Copy for IMMP_MPV_STORE_DRIVER_HANDLE {}
-impl Clone for IMMP_MPV_STORE_DRIVER_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type LPMSGSESS = isize;
 pub const MSDiscMasterObj: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x520cca63_51a5_11d3_9144_00104ba11c5e);
@@ -681,28 +676,18 @@ pub const MsftWriteSpeedDescriptor: windows_sys::core::GUID = windows_sys::core:
 pub const ProgressItem: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2c941fcb_975b_59be_a960_9a2a262853a5);
 pub const ProgressItems: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2c941fc9_975b_59be_a960_9a2a262853a5);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SPropAttrArray {
     pub cValues: u32,
     pub aPropAttr: [u32; 1],
 }
-impl Copy for SPropAttrArray {}
-impl Clone for SPropAttrArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const tagIMMPID_CPV_STRUCT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa2a76b2a_e52d_11d1_aa64_00c04fa35b82);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct tagIMMPID_GUIDLIST_ITEM {
     pub pguid: *const windows_sys::core::GUID,
     pub dwStart: u32,
     pub dwLast: u32,
-}
-impl Copy for tagIMMPID_GUIDLIST_ITEM {}
-impl Clone for tagIMMPID_GUIDLIST_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const tagIMMPID_MPV_STRUCT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcbe69706_c9bd_11d1_9ff2_00c04fa37348);
 pub const tagIMMPID_MP_STRUCT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x13384cf0_b3c4_11d1_aa92_00aa006bc80b);

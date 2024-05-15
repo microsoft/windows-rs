@@ -778,6 +778,7 @@ pub type URL_ENCODING = i32;
 pub type Uri_HOST_TYPE = i32;
 pub type ZAFLAGS = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CODEBASEHOLD {
     pub cbSize: u32,
     pub szDistUnit: windows_sys::core::PWSTR,
@@ -786,38 +787,23 @@ pub struct CODEBASEHOLD {
     pub dwVersionLS: u32,
     pub dwStyle: u32,
 }
-impl Copy for CODEBASEHOLD {}
-impl Clone for CODEBASEHOLD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CONFIRMSAFETY {
     pub clsid: windows_sys::core::GUID,
     pub pUnk: *mut core::ffi::c_void,
     pub dwFlags: u32,
 }
-impl Copy for CONFIRMSAFETY {}
-impl Clone for CONFIRMSAFETY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DATAINFO {
     pub ulTotalSize: u32,
     pub ulavrPacketSize: u32,
     pub ulConnectSpeed: u32,
     pub ulProcessorSpeed: u32,
 }
-impl Copy for DATAINFO {}
-impl Clone for DATAINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HIT_LOGGING_INFO {
     pub dwStructSize: u32,
     pub lpszLoggedUrlName: windows_sys::core::PSTR,
@@ -825,26 +811,16 @@ pub struct HIT_LOGGING_INFO {
     pub EndTime: super::super::super::Foundation::SYSTEMTIME,
     pub lpszExtendedInfo: windows_sys::core::PSTR,
 }
-impl Copy for HIT_LOGGING_INFO {}
-impl Clone for HIT_LOGGING_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROTOCOLDATA {
     pub grfFlags: u32,
     pub dwState: u32,
     pub pData: *mut core::ffi::c_void,
     pub cbData: u32,
 }
-impl Copy for PROTOCOLDATA {}
-impl Clone for PROTOCOLDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROTOCOLFILTERDATA {
     pub cbSize: u32,
     pub pProtocolSink: *mut core::ffi::c_void,
@@ -852,36 +828,21 @@ pub struct PROTOCOLFILTERDATA {
     pub pUnk: *mut core::ffi::c_void,
     pub dwFilterFlags: u32,
 }
-impl Copy for PROTOCOLFILTERDATA {}
-impl Clone for PROTOCOLFILTERDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROTOCOL_ARGUMENT {
     pub szMethod: windows_sys::core::PCWSTR,
     pub szTargetUrl: windows_sys::core::PCWSTR,
 }
-impl Copy for PROTOCOL_ARGUMENT {}
-impl Clone for PROTOCOL_ARGUMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REMSECURITY_ATTRIBUTES {
     pub nLength: u32,
     pub lpSecurityDescriptor: u32,
     pub bInheritHandle: super::super::super::Foundation::BOOL,
 }
-impl Copy for REMSECURITY_ATTRIBUTES {}
-impl Clone for REMSECURITY_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RemBINDINFO {
     pub cbSize: u32,
     pub szExtraInfo: windows_sys::core::PWSTR,
@@ -897,13 +858,8 @@ pub struct RemBINDINFO {
     pub pUnk: *mut core::ffi::c_void,
     pub dwReserved: u32,
 }
-impl Copy for RemBINDINFO {}
-impl Clone for RemBINDINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RemFORMATETC {
     pub cfFormat: u32,
     pub ptd: u32,
@@ -911,13 +867,8 @@ pub struct RemFORMATETC {
     pub lindex: i32,
     pub tymed: u32,
 }
-impl Copy for RemFORMATETC {}
-impl Clone for RemFORMATETC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SOFTDISTINFO {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -933,25 +884,15 @@ pub struct SOFTDISTINFO {
     pub dwAdvertisedVersionLS: u32,
     pub dwReserved: u32,
 }
-impl Copy for SOFTDISTINFO {}
-impl Clone for SOFTDISTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct StartParam {
     pub iid: windows_sys::core::GUID,
     pub pIBindCtx: *mut core::ffi::c_void,
     pub pItf: *mut core::ffi::c_void,
 }
-impl Copy for StartParam {}
-impl Clone for StartParam {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ZONEATTRIBUTES {
     pub cbSize: u32,
     pub szDisplayName: [u16; 260],
@@ -961,10 +902,4 @@ pub struct ZONEATTRIBUTES {
     pub dwTemplateRecommended: u32,
     pub dwTemplateCurrentLevel: u32,
     pub dwFlags: u32,
-}
-impl Copy for ZONEATTRIBUTES {}
-impl Clone for ZONEATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

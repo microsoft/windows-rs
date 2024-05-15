@@ -35,6 +35,7 @@ pub const SPC_MARKER_CHECK_CURRENTLY_SUPPORTED_FLAGS: u32 = 1u32;
 pub const SPC_MARKER_CHECK_SKIP_SIP_INDIRECT_DATA_FLAG: u32 = 1u32;
 pub const SPC_RELAXED_PE_MARKER_CHECK: u32 = 2048u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MS_ADDINFO_BLOB {
     pub cbStruct: u32,
     pub cbMemObject: u32,
@@ -42,24 +43,14 @@ pub struct MS_ADDINFO_BLOB {
     pub cbMemSignedMsg: u32,
     pub pbMemSignedMsg: *mut u8,
 }
-impl Copy for MS_ADDINFO_BLOB {}
-impl Clone for MS_ADDINFO_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MS_ADDINFO_FLAT {
     pub cbStruct: u32,
     pub pIndirectData: *mut SIP_INDIRECT_DATA,
 }
-impl Copy for MS_ADDINFO_FLAT {}
-impl Clone for MS_ADDINFO_FLAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SIP_ADD_NEWPROVIDER {
     pub cbStruct: u32,
     pub pgSubject: *mut windows_sys::core::GUID,
@@ -74,51 +65,31 @@ pub struct SIP_ADD_NEWPROVIDER {
     pub pwszIsFunctionNameFmt2: windows_sys::core::PWSTR,
     pub pwszGetCapFuncName: windows_sys::core::PWSTR,
 }
-impl Copy for SIP_ADD_NEWPROVIDER {}
-impl Clone for SIP_ADD_NEWPROVIDER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SIP_CAP_SET_V2 {
     pub cbSize: u32,
     pub dwVersion: u32,
     pub isMultiSign: super::super::super::Foundation::BOOL,
     pub dwReserved: u32,
 }
-impl Copy for SIP_CAP_SET_V2 {}
-impl Clone for SIP_CAP_SET_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SIP_CAP_SET_V3 {
     pub cbSize: u32,
     pub dwVersion: u32,
     pub isMultiSign: super::super::super::Foundation::BOOL,
     pub Anonymous: SIP_CAP_SET_V3_0,
 }
-impl Copy for SIP_CAP_SET_V3 {}
-impl Clone for SIP_CAP_SET_V3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SIP_CAP_SET_V3_0 {
     pub dwFlags: u32,
     pub dwReserved: u32,
 }
-impl Copy for SIP_CAP_SET_V3_0 {}
-impl Clone for SIP_CAP_SET_V3_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
+#[derive(Clone, Copy)]
 pub struct SIP_DISPATCH_INFO {
     pub cbSize: u32,
     pub hSIP: super::super::super::Foundation::HANDLE,
@@ -128,28 +99,16 @@ pub struct SIP_DISPATCH_INFO {
     pub pfVerify: pCryptSIPVerifyIndirectData,
     pub pfRemove: pCryptSIPRemoveSignedDataMsg,
 }
-#[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-impl Copy for SIP_DISPATCH_INFO {}
-#[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-impl Clone for SIP_DISPATCH_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SIP_INDIRECT_DATA {
     pub Data: super::CRYPT_ATTRIBUTE_TYPE_VALUE,
     pub DigestAlgorithm: super::CRYPT_ALGORITHM_IDENTIFIER,
     pub Digest: super::CRYPT_INTEGER_BLOB,
 }
-impl Copy for SIP_INDIRECT_DATA {}
-impl Clone for SIP_INDIRECT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
+#[derive(Clone, Copy)]
 pub struct SIP_SUBJECTINFO {
     pub cbSize: u32,
     pub pgSubjectType: *mut windows_sys::core::GUID,
@@ -170,28 +129,13 @@ pub struct SIP_SUBJECTINFO {
     pub Anonymous: SIP_SUBJECTINFO_0,
     pub pClientData: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-impl Copy for SIP_SUBJECTINFO {}
-#[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-impl Clone for SIP_SUBJECTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
+#[derive(Clone, Copy)]
 pub union SIP_SUBJECTINFO_0 {
     pub psFlat: *mut MS_ADDINFO_FLAT,
     pub psCatMember: *mut super::Catalog::MS_ADDINFO_CATALOGMEMBER,
     pub psBlob: *mut MS_ADDINFO_BLOB,
-}
-#[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-impl Copy for SIP_SUBJECTINFO_0 {}
-#[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-impl Clone for SIP_SUBJECTINFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 pub type pCryptSIPCreateIndirectData = Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, pcbindirectdata: *mut u32, pindirectdata: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL>;

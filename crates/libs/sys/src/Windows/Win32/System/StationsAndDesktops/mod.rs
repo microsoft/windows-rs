@@ -77,31 +77,21 @@ pub type DESKTOP_ACCESS_FLAGS = u32;
 pub type DESKTOP_CONTROL_FLAGS = u32;
 pub type USER_OBJECT_INFORMATION_INDEX = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BSMINFO {
     pub cbSize: u32,
     pub hdesk: HDESK,
     pub hwnd: super::super::Foundation::HWND,
     pub luid: super::super::Foundation::LUID,
 }
-impl Copy for BSMINFO {}
-impl Clone for BSMINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type HDESK = isize;
 pub type HWINSTA = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USEROBJECTFLAGS {
     pub fInherit: super::super::Foundation::BOOL,
     pub fReserved: super::super::Foundation::BOOL,
     pub dwFlags: u32,
-}
-impl Copy for USEROBJECTFLAGS {}
-impl Clone for USEROBJECTFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type DESKTOPENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 pub type DESKTOPENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;

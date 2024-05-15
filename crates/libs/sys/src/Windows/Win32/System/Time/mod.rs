@@ -25,6 +25,7 @@ pub const wszW32TimeRegValueEnabled: windows_sys::core::PCWSTR = windows_sys::co
 pub const wszW32TimeRegValueInputProvider: windows_sys::core::PCWSTR = windows_sys::core::w!("InputProvider");
 pub const wszW32TimeRegValueMetaDataProvider: windows_sys::core::PCWSTR = windows_sys::core::w!("MetaDataProvider");
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DYNAMIC_TIME_ZONE_INFORMATION {
     pub Bias: i32,
     pub StandardName: [u16; 32],
@@ -36,13 +37,8 @@ pub struct DYNAMIC_TIME_ZONE_INFORMATION {
     pub TimeZoneKeyName: [u16; 128],
     pub DynamicDaylightTimeDisabled: super::super::Foundation::BOOLEAN,
 }
-impl Copy for DYNAMIC_TIME_ZONE_INFORMATION {}
-impl Clone for DYNAMIC_TIME_ZONE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TIME_ZONE_INFORMATION {
     pub Bias: i32,
     pub StandardName: [u16; 32],
@@ -51,10 +47,4 @@ pub struct TIME_ZONE_INFORMATION {
     pub DaylightName: [u16; 32],
     pub DaylightDate: super::super::Foundation::SYSTEMTIME,
     pub DaylightBias: i32,
-}
-impl Copy for TIME_ZONE_INFORMATION {}
-impl Clone for TIME_ZONE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

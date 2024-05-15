@@ -936,43 +936,29 @@ pub type NOTIFY_IME_ACTION = u32;
 pub type NOTIFY_IME_INDEX = u32;
 pub type SET_COMPOSITION_STRING_TYPE = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct APPLETIDLIST {
     pub count: i32,
     pub pIIDList: *mut windows_sys::core::GUID,
 }
-impl Copy for APPLETIDLIST {}
-impl Clone for APPLETIDLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct APPLYCANDEXPARAM {
     pub dwSize: u32,
     pub lpwstrDisplay: windows_sys::core::PWSTR,
     pub lpwstrReading: windows_sys::core::PWSTR,
     pub dwReserved: u32,
 }
-impl Copy for APPLYCANDEXPARAM {}
-impl Clone for APPLYCANDEXPARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CANDIDATEFORM {
     pub dwIndex: u32,
     pub dwStyle: u32,
     pub ptCurrentPos: super::super::super::Foundation::POINT,
     pub rcArea: super::super::super::Foundation::RECT,
 }
-impl Copy for CANDIDATEFORM {}
-impl Clone for CANDIDATEFORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CANDIDATEINFO {
     pub dwSize: u32,
     pub dwCount: u32,
@@ -980,13 +966,8 @@ pub struct CANDIDATEINFO {
     pub dwPrivateSize: u32,
     pub dwPrivateOffset: u32,
 }
-impl Copy for CANDIDATEINFO {}
-impl Clone for CANDIDATEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CANDIDATELIST {
     pub dwSize: u32,
     pub dwStyle: u32,
@@ -996,26 +977,16 @@ pub struct CANDIDATELIST {
     pub dwPageSize: u32,
     pub dwOffset: [u32; 1],
 }
-impl Copy for CANDIDATELIST {}
-impl Clone for CANDIDATELIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const CActiveIMM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4955dd33_b159_11d0_8fcf_00aa006bcc59);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COMPOSITIONFORM {
     pub dwStyle: u32,
     pub ptCurrentPos: super::super::super::Foundation::POINT,
     pub rcArea: super::super::super::Foundation::RECT,
 }
-impl Copy for COMPOSITIONFORM {}
-impl Clone for COMPOSITIONFORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COMPOSITIONSTRING {
     pub dwSize: u32,
     pub dwCompReadAttrLen: u32,
@@ -1043,13 +1014,8 @@ pub struct COMPOSITIONSTRING {
     pub dwPrivateSize: u32,
     pub dwPrivateOffset: u32,
 }
-impl Copy for COMPOSITIONSTRING {}
-impl Clone for COMPOSITIONSTRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GUIDELINE {
     pub dwSize: u32,
     pub dwLevel: u32,
@@ -1059,14 +1025,9 @@ pub struct GUIDELINE {
     pub dwPrivateSize: u32,
     pub dwPrivateOffset: u32,
 }
-impl Copy for GUIDELINE {}
-impl Clone for GUIDELINE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct IMEAPPLETCFG {
     pub dwConfig: u32,
     pub wchTitle: [u16; 64],
@@ -1078,15 +1039,8 @@ pub struct IMEAPPLETCFG {
     pub dummy: u16,
     pub lReserved1: super::super::super::Foundation::LPARAM,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for IMEAPPLETCFG {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for IMEAPPLETCFG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMEAPPLETUI {
     pub hwnd: super::super::super::Foundation::HWND,
     pub dwStyle: u32,
@@ -1099,24 +1053,14 @@ pub struct IMEAPPLETUI {
     pub lReserved1: super::super::super::Foundation::LPARAM,
     pub lReserved2: super::super::super::Foundation::LPARAM,
 }
-impl Copy for IMEAPPLETUI {}
-impl Clone for IMEAPPLETUI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMECHARINFO {
     pub wch: u16,
     pub dwCharInfo: u32,
 }
-impl Copy for IMECHARINFO {}
-impl Clone for IMECHARINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMECHARPOSITION {
     pub dwSize: u32,
     pub dwCharPos: u32,
@@ -1124,13 +1068,8 @@ pub struct IMECHARPOSITION {
     pub cLineHeight: u32,
     pub rcDocument: super::super::super::Foundation::RECT,
 }
-impl Copy for IMECHARPOSITION {}
-impl Clone for IMECHARPOSITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMECOMPOSITIONSTRINGINFO {
     pub iCompStrLen: i32,
     pub iCaretPos: i32,
@@ -1139,50 +1078,30 @@ pub struct IMECOMPOSITIONSTRINGINFO {
     pub iTargetStart: i32,
     pub iTargetLen: i32,
 }
-impl Copy for IMECOMPOSITIONSTRINGINFO {}
-impl Clone for IMECOMPOSITIONSTRINGINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMEDLG {
     pub cbIMEDLG: i32,
     pub hwnd: super::super::super::Foundation::HWND,
     pub lpwstrWord: windows_sys::core::PWSTR,
     pub nTabId: i32,
 }
-impl Copy for IMEDLG {}
-impl Clone for IMEDLG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMEDP {
     pub wrdModifier: IMEWRD,
     pub wrdModifiee: IMEWRD,
     pub relID: IMEREL,
 }
-impl Copy for IMEDP {}
-impl Clone for IMEDP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMEFAREASTINFO {
     pub dwSize: u32,
     pub dwType: u32,
     pub dwData: [u32; 1],
 }
-impl Copy for IMEFAREASTINFO {}
-impl Clone for IMEFAREASTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMEINFO {
     pub dwPrivateDataSize: u32,
     pub fdwProperty: u32,
@@ -1192,91 +1111,52 @@ pub struct IMEINFO {
     pub fdwSCSCaps: u32,
     pub fdwSelectCaps: u32,
 }
-impl Copy for IMEINFO {}
-impl Clone for IMEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMEITEM {
     pub cbSize: i32,
     pub iType: i32,
     pub lpItemData: *mut core::ffi::c_void,
 }
-impl Copy for IMEITEM {}
-impl Clone for IMEITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMEITEMCANDIDATE {
     pub uCount: u32,
     pub imeItem: [IMEITEM; 1],
 }
-impl Copy for IMEITEMCANDIDATE {}
-impl Clone for IMEITEMCANDIDATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Globalization")]
+#[derive(Clone, Copy)]
 pub struct IMEKMS {
     pub cbSize: i32,
     pub hIMC: super::super::super::Globalization::HIMC,
     pub cKeyList: u32,
     pub pKeyList: *mut IMEKMSKEY,
 }
-#[cfg(feature = "Win32_Globalization")]
-impl Copy for IMEKMS {}
-#[cfg(feature = "Win32_Globalization")]
-impl Clone for IMEKMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMEKMSFUNCDESC {
     pub cbSize: i32,
     pub idLang: u16,
     pub dwControl: u32,
     pub pwszDescription: [u16; 128],
 }
-impl Copy for IMEKMSFUNCDESC {}
-impl Clone for IMEKMSFUNCDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMEKMSINIT {
     pub cbSize: i32,
     pub hWnd: super::super::super::Foundation::HWND,
 }
-impl Copy for IMEKMSINIT {}
-impl Clone for IMEKMSINIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Globalization")]
+#[derive(Clone, Copy)]
 pub struct IMEKMSINVK {
     pub cbSize: i32,
     pub hIMC: super::super::super::Globalization::HIMC,
     pub dwControl: u32,
 }
-#[cfg(feature = "Win32_Globalization")]
-impl Copy for IMEKMSINVK {}
-#[cfg(feature = "Win32_Globalization")]
-impl Clone for IMEKMSINVK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMEKMSKEY {
     pub dwStatus: u32,
     pub dwCompStatus: u32,
@@ -1284,36 +1164,21 @@ pub struct IMEKMSKEY {
     pub Anonymous1: IMEKMSKEY_0,
     pub Anonymous2: IMEKMSKEY_1,
 }
-impl Copy for IMEKMSKEY {}
-impl Clone for IMEKMSKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union IMEKMSKEY_0 {
     pub dwControl: u32,
     pub dwNotUsed: u32,
 }
-impl Copy for IMEKMSKEY_0 {}
-impl Clone for IMEKMSKEY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union IMEKMSKEY_1 {
     pub pwszDscr: [u16; 31],
     pub pwszNoUse: [u16; 31],
 }
-impl Copy for IMEKMSKEY_1 {}
-impl Clone for IMEKMSKEY_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Globalization")]
+#[derive(Clone, Copy)]
 pub struct IMEKMSKMP {
     pub cbSize: i32,
     pub hIMC: super::super::super::Globalization::HIMC,
@@ -1323,31 +1188,17 @@ pub struct IMEKMSKMP {
     pub cKeyList: i32,
     pub pKeyList: *mut IMEKMSKEY,
 }
-#[cfg(feature = "Win32_Globalization")]
-impl Copy for IMEKMSKMP {}
-#[cfg(feature = "Win32_Globalization")]
-impl Clone for IMEKMSKMP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Globalization")]
+#[derive(Clone, Copy)]
 pub struct IMEKMSNTFY {
     pub cbSize: i32,
     pub hIMC: super::super::super::Globalization::HIMC,
     pub fSelect: super::super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Globalization")]
-impl Copy for IMEKMSNTFY {}
-#[cfg(feature = "Win32_Globalization")]
-impl Clone for IMEKMSNTFY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct IMEMENUITEMINFOA {
     pub cbSize: u32,
     pub fType: u32,
@@ -1359,16 +1210,9 @@ pub struct IMEMENUITEMINFOA {
     pub szString: [i8; 80],
     pub hbmpItem: super::super::super::Graphics::Gdi::HBITMAP,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for IMEMENUITEMINFOA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for IMEMENUITEMINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct IMEMENUITEMINFOW {
     pub cbSize: u32,
     pub fType: u32,
@@ -1380,15 +1224,8 @@ pub struct IMEMENUITEMINFOW {
     pub szString: [u16; 80],
     pub hbmpItem: super::super::super::Graphics::Gdi::HBITMAP,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for IMEMENUITEMINFOW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for IMEMENUITEMINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMESHF {
     pub cbShf: u16,
     pub verDic: u16,
@@ -1396,24 +1233,14 @@ pub struct IMESHF {
     pub szDescription: [i8; 256],
     pub szCopyright: [i8; 128],
 }
-impl Copy for IMESHF {}
-impl Clone for IMESHF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMESTRINGCANDIDATE {
     pub uCount: u32,
     pub lpwstr: [windows_sys::core::PWSTR; 1],
 }
-impl Copy for IMESTRINGCANDIDATE {}
-impl Clone for IMESTRINGCANDIDATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMESTRINGCANDIDATEINFO {
     pub dwFarEastId: u32,
     pub lpFarEastInfo: *mut IMEFAREASTINFO,
@@ -1422,24 +1249,14 @@ pub struct IMESTRINGCANDIDATEINFO {
     pub uCount: u32,
     pub lpwstr: [windows_sys::core::PWSTR; 1],
 }
-impl Copy for IMESTRINGCANDIDATEINFO {}
-impl Clone for IMESTRINGCANDIDATEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMESTRINGINFO {
     pub dwFarEastId: u32,
     pub lpwstr: windows_sys::core::PWSTR,
 }
-impl Copy for IMESTRINGINFO {}
-impl Clone for IMESTRINGINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMEWRD {
     pub pwchReading: windows_sys::core::PWSTR,
     pub pwchDisplay: windows_sys::core::PWSTR,
@@ -1449,36 +1266,21 @@ pub struct IMEWRD {
     pub uct: IMEUCT,
     pub pvComment: *mut core::ffi::c_void,
 }
-impl Copy for IMEWRD {}
-impl Clone for IMEWRD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union IMEWRD_0 {
     pub ulPos: u32,
     pub Anonymous: IMEWRD_0_0,
 }
-impl Copy for IMEWRD_0 {}
-impl Clone for IMEWRD_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMEWRD_0_0 {
     pub nPos1: u16,
     pub nPos2: u16,
 }
-impl Copy for IMEWRD_0_0 {}
-impl Clone for IMEWRD_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+#[derive(Clone, Copy)]
 pub struct INPUTCONTEXT {
     pub hWnd: super::super::super::Foundation::HWND,
     pub fOpen: super::super::super::Foundation::BOOL,
@@ -1498,29 +1300,15 @@ pub struct INPUTCONTEXT {
     pub fdwInit: u32,
     pub dwReserve: [u32; 3],
 }
-#[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
-impl Copy for INPUTCONTEXT {}
-#[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
-impl Clone for INPUTCONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+#[derive(Clone, Copy)]
 pub union INPUTCONTEXT_0 {
     pub A: super::super::super::Graphics::Gdi::LOGFONTA,
     pub W: super::super::super::Graphics::Gdi::LOGFONTW,
 }
-#[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
-impl Copy for INPUTCONTEXT_0 {}
-#[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
-impl Clone for INPUTCONTEXT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MORRSLT {
     pub dwSize: u32,
     pub pwchOutput: windows_sys::core::PWSTR,
@@ -1536,57 +1324,32 @@ pub struct MORRSLT {
     pub pPrivate: *mut core::ffi::c_void,
     pub BLKBuff: [u16; 1],
 }
-impl Copy for MORRSLT {}
-impl Clone for MORRSLT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union MORRSLT_0 {
     pub pwchRead: windows_sys::core::PWSTR,
     pub pwchComp: windows_sys::core::PWSTR,
 }
-impl Copy for MORRSLT_0 {}
-impl Clone for MORRSLT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union MORRSLT_1 {
     pub cchRead: u16,
     pub cchComp: u16,
 }
-impl Copy for MORRSLT_1 {}
-impl Clone for MORRSLT_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union MORRSLT_2 {
     pub pchReadIdxWDD: *mut u16,
     pub pchCompIdxWDD: *mut u16,
 }
-impl Copy for MORRSLT_2 {}
-impl Clone for MORRSLT_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct POSTBL {
     pub nPos: u16,
     pub szName: *mut u8,
 }
-impl Copy for POSTBL {}
-impl Clone for POSTBL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RECONVERTSTRING {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -1597,91 +1360,51 @@ pub struct RECONVERTSTRING {
     pub dwTargetStrLen: u32,
     pub dwTargetStrOffset: u32,
 }
-impl Copy for RECONVERTSTRING {}
-impl Clone for RECONVERTSTRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REGISTERWORDA {
     pub lpReading: windows_sys::core::PSTR,
     pub lpWord: windows_sys::core::PSTR,
 }
-impl Copy for REGISTERWORDA {}
-impl Clone for REGISTERWORDA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REGISTERWORDW {
     pub lpReading: windows_sys::core::PWSTR,
     pub lpWord: windows_sys::core::PWSTR,
 }
-impl Copy for REGISTERWORDW {}
-impl Clone for REGISTERWORDW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SOFTKBDDATA {
     pub uCount: u32,
     pub wCode: [u16; 256],
 }
-impl Copy for SOFTKBDDATA {}
-impl Clone for SOFTKBDDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STYLEBUFA {
     pub dwStyle: u32,
     pub szDescription: [i8; 32],
 }
-impl Copy for STYLEBUFA {}
-impl Clone for STYLEBUFA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STYLEBUFW {
     pub dwStyle: u32,
     pub szDescription: [u16; 32],
 }
-impl Copy for STYLEBUFW {}
-impl Clone for STYLEBUFW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRANSMSG {
     pub message: u32,
     pub wParam: super::super::super::Foundation::WPARAM,
     pub lParam: super::super::super::Foundation::LPARAM,
 }
-impl Copy for TRANSMSG {}
-impl Clone for TRANSMSG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRANSMSGLIST {
     pub uMsgCount: u32,
     pub TransMsg: [TRANSMSG; 1],
 }
-impl Copy for TRANSMSGLIST {}
-impl Clone for TRANSMSGLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WDD {
     pub wDispPos: u16,
     pub Anonymous1: WDD_0,
@@ -1692,33 +1415,17 @@ pub struct WDD {
     pub _bitfield: u16,
     pub pReserved: *mut core::ffi::c_void,
 }
-impl Copy for WDD {}
-impl Clone for WDD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WDD_0 {
     pub wReadPos: u16,
     pub wCompPos: u16,
 }
-impl Copy for WDD_0 {}
-impl Clone for WDD_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WDD_1 {
     pub cchRead: u16,
     pub cchComp: u16,
-}
-impl Copy for WDD_1 {}
-impl Clone for WDD_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Globalization")]
 pub type IMCENUMPROC = Option<unsafe extern "system" fn(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL>;

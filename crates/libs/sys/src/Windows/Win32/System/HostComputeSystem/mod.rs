@@ -138,6 +138,7 @@ pub type HCS_OPERATION_TYPE = i32;
 pub type HCS_RESOURCE_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct HCS_CREATE_OPTIONS_1 {
     pub Version: HCS_CREATE_OPTIONS,
     pub UserToken: super::super::Foundation::HANDLE,
@@ -146,41 +147,23 @@ pub struct HCS_CREATE_OPTIONS_1 {
     pub CallbackContext: *mut core::ffi::c_void,
     pub Callback: HCS_EVENT_CALLBACK,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for HCS_CREATE_OPTIONS_1 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for HCS_CREATE_OPTIONS_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HCS_EVENT {
     pub Type: HCS_EVENT_TYPE,
     pub EventData: windows_sys::core::PCWSTR,
     pub Operation: HCS_OPERATION,
 }
-impl Copy for HCS_EVENT {}
-impl Clone for HCS_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type HCS_OPERATION = isize;
 pub type HCS_PROCESS = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HCS_PROCESS_INFORMATION {
     pub ProcessId: u32,
     pub Reserved: u32,
     pub StdInput: super::super::Foundation::HANDLE,
     pub StdOutput: super::super::Foundation::HANDLE,
     pub StdError: super::super::Foundation::HANDLE,
-}
-impl Copy for HCS_PROCESS_INFORMATION {}
-impl Clone for HCS_PROCESS_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type HCS_SYSTEM = isize;
 pub type HCS_EVENT_CALLBACK = Option<unsafe extern "system" fn(event: *const HCS_EVENT, context: *const core::ffi::c_void)>;

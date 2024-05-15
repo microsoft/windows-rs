@@ -21,42 +21,27 @@ pub const DefaultBehavior: AUTHNEXTSTEP = 0i32;
 pub const RetryRequest: AUTHNEXTSTEP = 1i32;
 pub type AUTHNEXTSTEP = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DAV_CALLBACK_AUTH_BLOB {
     pub pBuffer: *mut core::ffi::c_void,
     pub ulSize: u32,
     pub ulType: u32,
 }
-impl Copy for DAV_CALLBACK_AUTH_BLOB {}
-impl Clone for DAV_CALLBACK_AUTH_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DAV_CALLBACK_AUTH_UNP {
     pub pszUserName: windows_sys::core::PWSTR,
     pub ulUserNameLength: u32,
     pub pszPassword: windows_sys::core::PWSTR,
     pub ulPasswordLength: u32,
 }
-impl Copy for DAV_CALLBACK_AUTH_UNP {}
-impl Clone for DAV_CALLBACK_AUTH_UNP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DAV_CALLBACK_CRED {
     pub AuthBlob: DAV_CALLBACK_AUTH_BLOB,
     pub UNPBlob: DAV_CALLBACK_AUTH_UNP,
     pub bAuthBlobValid: super::super::Foundation::BOOL,
     pub bSave: super::super::Foundation::BOOL,
-}
-impl Copy for DAV_CALLBACK_CRED {}
-impl Clone for DAV_CALLBACK_CRED {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type PFNDAVAUTHCALLBACK = Option<unsafe extern "system" fn(lpwzservername: windows_sys::core::PCWSTR, lpwzremotename: windows_sys::core::PCWSTR, dwauthscheme: u32, dwflags: u32, pcallbackcred: *mut DAV_CALLBACK_CRED, nextstep: *mut AUTHNEXTSTEP, pfreecred: *mut PFNDAVAUTHCALLBACK_FREECRED) -> u32>;
 pub type PFNDAVAUTHCALLBACK_FREECRED = Option<unsafe extern "system" fn(pbuffer: *const core::ffi::c_void) -> u32>;

@@ -677,153 +677,89 @@ pub type WSManSessionOption = i32;
 pub type WSManShellFlag = i32;
 pub type WSMAN_API_HANDLE = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_AUTHENTICATION_CREDENTIALS {
     pub authenticationMechanism: u32,
     pub Anonymous: WSMAN_AUTHENTICATION_CREDENTIALS_0,
 }
-impl Copy for WSMAN_AUTHENTICATION_CREDENTIALS {}
-impl Clone for WSMAN_AUTHENTICATION_CREDENTIALS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WSMAN_AUTHENTICATION_CREDENTIALS_0 {
     pub userAccount: WSMAN_USERNAME_PASSWORD_CREDS,
     pub certificateThumbprint: windows_sys::core::PCWSTR,
 }
-impl Copy for WSMAN_AUTHENTICATION_CREDENTIALS_0 {}
-impl Clone for WSMAN_AUTHENTICATION_CREDENTIALS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_AUTHZ_QUOTA {
     pub maxAllowedConcurrentShells: u32,
     pub maxAllowedConcurrentOperations: u32,
     pub timeslotSize: u32,
     pub maxAllowedOperationsPerTimeslot: u32,
 }
-impl Copy for WSMAN_AUTHZ_QUOTA {}
-impl Clone for WSMAN_AUTHZ_QUOTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_CERTIFICATE_DETAILS {
     pub subject: windows_sys::core::PCWSTR,
     pub issuerName: windows_sys::core::PCWSTR,
     pub issuerThumbprint: windows_sys::core::PCWSTR,
     pub subjectName: windows_sys::core::PCWSTR,
 }
-impl Copy for WSMAN_CERTIFICATE_DETAILS {}
-impl Clone for WSMAN_CERTIFICATE_DETAILS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_COMMAND_ARG_SET {
     pub argsCount: u32,
     pub args: *const windows_sys::core::PCWSTR,
 }
-impl Copy for WSMAN_COMMAND_ARG_SET {}
-impl Clone for WSMAN_COMMAND_ARG_SET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type WSMAN_COMMAND_HANDLE = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_CONNECT_DATA {
     pub data: WSMAN_DATA,
 }
-impl Copy for WSMAN_CONNECT_DATA {}
-impl Clone for WSMAN_CONNECT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_CREATE_SHELL_DATA {
     pub data: WSMAN_DATA,
 }
-impl Copy for WSMAN_CREATE_SHELL_DATA {}
-impl Clone for WSMAN_CREATE_SHELL_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_DATA {
     pub r#type: WSManDataType,
     pub Anonymous: WSMAN_DATA_0,
 }
-impl Copy for WSMAN_DATA {}
-impl Clone for WSMAN_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WSMAN_DATA_0 {
     pub text: WSMAN_DATA_TEXT,
     pub binaryData: WSMAN_DATA_BINARY,
     pub number: u32,
 }
-impl Copy for WSMAN_DATA_0 {}
-impl Clone for WSMAN_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_DATA_BINARY {
     pub dataLength: u32,
     pub data: *mut u8,
 }
-impl Copy for WSMAN_DATA_BINARY {}
-impl Clone for WSMAN_DATA_BINARY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_DATA_TEXT {
     pub bufferLength: u32,
     pub buffer: windows_sys::core::PCWSTR,
 }
-impl Copy for WSMAN_DATA_TEXT {}
-impl Clone for WSMAN_DATA_TEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_ENVIRONMENT_VARIABLE {
     pub name: windows_sys::core::PCWSTR,
     pub value: windows_sys::core::PCWSTR,
 }
-impl Copy for WSMAN_ENVIRONMENT_VARIABLE {}
-impl Clone for WSMAN_ENVIRONMENT_VARIABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_ENVIRONMENT_VARIABLE_SET {
     pub varsCount: u32,
     pub vars: *mut WSMAN_ENVIRONMENT_VARIABLE,
 }
-impl Copy for WSMAN_ENVIRONMENT_VARIABLE_SET {}
-impl Clone for WSMAN_ENVIRONMENT_VARIABLE_SET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_ERROR {
     pub code: u32,
     pub errorDetail: windows_sys::core::PCWSTR,
@@ -831,47 +767,27 @@ pub struct WSMAN_ERROR {
     pub machineName: windows_sys::core::PCWSTR,
     pub pluginName: windows_sys::core::PCWSTR,
 }
-impl Copy for WSMAN_ERROR {}
-impl Clone for WSMAN_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_FILTER {
     pub filter: windows_sys::core::PCWSTR,
     pub dialect: windows_sys::core::PCWSTR,
 }
-impl Copy for WSMAN_FILTER {}
-impl Clone for WSMAN_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_FRAGMENT {
     pub path: windows_sys::core::PCWSTR,
     pub dialect: windows_sys::core::PCWSTR,
 }
-impl Copy for WSMAN_FRAGMENT {}
-impl Clone for WSMAN_FRAGMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_KEY {
     pub key: windows_sys::core::PCWSTR,
     pub value: windows_sys::core::PCWSTR,
 }
-impl Copy for WSMAN_KEY {}
-impl Clone for WSMAN_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type WSMAN_OPERATION_HANDLE = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_OPERATION_INFO {
     pub fragment: WSMAN_FRAGMENT,
     pub filter: WSMAN_FILTER,
@@ -880,13 +796,8 @@ pub struct WSMAN_OPERATION_INFO {
     pub reserved: *mut core::ffi::c_void,
     pub version: u32,
 }
-impl Copy for WSMAN_OPERATION_INFO {}
-impl Clone for WSMAN_OPERATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_OPERATION_INFOEX {
     pub fragment: WSMAN_FRAGMENT,
     pub filter: WSMAN_FILTER,
@@ -896,50 +807,30 @@ pub struct WSMAN_OPERATION_INFOEX {
     pub uiLocale: windows_sys::core::PCWSTR,
     pub dataLocale: windows_sys::core::PCWSTR,
 }
-impl Copy for WSMAN_OPERATION_INFOEX {}
-impl Clone for WSMAN_OPERATION_INFOEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_OPTION {
     pub name: windows_sys::core::PCWSTR,
     pub value: windows_sys::core::PCWSTR,
     pub mustComply: super::super::Foundation::BOOL,
 }
-impl Copy for WSMAN_OPTION {}
-impl Clone for WSMAN_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_OPTION_SET {
     pub optionsCount: u32,
     pub options: *mut WSMAN_OPTION,
     pub optionsMustUnderstand: super::super::Foundation::BOOL,
 }
-impl Copy for WSMAN_OPTION_SET {}
-impl Clone for WSMAN_OPTION_SET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_OPTION_SETEX {
     pub optionsCount: u32,
     pub options: *mut WSMAN_OPTION,
     pub optionsMustUnderstand: super::super::Foundation::BOOL,
     pub optionTypes: *const windows_sys::core::PCWSTR,
 }
-impl Copy for WSMAN_OPTION_SETEX {}
-impl Clone for WSMAN_OPTION_SETEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_PLUGIN_REQUEST {
     pub senderDetails: *mut WSMAN_SENDER_DETAILS,
     pub locale: windows_sys::core::PCWSTR,
@@ -949,60 +840,35 @@ pub struct WSMAN_PLUGIN_REQUEST {
     pub shutdownNotificationHandle: super::super::Foundation::HANDLE,
     pub dataLocale: windows_sys::core::PCWSTR,
 }
-impl Copy for WSMAN_PLUGIN_REQUEST {}
-impl Clone for WSMAN_PLUGIN_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_PROXY_INFO {
     pub accessType: u32,
     pub authenticationCredentials: WSMAN_AUTHENTICATION_CREDENTIALS,
 }
-impl Copy for WSMAN_PROXY_INFO {}
-impl Clone for WSMAN_PROXY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_RECEIVE_DATA_RESULT {
     pub streamId: windows_sys::core::PCWSTR,
     pub streamData: WSMAN_DATA,
     pub commandState: windows_sys::core::PCWSTR,
     pub exitCode: u32,
 }
-impl Copy for WSMAN_RECEIVE_DATA_RESULT {}
-impl Clone for WSMAN_RECEIVE_DATA_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WSMAN_RESPONSE_DATA {
     pub receiveData: WSMAN_RECEIVE_DATA_RESULT,
     pub connectData: WSMAN_CONNECT_DATA,
     pub createData: WSMAN_CREATE_SHELL_DATA,
 }
-impl Copy for WSMAN_RESPONSE_DATA {}
-impl Clone for WSMAN_RESPONSE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_SELECTOR_SET {
     pub numberKeys: u32,
     pub keys: *mut WSMAN_KEY,
 }
-impl Copy for WSMAN_SELECTOR_SET {}
-impl Clone for WSMAN_SELECTOR_SET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_SENDER_DETAILS {
     pub senderName: windows_sys::core::PCWSTR,
     pub authenticationMechanism: windows_sys::core::PCWSTR,
@@ -1010,36 +876,21 @@ pub struct WSMAN_SENDER_DETAILS {
     pub clientToken: super::super::Foundation::HANDLE,
     pub httpURL: windows_sys::core::PCWSTR,
 }
-impl Copy for WSMAN_SENDER_DETAILS {}
-impl Clone for WSMAN_SENDER_DETAILS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type WSMAN_SESSION_HANDLE = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_SHELL_ASYNC {
     pub operationContext: *mut core::ffi::c_void,
     pub completionFunction: WSMAN_SHELL_COMPLETION_FUNCTION,
 }
-impl Copy for WSMAN_SHELL_ASYNC {}
-impl Clone for WSMAN_SHELL_ASYNC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_SHELL_DISCONNECT_INFO {
     pub idleTimeoutMs: u32,
 }
-impl Copy for WSMAN_SHELL_DISCONNECT_INFO {}
-impl Clone for WSMAN_SHELL_DISCONNECT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type WSMAN_SHELL_HANDLE = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_SHELL_STARTUP_INFO_V10 {
     pub inputStreamSet: *mut WSMAN_STREAM_ID_SET,
     pub outputStreamSet: *mut WSMAN_STREAM_ID_SET,
@@ -1047,44 +898,23 @@ pub struct WSMAN_SHELL_STARTUP_INFO_V10 {
     pub workingDirectory: windows_sys::core::PCWSTR,
     pub variableSet: *mut WSMAN_ENVIRONMENT_VARIABLE_SET,
 }
-impl Copy for WSMAN_SHELL_STARTUP_INFO_V10 {}
-impl Clone for WSMAN_SHELL_STARTUP_INFO_V10 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_SHELL_STARTUP_INFO_V11 {
     pub Base: WSMAN_SHELL_STARTUP_INFO_V10,
     pub name: windows_sys::core::PCWSTR,
 }
-impl Copy for WSMAN_SHELL_STARTUP_INFO_V11 {}
-impl Clone for WSMAN_SHELL_STARTUP_INFO_V11 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_STREAM_ID_SET {
     pub streamIDsCount: u32,
     pub streamIDs: *const windows_sys::core::PCWSTR,
 }
-impl Copy for WSMAN_STREAM_ID_SET {}
-impl Clone for WSMAN_STREAM_ID_SET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSMAN_USERNAME_PASSWORD_CREDS {
     pub username: windows_sys::core::PCWSTR,
     pub password: windows_sys::core::PCWSTR,
-}
-impl Copy for WSMAN_USERNAME_PASSWORD_CREDS {}
-impl Clone for WSMAN_USERNAME_PASSWORD_CREDS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const WSMan: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbced617b_ec03_420b_8508_977dc7a686bd);
 pub const WSManInternal: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7de087a5_5dcb_4df7_bb12_0924ad8fbd9a);

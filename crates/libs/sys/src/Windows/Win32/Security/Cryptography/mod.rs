@@ -3970,54 +3970,35 @@ pub type SIGNER_SIGN_FLAGS = u32;
 pub type SIGNER_SUBJECT_CHOICE = u32;
 pub type SIGNER_TIMESTAMP_FLAGS = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwRegPolicySettings: u32,
     pub pSignerInfo: *mut CMSG_SIGNER_INFO,
 }
-impl Copy for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {}
-impl Clone for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub fCommercial: super::super::Foundation::BOOL,
 }
-impl Copy for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {}
-impl Clone for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwRegPolicySettings: u32,
     pub fCommercial: super::super::Foundation::BOOL,
 }
-impl Copy for AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {}
-impl Clone for AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_ALGORITHM_IDENTIFIER {
     pub pszName: windows_sys::core::PWSTR,
     pub dwClass: u32,
     pub dwFlags: u32,
 }
-impl Copy for BCRYPT_ALGORITHM_IDENTIFIER {}
-impl Clone for BCRYPT_ALGORITHM_IDENTIFIER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type BCRYPT_ALG_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
     pub cbSize: u32,
     pub dwInfoVersion: u32,
@@ -4033,36 +4014,21 @@ pub struct BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
     pub cbData: u64,
     pub dwFlags: u32,
 }
-impl Copy for BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {}
-impl Clone for BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_DH_KEY_BLOB {
     pub dwMagic: BCRYPT_DH_KEY_BLOB_MAGIC,
     pub cbKey: u32,
 }
-impl Copy for BCRYPT_DH_KEY_BLOB {}
-impl Clone for BCRYPT_DH_KEY_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_DH_PARAMETER_HEADER {
     pub cbLength: u32,
     pub dwMagic: u32,
     pub cbKeyLength: u32,
 }
-impl Copy for BCRYPT_DH_PARAMETER_HEADER {}
-impl Clone for BCRYPT_DH_PARAMETER_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_DSA_KEY_BLOB {
     pub dwMagic: BCRYPT_DSA_MAGIC,
     pub cbKey: u32,
@@ -4070,13 +4036,8 @@ pub struct BCRYPT_DSA_KEY_BLOB {
     pub Seed: [u8; 20],
     pub q: [u8; 20],
 }
-impl Copy for BCRYPT_DSA_KEY_BLOB {}
-impl Clone for BCRYPT_DSA_KEY_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_DSA_KEY_BLOB_V2 {
     pub dwMagic: BCRYPT_DSA_MAGIC,
     pub cbKey: u32,
@@ -4086,13 +4047,8 @@ pub struct BCRYPT_DSA_KEY_BLOB_V2 {
     pub cbGroupSize: u32,
     pub Count: [u8; 4],
 }
-impl Copy for BCRYPT_DSA_KEY_BLOB_V2 {}
-impl Clone for BCRYPT_DSA_KEY_BLOB_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_DSA_PARAMETER_HEADER {
     pub cbLength: u32,
     pub dwMagic: u32,
@@ -4101,13 +4057,8 @@ pub struct BCRYPT_DSA_PARAMETER_HEADER {
     pub Seed: [u8; 20],
     pub q: [u8; 20],
 }
-impl Copy for BCRYPT_DSA_PARAMETER_HEADER {}
-impl Clone for BCRYPT_DSA_PARAMETER_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_DSA_PARAMETER_HEADER_V2 {
     pub cbLength: u32,
     pub dwMagic: u32,
@@ -4118,13 +4069,8 @@ pub struct BCRYPT_DSA_PARAMETER_HEADER_V2 {
     pub cbGroupSize: u32,
     pub Count: [u8; 4],
 }
-impl Copy for BCRYPT_DSA_PARAMETER_HEADER_V2 {}
-impl Clone for BCRYPT_DSA_PARAMETER_HEADER_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_ECCFULLKEY_BLOB {
     pub dwMagic: u32,
     pub dwVersion: u32,
@@ -4135,172 +4081,97 @@ pub struct BCRYPT_ECCFULLKEY_BLOB {
     pub cbCofactor: u32,
     pub cbSeed: u32,
 }
-impl Copy for BCRYPT_ECCFULLKEY_BLOB {}
-impl Clone for BCRYPT_ECCFULLKEY_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_ECCKEY_BLOB {
     pub dwMagic: u32,
     pub cbKey: u32,
 }
-impl Copy for BCRYPT_ECCKEY_BLOB {}
-impl Clone for BCRYPT_ECCKEY_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_ECC_CURVE_NAMES {
     pub dwEccCurveNames: u32,
     pub pEccCurveNames: *mut windows_sys::core::PWSTR,
 }
-impl Copy for BCRYPT_ECC_CURVE_NAMES {}
-impl Clone for BCRYPT_ECC_CURVE_NAMES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type BCRYPT_HANDLE = *mut core::ffi::c_void;
 pub type BCRYPT_HASH_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_INTERFACE_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
 }
-impl Copy for BCRYPT_INTERFACE_VERSION {}
-impl Clone for BCRYPT_INTERFACE_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_KEY_BLOB {
     pub Magic: u32,
 }
-impl Copy for BCRYPT_KEY_BLOB {}
-impl Clone for BCRYPT_KEY_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_KEY_DATA_BLOB_HEADER {
     pub dwMagic: u32,
     pub dwVersion: u32,
     pub cbKeyData: u32,
 }
-impl Copy for BCRYPT_KEY_DATA_BLOB_HEADER {}
-impl Clone for BCRYPT_KEY_DATA_BLOB_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type BCRYPT_KEY_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_KEY_LENGTHS_STRUCT {
     pub dwMinLength: u32,
     pub dwMaxLength: u32,
     pub dwIncrement: u32,
 }
-impl Copy for BCRYPT_KEY_LENGTHS_STRUCT {}
-impl Clone for BCRYPT_KEY_LENGTHS_STRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_MULTI_HASH_OPERATION {
     pub iHash: u32,
     pub hashOperation: BCRYPT_HASH_OPERATION_TYPE,
     pub pbBuffer: *mut u8,
     pub cbBuffer: u32,
 }
-impl Copy for BCRYPT_MULTI_HASH_OPERATION {}
-impl Clone for BCRYPT_MULTI_HASH_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
     pub cbPerObject: u32,
     pub cbPerElement: u32,
 }
-impl Copy for BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {}
-impl Clone for BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_OAEP_PADDING_INFO {
     pub pszAlgId: windows_sys::core::PCWSTR,
     pub pbLabel: *mut u8,
     pub cbLabel: u32,
 }
-impl Copy for BCRYPT_OAEP_PADDING_INFO {}
-impl Clone for BCRYPT_OAEP_PADDING_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_OID {
     pub cbOID: u32,
     pub pbOID: *mut u8,
 }
-impl Copy for BCRYPT_OID {}
-impl Clone for BCRYPT_OID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_OID_LIST {
     pub dwOIDCount: u32,
     pub pOIDs: *mut BCRYPT_OID,
 }
-impl Copy for BCRYPT_OID_LIST {}
-impl Clone for BCRYPT_OID_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_PKCS1_PADDING_INFO {
     pub pszAlgId: windows_sys::core::PCWSTR,
 }
-impl Copy for BCRYPT_PKCS1_PADDING_INFO {}
-impl Clone for BCRYPT_PKCS1_PADDING_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_PROVIDER_NAME {
     pub pszProviderName: windows_sys::core::PWSTR,
 }
-impl Copy for BCRYPT_PROVIDER_NAME {}
-impl Clone for BCRYPT_PROVIDER_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_PSS_PADDING_INFO {
     pub pszAlgId: windows_sys::core::PCWSTR,
     pub cbSalt: u32,
 }
-impl Copy for BCRYPT_PSS_PADDING_INFO {}
-impl Clone for BCRYPT_PSS_PADDING_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCRYPT_RSAKEY_BLOB {
     pub Magic: BCRYPT_RSAKEY_BLOB_MAGIC,
     pub BitLength: u32,
@@ -4309,75 +4180,45 @@ pub struct BCRYPT_RSAKEY_BLOB {
     pub cbPrime1: u32,
     pub cbPrime2: u32,
 }
-impl Copy for BCRYPT_RSAKEY_BLOB {}
-impl Clone for BCRYPT_RSAKEY_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type BCRYPT_SECRET_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCryptBuffer {
     pub cbBuffer: u32,
     pub BufferType: u32,
     pub pvBuffer: *mut core::ffi::c_void,
 }
-impl Copy for BCryptBuffer {}
-impl Clone for BCryptBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BCryptBufferDesc {
     pub ulVersion: u32,
     pub cBuffers: u32,
     pub pBuffers: *mut BCryptBuffer,
-}
-impl Copy for BCryptBufferDesc {}
-impl Clone for BCryptBufferDesc {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const CCertSrvSetup: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x961f180f_f55c_413d_a9b3_7d2af4d8e42f);
 pub const CCertSrvSetupKeyInformation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x38373906_5433_4633_b0fb_29b7e78262e1);
 pub const CCertificateEnrollmentPolicyServerSetup: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xafe2fa32_41b1_459d_a5de_49add8a72182);
 pub const CCertificateEnrollmentServerSetup: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9902f3bc_88af_4cf8_ae62_7140531552b6);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERTIFICATE_CHAIN_BLOB {
     pub certCount: u32,
     pub rawCertificates: *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERTIFICATE_CHAIN_BLOB {}
-impl Clone for CERTIFICATE_CHAIN_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_ACCESS_DESCRIPTION {
     pub pszAccessMethod: windows_sys::core::PSTR,
     pub AccessLocation: CERT_ALT_NAME_ENTRY,
 }
-impl Copy for CERT_ACCESS_DESCRIPTION {}
-impl Clone for CERT_ACCESS_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_ALT_NAME_ENTRY {
     pub dwAltNameChoice: u32,
     pub Anonymous: CERT_ALT_NAME_ENTRY_0,
 }
-impl Copy for CERT_ALT_NAME_ENTRY {}
-impl Clone for CERT_ALT_NAME_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CERT_ALT_NAME_ENTRY_0 {
     pub pOtherName: *mut CERT_OTHER_NAME,
     pub pwszRfc822Name: windows_sys::core::PWSTR,
@@ -4387,71 +4228,41 @@ pub union CERT_ALT_NAME_ENTRY_0 {
     pub IPAddress: CRYPT_INTEGER_BLOB,
     pub pszRegisteredID: windows_sys::core::PSTR,
 }
-impl Copy for CERT_ALT_NAME_ENTRY_0 {}
-impl Clone for CERT_ALT_NAME_ENTRY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_ALT_NAME_INFO {
     pub cAltEntry: u32,
     pub rgAltEntry: *mut CERT_ALT_NAME_ENTRY,
 }
-impl Copy for CERT_ALT_NAME_INFO {}
-impl Clone for CERT_ALT_NAME_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_AUTHORITY_INFO_ACCESS {
     pub cAccDescr: u32,
     pub rgAccDescr: *mut CERT_ACCESS_DESCRIPTION,
 }
-impl Copy for CERT_AUTHORITY_INFO_ACCESS {}
-impl Clone for CERT_AUTHORITY_INFO_ACCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_AUTHORITY_KEY_ID2_INFO {
     pub KeyId: CRYPT_INTEGER_BLOB,
     pub AuthorityCertIssuer: CERT_ALT_NAME_INFO,
     pub AuthorityCertSerialNumber: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_AUTHORITY_KEY_ID2_INFO {}
-impl Clone for CERT_AUTHORITY_KEY_ID2_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_AUTHORITY_KEY_ID_INFO {
     pub KeyId: CRYPT_INTEGER_BLOB,
     pub CertIssuer: CRYPT_INTEGER_BLOB,
     pub CertSerialNumber: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_AUTHORITY_KEY_ID_INFO {}
-impl Clone for CERT_AUTHORITY_KEY_ID_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_BASIC_CONSTRAINTS2_INFO {
     pub fCA: super::super::Foundation::BOOL,
     pub fPathLenConstraint: super::super::Foundation::BOOL,
     pub dwPathLenConstraint: u32,
 }
-impl Copy for CERT_BASIC_CONSTRAINTS2_INFO {}
-impl Clone for CERT_BASIC_CONSTRAINTS2_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_BASIC_CONSTRAINTS_INFO {
     pub SubjectType: CRYPT_BIT_BLOB,
     pub fPathLenConstraint: super::super::Foundation::BOOL,
@@ -4459,59 +4270,34 @@ pub struct CERT_BASIC_CONSTRAINTS_INFO {
     pub cSubtreesConstraint: u32,
     pub rgSubtreesConstraint: *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_BASIC_CONSTRAINTS_INFO {}
-impl Clone for CERT_BASIC_CONSTRAINTS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_BIOMETRIC_DATA {
     pub dwTypeOfBiometricDataChoice: CERT_BIOMETRIC_DATA_TYPE,
     pub Anonymous: CERT_BIOMETRIC_DATA_0,
     pub HashedUrl: CERT_HASHED_URL,
 }
-impl Copy for CERT_BIOMETRIC_DATA {}
-impl Clone for CERT_BIOMETRIC_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CERT_BIOMETRIC_DATA_0 {
     pub dwPredefined: u32,
     pub pszObjId: windows_sys::core::PSTR,
 }
-impl Copy for CERT_BIOMETRIC_DATA_0 {}
-impl Clone for CERT_BIOMETRIC_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_BIOMETRIC_EXT_INFO {
     pub cBiometricData: u32,
     pub rgBiometricData: *mut CERT_BIOMETRIC_DATA,
 }
-impl Copy for CERT_BIOMETRIC_EXT_INFO {}
-impl Clone for CERT_BIOMETRIC_EXT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_CHAIN {
     pub cCerts: u32,
     pub certs: *mut CRYPT_INTEGER_BLOB,
     pub keyLocatorInfo: CRYPT_KEY_PROV_INFO,
 }
-impl Copy for CERT_CHAIN {}
-impl Clone for CERT_CHAIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_CHAIN_CONTEXT {
     pub cbSize: u32,
     pub TrustStatus: CERT_TRUST_STATUS,
@@ -4524,13 +4310,8 @@ pub struct CERT_CHAIN_CONTEXT {
     pub dwCreateFlags: u32,
     pub ChainId: windows_sys::core::GUID,
 }
-impl Copy for CERT_CHAIN_CONTEXT {}
-impl Clone for CERT_CHAIN_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_CHAIN_ELEMENT {
     pub cbSize: u32,
     pub pCertContext: *const CERT_CONTEXT,
@@ -4540,13 +4321,8 @@ pub struct CERT_CHAIN_ELEMENT {
     pub pApplicationUsage: *mut CTL_USAGE,
     pub pwszExtendedErrorInfo: windows_sys::core::PCWSTR,
 }
-impl Copy for CERT_CHAIN_ELEMENT {}
-impl Clone for CERT_CHAIN_ELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_CHAIN_ENGINE_CONFIG {
     pub cbSize: u32,
     pub hRestrictedRoot: HCERTSTORE,
@@ -4562,13 +4338,8 @@ pub struct CERT_CHAIN_ENGINE_CONFIG {
     pub hExclusiveTrustedPeople: HCERTSTORE,
     pub dwExclusiveFlags: u32,
 }
-impl Copy for CERT_CHAIN_ENGINE_CONFIG {}
-impl Clone for CERT_CHAIN_ENGINE_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_CHAIN_FIND_BY_ISSUER_PARA {
     pub cbSize: u32,
     pub pszUsageIdentifier: windows_sys::core::PCSTR,
@@ -4579,36 +4350,21 @@ pub struct CERT_CHAIN_FIND_BY_ISSUER_PARA {
     pub pfnFindCallback: PFN_CERT_CHAIN_FIND_BY_ISSUER_CALLBACK,
     pub pvFindArg: *mut core::ffi::c_void,
 }
-impl Copy for CERT_CHAIN_FIND_BY_ISSUER_PARA {}
-impl Clone for CERT_CHAIN_FIND_BY_ISSUER_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_CHAIN_PARA {
     pub cbSize: u32,
     pub RequestedUsage: CERT_USAGE_MATCH,
 }
-impl Copy for CERT_CHAIN_PARA {}
-impl Clone for CERT_CHAIN_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwFlags: CERT_CHAIN_POLICY_FLAGS,
     pub pvExtraPolicyPara: *mut core::ffi::c_void,
 }
-impl Copy for CERT_CHAIN_POLICY_PARA {}
-impl Clone for CERT_CHAIN_POLICY_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub dwError: u32,
@@ -4616,13 +4372,8 @@ pub struct CERT_CHAIN_POLICY_STATUS {
     pub lElementIndex: i32,
     pub pvExtraPolicyStatus: *mut core::ffi::c_void,
 }
-impl Copy for CERT_CHAIN_POLICY_STATUS {}
-impl Clone for CERT_CHAIN_POLICY_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_CONTEXT {
     pub dwCertEncodingType: CERT_QUERY_ENCODING_TYPE,
     pub pbCertEncoded: *mut u8,
@@ -4630,13 +4381,8 @@ pub struct CERT_CONTEXT {
     pub pCertInfo: *mut CERT_INFO,
     pub hCertStore: HCERTSTORE,
 }
-impl Copy for CERT_CONTEXT {}
-impl Clone for CERT_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_CREATE_CONTEXT_PARA {
     pub cbSize: u32,
     pub pfnFree: PFN_CRYPT_FREE,
@@ -4644,141 +4390,81 @@ pub struct CERT_CREATE_CONTEXT_PARA {
     pub pfnSort: PFN_CERT_CREATE_CONTEXT_SORT_FUNC,
     pub pvSort: *mut core::ffi::c_void,
 }
-impl Copy for CERT_CREATE_CONTEXT_PARA {}
-impl Clone for CERT_CREATE_CONTEXT_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_CRL_CONTEXT_PAIR {
     pub pCertContext: *const CERT_CONTEXT,
     pub pCrlContext: *mut CRL_CONTEXT,
 }
-impl Copy for CERT_CRL_CONTEXT_PAIR {}
-impl Clone for CERT_CRL_CONTEXT_PAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_DH_PARAMETERS {
     pub p: CRYPT_INTEGER_BLOB,
     pub g: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_DH_PARAMETERS {}
-impl Clone for CERT_DH_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_DSS_PARAMETERS {
     pub p: CRYPT_INTEGER_BLOB,
     pub q: CRYPT_INTEGER_BLOB,
     pub g: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_DSS_PARAMETERS {}
-impl Clone for CERT_DSS_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_ECC_SIGNATURE {
     pub r: CRYPT_INTEGER_BLOB,
     pub s: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_ECC_SIGNATURE {}
-impl Clone for CERT_ECC_SIGNATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_EXTENSION {
     pub pszObjId: windows_sys::core::PSTR,
     pub fCritical: super::super::Foundation::BOOL,
     pub Value: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_EXTENSION {}
-impl Clone for CERT_EXTENSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_EXTENSIONS {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-impl Copy for CERT_EXTENSIONS {}
-impl Clone for CERT_EXTENSIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_FORTEZZA_DATA_PROP {
     pub SerialNumber: [u8; 8],
     pub CertIndex: i32,
     pub CertLabel: [u8; 36],
 }
-impl Copy for CERT_FORTEZZA_DATA_PROP {}
-impl Clone for CERT_FORTEZZA_DATA_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_GENERAL_SUBTREE {
     pub Base: CERT_ALT_NAME_ENTRY,
     pub dwMinimum: u32,
     pub fMaximum: super::super::Foundation::BOOL,
     pub dwMaximum: u32,
 }
-impl Copy for CERT_GENERAL_SUBTREE {}
-impl Clone for CERT_GENERAL_SUBTREE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_HASHED_URL {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub Hash: CRYPT_INTEGER_BLOB,
     pub pwszUrl: windows_sys::core::PWSTR,
 }
-impl Copy for CERT_HASHED_URL {}
-impl Clone for CERT_HASHED_URL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_ID {
     pub dwIdChoice: CERT_ID_OPTION,
     pub Anonymous: CERT_ID_0,
 }
-impl Copy for CERT_ID {}
-impl Clone for CERT_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CERT_ID_0 {
     pub IssuerSerialNumber: CERT_ISSUER_SERIAL_NUMBER,
     pub KeyId: CRYPT_INTEGER_BLOB,
     pub HashId: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_ID_0 {}
-impl Clone for CERT_ID_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_INFO {
     pub dwVersion: u32,
     pub SerialNumber: CRYPT_INTEGER_BLOB,
@@ -4793,105 +4479,60 @@ pub struct CERT_INFO {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-impl Copy for CERT_INFO {}
-impl Clone for CERT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_ISSUER_SERIAL_NUMBER {
     pub Issuer: CRYPT_INTEGER_BLOB,
     pub SerialNumber: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_ISSUER_SERIAL_NUMBER {}
-impl Clone for CERT_ISSUER_SERIAL_NUMBER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_KEYGEN_REQUEST_INFO {
     pub dwVersion: u32,
     pub SubjectPublicKeyInfo: CERT_PUBLIC_KEY_INFO,
     pub pwszChallengeString: windows_sys::core::PWSTR,
 }
-impl Copy for CERT_KEYGEN_REQUEST_INFO {}
-impl Clone for CERT_KEYGEN_REQUEST_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_KEY_ATTRIBUTES_INFO {
     pub KeyId: CRYPT_INTEGER_BLOB,
     pub IntendedKeyUsage: CRYPT_BIT_BLOB,
     pub pPrivateKeyUsagePeriod: *mut CERT_PRIVATE_KEY_VALIDITY,
 }
-impl Copy for CERT_KEY_ATTRIBUTES_INFO {}
-impl Clone for CERT_KEY_ATTRIBUTES_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_KEY_CONTEXT {
     pub cbSize: u32,
     pub Anonymous: CERT_KEY_CONTEXT_0,
     pub dwKeySpec: u32,
 }
-impl Copy for CERT_KEY_CONTEXT {}
-impl Clone for CERT_KEY_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CERT_KEY_CONTEXT_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: NCRYPT_KEY_HANDLE,
 }
-impl Copy for CERT_KEY_CONTEXT_0 {}
-impl Clone for CERT_KEY_CONTEXT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_KEY_USAGE_RESTRICTION_INFO {
     pub cCertPolicyId: u32,
     pub rgCertPolicyId: *mut CERT_POLICY_ID,
     pub RestrictedKeyUsage: CRYPT_BIT_BLOB,
 }
-impl Copy for CERT_KEY_USAGE_RESTRICTION_INFO {}
-impl Clone for CERT_KEY_USAGE_RESTRICTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_LDAP_STORE_OPENED_PARA {
     pub pvLdapSessionHandle: *mut core::ffi::c_void,
     pub pwszLdapUrl: windows_sys::core::PCWSTR,
 }
-impl Copy for CERT_LDAP_STORE_OPENED_PARA {}
-impl Clone for CERT_LDAP_STORE_OPENED_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_LOGOTYPE_AUDIO {
     pub LogotypeDetails: CERT_LOGOTYPE_DETAILS,
     pub pLogotypeAudioInfo: *mut CERT_LOGOTYPE_AUDIO_INFO,
 }
-impl Copy for CERT_LOGOTYPE_AUDIO {}
-impl Clone for CERT_LOGOTYPE_AUDIO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_LOGOTYPE_AUDIO_INFO {
     pub dwFileSize: u32,
     pub dwPlayTime: u32,
@@ -4899,38 +4540,23 @@ pub struct CERT_LOGOTYPE_AUDIO_INFO {
     pub dwSampleRate: u32,
     pub pwszLanguage: windows_sys::core::PWSTR,
 }
-impl Copy for CERT_LOGOTYPE_AUDIO_INFO {}
-impl Clone for CERT_LOGOTYPE_AUDIO_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_LOGOTYPE_DATA {
     pub cLogotypeImage: u32,
     pub rgLogotypeImage: *mut CERT_LOGOTYPE_IMAGE,
     pub cLogotypeAudio: u32,
     pub rgLogotypeAudio: *mut CERT_LOGOTYPE_AUDIO,
 }
-impl Copy for CERT_LOGOTYPE_DATA {}
-impl Clone for CERT_LOGOTYPE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_LOGOTYPE_DETAILS {
     pub pwszMimeType: windows_sys::core::PWSTR,
     pub cHashedUrl: u32,
     pub rgHashedUrl: *mut CERT_HASHED_URL,
 }
-impl Copy for CERT_LOGOTYPE_DETAILS {}
-impl Clone for CERT_LOGOTYPE_DETAILS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_LOGOTYPE_EXT_INFO {
     pub cCommunityLogo: u32,
     pub rgCommunityLogo: *mut CERT_LOGOTYPE_INFO,
@@ -4939,24 +4565,14 @@ pub struct CERT_LOGOTYPE_EXT_INFO {
     pub cOtherLogo: u32,
     pub rgOtherLogo: *mut CERT_OTHER_LOGOTYPE_INFO,
 }
-impl Copy for CERT_LOGOTYPE_EXT_INFO {}
-impl Clone for CERT_LOGOTYPE_EXT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_LOGOTYPE_IMAGE {
     pub LogotypeDetails: CERT_LOGOTYPE_DETAILS,
     pub pLogotypeImageInfo: *mut CERT_LOGOTYPE_IMAGE_INFO,
 }
-impl Copy for CERT_LOGOTYPE_IMAGE {}
-impl Clone for CERT_LOGOTYPE_IMAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_LOGOTYPE_IMAGE_INFO {
     pub dwLogotypeImageInfoChoice: CERT_LOGOTYPE_IMAGE_INFO_TYPE,
     pub dwFileSize: u32,
@@ -4966,148 +4582,83 @@ pub struct CERT_LOGOTYPE_IMAGE_INFO {
     pub Anonymous: CERT_LOGOTYPE_IMAGE_INFO_0,
     pub pwszLanguage: windows_sys::core::PWSTR,
 }
-impl Copy for CERT_LOGOTYPE_IMAGE_INFO {}
-impl Clone for CERT_LOGOTYPE_IMAGE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CERT_LOGOTYPE_IMAGE_INFO_0 {
     pub dwNumBits: u32,
     pub dwTableSize: u32,
 }
-impl Copy for CERT_LOGOTYPE_IMAGE_INFO_0 {}
-impl Clone for CERT_LOGOTYPE_IMAGE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_LOGOTYPE_INFO {
     pub dwLogotypeInfoChoice: CERT_LOGOTYPE_OPTION,
     pub Anonymous: CERT_LOGOTYPE_INFO_0,
 }
-impl Copy for CERT_LOGOTYPE_INFO {}
-impl Clone for CERT_LOGOTYPE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CERT_LOGOTYPE_INFO_0 {
     pub pLogotypeDirectInfo: *mut CERT_LOGOTYPE_DATA,
     pub pLogotypeIndirectInfo: *mut CERT_LOGOTYPE_REFERENCE,
 }
-impl Copy for CERT_LOGOTYPE_INFO_0 {}
-impl Clone for CERT_LOGOTYPE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_LOGOTYPE_REFERENCE {
     pub cHashedUrl: u32,
     pub rgHashedUrl: *mut CERT_HASHED_URL,
 }
-impl Copy for CERT_LOGOTYPE_REFERENCE {}
-impl Clone for CERT_LOGOTYPE_REFERENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_NAME_CONSTRAINTS_INFO {
     pub cPermittedSubtree: u32,
     pub rgPermittedSubtree: *mut CERT_GENERAL_SUBTREE,
     pub cExcludedSubtree: u32,
     pub rgExcludedSubtree: *mut CERT_GENERAL_SUBTREE,
 }
-impl Copy for CERT_NAME_CONSTRAINTS_INFO {}
-impl Clone for CERT_NAME_CONSTRAINTS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_NAME_INFO {
     pub cRDN: u32,
     pub rgRDN: *mut CERT_RDN,
 }
-impl Copy for CERT_NAME_INFO {}
-impl Clone for CERT_NAME_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_NAME_VALUE {
     pub dwValueType: u32,
     pub Value: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_NAME_VALUE {}
-impl Clone for CERT_NAME_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_OR_CRL_BLOB {
     pub dwChoice: u32,
     pub cbEncoded: u32,
     pub pbEncoded: *mut u8,
 }
-impl Copy for CERT_OR_CRL_BLOB {}
-impl Clone for CERT_OR_CRL_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_OR_CRL_BUNDLE {
     pub cItem: u32,
     pub rgItem: *mut CERT_OR_CRL_BLOB,
 }
-impl Copy for CERT_OR_CRL_BUNDLE {}
-impl Clone for CERT_OR_CRL_BUNDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_OTHER_LOGOTYPE_INFO {
     pub pszObjId: windows_sys::core::PSTR,
     pub LogotypeInfo: CERT_LOGOTYPE_INFO,
 }
-impl Copy for CERT_OTHER_LOGOTYPE_INFO {}
-impl Clone for CERT_OTHER_LOGOTYPE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_OTHER_NAME {
     pub pszObjId: windows_sys::core::PSTR,
     pub Value: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_OTHER_NAME {}
-impl Clone for CERT_OTHER_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_PAIR {
     pub Forward: CRYPT_INTEGER_BLOB,
     pub Reverse: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_PAIR {}
-impl Clone for CERT_PAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_PHYSICAL_STORE_INFO {
     pub cbSize: u32,
     pub pszOpenStoreProvider: windows_sys::core::PSTR,
@@ -5117,24 +4668,14 @@ pub struct CERT_PHYSICAL_STORE_INFO {
     pub dwFlags: u32,
     pub dwPriority: u32,
 }
-impl Copy for CERT_PHYSICAL_STORE_INFO {}
-impl Clone for CERT_PHYSICAL_STORE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_POLICIES_INFO {
     pub cPolicyInfo: u32,
     pub rgPolicyInfo: *mut CERT_POLICY_INFO,
 }
-impl Copy for CERT_POLICIES_INFO {}
-impl Clone for CERT_POLICIES_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_POLICY95_QUALIFIER1 {
     pub pszPracticesReference: windows_sys::core::PWSTR,
     pub pszNoticeIdentifier: windows_sys::core::PSTR,
@@ -5142,200 +4683,111 @@ pub struct CERT_POLICY95_QUALIFIER1 {
     pub cCPSURLs: u32,
     pub rgCPSURLs: *mut CPS_URLS,
 }
-impl Copy for CERT_POLICY95_QUALIFIER1 {}
-impl Clone for CERT_POLICY95_QUALIFIER1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_POLICY_CONSTRAINTS_INFO {
     pub fRequireExplicitPolicy: super::super::Foundation::BOOL,
     pub dwRequireExplicitPolicySkipCerts: u32,
     pub fInhibitPolicyMapping: super::super::Foundation::BOOL,
     pub dwInhibitPolicyMappingSkipCerts: u32,
 }
-impl Copy for CERT_POLICY_CONSTRAINTS_INFO {}
-impl Clone for CERT_POLICY_CONSTRAINTS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_POLICY_ID {
     pub cCertPolicyElementId: u32,
     pub rgpszCertPolicyElementId: *mut windows_sys::core::PSTR,
 }
-impl Copy for CERT_POLICY_ID {}
-impl Clone for CERT_POLICY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_POLICY_INFO {
     pub pszPolicyIdentifier: windows_sys::core::PSTR,
     pub cPolicyQualifier: u32,
     pub rgPolicyQualifier: *mut CERT_POLICY_QUALIFIER_INFO,
 }
-impl Copy for CERT_POLICY_INFO {}
-impl Clone for CERT_POLICY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_POLICY_MAPPING {
     pub pszIssuerDomainPolicy: windows_sys::core::PSTR,
     pub pszSubjectDomainPolicy: windows_sys::core::PSTR,
 }
-impl Copy for CERT_POLICY_MAPPING {}
-impl Clone for CERT_POLICY_MAPPING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_POLICY_MAPPINGS_INFO {
     pub cPolicyMapping: u32,
     pub rgPolicyMapping: *mut CERT_POLICY_MAPPING,
 }
-impl Copy for CERT_POLICY_MAPPINGS_INFO {}
-impl Clone for CERT_POLICY_MAPPINGS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_POLICY_QUALIFIER_INFO {
     pub pszPolicyQualifierId: windows_sys::core::PSTR,
     pub Qualifier: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_POLICY_QUALIFIER_INFO {}
-impl Clone for CERT_POLICY_QUALIFIER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
     pub pszOrganization: windows_sys::core::PSTR,
     pub cNoticeNumbers: u32,
     pub rgNoticeNumbers: *mut i32,
 }
-impl Copy for CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {}
-impl Clone for CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_POLICY_QUALIFIER_USER_NOTICE {
     pub pNoticeReference: *mut CERT_POLICY_QUALIFIER_NOTICE_REFERENCE,
     pub pszDisplayText: windows_sys::core::PWSTR,
 }
-impl Copy for CERT_POLICY_QUALIFIER_USER_NOTICE {}
-impl Clone for CERT_POLICY_QUALIFIER_USER_NOTICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_PRIVATE_KEY_VALIDITY {
     pub NotBefore: super::super::Foundation::FILETIME,
     pub NotAfter: super::super::Foundation::FILETIME,
 }
-impl Copy for CERT_PRIVATE_KEY_VALIDITY {}
-impl Clone for CERT_PRIVATE_KEY_VALIDITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_PUBLIC_KEY_INFO {
     pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub PublicKey: CRYPT_BIT_BLOB,
 }
-impl Copy for CERT_PUBLIC_KEY_INFO {}
-impl Clone for CERT_PUBLIC_KEY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_QC_STATEMENT {
     pub pszStatementId: windows_sys::core::PSTR,
     pub StatementInfo: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_QC_STATEMENT {}
-impl Clone for CERT_QC_STATEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_QC_STATEMENTS_EXT_INFO {
     pub cStatement: u32,
     pub rgStatement: *mut CERT_QC_STATEMENT,
 }
-impl Copy for CERT_QC_STATEMENTS_EXT_INFO {}
-impl Clone for CERT_QC_STATEMENTS_EXT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_RDN {
     pub cRDNAttr: u32,
     pub rgRDNAttr: *mut CERT_RDN_ATTR,
 }
-impl Copy for CERT_RDN {}
-impl Clone for CERT_RDN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_RDN_ATTR {
     pub pszObjId: windows_sys::core::PSTR,
     pub dwValueType: u32,
     pub Value: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_RDN_ATTR {}
-impl Clone for CERT_RDN_ATTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
 pub struct CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
     pub hKeyBase: super::super::System::Registry::HKEY,
     pub pwszRegPath: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl Copy for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
 pub struct CERT_REGISTRY_STORE_ROAMING_PARA {
     pub hKey: super::super::System::Registry::HKEY,
     pub pwszStoreDirectory: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl Copy for CERT_REGISTRY_STORE_ROAMING_PARA {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for CERT_REGISTRY_STORE_ROAMING_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_REQUEST_INFO {
     pub dwVersion: u32,
     pub Subject: CRYPT_INTEGER_BLOB,
@@ -5343,13 +4795,8 @@ pub struct CERT_REQUEST_INFO {
     pub cAttribute: u32,
     pub rgAttribute: *mut CRYPT_ATTRIBUTE,
 }
-impl Copy for CERT_REQUEST_INFO {}
-impl Clone for CERT_REQUEST_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_REVOCATION_CHAIN_PARA {
     pub cbSize: u32,
     pub hChainEngine: HCERTCHAINENGINE,
@@ -5360,13 +4807,8 @@ pub struct CERT_REVOCATION_CHAIN_PARA {
     pub pftCacheResync: *mut super::super::Foundation::FILETIME,
     pub cbMaxUrlRetrievalByteCount: u32,
 }
-impl Copy for CERT_REVOCATION_CHAIN_PARA {}
-impl Clone for CERT_REVOCATION_CHAIN_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_REVOCATION_CRL_INFO {
     pub cbSize: u32,
     pub pBaseCrlContext: *mut CRL_CONTEXT,
@@ -5374,13 +4816,8 @@ pub struct CERT_REVOCATION_CRL_INFO {
     pub pCrlEntry: *mut CRL_ENTRY,
     pub fDeltaCrlEntry: super::super::Foundation::BOOL,
 }
-impl Copy for CERT_REVOCATION_CRL_INFO {}
-impl Clone for CERT_REVOCATION_CRL_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_REVOCATION_INFO {
     pub cbSize: u32,
     pub dwRevocationResult: u32,
@@ -5390,13 +4827,8 @@ pub struct CERT_REVOCATION_INFO {
     pub dwFreshnessTime: u32,
     pub pCrlInfo: *mut CERT_REVOCATION_CRL_INFO,
 }
-impl Copy for CERT_REVOCATION_INFO {}
-impl Clone for CERT_REVOCATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_REVOCATION_PARA {
     pub cbSize: u32,
     pub pIssuerCert: *const CERT_CONTEXT,
@@ -5405,13 +4837,8 @@ pub struct CERT_REVOCATION_PARA {
     pub hCrlStore: HCERTSTORE,
     pub pftTimeToUse: *mut super::super::Foundation::FILETIME,
 }
-impl Copy for CERT_REVOCATION_PARA {}
-impl Clone for CERT_REVOCATION_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_REVOCATION_STATUS {
     pub cbSize: u32,
     pub dwIndex: u32,
@@ -5420,13 +4847,8 @@ pub struct CERT_REVOCATION_STATUS {
     pub fHasFreshnessTime: super::super::Foundation::BOOL,
     pub dwFreshnessTime: u32,
 }
-impl Copy for CERT_REVOCATION_STATUS {}
-impl Clone for CERT_REVOCATION_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_SELECT_CHAIN_PARA {
     pub hChainEngine: HCERTCHAINENGINE,
     pub pTime: *mut super::super::Foundation::FILETIME,
@@ -5434,37 +4856,22 @@ pub struct CERT_SELECT_CHAIN_PARA {
     pub pChainPara: *mut CERT_CHAIN_PARA,
     pub dwFlags: u32,
 }
-impl Copy for CERT_SELECT_CHAIN_PARA {}
-impl Clone for CERT_SELECT_CHAIN_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_SELECT_CRITERIA {
     pub dwType: CERT_SELECT_CRITERIA_TYPE,
     pub cPara: u32,
     pub ppPara: *mut *mut core::ffi::c_void,
 }
-impl Copy for CERT_SELECT_CRITERIA {}
-impl Clone for CERT_SELECT_CRITERIA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_SERVER_OCSP_RESPONSE_CONTEXT {
     pub cbSize: u32,
     pub pbEncodedOcspResponse: *mut u8,
     pub cbEncodedOcspResponse: u32,
 }
-impl Copy for CERT_SERVER_OCSP_RESPONSE_CONTEXT {}
-impl Clone for CERT_SERVER_OCSP_RESPONSE_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -5473,25 +4880,15 @@ pub struct CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
     pub pfnUpdateCallback: PFN_CERT_SERVER_OCSP_RESPONSE_UPDATE_CALLBACK,
     pub pvUpdateCallbackArg: *mut core::ffi::c_void,
 }
-impl Copy for CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {}
-impl Clone for CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_SIGNED_CONTENT_INFO {
     pub ToBeSigned: CRYPT_INTEGER_BLOB,
     pub SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub Signature: CRYPT_BIT_BLOB,
 }
-impl Copy for CERT_SIGNED_CONTENT_INFO {}
-impl Clone for CERT_SIGNED_CONTENT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_SIMPLE_CHAIN {
     pub cbSize: u32,
     pub TrustStatus: CERT_TRUST_STATUS,
@@ -5501,13 +4898,8 @@ pub struct CERT_SIMPLE_CHAIN {
     pub fHasRevocationFreshnessTime: super::super::Foundation::BOOL,
     pub dwRevocationFreshnessTime: u32,
 }
-impl Copy for CERT_SIMPLE_CHAIN {}
-impl Clone for CERT_SIMPLE_CHAIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_STORE_PROV_FIND_INFO {
     pub cbSize: u32,
     pub dwMsgAndCertEncodingType: u32,
@@ -5515,13 +4907,8 @@ pub struct CERT_STORE_PROV_FIND_INFO {
     pub dwFindType: u32,
     pub pvFindPara: *const core::ffi::c_void,
 }
-impl Copy for CERT_STORE_PROV_FIND_INFO {}
-impl Clone for CERT_STORE_PROV_FIND_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_STORE_PROV_INFO {
     pub cbSize: u32,
     pub cStoreProvFunc: u32,
@@ -5530,173 +4917,97 @@ pub struct CERT_STORE_PROV_INFO {
     pub dwStoreProvFlags: CERT_STORE_PROV_FLAGS,
     pub hStoreProvFuncAddr2: *mut core::ffi::c_void,
 }
-impl Copy for CERT_STORE_PROV_INFO {}
-impl Clone for CERT_STORE_PROV_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_STRONG_SIGN_PARA {
     pub cbSize: u32,
     pub dwInfoChoice: u32,
     pub Anonymous: CERT_STRONG_SIGN_PARA_0,
 }
-impl Copy for CERT_STRONG_SIGN_PARA {}
-impl Clone for CERT_STRONG_SIGN_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CERT_STRONG_SIGN_PARA_0 {
     pub pvInfo: *mut core::ffi::c_void,
     pub pSerializedInfo: *mut CERT_STRONG_SIGN_SERIALIZED_INFO,
     pub pszOID: windows_sys::core::PSTR,
 }
-impl Copy for CERT_STRONG_SIGN_PARA_0 {}
-impl Clone for CERT_STRONG_SIGN_PARA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_STRONG_SIGN_SERIALIZED_INFO {
     pub dwFlags: CERT_STRONG_SIGN_FLAGS,
     pub pwszCNGSignHashAlgids: windows_sys::core::PWSTR,
     pub pwszCNGPubKeyMinBitLengths: windows_sys::core::PWSTR,
 }
-impl Copy for CERT_STRONG_SIGN_SERIALIZED_INFO {}
-impl Clone for CERT_STRONG_SIGN_SERIALIZED_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_SUPPORTED_ALGORITHM_INFO {
     pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub IntendedKeyUsage: CRYPT_BIT_BLOB,
     pub IntendedCertPolicies: CERT_POLICIES_INFO,
 }
-impl Copy for CERT_SUPPORTED_ALGORITHM_INFO {}
-impl Clone for CERT_SUPPORTED_ALGORITHM_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_SYSTEM_STORE_INFO {
     pub cbSize: u32,
 }
-impl Copy for CERT_SYSTEM_STORE_INFO {}
-impl Clone for CERT_SYSTEM_STORE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
 pub struct CERT_SYSTEM_STORE_RELOCATE_PARA {
     pub Anonymous1: CERT_SYSTEM_STORE_RELOCATE_PARA_0,
     pub Anonymous2: CERT_SYSTEM_STORE_RELOCATE_PARA_1,
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl Copy for CERT_SYSTEM_STORE_RELOCATE_PARA {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for CERT_SYSTEM_STORE_RELOCATE_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
 pub union CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
     pub hKeyBase: super::super::System::Registry::HKEY,
     pub pvBase: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl Copy for CERT_SYSTEM_STORE_RELOCATE_PARA_0 {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
 pub union CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
     pub pvSystemStore: *mut core::ffi::c_void,
     pub pszSystemStore: windows_sys::core::PCSTR,
     pub pwszSystemStore: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl Copy for CERT_SYSTEM_STORE_RELOCATE_PARA_1 {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_TEMPLATE_EXT {
     pub pszObjId: windows_sys::core::PSTR,
     pub dwMajorVersion: u32,
     pub fMinorVersion: super::super::Foundation::BOOL,
     pub dwMinorVersion: u32,
 }
-impl Copy for CERT_TEMPLATE_EXT {}
-impl Clone for CERT_TEMPLATE_EXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_TPM_SPECIFICATION_INFO {
     pub pwszFamily: windows_sys::core::PWSTR,
     pub dwLevel: u32,
     pub dwRevision: u32,
 }
-impl Copy for CERT_TPM_SPECIFICATION_INFO {}
-impl Clone for CERT_TPM_SPECIFICATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_TRUST_LIST_INFO {
     pub cbSize: u32,
     pub pCtlEntry: *mut CTL_ENTRY,
     pub pCtlContext: *mut CTL_CONTEXT,
 }
-impl Copy for CERT_TRUST_LIST_INFO {}
-impl Clone for CERT_TRUST_LIST_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_TRUST_STATUS {
     pub dwErrorStatus: u32,
     pub dwInfoStatus: u32,
 }
-impl Copy for CERT_TRUST_STATUS {}
-impl Clone for CERT_TRUST_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_USAGE_MATCH {
     pub dwType: u32,
     pub Usage: CTL_USAGE,
 }
-impl Copy for CERT_USAGE_MATCH {}
-impl Clone for CERT_USAGE_MATCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_X942_DH_PARAMETERS {
     pub p: CRYPT_INTEGER_BLOB,
     pub g: CRYPT_INTEGER_BLOB,
@@ -5704,35 +5015,20 @@ pub struct CERT_X942_DH_PARAMETERS {
     pub j: CRYPT_INTEGER_BLOB,
     pub pValidationParams: *mut CERT_X942_DH_VALIDATION_PARAMS,
 }
-impl Copy for CERT_X942_DH_PARAMETERS {}
-impl Clone for CERT_X942_DH_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_X942_DH_VALIDATION_PARAMS {
     pub seed: CRYPT_BIT_BLOB,
     pub pgenCounter: u32,
 }
-impl Copy for CERT_X942_DH_VALIDATION_PARAMS {}
-impl Clone for CERT_X942_DH_VALIDATION_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLAIMLIST {
     pub count: u32,
     pub claims: *const windows_sys::core::PCWSTR,
 }
-impl Copy for CLAIMLIST {}
-impl Clone for CLAIMLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMC_ADD_ATTRIBUTES_INFO {
     pub dwCmcDataReference: u32,
     pub cCertReference: u32,
@@ -5740,13 +5036,8 @@ pub struct CMC_ADD_ATTRIBUTES_INFO {
     pub cAttribute: u32,
     pub rgAttribute: *mut CRYPT_ATTRIBUTE,
 }
-impl Copy for CMC_ADD_ATTRIBUTES_INFO {}
-impl Clone for CMC_ADD_ATTRIBUTES_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMC_ADD_EXTENSIONS_INFO {
     pub dwCmcDataReference: u32,
     pub cCertReference: u32,
@@ -5754,13 +5045,8 @@ pub struct CMC_ADD_EXTENSIONS_INFO {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-impl Copy for CMC_ADD_EXTENSIONS_INFO {}
-impl Clone for CMC_ADD_EXTENSIONS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMC_DATA_INFO {
     pub cTaggedAttribute: u32,
     pub rgTaggedAttribute: *mut CMC_TAGGED_ATTRIBUTE,
@@ -5771,24 +5057,14 @@ pub struct CMC_DATA_INFO {
     pub cTaggedOtherMsg: u32,
     pub rgTaggedOtherMsg: *mut CMC_TAGGED_OTHER_MSG,
 }
-impl Copy for CMC_DATA_INFO {}
-impl Clone for CMC_DATA_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMC_PEND_INFO {
     pub PendToken: CRYPT_INTEGER_BLOB,
     pub PendTime: super::super::Foundation::FILETIME,
 }
-impl Copy for CMC_PEND_INFO {}
-impl Clone for CMC_PEND_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMC_RESPONSE_INFO {
     pub cTaggedAttribute: u32,
     pub rgTaggedAttribute: *mut CMC_TAGGED_ATTRIBUTE,
@@ -5797,13 +5073,8 @@ pub struct CMC_RESPONSE_INFO {
     pub cTaggedOtherMsg: u32,
     pub rgTaggedOtherMsg: *mut CMC_TAGGED_OTHER_MSG,
 }
-impl Copy for CMC_RESPONSE_INFO {}
-impl Clone for CMC_RESPONSE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMC_STATUS_INFO {
     pub dwStatus: u32,
     pub cBodyList: u32,
@@ -5812,114 +5083,64 @@ pub struct CMC_STATUS_INFO {
     pub dwOtherInfoChoice: u32,
     pub Anonymous: CMC_STATUS_INFO_0,
 }
-impl Copy for CMC_STATUS_INFO {}
-impl Clone for CMC_STATUS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMC_STATUS_INFO_0 {
     pub dwFailInfo: u32,
     pub pPendInfo: *mut CMC_PEND_INFO,
 }
-impl Copy for CMC_STATUS_INFO_0 {}
-impl Clone for CMC_STATUS_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMC_TAGGED_ATTRIBUTE {
     pub dwBodyPartID: u32,
     pub Attribute: CRYPT_ATTRIBUTE,
 }
-impl Copy for CMC_TAGGED_ATTRIBUTE {}
-impl Clone for CMC_TAGGED_ATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMC_TAGGED_CERT_REQUEST {
     pub dwBodyPartID: u32,
     pub SignedCertRequest: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CMC_TAGGED_CERT_REQUEST {}
-impl Clone for CMC_TAGGED_CERT_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMC_TAGGED_CONTENT_INFO {
     pub dwBodyPartID: u32,
     pub EncodedContentInfo: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CMC_TAGGED_CONTENT_INFO {}
-impl Clone for CMC_TAGGED_CONTENT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMC_TAGGED_OTHER_MSG {
     pub dwBodyPartID: u32,
     pub pszObjId: windows_sys::core::PSTR,
     pub Value: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CMC_TAGGED_OTHER_MSG {}
-impl Clone for CMC_TAGGED_OTHER_MSG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMC_TAGGED_REQUEST {
     pub dwTaggedRequestChoice: u32,
     pub Anonymous: CMC_TAGGED_REQUEST_0,
 }
-impl Copy for CMC_TAGGED_REQUEST {}
-impl Clone for CMC_TAGGED_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMC_TAGGED_REQUEST_0 {
     pub pTaggedCertRequest: *mut CMC_TAGGED_CERT_REQUEST,
 }
-impl Copy for CMC_TAGGED_REQUEST_0 {}
-impl Clone for CMC_TAGGED_REQUEST_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const CMSCEPSetup: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaa4f5c02_8e7c_49c4_94fa_67a5cc5eadb4);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_CMS_RECIPIENT_INFO {
     pub dwRecipientChoice: u32,
     pub Anonymous: CMSG_CMS_RECIPIENT_INFO_0,
 }
-impl Copy for CMSG_CMS_RECIPIENT_INFO {}
-impl Clone for CMSG_CMS_RECIPIENT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMSG_CMS_RECIPIENT_INFO_0 {
     pub pKeyTrans: *mut CMSG_KEY_TRANS_RECIPIENT_INFO,
     pub pKeyAgree: *mut CMSG_KEY_AGREE_RECIPIENT_INFO,
     pub pMailList: *mut CMSG_MAIL_LIST_RECIPIENT_INFO,
 }
-impl Copy for CMSG_CMS_RECIPIENT_INFO_0 {}
-impl Clone for CMSG_CMS_RECIPIENT_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_CMS_SIGNER_INFO {
     pub dwVersion: u32,
     pub SignerId: CERT_ID,
@@ -5929,13 +5150,8 @@ pub struct CMSG_CMS_SIGNER_INFO {
     pub AuthAttrs: CRYPT_ATTRIBUTES,
     pub UnauthAttrs: CRYPT_ATTRIBUTES,
 }
-impl Copy for CMSG_CMS_SIGNER_INFO {}
-impl Clone for CMSG_CMS_SIGNER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_CNG_CONTENT_DECRYPT_INFO {
     pub cbSize: u32,
     pub ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -5947,13 +5163,8 @@ pub struct CMSG_CNG_CONTENT_DECRYPT_INFO {
     pub hCNGContentEncryptKey: BCRYPT_KEY_HANDLE,
     pub pbCNGContentEncryptKeyObject: *mut u8,
 }
-impl Copy for CMSG_CNG_CONTENT_DECRYPT_INFO {}
-impl Clone for CMSG_CNG_CONTENT_DECRYPT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_CONTENT_ENCRYPT_INFO {
     pub cbSize: u32,
     pub hCryptProv: HCRYPTPROV_LEGACY,
@@ -5971,72 +5182,42 @@ pub struct CMSG_CONTENT_ENCRYPT_INFO {
     pub pbContentEncryptKey: *mut u8,
     pub cbContentEncryptKey: u32,
 }
-impl Copy for CMSG_CONTENT_ENCRYPT_INFO {}
-impl Clone for CMSG_CONTENT_ENCRYPT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMSG_CONTENT_ENCRYPT_INFO_0 {
     pub hContentEncryptKey: usize,
     pub hCNGContentEncryptKey: BCRYPT_KEY_HANDLE,
 }
-impl Copy for CMSG_CONTENT_ENCRYPT_INFO_0 {}
-impl Clone for CMSG_CONTENT_ENCRYPT_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {
     pub cbSize: u32,
     pub dwSignerIndex: u32,
     pub blob: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {}
-impl Clone for CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_CTRL_DECRYPT_PARA {
     pub cbSize: u32,
     pub Anonymous: CMSG_CTRL_DECRYPT_PARA_0,
     pub dwKeySpec: u32,
     pub dwRecipientIndex: u32,
 }
-impl Copy for CMSG_CTRL_DECRYPT_PARA {}
-impl Clone for CMSG_CTRL_DECRYPT_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMSG_CTRL_DECRYPT_PARA_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: NCRYPT_KEY_HANDLE,
 }
-impl Copy for CMSG_CTRL_DECRYPT_PARA_0 {}
-impl Clone for CMSG_CTRL_DECRYPT_PARA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {
     pub cbSize: u32,
     pub dwSignerIndex: u32,
     pub dwUnauthAttrIndex: u32,
 }
-impl Copy for CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {}
-impl Clone for CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
     pub cbSize: u32,
     pub Anonymous: CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0,
@@ -6046,24 +5227,14 @@ pub struct CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
     pub dwRecipientEncryptedKeyIndex: u32,
     pub OriginatorPublicKey: CRYPT_BIT_BLOB,
 }
-impl Copy for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {}
-impl Clone for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: NCRYPT_KEY_HANDLE,
 }
-impl Copy for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {}
-impl Clone for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
     pub cbSize: u32,
     pub Anonymous: CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0,
@@ -6071,24 +5242,14 @@ pub struct CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
     pub pKeyTrans: *mut CMSG_KEY_TRANS_RECIPIENT_INFO,
     pub dwRecipientIndex: u32,
 }
-impl Copy for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {}
-impl Clone for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: NCRYPT_KEY_HANDLE,
 }
-impl Copy for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {}
-impl Clone for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
     pub cbSize: u32,
     pub hCryptProv: usize,
@@ -6097,24 +5258,14 @@ pub struct CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
     pub dwKeyChoice: u32,
     pub Anonymous: CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0,
 }
-impl Copy for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {}
-impl Clone for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
     pub hKeyEncryptionKey: usize,
     pub pvKeyEncryptionKey: *mut core::ffi::c_void,
 }
-impl Copy for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {}
-impl Clone for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
     pub cbSize: u32,
     pub hCryptProv: HCRYPTPROV_LEGACY,
@@ -6122,25 +5273,15 @@ pub struct CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
     pub dwSignerType: u32,
     pub pvSigner: *mut core::ffi::c_void,
 }
-impl Copy for CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {}
-impl Clone for CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_ENCRYPTED_ENCODE_INFO {
     pub cbSize: u32,
     pub ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub pvEncryptionAuxInfo: *mut core::ffi::c_void,
 }
-impl Copy for CMSG_ENCRYPTED_ENCODE_INFO {}
-impl Clone for CMSG_ENCRYPTED_ENCODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_ENVELOPED_ENCODE_INFO {
     pub cbSize: u32,
     pub hCryptProv: HCRYPTPROV_LEGACY,
@@ -6149,26 +5290,16 @@ pub struct CMSG_ENVELOPED_ENCODE_INFO {
     pub cRecipients: u32,
     pub rgpRecipients: *mut *mut CERT_INFO,
 }
-impl Copy for CMSG_ENVELOPED_ENCODE_INFO {}
-impl Clone for CMSG_ENVELOPED_ENCODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_HASHED_ENCODE_INFO {
     pub cbSize: u32,
     pub hCryptProv: HCRYPTPROV_LEGACY,
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub pvHashAuxInfo: *mut core::ffi::c_void,
 }
-impl Copy for CMSG_HASHED_ENCODE_INFO {}
-impl Clone for CMSG_HASHED_ENCODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_KEY_AGREE_ENCRYPT_INFO {
     pub cbSize: u32,
     pub dwRecipientIndex: u32,
@@ -6180,35 +5311,20 @@ pub struct CMSG_KEY_AGREE_ENCRYPT_INFO {
     pub rgpKeyAgreeKeyEncryptInfo: *mut *mut CMSG_KEY_AGREE_KEY_ENCRYPT_INFO,
     pub dwFlags: u32,
 }
-impl Copy for CMSG_KEY_AGREE_ENCRYPT_INFO {}
-impl Clone for CMSG_KEY_AGREE_ENCRYPT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMSG_KEY_AGREE_ENCRYPT_INFO_0 {
     pub OriginatorCertId: CERT_ID,
     pub OriginatorPublicKeyInfo: CERT_PUBLIC_KEY_INFO,
 }
-impl Copy for CMSG_KEY_AGREE_ENCRYPT_INFO_0 {}
-impl Clone for CMSG_KEY_AGREE_ENCRYPT_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {
     pub cbSize: u32,
     pub EncryptedKey: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {}
-impl Clone for CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
     pub cbSize: u32,
     pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -6223,24 +5339,14 @@ pub struct CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
     pub cRecipientEncryptedKeys: u32,
     pub rgpRecipientEncryptedKeys: *mut *mut CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO,
 }
-impl Copy for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {}
-impl Clone for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 {
     pub pEphemeralAlgorithm: *mut CRYPT_ALGORITHM_IDENTIFIER,
     pub pSenderId: *mut CERT_ID,
 }
-impl Copy for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 {}
-impl Clone for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_KEY_AGREE_RECIPIENT_INFO {
     pub dwVersion: u32,
     pub dwOriginatorChoice: CMSG_KEY_AGREE_ORIGINATOR,
@@ -6250,24 +5356,14 @@ pub struct CMSG_KEY_AGREE_RECIPIENT_INFO {
     pub cRecipientEncryptedKeys: u32,
     pub rgpRecipientEncryptedKeys: *mut *mut CMSG_RECIPIENT_ENCRYPTED_KEY_INFO,
 }
-impl Copy for CMSG_KEY_AGREE_RECIPIENT_INFO {}
-impl Clone for CMSG_KEY_AGREE_RECIPIENT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMSG_KEY_AGREE_RECIPIENT_INFO_0 {
     pub OriginatorCertId: CERT_ID,
     pub OriginatorPublicKeyInfo: CERT_PUBLIC_KEY_INFO,
 }
-impl Copy for CMSG_KEY_AGREE_RECIPIENT_INFO_0 {}
-impl Clone for CMSG_KEY_AGREE_RECIPIENT_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_KEY_TRANS_ENCRYPT_INFO {
     pub cbSize: u32,
     pub dwRecipientIndex: u32,
@@ -6275,13 +5371,8 @@ pub struct CMSG_KEY_TRANS_ENCRYPT_INFO {
     pub EncryptedKey: CRYPT_INTEGER_BLOB,
     pub dwFlags: u32,
 }
-impl Copy for CMSG_KEY_TRANS_ENCRYPT_INFO {}
-impl Clone for CMSG_KEY_TRANS_ENCRYPT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {
     pub cbSize: u32,
     pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -6290,26 +5381,16 @@ pub struct CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {
     pub RecipientPublicKey: CRYPT_BIT_BLOB,
     pub RecipientId: CERT_ID,
 }
-impl Copy for CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {}
-impl Clone for CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_KEY_TRANS_RECIPIENT_INFO {
     pub dwVersion: u32,
     pub RecipientId: CERT_ID,
     pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub EncryptedKey: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CMSG_KEY_TRANS_RECIPIENT_INFO {}
-impl Clone for CMSG_KEY_TRANS_RECIPIENT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_MAIL_LIST_ENCRYPT_INFO {
     pub cbSize: u32,
     pub dwRecipientIndex: u32,
@@ -6317,13 +5398,8 @@ pub struct CMSG_MAIL_LIST_ENCRYPT_INFO {
     pub EncryptedKey: CRYPT_INTEGER_BLOB,
     pub dwFlags: u32,
 }
-impl Copy for CMSG_MAIL_LIST_ENCRYPT_INFO {}
-impl Clone for CMSG_MAIL_LIST_ENCRYPT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
     pub cbSize: u32,
     pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -6335,24 +5411,14 @@ pub struct CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
     pub Date: super::super::Foundation::FILETIME,
     pub pOtherAttr: *mut CRYPT_ATTRIBUTE_TYPE_VALUE,
 }
-impl Copy for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {}
-impl Clone for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
     pub hKeyEncryptionKey: usize,
     pub pvKeyEncryptionKey: *mut core::ffi::c_void,
 }
-impl Copy for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {}
-impl Clone for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_MAIL_LIST_RECIPIENT_INFO {
     pub dwVersion: u32,
     pub KeyId: CRYPT_INTEGER_BLOB,
@@ -6361,58 +5427,33 @@ pub struct CMSG_MAIL_LIST_RECIPIENT_INFO {
     pub Date: super::super::Foundation::FILETIME,
     pub pOtherAttr: *mut CRYPT_ATTRIBUTE_TYPE_VALUE,
 }
-impl Copy for CMSG_MAIL_LIST_RECIPIENT_INFO {}
-impl Clone for CMSG_MAIL_LIST_RECIPIENT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_RC2_AUX_INFO {
     pub cbSize: u32,
     pub dwBitLen: u32,
 }
-impl Copy for CMSG_RC2_AUX_INFO {}
-impl Clone for CMSG_RC2_AUX_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_RC4_AUX_INFO {
     pub cbSize: u32,
     pub dwBitLen: u32,
 }
-impl Copy for CMSG_RC4_AUX_INFO {}
-impl Clone for CMSG_RC4_AUX_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_RECIPIENT_ENCODE_INFO {
     pub dwRecipientChoice: u32,
     pub Anonymous: CMSG_RECIPIENT_ENCODE_INFO_0,
 }
-impl Copy for CMSG_RECIPIENT_ENCODE_INFO {}
-impl Clone for CMSG_RECIPIENT_ENCODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMSG_RECIPIENT_ENCODE_INFO_0 {
     pub pKeyTrans: *mut CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO,
     pub pKeyAgree: *mut CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO,
     pub pMailList: *mut CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO,
 }
-impl Copy for CMSG_RECIPIENT_ENCODE_INFO_0 {}
-impl Clone for CMSG_RECIPIENT_ENCODE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {
     pub cbSize: u32,
     pub RecipientPublicKey: CRYPT_BIT_BLOB,
@@ -6420,38 +5461,23 @@ pub struct CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {
     pub Date: super::super::Foundation::FILETIME,
     pub pOtherAttr: *mut CRYPT_ATTRIBUTE_TYPE_VALUE,
 }
-impl Copy for CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {}
-impl Clone for CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {
     pub RecipientId: CERT_ID,
     pub EncryptedKey: CRYPT_INTEGER_BLOB,
     pub Date: super::super::Foundation::FILETIME,
     pub pOtherAttr: *mut CRYPT_ATTRIBUTE_TYPE_VALUE,
 }
-impl Copy for CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {}
-impl Clone for CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {
     pub cbSize: u32,
     pub SignedInfo: CMSG_SIGNED_ENCODE_INFO,
     pub EnvelopedInfo: CMSG_ENVELOPED_ENCODE_INFO,
 }
-impl Copy for CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {}
-impl Clone for CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_SIGNED_ENCODE_INFO {
     pub cbSize: u32,
     pub cSigners: u32,
@@ -6461,13 +5487,8 @@ pub struct CMSG_SIGNED_ENCODE_INFO {
     pub cCrlEncoded: u32,
     pub rgCrlEncoded: *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for CMSG_SIGNED_ENCODE_INFO {}
-impl Clone for CMSG_SIGNED_ENCODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_SIGNER_ENCODE_INFO {
     pub cbSize: u32,
     pub pCertInfo: *mut CERT_INFO,
@@ -6480,24 +5501,14 @@ pub struct CMSG_SIGNER_ENCODE_INFO {
     pub cUnauthAttr: u32,
     pub rgUnauthAttr: *mut CRYPT_ATTRIBUTE,
 }
-impl Copy for CMSG_SIGNER_ENCODE_INFO {}
-impl Clone for CMSG_SIGNER_ENCODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMSG_SIGNER_ENCODE_INFO_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: NCRYPT_KEY_HANDLE,
 }
-impl Copy for CMSG_SIGNER_ENCODE_INFO_0 {}
-impl Clone for CMSG_SIGNER_ENCODE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_SIGNER_INFO {
     pub dwVersion: u32,
     pub Issuer: CRYPT_INTEGER_BLOB,
@@ -6508,36 +5519,21 @@ pub struct CMSG_SIGNER_INFO {
     pub AuthAttrs: CRYPT_ATTRIBUTES,
     pub UnauthAttrs: CRYPT_ATTRIBUTES,
 }
-impl Copy for CMSG_SIGNER_INFO {}
-impl Clone for CMSG_SIGNER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_SP3_COMPATIBLE_AUX_INFO {
     pub cbSize: u32,
     pub dwFlags: u32,
 }
-impl Copy for CMSG_SP3_COMPATIBLE_AUX_INFO {}
-impl Clone for CMSG_SP3_COMPATIBLE_AUX_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_STREAM_INFO {
     pub cbContent: u32,
     pub pfnStreamOutput: PFN_CMSG_STREAM_OUTPUT,
     pub pvArg: *mut core::ffi::c_void,
 }
-impl Copy for CMSG_STREAM_INFO {}
-impl Clone for CMSG_STREAM_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMS_DH_KEY_INFO {
     pub dwVersion: u32,
     pub Algid: ALG_ID,
@@ -6545,38 +5541,23 @@ pub struct CMS_DH_KEY_INFO {
     pub PubInfo: CRYPT_INTEGER_BLOB,
     pub pReserved: *mut core::ffi::c_void,
 }
-impl Copy for CMS_DH_KEY_INFO {}
-impl Clone for CMS_DH_KEY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMS_KEY_INFO {
     pub dwVersion: u32,
     pub Algid: ALG_ID,
     pub pbOID: *mut u8,
     pub cbOID: u32,
 }
-impl Copy for CMS_KEY_INFO {}
-impl Clone for CMS_KEY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CPS_URLS {
     pub pszURL: windows_sys::core::PWSTR,
     pub pAlgorithm: *mut CRYPT_ALGORITHM_IDENTIFIER,
     pub pDigest: *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for CPS_URLS {}
-impl Clone for CPS_URLS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRL_CONTEXT {
     pub dwCertEncodingType: CERT_QUERY_ENCODING_TYPE,
     pub pbCrlEncoded: *mut u8,
@@ -6584,81 +5565,46 @@ pub struct CRL_CONTEXT {
     pub pCrlInfo: *mut CRL_INFO,
     pub hCertStore: HCERTSTORE,
 }
-impl Copy for CRL_CONTEXT {}
-impl Clone for CRL_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRL_DIST_POINT {
     pub DistPointName: CRL_DIST_POINT_NAME,
     pub ReasonFlags: CRYPT_BIT_BLOB,
     pub CRLIssuer: CERT_ALT_NAME_INFO,
 }
-impl Copy for CRL_DIST_POINT {}
-impl Clone for CRL_DIST_POINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRL_DIST_POINTS_INFO {
     pub cDistPoint: u32,
     pub rgDistPoint: *mut CRL_DIST_POINT,
 }
-impl Copy for CRL_DIST_POINTS_INFO {}
-impl Clone for CRL_DIST_POINTS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRL_DIST_POINT_NAME {
     pub dwDistPointNameChoice: u32,
     pub Anonymous: CRL_DIST_POINT_NAME_0,
 }
-impl Copy for CRL_DIST_POINT_NAME {}
-impl Clone for CRL_DIST_POINT_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CRL_DIST_POINT_NAME_0 {
     pub FullName: CERT_ALT_NAME_INFO,
 }
-impl Copy for CRL_DIST_POINT_NAME_0 {}
-impl Clone for CRL_DIST_POINT_NAME_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRL_ENTRY {
     pub SerialNumber: CRYPT_INTEGER_BLOB,
     pub RevocationDate: super::super::Foundation::FILETIME,
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-impl Copy for CRL_ENTRY {}
-impl Clone for CRL_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRL_FIND_ISSUED_FOR_PARA {
     pub pSubjectCert: *const CERT_CONTEXT,
     pub pIssuerCert: *const CERT_CONTEXT,
 }
-impl Copy for CRL_FIND_ISSUED_FOR_PARA {}
-impl Clone for CRL_FIND_ISSUED_FOR_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRL_INFO {
     pub dwVersion: u32,
     pub SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -6670,13 +5616,8 @@ pub struct CRL_INFO {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-impl Copy for CRL_INFO {}
-impl Clone for CRL_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRL_ISSUING_DIST_POINT {
     pub DistPointName: CRL_DIST_POINT_NAME,
     pub fOnlyContainsUserCerts: super::super::Foundation::BOOL,
@@ -6684,49 +5625,29 @@ pub struct CRL_ISSUING_DIST_POINT {
     pub OnlySomeReasonFlags: CRYPT_BIT_BLOB,
     pub fIndirectCRL: super::super::Foundation::BOOL,
 }
-impl Copy for CRL_ISSUING_DIST_POINT {}
-impl Clone for CRL_ISSUING_DIST_POINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRL_REVOCATION_INFO {
     pub pCrlEntry: *mut CRL_ENTRY,
     pub pCrlContext: *mut CRL_CONTEXT,
     pub pCrlIssuerChain: *mut CERT_CHAIN_CONTEXT,
 }
-impl Copy for CRL_REVOCATION_INFO {}
-impl Clone for CRL_REVOCATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CROSS_CERT_DIST_POINTS_INFO {
     pub dwSyncDeltaTime: u32,
     pub cDistPoint: u32,
     pub rgDistPoint: *mut CERT_ALT_NAME_INFO,
 }
-impl Copy for CROSS_CERT_DIST_POINTS_INFO {}
-impl Clone for CROSS_CERT_DIST_POINTS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPTNET_URL_CACHE_FLUSH_INFO {
     pub cbSize: u32,
     pub dwExemptSeconds: u32,
     pub ExpireTime: super::super::Foundation::FILETIME,
 }
-impl Copy for CRYPTNET_URL_CACHE_FLUSH_INFO {}
-impl Clone for CRYPTNET_URL_CACHE_FLUSH_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
     pub cbSize: u32,
     pub dwObjectType: u32,
@@ -6736,13 +5657,8 @@ pub struct CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
     pub NextUpdateTime: super::super::Foundation::FILETIME,
     pub PublishTime: super::super::Foundation::FILETIME,
 }
-impl Copy for CRYPTNET_URL_CACHE_PRE_FETCH_INFO {}
-impl Clone for CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPTNET_URL_CACHE_RESPONSE_INFO {
     pub cbSize: u32,
     pub wResponseType: u16,
@@ -6752,38 +5668,23 @@ pub struct CRYPTNET_URL_CACHE_RESPONSE_INFO {
     pub pwszETag: windows_sys::core::PCWSTR,
     pub dwProxyId: u32,
 }
-impl Copy for CRYPTNET_URL_CACHE_RESPONSE_INFO {}
-impl Clone for CRYPTNET_URL_CACHE_RESPONSE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPTPROTECT_PROMPTSTRUCT {
     pub cbSize: u32,
     pub dwPromptFlags: u32,
     pub hwndApp: super::super::Foundation::HWND,
     pub szPrompt: windows_sys::core::PCWSTR,
 }
-impl Copy for CRYPTPROTECT_PROMPTSTRUCT {}
-impl Clone for CRYPTPROTECT_PROMPTSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_3DES_KEY_STATE {
     pub Key: [u8; 24],
     pub IV: [u8; 8],
     pub Feedback: [u8; 8],
 }
-impl Copy for CRYPT_3DES_KEY_STATE {}
-impl Clone for CRYPT_3DES_KEY_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_AES_128_KEY_STATE {
     pub Key: [u8; 16],
     pub IV: [u8; 16],
@@ -6791,13 +5692,8 @@ pub struct CRYPT_AES_128_KEY_STATE {
     pub DecryptionState: [u8; 176],
     pub Feedback: [u8; 16],
 }
-impl Copy for CRYPT_AES_128_KEY_STATE {}
-impl Clone for CRYPT_AES_128_KEY_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_AES_256_KEY_STATE {
     pub Key: [u8; 32],
     pub IV: [u8; 16],
@@ -6805,290 +5701,165 @@ pub struct CRYPT_AES_256_KEY_STATE {
     pub DecryptionState: [u8; 240],
     pub Feedback: [u8; 16],
 }
-impl Copy for CRYPT_AES_256_KEY_STATE {}
-impl Clone for CRYPT_AES_256_KEY_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_ALGORITHM_IDENTIFIER {
     pub pszObjId: windows_sys::core::PSTR,
     pub Parameters: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_ALGORITHM_IDENTIFIER {}
-impl Clone for CRYPT_ALGORITHM_IDENTIFIER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_ASYNC_RETRIEVAL_COMPLETION {
     pub pfnCompletion: PFN_CRYPT_ASYNC_RETRIEVAL_COMPLETION_FUNC,
     pub pvCompletion: *mut core::ffi::c_void,
 }
-impl Copy for CRYPT_ASYNC_RETRIEVAL_COMPLETION {}
-impl Clone for CRYPT_ASYNC_RETRIEVAL_COMPLETION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_ATTRIBUTE {
     pub pszObjId: windows_sys::core::PSTR,
     pub cValue: u32,
     pub rgValue: *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_ATTRIBUTE {}
-impl Clone for CRYPT_ATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_ATTRIBUTES {
     pub cAttr: u32,
     pub rgAttr: *mut CRYPT_ATTRIBUTE,
 }
-impl Copy for CRYPT_ATTRIBUTES {}
-impl Clone for CRYPT_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_ATTRIBUTE_TYPE_VALUE {
     pub pszObjId: windows_sys::core::PSTR,
     pub Value: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_ATTRIBUTE_TYPE_VALUE {}
-impl Clone for CRYPT_ATTRIBUTE_TYPE_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_BIT_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
     pub cUnusedBits: u32,
 }
-impl Copy for CRYPT_BIT_BLOB {}
-impl Clone for CRYPT_BIT_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_BLOB_ARRAY {
     pub cBlob: u32,
     pub rgBlob: *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_BLOB_ARRAY {}
-impl Clone for CRYPT_BLOB_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_CONTENT_INFO {
     pub pszObjId: windows_sys::core::PSTR,
     pub Content: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_CONTENT_INFO {}
-impl Clone for CRYPT_CONTENT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
     pub pszObjId: windows_sys::core::PSTR,
     pub cValue: u32,
     pub rgValue: *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {}
-impl Clone for CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_CONTEXTS {
     pub cContexts: u32,
     pub rgpszContexts: *mut windows_sys::core::PWSTR,
 }
-impl Copy for CRYPT_CONTEXTS {}
-impl Clone for CRYPT_CONTEXTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_CONTEXT_CONFIG {
     pub dwFlags: CRYPT_CONTEXT_CONFIG_FLAGS,
     pub dwReserved: u32,
 }
-impl Copy for CRYPT_CONTEXT_CONFIG {}
-impl Clone for CRYPT_CONTEXT_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_CONTEXT_FUNCTIONS {
     pub cFunctions: u32,
     pub rgpszFunctions: *mut windows_sys::core::PWSTR,
 }
-impl Copy for CRYPT_CONTEXT_FUNCTIONS {}
-impl Clone for CRYPT_CONTEXT_FUNCTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_CONTEXT_FUNCTION_CONFIG {
     pub dwFlags: u32,
     pub dwReserved: u32,
 }
-impl Copy for CRYPT_CONTEXT_FUNCTION_CONFIG {}
-impl Clone for CRYPT_CONTEXT_FUNCTION_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_CONTEXT_FUNCTION_PROVIDERS {
     pub cProviders: u32,
     pub rgpszProviders: *mut windows_sys::core::PWSTR,
 }
-impl Copy for CRYPT_CONTEXT_FUNCTION_PROVIDERS {}
-impl Clone for CRYPT_CONTEXT_FUNCTION_PROVIDERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_CREDENTIALS {
     pub cbSize: u32,
     pub pszCredentialsOid: windows_sys::core::PCSTR,
     pub pvCredentials: *mut core::ffi::c_void,
 }
-impl Copy for CRYPT_CREDENTIALS {}
-impl Clone for CRYPT_CREDENTIALS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_CSP_PROVIDER {
     pub dwKeySpec: u32,
     pub pwszProviderName: windows_sys::core::PWSTR,
     pub Signature: CRYPT_BIT_BLOB,
 }
-impl Copy for CRYPT_CSP_PROVIDER {}
-impl Clone for CRYPT_CSP_PROVIDER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_DECODE_PARA {
     pub cbSize: u32,
     pub pfnAlloc: PFN_CRYPT_ALLOC,
     pub pfnFree: PFN_CRYPT_FREE,
 }
-impl Copy for CRYPT_DECODE_PARA {}
-impl Clone for CRYPT_DECODE_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_DECRYPT_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgAndCertEncodingType: u32,
     pub cCertStore: u32,
     pub rghCertStore: *mut HCERTSTORE,
 }
-impl Copy for CRYPT_DECRYPT_MESSAGE_PARA {}
-impl Clone for CRYPT_DECRYPT_MESSAGE_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
     pub cOID: u32,
     pub rgpszOID: *mut windows_sys::core::PSTR,
 }
-impl Copy for CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {}
-impl Clone for CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_DES_KEY_STATE {
     pub Key: [u8; 8],
     pub IV: [u8; 8],
     pub Feedback: [u8; 8],
 }
-impl Copy for CRYPT_DES_KEY_STATE {}
-impl Clone for CRYPT_DES_KEY_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_ECC_CMS_SHARED_INFO {
     pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub EntityUInfo: CRYPT_INTEGER_BLOB,
     pub rgbSuppPubInfo: [u8; 4],
 }
-impl Copy for CRYPT_ECC_CMS_SHARED_INFO {}
-impl Clone for CRYPT_ECC_CMS_SHARED_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_ECC_PRIVATE_KEY_INFO {
     pub dwVersion: u32,
     pub PrivateKey: CRYPT_INTEGER_BLOB,
     pub szCurveOid: windows_sys::core::PSTR,
     pub PublicKey: CRYPT_BIT_BLOB,
 }
-impl Copy for CRYPT_ECC_PRIVATE_KEY_INFO {}
-impl Clone for CRYPT_ECC_PRIVATE_KEY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_ENCODE_PARA {
     pub cbSize: u32,
     pub pfnAlloc: PFN_CRYPT_ALLOC,
     pub pfnFree: PFN_CRYPT_FREE,
 }
-impl Copy for CRYPT_ENCODE_PARA {}
-impl Clone for CRYPT_ENCODE_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {
     pub EncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub EncryptedPrivateKey: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {}
-impl Clone for CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_ENCRYPT_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgEncodingType: u32,
@@ -7098,24 +5869,14 @@ pub struct CRYPT_ENCRYPT_MESSAGE_PARA {
     pub dwFlags: u32,
     pub dwInnerContentType: u32,
 }
-impl Copy for CRYPT_ENCRYPT_MESSAGE_PARA {}
-impl Clone for CRYPT_ENCRYPT_MESSAGE_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_ENROLLMENT_NAME_VALUE_PAIR {
     pub pwszName: windows_sys::core::PWSTR,
     pub pwszValue: windows_sys::core::PWSTR,
 }
-impl Copy for CRYPT_ENROLLMENT_NAME_VALUE_PAIR {}
-impl Clone for CRYPT_ENROLLMENT_NAME_VALUE_PAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
     pub cbSize: u32,
     pub iDeltaCrlIndicator: i32,
@@ -7125,24 +5886,14 @@ pub struct CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
     pub pChainPara: *mut CERT_REVOCATION_CHAIN_PARA,
     pub pDeltaCrlIndicator: *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {}
-impl Clone for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_HASH_INFO {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub Hash: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_HASH_INFO {}
-impl Clone for CRYPT_HASH_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_HASH_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgEncodingType: u32,
@@ -7150,60 +5901,35 @@ pub struct CRYPT_HASH_MESSAGE_PARA {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub pvHashAuxInfo: *mut core::ffi::c_void,
 }
-impl Copy for CRYPT_HASH_MESSAGE_PARA {}
-impl Clone for CRYPT_HASH_MESSAGE_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_IMAGE_REF {
     pub pszImage: windows_sys::core::PWSTR,
     pub dwFlags: CRYPT_IMAGE_REF_FLAGS,
 }
-impl Copy for CRYPT_IMAGE_REF {}
-impl Clone for CRYPT_IMAGE_REF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_IMAGE_REG {
     pub pszImage: windows_sys::core::PWSTR,
     pub cInterfaces: u32,
     pub rgpInterfaces: *mut *mut CRYPT_INTERFACE_REG,
 }
-impl Copy for CRYPT_IMAGE_REG {}
-impl Clone for CRYPT_IMAGE_REG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_INTEGER_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
 }
-impl Copy for CRYPT_INTEGER_BLOB {}
-impl Clone for CRYPT_INTEGER_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_INTERFACE_REG {
     pub dwInterface: BCRYPT_INTERFACE,
     pub dwFlags: BCRYPT_TABLE,
     pub cFunctions: u32,
     pub rgpszFunctions: *mut windows_sys::core::PWSTR,
 }
-impl Copy for CRYPT_INTERFACE_REG {}
-impl Clone for CRYPT_INTERFACE_REG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_KEY_PROV_INFO {
     pub pwszContainerName: windows_sys::core::PWSTR,
     pub pwszProvName: windows_sys::core::PWSTR,
@@ -7213,26 +5939,16 @@ pub struct CRYPT_KEY_PROV_INFO {
     pub rgProvParam: *mut CRYPT_KEY_PROV_PARAM,
     pub dwKeySpec: u32,
 }
-impl Copy for CRYPT_KEY_PROV_INFO {}
-impl Clone for CRYPT_KEY_PROV_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_KEY_PROV_PARAM {
     pub dwParam: u32,
     pub pbData: *mut u8,
     pub cbData: u32,
     pub dwFlags: u32,
 }
-impl Copy for CRYPT_KEY_PROV_PARAM {}
-impl Clone for CRYPT_KEY_PROV_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_KEY_SIGN_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgAndCertEncodingType: CERT_QUERY_ENCODING_TYPE,
@@ -7242,47 +5958,27 @@ pub struct CRYPT_KEY_SIGN_MESSAGE_PARA {
     pub pvHashAuxInfo: *mut core::ffi::c_void,
     pub PubKeyAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
 }
-impl Copy for CRYPT_KEY_SIGN_MESSAGE_PARA {}
-impl Clone for CRYPT_KEY_SIGN_MESSAGE_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: NCRYPT_KEY_HANDLE,
 }
-impl Copy for CRYPT_KEY_SIGN_MESSAGE_PARA_0 {}
-impl Clone for CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_KEY_VERIFY_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgEncodingType: u32,
     pub hCryptProv: HCRYPTPROV_LEGACY,
 }
-impl Copy for CRYPT_KEY_VERIFY_MESSAGE_PARA {}
-impl Clone for CRYPT_KEY_VERIFY_MESSAGE_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_MASK_GEN_ALGORITHM {
     pub pszObjId: windows_sys::core::PSTR,
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
 }
-impl Copy for CRYPT_MASK_GEN_ALGORITHM {}
-impl Clone for CRYPT_MASK_GEN_ALGORITHM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
     pub cbSize: u32,
     pub pfnGet: PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_GET,
@@ -7291,35 +5987,20 @@ pub struct CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
     pub pfnFree: PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE,
     pub pfnFreeIdentifier: PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE_IDENTIFIER,
 }
-impl Copy for CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {}
-impl Clone for CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_OBJID_TABLE {
     pub dwAlgId: u32,
     pub pszObjId: windows_sys::core::PCSTR,
 }
-impl Copy for CRYPT_OBJID_TABLE {}
-impl Clone for CRYPT_OBJID_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_OID_FUNC_ENTRY {
     pub pszOID: windows_sys::core::PCSTR,
     pub pvFuncAddr: *mut core::ffi::c_void,
 }
-impl Copy for CRYPT_OID_FUNC_ENTRY {}
-impl Clone for CRYPT_OID_FUNC_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_OID_INFO {
     pub cbSize: u32,
     pub pszOID: windows_sys::core::PCSTR,
@@ -7328,60 +6009,35 @@ pub struct CRYPT_OID_INFO {
     pub Anonymous: CRYPT_OID_INFO_0,
     pub ExtraInfo: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_OID_INFO {}
-impl Clone for CRYPT_OID_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CRYPT_OID_INFO_0 {
     pub dwValue: u32,
     pub Algid: ALG_ID,
     pub dwLength: u32,
 }
-impl Copy for CRYPT_OID_INFO_0 {}
-impl Clone for CRYPT_OID_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PASSWORD_CREDENTIALSA {
     pub cbSize: u32,
     pub pszUsername: windows_sys::core::PSTR,
     pub pszPassword: windows_sys::core::PSTR,
 }
-impl Copy for CRYPT_PASSWORD_CREDENTIALSA {}
-impl Clone for CRYPT_PASSWORD_CREDENTIALSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PASSWORD_CREDENTIALSW {
     pub cbSize: u32,
     pub pszUsername: windows_sys::core::PWSTR,
     pub pszPassword: windows_sys::core::PWSTR,
 }
-impl Copy for CRYPT_PASSWORD_CREDENTIALSW {}
-impl Clone for CRYPT_PASSWORD_CREDENTIALSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PKCS12_PBE_PARAMS {
     pub iIterations: i32,
     pub cbSalt: u32,
 }
-impl Copy for CRYPT_PKCS12_PBE_PARAMS {}
-impl Clone for CRYPT_PKCS12_PBE_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PKCS8_EXPORT_PARAMS {
     pub hCryptProv: usize,
     pub dwKeySpec: u32,
@@ -7389,13 +6045,8 @@ pub struct CRYPT_PKCS8_EXPORT_PARAMS {
     pub pEncryptPrivateKeyFunc: PCRYPT_ENCRYPT_PRIVATE_KEY_FUNC,
     pub pVoidEncryptFunc: *mut core::ffi::c_void,
 }
-impl Copy for CRYPT_PKCS8_EXPORT_PARAMS {}
-impl Clone for CRYPT_PKCS8_EXPORT_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PKCS8_IMPORT_PARAMS {
     pub PrivateKey: CRYPT_INTEGER_BLOB,
     pub pResolvehCryptProvFunc: PCRYPT_RESOLVE_HCRYPTPROV_FUNC,
@@ -7403,49 +6054,29 @@ pub struct CRYPT_PKCS8_IMPORT_PARAMS {
     pub pDecryptPrivateKeyFunc: PCRYPT_DECRYPT_PRIVATE_KEY_FUNC,
     pub pVoidDecryptFunc: *mut core::ffi::c_void,
 }
-impl Copy for CRYPT_PKCS8_IMPORT_PARAMS {}
-impl Clone for CRYPT_PKCS8_IMPORT_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PRIVATE_KEY_INFO {
     pub Version: u32,
     pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub PrivateKey: CRYPT_INTEGER_BLOB,
     pub pAttributes: *mut CRYPT_ATTRIBUTES,
 }
-impl Copy for CRYPT_PRIVATE_KEY_INFO {}
-impl Clone for CRYPT_PRIVATE_KEY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PROPERTY_REF {
     pub pszProperty: windows_sys::core::PWSTR,
     pub cbValue: u32,
     pub pbValue: *mut u8,
 }
-impl Copy for CRYPT_PROPERTY_REF {}
-impl Clone for CRYPT_PROPERTY_REF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PROVIDERS {
     pub cProviders: u32,
     pub rgpszProviders: *mut windows_sys::core::PWSTR,
 }
-impl Copy for CRYPT_PROVIDERS {}
-impl Clone for CRYPT_PROVIDERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PROVIDER_REF {
     pub dwInterface: u32,
     pub pszFunction: windows_sys::core::PWSTR,
@@ -7455,73 +6086,43 @@ pub struct CRYPT_PROVIDER_REF {
     pub pUM: *mut CRYPT_IMAGE_REF,
     pub pKM: *mut CRYPT_IMAGE_REF,
 }
-impl Copy for CRYPT_PROVIDER_REF {}
-impl Clone for CRYPT_PROVIDER_REF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PROVIDER_REFS {
     pub cProviders: u32,
     pub rgpProviders: *mut *mut CRYPT_PROVIDER_REF,
 }
-impl Copy for CRYPT_PROVIDER_REFS {}
-impl Clone for CRYPT_PROVIDER_REFS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PROVIDER_REG {
     pub cAliases: u32,
     pub rgpszAliases: *mut windows_sys::core::PWSTR,
     pub pUM: *mut CRYPT_IMAGE_REG,
     pub pKM: *mut CRYPT_IMAGE_REG,
 }
-impl Copy for CRYPT_PROVIDER_REG {}
-impl Clone for CRYPT_PROVIDER_REG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PSOURCE_ALGORITHM {
     pub pszObjId: windows_sys::core::PSTR,
     pub EncodingParameters: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_PSOURCE_ALGORITHM {}
-impl Clone for CRYPT_PSOURCE_ALGORITHM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_RC2_CBC_PARAMETERS {
     pub dwVersion: u32,
     pub fIV: super::super::Foundation::BOOL,
     pub rgbIV: [u8; 8],
 }
-impl Copy for CRYPT_RC2_CBC_PARAMETERS {}
-impl Clone for CRYPT_RC2_CBC_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_RC4_KEY_STATE {
     pub Key: [u8; 16],
     pub SBox: [u8; 256],
     pub i: u8,
     pub j: u8,
 }
-impl Copy for CRYPT_RC4_KEY_STATE {}
-impl Clone for CRYPT_RC4_KEY_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_RETRIEVE_AUX_INFO {
     pub cbSize: u32,
     pub pLastSyncTime: *mut super::super::Foundation::FILETIME,
@@ -7536,49 +6137,29 @@ pub struct CRYPT_RETRIEVE_AUX_INFO {
     pub ppwszErrorResponseHeaders: *mut windows_sys::core::PWSTR,
     pub ppErrorContentBlob: *mut *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_RETRIEVE_AUX_INFO {}
-impl Clone for CRYPT_RETRIEVE_AUX_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_RSAES_OAEP_PARAMETERS {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub MaskGenAlgorithm: CRYPT_MASK_GEN_ALGORITHM,
     pub PSourceAlgorithm: CRYPT_PSOURCE_ALGORITHM,
 }
-impl Copy for CRYPT_RSAES_OAEP_PARAMETERS {}
-impl Clone for CRYPT_RSAES_OAEP_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_RSA_SSA_PSS_PARAMETERS {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub MaskGenAlgorithm: CRYPT_MASK_GEN_ALGORITHM,
     pub dwSaltLength: u32,
     pub dwTrailerField: u32,
 }
-impl Copy for CRYPT_RSA_SSA_PSS_PARAMETERS {}
-impl Clone for CRYPT_RSA_SSA_PSS_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_SEQUENCE_OF_ANY {
     pub cValue: u32,
     pub rgValue: *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_SEQUENCE_OF_ANY {}
-impl Clone for CRYPT_SEQUENCE_OF_ANY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_SIGN_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgEncodingType: u32,
@@ -7596,70 +6177,40 @@ pub struct CRYPT_SIGN_MESSAGE_PARA {
     pub dwFlags: u32,
     pub dwInnerContentType: u32,
 }
-impl Copy for CRYPT_SIGN_MESSAGE_PARA {}
-impl Clone for CRYPT_SIGN_MESSAGE_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_SMART_CARD_ROOT_INFO {
     pub rgbCardID: [u8; 16],
     pub luid: ROOT_INFO_LUID,
 }
-impl Copy for CRYPT_SMART_CARD_ROOT_INFO {}
-impl Clone for CRYPT_SMART_CARD_ROOT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_SMIME_CAPABILITIES {
     pub cCapability: u32,
     pub rgCapability: *mut CRYPT_SMIME_CAPABILITY,
 }
-impl Copy for CRYPT_SMIME_CAPABILITIES {}
-impl Clone for CRYPT_SMIME_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_SMIME_CAPABILITY {
     pub pszObjId: windows_sys::core::PSTR,
     pub Parameters: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_SMIME_CAPABILITY {}
-impl Clone for CRYPT_SMIME_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_TIMESTAMP_ACCURACY {
     pub dwSeconds: u32,
     pub dwMillis: u32,
     pub dwMicros: u32,
 }
-impl Copy for CRYPT_TIMESTAMP_ACCURACY {}
-impl Clone for CRYPT_TIMESTAMP_ACCURACY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_TIMESTAMP_CONTEXT {
     pub cbEncoded: u32,
     pub pbEncoded: *mut u8,
     pub pTimeStamp: *mut CRYPT_TIMESTAMP_INFO,
 }
-impl Copy for CRYPT_TIMESTAMP_CONTEXT {}
-impl Clone for CRYPT_TIMESTAMP_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_TIMESTAMP_INFO {
     pub dwVersion: u32,
     pub pszTSAPolicyId: windows_sys::core::PSTR,
@@ -7674,13 +6225,8 @@ pub struct CRYPT_TIMESTAMP_INFO {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-impl Copy for CRYPT_TIMESTAMP_INFO {}
-impl Clone for CRYPT_TIMESTAMP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_TIMESTAMP_PARA {
     pub pszTSAPolicyId: windows_sys::core::PCSTR,
     pub fRequestCerts: super::super::Foundation::BOOL,
@@ -7688,13 +6234,8 @@ pub struct CRYPT_TIMESTAMP_PARA {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-impl Copy for CRYPT_TIMESTAMP_PARA {}
-impl Clone for CRYPT_TIMESTAMP_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_TIMESTAMP_REQUEST {
     pub dwVersion: CRYPT_TIMESTAMP_VERSION,
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -7705,13 +6246,8 @@ pub struct CRYPT_TIMESTAMP_REQUEST {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-impl Copy for CRYPT_TIMESTAMP_REQUEST {}
-impl Clone for CRYPT_TIMESTAMP_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_TIMESTAMP_RESPONSE {
     pub dwStatus: CRYPT_TIMESTAMP_RESPONSE_STATUS,
     pub cFreeText: u32,
@@ -7719,13 +6255,8 @@ pub struct CRYPT_TIMESTAMP_RESPONSE {
     pub FailureInfo: CRYPT_BIT_BLOB,
     pub ContentInfo: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_TIMESTAMP_RESPONSE {}
-impl Clone for CRYPT_TIMESTAMP_RESPONSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_TIME_STAMP_REQUEST_INFO {
     pub pszTimeStampAlgorithm: windows_sys::core::PSTR,
     pub pszContentType: windows_sys::core::PSTR,
@@ -7733,60 +6264,35 @@ pub struct CRYPT_TIME_STAMP_REQUEST_INFO {
     pub cAttribute: u32,
     pub rgAttribute: *mut CRYPT_ATTRIBUTE,
 }
-impl Copy for CRYPT_TIME_STAMP_REQUEST_INFO {}
-impl Clone for CRYPT_TIME_STAMP_REQUEST_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_URL_ARRAY {
     pub cUrl: u32,
     pub rgwszUrl: *mut windows_sys::core::PWSTR,
 }
-impl Copy for CRYPT_URL_ARRAY {}
-impl Clone for CRYPT_URL_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_URL_INFO {
     pub cbSize: u32,
     pub dwSyncDeltaTime: u32,
     pub cGroup: u32,
     pub rgcGroupEntry: *mut u32,
 }
-impl Copy for CRYPT_URL_INFO {}
-impl Clone for CRYPT_URL_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {
     pub CertSignHashCNGAlgPropData: CRYPT_INTEGER_BLOB,
     pub CertIssuerPubKeyBitLengthPropData: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {}
-impl Clone for CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
     pub cCNGHashAlgid: u32,
     pub rgpwszCNGHashAlgid: *const windows_sys::core::PCWSTR,
     pub dwWeakIndex: u32,
 }
-impl Copy for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {}
-impl Clone for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_VERIFY_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgAndCertEncodingType: u32,
@@ -7794,38 +6300,23 @@ pub struct CRYPT_VERIFY_MESSAGE_PARA {
     pub pfnGetSignerCertificate: PFN_CRYPT_GET_SIGNER_CERTIFICATE,
     pub pvGetArg: *mut core::ffi::c_void,
 }
-impl Copy for CRYPT_VERIFY_MESSAGE_PARA {}
-impl Clone for CRYPT_VERIFY_MESSAGE_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_X942_OTHER_INFO {
     pub pszContentEncryptionObjId: windows_sys::core::PSTR,
     pub rgbCounter: [u8; 4],
     pub rgbKeyLength: [u8; 4],
     pub PubInfo: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_X942_OTHER_INFO {}
-impl Clone for CRYPT_X942_OTHER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_ALGORITHM {
     pub cbSize: u32,
     pub wszAlgorithm: windows_sys::core::PCWSTR,
     pub Encoded: CRYPT_XML_BLOB,
 }
-impl Copy for CRYPT_XML_ALGORITHM {}
-impl Clone for CRYPT_XML_ALGORITHM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_ALGORITHM_INFO {
     pub cbSize: u32,
     pub wszAlgorithmURI: windows_sys::core::PWSTR,
@@ -7838,25 +6329,15 @@ pub struct CRYPT_XML_ALGORITHM_INFO {
     pub pvPaddingInfo: *mut core::ffi::c_void,
     pub pvExtraInfo: *mut core::ffi::c_void,
 }
-impl Copy for CRYPT_XML_ALGORITHM_INFO {}
-impl Clone for CRYPT_XML_ALGORITHM_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_BLOB {
     pub dwCharset: CRYPT_XML_CHARSET,
     pub cbData: u32,
     pub pbData: *mut u8,
 }
-impl Copy for CRYPT_XML_BLOB {}
-impl Clone for CRYPT_XML_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
     pub cbSize: u32,
     pub fpCryptXmlEncodeAlgorithm: CryptXmlDllEncodeAlgorithm,
@@ -7868,37 +6349,22 @@ pub struct CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
     pub fpCryptXmlVerifySignature: CryptXmlDllVerifySignature,
     pub fpCryptXmlGetAlgorithmInfo: CryptXmlDllGetAlgorithmInfo,
 }
-impl Copy for CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {}
-impl Clone for CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_DATA_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
 }
-impl Copy for CRYPT_XML_DATA_BLOB {}
-impl Clone for CRYPT_XML_DATA_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_DATA_PROVIDER {
     pub pvCallbackState: *mut core::ffi::c_void,
     pub cbBufferSize: u32,
     pub pfnRead: PFN_CRYPT_XML_DATA_PROVIDER_READ,
     pub pfnClose: PFN_CRYPT_XML_DATA_PROVIDER_CLOSE,
 }
-impl Copy for CRYPT_XML_DATA_PROVIDER {}
-impl Clone for CRYPT_XML_DATA_PROVIDER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_DOC_CTXT {
     pub cbSize: u32,
     pub hDocCtxt: *mut core::ffi::c_void,
@@ -7906,24 +6372,14 @@ pub struct CRYPT_XML_DOC_CTXT {
     pub cSignature: u32,
     pub rgpSignature: *mut *mut CRYPT_XML_SIGNATURE,
 }
-impl Copy for CRYPT_XML_DOC_CTXT {}
-impl Clone for CRYPT_XML_DOC_CTXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_ISSUER_SERIAL {
     pub wszIssuer: windows_sys::core::PCWSTR,
     pub wszSerial: windows_sys::core::PCWSTR,
 }
-impl Copy for CRYPT_XML_ISSUER_SERIAL {}
-impl Clone for CRYPT_XML_ISSUER_SERIAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_KEYINFO_PARAM {
     pub wszId: windows_sys::core::PCWSTR,
     pub wszKeyName: windows_sys::core::PCWSTR,
@@ -7934,13 +6390,8 @@ pub struct CRYPT_XML_KEYINFO_PARAM {
     pub cCRL: u32,
     pub rgCRL: *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_XML_KEYINFO_PARAM {}
-impl Clone for CRYPT_XML_KEYINFO_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_KEY_DSA_KEY_VALUE {
     pub P: CRYPT_XML_DATA_BLOB,
     pub Q: CRYPT_XML_DATA_BLOB,
@@ -7950,26 +6401,16 @@ pub struct CRYPT_XML_KEY_DSA_KEY_VALUE {
     pub Seed: CRYPT_XML_DATA_BLOB,
     pub Counter: CRYPT_XML_DATA_BLOB,
 }
-impl Copy for CRYPT_XML_KEY_DSA_KEY_VALUE {}
-impl Clone for CRYPT_XML_KEY_DSA_KEY_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_KEY_ECDSA_KEY_VALUE {
     pub wszNamedCurve: windows_sys::core::PCWSTR,
     pub X: CRYPT_XML_DATA_BLOB,
     pub Y: CRYPT_XML_DATA_BLOB,
     pub ExplicitPara: CRYPT_XML_BLOB,
 }
-impl Copy for CRYPT_XML_KEY_ECDSA_KEY_VALUE {}
-impl Clone for CRYPT_XML_KEY_ECDSA_KEY_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_KEY_INFO {
     pub cbSize: u32,
     pub wszId: windows_sys::core::PCWSTR,
@@ -7977,24 +6418,14 @@ pub struct CRYPT_XML_KEY_INFO {
     pub rgKeyInfo: *mut CRYPT_XML_KEY_INFO_ITEM,
     pub hVerifyKey: BCRYPT_KEY_HANDLE,
 }
-impl Copy for CRYPT_XML_KEY_INFO {}
-impl Clone for CRYPT_XML_KEY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_KEY_INFO_ITEM {
     pub dwType: CRYPT_XML_KEYINFO_TYPE,
     pub Anonymous: CRYPT_XML_KEY_INFO_ITEM_0,
 }
-impl Copy for CRYPT_XML_KEY_INFO_ITEM {}
-impl Clone for CRYPT_XML_KEY_INFO_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CRYPT_XML_KEY_INFO_ITEM_0 {
     pub wszKeyName: windows_sys::core::PCWSTR,
     pub KeyValue: CRYPT_XML_KEY_VALUE,
@@ -8002,48 +6433,28 @@ pub union CRYPT_XML_KEY_INFO_ITEM_0 {
     pub X509Data: CRYPT_XML_X509DATA,
     pub Custom: CRYPT_XML_BLOB,
 }
-impl Copy for CRYPT_XML_KEY_INFO_ITEM_0 {}
-impl Clone for CRYPT_XML_KEY_INFO_ITEM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_KEY_RSA_KEY_VALUE {
     pub Modulus: CRYPT_XML_DATA_BLOB,
     pub Exponent: CRYPT_XML_DATA_BLOB,
 }
-impl Copy for CRYPT_XML_KEY_RSA_KEY_VALUE {}
-impl Clone for CRYPT_XML_KEY_RSA_KEY_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_KEY_VALUE {
     pub dwType: CRYPT_XML_KEY_VALUE_TYPE,
     pub Anonymous: CRYPT_XML_KEY_VALUE_0,
 }
-impl Copy for CRYPT_XML_KEY_VALUE {}
-impl Clone for CRYPT_XML_KEY_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CRYPT_XML_KEY_VALUE_0 {
     pub DSAKeyValue: CRYPT_XML_KEY_DSA_KEY_VALUE,
     pub RSAKeyValue: CRYPT_XML_KEY_RSA_KEY_VALUE,
     pub ECDSAKeyValue: CRYPT_XML_KEY_ECDSA_KEY_VALUE,
     pub Custom: CRYPT_XML_BLOB,
 }
-impl Copy for CRYPT_XML_KEY_VALUE_0 {}
-impl Clone for CRYPT_XML_KEY_VALUE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_OBJECT {
     pub cbSize: u32,
     pub hObject: *mut core::ffi::c_void,
@@ -8053,25 +6464,15 @@ pub struct CRYPT_XML_OBJECT {
     pub Manifest: CRYPT_XML_REFERENCES,
     pub Encoded: CRYPT_XML_BLOB,
 }
-impl Copy for CRYPT_XML_OBJECT {}
-impl Clone for CRYPT_XML_OBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_PROPERTY {
     pub dwPropId: CRYPT_XML_PROPERTY_ID,
     pub pvValue: *const core::ffi::c_void,
     pub cbValue: u32,
 }
-impl Copy for CRYPT_XML_PROPERTY {}
-impl Clone for CRYPT_XML_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_REFERENCE {
     pub cbSize: u32,
     pub hReference: *mut core::ffi::c_void,
@@ -8083,24 +6484,14 @@ pub struct CRYPT_XML_REFERENCE {
     pub cTransform: u32,
     pub rgTransform: *mut CRYPT_XML_ALGORITHM,
 }
-impl Copy for CRYPT_XML_REFERENCE {}
-impl Clone for CRYPT_XML_REFERENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_REFERENCES {
     pub cReference: u32,
     pub rgpReference: *mut *mut CRYPT_XML_REFERENCE,
 }
-impl Copy for CRYPT_XML_REFERENCES {}
-impl Clone for CRYPT_XML_REFERENCES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_SIGNATURE {
     pub cbSize: u32,
     pub hSignature: *mut core::ffi::c_void,
@@ -8111,13 +6502,8 @@ pub struct CRYPT_XML_SIGNATURE {
     pub cObject: u32,
     pub rgpObject: *mut *mut CRYPT_XML_OBJECT,
 }
-impl Copy for CRYPT_XML_SIGNATURE {}
-impl Clone for CRYPT_XML_SIGNATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_SIGNED_INFO {
     pub cbSize: u32,
     pub wszId: windows_sys::core::PCWSTR,
@@ -8127,37 +6513,22 @@ pub struct CRYPT_XML_SIGNED_INFO {
     pub rgpReference: *mut *mut CRYPT_XML_REFERENCE,
     pub Encoded: CRYPT_XML_BLOB,
 }
-impl Copy for CRYPT_XML_SIGNED_INFO {}
-impl Clone for CRYPT_XML_SIGNED_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_STATUS {
     pub cbSize: u32,
     pub dwErrorStatus: CRYPT_XML_STATUS_ERROR_STATUS,
     pub dwInfoStatus: CRYPT_XML_STATUS_INFO_STATUS,
 }
-impl Copy for CRYPT_XML_STATUS {}
-impl Clone for CRYPT_XML_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
     pub cbSize: u32,
     pub cTransformInfo: u32,
     pub rgpTransformInfo: *mut *mut CRYPT_XML_TRANSFORM_INFO,
 }
-impl Copy for CRYPT_XML_TRANSFORM_CHAIN_CONFIG {}
-impl Clone for CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_TRANSFORM_INFO {
     pub cbSize: u32,
     pub wszAlgorithm: windows_sys::core::PCWSTR,
@@ -8165,35 +6536,20 @@ pub struct CRYPT_XML_TRANSFORM_INFO {
     pub dwFlags: CRYPT_XML_TRANSFORM_FLAGS,
     pub pfnCreateTransform: PFN_CRYPT_XML_CREATE_TRANSFORM,
 }
-impl Copy for CRYPT_XML_TRANSFORM_INFO {}
-impl Clone for CRYPT_XML_TRANSFORM_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_X509DATA {
     pub cX509Data: u32,
     pub rgX509Data: *mut CRYPT_XML_X509DATA_ITEM,
 }
-impl Copy for CRYPT_XML_X509DATA {}
-impl Clone for CRYPT_XML_X509DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_X509DATA_ITEM {
     pub dwType: CRYPT_XML_X509DATA_TYPE,
     pub Anonymous: CRYPT_XML_X509DATA_ITEM_0,
 }
-impl Copy for CRYPT_XML_X509DATA_ITEM {}
-impl Clone for CRYPT_XML_X509DATA_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CRYPT_XML_X509DATA_ITEM_0 {
     pub IssuerSerial: CRYPT_XML_ISSUER_SERIAL,
     pub SKI: CRYPT_XML_DATA_BLOB,
@@ -8202,24 +6558,14 @@ pub union CRYPT_XML_X509DATA_ITEM_0 {
     pub CRL: CRYPT_XML_DATA_BLOB,
     pub Custom: CRYPT_XML_BLOB,
 }
-impl Copy for CRYPT_XML_X509DATA_ITEM_0 {}
-impl Clone for CRYPT_XML_X509DATA_ITEM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CTL_ANY_SUBJECT_INFO {
     pub SubjectAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub SubjectIdentifier: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CTL_ANY_SUBJECT_INFO {}
-impl Clone for CTL_ANY_SUBJECT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CTL_CONTEXT {
     pub dwMsgAndCertEncodingType: u32,
     pub pbCtlEncoded: *mut u8,
@@ -8230,51 +6576,31 @@ pub struct CTL_CONTEXT {
     pub pbCtlContent: *mut u8,
     pub cbCtlContent: u32,
 }
-impl Copy for CTL_CONTEXT {}
-impl Clone for CTL_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CTL_ENTRY {
     pub SubjectIdentifier: CRYPT_INTEGER_BLOB,
     pub cAttribute: u32,
     pub rgAttribute: *mut CRYPT_ATTRIBUTE,
 }
-impl Copy for CTL_ENTRY {}
-impl Clone for CTL_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CTL_FIND_SUBJECT_PARA {
     pub cbSize: u32,
     pub pUsagePara: *mut CTL_FIND_USAGE_PARA,
     pub dwSubjectType: u32,
     pub pvSubject: *mut core::ffi::c_void,
 }
-impl Copy for CTL_FIND_SUBJECT_PARA {}
-impl Clone for CTL_FIND_SUBJECT_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CTL_FIND_USAGE_PARA {
     pub cbSize: u32,
     pub SubjectUsage: CTL_USAGE,
     pub ListIdentifier: CRYPT_INTEGER_BLOB,
     pub pSigner: *mut CERT_INFO,
 }
-impl Copy for CTL_FIND_USAGE_PARA {}
-impl Clone for CTL_FIND_USAGE_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CTL_INFO {
     pub dwVersion: u32,
     pub SubjectUsage: CTL_USAGE,
@@ -8288,35 +6614,20 @@ pub struct CTL_INFO {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-impl Copy for CTL_INFO {}
-impl Clone for CTL_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CTL_USAGE {
     pub cUsageIdentifier: u32,
     pub rgpszUsageIdentifier: *mut windows_sys::core::PSTR,
 }
-impl Copy for CTL_USAGE {}
-impl Clone for CTL_USAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CTL_USAGE_MATCH {
     pub dwType: u32,
     pub Usage: CTL_USAGE,
 }
-impl Copy for CTL_USAGE_MATCH {}
-impl Clone for CTL_USAGE_MATCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CTL_VERIFY_USAGE_PARA {
     pub cbSize: u32,
     pub ListIdentifier: CRYPT_INTEGER_BLOB,
@@ -8325,13 +6636,8 @@ pub struct CTL_VERIFY_USAGE_PARA {
     pub cSignerStore: u32,
     pub rghSignerStore: *mut HCERTSTORE,
 }
-impl Copy for CTL_VERIFY_USAGE_PARA {}
-impl Clone for CTL_VERIFY_USAGE_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CTL_VERIFY_USAGE_STATUS {
     pub cbSize: u32,
     pub dwError: u32,
@@ -8341,84 +6647,48 @@ pub struct CTL_VERIFY_USAGE_STATUS {
     pub ppSigner: *mut *mut CERT_CONTEXT,
     pub dwSignerIndex: u32,
 }
-impl Copy for CTL_VERIFY_USAGE_STATUS {}
-impl Clone for CTL_VERIFY_USAGE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DSSSEED {
     pub counter: u32,
     pub seed: [u8; 20],
 }
-impl Copy for DSSSEED {}
-impl Clone for DSSSEED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ENDPOINTADDRESS {
     pub serviceUrl: windows_sys::core::PCWSTR,
     pub policyUrl: windows_sys::core::PCWSTR,
     pub rawCertificate: CRYPT_INTEGER_BLOB,
 }
-impl Copy for ENDPOINTADDRESS {}
-impl Clone for ENDPOINTADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ENDPOINTADDRESS2 {
     pub serviceUrl: windows_sys::core::PCWSTR,
     pub policyUrl: windows_sys::core::PCWSTR,
     pub identityType: u32,
     pub identityBytes: *mut core::ffi::c_void,
 }
-impl Copy for ENDPOINTADDRESS2 {}
-impl Clone for ENDPOINTADDRESS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EV_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwRootProgramQualifierFlags: CERT_ROOT_PROGRAM_FLAGS,
 }
-impl Copy for EV_EXTRA_CERT_CHAIN_POLICY_PARA {}
-impl Clone for EV_EXTRA_CERT_CHAIN_POLICY_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EV_EXTRA_CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub dwQualifiers: u32,
     pub dwIssuanceUsageIndex: u32,
 }
-impl Copy for EV_EXTRA_CERT_CHAIN_POLICY_STATUS {}
-impl Clone for EV_EXTRA_CERT_CHAIN_POLICY_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct GENERIC_XML_TOKEN {
     pub createDate: super::super::Foundation::FILETIME,
     pub expiryDate: super::super::Foundation::FILETIME,
     pub xmlToken: windows_sys::core::PWSTR,
     pub internalTokenReference: windows_sys::core::PWSTR,
     pub externalTokenReference: windows_sys::core::PWSTR,
-}
-impl Copy for GENERIC_XML_TOKEN {}
-impl Clone for GENERIC_XML_TOKEN {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type HCERTCHAINENGINE = isize;
 pub type HCERTSTORE = *mut core::ffi::c_void;
@@ -8427,6 +6697,7 @@ pub type HCRYPTASYNC = isize;
 pub type HCRYPTPROV_LEGACY = usize;
 pub type HCRYPTPROV_OR_NCRYPT_KEY_HANDLE = usize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HMAC_INFO {
     pub HashAlgid: ALG_ID,
     pub pbInnerString: *mut u8,
@@ -8434,121 +6705,71 @@ pub struct HMAC_INFO {
     pub pbOuterString: *mut u8,
     pub cbOuterString: u32,
 }
-impl Copy for HMAC_INFO {}
-impl Clone for HMAC_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTPSPolicyCallbackData {
     pub Anonymous: HTTPSPolicyCallbackData_0,
     pub dwAuthType: HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE,
     pub fdwChecks: u32,
     pub pwszServerName: windows_sys::core::PWSTR,
 }
-impl Copy for HTTPSPolicyCallbackData {}
-impl Clone for HTTPSPolicyCallbackData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union HTTPSPolicyCallbackData_0 {
     pub cbStruct: u32,
     pub cbSize: u32,
 }
-impl Copy for HTTPSPolicyCallbackData_0 {}
-impl Clone for HTTPSPolicyCallbackData_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {
     pub keySize: i32,
     pub keyExchangeAlgorithm: windows_sys::core::PWSTR,
     pub signatureAlgorithm: windows_sys::core::PWSTR,
 }
-impl Copy for INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {}
-impl Clone for INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INFORMATIONCARD_CRYPTO_HANDLE {
     pub r#type: HandleType,
     pub expiration: i64,
     pub cryptoParameters: *mut core::ffi::c_void,
 }
-impl Copy for INFORMATIONCARD_CRYPTO_HANDLE {}
-impl Clone for INFORMATIONCARD_CRYPTO_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {
     pub hashSize: i32,
     pub transform: INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS,
 }
-impl Copy for INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {}
-impl Clone for INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {
     pub keySize: i32,
     pub blockSize: i32,
     pub feedbackSize: i32,
 }
-impl Copy for INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {}
-impl Clone for INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS {
     pub inputBlockSize: i32,
     pub outputBlockSize: i32,
     pub canTransformMultipleBlocks: super::super::Foundation::BOOL,
     pub canReuseTransform: super::super::Foundation::BOOL,
 }
-impl Copy for INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS {}
-impl Clone for INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEY_TYPE_SUBTYPE {
     pub dwKeySpec: u32,
     pub Type: windows_sys::core::GUID,
     pub Subtype: windows_sys::core::GUID,
 }
-impl Copy for KEY_TYPE_SUBTYPE {}
-impl Clone for KEY_TYPE_SUBTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NCRYPT_ALLOC_PARA {
     pub cbSize: u32,
     pub pfnAlloc: PFN_NCRYPT_ALLOC,
     pub pfnFree: PFN_NCRYPT_FREE,
 }
-impl Copy for NCRYPT_ALLOC_PARA {}
-impl Clone for NCRYPT_ALLOC_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NCRYPT_CIPHER_PADDING_INFO {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -8557,23 +6778,13 @@ pub struct NCRYPT_CIPHER_PADDING_INFO {
     pub pbOtherInfo: *mut u8,
     pub cbOtherInfo: u32,
 }
-impl Copy for NCRYPT_CIPHER_PADDING_INFO {}
-impl Clone for NCRYPT_CIPHER_PADDING_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
     pub Header: NCRYPT_EXPORTED_ISOLATED_KEY_HEADER,
 }
-impl Copy for NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {}
-impl Clone for NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
     pub Version: u32,
     pub KeyUsage: u32,
@@ -8584,40 +6795,25 @@ pub struct NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
     pub cbWrappingKey: u32,
     pub cbIsolatedKey: u32,
 }
-impl Copy for NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {}
-impl Clone for NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type NCRYPT_HANDLE = usize;
 pub type NCRYPT_HASH_HANDLE = usize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
     pub Version: u32,
     pub Flags: u32,
     pub cbPublicKeyBlob: u32,
 }
-impl Copy for NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {}
-impl Clone for NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NCRYPT_KEY_ACCESS_POLICY_BLOB {
     pub dwVersion: u32,
     pub dwPolicyFlags: u32,
     pub cbUserSid: u32,
     pub cbApplicationSid: u32,
 }
-impl Copy for NCRYPT_KEY_ACCESS_POLICY_BLOB {}
-impl Clone for NCRYPT_KEY_ACCESS_POLICY_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NCRYPT_KEY_ATTEST_PADDING_INFO {
     pub magic: u32,
     pub pbKeyBlob: *mut u8,
@@ -8625,27 +6821,17 @@ pub struct NCRYPT_KEY_ATTEST_PADDING_INFO {
     pub pbKeyAuth: *mut u8,
     pub cbKeyAuth: u32,
 }
-impl Copy for NCRYPT_KEY_ATTEST_PADDING_INFO {}
-impl Clone for NCRYPT_KEY_ATTEST_PADDING_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NCRYPT_KEY_BLOB_HEADER {
     pub cbSize: u32,
     pub dwMagic: u32,
     pub cbAlgName: u32,
     pub cbKeyData: u32,
 }
-impl Copy for NCRYPT_KEY_BLOB_HEADER {}
-impl Clone for NCRYPT_KEY_BLOB_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type NCRYPT_KEY_HANDLE = usize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
     pub dwVersion: u32,
     pub iExpiration: i32,
@@ -8653,37 +6839,22 @@ pub struct NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
     pub pabPolicyRef: [u8; 32],
     pub pabHMAC: [u8; 32],
 }
-impl Copy for NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {}
-impl Clone for NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
     pub dwVersion: u32,
     pub cbDigest: u32,
 }
-impl Copy for NCRYPT_PCP_RAW_POLICYDIGEST_INFO {}
-impl Clone for NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NCRYPT_PCP_TPM_FW_VERSION_INFO {
     pub major1: u16,
     pub major2: u16,
     pub minor1: u16,
     pub minor2: u16,
 }
-impl Copy for NCRYPT_PCP_TPM_FW_VERSION_INFO {}
-impl Clone for NCRYPT_PCP_TPM_FW_VERSION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
     pub Magic: u32,
     pub Version: u32,
@@ -8692,61 +6863,36 @@ pub struct NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
     pub cbSignature: u32,
     pub cbTpmPublic: u32,
 }
-impl Copy for NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {}
-impl Clone for NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NCRYPT_PLATFORM_ATTEST_PADDING_INFO {
     pub magic: u32,
     pub pcrMask: u32,
 }
-impl Copy for NCRYPT_PLATFORM_ATTEST_PADDING_INFO {}
-impl Clone for NCRYPT_PLATFORM_ATTEST_PADDING_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NCRYPT_PROTECT_STREAM_INFO {
     pub pfnStreamOutput: PFNCryptStreamOutputCallback,
     pub pvCallbackCtxt: *mut core::ffi::c_void,
 }
-impl Copy for NCRYPT_PROTECT_STREAM_INFO {}
-impl Clone for NCRYPT_PROTECT_STREAM_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NCRYPT_PROTECT_STREAM_INFO_EX {
     pub pfnStreamOutput: PFNCryptStreamOutputCallbackEx,
     pub pvCallbackCtxt: *mut core::ffi::c_void,
 }
-impl Copy for NCRYPT_PROTECT_STREAM_INFO_EX {}
-impl Clone for NCRYPT_PROTECT_STREAM_INFO_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type NCRYPT_PROV_HANDLE = usize;
 pub type NCRYPT_SECRET_HANDLE = usize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NCRYPT_SUPPORTED_LENGTHS {
     pub dwMinLength: u32,
     pub dwMaxLength: u32,
     pub dwIncrement: u32,
     pub dwDefaultLength: u32,
 }
-impl Copy for NCRYPT_SUPPORTED_LENGTHS {}
-impl Clone for NCRYPT_SUPPORTED_LENGTHS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
     pub magic: u32,
     pub cbHeader: u32,
@@ -8754,13 +6900,8 @@ pub struct NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
     pub cbPrivate: u32,
     pub cbName: u32,
 }
-impl Copy for NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {}
-impl Clone for NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
     pub Magic: u32,
     pub Version: u32,
@@ -8769,13 +6910,8 @@ pub struct NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
     pub cbQuote: u32,
     pub cbPcrs: u32,
 }
-impl Copy for NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {}
-impl Clone for NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NCRYPT_UI_POLICY {
     pub dwVersion: u32,
     pub dwFlags: u32,
@@ -8783,13 +6919,8 @@ pub struct NCRYPT_UI_POLICY {
     pub pszFriendlyName: windows_sys::core::PCWSTR,
     pub pszDescription: windows_sys::core::PCWSTR,
 }
-impl Copy for NCRYPT_UI_POLICY {}
-impl Clone for NCRYPT_UI_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {
     pub Version: u32,
     pub TrustletId: u64,
@@ -8798,13 +6929,8 @@ pub struct NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {
     pub FlagsExpected: u32,
     pub _bitfield: u32,
 }
-impl Copy for NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {}
-impl Clone for NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {
     pub Magic: u32,
     pub Version: u32,
@@ -8812,50 +6938,30 @@ pub struct NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {
     pub cbReport: u32,
     pub cbAttributes: u32,
 }
-impl Copy for NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {}
-impl Clone for NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NCryptAlgorithmName {
     pub pszName: windows_sys::core::PWSTR,
     pub dwClass: NCRYPT_ALGORITHM_NAME_CLASS,
     pub dwAlgOperations: NCRYPT_OPERATION,
     pub dwFlags: u32,
 }
-impl Copy for NCryptAlgorithmName {}
-impl Clone for NCryptAlgorithmName {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NCryptKeyName {
     pub pszName: windows_sys::core::PWSTR,
     pub pszAlgid: windows_sys::core::PWSTR,
     pub dwLegacyKeySpec: CERT_KEY_SPEC,
     pub dwFlags: u32,
 }
-impl Copy for NCryptKeyName {}
-impl Clone for NCryptKeyName {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NCryptProviderName {
     pub pszName: windows_sys::core::PWSTR,
     pub pszComment: windows_sys::core::PWSTR,
 }
-impl Copy for NCryptProviderName {}
-impl Clone for NCryptProviderName {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OCSP_BASIC_RESPONSE_ENTRY {
     pub CertId: OCSP_CERT_ID,
     pub dwCertStatus: u32,
@@ -8865,23 +6971,13 @@ pub struct OCSP_BASIC_RESPONSE_ENTRY {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-impl Copy for OCSP_BASIC_RESPONSE_ENTRY {}
-impl Clone for OCSP_BASIC_RESPONSE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union OCSP_BASIC_RESPONSE_ENTRY_0 {
     pub pRevokedInfo: *mut OCSP_BASIC_REVOKED_INFO,
 }
-impl Copy for OCSP_BASIC_RESPONSE_ENTRY_0 {}
-impl Clone for OCSP_BASIC_RESPONSE_ENTRY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OCSP_BASIC_RESPONSE_INFO {
     pub dwVersion: u32,
     pub dwResponderIdChoice: u32,
@@ -8892,71 +6988,41 @@ pub struct OCSP_BASIC_RESPONSE_INFO {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-impl Copy for OCSP_BASIC_RESPONSE_INFO {}
-impl Clone for OCSP_BASIC_RESPONSE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union OCSP_BASIC_RESPONSE_INFO_0 {
     pub ByNameResponderId: CRYPT_INTEGER_BLOB,
     pub ByKeyResponderId: CRYPT_INTEGER_BLOB,
 }
-impl Copy for OCSP_BASIC_RESPONSE_INFO_0 {}
-impl Clone for OCSP_BASIC_RESPONSE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OCSP_BASIC_REVOKED_INFO {
     pub RevocationDate: super::super::Foundation::FILETIME,
     pub dwCrlReasonCode: CERT_REVOCATION_STATUS_REASON,
 }
-impl Copy for OCSP_BASIC_REVOKED_INFO {}
-impl Clone for OCSP_BASIC_REVOKED_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OCSP_BASIC_SIGNED_RESPONSE_INFO {
     pub ToBeSigned: CRYPT_INTEGER_BLOB,
     pub SignatureInfo: OCSP_SIGNATURE_INFO,
 }
-impl Copy for OCSP_BASIC_SIGNED_RESPONSE_INFO {}
-impl Clone for OCSP_BASIC_SIGNED_RESPONSE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OCSP_CERT_ID {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub IssuerNameHash: CRYPT_INTEGER_BLOB,
     pub IssuerKeyHash: CRYPT_INTEGER_BLOB,
     pub SerialNumber: CRYPT_INTEGER_BLOB,
 }
-impl Copy for OCSP_CERT_ID {}
-impl Clone for OCSP_CERT_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OCSP_REQUEST_ENTRY {
     pub CertId: OCSP_CERT_ID,
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-impl Copy for OCSP_REQUEST_ENTRY {}
-impl Clone for OCSP_REQUEST_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OCSP_REQUEST_INFO {
     pub dwVersion: u32,
     pub pRequestorName: *mut CERT_ALT_NAME_ENTRY,
@@ -8965,61 +7031,36 @@ pub struct OCSP_REQUEST_INFO {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-impl Copy for OCSP_REQUEST_INFO {}
-impl Clone for OCSP_REQUEST_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OCSP_RESPONSE_INFO {
     pub dwStatus: u32,
     pub pszObjId: windows_sys::core::PSTR,
     pub Value: CRYPT_INTEGER_BLOB,
 }
-impl Copy for OCSP_RESPONSE_INFO {}
-impl Clone for OCSP_RESPONSE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OCSP_SIGNATURE_INFO {
     pub SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub Signature: CRYPT_BIT_BLOB,
     pub cCertEncoded: u32,
     pub rgCertEncoded: *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for OCSP_SIGNATURE_INFO {}
-impl Clone for OCSP_SIGNATURE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OCSP_SIGNED_REQUEST_INFO {
     pub ToBeSigned: CRYPT_INTEGER_BLOB,
     pub pOptionalSignatureInfo: *mut OCSP_SIGNATURE_INFO,
 }
-impl Copy for OCSP_SIGNED_REQUEST_INFO {}
-impl Clone for OCSP_SIGNED_REQUEST_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PKCS12_PBES2_EXPORT_PARAMS {
     pub dwSize: u32,
     pub hNcryptDescriptor: *mut core::ffi::c_void,
     pub pwszPbes2Alg: windows_sys::core::PWSTR,
 }
-impl Copy for PKCS12_PBES2_EXPORT_PARAMS {}
-impl Clone for PKCS12_PBES2_EXPORT_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POLICY_ELEMENT {
     pub targetEndpointAddress: windows_sys::core::PCWSTR,
     pub issuerEndpointAddress: windows_sys::core::PCWSTR,
@@ -9028,13 +7069,8 @@ pub struct POLICY_ELEMENT {
     pub privacyNoticeVersion: u32,
     pub useManagedPresentation: super::super::Foundation::BOOL,
 }
-impl Copy for POLICY_ELEMENT {}
-impl Clone for POLICY_ELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRIVKEYVER3 {
     pub magic: u32,
     pub bitlenP: u32,
@@ -9043,26 +7079,16 @@ pub struct PRIVKEYVER3 {
     pub bitlenX: u32,
     pub DSSSeed: DSSSEED,
 }
-impl Copy for PRIVKEYVER3 {}
-impl Clone for PRIVKEYVER3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROV_ENUMALGS {
     pub aiAlgid: ALG_ID,
     pub dwBitLen: u32,
     pub dwNameLen: u32,
     pub szName: [i8; 20],
 }
-impl Copy for PROV_ENUMALGS {}
-impl Clone for PROV_ENUMALGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROV_ENUMALGS_EX {
     pub aiAlgid: ALG_ID,
     pub dwDefaultLen: u32,
@@ -9074,24 +7100,14 @@ pub struct PROV_ENUMALGS_EX {
     pub dwLongNameLen: u32,
     pub szLongName: [i8; 40],
 }
-impl Copy for PROV_ENUMALGS_EX {}
-impl Clone for PROV_ENUMALGS_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PUBKEY {
     pub magic: u32,
     pub bitlen: u32,
 }
-impl Copy for PUBKEY {}
-impl Clone for PUBKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PUBKEYVER3 {
     pub magic: u32,
     pub bitlenP: u32,
@@ -9099,26 +7115,16 @@ pub struct PUBKEYVER3 {
     pub bitlenJ: u32,
     pub DSSSeed: DSSSEED,
 }
-impl Copy for PUBKEYVER3 {}
-impl Clone for PUBKEYVER3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PUBLICKEYSTRUC {
     pub bType: u8,
     pub bVersion: u8,
     pub reserved: u16,
     pub aiKeyAlg: ALG_ID,
 }
-impl Copy for PUBLICKEYSTRUC {}
-impl Clone for PUBLICKEYSTRUC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RECIPIENTPOLICY {
     pub recipient: ENDPOINTADDRESS,
     pub issuer: ENDPOINTADDRESS,
@@ -9128,13 +7134,8 @@ pub struct RECIPIENTPOLICY {
     pub privacyUrl: windows_sys::core::PCWSTR,
     pub privacyVersion: u32,
 }
-impl Copy for RECIPIENTPOLICY {}
-impl Clone for RECIPIENTPOLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RECIPIENTPOLICY2 {
     pub recipient: ENDPOINTADDRESS2,
     pub issuer: ENDPOINTADDRESS2,
@@ -9144,36 +7145,21 @@ pub struct RECIPIENTPOLICY2 {
     pub privacyUrl: windows_sys::core::PCWSTR,
     pub privacyVersion: u32,
 }
-impl Copy for RECIPIENTPOLICY2 {}
-impl Clone for RECIPIENTPOLICY2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ROOT_INFO_LUID {
     pub LowPart: u32,
     pub HighPart: i32,
 }
-impl Copy for ROOT_INFO_LUID {}
-impl Clone for ROOT_INFO_LUID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RSAPUBKEY {
     pub magic: u32,
     pub bitlen: u32,
     pub pubexp: u32,
 }
-impl Copy for RSAPUBKEY {}
-impl Clone for RSAPUBKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCHANNEL_ALG {
     pub dwUse: u32,
     pub Algid: ALG_ID,
@@ -9181,13 +7167,8 @@ pub struct SCHANNEL_ALG {
     pub dwFlags: u32,
     pub dwReserved: u32,
 }
-impl Copy for SCHANNEL_ALG {}
-impl Clone for SCHANNEL_ALG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SIGNER_ATTR_AUTHCODE {
     pub cbSize: u32,
     pub fCommercial: super::super::Foundation::BOOL,
@@ -9195,13 +7176,8 @@ pub struct SIGNER_ATTR_AUTHCODE {
     pub pwszName: windows_sys::core::PCWSTR,
     pub pwszInfo: windows_sys::core::PCWSTR,
 }
-impl Copy for SIGNER_ATTR_AUTHCODE {}
-impl Clone for SIGNER_ATTR_AUTHCODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SIGNER_BLOB_INFO {
     pub cbSize: u32,
     pub pGuidSubject: *mut windows_sys::core::GUID,
@@ -9209,63 +7185,38 @@ pub struct SIGNER_BLOB_INFO {
     pub pbBlob: *mut u8,
     pub pwszDisplayName: windows_sys::core::PCWSTR,
 }
-impl Copy for SIGNER_BLOB_INFO {}
-impl Clone for SIGNER_BLOB_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SIGNER_CERT {
     pub cbSize: u32,
     pub dwCertChoice: SIGNER_CERT_CHOICE,
     pub Anonymous: SIGNER_CERT_0,
     pub hwnd: super::super::Foundation::HWND,
 }
-impl Copy for SIGNER_CERT {}
-impl Clone for SIGNER_CERT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SIGNER_CERT_0 {
     pub pwszSpcFile: windows_sys::core::PCWSTR,
     pub pCertStoreInfo: *mut SIGNER_CERT_STORE_INFO,
     pub pSpcChainInfo: *mut SIGNER_SPC_CHAIN_INFO,
 }
-impl Copy for SIGNER_CERT_0 {}
-impl Clone for SIGNER_CERT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SIGNER_CERT_STORE_INFO {
     pub cbSize: u32,
     pub pSigningCert: *const CERT_CONTEXT,
     pub dwCertPolicy: SIGNER_CERT_POLICY,
     pub hCertStore: HCERTSTORE,
 }
-impl Copy for SIGNER_CERT_STORE_INFO {}
-impl Clone for SIGNER_CERT_STORE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SIGNER_CONTEXT {
     pub cbSize: u32,
     pub cbBlob: u32,
     pub pbBlob: *mut u8,
 }
-impl Copy for SIGNER_CONTEXT {}
-impl Clone for SIGNER_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SIGNER_DIGEST_SIGN_INFO {
     pub cbSize: u32,
     pub dwDigestSignChoice: u32,
@@ -9275,63 +7226,38 @@ pub struct SIGNER_DIGEST_SIGN_INFO {
     pub dwReserved2: u32,
     pub dwReserved3: u32,
 }
-impl Copy for SIGNER_DIGEST_SIGN_INFO {}
-impl Clone for SIGNER_DIGEST_SIGN_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SIGNER_DIGEST_SIGN_INFO_0 {
     pub pfnAuthenticodeDigestSign: PFN_AUTHENTICODE_DIGEST_SIGN,
     pub pfnAuthenticodeDigestSignWithFileHandle: PFN_AUTHENTICODE_DIGEST_SIGN_WITHFILEHANDLE,
     pub pfnAuthenticodeDigestSignEx: PFN_AUTHENTICODE_DIGEST_SIGN_EX,
     pub pfnAuthenticodeDigestSignExWithFileHandle: PFN_AUTHENTICODE_DIGEST_SIGN_EX_WITHFILEHANDLE,
 }
-impl Copy for SIGNER_DIGEST_SIGN_INFO_0 {}
-impl Clone for SIGNER_DIGEST_SIGN_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SIGNER_DIGEST_SIGN_INFO_V1 {
     pub cbSize: u32,
     pub pfnAuthenticodeDigestSign: PFN_AUTHENTICODE_DIGEST_SIGN,
     pub pMetadataBlob: *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for SIGNER_DIGEST_SIGN_INFO_V1 {}
-impl Clone for SIGNER_DIGEST_SIGN_INFO_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SIGNER_DIGEST_SIGN_INFO_V2 {
     pub cbSize: u32,
     pub pfnAuthenticodeDigestSign: PFN_AUTHENTICODE_DIGEST_SIGN,
     pub pfnAuthenticodeDigestSignEx: PFN_AUTHENTICODE_DIGEST_SIGN_EX,
     pub pMetadataBlob: *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for SIGNER_DIGEST_SIGN_INFO_V2 {}
-impl Clone for SIGNER_DIGEST_SIGN_INFO_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SIGNER_FILE_INFO {
     pub cbSize: u32,
     pub pwszFileName: windows_sys::core::PCWSTR,
     pub hFile: super::super::Foundation::HANDLE,
 }
-impl Copy for SIGNER_FILE_INFO {}
-impl Clone for SIGNER_FILE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SIGNER_PROVIDER_INFO {
     pub cbSize: u32,
     pub pwszProviderName: windows_sys::core::PCWSTR,
@@ -9340,24 +7266,14 @@ pub struct SIGNER_PROVIDER_INFO {
     pub dwPvkChoice: SIGNER_PRIVATE_KEY_CHOICE,
     pub Anonymous: SIGNER_PROVIDER_INFO_0,
 }
-impl Copy for SIGNER_PROVIDER_INFO {}
-impl Clone for SIGNER_PROVIDER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SIGNER_PROVIDER_INFO_0 {
     pub pwszPvkFileName: windows_sys::core::PWSTR,
     pub pwszKeyContainer: windows_sys::core::PWSTR,
 }
-impl Copy for SIGNER_PROVIDER_INFO_0 {}
-impl Clone for SIGNER_PROVIDER_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SIGNER_SIGNATURE_INFO {
     pub cbSize: u32,
     pub algidHash: ALG_ID,
@@ -9366,71 +7282,41 @@ pub struct SIGNER_SIGNATURE_INFO {
     pub psAuthenticated: *mut CRYPT_ATTRIBUTES,
     pub psUnauthenticated: *mut CRYPT_ATTRIBUTES,
 }
-impl Copy for SIGNER_SIGNATURE_INFO {}
-impl Clone for SIGNER_SIGNATURE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SIGNER_SIGNATURE_INFO_0 {
     pub pAttrAuthcode: *mut SIGNER_ATTR_AUTHCODE,
 }
-impl Copy for SIGNER_SIGNATURE_INFO_0 {}
-impl Clone for SIGNER_SIGNATURE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SIGNER_SPC_CHAIN_INFO {
     pub cbSize: u32,
     pub pwszSpcFile: windows_sys::core::PCWSTR,
     pub dwCertPolicy: u32,
     pub hCertStore: HCERTSTORE,
 }
-impl Copy for SIGNER_SPC_CHAIN_INFO {}
-impl Clone for SIGNER_SPC_CHAIN_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SIGNER_SUBJECT_INFO {
     pub cbSize: u32,
     pub pdwIndex: *mut u32,
     pub dwSubjectChoice: SIGNER_SUBJECT_CHOICE,
     pub Anonymous: SIGNER_SUBJECT_INFO_0,
 }
-impl Copy for SIGNER_SUBJECT_INFO {}
-impl Clone for SIGNER_SUBJECT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SIGNER_SUBJECT_INFO_0 {
     pub pSignerFileInfo: *mut SIGNER_FILE_INFO,
     pub pSignerBlobInfo: *mut SIGNER_BLOB_INFO,
 }
-impl Copy for SIGNER_SUBJECT_INFO_0 {}
-impl Clone for SIGNER_SUBJECT_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SSL_ECCKEY_BLOB {
     pub dwCurveType: u32,
     pub cbKey: u32,
 }
-impl Copy for SSL_ECCKEY_BLOB {}
-impl Clone for SSL_ECCKEY_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub dwErrorLevel: u32,
@@ -9438,48 +7324,27 @@ pub struct SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
     pub dwReserved: u32,
     pub wszErrorText: [u16; 256],
 }
-impl Copy for SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {}
-impl Clone for SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwReserved: u32,
     pub pwszServerName: windows_sys::core::PWSTR,
     pub rgpszHpkpValue: [windows_sys::core::PSTR; 2],
 }
-impl Copy for SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {}
-impl Clone for SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwReserved: u32,
     pub pwszServerName: windows_sys::core::PCWSTR,
 }
-impl Copy for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {}
-impl Clone for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub lError: i32,
     pub wszErrorText: [u16; 512],
-}
-impl Copy for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {}
-impl Clone for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type CryptXmlDllCloseDigest = Option<unsafe extern "system" fn(hdigest: *const core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub type CryptXmlDllCreateDigest = Option<unsafe extern "system" fn(pdigestmethod: *const CRYPT_XML_ALGORITHM, pcbsize: *mut u32, phdigest: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;

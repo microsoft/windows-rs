@@ -253,78 +253,48 @@ pub type PackageInfo3Type = i32;
 pub type PackageOrigin = i32;
 pub type PackagePathType = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct APPX_ENCRYPTED_EXEMPTIONS {
     pub count: u32,
     pub plainTextFiles: *const windows_sys::core::PCWSTR,
 }
-impl Copy for APPX_ENCRYPTED_EXEMPTIONS {}
-impl Clone for APPX_ENCRYPTED_EXEMPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
     pub keyLength: u32,
     pub encryptionAlgorithm: windows_sys::core::PCWSTR,
     pub useDiffusion: super::super::super::Foundation::BOOL,
     pub blockMapHashAlgorithm: *mut core::ffi::c_void,
 }
-impl Copy for APPX_ENCRYPTED_PACKAGE_SETTINGS {}
-impl Clone for APPX_ENCRYPTED_PACKAGE_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     pub keyLength: u32,
     pub encryptionAlgorithm: windows_sys::core::PCWSTR,
     pub blockMapHashAlgorithm: *mut core::ffi::c_void,
     pub options: u32,
 }
-impl Copy for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {}
-impl Clone for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct APPX_KEY_INFO {
     pub keyLength: u32,
     pub keyIdLength: u32,
     pub key: *mut u8,
     pub keyId: *mut u8,
 }
-impl Copy for APPX_KEY_INFO {}
-impl Clone for APPX_KEY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct APPX_PACKAGE_SETTINGS {
     pub forceZip32: super::super::super::Foundation::BOOL,
     pub hashMethod: *mut core::ffi::c_void,
 }
-impl Copy for APPX_PACKAGE_SETTINGS {}
-impl Clone for APPX_PACKAGE_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     pub inputStream: *mut core::ffi::c_void,
     pub fileName: windows_sys::core::PCWSTR,
     pub contentType: windows_sys::core::PCWSTR,
     pub compressionOption: APPX_COMPRESSION_OPTION,
-}
-impl Copy for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {}
-impl Clone for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const AppxBundleFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x378e0446_5384_43b7_8877_e7dbdd883446);
 pub const AppxEncryptionFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdc664fdd_d868_46ee_8780_8d196cb739f7);
@@ -334,6 +304,7 @@ pub const AppxPackagingDiagnosticEventSinkManager: windows_sys::core::GUID = win
 pub type PACKAGEDEPENDENCY_CONTEXT = isize;
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct PACKAGE_ID {
     pub reserved: u32,
     pub processorArchitecture: u32,
@@ -342,17 +313,10 @@ pub struct PACKAGE_ID {
     pub publisher: windows_sys::core::PWSTR,
     pub resourceId: windows_sys::core::PWSTR,
     pub publisherId: windows_sys::core::PWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for PACKAGE_ID {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for PACKAGE_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct PACKAGE_ID {
     pub reserved: u32,
     pub processorArchitecture: u32,
@@ -361,17 +325,10 @@ pub struct PACKAGE_ID {
     pub publisher: windows_sys::core::PWSTR,
     pub resourceId: windows_sys::core::PWSTR,
     pub publisherId: windows_sys::core::PWSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for PACKAGE_ID {}
-#[cfg(target_arch = "x86")]
-impl Clone for PACKAGE_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct PACKAGE_INFO {
     pub reserved: u32,
     pub flags: u32,
@@ -380,16 +337,9 @@ pub struct PACKAGE_INFO {
     pub packageFamilyName: windows_sys::core::PWSTR,
     pub packageId: PACKAGE_ID,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for PACKAGE_INFO {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for PACKAGE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct PACKAGE_INFO {
     pub reserved: u32,
     pub flags: u32,
@@ -398,56 +348,28 @@ pub struct PACKAGE_INFO {
     pub packageFamilyName: windows_sys::core::PWSTR,
     pub packageId: PACKAGE_ID,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for PACKAGE_INFO {}
-#[cfg(target_arch = "x86")]
-impl Clone for PACKAGE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PACKAGE_VERSION {
     pub Anonymous: PACKAGE_VERSION_0,
 }
-impl Copy for PACKAGE_VERSION {}
-impl Clone for PACKAGE_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub union PACKAGE_VERSION_0 {
     pub Version: u64,
     pub Anonymous: PACKAGE_VERSION_0_0,
 }
-impl Copy for PACKAGE_VERSION_0 {}
-impl Clone for PACKAGE_VERSION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PACKAGE_VERSION_0_0 {
     pub Revision: u16,
     pub Build: u16,
     pub Minor: u16,
     pub Major: u16,
 }
-impl Copy for PACKAGE_VERSION_0_0 {}
-impl Clone for PACKAGE_VERSION_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _PACKAGE_INFO_REFERENCE {
     pub reserved: *mut core::ffi::c_void,
-}
-impl Copy for _PACKAGE_INFO_REFERENCE {}
-impl Clone for _PACKAGE_INFO_REFERENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

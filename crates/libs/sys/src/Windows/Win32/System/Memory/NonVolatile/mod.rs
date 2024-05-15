@@ -13,13 +13,8 @@ windows_targets::link!("ntdll.dll" "system" fn RtlGetNonVolatileToken(nvbuffer :
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_targets::link!("ntdll.dll" "system" fn RtlWriteNonVolatileMemory(nvtoken : *const core::ffi::c_void, nvdestination : *mut core::ffi::c_void, source : *const core::ffi::c_void, size : usize, flags : u32) -> u32);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NV_MEMORY_RANGE {
     pub BaseAddress: *mut core::ffi::c_void,
     pub Length: usize,
-}
-impl Copy for NV_MEMORY_RANGE {}
-impl Clone for NV_MEMORY_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

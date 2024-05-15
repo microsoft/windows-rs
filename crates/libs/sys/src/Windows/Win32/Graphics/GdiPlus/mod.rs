@@ -1721,6 +1721,7 @@ pub type WarpMode = i32;
 pub type WrapMode = i32;
 pub type Bitmap = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BitmapData {
     pub Width: u32,
     pub Height: u32,
@@ -1729,68 +1730,38 @@ pub struct BitmapData {
     pub Scan0: *mut core::ffi::c_void,
     pub Reserved: usize,
 }
-impl Copy for BitmapData {}
-impl Clone for BitmapData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct Blur {
     pub Base: Effect,
 }
-impl Copy for Blur {}
-impl Clone for Blur {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BlurParams {
     pub radius: f32,
     pub expandEdge: super::super::Foundation::BOOL,
 }
-impl Copy for BlurParams {}
-impl Clone for BlurParams {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BrightnessContrast {
     pub Base: Effect,
 }
-impl Copy for BrightnessContrast {}
-impl Clone for BrightnessContrast {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BrightnessContrastParams {
     pub brightnessLevel: i32,
     pub contrastLevel: i32,
 }
-impl Copy for BrightnessContrastParams {}
-impl Clone for BrightnessContrastParams {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type CGpEffect = isize;
 pub type CachedBitmap = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CharacterRange {
     pub First: i32,
     pub Length: i32,
 }
-impl Copy for CharacterRange {}
-impl Clone for CharacterRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct Color {
     pub Argb: u32,
 }
@@ -1945,124 +1916,69 @@ impl Color {
     pub const GreenMask: i32 = 65280i32;
     pub const BlueMask: i32 = 255i32;
 }
-impl Copy for Color {}
-impl Clone for Color {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ColorBalance {
     pub Base: Effect,
 }
-impl Copy for ColorBalance {}
-impl Clone for ColorBalance {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ColorBalanceParams {
     pub cyanRed: i32,
     pub magentaGreen: i32,
     pub yellowBlue: i32,
 }
-impl Copy for ColorBalanceParams {}
-impl Clone for ColorBalanceParams {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ColorCurve {
     pub Base: Effect,
 }
-impl Copy for ColorCurve {}
-impl Clone for ColorCurve {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ColorCurveParams {
     pub adjustment: CurveAdjustments,
     pub channel: CurveChannel,
     pub adjustValue: i32,
 }
-impl Copy for ColorCurveParams {}
-impl Clone for ColorCurveParams {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ColorLUT {
     pub Base: Effect,
 }
-impl Copy for ColorLUT {}
-impl Clone for ColorLUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ColorLUTParams {
     pub lutB: [u8; 256],
     pub lutG: [u8; 256],
     pub lutR: [u8; 256],
     pub lutA: [u8; 256],
 }
-impl Copy for ColorLUTParams {}
-impl Clone for ColorLUTParams {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ColorMap {
     pub oldColor: Color,
     pub newColor: Color,
 }
-impl Copy for ColorMap {}
-impl Clone for ColorMap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ColorMatrix {
     pub m: [f32; 25],
 }
-impl Copy for ColorMatrix {}
-impl Clone for ColorMatrix {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ColorMatrixEffect {
     pub Base: Effect,
 }
-impl Copy for ColorMatrixEffect {}
-impl Clone for ColorMatrixEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ColorPalette {
     pub Flags: u32,
     pub Count: u32,
     pub Entries: [u32; 1],
 }
-impl Copy for ColorPalette {}
-impl Clone for ColorPalette {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type CustomLineCap = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ENHMETAHEADER3 {
     pub iType: u32,
     pub nSize: u32,
@@ -2080,13 +1996,8 @@ pub struct ENHMETAHEADER3 {
     pub szlDevice: super::super::Foundation::SIZE,
     pub szlMillimeters: super::super::Foundation::SIZE,
 }
-impl Copy for ENHMETAHEADER3 {}
-impl Clone for ENHMETAHEADER3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct Effect {
     pub lpVtbl: *mut *mut core::ffi::c_void,
     pub nativeEffect: *mut CGpEffect,
@@ -2094,73 +2005,42 @@ pub struct Effect {
     pub auxData: *mut core::ffi::c_void,
     pub useAuxData: super::super::Foundation::BOOL,
 }
-impl Copy for Effect {}
-impl Clone for Effect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EncoderParameter {
     pub Guid: windows_sys::core::GUID,
     pub NumberOfValues: u32,
     pub Type: u32,
     pub Value: *mut core::ffi::c_void,
 }
-impl Copy for EncoderParameter {}
-impl Clone for EncoderParameter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EncoderParameters {
     pub Count: u32,
     pub Parameter: [EncoderParameter; 1],
-}
-impl Copy for EncoderParameters {}
-impl Clone for EncoderParameters {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type Font = isize;
 pub type FontCollection = isize;
 pub type FontFamily = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GdiplusStartupInput {
     pub GdiplusVersion: u32,
     pub DebugEventCallback: isize,
     pub SuppressBackgroundThread: super::super::Foundation::BOOL,
     pub SuppressExternalCodecs: super::super::Foundation::BOOL,
 }
-impl Copy for GdiplusStartupInput {}
-impl Clone for GdiplusStartupInput {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GdiplusStartupInputEx {
     pub Base: GdiplusStartupInput,
     pub StartupParameters: i32,
 }
-impl Copy for GdiplusStartupInputEx {}
-impl Clone for GdiplusStartupInputEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GdiplusStartupOutput {
     pub NotificationHook: isize,
     pub NotificationUnhook: isize,
-}
-impl Copy for GdiplusStartupOutput {}
-impl Clone for GdiplusStartupOutput {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type GpAdjustableArrowCap = isize;
 pub type GpBitmap = isize;
@@ -2187,29 +2067,20 @@ pub type GpSolidFill = isize;
 pub type GpStringFormat = isize;
 pub type GpTexture = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HueSaturationLightness {
     pub Base: Effect,
 }
-impl Copy for HueSaturationLightness {}
-impl Clone for HueSaturationLightness {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HueSaturationLightnessParams {
     pub hueLevel: i32,
     pub saturationLevel: i32,
     pub lightnessLevel: i32,
 }
-impl Copy for HueSaturationLightnessParams {}
-impl Clone for HueSaturationLightnessParams {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type Image = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ImageCodecInfo {
     pub Clsid: windows_sys::core::GUID,
     pub FormatID: windows_sys::core::GUID,
@@ -2225,13 +2096,8 @@ pub struct ImageCodecInfo {
     pub SigPattern: *const u8,
     pub SigMask: *const u8,
 }
-impl Copy for ImageCodecInfo {}
-impl Clone for ImageCodecInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ImageItemData {
     pub Size: u32,
     pub Position: u32,
@@ -2241,39 +2107,24 @@ pub struct ImageItemData {
     pub DataSize: u32,
     pub Cookie: u32,
 }
-impl Copy for ImageItemData {}
-impl Clone for ImageItemData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type InstalledFontCollection = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct Levels {
     pub Base: Effect,
 }
-impl Copy for Levels {}
-impl Clone for Levels {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LevelsParams {
     pub highlight: i32,
     pub midtone: i32,
     pub shadow: i32,
 }
-impl Copy for LevelsParams {}
-impl Clone for LevelsParams {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type Matrix = isize;
 pub type Metafile = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct MetafileHeader {
     pub Type: MetafileType,
     pub Size: u32,
@@ -2290,191 +2141,107 @@ pub struct MetafileHeader {
     pub LogicalDpiX: i32,
     pub LogicalDpiY: i32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for MetafileHeader {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for MetafileHeader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub union MetafileHeader_0 {
     pub WmfHeader: super::Gdi::METAHEADER,
     pub EmfHeader: ENHMETAHEADER3,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for MetafileHeader_0 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for MetafileHeader_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PWMFRect16 {
     pub Left: i16,
     pub Top: i16,
     pub Right: i16,
     pub Bottom: i16,
 }
-impl Copy for PWMFRect16 {}
-impl Clone for PWMFRect16 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type PathData = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct Point {
     pub X: i32,
     pub Y: i32,
 }
-impl Copy for Point {}
-impl Clone for Point {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PointF {
     pub X: f32,
     pub Y: f32,
 }
-impl Copy for PointF {}
-impl Clone for PointF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type PrivateFontCollection = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PropertyItem {
     pub id: u32,
     pub length: u32,
     pub r#type: u16,
     pub value: *mut core::ffi::c_void,
 }
-impl Copy for PropertyItem {}
-impl Clone for PropertyItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct Rect {
     pub X: i32,
     pub Y: i32,
     pub Width: i32,
     pub Height: i32,
 }
-impl Copy for Rect {}
-impl Clone for Rect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RectF {
     pub X: f32,
     pub Y: f32,
     pub Width: f32,
     pub Height: f32,
 }
-impl Copy for RectF {}
-impl Clone for RectF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RedEyeCorrection {
     pub Base: Effect,
 }
-impl Copy for RedEyeCorrection {}
-impl Clone for RedEyeCorrection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RedEyeCorrectionParams {
     pub numberOfAreas: u32,
     pub areas: *mut super::super::Foundation::RECT,
 }
-impl Copy for RedEyeCorrectionParams {}
-impl Clone for RedEyeCorrectionParams {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type Region = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct Sharpen {
     pub Base: Effect,
 }
-impl Copy for Sharpen {}
-impl Clone for Sharpen {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SharpenParams {
     pub radius: f32,
     pub amount: f32,
 }
-impl Copy for SharpenParams {}
-impl Clone for SharpenParams {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct Size {
     pub Width: i32,
     pub Height: i32,
 }
-impl Copy for Size {}
-impl Clone for Size {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SizeF {
     pub Width: f32,
     pub Height: f32,
 }
-impl Copy for SizeF {}
-impl Clone for SizeF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct Tint {
     pub Base: Effect,
 }
-impl Copy for Tint {}
-impl Clone for Tint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TintParams {
     pub hue: i32,
     pub amount: i32,
 }
-impl Copy for TintParams {}
-impl Clone for TintParams {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct WmfPlaceableFileHeader {
     pub Key: u32,
     pub Hmf: i16,
@@ -2482,12 +2249,6 @@ pub struct WmfPlaceableFileHeader {
     pub Inch: i16,
     pub Reserved: u32,
     pub Checksum: i16,
-}
-impl Copy for WmfPlaceableFileHeader {}
-impl Clone for WmfPlaceableFileHeader {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type DebugEventProc = Option<unsafe extern "system" fn(level: DebugEventLevel, message: windows_sys::core::PCSTR)>;
 pub type DrawImageAbort = Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;

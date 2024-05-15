@@ -1933,18 +1933,14 @@ pub type TANALYZE_RETURN = i32;
 pub type TypeKind = i32;
 pub type VarArgsKind = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ArrayDimension {
     pub LowerBound: i64,
     pub Length: u64,
     pub Stride: u64,
 }
-impl Copy for ArrayDimension {}
-impl Clone for ArrayDimension {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BUSDATA {
     pub BusDataType: u32,
     pub BusNumber: u32,
@@ -1953,36 +1949,21 @@ pub struct BUSDATA {
     pub Offset: u32,
     pub Length: u32,
 }
-impl Copy for BUSDATA {}
-impl Clone for BUSDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CKCL_DATA {
     pub NextLogEvent: *mut core::ffi::c_void,
     pub TAnalyzeString: windows_sys::core::PSTR,
     pub TAnalyzeReturnType: TANALYZE_RETURN,
 }
-impl Copy for CKCL_DATA {}
-impl Clone for CKCL_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CKCL_LISTHEAD {
     pub LogEventListHead: *mut CKCL_DATA,
     pub Heap: super::super::super::super::Foundation::HANDLE,
 }
-impl Copy for CKCL_LISTHEAD {}
-impl Clone for CKCL_LISTHEAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CPU_INFO {
     pub Type: u32,
     pub NumCPUs: u32,
@@ -1990,13 +1971,8 @@ pub struct CPU_INFO {
     pub ProcInfo: [DEBUG_PROCESSOR_IDENTIFICATION_ALL; 2048],
     pub Mhz: u32,
 }
-impl Copy for CPU_INFO {}
-impl Clone for CPU_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CPU_INFO_v1 {
     pub Type: u32,
     pub NumCPUs: u32,
@@ -2004,13 +1980,8 @@ pub struct CPU_INFO_v1 {
     pub ProcInfo: [DEBUG_PROCESSOR_IDENTIFICATION_ALL; 32],
     pub Mhz: u32,
 }
-impl Copy for CPU_INFO_v1 {}
-impl Clone for CPU_INFO_v1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CPU_INFO_v2 {
     pub Type: u32,
     pub NumCPUs: u32,
@@ -2018,43 +1989,24 @@ pub struct CPU_INFO_v2 {
     pub ProcInfo: [DEBUG_PROCESSOR_IDENTIFICATION_ALL; 1280],
     pub Mhz: u32,
 }
-impl Copy for CPU_INFO_v2 {}
-impl Clone for CPU_INFO_v2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct DBGKD_DEBUG_DATA_HEADER32 {
     pub List: super::super::super::Kernel::LIST_ENTRY32,
     pub OwnerTag: u32,
     pub Size: u32,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for DBGKD_DEBUG_DATA_HEADER32 {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for DBGKD_DEBUG_DATA_HEADER32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct DBGKD_DEBUG_DATA_HEADER64 {
     pub List: super::super::super::Kernel::LIST_ENTRY64,
     pub OwnerTag: u32,
     pub Size: u32,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for DBGKD_DEBUG_DATA_HEADER64 {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for DBGKD_DEBUG_DATA_HEADER64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DBGKD_GET_VERSION32 {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
@@ -2071,13 +2023,8 @@ pub struct DBGKD_GET_VERSION32 {
     pub BreakpointWithStatus: u32,
     pub DebuggerDataList: u32,
 }
-impl Copy for DBGKD_GET_VERSION32 {}
-impl Clone for DBGKD_GET_VERSION32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DBGKD_GET_VERSION64 {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
@@ -2094,13 +2041,8 @@ pub struct DBGKD_GET_VERSION64 {
     pub PsLoadedModuleList: u64,
     pub DebuggerDataList: u64,
 }
-impl Copy for DBGKD_GET_VERSION64 {}
-impl Clone for DBGKD_GET_VERSION64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DBG_THREAD_ATTRIBUTES {
     pub ThreadIndex: u32,
     pub ProcessID: u64,
@@ -2114,13 +2056,8 @@ pub struct DBG_THREAD_ATTRIBUTES {
     pub StringData: [i8; 100],
     pub SymName: [i8; 100],
 }
-impl Copy for DBG_THREAD_ATTRIBUTES {}
-impl Clone for DBG_THREAD_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_ANALYSIS_PROCESSOR_INFO {
     pub SizeOfStruct: u32,
     pub Model: u32,
@@ -2138,13 +2075,8 @@ pub struct DEBUG_ANALYSIS_PROCESSOR_INFO {
     pub Version: [i8; 64],
     pub Description: [i8; 64],
 }
-impl Copy for DEBUG_ANALYSIS_PROCESSOR_INFO {}
-impl Clone for DEBUG_ANALYSIS_PROCESSOR_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_BREAKPOINT_PARAMETERS {
     pub Offset: u64,
     pub Id: u32,
@@ -2159,13 +2091,8 @@ pub struct DEBUG_BREAKPOINT_PARAMETERS {
     pub CommandSize: u32,
     pub OffsetExpressionSize: u32,
 }
-impl Copy for DEBUG_BREAKPOINT_PARAMETERS {}
-impl Clone for DEBUG_BREAKPOINT_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_CACHED_SYMBOL_INFO {
     pub ModBase: u64,
     pub Arg1: u64,
@@ -2173,24 +2100,14 @@ pub struct DEBUG_CACHED_SYMBOL_INFO {
     pub Id: u32,
     pub Arg3: u32,
 }
-impl Copy for DEBUG_CACHED_SYMBOL_INFO {}
-impl Clone for DEBUG_CACHED_SYMBOL_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_CLIENT_CONTEXT {
     pub cbSize: u32,
     pub eClient: u32,
 }
-impl Copy for DEBUG_CLIENT_CONTEXT {}
-impl Clone for DEBUG_CLIENT_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_CPU_MICROCODE_VERSION {
     pub SizeOfStruct: u32,
     pub CachedSignature: i64,
@@ -2200,39 +2117,24 @@ pub struct DEBUG_CPU_MICROCODE_VERSION {
     pub ProcessorStepping: u32,
     pub ProcessorArchRev: u32,
 }
-impl Copy for DEBUG_CPU_MICROCODE_VERSION {}
-impl Clone for DEBUG_CPU_MICROCODE_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_CPU_SPEED_INFO {
     pub SizeOfStruct: u32,
     pub CurrentSpeed: u32,
     pub RatedSpeed: u32,
     pub NameString: [u16; 256],
 }
-impl Copy for DEBUG_CPU_SPEED_INFO {}
-impl Clone for DEBUG_CPU_SPEED_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_CREATE_PROCESS_OPTIONS {
     pub CreateFlags: u32,
     pub EngCreateFlags: u32,
     pub VerifierFlags: u32,
     pub Reserved: u32,
 }
-impl Copy for DEBUG_CREATE_PROCESS_OPTIONS {}
-impl Clone for DEBUG_CREATE_PROCESS_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_DECODE_ERROR {
     pub SizeOfStruct: u32,
     pub Code: u32,
@@ -2240,13 +2142,8 @@ pub struct DEBUG_DECODE_ERROR {
     pub Source: [i8; 64],
     pub Message: [i8; 260],
 }
-impl Copy for DEBUG_DECODE_ERROR {}
-impl Clone for DEBUG_DECODE_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_DEVICE_OBJECT_INFO {
     pub SizeOfStruct: u32,
     pub DevObjAddress: u64,
@@ -2257,13 +2154,8 @@ pub struct DEBUG_DEVICE_OBJECT_INFO {
     pub DevExtension: u64,
     pub DevObjExtension: u64,
 }
-impl Copy for DEBUG_DEVICE_OBJECT_INFO {}
-impl Clone for DEBUG_DEVICE_OBJECT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_DRIVER_OBJECT_INFO {
     pub SizeOfStruct: u32,
     pub DriverSize: u32,
@@ -2273,38 +2165,23 @@ pub struct DEBUG_DRIVER_OBJECT_INFO {
     pub DeviceObject: u64,
     pub DriverName: DEBUG_DRIVER_OBJECT_INFO_0,
 }
-impl Copy for DEBUG_DRIVER_OBJECT_INFO {}
-impl Clone for DEBUG_DRIVER_OBJECT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_DRIVER_OBJECT_INFO_0 {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Buffer: u64,
 }
-impl Copy for DEBUG_DRIVER_OBJECT_INFO_0 {}
-impl Clone for DEBUG_DRIVER_OBJECT_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_EVENT_CONTEXT {
     pub Size: u32,
     pub ProcessEngineId: u32,
     pub ThreadEngineId: u32,
     pub FrameEngineId: u32,
 }
-impl Copy for DEBUG_EVENT_CONTEXT {}
-impl Clone for DEBUG_EVENT_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_EXCEPTION_FILTER_PARAMETERS {
     pub ExecutionOption: u32,
     pub ContinueOption: u32,
@@ -2313,25 +2190,15 @@ pub struct DEBUG_EXCEPTION_FILTER_PARAMETERS {
     pub SecondCommandSize: u32,
     pub ExceptionCode: u32,
 }
-impl Copy for DEBUG_EXCEPTION_FILTER_PARAMETERS {}
-impl Clone for DEBUG_EXCEPTION_FILTER_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_GET_TEXT_COMPLETIONS_IN {
     pub Flags: u32,
     pub MatchCountLimit: u32,
     pub Reserved: [u64; 3],
 }
-impl Copy for DEBUG_GET_TEXT_COMPLETIONS_IN {}
-impl Clone for DEBUG_GET_TEXT_COMPLETIONS_IN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_GET_TEXT_COMPLETIONS_OUT {
     pub Flags: u32,
     pub ReplaceIndex: u32,
@@ -2339,13 +2206,8 @@ pub struct DEBUG_GET_TEXT_COMPLETIONS_OUT {
     pub Reserved1: u32,
     pub Reserved2: [u64; 2],
 }
-impl Copy for DEBUG_GET_TEXT_COMPLETIONS_OUT {}
-impl Clone for DEBUG_GET_TEXT_COMPLETIONS_OUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_HANDLE_DATA_BASIC {
     pub TypeNameSize: u32,
     pub ObjectNameSize: u32,
@@ -2354,13 +2216,8 @@ pub struct DEBUG_HANDLE_DATA_BASIC {
     pub HandleCount: u32,
     pub PointerCount: u32,
 }
-impl Copy for DEBUG_HANDLE_DATA_BASIC {}
-impl Clone for DEBUG_HANDLE_DATA_BASIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_IRP_INFO {
     pub SizeOfStruct: u32,
     pub IrpAddress: u64,
@@ -2373,13 +2230,8 @@ pub struct DEBUG_IRP_INFO {
     pub CurrentStack: DEBUG_IRP_STACK_INFO,
     pub Stack: [DEBUG_IRP_STACK_INFO; 10],
 }
-impl Copy for DEBUG_IRP_INFO {}
-impl Clone for DEBUG_IRP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_IRP_STACK_INFO {
     pub Major: u8,
     pub Minor: u8,
@@ -2388,108 +2240,58 @@ pub struct DEBUG_IRP_STACK_INFO {
     pub CompletionRoutine: u64,
     pub StackAddress: u64,
 }
-impl Copy for DEBUG_IRP_STACK_INFO {}
-impl Clone for DEBUG_IRP_STACK_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_LAST_EVENT_INFO_BREAKPOINT {
     pub Id: u32,
 }
-impl Copy for DEBUG_LAST_EVENT_INFO_BREAKPOINT {}
-impl Clone for DEBUG_LAST_EVENT_INFO_BREAKPOINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_LAST_EVENT_INFO_EXCEPTION {
     pub ExceptionRecord: super::EXCEPTION_RECORD64,
     pub FirstChance: u32,
 }
-impl Copy for DEBUG_LAST_EVENT_INFO_EXCEPTION {}
-impl Clone for DEBUG_LAST_EVENT_INFO_EXCEPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_LAST_EVENT_INFO_EXIT_PROCESS {
     pub ExitCode: u32,
 }
-impl Copy for DEBUG_LAST_EVENT_INFO_EXIT_PROCESS {}
-impl Clone for DEBUG_LAST_EVENT_INFO_EXIT_PROCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_LAST_EVENT_INFO_EXIT_THREAD {
     pub ExitCode: u32,
 }
-impl Copy for DEBUG_LAST_EVENT_INFO_EXIT_THREAD {}
-impl Clone for DEBUG_LAST_EVENT_INFO_EXIT_THREAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_LAST_EVENT_INFO_LOAD_MODULE {
     pub Base: u64,
 }
-impl Copy for DEBUG_LAST_EVENT_INFO_LOAD_MODULE {}
-impl Clone for DEBUG_LAST_EVENT_INFO_LOAD_MODULE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION {
     pub Kind: u32,
     pub DataSize: u32,
     pub Address: u64,
 }
-impl Copy for DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION {}
-impl Clone for DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR {
     pub Error: u32,
     pub Level: u32,
 }
-impl Copy for DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR {}
-impl Clone for DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE {
     pub Base: u64,
 }
-impl Copy for DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE {}
-impl Clone for DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_MODULE_AND_ID {
     pub ModuleBase: u64,
     pub Id: u64,
 }
-impl Copy for DEBUG_MODULE_AND_ID {}
-impl Clone for DEBUG_MODULE_AND_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_MODULE_PARAMETERS {
     pub Base: u64,
     pub Size: u32,
@@ -2504,24 +2306,14 @@ pub struct DEBUG_MODULE_PARAMETERS {
     pub MappedImageNameSize: u32,
     pub Reserved: [u64; 2],
 }
-impl Copy for DEBUG_MODULE_PARAMETERS {}
-impl Clone for DEBUG_MODULE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_OFFSET_REGION {
     pub Base: u64,
     pub Size: u64,
 }
-impl Copy for DEBUG_OFFSET_REGION {}
-impl Clone for DEBUG_OFFSET_REGION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_PNP_TRIAGE_INFO {
     pub SizeOfStruct: u32,
     pub Lock_Address: u64,
@@ -2534,13 +2326,8 @@ pub struct DEBUG_PNP_TRIAGE_INFO {
     pub ThreadCount: i32,
     pub TriagedThread_WaitTime: u64,
 }
-impl Copy for DEBUG_PNP_TRIAGE_INFO {}
-impl Clone for DEBUG_PNP_TRIAGE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_POOLTAG_DESCRIPTION {
     pub SizeOfStruct: u32,
     pub PoolTag: u32,
@@ -2548,13 +2335,8 @@ pub struct DEBUG_POOLTAG_DESCRIPTION {
     pub Binary: [i8; 32],
     pub Owner: [i8; 32],
 }
-impl Copy for DEBUG_POOLTAG_DESCRIPTION {}
-impl Clone for DEBUG_POOLTAG_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_POOL_DATA {
     pub SizeofStruct: u32,
     pub PoolBlock: u64,
@@ -2567,34 +2349,19 @@ pub struct DEBUG_POOL_DATA {
     pub Reserved2: [u64; 4],
     pub PoolTagDescription: [i8; 64],
 }
-impl Copy for DEBUG_POOL_DATA {}
-impl Clone for DEBUG_POOL_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DEBUG_POOL_DATA_0 {
     pub Anonymous: DEBUG_POOL_DATA_0_0,
     pub AsUlong: u32,
 }
-impl Copy for DEBUG_POOL_DATA_0 {}
-impl Clone for DEBUG_POOL_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_POOL_DATA_0_0 {
     pub _bitfield: u32,
 }
-impl Copy for DEBUG_POOL_DATA_0_0 {}
-impl Clone for DEBUG_POOL_DATA_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DEBUG_PROCESSOR_IDENTIFICATION_ALL {
     pub Alpha: DEBUG_PROCESSOR_IDENTIFICATION_ALPHA,
     pub Amd64: DEBUG_PROCESSOR_IDENTIFICATION_AMD64,
@@ -2603,61 +2370,36 @@ pub union DEBUG_PROCESSOR_IDENTIFICATION_ALL {
     pub Arm: DEBUG_PROCESSOR_IDENTIFICATION_ARM,
     pub Arm64: DEBUG_PROCESSOR_IDENTIFICATION_ARM64,
 }
-impl Copy for DEBUG_PROCESSOR_IDENTIFICATION_ALL {}
-impl Clone for DEBUG_PROCESSOR_IDENTIFICATION_ALL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ALPHA {
     pub Type: u32,
     pub Revision: u32,
 }
-impl Copy for DEBUG_PROCESSOR_IDENTIFICATION_ALPHA {}
-impl Clone for DEBUG_PROCESSOR_IDENTIFICATION_ALPHA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
     pub Family: u32,
     pub Model: u32,
     pub Stepping: u32,
     pub VendorString: [i8; 16],
 }
-impl Copy for DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {}
-impl Clone for DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM {
     pub Model: u32,
     pub Revision: u32,
     pub VendorString: [i8; 16],
 }
-impl Copy for DEBUG_PROCESSOR_IDENTIFICATION_ARM {}
-impl Clone for DEBUG_PROCESSOR_IDENTIFICATION_ARM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
     pub Model: u32,
     pub Revision: u32,
     pub VendorString: [i8; 16],
 }
-impl Copy for DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {}
-impl Clone for DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
     pub Model: u32,
     pub Revision: u32,
@@ -2665,26 +2407,16 @@ pub struct DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
     pub ArchRev: u32,
     pub VendorString: [i8; 16],
 }
-impl Copy for DEBUG_PROCESSOR_IDENTIFICATION_IA64 {}
-impl Clone for DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_X86 {
     pub Family: u32,
     pub Model: u32,
     pub Stepping: u32,
     pub VendorString: [i8; 16],
 }
-impl Copy for DEBUG_PROCESSOR_IDENTIFICATION_X86 {}
-impl Clone for DEBUG_PROCESSOR_IDENTIFICATION_X86 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_READ_USER_MINIDUMP_STREAM {
     pub StreamType: u32,
     pub Flags: u32,
@@ -2693,13 +2425,8 @@ pub struct DEBUG_READ_USER_MINIDUMP_STREAM {
     pub BufferSize: u32,
     pub BufferUsed: u32,
 }
-impl Copy for DEBUG_READ_USER_MINIDUMP_STREAM {}
-impl Clone for DEBUG_READ_USER_MINIDUMP_STREAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_REGISTER_DESCRIPTION {
     pub Type: u32,
     pub Flags: u32,
@@ -2709,13 +2436,8 @@ pub struct DEBUG_REGISTER_DESCRIPTION {
     pub SubregShift: u32,
     pub Reserved0: u32,
 }
-impl Copy for DEBUG_REGISTER_DESCRIPTION {}
-impl Clone for DEBUG_REGISTER_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_SMBIOS_INFO {
     pub SizeOfStruct: u32,
     pub SmbiosMajorVersion: u8,
@@ -2738,13 +2460,8 @@ pub struct DEBUG_SMBIOS_INFO {
     pub SystemSKU: [i8; 64],
     pub SystemVersion: [i8; 64],
 }
-impl Copy for DEBUG_SMBIOS_INFO {}
-impl Clone for DEBUG_SMBIOS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_SPECIFIC_FILTER_PARAMETERS {
     pub ExecutionOption: u32,
     pub ContinueOption: u32,
@@ -2752,13 +2469,8 @@ pub struct DEBUG_SPECIFIC_FILTER_PARAMETERS {
     pub CommandSize: u32,
     pub ArgumentSize: u32,
 }
-impl Copy for DEBUG_SPECIFIC_FILTER_PARAMETERS {}
-impl Clone for DEBUG_SPECIFIC_FILTER_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_STACK_FRAME {
     pub InstructionOffset: u64,
     pub ReturnOffset: u64,
@@ -2770,13 +2482,8 @@ pub struct DEBUG_STACK_FRAME {
     pub Virtual: super::super::super::super::Foundation::BOOL,
     pub FrameNumber: u32,
 }
-impl Copy for DEBUG_STACK_FRAME {}
-impl Clone for DEBUG_STACK_FRAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_STACK_FRAME_EX {
     pub InstructionOffset: u64,
     pub ReturnOffset: u64,
@@ -2790,13 +2497,8 @@ pub struct DEBUG_STACK_FRAME_EX {
     pub InlineFrameContext: u32,
     pub Reserved1: u32,
 }
-impl Copy for DEBUG_STACK_FRAME_EX {}
-impl Clone for DEBUG_STACK_FRAME_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_SYMBOL_ENTRY {
     pub ModuleBase: u64,
     pub Offset: u64,
@@ -2811,13 +2513,8 @@ pub struct DEBUG_SYMBOL_ENTRY {
     pub Arg32: u32,
     pub Reserved: u32,
 }
-impl Copy for DEBUG_SYMBOL_ENTRY {}
-impl Clone for DEBUG_SYMBOL_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_SYMBOL_PARAMETERS {
     pub Module: u64,
     pub TypeId: u32,
@@ -2826,13 +2523,8 @@ pub struct DEBUG_SYMBOL_PARAMETERS {
     pub Flags: u32,
     pub Reserved: u64,
 }
-impl Copy for DEBUG_SYMBOL_PARAMETERS {}
-impl Clone for DEBUG_SYMBOL_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_SYMBOL_SOURCE_ENTRY {
     pub ModuleBase: u64,
     pub Offset: u64,
@@ -2847,13 +2539,8 @@ pub struct DEBUG_SYMBOL_SOURCE_ENTRY {
     pub EndColumn: u32,
     pub Reserved: u32,
 }
-impl Copy for DEBUG_SYMBOL_SOURCE_ENTRY {}
-impl Clone for DEBUG_SYMBOL_SOURCE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_THREAD_BASIC_INFORMATION {
     pub Valid: u32,
     pub ExitStatus: u32,
@@ -2866,25 +2553,15 @@ pub struct DEBUG_THREAD_BASIC_INFORMATION {
     pub StartOffset: u64,
     pub Affinity: u64,
 }
-impl Copy for DEBUG_THREAD_BASIC_INFORMATION {}
-impl Clone for DEBUG_THREAD_BASIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_TRIAGE_FOLLOWUP_INFO {
     pub SizeOfStruct: u32,
     pub OwnerNameSize: u32,
     pub OwnerName: windows_sys::core::PSTR,
 }
-impl Copy for DEBUG_TRIAGE_FOLLOWUP_INFO {}
-impl Clone for DEBUG_TRIAGE_FOLLOWUP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_TRIAGE_FOLLOWUP_INFO_2 {
     pub SizeOfStruct: u32,
     pub OwnerNameSize: u32,
@@ -2892,13 +2569,8 @@ pub struct DEBUG_TRIAGE_FOLLOWUP_INFO_2 {
     pub FeaturePathSize: u32,
     pub FeaturePath: windows_sys::core::PSTR,
 }
-impl Copy for DEBUG_TRIAGE_FOLLOWUP_INFO_2 {}
-impl Clone for DEBUG_TRIAGE_FOLLOWUP_INFO_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_TYPED_DATA {
     pub ModBase: u64,
     pub Offset: u64,
@@ -2912,25 +2584,15 @@ pub struct DEBUG_TYPED_DATA {
     pub Register: u32,
     pub Internal: [u64; 9],
 }
-impl Copy for DEBUG_TYPED_DATA {}
-impl Clone for DEBUG_TYPED_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_VALUE {
     pub Anonymous: DEBUG_VALUE_0,
     pub TailOfRawBytes: u32,
     pub Type: u32,
 }
-impl Copy for DEBUG_VALUE {}
-impl Clone for DEBUG_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DEBUG_VALUE_0 {
     pub I8: u8,
     pub I16: u16,
@@ -2951,111 +2613,66 @@ pub union DEBUG_VALUE_0 {
     pub F128Parts64: DEBUG_VALUE_0_1,
     pub RawBytes: [u8; 24],
 }
-impl Copy for DEBUG_VALUE_0 {}
-impl Clone for DEBUG_VALUE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_VALUE_0_0 {
     pub I64: u64,
     pub Nat: super::super::super::super::Foundation::BOOL,
 }
-impl Copy for DEBUG_VALUE_0_0 {}
-impl Clone for DEBUG_VALUE_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_VALUE_0_1 {
     pub LowPart: u64,
     pub HighPart: i64,
 }
-impl Copy for DEBUG_VALUE_0_1 {}
-impl Clone for DEBUG_VALUE_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_VALUE_0_2 {
     pub LowPart: u32,
     pub HighPart: u32,
 }
-impl Copy for DEBUG_VALUE_0_2 {}
-impl Clone for DEBUG_VALUE_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXTSTACKTRACE {
     pub FramePointer: u32,
     pub ProgramCounter: u32,
     pub ReturnAddress: u32,
     pub Args: [u32; 4],
 }
-impl Copy for EXTSTACKTRACE {}
-impl Clone for EXTSTACKTRACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXTSTACKTRACE32 {
     pub FramePointer: u32,
     pub ProgramCounter: u32,
     pub ReturnAddress: u32,
     pub Args: [u32; 4],
 }
-impl Copy for EXTSTACKTRACE32 {}
-impl Clone for EXTSTACKTRACE32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXTSTACKTRACE64 {
     pub FramePointer: u64,
     pub ProgramCounter: u64,
     pub ReturnAddress: u64,
     pub Args: [u64; 4],
 }
-impl Copy for EXTSTACKTRACE64 {}
-impl Clone for EXTSTACKTRACE64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXT_API_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
     pub Revision: u16,
     pub Reserved: u16,
 }
-impl Copy for EXT_API_VERSION {}
-impl Clone for EXT_API_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXT_CAB_XML_DATA {
     pub SizeOfStruct: u32,
     pub XmlObjectTag: windows_sys::core::PCWSTR,
     pub NumSubTags: u32,
     pub SubTags: [EXT_CAB_XML_DATA_0; 1],
 }
-impl Copy for EXT_CAB_XML_DATA {}
-impl Clone for EXT_CAB_XML_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXT_CAB_XML_DATA_0 {
     pub SubTag: windows_sys::core::PCWSTR,
     pub MatchPattern: windows_sys::core::PCWSTR,
@@ -3064,13 +2681,8 @@ pub struct EXT_CAB_XML_DATA_0 {
     pub _bitfield: u32,
     pub Reserved2: u32,
 }
-impl Copy for EXT_CAB_XML_DATA_0 {}
-impl Clone for EXT_CAB_XML_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXT_FIND_FILE {
     pub FileName: windows_sys::core::PCWSTR,
     pub IndexedSize: u64,
@@ -3085,25 +2697,15 @@ pub struct EXT_FIND_FILE {
     pub FoundFileName: windows_sys::core::PWSTR,
     pub FoundFileNameChars: u32,
 }
-impl Copy for EXT_FIND_FILE {}
-impl Clone for EXT_FIND_FILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXT_MATCH_PATTERN_A {
     pub Str: windows_sys::core::PCSTR,
     pub Pattern: windows_sys::core::PCSTR,
     pub CaseSensitive: u32,
 }
-impl Copy for EXT_MATCH_PATTERN_A {}
-impl Clone for EXT_MATCH_PATTERN_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXT_TYPED_DATA {
     pub Operation: EXT_TDOP,
     pub Flags: u32,
@@ -3123,25 +2725,15 @@ pub struct EXT_TYPED_DATA {
     pub Status: windows_sys::core::HRESULT,
     pub Reserved: [u64; 8],
 }
-impl Copy for EXT_TYPED_DATA {}
-impl Clone for EXT_TYPED_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FA_ENTRY {
     pub Tag: DEBUG_FLR_PARAM_TYPE,
     pub FullSize: u16,
     pub DataSize: u16,
 }
-impl Copy for FA_ENTRY {}
-impl Clone for FA_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FIELD_INFO {
     pub fName: *mut u8,
     pub printName: *mut u8,
@@ -3155,187 +2747,107 @@ pub struct FIELD_INFO {
     pub BitField: FIELD_INFO_1,
     pub _bitfield: u32,
 }
-impl Copy for FIELD_INFO {}
-impl Clone for FIELD_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union FIELD_INFO_0 {
     pub fieldCallBack: *mut core::ffi::c_void,
     pub pBuffer: *mut core::ffi::c_void,
 }
-impl Copy for FIELD_INFO_0 {}
-impl Clone for FIELD_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FIELD_INFO_1 {
     pub Position: u16,
     pub Size: u16,
 }
-impl Copy for FIELD_INFO_1 {}
-impl Clone for FIELD_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GET_CONTEXT_EX {
     pub Status: u32,
     pub ContextSize: u32,
     pub pContext: *mut core::ffi::c_void,
 }
-impl Copy for GET_CONTEXT_EX {}
-impl Clone for GET_CONTEXT_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GET_CURRENT_PROCESS_ADDRESS {
     pub Processor: u32,
     pub CurrentThread: u64,
     pub Address: u64,
 }
-impl Copy for GET_CURRENT_PROCESS_ADDRESS {}
-impl Clone for GET_CURRENT_PROCESS_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GET_CURRENT_THREAD_ADDRESS {
     pub Processor: u32,
     pub Address: u64,
 }
-impl Copy for GET_CURRENT_THREAD_ADDRESS {}
-impl Clone for GET_CURRENT_THREAD_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GET_EXPRESSION_EX {
     pub Expression: windows_sys::core::PCSTR,
     pub Remainder: windows_sys::core::PCSTR,
     pub Value: u64,
 }
-impl Copy for GET_EXPRESSION_EX {}
-impl Clone for GET_EXPRESSION_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GET_INPUT_LINE {
     pub Prompt: windows_sys::core::PCSTR,
     pub Buffer: windows_sys::core::PSTR,
     pub BufferSize: u32,
     pub InputSize: u32,
 }
-impl Copy for GET_INPUT_LINE {}
-impl Clone for GET_INPUT_LINE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GET_PEB_ADDRESS {
     pub CurrentThread: u64,
     pub Address: u64,
 }
-impl Copy for GET_PEB_ADDRESS {}
-impl Clone for GET_PEB_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GET_SET_SYMPATH {
     pub Args: windows_sys::core::PCSTR,
     pub Result: windows_sys::core::PSTR,
     pub Length: i32,
 }
-impl Copy for GET_SET_SYMPATH {}
-impl Clone for GET_SET_SYMPATH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GET_TEB_ADDRESS {
     pub Address: u64,
 }
-impl Copy for GET_TEB_ADDRESS {}
-impl Clone for GET_TEB_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union INLINE_FRAME_CONTEXT {
     pub ContextValue: u32,
     pub Anonymous: INLINE_FRAME_CONTEXT_0,
 }
-impl Copy for INLINE_FRAME_CONTEXT {}
-impl Clone for INLINE_FRAME_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INLINE_FRAME_CONTEXT_0 {
     pub FrameId: u8,
     pub FrameType: u8,
     pub FrameSignature: u16,
 }
-impl Copy for INLINE_FRAME_CONTEXT_0 {}
-impl Clone for INLINE_FRAME_CONTEXT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IOSPACE {
     pub Address: u32,
     pub Length: u32,
     pub Data: u32,
 }
-impl Copy for IOSPACE {}
-impl Clone for IOSPACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IOSPACE32 {
     pub Address: u32,
     pub Length: u32,
     pub Data: u32,
 }
-impl Copy for IOSPACE32 {}
-impl Clone for IOSPACE32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IOSPACE64 {
     pub Address: u64,
     pub Length: u32,
     pub Data: u32,
 }
-impl Copy for IOSPACE64 {}
-impl Clone for IOSPACE64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IOSPACE_EX {
     pub Address: u32,
     pub Length: u32,
@@ -3344,13 +2856,8 @@ pub struct IOSPACE_EX {
     pub BusNumber: u32,
     pub AddressSpace: u32,
 }
-impl Copy for IOSPACE_EX {}
-impl Clone for IOSPACE_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IOSPACE_EX32 {
     pub Address: u32,
     pub Length: u32,
@@ -3359,13 +2866,8 @@ pub struct IOSPACE_EX32 {
     pub BusNumber: u32,
     pub AddressSpace: u32,
 }
-impl Copy for IOSPACE_EX32 {}
-impl Clone for IOSPACE_EX32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IOSPACE_EX64 {
     pub Address: u64,
     pub Length: u32,
@@ -3374,14 +2876,9 @@ pub struct IOSPACE_EX64 {
     pub BusNumber: u32,
     pub AddressSpace: u32,
 }
-impl Copy for IOSPACE_EX64 {}
-impl Clone for IOSPACE_EX64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct KDDEBUGGER_DATA32 {
     pub Header: DBGKD_DEBUG_DATA_HEADER32,
     pub KernBase: u32,
@@ -3450,16 +2947,9 @@ pub struct KDDEBUGGER_DATA32 {
     pub KdPrintRolloverCount: u32,
     pub MmLoadedUserImageList: u32,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for KDDEBUGGER_DATA32 {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for KDDEBUGGER_DATA32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct KDDEBUGGER_DATA64 {
     pub Header: DBGKD_DEBUG_DATA_HEADER64,
     pub KernBase: u64,
@@ -3625,15 +3115,8 @@ pub struct KDDEBUGGER_DATA64 {
     pub PointerAuthMask: u64,
     pub OffsetPrcbExceptionStack: u16,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for KDDEBUGGER_DATA64 {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for KDDEBUGGER_DATA64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KDEXTS_LOCK_INFO {
     pub SizeOfStruct: u32,
     pub Address: u64,
@@ -3646,13 +3129,8 @@ pub struct KDEXTS_LOCK_INFO {
     pub pOwnerThreads: *mut u64,
     pub pWaiterThreads: *mut u64,
 }
-impl Copy for KDEXTS_LOCK_INFO {}
-impl Clone for KDEXTS_LOCK_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KDEXTS_PTE_INFO {
     pub SizeOfStruct: u32,
     pub VirtualAddress: u64,
@@ -3664,13 +3142,8 @@ pub struct KDEXTS_PTE_INFO {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
 }
-impl Copy for KDEXTS_PTE_INFO {}
-impl Clone for KDEXTS_PTE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KDEXT_FILELOCK_OWNER {
     pub Sizeofstruct: u32,
     pub FileObject: u64,
@@ -3679,13 +3152,8 @@ pub struct KDEXT_FILELOCK_OWNER {
     pub DeviceObject: u64,
     pub BlockingDirver: [i8; 32],
 }
-impl Copy for KDEXT_FILELOCK_OWNER {}
-impl Clone for KDEXT_FILELOCK_OWNER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KDEXT_HANDLE_INFORMATION {
     pub HandleTableEntry: u64,
     pub Handle: u64,
@@ -3695,50 +3163,30 @@ pub struct KDEXT_HANDLE_INFORMATION {
     pub HandleAttributes: u32,
     pub PagedOut: super::super::super::super::Foundation::BOOLEAN,
 }
-impl Copy for KDEXT_HANDLE_INFORMATION {}
-impl Clone for KDEXT_HANDLE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KDEXT_PROCESS_FIND_PARAMS {
     pub SizeofStruct: u32,
     pub Pid: u32,
     pub Session: u32,
     pub ImageName: windows_sys::core::PSTR,
 }
-impl Copy for KDEXT_PROCESS_FIND_PARAMS {}
-impl Clone for KDEXT_PROCESS_FIND_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KDEXT_THREAD_FIND_PARAMS {
     pub SizeofStruct: u32,
     pub StackPointer: u64,
     pub Cid: u32,
     pub Thread: u64,
 }
-impl Copy for KDEXT_THREAD_FIND_PARAMS {}
-impl Clone for KDEXT_THREAD_FIND_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct Location {
     pub HostDefined: u64,
     pub Offset: u64,
 }
-impl Copy for Location {}
-impl Clone for Location {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OS_INFO {
     pub MajorVer: u32,
     pub MinorVer: u32,
@@ -3758,23 +3206,13 @@ pub struct OS_INFO {
     pub BuildVersion: [i8; 64],
     pub ServicePackString: [i8; 64],
 }
-impl Copy for OS_INFO {}
-impl Clone for OS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OS_INFO_0 {
     pub _bitfield: u32,
 }
-impl Copy for OS_INFO_0 {}
-impl Clone for OS_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OS_INFO_v1 {
     pub Type: OS_TYPE,
     pub Anonymous: OS_INFO_v1_0,
@@ -3786,82 +3224,47 @@ pub struct OS_INFO_v1 {
     pub OsString: [i8; 64],
     pub ServicePackString: [i8; 64],
 }
-impl Copy for OS_INFO_v1 {}
-impl Clone for OS_INFO_v1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union OS_INFO_v1_0 {
     pub Version: OS_INFO_v1_0_0,
     pub Ver64: u64,
 }
-impl Copy for OS_INFO_v1_0 {}
-impl Clone for OS_INFO_v1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OS_INFO_v1_0_0 {
     pub Major: u32,
     pub Minor: u32,
 }
-impl Copy for OS_INFO_v1_0_0 {}
-impl Clone for OS_INFO_v1_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OS_INFO_v1_1 {
     pub _bitfield: u32,
 }
-impl Copy for OS_INFO_v1_1 {}
-impl Clone for OS_INFO_v1_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PHYSICAL {
     pub Address: u64,
     pub BufLen: u32,
     pub Buf: [u8; 1],
 }
-impl Copy for PHYSICAL {}
-impl Clone for PHYSICAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PHYSICAL_TO_VIRTUAL {
     pub Status: u32,
     pub Size: u32,
     pub PdeAddress: u64,
 }
-impl Copy for PHYSICAL_TO_VIRTUAL {}
-impl Clone for PHYSICAL_TO_VIRTUAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PHYSICAL_WITH_FLAGS {
     pub Address: u64,
     pub BufLen: u32,
     pub Flags: u32,
     pub Buf: [u8; 1],
 }
-impl Copy for PHYSICAL_WITH_FLAGS {}
-impl Clone for PHYSICAL_WITH_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POINTER_SEARCH_PHYSICAL {
     pub Offset: u64,
     pub Length: u64,
@@ -3872,24 +3275,14 @@ pub struct POINTER_SEARCH_PHYSICAL {
     pub MatchOffsetsSize: u32,
     pub MatchOffsetsCount: u32,
 }
-impl Copy for POINTER_SEARCH_PHYSICAL {}
-impl Clone for POINTER_SEARCH_PHYSICAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESSORINFO {
     pub Processor: u16,
     pub NumberProcessors: u16,
 }
-impl Copy for PROCESSORINFO {}
-impl Clone for PROCESSORINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_COMMIT_USAGE {
     pub ImageFileName: [u8; 16],
     pub ClientId: u64,
@@ -3899,76 +3292,46 @@ pub struct PROCESS_COMMIT_USAGE {
     pub ReleasedCommitDebt: u64,
     pub Reserved: u64,
 }
-impl Copy for PROCESS_COMMIT_USAGE {}
-impl Clone for PROCESS_COMMIT_USAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_NAME_ENTRY {
     pub ProcessId: u32,
     pub NameOffset: u32,
     pub NameSize: u32,
     pub NextEntry: u32,
 }
-impl Copy for PROCESS_NAME_ENTRY {}
-impl Clone for PROCESS_NAME_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct READCONTROLSPACE {
     pub Processor: u16,
     pub Address: u32,
     pub BufLen: u32,
     pub Buf: [u8; 1],
 }
-impl Copy for READCONTROLSPACE {}
-impl Clone for READCONTROLSPACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct READCONTROLSPACE32 {
     pub Processor: u16,
     pub Address: u32,
     pub BufLen: u32,
     pub Buf: [u8; 1],
 }
-impl Copy for READCONTROLSPACE32 {}
-impl Clone for READCONTROLSPACE32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct READCONTROLSPACE64 {
     pub Processor: u16,
     pub Address: u64,
     pub BufLen: u32,
     pub Buf: [u8; 1],
 }
-impl Copy for READCONTROLSPACE64 {}
-impl Clone for READCONTROLSPACE64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct READ_WRITE_MSR {
     pub Msr: u32,
     pub Value: i64,
 }
-impl Copy for READ_WRITE_MSR {}
-impl Clone for READ_WRITE_MSR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SEARCHMEMORY {
     pub SearchAddress: u64,
     pub SearchLength: u64,
@@ -3976,13 +3339,8 @@ pub struct SEARCHMEMORY {
     pub PatternLength: u32,
     pub Pattern: *mut core::ffi::c_void,
 }
-impl Copy for SEARCHMEMORY {}
-impl Clone for SEARCHMEMORY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STACK_SRC_INFO {
     pub ImagePath: windows_sys::core::PCWSTR,
     pub ModuleName: windows_sys::core::PCWSTR,
@@ -3991,24 +3349,14 @@ pub struct STACK_SRC_INFO {
     pub Row: u32,
     pub Column: u32,
 }
-impl Copy for STACK_SRC_INFO {}
-impl Clone for STACK_SRC_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STACK_SYM_FRAME_INFO {
     pub StackFrameEx: DEBUG_STACK_FRAME_EX,
     pub SrcInfo: STACK_SRC_INFO,
 }
-impl Copy for STACK_SYM_FRAME_INFO {}
-impl Clone for STACK_SYM_FRAME_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYMBOL_INFO_EX {
     pub SizeOfStruct: u32,
     pub TypeOfInfo: u32,
@@ -4017,13 +3365,8 @@ pub struct SYMBOL_INFO_EX {
     pub Displacement: u32,
     pub Reserved: [u32; 4],
 }
-impl Copy for SYMBOL_INFO_EX {}
-impl Clone for SYMBOL_INFO_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYM_DUMP_PARAM {
     pub size: u32,
     pub sName: *mut u8,
@@ -4040,79 +3383,44 @@ pub struct SYM_DUMP_PARAM {
     pub BufferSize: u32,
     pub _bitfield: u32,
 }
-impl Copy for SYM_DUMP_PARAM {}
-impl Clone for SYM_DUMP_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SYM_DUMP_PARAM_0 {
     pub Context: *mut core::ffi::c_void,
     pub pBuffer: *mut core::ffi::c_void,
 }
-impl Copy for SYM_DUMP_PARAM_0 {}
-impl Clone for SYM_DUMP_PARAM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ScriptDebugEventInformation {
     pub DebugEvent: ScriptDebugEvent,
     pub EventPosition: ScriptDebugPosition,
     pub EventSpanEnd: ScriptDebugPosition,
     pub u: ScriptDebugEventInformation_0,
 }
-impl Copy for ScriptDebugEventInformation {}
-impl Clone for ScriptDebugEventInformation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union ScriptDebugEventInformation_0 {
     pub ExceptionInformation: ScriptDebugEventInformation_0_1,
     pub BreakpointInformation: ScriptDebugEventInformation_0_0,
 }
-impl Copy for ScriptDebugEventInformation_0 {}
-impl Clone for ScriptDebugEventInformation_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ScriptDebugEventInformation_0_0 {
     pub BreakpointId: u64,
 }
-impl Copy for ScriptDebugEventInformation_0_0 {}
-impl Clone for ScriptDebugEventInformation_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ScriptDebugEventInformation_0_1 {
     pub IsUncaught: u8,
 }
-impl Copy for ScriptDebugEventInformation_0_1 {}
-impl Clone for ScriptDebugEventInformation_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ScriptDebugPosition {
     pub Line: u32,
     pub Column: u32,
 }
-impl Copy for ScriptDebugPosition {}
-impl Clone for ScriptDebugPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TARGET_DEBUG_INFO {
     pub SizeOfStruct: u32,
     pub EntryDate: u64,
@@ -4124,13 +3432,8 @@ pub struct TARGET_DEBUG_INFO {
     pub Cpu: CPU_INFO,
     pub DumpFile: [i8; 260],
 }
-impl Copy for TARGET_DEBUG_INFO {}
-impl Clone for TARGET_DEBUG_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TARGET_DEBUG_INFO_v1 {
     pub SizeOfStruct: u32,
     pub Id: u64,
@@ -4146,13 +3449,8 @@ pub struct TARGET_DEBUG_INFO_v1 {
     pub FailureData: *mut core::ffi::c_void,
     pub StackTr: [i8; 4096],
 }
-impl Copy for TARGET_DEBUG_INFO_v1 {}
-impl Clone for TARGET_DEBUG_INFO_v1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TARGET_DEBUG_INFO_v2 {
     pub SizeOfStruct: u32,
     pub EntryDate: u64,
@@ -4164,24 +3462,14 @@ pub struct TARGET_DEBUG_INFO_v2 {
     pub Cpu: CPU_INFO_v2,
     pub DumpFile: [i8; 260],
 }
-impl Copy for TARGET_DEBUG_INFO_v2 {}
-impl Clone for TARGET_DEBUG_INFO_v2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRANSLATE_VIRTUAL_TO_PHYSICAL {
     pub Virtual: u64,
     pub Physical: u64,
 }
-impl Copy for TRANSLATE_VIRTUAL_TO_PHYSICAL {}
-impl Clone for TRANSLATE_VIRTUAL_TO_PHYSICAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VIRTUAL_TO_PHYSICAL {
     pub Status: u32,
     pub Size: u32,
@@ -4189,24 +3477,14 @@ pub struct VIRTUAL_TO_PHYSICAL {
     pub Virtual: u64,
     pub Physical: u64,
 }
-impl Copy for VIRTUAL_TO_PHYSICAL {}
-impl Clone for VIRTUAL_TO_PHYSICAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WDBGEXTS_CLR_DATA_INTERFACE {
     pub Iid: *const windows_sys::core::GUID,
     pub Iface: *mut core::ffi::c_void,
 }
-impl Copy for WDBGEXTS_CLR_DATA_INTERFACE {}
-impl Clone for WDBGEXTS_CLR_DATA_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WDBGEXTS_DISASSEMBLE_BUFFER {
     pub InOffset: u64,
     pub OutOffset: u64,
@@ -4218,37 +3496,22 @@ pub struct WDBGEXTS_DISASSEMBLE_BUFFER {
     pub DisasmBuffer: windows_sys::core::PWSTR,
     pub Reserved0: [u64; 3],
 }
-impl Copy for WDBGEXTS_DISASSEMBLE_BUFFER {}
-impl Clone for WDBGEXTS_DISASSEMBLE_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WDBGEXTS_MODULE_IN_RANGE {
     pub Start: u64,
     pub End: u64,
     pub FoundModBase: u64,
     pub FoundModSize: u32,
 }
-impl Copy for WDBGEXTS_MODULE_IN_RANGE {}
-impl Clone for WDBGEXTS_MODULE_IN_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WDBGEXTS_QUERY_INTERFACE {
     pub Iid: *const windows_sys::core::GUID,
     pub Iface: *mut core::ffi::c_void,
 }
-impl Copy for WDBGEXTS_QUERY_INTERFACE {}
-impl Clone for WDBGEXTS_QUERY_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WDBGEXTS_THREAD_OS_INFO {
     pub ThreadId: u32,
     pub ExitStatus: u32,
@@ -4261,14 +3524,9 @@ pub struct WDBGEXTS_THREAD_OS_INFO {
     pub StartOffset: u64,
     pub Affinity: u64,
 }
-impl Copy for WDBGEXTS_THREAD_OS_INFO {}
-impl Clone for WDBGEXTS_THREAD_OS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct WINDBG_EXTENSION_APIS {
     pub nSize: u32,
     pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
@@ -4283,16 +3541,9 @@ pub struct WINDBG_EXTENSION_APIS {
     pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
     pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for WINDBG_EXTENSION_APIS {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for WINDBG_EXTENSION_APIS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct WINDBG_EXTENSION_APIS32 {
     pub nSize: u32,
     pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
@@ -4307,16 +3558,9 @@ pub struct WINDBG_EXTENSION_APIS32 {
     pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
     pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE32,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for WINDBG_EXTENSION_APIS32 {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for WINDBG_EXTENSION_APIS32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct WINDBG_EXTENSION_APIS64 {
     pub nSize: u32,
     pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
@@ -4331,15 +3575,8 @@ pub struct WINDBG_EXTENSION_APIS64 {
     pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
     pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE64,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for WINDBG_EXTENSION_APIS64 {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for WINDBG_EXTENSION_APIS64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINDBG_OLDKD_EXTENSION_APIS {
     pub nSize: u32,
     pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
@@ -4352,13 +3589,8 @@ pub struct WINDBG_OLDKD_EXTENSION_APIS {
     pub lpReadPhysicalMemRoutine: PWINDBG_OLDKD_READ_PHYSICAL_MEMORY,
     pub lpWritePhysicalMemRoutine: PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY,
 }
-impl Copy for WINDBG_OLDKD_EXTENSION_APIS {}
-impl Clone for WINDBG_OLDKD_EXTENSION_APIS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINDBG_OLD_EXTENSION_APIS {
     pub nSize: u32,
     pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
@@ -4367,13 +3599,8 @@ pub struct WINDBG_OLD_EXTENSION_APIS {
     pub lpDisasmRoutine: PWINDBG_DISASM,
     pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
 }
-impl Copy for WINDBG_OLD_EXTENSION_APIS {}
-impl Clone for WINDBG_OLD_EXTENSION_APIS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct XML_DRIVER_NODE_INFO {
     pub FileName: [i8; 64],
     pub FileSize: u64,
@@ -4383,12 +3610,6 @@ pub struct XML_DRIVER_NODE_INFO {
     pub ProductName: [i8; 260],
     pub Group: [i8; 260],
     pub Altitude: [i8; 260],
-}
-impl Copy for XML_DRIVER_NODE_INFO {}
-impl Clone for XML_DRIVER_NODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type ENTRY_CALLBACK = Option<unsafe extern "system" fn(entryaddress: u64, context: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub type EXTDLL_ITERATERTLBALANCEDNODES = Option<unsafe extern "system" fn(rootnode: u64, entryoffset: u32, callback: ENTRY_CALLBACK, callbackcontext: *mut core::ffi::c_void)>;

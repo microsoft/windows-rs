@@ -305,6 +305,7 @@ pub type NV_SEP_WRITE_CACHE_TYPE = i32;
 pub type TARGETPROTOCOLTYPE = i32;
 pub type TARGET_INFORMATION_CLASS = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ATA_PASS_THROUGH_DIRECT {
     pub Length: u16,
     pub AtaFlags: u16,
@@ -319,14 +320,9 @@ pub struct ATA_PASS_THROUGH_DIRECT {
     pub PreviousTaskFile: [u8; 8],
     pub CurrentTaskFile: [u8; 8],
 }
-impl Copy for ATA_PASS_THROUGH_DIRECT {}
-impl Clone for ATA_PASS_THROUGH_DIRECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct ATA_PASS_THROUGH_DIRECT32 {
     pub Length: u16,
     pub AtaFlags: u16,
@@ -341,15 +337,8 @@ pub struct ATA_PASS_THROUGH_DIRECT32 {
     pub PreviousTaskFile: [u8; 8],
     pub CurrentTaskFile: [u8; 8],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for ATA_PASS_THROUGH_DIRECT32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for ATA_PASS_THROUGH_DIRECT32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ATA_PASS_THROUGH_EX {
     pub Length: u16,
     pub AtaFlags: u16,
@@ -364,14 +353,9 @@ pub struct ATA_PASS_THROUGH_EX {
     pub PreviousTaskFile: [u8; 8],
     pub CurrentTaskFile: [u8; 8],
 }
-impl Copy for ATA_PASS_THROUGH_EX {}
-impl Clone for ATA_PASS_THROUGH_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct ATA_PASS_THROUGH_EX32 {
     pub Length: u16,
     pub AtaFlags: u16,
@@ -386,15 +370,8 @@ pub struct ATA_PASS_THROUGH_EX32 {
     pub PreviousTaskFile: [u8; 8],
     pub CurrentTaskFile: [u8; 8],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for ATA_PASS_THROUGH_EX32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for ATA_PASS_THROUGH_EX32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DSM_NOTIFICATION_REQUEST_BLOCK {
     pub Size: u32,
     pub Version: u32,
@@ -404,38 +381,23 @@ pub struct DSM_NOTIFICATION_REQUEST_BLOCK {
     pub DataSetRangesCount: u32,
     pub DataSetRanges: [MP_DEVICE_DATA_SET_RANGE; 1],
 }
-impl Copy for DSM_NOTIFICATION_REQUEST_BLOCK {}
-impl Clone for DSM_NOTIFICATION_REQUEST_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DUMP_DRIVER {
     pub DumpDriverList: *mut core::ffi::c_void,
     pub DriverName: [u16; 15],
     pub BaseName: [u16; 15],
 }
-impl Copy for DUMP_DRIVER {}
-impl Clone for DUMP_DRIVER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DUMP_DRIVER_EX {
     pub DumpDriverList: *mut core::ffi::c_void,
     pub DriverName: [u16; 15],
     pub BaseName: [u16; 15],
     pub DriverFullPath: NTSCSI_UNICODE_STRING,
 }
-impl Copy for DUMP_DRIVER_EX {}
-impl Clone for DUMP_DRIVER_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DUMP_POINTERS {
     pub AdapterObject: *mut _ADAPTER_OBJECT,
     pub MappedRegisterBase: *mut core::ffi::c_void,
@@ -448,13 +410,8 @@ pub struct DUMP_POINTERS {
     pub Spare1: [u8; 2],
     pub DeviceObject: *mut core::ffi::c_void,
 }
-impl Copy for DUMP_POINTERS {}
-impl Clone for DUMP_POINTERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DUMP_POINTERS_EX {
     pub Header: DUMP_POINTERS_VERSION,
     pub DumpData: *mut core::ffi::c_void,
@@ -473,24 +430,14 @@ pub struct DUMP_POINTERS_EX {
     pub DumpDevicePowerOn: PDUMP_DEVICE_POWERON_ROUTINE,
     pub DumpDevicePowerOnContext: *mut core::ffi::c_void,
 }
-impl Copy for DUMP_POINTERS_EX {}
-impl Clone for DUMP_POINTERS_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DUMP_POINTERS_VERSION {
     pub Version: u32,
     pub Size: u32,
 }
-impl Copy for DUMP_POINTERS_VERSION {}
-impl Clone for DUMP_POINTERS_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FIRMWARE_REQUEST_BLOCK {
     pub Version: u32,
     pub Size: u32,
@@ -499,13 +446,8 @@ pub struct FIRMWARE_REQUEST_BLOCK {
     pub DataBufferOffset: u32,
     pub DataBufferLength: u32,
 }
-impl Copy for FIRMWARE_REQUEST_BLOCK {}
-impl Clone for FIRMWARE_REQUEST_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HYBRID_DEMOTE_BY_SIZE {
     pub Version: u32,
     pub Size: u32,
@@ -515,26 +457,16 @@ pub struct HYBRID_DEMOTE_BY_SIZE {
     pub Reserved1: u32,
     pub LbaCount: u64,
 }
-impl Copy for HYBRID_DEMOTE_BY_SIZE {}
-impl Clone for HYBRID_DEMOTE_BY_SIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HYBRID_DIRTY_THRESHOLDS {
     pub Version: u32,
     pub Size: u32,
     pub DirtyLowThreshold: u32,
     pub DirtyHighThreshold: u32,
 }
-impl Copy for HYBRID_DIRTY_THRESHOLDS {}
-impl Clone for HYBRID_DIRTY_THRESHOLDS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HYBRID_INFORMATION {
     pub Version: u32,
     pub Size: u32,
@@ -547,23 +479,13 @@ pub struct HYBRID_INFORMATION {
     pub Attributes: HYBRID_INFORMATION_0,
     pub Priorities: HYBRID_INFORMATION_1,
 }
-impl Copy for HYBRID_INFORMATION {}
-impl Clone for HYBRID_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HYBRID_INFORMATION_0 {
     pub _bitfield: u32,
 }
-impl Copy for HYBRID_INFORMATION_0 {}
-impl Clone for HYBRID_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HYBRID_INFORMATION_1 {
     pub PriorityLevelCount: u8,
     pub MaxPriorityBehavior: super::super::Foundation::BOOLEAN,
@@ -574,26 +496,16 @@ pub struct HYBRID_INFORMATION_1 {
     pub SupportedCommands: HYBRID_INFORMATION_1_0,
     pub Priority: [NVCACHE_PRIORITY_LEVEL_DESCRIPTOR; 1],
 }
-impl Copy for HYBRID_INFORMATION_1 {}
-impl Clone for HYBRID_INFORMATION_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HYBRID_INFORMATION_1_0 {
     pub _bitfield: u32,
     pub MaxEvictCommands: u32,
     pub MaxLbaRangeCountForEvict: u32,
     pub MaxLbaRangeCountForChangeLba: u32,
 }
-impl Copy for HYBRID_INFORMATION_1_0 {}
-impl Clone for HYBRID_INFORMATION_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HYBRID_REQUEST_BLOCK {
     pub Version: u32,
     pub Size: u32,
@@ -602,13 +514,8 @@ pub struct HYBRID_REQUEST_BLOCK {
     pub DataBufferOffset: u32,
     pub DataBufferLength: u32,
 }
-impl Copy for HYBRID_REQUEST_BLOCK {}
-impl Clone for HYBRID_REQUEST_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IDE_IO_CONTROL {
     pub HeaderLength: u32,
     pub Signature: [u8; 8],
@@ -617,34 +524,19 @@ pub struct IDE_IO_CONTROL {
     pub ReturnStatus: u32,
     pub DataLength: u32,
 }
-impl Copy for IDE_IO_CONTROL {}
-impl Clone for IDE_IO_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKE_AUTHENTICATION_INFORMATION {
     pub AuthMethod: IKE_AUTHENTICATION_METHOD,
     pub Anonymous: IKE_AUTHENTICATION_INFORMATION_0,
 }
-impl Copy for IKE_AUTHENTICATION_INFORMATION {}
-impl Clone for IKE_AUTHENTICATION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IKE_AUTHENTICATION_INFORMATION_0 {
     pub PsKey: IKE_AUTHENTICATION_PRESHARED_KEY,
 }
-impl Copy for IKE_AUTHENTICATION_INFORMATION_0 {}
-impl Clone for IKE_AUTHENTICATION_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKE_AUTHENTICATION_PRESHARED_KEY {
     pub SecurityFlags: u64,
     pub IdType: u8,
@@ -653,13 +545,8 @@ pub struct IKE_AUTHENTICATION_PRESHARED_KEY {
     pub KeyLengthInBytes: u32,
     pub Key: *mut u8,
 }
-impl Copy for IKE_AUTHENTICATION_PRESHARED_KEY {}
-impl Clone for IKE_AUTHENTICATION_PRESHARED_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_SCSI_CAPABILITIES {
     pub Length: u32,
     pub MaximumTransferLength: u32,
@@ -670,13 +557,8 @@ pub struct IO_SCSI_CAPABILITIES {
     pub AdapterScansDown: super::super::Foundation::BOOLEAN,
     pub AdapterUsesPio: super::super::Foundation::BOOLEAN,
 }
-impl Copy for IO_SCSI_CAPABILITIES {}
-impl Clone for IO_SCSI_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ISCSI_CONNECTION_INFOA {
     pub ConnectionId: ISCSI_UNIQUE_SESSION_ID,
     pub InitiatorAddress: windows_sys::core::PSTR,
@@ -685,13 +567,8 @@ pub struct ISCSI_CONNECTION_INFOA {
     pub TargetSocket: u16,
     pub CID: [u8; 2],
 }
-impl Copy for ISCSI_CONNECTION_INFOA {}
-impl Clone for ISCSI_CONNECTION_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ISCSI_CONNECTION_INFOW {
     pub ConnectionId: ISCSI_UNIQUE_SESSION_ID,
     pub InitiatorAddress: windows_sys::core::PWSTR,
@@ -700,13 +577,8 @@ pub struct ISCSI_CONNECTION_INFOW {
     pub TargetSocket: u16,
     pub CID: [u8; 2],
 }
-impl Copy for ISCSI_CONNECTION_INFOW {}
-impl Clone for ISCSI_CONNECTION_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ISCSI_CONNECTION_INFO_EX {
     pub ConnectionId: ISCSI_UNIQUE_SESSION_ID,
     pub State: u8,
@@ -718,14 +590,9 @@ pub struct ISCSI_CONNECTION_INFO_EX {
     pub EstimatedThroughput: u64,
     pub MaxDatagramSize: u32,
 }
-impl Copy for ISCSI_CONNECTION_INFO_EX {}
-impl Clone for ISCSI_CONNECTION_INFO_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Ioctl")]
+#[derive(Clone, Copy)]
 pub struct ISCSI_DEVICE_ON_SESSIONA {
     pub InitiatorName: [i8; 256],
     pub TargetName: [i8; 224],
@@ -736,16 +603,9 @@ pub struct ISCSI_DEVICE_ON_SESSIONA {
     pub StorageDeviceNumber: super::super::System::Ioctl::STORAGE_DEVICE_NUMBER,
     pub DeviceInstance: u32,
 }
-#[cfg(feature = "Win32_System_Ioctl")]
-impl Copy for ISCSI_DEVICE_ON_SESSIONA {}
-#[cfg(feature = "Win32_System_Ioctl")]
-impl Clone for ISCSI_DEVICE_ON_SESSIONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Ioctl")]
+#[derive(Clone, Copy)]
 pub struct ISCSI_DEVICE_ON_SESSIONW {
     pub InitiatorName: [u16; 256],
     pub TargetName: [u16; 224],
@@ -756,15 +616,8 @@ pub struct ISCSI_DEVICE_ON_SESSIONW {
     pub StorageDeviceNumber: super::super::System::Ioctl::STORAGE_DEVICE_NUMBER,
     pub DeviceInstance: u32,
 }
-#[cfg(feature = "Win32_System_Ioctl")]
-impl Copy for ISCSI_DEVICE_ON_SESSIONW {}
-#[cfg(feature = "Win32_System_Ioctl")]
-impl Clone for ISCSI_DEVICE_ON_SESSIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ISCSI_LOGIN_OPTIONS {
     pub Version: u32,
     pub InformationSpecified: u32,
@@ -780,13 +633,8 @@ pub struct ISCSI_LOGIN_OPTIONS {
     pub Username: *mut u8,
     pub Password: *mut u8,
 }
-impl Copy for ISCSI_LOGIN_OPTIONS {}
-impl Clone for ISCSI_LOGIN_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ISCSI_SESSION_INFOA {
     pub SessionId: ISCSI_UNIQUE_SESSION_ID,
     pub InitiatorName: windows_sys::core::PSTR,
@@ -797,13 +645,8 @@ pub struct ISCSI_SESSION_INFOA {
     pub ConnectionCount: u32,
     pub Connections: *mut ISCSI_CONNECTION_INFOA,
 }
-impl Copy for ISCSI_SESSION_INFOA {}
-impl Clone for ISCSI_SESSION_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ISCSI_SESSION_INFOW {
     pub SessionId: ISCSI_UNIQUE_SESSION_ID,
     pub InitiatorName: windows_sys::core::PWSTR,
@@ -814,13 +657,8 @@ pub struct ISCSI_SESSION_INFOW {
     pub ConnectionCount: u32,
     pub Connections: *mut ISCSI_CONNECTION_INFOW,
 }
-impl Copy for ISCSI_SESSION_INFOW {}
-impl Clone for ISCSI_SESSION_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ISCSI_SESSION_INFO_EX {
     pub SessionId: ISCSI_UNIQUE_SESSION_ID,
     pub InitialR2t: super::super::Foundation::BOOLEAN,
@@ -836,13 +674,8 @@ pub struct ISCSI_SESSION_INFO_EX {
     pub ConnectionCount: u32,
     pub Connections: *mut ISCSI_CONNECTION_INFO_EX,
 }
-impl Copy for ISCSI_SESSION_INFO_EX {}
-impl Clone for ISCSI_SESSION_INFO_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ISCSI_TARGET_MAPPINGA {
     pub InitiatorName: [i8; 256],
     pub TargetName: [i8; 224],
@@ -853,13 +686,8 @@ pub struct ISCSI_TARGET_MAPPINGA {
     pub LUNCount: u32,
     pub LUNList: *mut SCSI_LUN_LIST,
 }
-impl Copy for ISCSI_TARGET_MAPPINGA {}
-impl Clone for ISCSI_TARGET_MAPPINGA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ISCSI_TARGET_MAPPINGW {
     pub InitiatorName: [u16; 256],
     pub TargetName: [u16; 224],
@@ -870,59 +698,34 @@ pub struct ISCSI_TARGET_MAPPINGW {
     pub LUNCount: u32,
     pub LUNList: *mut SCSI_LUN_LIST,
 }
-impl Copy for ISCSI_TARGET_MAPPINGW {}
-impl Clone for ISCSI_TARGET_MAPPINGW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ISCSI_TARGET_PORTALA {
     pub SymbolicName: [i8; 256],
     pub Address: [i8; 256],
     pub Socket: u16,
 }
-impl Copy for ISCSI_TARGET_PORTALA {}
-impl Clone for ISCSI_TARGET_PORTALA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ISCSI_TARGET_PORTALW {
     pub SymbolicName: [u16; 256],
     pub Address: [u16; 256],
     pub Socket: u16,
 }
-impl Copy for ISCSI_TARGET_PORTALW {}
-impl Clone for ISCSI_TARGET_PORTALW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ISCSI_TARGET_PORTAL_GROUPA {
     pub Count: u32,
     pub Portals: [ISCSI_TARGET_PORTALA; 1],
 }
-impl Copy for ISCSI_TARGET_PORTAL_GROUPA {}
-impl Clone for ISCSI_TARGET_PORTAL_GROUPA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ISCSI_TARGET_PORTAL_GROUPW {
     pub Count: u32,
     pub Portals: [ISCSI_TARGET_PORTALW; 1],
 }
-impl Copy for ISCSI_TARGET_PORTAL_GROUPW {}
-impl Clone for ISCSI_TARGET_PORTAL_GROUPW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ISCSI_TARGET_PORTAL_INFOA {
     pub InitiatorName: [i8; 256],
     pub InitiatorPortNumber: u32,
@@ -930,13 +733,8 @@ pub struct ISCSI_TARGET_PORTAL_INFOA {
     pub Address: [i8; 256],
     pub Socket: u16,
 }
-impl Copy for ISCSI_TARGET_PORTAL_INFOA {}
-impl Clone for ISCSI_TARGET_PORTAL_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ISCSI_TARGET_PORTAL_INFOW {
     pub InitiatorName: [u16; 256],
     pub InitiatorPortNumber: u32,
@@ -944,13 +742,8 @@ pub struct ISCSI_TARGET_PORTAL_INFOW {
     pub Address: [u16; 256],
     pub Socket: u16,
 }
-impl Copy for ISCSI_TARGET_PORTAL_INFOW {}
-impl Clone for ISCSI_TARGET_PORTAL_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ISCSI_TARGET_PORTAL_INFO_EXA {
     pub InitiatorName: [i8; 256],
     pub InitiatorPortNumber: u32,
@@ -960,13 +753,8 @@ pub struct ISCSI_TARGET_PORTAL_INFO_EXA {
     pub SecurityFlags: u64,
     pub LoginOptions: ISCSI_LOGIN_OPTIONS,
 }
-impl Copy for ISCSI_TARGET_PORTAL_INFO_EXA {}
-impl Clone for ISCSI_TARGET_PORTAL_INFO_EXA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ISCSI_TARGET_PORTAL_INFO_EXW {
     pub InitiatorName: [u16; 256],
     pub InitiatorPortNumber: u32,
@@ -976,36 +764,21 @@ pub struct ISCSI_TARGET_PORTAL_INFO_EXW {
     pub SecurityFlags: u64,
     pub LoginOptions: ISCSI_LOGIN_OPTIONS,
 }
-impl Copy for ISCSI_TARGET_PORTAL_INFO_EXW {}
-impl Clone for ISCSI_TARGET_PORTAL_INFO_EXW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ISCSI_UNIQUE_SESSION_ID {
     pub AdapterUnique: u64,
     pub AdapterSpecific: u64,
 }
-impl Copy for ISCSI_UNIQUE_SESSION_ID {}
-impl Clone for ISCSI_UNIQUE_SESSION_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ISCSI_VERSION_INFO {
     pub MajorVersion: u32,
     pub MinorVersion: u32,
     pub BuildNumber: u32,
 }
-impl Copy for ISCSI_VERSION_INFO {}
-impl Clone for ISCSI_VERSION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MPIO_PASS_THROUGH_PATH {
     pub PassThrough: SCSI_PASS_THROUGH,
     pub Version: u32,
@@ -1014,14 +787,9 @@ pub struct MPIO_PASS_THROUGH_PATH {
     pub PortNumber: u8,
     pub MpioPathId: u64,
 }
-impl Copy for MPIO_PASS_THROUGH_PATH {}
-impl Clone for MPIO_PASS_THROUGH_PATH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct MPIO_PASS_THROUGH_PATH32 {
     pub PassThrough: SCSI_PASS_THROUGH32,
     pub Version: u32,
@@ -1030,16 +798,9 @@ pub struct MPIO_PASS_THROUGH_PATH32 {
     pub PortNumber: u8,
     pub MpioPathId: u64,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for MPIO_PASS_THROUGH_PATH32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for MPIO_PASS_THROUGH_PATH32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct MPIO_PASS_THROUGH_PATH32_EX {
     pub PassThroughOffset: u32,
     pub Version: u32,
@@ -1048,15 +809,8 @@ pub struct MPIO_PASS_THROUGH_PATH32_EX {
     pub PortNumber: u8,
     pub MpioPathId: u64,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for MPIO_PASS_THROUGH_PATH32_EX {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for MPIO_PASS_THROUGH_PATH32_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MPIO_PASS_THROUGH_PATH_DIRECT {
     pub PassThrough: SCSI_PASS_THROUGH_DIRECT,
     pub Version: u32,
@@ -1065,14 +819,9 @@ pub struct MPIO_PASS_THROUGH_PATH_DIRECT {
     pub PortNumber: u8,
     pub MpioPathId: u64,
 }
-impl Copy for MPIO_PASS_THROUGH_PATH_DIRECT {}
-impl Clone for MPIO_PASS_THROUGH_PATH_DIRECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct MPIO_PASS_THROUGH_PATH_DIRECT32 {
     pub PassThrough: SCSI_PASS_THROUGH_DIRECT32,
     pub Version: u32,
@@ -1081,16 +830,9 @@ pub struct MPIO_PASS_THROUGH_PATH_DIRECT32 {
     pub PortNumber: u8,
     pub MpioPathId: u64,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for MPIO_PASS_THROUGH_PATH_DIRECT32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for MPIO_PASS_THROUGH_PATH_DIRECT32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
     pub PassThroughOffset: u32,
     pub Version: u32,
@@ -1099,15 +841,8 @@ pub struct MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
     pub PortNumber: u8,
     pub MpioPathId: u64,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MPIO_PASS_THROUGH_PATH_DIRECT_EX {
     pub PassThroughOffset: u32,
     pub Version: u32,
@@ -1116,13 +851,8 @@ pub struct MPIO_PASS_THROUGH_PATH_DIRECT_EX {
     pub PortNumber: u8,
     pub MpioPathId: u64,
 }
-impl Copy for MPIO_PASS_THROUGH_PATH_DIRECT_EX {}
-impl Clone for MPIO_PASS_THROUGH_PATH_DIRECT_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MPIO_PASS_THROUGH_PATH_EX {
     pub PassThroughOffset: u32,
     pub Version: u32,
@@ -1131,36 +861,21 @@ pub struct MPIO_PASS_THROUGH_PATH_EX {
     pub PortNumber: u8,
     pub MpioPathId: u64,
 }
-impl Copy for MPIO_PASS_THROUGH_PATH_EX {}
-impl Clone for MPIO_PASS_THROUGH_PATH_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MP_DEVICE_DATA_SET_RANGE {
     pub StartingOffset: i64,
     pub LengthInBytes: u64,
 }
-impl Copy for MP_DEVICE_DATA_SET_RANGE {}
-impl Clone for MP_DEVICE_DATA_SET_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NTSCSI_UNICODE_STRING {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Buffer: windows_sys::core::PWSTR,
 }
-impl Copy for NTSCSI_UNICODE_STRING {}
-impl Clone for NTSCSI_UNICODE_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NVCACHE_HINT_PAYLOAD {
     pub Command: u8,
     pub Feature7_0: u8,
@@ -1176,13 +891,8 @@ pub struct NVCACHE_HINT_PAYLOAD {
     pub Auxiliary23_16: u8,
     pub Reserved: [u8; 4],
 }
-impl Copy for NVCACHE_HINT_PAYLOAD {}
-impl Clone for NVCACHE_HINT_PAYLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
     pub PriorityLevel: u8,
     pub Reserved0: [u8; 3],
@@ -1192,13 +902,8 @@ pub struct NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
     pub ConsumedMappingResourcesForDirtyDataFraction: u32,
     pub Reserved1: u32,
 }
-impl Copy for NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {}
-impl Clone for NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NVCACHE_REQUEST_BLOCK {
     pub NRBSize: u32,
     pub Function: u16,
@@ -1210,13 +915,8 @@ pub struct NVCACHE_REQUEST_BLOCK {
     pub NVCacheStatus: u32,
     pub NVCacheSubStatus: u32,
 }
-impl Copy for NVCACHE_REQUEST_BLOCK {}
-impl Clone for NVCACHE_REQUEST_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NV_FEATURE_PARAMETER {
     pub NVPowerModeEnabled: u16,
     pub NVParameterReserv1: u16,
@@ -1229,13 +929,8 @@ pub struct NV_FEATURE_PARAMETER {
     pub NVWrtSpeed: u16,
     pub DeviceSpinUpTime: u32,
 }
-impl Copy for NV_FEATURE_PARAMETER {}
-impl Clone for NV_FEATURE_PARAMETER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NV_SEP_CACHE_PARAMETER {
     pub Version: u32,
     pub Size: u32,
@@ -1244,34 +939,19 @@ pub struct NV_SEP_CACHE_PARAMETER {
     pub WriteCacheTypeEffective: u8,
     pub ParameterReserve1: [u8; 3],
 }
-impl Copy for NV_SEP_CACHE_PARAMETER {}
-impl Clone for NV_SEP_CACHE_PARAMETER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union NV_SEP_CACHE_PARAMETER_0 {
     pub CacheFlags: NV_SEP_CACHE_PARAMETER_0_0,
     pub CacheFlagsSet: u8,
 }
-impl Copy for NV_SEP_CACHE_PARAMETER_0 {}
-impl Clone for NV_SEP_CACHE_PARAMETER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NV_SEP_CACHE_PARAMETER_0_0 {
     pub _bitfield: u8,
 }
-impl Copy for NV_SEP_CACHE_PARAMETER_0_0 {}
-impl Clone for NV_SEP_CACHE_PARAMETER_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PERSISTENT_ISCSI_LOGIN_INFOA {
     pub TargetName: [i8; 224],
     pub IsInformationalSession: super::super::Foundation::BOOLEAN,
@@ -1282,13 +962,8 @@ pub struct PERSISTENT_ISCSI_LOGIN_INFOA {
     pub Mappings: *mut ISCSI_TARGET_MAPPINGA,
     pub LoginOptions: ISCSI_LOGIN_OPTIONS,
 }
-impl Copy for PERSISTENT_ISCSI_LOGIN_INFOA {}
-impl Clone for PERSISTENT_ISCSI_LOGIN_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PERSISTENT_ISCSI_LOGIN_INFOW {
     pub TargetName: [u16; 224],
     pub IsInformationalSession: super::super::Foundation::BOOLEAN,
@@ -1299,24 +974,14 @@ pub struct PERSISTENT_ISCSI_LOGIN_INFOW {
     pub Mappings: *mut ISCSI_TARGET_MAPPINGW,
     pub LoginOptions: ISCSI_LOGIN_OPTIONS,
 }
-impl Copy for PERSISTENT_ISCSI_LOGIN_INFOW {}
-impl Clone for PERSISTENT_ISCSI_LOGIN_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCSI_ADAPTER_BUS_INFO {
     pub NumberOfBuses: u8,
     pub BusData: [SCSI_BUS_DATA; 1],
 }
-impl Copy for SCSI_ADAPTER_BUS_INFO {}
-impl Clone for SCSI_ADAPTER_BUS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCSI_ADDRESS {
     pub Length: u32,
     pub PortNumber: u8,
@@ -1324,25 +989,15 @@ pub struct SCSI_ADDRESS {
     pub TargetId: u8,
     pub Lun: u8,
 }
-impl Copy for SCSI_ADDRESS {}
-impl Clone for SCSI_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCSI_BUS_DATA {
     pub NumberOfLogicalUnits: u8,
     pub InitiatorBusId: u8,
     pub InquiryDataOffset: u32,
 }
-impl Copy for SCSI_BUS_DATA {}
-impl Clone for SCSI_BUS_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCSI_INQUIRY_DATA {
     pub PathId: u8,
     pub TargetId: u8,
@@ -1352,24 +1007,14 @@ pub struct SCSI_INQUIRY_DATA {
     pub NextInquiryDataOffset: u32,
     pub InquiryData: [u8; 1],
 }
-impl Copy for SCSI_INQUIRY_DATA {}
-impl Clone for SCSI_INQUIRY_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCSI_LUN_LIST {
     pub OSLUN: u32,
     pub TargetLUN: u64,
 }
-impl Copy for SCSI_LUN_LIST {}
-impl Clone for SCSI_LUN_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCSI_PASS_THROUGH {
     pub Length: u16,
     pub ScsiStatus: u8,
@@ -1385,14 +1030,9 @@ pub struct SCSI_PASS_THROUGH {
     pub SenseInfoOffset: u32,
     pub Cdb: [u8; 16],
 }
-impl Copy for SCSI_PASS_THROUGH {}
-impl Clone for SCSI_PASS_THROUGH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SCSI_PASS_THROUGH32 {
     pub Length: u16,
     pub ScsiStatus: u8,
@@ -1408,16 +1048,9 @@ pub struct SCSI_PASS_THROUGH32 {
     pub SenseInfoOffset: u32,
     pub Cdb: [u8; 16],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SCSI_PASS_THROUGH32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SCSI_PASS_THROUGH32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SCSI_PASS_THROUGH32_EX {
     pub Version: u32,
     pub Length: u32,
@@ -1436,15 +1069,8 @@ pub struct SCSI_PASS_THROUGH32_EX {
     pub DataInBufferOffset: u32,
     pub Cdb: [u8; 1],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SCSI_PASS_THROUGH32_EX {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SCSI_PASS_THROUGH32_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCSI_PASS_THROUGH_DIRECT {
     pub Length: u16,
     pub ScsiStatus: u8,
@@ -1460,14 +1086,9 @@ pub struct SCSI_PASS_THROUGH_DIRECT {
     pub SenseInfoOffset: u32,
     pub Cdb: [u8; 16],
 }
-impl Copy for SCSI_PASS_THROUGH_DIRECT {}
-impl Clone for SCSI_PASS_THROUGH_DIRECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SCSI_PASS_THROUGH_DIRECT32 {
     pub Length: u16,
     pub ScsiStatus: u8,
@@ -1483,16 +1104,9 @@ pub struct SCSI_PASS_THROUGH_DIRECT32 {
     pub SenseInfoOffset: u32,
     pub Cdb: [u8; 16],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SCSI_PASS_THROUGH_DIRECT32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SCSI_PASS_THROUGH_DIRECT32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SCSI_PASS_THROUGH_DIRECT32_EX {
     pub Version: u32,
     pub Length: u32,
@@ -1511,15 +1125,8 @@ pub struct SCSI_PASS_THROUGH_DIRECT32_EX {
     pub DataInBuffer: *mut core::ffi::c_void,
     pub Cdb: [u8; 1],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SCSI_PASS_THROUGH_DIRECT32_EX {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SCSI_PASS_THROUGH_DIRECT32_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCSI_PASS_THROUGH_DIRECT_EX {
     pub Version: u32,
     pub Length: u32,
@@ -1538,13 +1145,8 @@ pub struct SCSI_PASS_THROUGH_DIRECT_EX {
     pub DataInBuffer: *mut core::ffi::c_void,
     pub Cdb: [u8; 1],
 }
-impl Copy for SCSI_PASS_THROUGH_DIRECT_EX {}
-impl Clone for SCSI_PASS_THROUGH_DIRECT_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCSI_PASS_THROUGH_EX {
     pub Version: u32,
     pub Length: u32,
@@ -1563,13 +1165,8 @@ pub struct SCSI_PASS_THROUGH_EX {
     pub DataInBufferOffset: usize,
     pub Cdb: [u8; 1],
 }
-impl Copy for SCSI_PASS_THROUGH_EX {}
-impl Clone for SCSI_PASS_THROUGH_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SRB_IO_CONTROL {
     pub HeaderLength: u32,
     pub Signature: [u8; 8],
@@ -1578,13 +1175,8 @@ pub struct SRB_IO_CONTROL {
     pub ReturnCode: u32,
     pub Length: u32,
 }
-impl Copy for SRB_IO_CONTROL {}
-impl Clone for SRB_IO_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STORAGE_DIAGNOSTIC_MP_REQUEST {
     pub Version: u32,
     pub Size: u32,
@@ -1595,25 +1187,15 @@ pub struct STORAGE_DIAGNOSTIC_MP_REQUEST {
     pub Reserved: u32,
     pub DataBuffer: [u8; 1],
 }
-impl Copy for STORAGE_DIAGNOSTIC_MP_REQUEST {}
-impl Clone for STORAGE_DIAGNOSTIC_MP_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STORAGE_ENDURANCE_DATA_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
     pub EnduranceInfo: STORAGE_ENDURANCE_INFO,
 }
-impl Copy for STORAGE_ENDURANCE_DATA_DESCRIPTOR {}
-impl Clone for STORAGE_ENDURANCE_DATA_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STORAGE_ENDURANCE_INFO {
     pub ValidFields: u32,
     pub GroupId: u32,
@@ -1622,36 +1204,21 @@ pub struct STORAGE_ENDURANCE_INFO {
     pub BytesReadCount: [u8; 16],
     pub ByteWriteCount: [u8; 16],
 }
-impl Copy for STORAGE_ENDURANCE_INFO {}
-impl Clone for STORAGE_ENDURANCE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STORAGE_ENDURANCE_INFO_0 {
     pub _bitfield: u32,
 }
-impl Copy for STORAGE_ENDURANCE_INFO_0 {}
-impl Clone for STORAGE_ENDURANCE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STORAGE_FIRMWARE_ACTIVATE {
     pub Version: u32,
     pub Size: u32,
     pub SlotToActivate: u8,
     pub Reserved0: [u8; 3],
 }
-impl Copy for STORAGE_FIRMWARE_ACTIVATE {}
-impl Clone for STORAGE_FIRMWARE_ACTIVATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STORAGE_FIRMWARE_DOWNLOAD {
     pub Version: u32,
     pub Size: u32,
@@ -1659,13 +1226,8 @@ pub struct STORAGE_FIRMWARE_DOWNLOAD {
     pub BufferSize: u64,
     pub ImageBuffer: [u8; 1],
 }
-impl Copy for STORAGE_FIRMWARE_DOWNLOAD {}
-impl Clone for STORAGE_FIRMWARE_DOWNLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STORAGE_FIRMWARE_DOWNLOAD_V2 {
     pub Version: u32,
     pub Size: u32,
@@ -1676,13 +1238,8 @@ pub struct STORAGE_FIRMWARE_DOWNLOAD_V2 {
     pub ImageSize: u32,
     pub ImageBuffer: [u8; 1],
 }
-impl Copy for STORAGE_FIRMWARE_DOWNLOAD_V2 {}
-impl Clone for STORAGE_FIRMWARE_DOWNLOAD_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STORAGE_FIRMWARE_INFO {
     pub Version: u32,
     pub Size: u32,
@@ -1693,13 +1250,8 @@ pub struct STORAGE_FIRMWARE_INFO {
     pub Reserved: u32,
     pub Slot: [STORAGE_FIRMWARE_SLOT_INFO; 1],
 }
-impl Copy for STORAGE_FIRMWARE_INFO {}
-impl Clone for STORAGE_FIRMWARE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STORAGE_FIRMWARE_INFO_V2 {
     pub Version: u32,
     pub Size: u32,
@@ -1713,48 +1265,27 @@ pub struct STORAGE_FIRMWARE_INFO_V2 {
     pub ImagePayloadMaxSize: u32,
     pub Slot: [STORAGE_FIRMWARE_SLOT_INFO_V2; 1],
 }
-impl Copy for STORAGE_FIRMWARE_INFO_V2 {}
-impl Clone for STORAGE_FIRMWARE_INFO_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STORAGE_FIRMWARE_SLOT_INFO {
     pub SlotNumber: u8,
     pub ReadOnly: super::super::Foundation::BOOLEAN,
     pub Reserved: [u8; 6],
     pub Revision: STORAGE_FIRMWARE_SLOT_INFO_0,
 }
-impl Copy for STORAGE_FIRMWARE_SLOT_INFO {}
-impl Clone for STORAGE_FIRMWARE_SLOT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union STORAGE_FIRMWARE_SLOT_INFO_0 {
     pub Info: [u8; 8],
     pub AsUlonglong: u64,
 }
-impl Copy for STORAGE_FIRMWARE_SLOT_INFO_0 {}
-impl Clone for STORAGE_FIRMWARE_SLOT_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STORAGE_FIRMWARE_SLOT_INFO_V2 {
     pub SlotNumber: u8,
     pub ReadOnly: super::super::Foundation::BOOLEAN,
     pub Reserved: [u8; 6],
     pub Revision: [u8; 16],
-}
-impl Copy for STORAGE_FIRMWARE_SLOT_INFO_V2 {}
-impl Clone for STORAGE_FIRMWARE_SLOT_INFO_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type _ADAPTER_OBJECT = isize;
 pub type PDUMP_DEVICE_POWERON_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> i32>;

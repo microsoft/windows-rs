@@ -99,40 +99,26 @@ pub type REPAIR_SCOPE = i32;
 pub type REPAIR_STATUS = i32;
 pub type UI_INFO_TYPE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIAG_SOCKADDR {
     pub family: u16,
     pub data: [i8; 126],
 }
-impl Copy for DIAG_SOCKADDR {}
-impl Clone for DIAG_SOCKADDR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DiagnosticsInfo {
     pub cost: i32,
     pub flags: u32,
 }
-impl Copy for DiagnosticsInfo {}
-impl Clone for DiagnosticsInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HELPER_ATTRIBUTE {
     pub pwszName: windows_sys::core::PWSTR,
     pub r#type: ATTRIBUTE_TYPE,
     pub Anonymous: HELPER_ATTRIBUTE_0,
 }
-impl Copy for HELPER_ATTRIBUTE {}
-impl Clone for HELPER_ATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union HELPER_ATTRIBUTE_0 {
     pub Boolean: super::super::Foundation::BOOL,
     pub Char: u8,
@@ -149,70 +135,40 @@ pub union HELPER_ATTRIBUTE_0 {
     pub Address: DIAG_SOCKADDR,
     pub OctetString: OCTET_STRING,
 }
-impl Copy for HELPER_ATTRIBUTE_0 {}
-impl Clone for HELPER_ATTRIBUTE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HYPOTHESIS {
     pub pwszClassName: windows_sys::core::PWSTR,
     pub pwszDescription: windows_sys::core::PWSTR,
     pub celt: u32,
     pub rgAttributes: *mut HELPER_ATTRIBUTE,
 }
-impl Copy for HYPOTHESIS {}
-impl Clone for HYPOTHESIS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HelperAttributeInfo {
     pub pwszName: windows_sys::core::PWSTR,
     pub r#type: ATTRIBUTE_TYPE,
 }
-impl Copy for HelperAttributeInfo {}
-impl Clone for HelperAttributeInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HypothesisResult {
     pub hypothesis: HYPOTHESIS,
     pub pathStatus: DIAGNOSIS_STATUS,
 }
-impl Copy for HypothesisResult {}
-impl Clone for HypothesisResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LIFE_TIME {
     pub startTime: super::super::Foundation::FILETIME,
     pub endTime: super::super::Foundation::FILETIME,
 }
-impl Copy for LIFE_TIME {}
-impl Clone for LIFE_TIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OCTET_STRING {
     pub dwLength: u32,
     pub lpValue: *mut u8,
 }
-impl Copy for OCTET_STRING {}
-impl Clone for OCTET_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RepairInfo {
     pub guid: windows_sys::core::GUID,
     pub pwszClassName: windows_sys::core::PWSTR,
@@ -225,24 +181,14 @@ pub struct RepairInfo {
     pub UiInfo: UiInfo,
     pub rootCauseIndex: i32,
 }
-impl Copy for RepairInfo {}
-impl Clone for RepairInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RepairInfoEx {
     pub repair: RepairInfo,
     pub repairRank: u16,
 }
-impl Copy for RepairInfoEx {}
-impl Clone for RepairInfoEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RootCauseInfo {
     pub pwszDescription: windows_sys::core::PWSTR,
     pub rootCauseID: windows_sys::core::GUID,
@@ -251,13 +197,8 @@ pub struct RootCauseInfo {
     pub pRepairs: *mut RepairInfoEx,
     pub repairCount: u16,
 }
-impl Copy for RootCauseInfo {}
-impl Clone for RootCauseInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ShellCommandInfo {
     pub pwszOperation: windows_sys::core::PWSTR,
     pub pwszFile: windows_sys::core::PWSTR,
@@ -265,33 +206,17 @@ pub struct ShellCommandInfo {
     pub pwszDirectory: windows_sys::core::PWSTR,
     pub nShowCmd: u32,
 }
-impl Copy for ShellCommandInfo {}
-impl Clone for ShellCommandInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UiInfo {
     pub r#type: UI_INFO_TYPE,
     pub Anonymous: UiInfo_0,
 }
-impl Copy for UiInfo {}
-impl Clone for UiInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union UiInfo_0 {
     pub pwzNull: windows_sys::core::PWSTR,
     pub ShellInfo: ShellCommandInfo,
     pub pwzHelpUrl: windows_sys::core::PWSTR,
     pub pwzDui: windows_sys::core::PWSTR,
-}
-impl Copy for UiInfo_0 {}
-impl Clone for UiInfo_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

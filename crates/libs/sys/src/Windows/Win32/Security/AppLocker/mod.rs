@@ -88,6 +88,7 @@ pub type SAFER_OBJECT_INFO_CLASS = i32;
 pub type SAFER_POLICY_INFO_CLASS = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct SAFER_CODE_PROPERTIES_V1 {
     pub cbSize: u32,
     pub dwCheckFlags: u32,
@@ -102,16 +103,9 @@ pub struct SAFER_CODE_PROPERTIES_V1 {
     pub hWndParent: super::super::Foundation::HWND,
     pub dwWVTUIChoice: u32,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for SAFER_CODE_PROPERTIES_V1 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for SAFER_CODE_PROPERTIES_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct SAFER_CODE_PROPERTIES_V2 {
     pub cbSize: u32,
     pub dwCheckFlags: u32,
@@ -131,16 +125,9 @@ pub struct SAFER_CODE_PROPERTIES_V2 {
     pub PackageVersion: u64,
     pub PackageIsFramework: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for SAFER_CODE_PROPERTIES_V2 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for SAFER_CODE_PROPERTIES_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct SAFER_HASH_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
     pub Description: [u16; 256],
@@ -151,65 +138,35 @@ pub struct SAFER_HASH_IDENTIFICATION {
     pub ImageSize: i64,
     pub dwSaferFlags: u32,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for SAFER_HASH_IDENTIFICATION {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for SAFER_HASH_IDENTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct SAFER_HASH_IDENTIFICATION2 {
     pub hashIdentification: SAFER_HASH_IDENTIFICATION,
     pub HashSize: u32,
     pub ImageHash: [u8; 64],
     pub HashAlgorithm: super::Cryptography::ALG_ID,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for SAFER_HASH_IDENTIFICATION2 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for SAFER_HASH_IDENTIFICATION2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SAFER_IDENTIFICATION_HEADER {
     pub dwIdentificationType: SAFER_IDENTIFICATION_TYPES,
     pub cbStructSize: u32,
     pub IdentificationGuid: windows_sys::core::GUID,
     pub lastModified: super::super::Foundation::FILETIME,
 }
-impl Copy for SAFER_IDENTIFICATION_HEADER {}
-impl Clone for SAFER_IDENTIFICATION_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SAFER_PATHNAME_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
     pub Description: [u16; 256],
     pub ImageName: windows_sys::core::PWSTR,
     pub dwSaferFlags: u32,
 }
-impl Copy for SAFER_PATHNAME_IDENTIFICATION {}
-impl Clone for SAFER_PATHNAME_IDENTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SAFER_URLZONE_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
     pub UrlZoneId: u32,
     pub dwSaferFlags: u32,
-}
-impl Copy for SAFER_URLZONE_IDENTIFICATION {}
-impl Clone for SAFER_URLZONE_IDENTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

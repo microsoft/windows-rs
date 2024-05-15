@@ -240,33 +240,20 @@ pub type VARENUM = u16;
 pub type VAR_CHANGE_FLAGS = u16;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct VARIANT {
     pub Anonymous: VARIANT_0,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for VARIANT {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for VARIANT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub union VARIANT_0 {
     pub Anonymous: VARIANT_0_0,
     pub decVal: super::super::Foundation::DECIMAL,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for VARIANT_0 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for VARIANT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct VARIANT_0_0 {
     pub vt: VARENUM,
     pub wReserved1: u16,
@@ -274,16 +261,9 @@ pub struct VARIANT_0_0 {
     pub wReserved3: u16,
     pub Anonymous: VARIANT_0_0_0,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for VARIANT_0_0 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for VARIANT_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub union VARIANT_0_0_0 {
     pub llVal: i64,
     pub lVal: i32,
@@ -332,25 +312,10 @@ pub union VARIANT_0_0_0 {
     pub puintVal: *mut u32,
     pub Anonymous: VARIANT_0_0_0_0,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for VARIANT_0_0_0 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for VARIANT_0_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct VARIANT_0_0_0_0 {
     pub pvRecord: *mut core::ffi::c_void,
     pub pRecInfo: *mut core::ffi::c_void,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for VARIANT_0_0_0_0 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for VARIANT_0_0_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

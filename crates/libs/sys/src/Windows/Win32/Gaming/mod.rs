@@ -86,15 +86,10 @@ pub type GAMING_DEVICE_VENDOR_ID = i32;
 pub type KnownGamingPrivileges = i32;
 pub type XBL_IDP_AUTH_TOKEN_STATUS = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GAMING_DEVICE_MODEL_INFORMATION {
     pub vendorId: GAMING_DEVICE_VENDOR_ID,
     pub deviceId: GAMING_DEVICE_DEVICE_ID,
-}
-impl Copy for GAMING_DEVICE_MODEL_INFORMATION {}
-impl Clone for GAMING_DEVICE_MODEL_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const GameExplorer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9a5ea990_3034_4d6f_9128_01f3c61022bc);
 pub const GameStatistics: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdbc85a2c_c0dc_4961_b6e2_d28b62c11ad4);

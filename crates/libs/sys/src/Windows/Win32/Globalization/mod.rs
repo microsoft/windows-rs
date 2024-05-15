@@ -4446,6 +4446,7 @@ pub type UWordBreak = i32;
 pub type UWordBreakValues = i32;
 pub type WORDLIST_TYPE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CALDATETIME {
     pub CalId: u32,
     pub Era: u32,
@@ -4458,40 +4459,25 @@ pub struct CALDATETIME {
     pub Second: u32,
     pub Tick: u32,
 }
-impl Copy for CALDATETIME {}
-impl Clone for CALDATETIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CHARSETINFO {
     pub ciCharset: u32,
     pub ciACP: u32,
     pub fs: FONTSIGNATURE,
 }
-impl Copy for CHARSETINFO {}
-impl Clone for CHARSETINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const CMLangConvertCharset: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd66d6f99_cdaa_11d0_b822_00c04fc9b31f);
 pub const CMLangString: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc04d65cf_b70d_11d0_b188_00aa0038c969);
 pub const CMultiLanguage: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x275c23e2_3747_11d0_9fea_00aa003f8646);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CPINFO {
     pub MaxCharSize: u32,
     pub DefaultChar: [u8; 2],
     pub LeadByte: [u8; 12],
 }
-impl Copy for CPINFO {}
-impl Clone for CPINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CPINFOEXA {
     pub MaxCharSize: u32,
     pub DefaultChar: [u8; 2],
@@ -4500,13 +4486,8 @@ pub struct CPINFOEXA {
     pub CodePage: u32,
     pub CodePageName: [i8; 260],
 }
-impl Copy for CPINFOEXA {}
-impl Clone for CPINFOEXA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CPINFOEXW {
     pub MaxCharSize: u32,
     pub DefaultChar: [u8; 2],
@@ -4515,13 +4496,8 @@ pub struct CPINFOEXW {
     pub CodePage: u32,
     pub CodePageName: [u16; 260],
 }
-impl Copy for CPINFOEXW {}
-impl Clone for CPINFOEXW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CURRENCYFMTA {
     pub NumDigits: u32,
     pub LeadingZero: u32,
@@ -4532,13 +4508,8 @@ pub struct CURRENCYFMTA {
     pub PositiveOrder: u32,
     pub lpCurrencySymbol: windows_sys::core::PSTR,
 }
-impl Copy for CURRENCYFMTA {}
-impl Clone for CURRENCYFMTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CURRENCYFMTW {
     pub NumDigits: u32,
     pub LeadingZero: u32,
@@ -4549,54 +4520,30 @@ pub struct CURRENCYFMTW {
     pub PositiveOrder: u32,
     pub lpCurrencySymbol: windows_sys::core::PWSTR,
 }
-impl Copy for CURRENCYFMTW {}
-impl Clone for CURRENCYFMTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DetectEncodingInfo {
     pub nLangID: u32,
     pub nCodePage: u32,
     pub nDocPercent: i32,
     pub nConfidence: i32,
 }
-impl Copy for DetectEncodingInfo {}
-impl Clone for DetectEncodingInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct ENUMTEXTMETRICA {
     pub etmNewTextMetricEx: NEWTEXTMETRICEXA,
     pub etmAxesList: super::Graphics::Gdi::AXESLISTA,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for ENUMTEXTMETRICA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for ENUMTEXTMETRICA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct ENUMTEXTMETRICW {
     pub etmNewTextMetricEx: NEWTEXTMETRICEXW,
     pub etmAxesList: super::Graphics::Gdi::AXESLISTW,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for ENUMTEXTMETRICW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for ENUMTEXTMETRICW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILEMUIINFO {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -4612,50 +4559,30 @@ pub struct FILEMUIINFO {
     pub dwTypeNameMUIOffset: u32,
     pub abBuffer: [u8; 8],
 }
-impl Copy for FILEMUIINFO {}
-impl Clone for FILEMUIINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FONTSIGNATURE {
     pub fsUsb: [u32; 4],
     pub fsCsb: [u32; 2],
 }
-impl Copy for FONTSIGNATURE {}
-impl Clone for FONTSIGNATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GOFFSET {
     pub du: i32,
     pub dv: i32,
-}
-impl Copy for GOFFSET {}
-impl Clone for GOFFSET {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type HIMC = isize;
 pub type HIMCC = isize;
 pub type HSAVEDUILANGUAGES = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LOCALESIGNATURE {
     pub lsUsb: [u32; 4],
     pub lsCsbDefault: [u32; 2],
     pub lsCsbSupported: [u32; 2],
 }
-impl Copy for LOCALESIGNATURE {}
-impl Clone for LOCALESIGNATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MAPPING_DATA_RANGE {
     pub dwStartIndex: u32,
     pub dwEndIndex: u32,
@@ -4668,13 +4595,8 @@ pub struct MAPPING_DATA_RANGE {
     pub dwActionsCount: u32,
     pub prgActionDisplayNames: *mut windows_sys::core::PWSTR,
 }
-impl Copy for MAPPING_DATA_RANGE {}
-impl Clone for MAPPING_DATA_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MAPPING_ENUM_OPTIONS {
     pub Size: usize,
     pub pszCategory: windows_sys::core::PWSTR,
@@ -4687,13 +4609,8 @@ pub struct MAPPING_ENUM_OPTIONS {
     pub pGuid: *mut windows_sys::core::GUID,
     pub _bitfield: u32,
 }
-impl Copy for MAPPING_ENUM_OPTIONS {}
-impl Clone for MAPPING_ENUM_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MAPPING_OPTIONS {
     pub Size: usize,
     pub pszInputLanguage: windows_sys::core::PWSTR,
@@ -4712,13 +4629,8 @@ pub struct MAPPING_OPTIONS {
     pub dwServiceFlag: u32,
     pub _bitfield: u32,
 }
-impl Copy for MAPPING_OPTIONS {}
-impl Clone for MAPPING_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MAPPING_PROPERTY_BAG {
     pub Size: usize,
     pub prgResultRanges: *mut MAPPING_DATA_RANGE,
@@ -4729,13 +4641,8 @@ pub struct MAPPING_PROPERTY_BAG {
     pub dwCallerDataSize: u32,
     pub pContext: *mut core::ffi::c_void,
 }
-impl Copy for MAPPING_PROPERTY_BAG {}
-impl Clone for MAPPING_PROPERTY_BAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MAPPING_SERVICE_INFO {
     pub Size: usize,
     pub pszCopyright: windows_sys::core::PWSTR,
@@ -4763,13 +4670,8 @@ pub struct MAPPING_SERVICE_INFO {
     pub pContext: *mut core::ffi::c_void,
     pub _bitfield: u32,
 }
-impl Copy for MAPPING_SERVICE_INFO {}
-impl Clone for MAPPING_SERVICE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MIMECPINFO {
     pub dwFlags: u32,
     pub uiCodePage: u32,
@@ -4782,53 +4684,29 @@ pub struct MIMECPINFO {
     pub wszProportionalFont: [u16; 32],
     pub bGDICharset: u8,
 }
-impl Copy for MIMECPINFO {}
-impl Clone for MIMECPINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MIMECSETINFO {
     pub uiCodePage: u32,
     pub uiInternetEncoding: u32,
     pub wszCharset: [u16; 50],
 }
-impl Copy for MIMECSETINFO {}
-impl Clone for MIMECSETINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct NEWTEXTMETRICEXA {
     pub ntmTm: super::Graphics::Gdi::NEWTEXTMETRICA,
     pub ntmFontSig: FONTSIGNATURE,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for NEWTEXTMETRICEXA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for NEWTEXTMETRICEXA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct NEWTEXTMETRICEXW {
     pub ntmTm: super::Graphics::Gdi::NEWTEXTMETRICW,
     pub ntmFontSig: FONTSIGNATURE,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for NEWTEXTMETRICEXW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for NEWTEXTMETRICEXW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NLSVERSIONINFO {
     pub dwNLSVersionInfoSize: u32,
     pub dwNLSVersion: u32,
@@ -4836,13 +4714,8 @@ pub struct NLSVERSIONINFO {
     pub dwEffectiveId: u32,
     pub guidCustomVersion: windows_sys::core::GUID,
 }
-impl Copy for NLSVERSIONINFO {}
-impl Clone for NLSVERSIONINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NLSVERSIONINFOEX {
     pub dwNLSVersionInfoSize: u32,
     pub dwNLSVersion: u32,
@@ -4850,13 +4723,8 @@ pub struct NLSVERSIONINFOEX {
     pub dwEffectiveId: u32,
     pub guidCustomVersion: windows_sys::core::GUID,
 }
-impl Copy for NLSVERSIONINFOEX {}
-impl Clone for NLSVERSIONINFOEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NUMBERFMTA {
     pub NumDigits: u32,
     pub LeadingZero: u32,
@@ -4865,13 +4733,8 @@ pub struct NUMBERFMTA {
     pub lpThousandSep: windows_sys::core::PSTR,
     pub NegativeOrder: u32,
 }
-impl Copy for NUMBERFMTA {}
-impl Clone for NUMBERFMTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NUMBERFMTW {
     pub NumDigits: u32,
     pub LeadingZero: u32,
@@ -4880,47 +4743,27 @@ pub struct NUMBERFMTW {
     pub lpThousandSep: windows_sys::core::PWSTR,
     pub NegativeOrder: u32,
 }
-impl Copy for NUMBERFMTW {}
-impl Clone for NUMBERFMTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OPENTYPE_FEATURE_RECORD {
     pub tagFeature: u32,
     pub lParameter: i32,
 }
-impl Copy for OPENTYPE_FEATURE_RECORD {}
-impl Clone for OPENTYPE_FEATURE_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RFC1766INFO {
     pub lcid: u32,
     pub wszRfc1766: [u16; 6],
     pub wszLocaleName: [u16; 32],
 }
-impl Copy for RFC1766INFO {}
-impl Clone for RFC1766INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCRIPTFONTINFO {
     pub scripts: i64,
     pub wszFont: [u16; 32],
 }
-impl Copy for SCRIPTFONTINFO {}
-impl Clone for SCRIPTFONTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCRIPTINFO {
     pub ScriptId: u8,
     pub uiCodePage: u32,
@@ -4928,56 +4771,31 @@ pub struct SCRIPTINFO {
     pub wszFixedWidthFont: [u16; 32],
     pub wszProportionalFont: [u16; 32],
 }
-impl Copy for SCRIPTINFO {}
-impl Clone for SCRIPTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCRIPT_ANALYSIS {
     pub _bitfield: u16,
     pub s: SCRIPT_STATE,
 }
-impl Copy for SCRIPT_ANALYSIS {}
-impl Clone for SCRIPT_ANALYSIS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCRIPT_CHARPROP {
     pub _bitfield: u16,
 }
-impl Copy for SCRIPT_CHARPROP {}
-impl Clone for SCRIPT_CHARPROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCRIPT_CONTROL {
     pub _bitfield: u32,
 }
-impl Copy for SCRIPT_CONTROL {}
-impl Clone for SCRIPT_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCRIPT_DIGITSUBSTITUTE {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
     pub dwReserved: u32,
 }
-impl Copy for SCRIPT_DIGITSUBSTITUTE {}
-impl Clone for SCRIPT_DIGITSUBSTITUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCRIPT_FONTPROPERTIES {
     pub cBytes: i32,
     pub wgBlank: u16,
@@ -4986,105 +4804,60 @@ pub struct SCRIPT_FONTPROPERTIES {
     pub wgKashida: u16,
     pub iKashidaWidth: i32,
 }
-impl Copy for SCRIPT_FONTPROPERTIES {}
-impl Clone for SCRIPT_FONTPROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCRIPT_GLYPHPROP {
     pub sva: SCRIPT_VISATTR,
     pub reserved: u16,
 }
-impl Copy for SCRIPT_GLYPHPROP {}
-impl Clone for SCRIPT_GLYPHPROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCRIPT_ITEM {
     pub iCharPos: i32,
     pub a: SCRIPT_ANALYSIS,
 }
-impl Copy for SCRIPT_ITEM {}
-impl Clone for SCRIPT_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCRIPT_LOGATTR {
     pub _bitfield: u8,
 }
-impl Copy for SCRIPT_LOGATTR {}
-impl Clone for SCRIPT_LOGATTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCRIPT_PROPERTIES {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
 }
-impl Copy for SCRIPT_PROPERTIES {}
-impl Clone for SCRIPT_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCRIPT_STATE {
     pub _bitfield: u16,
 }
-impl Copy for SCRIPT_STATE {}
-impl Clone for SCRIPT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCRIPT_TABDEF {
     pub cTabStops: i32,
     pub iScale: i32,
     pub pTabStops: *mut i32,
     pub iTabOrigin: i32,
 }
-impl Copy for SCRIPT_TABDEF {}
-impl Clone for SCRIPT_TABDEF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCRIPT_VISATTR {
     pub _bitfield: u16,
 }
-impl Copy for SCRIPT_VISATTR {}
-impl Clone for SCRIPT_VISATTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const SpellCheckerFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7ab36653_1796_484b_bdfa_e74f1db7c1dc);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TEXTRANGE_PROPERTIES {
     pub potfRecords: *mut OPENTYPE_FEATURE_RECORD,
     pub cotfRecords: i32,
-}
-impl Copy for TEXTRANGE_PROPERTIES {}
-impl Clone for TEXTRANGE_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type UBiDi = isize;
 pub type UBiDiTransform = isize;
 pub type UBreakIterator = isize;
 pub type UCPMap = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UCPTrie {
     pub index: *const u16,
     pub data: UCPTrieData,
@@ -5100,27 +4873,17 @@ pub struct UCPTrie {
     pub dataNullOffset: i32,
     pub nullValue: u32,
 }
-impl Copy for UCPTrie {}
-impl Clone for UCPTrie {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union UCPTrieData {
     pub ptr0: *const core::ffi::c_void,
     pub ptr16: *const u16,
     pub ptr32: *const u32,
     pub ptr8: *const u8,
 }
-impl Copy for UCPTrieData {}
-impl Clone for UCPTrieData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type UCaseMap = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UCharIterator {
     pub context: *const core::ffi::c_void,
     pub length: i32,
@@ -5139,12 +4902,6 @@ pub struct UCharIterator {
     pub getState: UCharIteratorGetState,
     pub setState: UCharIteratorSetState,
 }
-impl Copy for UCharIterator {}
-impl Clone for UCharIterator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type UCharsetDetector = isize;
 pub type UCharsetMatch = isize;
 pub type UCollationElements = isize;
@@ -5152,6 +4909,7 @@ pub type UCollator = isize;
 pub type UConstrainedFieldPosition = isize;
 pub type UConverter = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UConverterFromUnicodeArgs {
     pub size: u16,
     pub flush: i8,
@@ -5162,14 +4920,9 @@ pub struct UConverterFromUnicodeArgs {
     pub targetLimit: windows_sys::core::PCSTR,
     pub offsets: *mut i32,
 }
-impl Copy for UConverterFromUnicodeArgs {}
-impl Clone for UConverterFromUnicodeArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type UConverterSelector = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UConverterToUnicodeArgs {
     pub size: u16,
     pub flush: i8,
@@ -5180,26 +4933,15 @@ pub struct UConverterToUnicodeArgs {
     pub targetLimit: *const u16,
     pub offsets: *mut i32,
 }
-impl Copy for UConverterToUnicodeArgs {}
-impl Clone for UConverterToUnicodeArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type UDateFormatSymbols = isize;
 pub type UDateIntervalFormat = isize;
 pub type UEnumeration = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UFieldPosition {
     pub field: i32,
     pub beginIndex: i32,
     pub endIndex: i32,
-}
-impl Copy for UFieldPosition {}
-impl Clone for UFieldPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type UFieldPositionIterator = isize;
 pub type UFormattedDateInterval = isize;
@@ -5212,6 +4954,7 @@ pub type UGenderInfo = isize;
 pub type UHashtable = isize;
 pub type UIDNA = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UIDNAInfo {
     pub size: i16,
     pub isTransitionalDifferent: i8,
@@ -5220,48 +4963,33 @@ pub struct UIDNAInfo {
     pub reservedI2: i32,
     pub reservedI3: i32,
 }
-impl Copy for UIDNAInfo {}
-impl Clone for UIDNAInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type UListFormatter = isize;
 pub type ULocaleData = isize;
 pub type ULocaleDisplayNames = isize;
 pub type UMutableCPTrie = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UNICODERANGE {
     pub wcFrom: u16,
     pub wcTo: u16,
-}
-impl Copy for UNICODERANGE {}
-impl Clone for UNICODERANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type UNormalizer2 = isize;
 pub type UNumberFormatter = isize;
 pub type UNumberingSystem = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UParseError {
     pub line: i32,
     pub offset: i32,
     pub preContext: [u16; 16],
     pub postContext: [u16; 16],
 }
-impl Copy for UParseError {}
-impl Clone for UParseError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type UPluralRules = isize;
 pub type URegion = isize;
 pub type URegularExpression = isize;
 pub type URelativeDateTimeFormatter = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UReplaceableCallbacks {
     pub length: isize,
     pub charAt: isize,
@@ -5270,26 +4998,15 @@ pub struct UReplaceableCallbacks {
     pub extract: isize,
     pub copy: isize,
 }
-impl Copy for UReplaceableCallbacks {}
-impl Clone for UReplaceableCallbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type UResourceBundle = isize;
 pub type USearch = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USerializedSet {
     pub array: *const u16,
     pub bmpLength: i32,
     pub length: i32,
     pub staticArray: [u16; 8],
-}
-impl Copy for USerializedSet {}
-impl Clone for USerializedSet {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type USet = isize;
 pub type USpoofCheckResult = isize;
@@ -5297,6 +5014,7 @@ pub type USpoofChecker = isize;
 pub type UStringPrepProfile = isize;
 pub type UStringSearch = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UText {
     pub magic: u32,
     pub flags: i32,
@@ -5323,13 +5041,8 @@ pub struct UText {
     pub privB: i32,
     pub privC: i32,
 }
-impl Copy for UText {}
-impl Clone for UText {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UTextFuncs {
     pub tableSize: i32,
     pub reserved1: i32,
@@ -5348,24 +5061,13 @@ pub struct UTextFuncs {
     pub spare2: UTextClose,
     pub spare3: UTextClose,
 }
-impl Copy for UTextFuncs {}
-impl Clone for UTextFuncs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UTransPosition {
     pub contextStart: i32,
     pub contextLimit: i32,
     pub start: i32,
     pub limit: i32,
-}
-impl Copy for UTransPosition {}
-impl Clone for UTransPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type CALINFO_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR) -> super::Foundation::BOOL>;
 pub type CALINFO_ENUMPROCEXA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: u32) -> super::Foundation::BOOL>;

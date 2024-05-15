@@ -1417,73 +1417,44 @@ pub type URL_CACHE_LIMIT_TYPE = i32;
 pub type WININET_SYNC_MODE = i32;
 pub type WPAD_CACHE_DELETE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct APP_CACHE_DOWNLOAD_ENTRY {
     pub pwszUrl: windows_sys::core::PWSTR,
     pub dwEntryType: u32,
 }
-impl Copy for APP_CACHE_DOWNLOAD_ENTRY {}
-impl Clone for APP_CACHE_DOWNLOAD_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct APP_CACHE_DOWNLOAD_LIST {
     pub dwEntryCount: u32,
     pub pEntries: *mut APP_CACHE_DOWNLOAD_ENTRY,
 }
-impl Copy for APP_CACHE_DOWNLOAD_LIST {}
-impl Clone for APP_CACHE_DOWNLOAD_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct APP_CACHE_GROUP_INFO {
     pub pwszManifestUrl: windows_sys::core::PWSTR,
     pub ftLastAccessTime: super::super::Foundation::FILETIME,
     pub ullSize: u64,
 }
-impl Copy for APP_CACHE_GROUP_INFO {}
-impl Clone for APP_CACHE_GROUP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct APP_CACHE_GROUP_LIST {
     pub dwAppCacheGroupCount: u32,
     pub pAppCacheGroups: *mut APP_CACHE_GROUP_INFO,
 }
-impl Copy for APP_CACHE_GROUP_LIST {}
-impl Clone for APP_CACHE_GROUP_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUTO_PROXY_SCRIPT_BUFFER {
     pub dwStructSize: u32,
     pub lpszScriptBuffer: windows_sys::core::PSTR,
     pub dwScriptBufferSize: u32,
 }
-impl Copy for AUTO_PROXY_SCRIPT_BUFFER {}
-impl Clone for AUTO_PROXY_SCRIPT_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AutoProxyHelperFunctions {
     pub lpVtbl: *const AutoProxyHelperVtbl,
 }
-impl Copy for AutoProxyHelperFunctions {}
-impl Clone for AutoProxyHelperFunctions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AutoProxyHelperVtbl {
     pub IsResolvable: isize,
     pub GetIPAddress: isize,
@@ -1495,13 +1466,8 @@ pub struct AutoProxyHelperVtbl {
     pub IsInNetEx: isize,
     pub SortIpList: isize,
 }
-impl Copy for AutoProxyHelperVtbl {}
-impl Clone for AutoProxyHelperVtbl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COOKIE_DLG_INFO {
     pub pszServer: windows_sys::core::PWSTR,
     pub pic: *mut INTERNET_COOKIE,
@@ -1511,69 +1477,39 @@ pub struct COOKIE_DLG_INFO {
     pub pszHeader: windows_sys::core::PWSTR,
     pub dwOperation: u32,
 }
-impl Copy for COOKIE_DLG_INFO {}
-impl Clone for COOKIE_DLG_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CookieDecision {
     pub dwCookieState: u32,
     pub fAllowSession: super::super::Foundation::BOOL,
 }
-impl Copy for CookieDecision {}
-impl Clone for CookieDecision {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
     pub ShortAbstract: *mut i8,
     pub AbstractFile: *mut i8,
 }
-impl Copy for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {}
-impl Clone for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_ADMIN_ATTRIBUTE_TYPE {
     pub Comment: *mut i8,
     pub EmailAddress: *mut i8,
 }
-impl Copy for GOPHER_ADMIN_ATTRIBUTE_TYPE {}
-impl Clone for GOPHER_ADMIN_ATTRIBUTE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_ASK_ATTRIBUTE_TYPE {
     pub QuestionType: *mut i8,
     pub QuestionText: *mut i8,
 }
-impl Copy for GOPHER_ASK_ATTRIBUTE_TYPE {}
-impl Clone for GOPHER_ASK_ATTRIBUTE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_ATTRIBUTE_TYPE {
     pub CategoryId: u32,
     pub AttributeId: u32,
     pub AttributeType: GOPHER_ATTRIBUTE_TYPE_0,
 }
-impl Copy for GOPHER_ATTRIBUTE_TYPE {}
-impl Clone for GOPHER_ATTRIBUTE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union GOPHER_ATTRIBUTE_TYPE_0 {
     pub Admin: GOPHER_ADMIN_ATTRIBUTE_TYPE,
     pub ModDate: GOPHER_MOD_DATE_ATTRIBUTE_TYPE,
@@ -1593,13 +1529,8 @@ pub union GOPHER_ATTRIBUTE_TYPE_0 {
     pub Ask: GOPHER_ASK_ATTRIBUTE_TYPE,
     pub Unknown: GOPHER_UNKNOWN_ATTRIBUTE_TYPE,
 }
-impl Copy for GOPHER_ATTRIBUTE_TYPE_0 {}
-impl Clone for GOPHER_ATTRIBUTE_TYPE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_FIND_DATAA {
     pub DisplayString: [i8; 129],
     pub GopherType: GOPHER_TYPE,
@@ -1608,13 +1539,8 @@ pub struct GOPHER_FIND_DATAA {
     pub LastModificationTime: super::super::Foundation::FILETIME,
     pub Locator: [i8; 654],
 }
-impl Copy for GOPHER_FIND_DATAA {}
-impl Clone for GOPHER_FIND_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_FIND_DATAW {
     pub DisplayString: [u16; 129],
     pub GopherType: GOPHER_TYPE,
@@ -1623,13 +1549,8 @@ pub struct GOPHER_FIND_DATAW {
     pub LastModificationTime: super::super::Foundation::FILETIME,
     pub Locator: [u16; 654],
 }
-impl Copy for GOPHER_FIND_DATAW {}
-impl Clone for GOPHER_FIND_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
     pub DegreesNorth: i32,
     pub MinutesNorth: i32,
@@ -1638,217 +1559,117 @@ pub struct GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
     pub MinutesEast: i32,
     pub SecondsEast: i32,
 }
-impl Copy for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {}
-impl Clone for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_LOCATION_ATTRIBUTE_TYPE {
     pub Location: *mut i8,
 }
-impl Copy for GOPHER_LOCATION_ATTRIBUTE_TYPE {}
-impl Clone for GOPHER_LOCATION_ATTRIBUTE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
     pub DateAndTime: super::super::Foundation::FILETIME,
 }
-impl Copy for GOPHER_MOD_DATE_ATTRIBUTE_TYPE {}
-impl Clone for GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
     pub Organization: *mut i8,
 }
-impl Copy for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {}
-impl Clone for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_PROVIDER_ATTRIBUTE_TYPE {
     pub Provider: *mut i8,
 }
-impl Copy for GOPHER_PROVIDER_ATTRIBUTE_TYPE {}
-impl Clone for GOPHER_PROVIDER_ATTRIBUTE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_SCORE_ATTRIBUTE_TYPE {
     pub Score: i32,
 }
-impl Copy for GOPHER_SCORE_ATTRIBUTE_TYPE {}
-impl Clone for GOPHER_SCORE_ATTRIBUTE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
     pub LowerBound: i32,
     pub UpperBound: i32,
 }
-impl Copy for GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {}
-impl Clone for GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_SITE_ATTRIBUTE_TYPE {
     pub Site: *mut i8,
 }
-impl Copy for GOPHER_SITE_ATTRIBUTE_TYPE {}
-impl Clone for GOPHER_SITE_ATTRIBUTE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
     pub Zone: i32,
 }
-impl Copy for GOPHER_TIMEZONE_ATTRIBUTE_TYPE {}
-impl Clone for GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_TTL_ATTRIBUTE_TYPE {
     pub Ttl: u32,
 }
-impl Copy for GOPHER_TTL_ATTRIBUTE_TYPE {}
-impl Clone for GOPHER_TTL_ATTRIBUTE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
     pub Text: *mut i8,
 }
-impl Copy for GOPHER_UNKNOWN_ATTRIBUTE_TYPE {}
-impl Clone for GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_VERONICA_ATTRIBUTE_TYPE {
     pub TreeWalk: super::super::Foundation::BOOL,
 }
-impl Copy for GOPHER_VERONICA_ATTRIBUTE_TYPE {}
-impl Clone for GOPHER_VERONICA_ATTRIBUTE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_VERSION_ATTRIBUTE_TYPE {
     pub Version: *mut i8,
 }
-impl Copy for GOPHER_VERSION_ATTRIBUTE_TYPE {}
-impl Clone for GOPHER_VERSION_ATTRIBUTE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_VIEW_ATTRIBUTE_TYPE {
     pub ContentType: *mut i8,
     pub Language: *mut i8,
     pub Size: u32,
 }
-impl Copy for GOPHER_VIEW_ATTRIBUTE_TYPE {}
-impl Clone for GOPHER_VIEW_ATTRIBUTE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_PUSH_NOTIFICATION_STATUS {
     pub ChannelStatusValid: super::super::Foundation::BOOL,
     pub ChannelStatus: u32,
 }
-impl Copy for HTTP_PUSH_NOTIFICATION_STATUS {}
-impl Clone for HTTP_PUSH_NOTIFICATION_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_PUSH_TRANSPORT_SETTING {
     pub TransportSettingId: windows_sys::core::GUID,
     pub BrokerEventId: windows_sys::core::GUID,
 }
-impl Copy for HTTP_PUSH_TRANSPORT_SETTING {}
-impl Clone for HTTP_PUSH_TRANSPORT_SETTING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type HTTP_PUSH_WAIT_HANDLE = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_TIMES {
     pub cTimes: u32,
     pub rgTimes: [u64; 32],
 }
-impl Copy for HTTP_REQUEST_TIMES {}
-impl Clone for HTTP_REQUEST_TIMES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_WEB_SOCKET_ASYNC_RESULT {
     pub AsyncResult: INTERNET_ASYNC_RESULT,
     pub Operation: HTTP_WEB_SOCKET_OPERATION,
     pub BufferType: HTTP_WEB_SOCKET_BUFFER_TYPE,
     pub dwBytesTransferred: u32,
 }
-impl Copy for HTTP_WEB_SOCKET_ASYNC_RESULT {}
-impl Clone for HTTP_WEB_SOCKET_ASYNC_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_ASYNC_RESULT {
     pub dwResult: usize,
     pub dwError: u32,
 }
-impl Copy for INTERNET_ASYNC_RESULT {}
-impl Clone for INTERNET_ASYNC_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_AUTH_NOTIFY_DATA {
     pub cbStruct: u32,
     pub dwOptions: u32,
     pub pfnNotify: PFN_AUTH_NOTIFY,
     pub dwContext: usize,
 }
-impl Copy for INTERNET_AUTH_NOTIFY_DATA {}
-impl Clone for INTERNET_AUTH_NOTIFY_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_BUFFERSA {
     pub dwStructSize: u32,
     pub Next: *mut INTERNET_BUFFERSA,
@@ -1861,13 +1682,8 @@ pub struct INTERNET_BUFFERSA {
     pub dwOffsetLow: u32,
     pub dwOffsetHigh: u32,
 }
-impl Copy for INTERNET_BUFFERSA {}
-impl Clone for INTERNET_BUFFERSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_BUFFERSW {
     pub dwStructSize: u32,
     pub Next: *mut INTERNET_BUFFERSW,
@@ -1880,13 +1696,8 @@ pub struct INTERNET_BUFFERSW {
     pub dwOffsetLow: u32,
     pub dwOffsetHigh: u32,
 }
-impl Copy for INTERNET_BUFFERSW {}
-impl Clone for INTERNET_BUFFERSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_CACHE_CONFIG_INFOA {
     pub dwStructSize: u32,
     pub dwContainer: u32,
@@ -1899,35 +1710,20 @@ pub struct INTERNET_CACHE_CONFIG_INFOA {
     pub dwNormalUsage: u32,
     pub dwExemptUsage: u32,
 }
-impl Copy for INTERNET_CACHE_CONFIG_INFOA {}
-impl Clone for INTERNET_CACHE_CONFIG_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union INTERNET_CACHE_CONFIG_INFOA_0 {
     pub Anonymous: INTERNET_CACHE_CONFIG_INFOA_0_0,
     pub CachePaths: [INTERNET_CACHE_CONFIG_PATH_ENTRYA; 1],
 }
-impl Copy for INTERNET_CACHE_CONFIG_INFOA_0 {}
-impl Clone for INTERNET_CACHE_CONFIG_INFOA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_CACHE_CONFIG_INFOA_0_0 {
     pub CachePath: [i8; 260],
     pub dwCacheSize: u32,
 }
-impl Copy for INTERNET_CACHE_CONFIG_INFOA_0_0 {}
-impl Clone for INTERNET_CACHE_CONFIG_INFOA_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_CACHE_CONFIG_INFOW {
     pub dwStructSize: u32,
     pub dwContainer: u32,
@@ -1940,57 +1736,32 @@ pub struct INTERNET_CACHE_CONFIG_INFOW {
     pub dwNormalUsage: u32,
     pub dwExemptUsage: u32,
 }
-impl Copy for INTERNET_CACHE_CONFIG_INFOW {}
-impl Clone for INTERNET_CACHE_CONFIG_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union INTERNET_CACHE_CONFIG_INFOW_0 {
     pub Anonymous: INTERNET_CACHE_CONFIG_INFOW_0_0,
     pub CachePaths: [INTERNET_CACHE_CONFIG_PATH_ENTRYW; 1],
 }
-impl Copy for INTERNET_CACHE_CONFIG_INFOW_0 {}
-impl Clone for INTERNET_CACHE_CONFIG_INFOW_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_CACHE_CONFIG_INFOW_0_0 {
     pub CachePath: [u16; 260],
     pub dwCacheSize: u32,
 }
-impl Copy for INTERNET_CACHE_CONFIG_INFOW_0_0 {}
-impl Clone for INTERNET_CACHE_CONFIG_INFOW_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_CACHE_CONFIG_PATH_ENTRYA {
     pub CachePath: [i8; 260],
     pub dwCacheSize: u32,
 }
-impl Copy for INTERNET_CACHE_CONFIG_PATH_ENTRYA {}
-impl Clone for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_CACHE_CONFIG_PATH_ENTRYW {
     pub CachePath: [u16; 260],
     pub dwCacheSize: u32,
 }
-impl Copy for INTERNET_CACHE_CONFIG_PATH_ENTRYW {}
-impl Clone for INTERNET_CACHE_CONFIG_PATH_ENTRYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_CACHE_CONTAINER_INFOA {
     pub dwCacheVersion: u32,
     pub lpszName: windows_sys::core::PSTR,
@@ -1998,13 +1769,8 @@ pub struct INTERNET_CACHE_CONTAINER_INFOA {
     pub lpszVolumeLabel: windows_sys::core::PSTR,
     pub lpszVolumeTitle: windows_sys::core::PSTR,
 }
-impl Copy for INTERNET_CACHE_CONTAINER_INFOA {}
-impl Clone for INTERNET_CACHE_CONTAINER_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_CACHE_CONTAINER_INFOW {
     pub dwCacheVersion: u32,
     pub lpszName: windows_sys::core::PWSTR,
@@ -2012,13 +1778,8 @@ pub struct INTERNET_CACHE_CONTAINER_INFOW {
     pub lpszVolumeLabel: windows_sys::core::PWSTR,
     pub lpszVolumeTitle: windows_sys::core::PWSTR,
 }
-impl Copy for INTERNET_CACHE_CONTAINER_INFOW {}
-impl Clone for INTERNET_CACHE_CONTAINER_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_CACHE_ENTRY_INFOA {
     pub dwStructSize: u32,
     pub lpszSourceUrlName: windows_sys::core::PSTR,
@@ -2037,24 +1798,14 @@ pub struct INTERNET_CACHE_ENTRY_INFOA {
     pub lpszFileExtension: windows_sys::core::PSTR,
     pub Anonymous: INTERNET_CACHE_ENTRY_INFOA_0,
 }
-impl Copy for INTERNET_CACHE_ENTRY_INFOA {}
-impl Clone for INTERNET_CACHE_ENTRY_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union INTERNET_CACHE_ENTRY_INFOA_0 {
     pub dwReserved: u32,
     pub dwExemptDelta: u32,
 }
-impl Copy for INTERNET_CACHE_ENTRY_INFOA_0 {}
-impl Clone for INTERNET_CACHE_ENTRY_INFOA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_CACHE_ENTRY_INFOW {
     pub dwStructSize: u32,
     pub lpszSourceUrlName: windows_sys::core::PWSTR,
@@ -2073,24 +1824,14 @@ pub struct INTERNET_CACHE_ENTRY_INFOW {
     pub lpszFileExtension: windows_sys::core::PWSTR,
     pub Anonymous: INTERNET_CACHE_ENTRY_INFOW_0,
 }
-impl Copy for INTERNET_CACHE_ENTRY_INFOW {}
-impl Clone for INTERNET_CACHE_ENTRY_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union INTERNET_CACHE_ENTRY_INFOW_0 {
     pub dwReserved: u32,
     pub dwExemptDelta: u32,
 }
-impl Copy for INTERNET_CACHE_ENTRY_INFOW_0 {}
-impl Clone for INTERNET_CACHE_ENTRY_INFOW_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_CACHE_GROUP_INFOA {
     pub dwGroupSize: u32,
     pub dwGroupFlags: u32,
@@ -2100,13 +1841,8 @@ pub struct INTERNET_CACHE_GROUP_INFOA {
     pub dwOwnerStorage: [u32; 4],
     pub szGroupName: [i8; 120],
 }
-impl Copy for INTERNET_CACHE_GROUP_INFOA {}
-impl Clone for INTERNET_CACHE_GROUP_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_CACHE_GROUP_INFOW {
     pub dwGroupSize: u32,
     pub dwGroupFlags: u32,
@@ -2116,24 +1852,14 @@ pub struct INTERNET_CACHE_GROUP_INFOW {
     pub dwOwnerStorage: [u32; 4],
     pub szGroupName: [u16; 120],
 }
-impl Copy for INTERNET_CACHE_GROUP_INFOW {}
-impl Clone for INTERNET_CACHE_GROUP_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_CACHE_TIMESTAMPS {
     pub ftExpires: super::super::Foundation::FILETIME,
     pub ftLastModified: super::super::Foundation::FILETIME,
 }
-impl Copy for INTERNET_CACHE_TIMESTAMPS {}
-impl Clone for INTERNET_CACHE_TIMESTAMPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_CALLBACK_COOKIE {
     pub pcwszName: windows_sys::core::PCWSTR,
     pub pcwszValue: windows_sys::core::PCWSTR,
@@ -2142,13 +1868,8 @@ pub struct INTERNET_CALLBACK_COOKIE {
     pub ftExpires: super::super::Foundation::FILETIME,
     pub dwFlags: u32,
 }
-impl Copy for INTERNET_CALLBACK_COOKIE {}
-impl Clone for INTERNET_CALLBACK_COOKIE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_CERTIFICATE_INFO {
     pub ftExpiry: super::super::Foundation::FILETIME,
     pub ftStart: super::super::Foundation::FILETIME,
@@ -2159,24 +1880,14 @@ pub struct INTERNET_CERTIFICATE_INFO {
     pub lpszEncryptionAlgName: *mut i8,
     pub dwKeySize: u32,
 }
-impl Copy for INTERNET_CERTIFICATE_INFO {}
-impl Clone for INTERNET_CERTIFICATE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_CONNECTED_INFO {
     pub dwConnectedState: INTERNET_STATE,
     pub dwFlags: u32,
 }
-impl Copy for INTERNET_CONNECTED_INFO {}
-impl Clone for INTERNET_CONNECTED_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_COOKIE {
     pub cbSize: u32,
     pub pszName: windows_sys::core::PSTR,
@@ -2188,13 +1899,8 @@ pub struct INTERNET_COOKIE {
     pub pszUrl: windows_sys::core::PSTR,
     pub pszP3PPolicy: windows_sys::core::PSTR,
 }
-impl Copy for INTERNET_COOKIE {}
-impl Clone for INTERNET_COOKIE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_COOKIE2 {
     pub pwszName: windows_sys::core::PWSTR,
     pub pwszValue: windows_sys::core::PWSTR,
@@ -2204,13 +1910,8 @@ pub struct INTERNET_COOKIE2 {
     pub ftExpires: super::super::Foundation::FILETIME,
     pub fExpiresSet: super::super::Foundation::BOOL,
 }
-impl Copy for INTERNET_COOKIE2 {}
-impl Clone for INTERNET_COOKIE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_CREDENTIALS {
     pub lpcwszHostName: windows_sys::core::PCWSTR,
     pub dwPort: u32,
@@ -2220,116 +1921,66 @@ pub struct INTERNET_CREDENTIALS {
     pub fAuthIdentity: super::super::Foundation::BOOL,
     pub Anonymous: INTERNET_CREDENTIALS_0,
 }
-impl Copy for INTERNET_CREDENTIALS {}
-impl Clone for INTERNET_CREDENTIALS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union INTERNET_CREDENTIALS_0 {
     pub Anonymous: INTERNET_CREDENTIALS_0_0,
     pub pAuthIdentityOpaque: *mut core::ffi::c_void,
 }
-impl Copy for INTERNET_CREDENTIALS_0 {}
-impl Clone for INTERNET_CREDENTIALS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_CREDENTIALS_0_0 {
     pub lpcwszUserName: windows_sys::core::PCWSTR,
     pub lpcwszPassword: windows_sys::core::PCWSTR,
 }
-impl Copy for INTERNET_CREDENTIALS_0_0 {}
-impl Clone for INTERNET_CREDENTIALS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_DIAGNOSTIC_SOCKET_INFO {
     pub Socket: usize,
     pub SourcePort: u32,
     pub DestPort: u32,
     pub Flags: u32,
 }
-impl Copy for INTERNET_DIAGNOSTIC_SOCKET_INFO {}
-impl Clone for INTERNET_DIAGNOSTIC_SOCKET_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_DOWNLOAD_MODE_HANDLE {
     pub pcwszFileName: windows_sys::core::PCWSTR,
     pub phFile: *mut super::super::Foundation::HANDLE,
 }
-impl Copy for INTERNET_DOWNLOAD_MODE_HANDLE {}
-impl Clone for INTERNET_DOWNLOAD_MODE_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_END_BROWSER_SESSION_DATA {
     pub lpBuffer: *mut core::ffi::c_void,
     pub dwBufferLength: u32,
 }
-impl Copy for INTERNET_END_BROWSER_SESSION_DATA {}
-impl Clone for INTERNET_END_BROWSER_SESSION_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_PER_CONN_OPTIONA {
     pub dwOption: INTERNET_PER_CONN,
     pub Value: INTERNET_PER_CONN_OPTIONA_0,
 }
-impl Copy for INTERNET_PER_CONN_OPTIONA {}
-impl Clone for INTERNET_PER_CONN_OPTIONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union INTERNET_PER_CONN_OPTIONA_0 {
     pub dwValue: u32,
     pub pszValue: windows_sys::core::PSTR,
     pub ftValue: super::super::Foundation::FILETIME,
 }
-impl Copy for INTERNET_PER_CONN_OPTIONA_0 {}
-impl Clone for INTERNET_PER_CONN_OPTIONA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_PER_CONN_OPTIONW {
     pub dwOption: INTERNET_PER_CONN,
     pub Value: INTERNET_PER_CONN_OPTIONW_0,
 }
-impl Copy for INTERNET_PER_CONN_OPTIONW {}
-impl Clone for INTERNET_PER_CONN_OPTIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union INTERNET_PER_CONN_OPTIONW_0 {
     pub dwValue: u32,
     pub pszValue: windows_sys::core::PWSTR,
     pub ftValue: super::super::Foundation::FILETIME,
 }
-impl Copy for INTERNET_PER_CONN_OPTIONW_0 {}
-impl Clone for INTERNET_PER_CONN_OPTIONW_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_PER_CONN_OPTION_LISTA {
     pub dwSize: u32,
     pub pszConnection: windows_sys::core::PSTR,
@@ -2337,13 +1988,8 @@ pub struct INTERNET_PER_CONN_OPTION_LISTA {
     pub dwOptionError: u32,
     pub pOptions: *mut INTERNET_PER_CONN_OPTIONA,
 }
-impl Copy for INTERNET_PER_CONN_OPTION_LISTA {}
-impl Clone for INTERNET_PER_CONN_OPTION_LISTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_PER_CONN_OPTION_LISTW {
     pub dwSize: u32,
     pub pszConnection: windows_sys::core::PWSTR,
@@ -2351,53 +1997,31 @@ pub struct INTERNET_PER_CONN_OPTION_LISTW {
     pub dwOptionError: u32,
     pub pOptions: *mut INTERNET_PER_CONN_OPTIONW,
 }
-impl Copy for INTERNET_PER_CONN_OPTION_LISTW {}
-impl Clone for INTERNET_PER_CONN_OPTION_LISTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_PREFETCH_STATUS {
     pub dwStatus: u32,
     pub dwSize: u32,
 }
-impl Copy for INTERNET_PREFETCH_STATUS {}
-impl Clone for INTERNET_PREFETCH_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_PROXY_INFO {
     pub dwAccessType: INTERNET_ACCESS_TYPE,
     pub lpszProxy: *mut i8,
     pub lpszProxyBypass: *mut i8,
 }
-impl Copy for INTERNET_PROXY_INFO {}
-impl Clone for INTERNET_PROXY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
+#[derive(Clone, Copy)]
 pub struct INTERNET_SECURITY_CONNECTION_INFO {
     pub dwSize: u32,
     pub fSecure: super::super::Foundation::BOOL,
     pub connectionInfo: super::super::Security::Authentication::Identity::SecPkgContext_ConnectionInfo,
     pub cipherInfo: super::super::Security::Authentication::Identity::SecPkgContext_CipherInfo,
 }
-#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-impl Copy for INTERNET_SECURITY_CONNECTION_INFO {}
-#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-impl Clone for INTERNET_SECURITY_CONNECTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
+#[derive(Clone, Copy)]
 pub struct INTERNET_SECURITY_INFO {
     pub dwSize: u32,
     pub pCertificate: *const super::super::Security::Cryptography::CERT_CONTEXT,
@@ -2407,15 +2031,8 @@ pub struct INTERNET_SECURITY_INFO {
     pub pcUnverifiedCertChain: *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT,
     pub channelBindingToken: super::super::Security::Authentication::Identity::SecPkgContext_Bindings,
 }
-#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-impl Copy for INTERNET_SECURITY_INFO {}
-#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-impl Clone for INTERNET_SECURITY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_SERVER_CONNECTION_STATE {
     pub lpcwszHostName: windows_sys::core::PCWSTR,
     pub fProxy: super::super::Foundation::BOOL,
@@ -2426,24 +2043,14 @@ pub struct INTERNET_SERVER_CONNECTION_STATE {
     pub dwActiveConnections: u32,
     pub dwWaiters: u32,
 }
-impl Copy for INTERNET_SERVER_CONNECTION_STATE {}
-impl Clone for INTERNET_SERVER_CONNECTION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_VERSION_INFO {
     pub dwMajorVersion: u32,
     pub dwMinorVersion: u32,
 }
-impl Copy for INTERNET_VERSION_INFO {}
-impl Clone for INTERNET_VERSION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IncomingCookieState {
     pub cSession: i32,
     pub cPersistent: i32,
@@ -2453,52 +2060,32 @@ pub struct IncomingCookieState {
     pub cBlocked: i32,
     pub pszLocation: windows_sys::core::PCSTR,
 }
-impl Copy for IncomingCookieState {}
-impl Clone for IncomingCookieState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct InternetCookieHistory {
     pub fAccepted: super::super::Foundation::BOOL,
     pub fLeashed: super::super::Foundation::BOOL,
     pub fDowngraded: super::super::Foundation::BOOL,
     pub fRejected: super::super::Foundation::BOOL,
 }
-impl Copy for InternetCookieHistory {}
-impl Clone for InternetCookieHistory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OutgoingCookieState {
     pub cSent: i32,
     pub cSuppressed: i32,
     pub pszLocation: windows_sys::core::PCSTR,
 }
-impl Copy for OutgoingCookieState {}
-impl Clone for OutgoingCookieState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ProofOfPossessionCookieInfo {
     pub name: windows_sys::core::PWSTR,
     pub data: windows_sys::core::PWSTR,
     pub flags: u32,
     pub p3pHeader: windows_sys::core::PWSTR,
 }
-impl Copy for ProofOfPossessionCookieInfo {}
-impl Clone for ProofOfPossessionCookieInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const ProofOfPossessionCookieInfoManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa9927f85_a304_4390_8b23_a75f1c668600);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct URLCACHE_ENTRY_INFO {
     pub pwszSourceUrlName: windows_sys::core::PWSTR,
     pub pwszLocalFileName: windows_sys::core::PWSTR,
@@ -2516,13 +2103,8 @@ pub struct URLCACHE_ENTRY_INFO {
     pub pbExtraData: *mut u8,
     pub cbExtraDataSize: u32,
 }
-impl Copy for URLCACHE_ENTRY_INFO {}
-impl Clone for URLCACHE_ENTRY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct URL_COMPONENTSA {
     pub dwStructSize: u32,
     pub lpszScheme: windows_sys::core::PSTR,
@@ -2540,13 +2122,8 @@ pub struct URL_COMPONENTSA {
     pub lpszExtraInfo: windows_sys::core::PSTR,
     pub dwExtraInfoLength: u32,
 }
-impl Copy for URL_COMPONENTSA {}
-impl Clone for URL_COMPONENTSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct URL_COMPONENTSW {
     pub dwStructSize: u32,
     pub lpszScheme: windows_sys::core::PWSTR,
@@ -2564,13 +2141,8 @@ pub struct URL_COMPONENTSW {
     pub lpszExtraInfo: windows_sys::core::PWSTR,
     pub dwExtraInfoLength: u32,
 }
-impl Copy for URL_COMPONENTSW {}
-impl Clone for URL_COMPONENTSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WININET_PROXY_INFO {
     pub fProxy: super::super::Foundation::BOOL,
     pub fBypass: super::super::Foundation::BOOL,
@@ -2578,22 +2150,11 @@ pub struct WININET_PROXY_INFO {
     pub pwszProxy: windows_sys::core::PWSTR,
     pub ProxyPort: u16,
 }
-impl Copy for WININET_PROXY_INFO {}
-impl Clone for WININET_PROXY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WININET_PROXY_INFO_LIST {
     pub dwProxyInfoCount: u32,
     pub pProxyInfo: *mut WININET_PROXY_INFO,
-}
-impl Copy for WININET_PROXY_INFO_LIST {}
-impl Clone for WININET_PROXY_INFO_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type CACHE_OPERATOR = Option<unsafe extern "system" fn(pcei: *mut INTERNET_CACHE_ENTRY_INFOA, pcbcei: *mut u32, popdata: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type GOPHER_ATTRIBUTE_ENUMERATOR = Option<unsafe extern "system" fn(lpattributeinfo: *const GOPHER_ATTRIBUTE_TYPE, dwerror: u32) -> super::super::Foundation::BOOL>;

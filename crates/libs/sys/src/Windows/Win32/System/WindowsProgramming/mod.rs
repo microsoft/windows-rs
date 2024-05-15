@@ -985,6 +985,7 @@ pub type WLDP_POLICY_SETTING = i32;
 pub type WLDP_WINDOWS_LOCKDOWN_MODE = i32;
 pub type WLDP_WINDOWS_LOCKDOWN_RESTRICTION = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACTCTX_SECTION_KEYED_DATA_2600 {
     pub cbSize: u32,
     pub ulDataFormatVersion: u32,
@@ -997,13 +998,8 @@ pub struct ACTCTX_SECTION_KEYED_DATA_2600 {
     pub hActCtx: super::super::Foundation::HANDLE,
     pub ulAssemblyRosterIndex: u32,
 }
-impl Copy for ACTCTX_SECTION_KEYED_DATA_2600 {}
-impl Clone for ACTCTX_SECTION_KEYED_DATA_2600 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
     pub lpInformation: *mut core::ffi::c_void,
     pub lpSectionBase: *mut core::ffi::c_void,
@@ -1011,24 +1007,14 @@ pub struct ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
     pub lpSectionGlobalDataBase: *mut core::ffi::c_void,
     pub ulSectionGlobalDataLength: u32,
 }
-impl Copy for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {}
-impl Clone for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACTIVATION_CONTEXT_BASIC_INFORMATION {
     pub hActCtx: super::super::Foundation::HANDLE,
     pub dwFlags: u32,
 }
-impl Copy for ACTIVATION_CONTEXT_BASIC_INFORMATION {}
-impl Clone for ACTIVATION_CONTEXT_BASIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CABINFOA {
     pub pszCab: windows_sys::core::PSTR,
     pub pszInf: windows_sys::core::PSTR,
@@ -1036,13 +1022,8 @@ pub struct CABINFOA {
     pub szSrcPath: [i8; 260],
     pub dwFlags: u32,
 }
-impl Copy for CABINFOA {}
-impl Clone for CABINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CABINFOW {
     pub pszCab: windows_sys::core::PWSTR,
     pub pszInf: windows_sys::core::PWSTR,
@@ -1050,36 +1031,21 @@ pub struct CABINFOW {
     pub szSrcPath: [u16; 260],
     pub dwFlags: u32,
 }
-impl Copy for CABINFOW {}
-impl Clone for CABINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLIENT_ID {
     pub UniqueProcess: super::super::Foundation::HANDLE,
     pub UniqueThread: super::super::Foundation::HANDLE,
 }
-impl Copy for CLIENT_ID {}
-impl Clone for CLIENT_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
     pub Size: u32,
     pub TriggerId: windows_sys::core::PCWSTR,
 }
-impl Copy for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {}
-impl Clone for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const CameraUIControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x16d5a2be_b1c5_47b3_8eae_ccbcf452c7e8);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DATETIME {
     pub year: u16,
     pub month: u16,
@@ -1088,13 +1054,8 @@ pub struct DATETIME {
     pub min: u16,
     pub sec: u16,
 }
-impl Copy for DATETIME {}
-impl Clone for DATETIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DCICMD {
     pub dwCommand: u32,
     pub dwParam1: u32,
@@ -1102,13 +1063,8 @@ pub struct DCICMD {
     pub dwVersion: u32,
     pub dwReserved: u32,
 }
-impl Copy for DCICMD {}
-impl Clone for DCICMD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DCICREATEINPUT {
     pub cmd: DCICMD,
     pub dwCompression: u32,
@@ -1119,13 +1075,8 @@ pub struct DCICREATEINPUT {
     pub dwBitCount: u32,
     pub lpSurface: *mut core::ffi::c_void,
 }
-impl Copy for DCICREATEINPUT {}
-impl Clone for DCICREATEINPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DCIENUMINPUT {
     pub cmd: DCICMD,
     pub rSrc: super::super::Foundation::RECT,
@@ -1133,38 +1084,23 @@ pub struct DCIENUMINPUT {
     pub EnumCallback: isize,
     pub lpContext: *mut core::ffi::c_void,
 }
-impl Copy for DCIENUMINPUT {}
-impl Clone for DCIENUMINPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DCIOFFSCREEN {
     pub dciInfo: DCISURFACEINFO,
     pub Draw: isize,
     pub SetClipList: isize,
     pub SetDestination: isize,
 }
-impl Copy for DCIOFFSCREEN {}
-impl Clone for DCIOFFSCREEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DCIOVERLAY {
     pub dciInfo: DCISURFACEINFO,
     pub dwChromakeyValue: u32,
     pub dwChromakeyMask: u32,
 }
-impl Copy for DCIOVERLAY {}
-impl Clone for DCIOVERLAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DCISURFACEINFO {
     pub dwSize: u32,
     pub dwDCICaps: u32,
@@ -1184,14 +1120,9 @@ pub struct DCISURFACEINFO {
     pub EndAccess: isize,
     pub DestroySurface: isize,
 }
-impl Copy for DCISURFACEINFO {}
-impl Clone for DCISURFACEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct DELAYLOAD_INFO {
     pub Size: u32,
     pub DelayloadDescriptor: *mut IMAGE_DELAYLOAD_DESCRIPTOR,
@@ -1202,16 +1133,9 @@ pub struct DELAYLOAD_INFO {
     pub Unused: *mut core::ffi::c_void,
     pub LastError: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for DELAYLOAD_INFO {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for DELAYLOAD_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct DELAYLOAD_INFO {
     pub Size: u32,
     pub DelayloadDescriptor: *mut IMAGE_DELAYLOAD_DESCRIPTOR,
@@ -1222,40 +1146,23 @@ pub struct DELAYLOAD_INFO {
     pub Unused: *mut core::ffi::c_void,
     pub LastError: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for DELAYLOAD_INFO {}
-#[cfg(target_arch = "x86")]
-impl Clone for DELAYLOAD_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DELAYLOAD_PROC_DESCRIPTOR {
     pub ImportDescribedByName: u32,
     pub Description: DELAYLOAD_PROC_DESCRIPTOR_0,
 }
-impl Copy for DELAYLOAD_PROC_DESCRIPTOR {}
-impl Clone for DELAYLOAD_PROC_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DELAYLOAD_PROC_DESCRIPTOR_0 {
     pub Name: windows_sys::core::PCSTR,
     pub Ordinal: u32,
-}
-impl Copy for DELAYLOAD_PROC_DESCRIPTOR_0 {}
-impl Clone for DELAYLOAD_PROC_DESCRIPTOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const DefaultBrowserSyncSettings: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3ac83423_3112_4aa6_9b5b_1feb23d0c5f9);
 pub const EditionUpgradeBroker: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc4270827_4f39_45df_9288_12ff6b85a921);
 pub const EditionUpgradeHelper: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x01776df3_b9af_4e50_9b1c_56e93116d704);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FEATURE_ERROR {
     pub hr: windows_sys::core::HRESULT,
     pub lineNumber: u16,
@@ -1272,50 +1179,30 @@ pub struct FEATURE_ERROR {
     pub originCallerModule: windows_sys::core::PCSTR,
     pub originName: windows_sys::core::PCSTR,
 }
-impl Copy for FEATURE_ERROR {}
-impl Clone for FEATURE_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type FEATURE_STATE_CHANGE_SUBSCRIPTION = isize;
 pub type FH_SERVICE_PIPE_HANDLE = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_CASE_SENSITIVE_INFO {
     pub Flags: u32,
 }
-impl Copy for FILE_CASE_SENSITIVE_INFO {}
-impl Clone for FILE_CASE_SENSITIVE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type HWINWATCH = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HW_PROFILE_INFOA {
     pub dwDockInfo: u32,
     pub szHwProfileGuid: [i8; 39],
     pub szHwProfileName: [i8; 80],
 }
-impl Copy for HW_PROFILE_INFOA {}
-impl Clone for HW_PROFILE_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HW_PROFILE_INFOW {
     pub dwDockInfo: u32,
     pub szHwProfileGuid: [u16; 39],
     pub szHwProfileName: [u16; 80],
 }
-impl Copy for HW_PROFILE_INFOW {}
-impl Clone for HW_PROFILE_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_DELAYLOAD_DESCRIPTOR {
     pub Attributes: IMAGE_DELAYLOAD_DESCRIPTOR_0,
     pub DllNameRVA: u32,
@@ -1326,80 +1213,45 @@ pub struct IMAGE_DELAYLOAD_DESCRIPTOR {
     pub UnloadInformationTableRVA: u32,
     pub TimeDateStamp: u32,
 }
-impl Copy for IMAGE_DELAYLOAD_DESCRIPTOR {}
-impl Clone for IMAGE_DELAYLOAD_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IMAGE_DELAYLOAD_DESCRIPTOR_0 {
     pub AllAttributes: u32,
     pub Anonymous: IMAGE_DELAYLOAD_DESCRIPTOR_0_0,
 }
-impl Copy for IMAGE_DELAYLOAD_DESCRIPTOR_0 {}
-impl Clone for IMAGE_DELAYLOAD_DESCRIPTOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
-impl Copy for IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {}
-impl Clone for IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_THUNK_DATA32 {
     pub u1: IMAGE_THUNK_DATA32_0,
 }
-impl Copy for IMAGE_THUNK_DATA32 {}
-impl Clone for IMAGE_THUNK_DATA32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IMAGE_THUNK_DATA32_0 {
     pub ForwarderString: u32,
     pub Function: u32,
     pub Ordinal: u32,
     pub AddressOfData: u32,
 }
-impl Copy for IMAGE_THUNK_DATA32_0 {}
-impl Clone for IMAGE_THUNK_DATA32_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_THUNK_DATA64 {
     pub u1: IMAGE_THUNK_DATA64_0,
 }
-impl Copy for IMAGE_THUNK_DATA64 {}
-impl Clone for IMAGE_THUNK_DATA64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IMAGE_THUNK_DATA64_0 {
     pub ForwarderString: u64,
     pub Function: u64,
     pub Ordinal: u64,
     pub AddressOfData: u64,
 }
-impl Copy for IMAGE_THUNK_DATA64_0 {}
-impl Clone for IMAGE_THUNK_DATA64_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMEPROA {
     pub hWnd: super::super::Foundation::HWND,
     pub InstDate: DATETIME,
@@ -1408,13 +1260,8 @@ pub struct IMEPROA {
     pub szName: [u8; 80],
     pub szOptions: [u8; 30],
 }
-impl Copy for IMEPROA {}
-impl Clone for IMEPROA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMEPROW {
     pub hWnd: super::super::Foundation::HWND,
     pub InstDate: DATETIME,
@@ -1423,13 +1270,8 @@ pub struct IMEPROW {
     pub szName: [u16; 80],
     pub szOptions: [u16; 30],
 }
-impl Copy for IMEPROW {}
-impl Clone for IMEPROW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMESTRUCT {
     pub fnc: u32,
     pub wParam: super::super::Foundation::WPARAM,
@@ -1440,13 +1282,8 @@ pub struct IMESTRUCT {
     pub lParam2: super::super::Foundation::LPARAM,
     pub lParam3: super::super::Foundation::LPARAM,
 }
-impl Copy for IMESTRUCT {}
-impl Clone for IMESTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JAVA_TRUST {
     pub cbSize: u32,
     pub flag: u32,
@@ -1461,13 +1298,8 @@ pub struct JAVA_TRUST {
     pub guidZone: windows_sys::core::GUID,
     pub hVerify: windows_sys::core::HRESULT,
 }
-impl Copy for JAVA_TRUST {}
-impl Clone for JAVA_TRUST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JIT_DEBUG_INFO {
     pub dwSize: u32,
     pub dwProcessorArchitecture: u32,
@@ -1477,14 +1309,9 @@ pub struct JIT_DEBUG_INFO {
     pub lpExceptionRecord: u64,
     pub lpContextRecord: u64,
 }
-impl Copy for JIT_DEBUG_INFO {}
-impl Clone for JIT_DEBUG_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct LDR_DATA_TABLE_ENTRY {
     pub Reserved1: [*mut core::ffi::c_void; 2],
     pub InMemoryOrderLinks: super::Kernel::LIST_ENTRY,
@@ -1497,29 +1324,15 @@ pub struct LDR_DATA_TABLE_ENTRY {
     pub Anonymous: LDR_DATA_TABLE_ENTRY_0,
     pub TimeDateStamp: u32,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for LDR_DATA_TABLE_ENTRY {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for LDR_DATA_TABLE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub union LDR_DATA_TABLE_ENTRY_0 {
     pub CheckSum: u32,
     pub Reserved6: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for LDR_DATA_TABLE_ENTRY_0 {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for LDR_DATA_TABLE_ENTRY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PERUSERSECTIONA {
     pub szGUID: [i8; 59],
     pub szDispName: [i8; 128],
@@ -1530,13 +1343,8 @@ pub struct PERUSERSECTIONA {
     pub dwIsInstalled: u32,
     pub bRollback: super::super::Foundation::BOOL,
 }
-impl Copy for PERUSERSECTIONA {}
-impl Clone for PERUSERSECTIONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PERUSERSECTIONW {
     pub szGUID: [u16; 59],
     pub szDispName: [u16; 128],
@@ -1547,13 +1355,8 @@ pub struct PERUSERSECTIONW {
     pub dwIsInstalled: u32,
     pub bRollback: super::super::Foundation::BOOL,
 }
-impl Copy for PERUSERSECTIONW {}
-impl Clone for PERUSERSECTIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PUBLIC_OBJECT_BASIC_INFORMATION {
     pub Attributes: u32,
     pub GrantedAccess: u32,
@@ -1561,46 +1364,26 @@ pub struct PUBLIC_OBJECT_BASIC_INFORMATION {
     pub PointerCount: u32,
     pub Reserved: [u32; 10],
 }
-impl Copy for PUBLIC_OBJECT_BASIC_INFORMATION {}
-impl Clone for PUBLIC_OBJECT_BASIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PUBLIC_OBJECT_TYPE_INFORMATION {
     pub TypeName: super::super::Foundation::UNICODE_STRING,
     pub Reserved: [u32; 22],
 }
-impl Copy for PUBLIC_OBJECT_TYPE_INFORMATION {}
-impl Clone for PUBLIC_OBJECT_TYPE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STRENTRYA {
     pub pszName: windows_sys::core::PSTR,
     pub pszValue: windows_sys::core::PSTR,
 }
-impl Copy for STRENTRYA {}
-impl Clone for STRENTRYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STRENTRYW {
     pub pszName: windows_sys::core::PWSTR,
     pub pszValue: windows_sys::core::PWSTR,
 }
-impl Copy for STRENTRYW {}
-impl Clone for STRENTRYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STRINGEXSTRUCT {
     pub dwSize: u32,
     pub uDeterminePos: u32,
@@ -1608,109 +1391,59 @@ pub struct STRINGEXSTRUCT {
     pub uYomiPos: u32,
     pub uYomiDelimPos: u32,
 }
-impl Copy for STRINGEXSTRUCT {}
-impl Clone for STRINGEXSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STRTABLEA {
     pub cEntries: u32,
     pub pse: *mut STRENTRYA,
 }
-impl Copy for STRTABLEA {}
-impl Clone for STRTABLEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STRTABLEW {
     pub cEntries: u32,
     pub pse: *mut STRENTRYW,
 }
-impl Copy for STRTABLEW {}
-impl Clone for STRTABLEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_BASIC_INFORMATION {
     pub Reserved1: [u8; 24],
     pub Reserved2: [*mut core::ffi::c_void; 4],
     pub NumberOfProcessors: i8,
 }
-impl Copy for SYSTEM_BASIC_INFORMATION {}
-impl Clone for SYSTEM_BASIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_CODEINTEGRITY_INFORMATION {
     pub Length: u32,
     pub CodeIntegrityOptions: u32,
 }
-impl Copy for SYSTEM_CODEINTEGRITY_INFORMATION {}
-impl Clone for SYSTEM_CODEINTEGRITY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_EXCEPTION_INFORMATION {
     pub Reserved1: [u8; 16],
 }
-impl Copy for SYSTEM_EXCEPTION_INFORMATION {}
-impl Clone for SYSTEM_EXCEPTION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_INTERRUPT_INFORMATION {
     pub Reserved1: [u8; 24],
 }
-impl Copy for SYSTEM_INTERRUPT_INFORMATION {}
-impl Clone for SYSTEM_INTERRUPT_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_LOOKASIDE_INFORMATION {
     pub Reserved1: [u8; 32],
 }
-impl Copy for SYSTEM_LOOKASIDE_INFORMATION {}
-impl Clone for SYSTEM_LOOKASIDE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_PERFORMANCE_INFORMATION {
     pub Reserved1: [u8; 312],
 }
-impl Copy for SYSTEM_PERFORMANCE_INFORMATION {}
-impl Clone for SYSTEM_PERFORMANCE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_POLICY_INFORMATION {
     pub Reserved1: [*mut core::ffi::c_void; 2],
     pub Reserved2: [u32; 3],
 }
-impl Copy for SYSTEM_POLICY_INFORMATION {}
-impl Clone for SYSTEM_POLICY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {
     pub IdleTime: i64,
     pub KernelTime: i64,
@@ -1718,13 +1451,8 @@ pub struct SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {
     pub Reserved1: [i64; 2],
     pub Reserved2: u32,
 }
-impl Copy for SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {}
-impl Clone for SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_PROCESS_INFORMATION {
     pub NextEntryOffset: u32,
     pub NumberOfThreads: u32,
@@ -1750,25 +1478,15 @@ pub struct SYSTEM_PROCESS_INFORMATION {
     pub PrivatePageCount: usize,
     pub Reserved7: [i64; 6],
 }
-impl Copy for SYSTEM_PROCESS_INFORMATION {}
-impl Clone for SYSTEM_PROCESS_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_REGISTRY_QUOTA_INFORMATION {
     pub RegistryQuotaAllowed: u32,
     pub RegistryQuotaUsed: u32,
     pub Reserved1: *mut core::ffi::c_void,
 }
-impl Copy for SYSTEM_REGISTRY_QUOTA_INFORMATION {}
-impl Clone for SYSTEM_REGISTRY_QUOTA_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_THREAD_INFORMATION {
     pub Reserved1: [i64; 3],
     pub Reserved2: u32,
@@ -1780,95 +1498,53 @@ pub struct SYSTEM_THREAD_INFORMATION {
     pub ThreadState: u32,
     pub WaitReason: u32,
 }
-impl Copy for SYSTEM_THREAD_INFORMATION {}
-impl Clone for SYSTEM_THREAD_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_TIMEOFDAY_INFORMATION {
     pub Reserved1: [u8; 48],
 }
-impl Copy for SYSTEM_TIMEOFDAY_INFORMATION {}
-impl Clone for SYSTEM_TIMEOFDAY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct TCP_REQUEST_QUERY_INFORMATION_EX32_XP {
     pub ID: TDIObjectID,
     pub Context: [u32; 4],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for TCP_REQUEST_QUERY_INFORMATION_EX32_XP {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for TCP_REQUEST_QUERY_INFORMATION_EX32_XP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TCP_REQUEST_QUERY_INFORMATION_EX_W2K {
     pub ID: TDIObjectID,
     pub Context: [u8; 16],
 }
-impl Copy for TCP_REQUEST_QUERY_INFORMATION_EX_W2K {}
-impl Clone for TCP_REQUEST_QUERY_INFORMATION_EX_W2K {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TCP_REQUEST_QUERY_INFORMATION_EX_XP {
     pub ID: TDIObjectID,
     pub Context: [usize; 4],
 }
-impl Copy for TCP_REQUEST_QUERY_INFORMATION_EX_XP {}
-impl Clone for TCP_REQUEST_QUERY_INFORMATION_EX_XP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TCP_REQUEST_SET_INFORMATION_EX {
     pub ID: TDIObjectID,
     pub BufferSize: u32,
     pub Buffer: [u8; 1],
 }
-impl Copy for TCP_REQUEST_SET_INFORMATION_EX {}
-impl Clone for TCP_REQUEST_SET_INFORMATION_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TDIEntityID {
     pub tei_entity: TDIENTITY_ENTITY_TYPE,
     pub tei_instance: u32,
 }
-impl Copy for TDIEntityID {}
-impl Clone for TDIEntityID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TDIObjectID {
     pub toi_entity: TDIEntityID,
     pub toi_class: u32,
     pub toi_type: u32,
     pub toi_id: u32,
 }
-impl Copy for TDIObjectID {}
-impl Clone for TDIObjectID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TDI_TL_IO_CONTROL_ENDPOINT {
     pub Type: TDI_TL_IO_CONTROL_TYPE,
     pub Level: u32,
@@ -1878,34 +1554,19 @@ pub struct TDI_TL_IO_CONTROL_ENDPOINT {
     pub OutputBuffer: *mut core::ffi::c_void,
     pub OutputBufferLength: u32,
 }
-impl Copy for TDI_TL_IO_CONTROL_ENDPOINT {}
-impl Clone for TDI_TL_IO_CONTROL_ENDPOINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union TDI_TL_IO_CONTROL_ENDPOINT_0 {
     pub IoControlCode: u32,
     pub OptionName: u32,
 }
-impl Copy for TDI_TL_IO_CONTROL_ENDPOINT_0 {}
-impl Clone for TDI_TL_IO_CONTROL_ENDPOINT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct THREAD_NAME_INFORMATION {
     pub ThreadName: super::super::Foundation::UNICODE_STRING,
 }
-impl Copy for THREAD_NAME_INFORMATION {}
-impl Clone for THREAD_NAME_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UNDETERMINESTRUCT {
     pub dwSize: u32,
     pub uDefIMESize: u32,
@@ -1922,49 +1583,28 @@ pub struct UNDETERMINESTRUCT {
     pub uYomiTextPos: u32,
     pub uYomiDelimPos: u32,
 }
-impl Copy for UNDETERMINESTRUCT {}
-impl Clone for UNDETERMINESTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINSTATIONINFORMATIONW {
     pub Reserved2: [u8; 70],
     pub LogonId: u32,
     pub Reserved3: [u8; 1140],
 }
-impl Copy for WINSTATIONINFORMATIONW {}
-impl Clone for WINSTATIONINFORMATIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WLDP_DEVICE_SECURITY_INFORMATION {
     pub UnlockIdSize: u32,
     pub UnlockId: *mut u8,
     pub ManufacturerIDLength: u32,
     pub ManufacturerID: windows_sys::core::PWSTR,
 }
-impl Copy for WLDP_DEVICE_SECURITY_INFORMATION {}
-impl Clone for WLDP_DEVICE_SECURITY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WLDP_HOST_INFORMATION {
     pub dwRevision: u32,
     pub dwHostId: WLDP_HOST_ID,
     pub szSource: windows_sys::core::PCWSTR,
     pub hSource: super::super::Foundation::HANDLE,
-}
-impl Copy for WLDP_HOST_INFORMATION {}
-impl Clone for WLDP_HOST_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type APPLICATION_RECOVERY_CALLBACK = Option<unsafe extern "system" fn(pvparameter: *mut core::ffi::c_void) -> u32>;
 pub type ENUM_CALLBACK = Option<unsafe extern "system" fn(lpsurfaceinfo: *mut DCISURFACEINFO, lpcontext: *mut core::ffi::c_void)>;

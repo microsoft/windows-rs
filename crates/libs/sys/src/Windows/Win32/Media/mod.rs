@@ -124,17 +124,13 @@ pub const WAVERR_BASE: u32 = 32u32;
 pub type TIMECODE_SAMPLE_FLAGS = u32;
 pub type HTASK = isize;
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MMTIME {
     pub wType: u32,
     pub u: MMTIME_0,
 }
-impl Copy for MMTIME {}
-impl Clone for MMTIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union MMTIME_0 {
     pub ms: u32,
     pub sample: u32,
@@ -143,23 +139,13 @@ pub union MMTIME_0 {
     pub smpte: MMTIME_0_1,
     pub midi: MMTIME_0_0,
 }
-impl Copy for MMTIME_0 {}
-impl Clone for MMTIME_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MMTIME_0_0 {
     pub songptrpos: u32,
 }
-impl Copy for MMTIME_0_0 {}
-impl Clone for MMTIME_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MMTIME_0_1 {
     pub hour: u8,
     pub min: u8,
@@ -169,58 +155,32 @@ pub struct MMTIME_0_1 {
     pub dummy: u8,
     pub pad: [u8; 2],
 }
-impl Copy for MMTIME_0_1 {}
-impl Clone for MMTIME_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TIMECAPS {
     pub wPeriodMin: u32,
     pub wPeriodMax: u32,
 }
-impl Copy for TIMECAPS {}
-impl Clone for TIMECAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union TIMECODE {
     pub Anonymous: TIMECODE_0,
     pub qw: u64,
 }
-impl Copy for TIMECODE {}
-impl Clone for TIMECODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TIMECODE_0 {
     pub wFrameRate: u16,
     pub wFrameFract: u16,
     pub dwFrames: u32,
 }
-impl Copy for TIMECODE_0 {}
-impl Clone for TIMECODE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TIMECODE_SAMPLE {
     pub qwTick: i64,
     pub timecode: TIMECODE,
     pub dwUser: u32,
     pub dwFlags: TIMECODE_SAMPLE_FLAGS,
-}
-impl Copy for TIMECODE_SAMPLE {}
-impl Clone for TIMECODE_SAMPLE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
 pub type LPDRVCALLBACK = Option<unsafe extern "system" fn(hdrvr: Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;

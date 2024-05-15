@@ -190,97 +190,58 @@ pub type CONSOLE_CHARACTER_ATTRIBUTES = u16;
 pub type CONSOLE_MODE = u32;
 pub type STD_HANDLE = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CHAR_INFO {
     pub Char: CHAR_INFO_0,
     pub Attributes: u16,
 }
-impl Copy for CHAR_INFO {}
-impl Clone for CHAR_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CHAR_INFO_0 {
     pub UnicodeChar: u16,
     pub AsciiChar: i8,
 }
-impl Copy for CHAR_INFO_0 {}
-impl Clone for CHAR_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CONSOLEENDTASK {
     pub ProcessId: super::super::Foundation::HANDLE,
     pub hwnd: super::super::Foundation::HWND,
     pub ConsoleEventCode: u32,
     pub ConsoleFlags: u32,
 }
-impl Copy for CONSOLEENDTASK {}
-impl Clone for CONSOLEENDTASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CONSOLESETFOREGROUND {
     pub hProcess: super::super::Foundation::HANDLE,
     pub bForeground: super::super::Foundation::BOOL,
 }
-impl Copy for CONSOLESETFOREGROUND {}
-impl Clone for CONSOLESETFOREGROUND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CONSOLEWINDOWOWNER {
     pub hwnd: super::super::Foundation::HWND,
     pub ProcessId: u32,
     pub ThreadId: u32,
 }
-impl Copy for CONSOLEWINDOWOWNER {}
-impl Clone for CONSOLEWINDOWOWNER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CONSOLE_CARET_INFO {
     pub hwnd: super::super::Foundation::HWND,
     pub rc: super::super::Foundation::RECT,
 }
-impl Copy for CONSOLE_CARET_INFO {}
-impl Clone for CONSOLE_CARET_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CONSOLE_CURSOR_INFO {
     pub dwSize: u32,
     pub bVisible: super::super::Foundation::BOOL,
 }
-impl Copy for CONSOLE_CURSOR_INFO {}
-impl Clone for CONSOLE_CURSOR_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CONSOLE_FONT_INFO {
     pub nFont: u32,
     pub dwFontSize: COORD,
 }
-impl Copy for CONSOLE_FONT_INFO {}
-impl Clone for CONSOLE_FONT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CONSOLE_FONT_INFOEX {
     pub cbSize: u32,
     pub nFont: u32,
@@ -289,50 +250,30 @@ pub struct CONSOLE_FONT_INFOEX {
     pub FontWeight: u32,
     pub FaceName: [u16; 32],
 }
-impl Copy for CONSOLE_FONT_INFOEX {}
-impl Clone for CONSOLE_FONT_INFOEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CONSOLE_HISTORY_INFO {
     pub cbSize: u32,
     pub HistoryBufferSize: u32,
     pub NumberOfHistoryBuffers: u32,
     pub dwFlags: u32,
 }
-impl Copy for CONSOLE_HISTORY_INFO {}
-impl Clone for CONSOLE_HISTORY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CONSOLE_PROCESS_INFO {
     pub dwProcessID: u32,
     pub dwFlags: u32,
 }
-impl Copy for CONSOLE_PROCESS_INFO {}
-impl Clone for CONSOLE_PROCESS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CONSOLE_READCONSOLE_CONTROL {
     pub nLength: u32,
     pub nInitialChars: u32,
     pub dwCtrlWakeupMask: u32,
     pub dwControlKeyState: u32,
 }
-impl Copy for CONSOLE_READCONSOLE_CONTROL {}
-impl Clone for CONSOLE_READCONSOLE_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CONSOLE_SCREEN_BUFFER_INFO {
     pub dwSize: COORD,
     pub dwCursorPosition: COORD,
@@ -340,13 +281,8 @@ pub struct CONSOLE_SCREEN_BUFFER_INFO {
     pub srWindow: SMALL_RECT,
     pub dwMaximumWindowSize: COORD,
 }
-impl Copy for CONSOLE_SCREEN_BUFFER_INFO {}
-impl Clone for CONSOLE_SCREEN_BUFFER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CONSOLE_SCREEN_BUFFER_INFOEX {
     pub cbSize: u32,
     pub dwSize: COORD,
@@ -358,58 +294,33 @@ pub struct CONSOLE_SCREEN_BUFFER_INFOEX {
     pub bFullscreenSupported: super::super::Foundation::BOOL,
     pub ColorTable: [super::super::Foundation::COLORREF; 16],
 }
-impl Copy for CONSOLE_SCREEN_BUFFER_INFOEX {}
-impl Clone for CONSOLE_SCREEN_BUFFER_INFOEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CONSOLE_SELECTION_INFO {
     pub dwFlags: u32,
     pub dwSelectionAnchor: COORD,
     pub srSelection: SMALL_RECT,
 }
-impl Copy for CONSOLE_SELECTION_INFO {}
-impl Clone for CONSOLE_SELECTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COORD {
     pub X: i16,
     pub Y: i16,
 }
-impl Copy for COORD {}
-impl Clone for COORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FOCUS_EVENT_RECORD {
     pub bSetFocus: super::super::Foundation::BOOL,
 }
-impl Copy for FOCUS_EVENT_RECORD {}
-impl Clone for FOCUS_EVENT_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type HPCON = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INPUT_RECORD {
     pub EventType: u16,
     pub Event: INPUT_RECORD_0,
 }
-impl Copy for INPUT_RECORD {}
-impl Clone for INPUT_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union INPUT_RECORD_0 {
     pub KeyEvent: KEY_EVENT_RECORD,
     pub MouseEvent: MOUSE_EVENT_RECORD,
@@ -417,13 +328,8 @@ pub union INPUT_RECORD_0 {
     pub MenuEvent: MENU_EVENT_RECORD,
     pub FocusEvent: FOCUS_EVENT_RECORD,
 }
-impl Copy for INPUT_RECORD_0 {}
-impl Clone for INPUT_RECORD_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEY_EVENT_RECORD {
     pub bKeyDown: super::super::Foundation::BOOL,
     pub wRepeatCount: u16,
@@ -432,67 +338,36 @@ pub struct KEY_EVENT_RECORD {
     pub uChar: KEY_EVENT_RECORD_0,
     pub dwControlKeyState: u32,
 }
-impl Copy for KEY_EVENT_RECORD {}
-impl Clone for KEY_EVENT_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KEY_EVENT_RECORD_0 {
     pub UnicodeChar: u16,
     pub AsciiChar: i8,
 }
-impl Copy for KEY_EVENT_RECORD_0 {}
-impl Clone for KEY_EVENT_RECORD_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MENU_EVENT_RECORD {
     pub dwCommandId: u32,
 }
-impl Copy for MENU_EVENT_RECORD {}
-impl Clone for MENU_EVENT_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MOUSE_EVENT_RECORD {
     pub dwMousePosition: COORD,
     pub dwButtonState: u32,
     pub dwControlKeyState: u32,
     pub dwEventFlags: u32,
 }
-impl Copy for MOUSE_EVENT_RECORD {}
-impl Clone for MOUSE_EVENT_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SMALL_RECT {
     pub Left: i16,
     pub Top: i16,
     pub Right: i16,
     pub Bottom: i16,
 }
-impl Copy for SMALL_RECT {}
-impl Clone for SMALL_RECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINDOW_BUFFER_SIZE_RECORD {
     pub dwSize: COORD,
-}
-impl Copy for WINDOW_BUFFER_SIZE_RECORD {}
-impl Clone for WINDOW_BUFFER_SIZE_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type PHANDLER_ROUTINE = Option<unsafe extern "system" fn(ctrltype: u32) -> super::super::Foundation::BOOL>;

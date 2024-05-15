@@ -299,35 +299,22 @@ pub const szScCreateConversationIndex: windows_sys::core::PCSTR = windows_sys::c
 pub type Gender = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct ADRENTRY {
     pub ulReserved1: u32,
     pub cValues: u32,
     pub rgPropVals: *mut SPropValue,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for ADRENTRY {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for ADRENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct ADRLIST {
     pub cEntries: u32,
     pub aEntries: [ADRENTRY; 1],
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for ADRLIST {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for ADRLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct ADRPARM {
     pub cbABContEntryID: u32,
     pub lpABContEntryID: *mut ENTRYID,
@@ -348,39 +335,22 @@ pub struct ADRPARM {
     pub lpContRestriction: *mut SRestriction,
     pub lpHierRestriction: *mut SRestriction,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for ADRPARM {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for ADRPARM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DTBLBUTTON {
     pub ulbLpszLabel: u32,
     pub ulFlags: u32,
     pub ulPRControl: u32,
 }
-impl Copy for DTBLBUTTON {}
-impl Clone for DTBLBUTTON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DTBLCHECKBOX {
     pub ulbLpszLabel: u32,
     pub ulFlags: u32,
     pub ulPRPropertyName: u32,
 }
-impl Copy for DTBLCHECKBOX {}
-impl Clone for DTBLCHECKBOX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DTBLCOMBOBOX {
     pub ulbLpszCharsAllowed: u32,
     pub ulFlags: u32,
@@ -388,108 +358,63 @@ pub struct DTBLCOMBOBOX {
     pub ulPRPropertyName: u32,
     pub ulPRTableName: u32,
 }
-impl Copy for DTBLCOMBOBOX {}
-impl Clone for DTBLCOMBOBOX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DTBLDDLBX {
     pub ulFlags: u32,
     pub ulPRDisplayProperty: u32,
     pub ulPRSetProperty: u32,
     pub ulPRTableName: u32,
 }
-impl Copy for DTBLDDLBX {}
-impl Clone for DTBLDDLBX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DTBLEDIT {
     pub ulbLpszCharsAllowed: u32,
     pub ulFlags: u32,
     pub ulNumCharsAllowed: u32,
     pub ulPropTag: u32,
 }
-impl Copy for DTBLEDIT {}
-impl Clone for DTBLEDIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DTBLGROUPBOX {
     pub ulbLpszLabel: u32,
     pub ulFlags: u32,
 }
-impl Copy for DTBLGROUPBOX {}
-impl Clone for DTBLGROUPBOX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DTBLLABEL {
     pub ulbLpszLabelName: u32,
     pub ulFlags: u32,
 }
-impl Copy for DTBLLABEL {}
-impl Clone for DTBLLABEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DTBLLBX {
     pub ulFlags: u32,
     pub ulPRSetProperty: u32,
     pub ulPRTableName: u32,
 }
-impl Copy for DTBLLBX {}
-impl Clone for DTBLLBX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DTBLMVDDLBX {
     pub ulFlags: u32,
     pub ulMVPropTag: u32,
 }
-impl Copy for DTBLMVDDLBX {}
-impl Clone for DTBLMVDDLBX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DTBLMVLISTBOX {
     pub ulFlags: u32,
     pub ulMVPropTag: u32,
 }
-impl Copy for DTBLMVLISTBOX {}
-impl Clone for DTBLMVLISTBOX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DTBLPAGE {
     pub ulbLpszLabel: u32,
     pub ulFlags: u32,
     pub ulbLpszComponent: u32,
     pub ulContext: u32,
 }
-impl Copy for DTBLPAGE {}
-impl Clone for DTBLPAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DTBLRADIOBUTTON {
     pub ulbLpszLabel: u32,
     pub ulFlags: u32,
@@ -497,13 +422,8 @@ pub struct DTBLRADIOBUTTON {
     pub ulPropTag: u32,
     pub lReturnValue: i32,
 }
-impl Copy for DTBLRADIOBUTTON {}
-impl Clone for DTBLRADIOBUTTON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DTCTL {
     pub ulCtlType: u32,
     pub ulCtlFlags: u32,
@@ -513,13 +433,8 @@ pub struct DTCTL {
     pub ulItemID: u32,
     pub ctl: DTCTL_0,
 }
-impl Copy for DTCTL {}
-impl Clone for DTCTL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DTCTL_0 {
     pub lpv: *mut core::ffi::c_void,
     pub lplabel: *mut DTBLLABEL,
@@ -535,48 +450,28 @@ pub union DTCTL_0 {
     pub lpmvddlbx: *mut DTBLMVDDLBX,
     pub lppage: *mut DTBLPAGE,
 }
-impl Copy for DTCTL_0 {}
-impl Clone for DTCTL_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DTPAGE {
     pub cctl: u32,
     pub lpszResourceName: *mut i8,
     pub Anonymous: DTPAGE_0,
     pub lpctl: *mut DTCTL,
 }
-impl Copy for DTPAGE {}
-impl Clone for DTPAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DTPAGE_0 {
     pub lpszComponent: *mut i8,
     pub ulItemID: u32,
 }
-impl Copy for DTPAGE_0 {}
-impl Clone for DTPAGE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ENTRYID {
     pub abFlags: [u8; 4],
     pub ab: [u8; 1],
 }
-impl Copy for ENTRYID {}
-impl Clone for ENTRYID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ERROR_NOTIFICATION {
     pub cbEntryID: u32,
     pub lpEntryID: *mut ENTRYID,
@@ -584,72 +479,42 @@ pub struct ERROR_NOTIFICATION {
     pub ulFlags: u32,
     pub lpMAPIError: *mut MAPIERROR,
 }
-impl Copy for ERROR_NOTIFICATION {}
-impl Clone for ERROR_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXTENDED_NOTIFICATION {
     pub ulEvent: u32,
     pub cb: u32,
     pub pbEventParameters: *mut u8,
 }
-impl Copy for EXTENDED_NOTIFICATION {}
-impl Clone for EXTENDED_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FLATENTRY {
     pub cb: u32,
     pub abEntry: [u8; 1],
 }
-impl Copy for FLATENTRY {}
-impl Clone for FLATENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FLATENTRYLIST {
     pub cEntries: u32,
     pub cbEntries: u32,
     pub abEntries: [u8; 1],
 }
-impl Copy for FLATENTRYLIST {}
-impl Clone for FLATENTRYLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FLATMTSIDLIST {
     pub cMTSIDs: u32,
     pub cbMTSIDs: u32,
     pub abMTSIDs: [u8; 1],
 }
-impl Copy for FLATMTSIDLIST {}
-impl Clone for FLATMTSIDLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FlagList {
     pub cFlags: u32,
     pub ulFlag: [u32; 1],
 }
-impl Copy for FlagList {}
-impl Clone for FlagList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type LPWABACTIONITEM = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MAPIERROR {
     pub ulVersion: u32,
     pub lpszError: *mut i8,
@@ -657,57 +522,32 @@ pub struct MAPIERROR {
     pub ulLowLevelError: u32,
     pub ulContext: u32,
 }
-impl Copy for MAPIERROR {}
-impl Clone for MAPIERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MAPINAMEID {
     pub lpguid: *mut windows_sys::core::GUID,
     pub ulKind: u32,
     pub Kind: MAPINAMEID_0,
 }
-impl Copy for MAPINAMEID {}
-impl Clone for MAPINAMEID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MAPINAMEID_0 {
     pub lID: i32,
     pub lpwstrName: windows_sys::core::PWSTR,
 }
-impl Copy for MAPINAMEID_0 {}
-impl Clone for MAPINAMEID_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MAPIUID {
     pub ab: [u8; 16],
 }
-impl Copy for MAPIUID {}
-impl Clone for MAPIUID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MTSID {
     pub cb: u32,
     pub ab: [u8; 1],
 }
-impl Copy for MTSID {}
-impl Clone for MTSID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NEWMAIL_NOTIFICATION {
     pub cbEntryID: u32,
     pub lpEntryID: *mut ENTRYID,
@@ -717,29 +557,17 @@ pub struct NEWMAIL_NOTIFICATION {
     pub lpszMessageClass: *mut i8,
     pub ulMessageFlags: u32,
 }
-impl Copy for NEWMAIL_NOTIFICATION {}
-impl Clone for NEWMAIL_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct NOTIFICATION {
     pub ulEventType: u32,
     pub ulAlignPad: u32,
     pub info: NOTIFICATION_0,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for NOTIFICATION {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub union NOTIFICATION_0 {
     pub err: ERROR_NOTIFICATION,
     pub newmail: NEWMAIL_NOTIFICATION,
@@ -748,26 +576,14 @@ pub union NOTIFICATION_0 {
     pub ext: EXTENDED_NOTIFICATION,
     pub statobj: STATUS_OBJECT_NOTIFICATION,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for NOTIFICATION_0 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for NOTIFICATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NOTIFKEY {
     pub cb: u32,
     pub ab: [u8; 1],
 }
-impl Copy for NOTIFKEY {}
-impl Clone for NOTIFKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OBJECT_NOTIFICATION {
     pub cbEntryID: u32,
     pub lpEntryID: *mut ENTRYID,
@@ -780,324 +596,176 @@ pub struct OBJECT_NOTIFICATION {
     pub lpOldParentID: *mut ENTRYID,
     pub lpPropTagArray: *mut SPropTagArray,
 }
-impl Copy for OBJECT_NOTIFICATION {}
-impl Clone for OBJECT_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct SAndRestriction {
     pub cRes: u32,
     pub lpRes: *mut SRestriction,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for SAndRestriction {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for SAndRestriction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SAppTimeArray {
     pub cValues: u32,
     pub lpat: *mut f64,
 }
-impl Copy for SAppTimeArray {}
-impl Clone for SAppTimeArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SBinary {
     pub cb: u32,
     pub lpb: *mut u8,
 }
-impl Copy for SBinary {}
-impl Clone for SBinary {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SBinaryArray {
     pub cValues: u32,
     pub lpbin: *mut SBinary,
 }
-impl Copy for SBinaryArray {}
-impl Clone for SBinaryArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SBitMaskRestriction {
     pub relBMR: u32,
     pub ulPropTag: u32,
     pub ulMask: u32,
 }
-impl Copy for SBitMaskRestriction {}
-impl Clone for SBitMaskRestriction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct SCommentRestriction {
     pub cValues: u32,
     pub lpRes: *mut SRestriction,
     pub lpProp: *mut SPropValue,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for SCommentRestriction {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for SCommentRestriction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SComparePropsRestriction {
     pub relop: u32,
     pub ulPropTag1: u32,
     pub ulPropTag2: u32,
 }
-impl Copy for SComparePropsRestriction {}
-impl Clone for SComparePropsRestriction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct SContentRestriction {
     pub ulFuzzyLevel: u32,
     pub ulPropTag: u32,
     pub lpProp: *mut SPropValue,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for SContentRestriction {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for SContentRestriction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct SCurrencyArray {
     pub cValues: u32,
     pub lpcur: *mut super::Com::CY,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for SCurrencyArray {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for SCurrencyArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SDateTimeArray {
     pub cValues: u32,
     pub lpft: *mut super::super::Foundation::FILETIME,
 }
-impl Copy for SDateTimeArray {}
-impl Clone for SDateTimeArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SDoubleArray {
     pub cValues: u32,
     pub lpdbl: *mut f64,
 }
-impl Copy for SDoubleArray {}
-impl Clone for SDoubleArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SExistRestriction {
     pub ulReserved1: u32,
     pub ulPropTag: u32,
     pub ulReserved2: u32,
 }
-impl Copy for SExistRestriction {}
-impl Clone for SExistRestriction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SGuidArray {
     pub cValues: u32,
     pub lpguid: *mut windows_sys::core::GUID,
 }
-impl Copy for SGuidArray {}
-impl Clone for SGuidArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SLPSTRArray {
     pub cValues: u32,
     pub lppszA: *mut windows_sys::core::PSTR,
 }
-impl Copy for SLPSTRArray {}
-impl Clone for SLPSTRArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SLargeIntegerArray {
     pub cValues: u32,
     pub lpli: *mut i64,
 }
-impl Copy for SLargeIntegerArray {}
-impl Clone for SLargeIntegerArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SLongArray {
     pub cValues: u32,
     pub lpl: *mut i32,
 }
-impl Copy for SLongArray {}
-impl Clone for SLongArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct SNotRestriction {
     pub ulReserved: u32,
     pub lpRes: *mut SRestriction,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for SNotRestriction {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for SNotRestriction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct SOrRestriction {
     pub cRes: u32,
     pub lpRes: *mut SRestriction,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for SOrRestriction {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for SOrRestriction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SPropProblem {
     pub ulIndex: u32,
     pub ulPropTag: u32,
     pub scode: i32,
 }
-impl Copy for SPropProblem {}
-impl Clone for SPropProblem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SPropProblemArray {
     pub cProblem: u32,
     pub aProblem: [SPropProblem; 1],
 }
-impl Copy for SPropProblemArray {}
-impl Clone for SPropProblemArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SPropTagArray {
     pub cValues: u32,
     pub aulPropTag: [u32; 1],
 }
-impl Copy for SPropTagArray {}
-impl Clone for SPropTagArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct SPropValue {
     pub ulPropTag: u32,
     pub dwAlignPad: u32,
     pub Value: __UPV,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for SPropValue {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for SPropValue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct SPropertyRestriction {
     pub relop: u32,
     pub ulPropTag: u32,
     pub lpProp: *mut SPropValue,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for SPropertyRestriction {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for SPropertyRestriction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SRealArray {
     pub cValues: u32,
     pub lpflt: *mut f32,
 }
-impl Copy for SRealArray {}
-impl Clone for SRealArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct SRestriction {
     pub rt: u32,
     pub res: SRestriction_0,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for SRestriction {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for SRestriction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub union SRestriction_0 {
     pub resCompareProps: SComparePropsRestriction,
     pub resAnd: SAndRestriction,
@@ -1111,133 +779,73 @@ pub union SRestriction_0 {
     pub resSub: SSubRestriction,
     pub resComment: SCommentRestriction,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for SRestriction_0 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for SRestriction_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct SRow {
     pub ulAdrEntryPad: u32,
     pub cValues: u32,
     pub lpProps: *mut SPropValue,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for SRow {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for SRow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct SRowSet {
     pub cRows: u32,
     pub aRow: [SRow; 1],
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for SRowSet {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for SRowSet {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SShortArray {
     pub cValues: u32,
     pub lpi: *mut i16,
 }
-impl Copy for SShortArray {}
-impl Clone for SShortArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SSizeRestriction {
     pub relop: u32,
     pub ulPropTag: u32,
     pub cb: u32,
 }
-impl Copy for SSizeRestriction {}
-impl Clone for SSizeRestriction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SSortOrder {
     pub ulPropTag: u32,
     pub ulOrder: u32,
 }
-impl Copy for SSortOrder {}
-impl Clone for SSortOrder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SSortOrderSet {
     pub cSorts: u32,
     pub cCategories: u32,
     pub cExpanded: u32,
     pub aSort: [SSortOrder; 1],
 }
-impl Copy for SSortOrderSet {}
-impl Clone for SSortOrderSet {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct SSubRestriction {
     pub ulSubObject: u32,
     pub lpRes: *mut SRestriction,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for SSubRestriction {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for SSubRestriction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct STATUS_OBJECT_NOTIFICATION {
     pub cbEntryID: u32,
     pub lpEntryID: *mut ENTRYID,
     pub cValues: u32,
     pub lpPropVals: *mut SPropValue,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for STATUS_OBJECT_NOTIFICATION {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for STATUS_OBJECT_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SWStringArray {
     pub cValues: u32,
     pub lppszW: *mut windows_sys::core::PWSTR,
 }
-impl Copy for SWStringArray {}
-impl Clone for SWStringArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct TABLE_NOTIFICATION {
     pub ulTableEvent: u32,
     pub hResult: windows_sys::core::HRESULT,
@@ -1246,15 +854,8 @@ pub struct TABLE_NOTIFICATION {
     pub row: SRow,
     pub ulPad: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for TABLE_NOTIFICATION {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for TABLE_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WABEXTDISPLAY {
     pub cbSize: u32,
     pub lpWABObject: *mut core::ffi::c_void,
@@ -1266,13 +867,8 @@ pub struct WABEXTDISPLAY {
     pub lpv: *mut core::ffi::c_void,
     pub lpsz: *mut i8,
 }
-impl Copy for WABEXTDISPLAY {}
-impl Clone for WABEXTDISPLAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WABIMPORTPARAM {
     pub cbSize: u32,
     pub lpAdrBook: *mut core::ffi::c_void,
@@ -1280,13 +876,8 @@ pub struct WABIMPORTPARAM {
     pub ulFlags: u32,
     pub lpszFileName: windows_sys::core::PSTR,
 }
-impl Copy for WABIMPORTPARAM {}
-impl Clone for WABIMPORTPARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WAB_PARAM {
     pub cbSize: u32,
     pub hwnd: super::super::Foundation::HWND,
@@ -1294,14 +885,9 @@ pub struct WAB_PARAM {
     pub ulFlags: u32,
     pub guidPSExt: windows_sys::core::GUID,
 }
-impl Copy for WAB_PARAM {}
-impl Clone for WAB_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub union __UPV {
     pub i: i16,
     pub l: i32,
@@ -1331,14 +917,6 @@ pub union __UPV {
     pub MVli: SLargeIntegerArray,
     pub err: i32,
     pub x: i32,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for __UPV {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for __UPV {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type CALLERRELEASE = Option<unsafe extern "system" fn(ulcallerdata: u32, lptbldata: *mut core::ffi::c_void, lpvue: *mut core::ffi::c_void)>;
 pub type LPALLOCATEBUFFER = Option<unsafe extern "system" fn(cbsize: u32, lppbuffer: *mut *mut core::ffi::c_void) -> i32>;

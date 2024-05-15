@@ -1048,75 +1048,51 @@ pub type alljoyn_typeid = i32;
 pub type alljoyn_aboutdata = isize;
 pub type alljoyn_aboutdatalistener = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct alljoyn_aboutdatalistener_callbacks {
     pub about_datalistener_getaboutdata: alljoyn_aboutdatalistener_getaboutdata_ptr,
     pub about_datalistener_getannouncedaboutdata: alljoyn_aboutdatalistener_getannouncedaboutdata_ptr,
-}
-impl Copy for alljoyn_aboutdatalistener_callbacks {}
-impl Clone for alljoyn_aboutdatalistener_callbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type alljoyn_abouticon = isize;
 pub type alljoyn_abouticonobj = isize;
 pub type alljoyn_abouticonproxy = isize;
 pub type alljoyn_aboutlistener = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct alljoyn_aboutlistener_callback {
     pub about_listener_announced: alljoyn_about_announced_ptr,
-}
-impl Copy for alljoyn_aboutlistener_callback {}
-impl Clone for alljoyn_aboutlistener_callback {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type alljoyn_aboutobj = isize;
 pub type alljoyn_aboutobjectdescription = isize;
 pub type alljoyn_aboutproxy = isize;
 pub type alljoyn_applicationstatelistener = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct alljoyn_applicationstatelistener_callbacks {
     pub state: alljoyn_applicationstatelistener_state_ptr,
 }
-impl Copy for alljoyn_applicationstatelistener_callbacks {}
-impl Clone for alljoyn_applicationstatelistener_callbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type alljoyn_authlistener = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct alljoyn_authlistener_callbacks {
     pub request_credentials: alljoyn_authlistener_requestcredentials_ptr,
     pub verify_credentials: alljoyn_authlistener_verifycredentials_ptr,
     pub security_violation: alljoyn_authlistener_securityviolation_ptr,
     pub authentication_complete: alljoyn_authlistener_authenticationcomplete_ptr,
 }
-impl Copy for alljoyn_authlistener_callbacks {}
-impl Clone for alljoyn_authlistener_callbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct alljoyn_authlistenerasync_callbacks {
     pub request_credentials: alljoyn_authlistener_requestcredentialsasync_ptr,
     pub verify_credentials: alljoyn_authlistener_verifycredentialsasync_ptr,
     pub security_violation: alljoyn_authlistener_securityviolation_ptr,
     pub authentication_complete: alljoyn_authlistener_authenticationcomplete_ptr,
 }
-impl Copy for alljoyn_authlistenerasync_callbacks {}
-impl Clone for alljoyn_authlistenerasync_callbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type alljoyn_autopinger = isize;
 pub type alljoyn_busattachment = isize;
 pub type alljoyn_buslistener = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct alljoyn_buslistener_callbacks {
     pub listener_registered: alljoyn_buslistener_listener_registered_ptr,
     pub listener_unregistered: alljoyn_buslistener_listener_unregistered_ptr,
@@ -1127,38 +1103,23 @@ pub struct alljoyn_buslistener_callbacks {
     pub bus_disconnected: alljoyn_buslistener_bus_disconnected_ptr,
     pub property_changed: alljoyn_buslistener_bus_prop_changed_ptr,
 }
-impl Copy for alljoyn_buslistener_callbacks {}
-impl Clone for alljoyn_buslistener_callbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type alljoyn_busobject = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct alljoyn_busobject_callbacks {
     pub property_get: alljoyn_busobject_prop_get_ptr,
     pub property_set: alljoyn_busobject_prop_set_ptr,
     pub object_registered: alljoyn_busobject_object_registration_ptr,
     pub object_unregistered: alljoyn_busobject_object_registration_ptr,
 }
-impl Copy for alljoyn_busobject_callbacks {}
-impl Clone for alljoyn_busobject_callbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct alljoyn_busobject_methodentry {
     pub member: *const alljoyn_interfacedescription_member,
     pub method_handler: alljoyn_messagereceiver_methodhandler_ptr,
 }
-impl Copy for alljoyn_busobject_methodentry {}
-impl Clone for alljoyn_busobject_methodentry {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct alljoyn_certificateid {
     pub serial: *mut u8,
     pub serialLen: usize,
@@ -1166,26 +1127,16 @@ pub struct alljoyn_certificateid {
     pub issuerAki: *mut u8,
     pub issuerAkiLen: usize,
 }
-impl Copy for alljoyn_certificateid {}
-impl Clone for alljoyn_certificateid {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct alljoyn_certificateidarray {
     pub count: usize,
     pub ids: *mut alljoyn_certificateid,
 }
-impl Copy for alljoyn_certificateidarray {}
-impl Clone for alljoyn_certificateidarray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type alljoyn_credentials = isize;
 pub type alljoyn_interfacedescription = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct alljoyn_interfacedescription_member {
     pub iface: alljoyn_interfacedescription,
     pub memberType: alljoyn_messagetype,
@@ -1195,132 +1146,81 @@ pub struct alljoyn_interfacedescription_member {
     pub argNames: windows_sys::core::PCSTR,
     pub internal_member: *const core::ffi::c_void,
 }
-impl Copy for alljoyn_interfacedescription_member {}
-impl Clone for alljoyn_interfacedescription_member {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct alljoyn_interfacedescription_property {
     pub name: windows_sys::core::PCSTR,
     pub signature: windows_sys::core::PCSTR,
     pub access: u8,
     pub internal_property: *const core::ffi::c_void,
 }
-impl Copy for alljoyn_interfacedescription_property {}
-impl Clone for alljoyn_interfacedescription_property {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type alljoyn_keystore = isize;
 pub type alljoyn_keystorelistener = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct alljoyn_keystorelistener_callbacks {
     pub load_request: alljoyn_keystorelistener_loadrequest_ptr,
     pub store_request: alljoyn_keystorelistener_storerequest_ptr,
 }
-impl Copy for alljoyn_keystorelistener_callbacks {}
-impl Clone for alljoyn_keystorelistener_callbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct alljoyn_keystorelistener_with_synchronization_callbacks {
     pub load_request: alljoyn_keystorelistener_loadrequest_ptr,
     pub store_request: alljoyn_keystorelistener_storerequest_ptr,
     pub acquire_exclusive_lock: alljoyn_keystorelistener_acquireexclusivelock_ptr,
     pub release_exclusive_lock: alljoyn_keystorelistener_releaseexclusivelock_ptr,
 }
-impl Copy for alljoyn_keystorelistener_with_synchronization_callbacks {}
-impl Clone for alljoyn_keystorelistener_with_synchronization_callbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct alljoyn_manifestarray {
     pub count: usize,
     pub xmls: *mut *mut i8,
-}
-impl Copy for alljoyn_manifestarray {}
-impl Clone for alljoyn_manifestarray {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type alljoyn_message = isize;
 pub type alljoyn_msgarg = isize;
 pub type alljoyn_observer = isize;
 pub type alljoyn_observerlistener = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct alljoyn_observerlistener_callback {
     pub object_discovered: alljoyn_observer_object_discovered_ptr,
     pub object_lost: alljoyn_observer_object_lost_ptr,
 }
-impl Copy for alljoyn_observerlistener_callback {}
-impl Clone for alljoyn_observerlistener_callback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type alljoyn_permissionconfigurationlistener = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct alljoyn_permissionconfigurationlistener_callbacks {
     pub factory_reset: alljoyn_permissionconfigurationlistener_factoryreset_ptr,
     pub policy_changed: alljoyn_permissionconfigurationlistener_policychanged_ptr,
     pub start_management: alljoyn_permissionconfigurationlistener_startmanagement_ptr,
     pub end_management: alljoyn_permissionconfigurationlistener_endmanagement_ptr,
 }
-impl Copy for alljoyn_permissionconfigurationlistener_callbacks {}
-impl Clone for alljoyn_permissionconfigurationlistener_callbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type alljoyn_permissionconfigurator = isize;
 pub type alljoyn_pinglistener = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct alljoyn_pinglistener_callback {
     pub destination_found: alljoyn_autopinger_destination_found_ptr,
     pub destination_lost: alljoyn_autopinger_destination_lost_ptr,
-}
-impl Copy for alljoyn_pinglistener_callback {}
-impl Clone for alljoyn_pinglistener_callback {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type alljoyn_proxybusobject = isize;
 pub type alljoyn_proxybusobject_ref = isize;
 pub type alljoyn_securityapplicationproxy = isize;
 pub type alljoyn_sessionlistener = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct alljoyn_sessionlistener_callbacks {
     pub session_lost: alljoyn_sessionlistener_sessionlost_ptr,
     pub session_member_added: alljoyn_sessionlistener_sessionmemberadded_ptr,
     pub session_member_removed: alljoyn_sessionlistener_sessionmemberremoved_ptr,
 }
-impl Copy for alljoyn_sessionlistener_callbacks {}
-impl Clone for alljoyn_sessionlistener_callbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type alljoyn_sessionopts = isize;
 pub type alljoyn_sessionportlistener = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct alljoyn_sessionportlistener_callbacks {
     pub accept_session_joiner: alljoyn_sessionportlistener_acceptsessionjoiner_ptr,
     pub session_joined: alljoyn_sessionportlistener_sessionjoined_ptr,
-}
-impl Copy for alljoyn_sessionportlistener_callbacks {}
-impl Clone for alljoyn_sessionportlistener_callbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type alljoyn_about_announced_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, busname: windows_sys::core::PCSTR, version: u16, port: u16, objectdescriptionarg: alljoyn_msgarg, aboutdataarg: alljoyn_msgarg)>;
 pub type alljoyn_aboutdatalistener_getaboutdata_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, msgarg: alljoyn_msgarg, language: windows_sys::core::PCSTR) -> QStatus>;

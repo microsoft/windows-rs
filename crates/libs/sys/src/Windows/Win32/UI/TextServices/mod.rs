@@ -631,28 +631,19 @@ pub const DocWrap: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(
 pub type HKL = isize;
 pub const MSAAControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x08cd963f_7a3e_4f5c_9bd8_d692bb043c5b);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TF_DA_COLOR {
     pub r#type: TF_DA_COLORTYPE,
     pub Anonymous: TF_DA_COLOR_0,
 }
-impl Copy for TF_DA_COLOR {}
-impl Clone for TF_DA_COLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union TF_DA_COLOR_0 {
     pub nIndex: i32,
     pub cr: super::super::Foundation::COLORREF,
 }
-impl Copy for TF_DA_COLOR_0 {}
-impl Clone for TF_DA_COLOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TF_DISPLAYATTRIBUTE {
     pub crText: TF_DA_COLOR,
     pub crBk: TF_DA_COLOR,
@@ -661,25 +652,15 @@ pub struct TF_DISPLAYATTRIBUTE {
     pub crLine: TF_DA_COLOR,
     pub bAttr: TF_DA_ATTR_INFO,
 }
-impl Copy for TF_DISPLAYATTRIBUTE {}
-impl Clone for TF_DISPLAYATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TF_HALTCOND {
     pub pHaltRange: *mut core::ffi::c_void,
     pub aHaltPos: TfAnchor,
     pub dwFlags: u32,
 }
-impl Copy for TF_HALTCOND {}
-impl Clone for TF_HALTCOND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TF_INPUTPROCESSORPROFILE {
     pub dwProfileType: u32,
     pub langid: u16,
@@ -691,13 +672,8 @@ pub struct TF_INPUTPROCESSORPROFILE {
     pub hkl: HKL,
     pub dwFlags: u32,
 }
-impl Copy for TF_INPUTPROCESSORPROFILE {}
-impl Clone for TF_INPUTPROCESSORPROFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TF_LANGBARITEMINFO {
     pub clsidService: windows_sys::core::GUID,
     pub guidItem: windows_sys::core::GUID,
@@ -705,13 +681,8 @@ pub struct TF_LANGBARITEMINFO {
     pub ulSort: u32,
     pub szDescription: [u16; 32],
 }
-impl Copy for TF_LANGBARITEMINFO {}
-impl Clone for TF_LANGBARITEMINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TF_LANGUAGEPROFILE {
     pub clsid: windows_sys::core::GUID,
     pub langid: u16,
@@ -719,24 +690,14 @@ pub struct TF_LANGUAGEPROFILE {
     pub fActive: super::super::Foundation::BOOL,
     pub guidProfile: windows_sys::core::GUID,
 }
-impl Copy for TF_LANGUAGEPROFILE {}
-impl Clone for TF_LANGUAGEPROFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TF_LBBALLOONINFO {
     pub style: TfLBBalloonStyle,
     pub bstrText: windows_sys::core::BSTR,
 }
-impl Copy for TF_LBBALLOONINFO {}
-impl Clone for TF_LBBALLOONINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TF_LMLATTELEMENT {
     pub dwFrameStart: u32,
     pub dwFrameLen: u32,
@@ -744,23 +705,13 @@ pub struct TF_LMLATTELEMENT {
     pub Anonymous: TF_LMLATTELEMENT_0,
     pub bstrText: windows_sys::core::BSTR,
 }
-impl Copy for TF_LMLATTELEMENT {}
-impl Clone for TF_LMLATTELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union TF_LMLATTELEMENT_0 {
     pub iCost: i32,
 }
-impl Copy for TF_LMLATTELEMENT_0 {}
-impl Clone for TF_LMLATTELEMENT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
     pub guidType: windows_sys::core::GUID,
     pub ichStart: i32,
@@ -769,140 +720,75 @@ pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
     pub dwPrivate: u32,
     pub clsidTIP: windows_sys::core::GUID,
 }
-impl Copy for TF_PERSISTENT_PROPERTY_HEADER_ACP {}
-impl Clone for TF_PERSISTENT_PROPERTY_HEADER_ACP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TF_PRESERVEDKEY {
     pub uVKey: u32,
     pub uModifiers: u32,
 }
-impl Copy for TF_PRESERVEDKEY {}
-impl Clone for TF_PRESERVEDKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
 pub struct TF_PROPERTYVAL {
     pub guidId: windows_sys::core::GUID,
     pub varValue: super::super::System::Variant::VARIANT,
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl Copy for TF_PROPERTYVAL {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl Clone for TF_PROPERTYVAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TF_SELECTION {
     pub range: *mut core::ffi::c_void,
     pub style: TF_SELECTIONSTYLE,
 }
-impl Copy for TF_SELECTION {}
-impl Clone for TF_SELECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TF_SELECTIONSTYLE {
     pub ase: TfActiveSelEnd,
     pub fInterimChar: super::super::Foundation::BOOL,
 }
-impl Copy for TF_SELECTIONSTYLE {}
-impl Clone for TF_SELECTIONSTYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
 pub struct TS_ATTRVAL {
     pub idAttr: windows_sys::core::GUID,
     pub dwOverlapId: u32,
     pub varValue: super::super::System::Variant::VARIANT,
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl Copy for TS_ATTRVAL {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl Clone for TS_ATTRVAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TS_RUNINFO {
     pub uCount: u32,
     pub r#type: TsRunType,
 }
-impl Copy for TS_RUNINFO {}
-impl Clone for TS_RUNINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TS_SELECTIONSTYLE {
     pub ase: TsActiveSelEnd,
     pub fInterimChar: super::super::Foundation::BOOL,
 }
-impl Copy for TS_SELECTIONSTYLE {}
-impl Clone for TS_SELECTIONSTYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TS_SELECTION_ACP {
     pub acpStart: i32,
     pub acpEnd: i32,
     pub style: TS_SELECTIONSTYLE,
 }
-impl Copy for TS_SELECTION_ACP {}
-impl Clone for TS_SELECTION_ACP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TS_SELECTION_ANCHOR {
     pub paStart: *mut core::ffi::c_void,
     pub paEnd: *mut core::ffi::c_void,
     pub style: TS_SELECTIONSTYLE,
 }
-impl Copy for TS_SELECTION_ANCHOR {}
-impl Clone for TS_SELECTION_ANCHOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TS_STATUS {
     pub dwDynamicFlags: u32,
     pub dwStaticFlags: u32,
 }
-impl Copy for TS_STATUS {}
-impl Clone for TS_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TS_TEXTCHANGE {
     pub acpStart: i32,
     pub acpOldEnd: i32,
     pub acpNewEnd: i32,
-}
-impl Copy for TS_TEXTCHANGE {}
-impl Clone for TS_TEXTCHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

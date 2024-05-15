@@ -29,16 +29,12 @@ pub const WC_MAGNIFIERA: windows_sys::core::PCSTR = windows_sys::core::s!("Magni
 pub const WC_MAGNIFIERW: windows_sys::core::PCWSTR = windows_sys::core::w!("Magnifier");
 pub type MW_FILTERMODE = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MAGCOLOREFFECT {
     pub transform: [f32; 25],
 }
-impl Copy for MAGCOLOREFFECT {}
-impl Clone for MAGCOLOREFFECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MAGIMAGEHEADER {
     pub width: u32,
     pub height: u32,
@@ -47,21 +43,10 @@ pub struct MAGIMAGEHEADER {
     pub offset: u32,
     pub cbSize: usize,
 }
-impl Copy for MAGIMAGEHEADER {}
-impl Clone for MAGIMAGEHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MAGTRANSFORM {
     pub v: [f32; 9],
-}
-impl Copy for MAGTRANSFORM {}
-impl Clone for MAGTRANSFORM {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type MagImageScalingCallback = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, srcdata: *mut core::ffi::c_void, srcheader: MAGIMAGEHEADER, destdata: *mut core::ffi::c_void, destheader: MAGIMAGEHEADER, unclipped: super::super::Foundation::RECT, clipped: super::super::Foundation::RECT, dirty: super::super::Graphics::Gdi::HRGN) -> super::super::Foundation::BOOL>;

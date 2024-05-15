@@ -594,28 +594,19 @@ pub type TREE_SEC_INFO = u32;
 pub type TRUSTEE_FORM = i32;
 pub type TRUSTEE_TYPE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACTRL_ACCESSA {
     pub cEntries: u32,
     pub pPropertyAccessList: *mut ACTRL_PROPERTY_ENTRYA,
 }
-impl Copy for ACTRL_ACCESSA {}
-impl Clone for ACTRL_ACCESSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACTRL_ACCESSW {
     pub cEntries: u32,
     pub pPropertyAccessList: *mut ACTRL_PROPERTY_ENTRYW,
 }
-impl Copy for ACTRL_ACCESSW {}
-impl Clone for ACTRL_ACCESSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACTRL_ACCESS_ENTRYA {
     pub Trustee: TRUSTEE_A,
     pub fAccessFlags: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS,
@@ -624,13 +615,8 @@ pub struct ACTRL_ACCESS_ENTRYA {
     pub Inheritance: super::ACE_FLAGS,
     pub lpInheritProperty: windows_sys::core::PSTR,
 }
-impl Copy for ACTRL_ACCESS_ENTRYA {}
-impl Clone for ACTRL_ACCESS_ENTRYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACTRL_ACCESS_ENTRYW {
     pub Trustee: TRUSTEE_W,
     pub fAccessFlags: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS,
@@ -639,161 +625,91 @@ pub struct ACTRL_ACCESS_ENTRYW {
     pub Inheritance: super::ACE_FLAGS,
     pub lpInheritProperty: windows_sys::core::PWSTR,
 }
-impl Copy for ACTRL_ACCESS_ENTRYW {}
-impl Clone for ACTRL_ACCESS_ENTRYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACTRL_ACCESS_ENTRY_LISTA {
     pub cEntries: u32,
     pub pAccessList: *mut ACTRL_ACCESS_ENTRYA,
 }
-impl Copy for ACTRL_ACCESS_ENTRY_LISTA {}
-impl Clone for ACTRL_ACCESS_ENTRY_LISTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACTRL_ACCESS_ENTRY_LISTW {
     pub cEntries: u32,
     pub pAccessList: *mut ACTRL_ACCESS_ENTRYW,
 }
-impl Copy for ACTRL_ACCESS_ENTRY_LISTW {}
-impl Clone for ACTRL_ACCESS_ENTRY_LISTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACTRL_ACCESS_INFOA {
     pub fAccessPermission: u32,
     pub lpAccessPermissionName: windows_sys::core::PSTR,
 }
-impl Copy for ACTRL_ACCESS_INFOA {}
-impl Clone for ACTRL_ACCESS_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACTRL_ACCESS_INFOW {
     pub fAccessPermission: u32,
     pub lpAccessPermissionName: windows_sys::core::PWSTR,
 }
-impl Copy for ACTRL_ACCESS_INFOW {}
-impl Clone for ACTRL_ACCESS_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACTRL_CONTROL_INFOA {
     pub lpControlId: windows_sys::core::PSTR,
     pub lpControlName: windows_sys::core::PSTR,
 }
-impl Copy for ACTRL_CONTROL_INFOA {}
-impl Clone for ACTRL_CONTROL_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACTRL_CONTROL_INFOW {
     pub lpControlId: windows_sys::core::PWSTR,
     pub lpControlName: windows_sys::core::PWSTR,
 }
-impl Copy for ACTRL_CONTROL_INFOW {}
-impl Clone for ACTRL_CONTROL_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACTRL_OVERLAPPED {
     pub Anonymous: ACTRL_OVERLAPPED_0,
     pub Reserved2: u32,
     pub hEvent: super::super::Foundation::HANDLE,
 }
-impl Copy for ACTRL_OVERLAPPED {}
-impl Clone for ACTRL_OVERLAPPED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union ACTRL_OVERLAPPED_0 {
     pub Provider: *mut core::ffi::c_void,
     pub Reserved1: u32,
 }
-impl Copy for ACTRL_OVERLAPPED_0 {}
-impl Clone for ACTRL_OVERLAPPED_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACTRL_PROPERTY_ENTRYA {
     pub lpProperty: windows_sys::core::PSTR,
     pub pAccessEntryList: *mut ACTRL_ACCESS_ENTRY_LISTA,
     pub fListFlags: u32,
 }
-impl Copy for ACTRL_PROPERTY_ENTRYA {}
-impl Clone for ACTRL_PROPERTY_ENTRYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACTRL_PROPERTY_ENTRYW {
     pub lpProperty: windows_sys::core::PWSTR,
     pub pAccessEntryList: *mut ACTRL_ACCESS_ENTRY_LISTW,
     pub fListFlags: u32,
 }
-impl Copy for ACTRL_PROPERTY_ENTRYW {}
-impl Clone for ACTRL_PROPERTY_ENTRYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUDIT_IP_ADDRESS {
     pub pIpAddress: [u8; 128],
 }
-impl Copy for AUDIT_IP_ADDRESS {}
-impl Clone for AUDIT_IP_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUDIT_OBJECT_TYPE {
     pub ObjectType: windows_sys::core::GUID,
     pub Flags: u16,
     pub Level: u16,
     pub AccessMask: u32,
 }
-impl Copy for AUDIT_OBJECT_TYPE {}
-impl Clone for AUDIT_OBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUDIT_OBJECT_TYPES {
     pub Count: u16,
     pub Flags: u16,
     pub pObjectTypes: *mut AUDIT_OBJECT_TYPE,
 }
-impl Copy for AUDIT_OBJECT_TYPES {}
-impl Clone for AUDIT_OBJECT_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUDIT_PARAM {
     pub Type: AUDIT_PARAM_TYPE,
     pub Length: u32,
@@ -801,13 +717,8 @@ pub struct AUDIT_PARAM {
     pub Anonymous1: AUDIT_PARAM_0,
     pub Anonymous2: AUDIT_PARAM_1,
 }
-impl Copy for AUDIT_PARAM {}
-impl Clone for AUDIT_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union AUDIT_PARAM_0 {
     pub Data0: usize,
     pub String: windows_sys::core::PWSTR,
@@ -818,51 +729,31 @@ pub union AUDIT_PARAM_0 {
     pub pObjectTypes: *mut AUDIT_OBJECT_TYPES,
     pub pIpAddress: *mut AUDIT_IP_ADDRESS,
 }
-impl Copy for AUDIT_PARAM_0 {}
-impl Clone for AUDIT_PARAM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union AUDIT_PARAM_1 {
     pub Data1: usize,
     pub LogonId_HighPart: i32,
 }
-impl Copy for AUDIT_PARAM_1 {}
-impl Clone for AUDIT_PARAM_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUDIT_PARAMS {
     pub Length: u32,
     pub Flags: u32,
     pub Count: u16,
     pub Parameters: *mut AUDIT_PARAM,
 }
-impl Copy for AUDIT_PARAMS {}
-impl Clone for AUDIT_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type AUTHZ_ACCESS_CHECK_RESULTS_HANDLE = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUTHZ_ACCESS_REPLY {
     pub ResultListLength: u32,
     pub GrantedAccessMask: *mut u32,
     pub SaclEvaluationResults: *mut AUTHZ_GENERATE_RESULTS,
     pub Error: *mut u32,
 }
-impl Copy for AUTHZ_ACCESS_REPLY {}
-impl Clone for AUTHZ_ACCESS_REPLY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUTHZ_ACCESS_REQUEST {
     pub DesiredAccess: u32,
     pub PrincipalSelfSid: super::super::Foundation::PSID,
@@ -870,27 +761,17 @@ pub struct AUTHZ_ACCESS_REQUEST {
     pub ObjectTypeListLength: u32,
     pub OptionalArguments: *mut core::ffi::c_void,
 }
-impl Copy for AUTHZ_ACCESS_REQUEST {}
-impl Clone for AUTHZ_ACCESS_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type AUTHZ_AUDIT_EVENT_HANDLE = isize;
 pub type AUTHZ_AUDIT_EVENT_TYPE_HANDLE = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
     pub CategoryId: u16,
     pub AuditId: u16,
     pub ParameterCount: u16,
 }
-impl Copy for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {}
-impl Clone for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUTHZ_AUDIT_EVENT_TYPE_OLD {
     pub Version: u32,
     pub dwFlags: u32,
@@ -899,25 +780,15 @@ pub struct AUTHZ_AUDIT_EVENT_TYPE_OLD {
     pub LinkId: super::super::Foundation::LUID,
     pub u: AUTHZ_AUDIT_EVENT_TYPE_UNION,
 }
-impl Copy for AUTHZ_AUDIT_EVENT_TYPE_OLD {}
-impl Clone for AUTHZ_AUDIT_EVENT_TYPE_OLD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union AUTHZ_AUDIT_EVENT_TYPE_UNION {
     pub Legacy: AUTHZ_AUDIT_EVENT_TYPE_LEGACY,
-}
-impl Copy for AUTHZ_AUDIT_EVENT_TYPE_UNION {}
-impl Clone for AUTHZ_AUDIT_EVENT_TYPE_UNION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE = isize;
 pub type AUTHZ_CLIENT_CONTEXT_HANDLE = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUTHZ_INIT_INFO {
     pub version: u16,
     pub szResourceManagerName: windows_sys::core::PCWSTR,
@@ -927,25 +798,15 @@ pub struct AUTHZ_INIT_INFO {
     pub pfnGetCentralAccessPolicy: PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY,
     pub pfnFreeCentralAccessPolicy: PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY,
 }
-impl Copy for AUTHZ_INIT_INFO {}
-impl Clone for AUTHZ_INIT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
     pub szObjectTypeName: windows_sys::core::PWSTR,
     pub dwOffset: u32,
 }
-impl Copy for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {}
-impl Clone for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type AUTHZ_RESOURCE_MANAGER_HANDLE = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUTHZ_RPC_INIT_INFO_CLIENT {
     pub version: u16,
     pub ObjectUuid: windows_sys::core::PWSTR,
@@ -955,58 +816,33 @@ pub struct AUTHZ_RPC_INIT_INFO_CLIENT {
     pub Options: windows_sys::core::PWSTR,
     pub ServerSpn: windows_sys::core::PWSTR,
 }
-impl Copy for AUTHZ_RPC_INIT_INFO_CLIENT {}
-impl Clone for AUTHZ_RPC_INIT_INFO_CLIENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
     pub Version: u16,
     pub Reserved: u16,
     pub AttributeCount: u32,
     pub Attribute: AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0,
 }
-impl Copy for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {}
-impl Clone for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
     pub pAttributeV1: *mut AUTHZ_SECURITY_ATTRIBUTE_V1,
 }
-impl Copy for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {}
-impl Clone for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
     pub Version: u64,
     pub pName: windows_sys::core::PWSTR,
 }
-impl Copy for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {}
-impl Clone for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     pub pValue: *mut core::ffi::c_void,
     pub ValueLength: u32,
 }
-impl Copy for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {}
-impl Clone for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_V1 {
     pub pName: windows_sys::core::PWSTR,
     pub ValueType: u16,
@@ -1015,13 +851,8 @@ pub struct AUTHZ_SECURITY_ATTRIBUTE_V1 {
     pub ValueCount: u32,
     pub Values: AUTHZ_SECURITY_ATTRIBUTE_V1_0,
 }
-impl Copy for AUTHZ_SECURITY_ATTRIBUTE_V1 {}
-impl Clone for AUTHZ_SECURITY_ATTRIBUTE_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
     pub pInt64: *mut i64,
     pub pUint64: *mut u64,
@@ -1029,14 +860,9 @@ pub union AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
     pub pFqbn: *mut AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE,
     pub pOctetString: *mut AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE,
 }
-impl Copy for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {}
-impl Clone for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUTHZ_SOURCE_SCHEMA_REGISTRATION {
     pub dwFlags: u32,
     pub szEventSourceName: windows_sys::core::PWSTR,
@@ -1048,85 +874,50 @@ pub struct AUTHZ_SOURCE_SCHEMA_REGISTRATION {
     pub dwObjectTypeNameCount: u32,
     pub ObjectTypeNames: [AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET; 1],
 }
-impl Copy for AUTHZ_SOURCE_SCHEMA_REGISTRATION {}
-impl Clone for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
     pub pReserved: *mut core::ffi::c_void,
     pub pProviderGuid: *mut windows_sys::core::GUID,
-}
-impl Copy for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {}
-impl Clone for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const AzAuthorizationStore: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb2bcff59_a757_4b0b_a1bc_ea69981da69e);
 pub const AzBizRuleContext: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5c2dc96f_8d51_434b_b33c_379bccae77c3);
 pub const AzPrincipalLocator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x483afb5d_70df_4e16_abdc_a1de4d015a3e);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXPLICIT_ACCESS_A {
     pub grfAccessPermissions: u32,
     pub grfAccessMode: ACCESS_MODE,
     pub grfInheritance: super::ACE_FLAGS,
     pub Trustee: TRUSTEE_A,
 }
-impl Copy for EXPLICIT_ACCESS_A {}
-impl Clone for EXPLICIT_ACCESS_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXPLICIT_ACCESS_W {
     pub grfAccessPermissions: u32,
     pub grfAccessMode: ACCESS_MODE,
     pub grfInheritance: super::ACE_FLAGS,
     pub Trustee: TRUSTEE_W,
 }
-impl Copy for EXPLICIT_ACCESS_W {}
-impl Clone for EXPLICIT_ACCESS_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FN_OBJECT_MGR_FUNCTS {
     pub Placeholder: u32,
 }
-impl Copy for FN_OBJECT_MGR_FUNCTS {}
-impl Clone for FN_OBJECT_MGR_FUNCTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INHERITED_FROMA {
     pub GenerationGap: i32,
     pub AncestorName: windows_sys::core::PSTR,
 }
-impl Copy for INHERITED_FROMA {}
-impl Clone for INHERITED_FROMA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INHERITED_FROMW {
     pub GenerationGap: i32,
     pub AncestorName: windows_sys::core::PWSTR,
 }
-impl Copy for INHERITED_FROMW {}
-impl Clone for INHERITED_FROMW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OBJECTS_AND_NAME_A {
     pub ObjectsPresent: super::SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
     pub ObjectType: SE_OBJECT_TYPE,
@@ -1134,13 +925,8 @@ pub struct OBJECTS_AND_NAME_A {
     pub InheritedObjectTypeName: windows_sys::core::PSTR,
     pub ptstrName: windows_sys::core::PSTR,
 }
-impl Copy for OBJECTS_AND_NAME_A {}
-impl Clone for OBJECTS_AND_NAME_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OBJECTS_AND_NAME_W {
     pub ObjectsPresent: super::SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
     pub ObjectType: SE_OBJECT_TYPE,
@@ -1148,26 +934,16 @@ pub struct OBJECTS_AND_NAME_W {
     pub InheritedObjectTypeName: windows_sys::core::PWSTR,
     pub ptstrName: windows_sys::core::PWSTR,
 }
-impl Copy for OBJECTS_AND_NAME_W {}
-impl Clone for OBJECTS_AND_NAME_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OBJECTS_AND_SID {
     pub ObjectsPresent: super::SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
     pub ObjectTypeGuid: windows_sys::core::GUID,
     pub InheritedObjectTypeGuid: windows_sys::core::GUID,
     pub pSid: *mut super::SID,
 }
-impl Copy for OBJECTS_AND_SID {}
-impl Clone for OBJECTS_AND_SID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRUSTEE_A {
     pub pMultipleTrustee: *mut TRUSTEE_A,
     pub MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,
@@ -1175,51 +951,30 @@ pub struct TRUSTEE_A {
     pub TrusteeType: TRUSTEE_TYPE,
     pub ptstrName: windows_sys::core::PSTR,
 }
-impl Copy for TRUSTEE_A {}
-impl Clone for TRUSTEE_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRUSTEE_ACCESSA {
     pub lpProperty: windows_sys::core::PSTR,
     pub Access: u32,
     pub fAccessFlags: u32,
     pub fReturnedAccess: u32,
 }
-impl Copy for TRUSTEE_ACCESSA {}
-impl Clone for TRUSTEE_ACCESSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRUSTEE_ACCESSW {
     pub lpProperty: windows_sys::core::PWSTR,
     pub Access: u32,
     pub fAccessFlags: u32,
     pub fReturnedAccess: u32,
 }
-impl Copy for TRUSTEE_ACCESSW {}
-impl Clone for TRUSTEE_ACCESSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRUSTEE_W {
     pub pMultipleTrustee: *mut TRUSTEE_W,
     pub MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,
     pub TrusteeForm: TRUSTEE_FORM,
     pub TrusteeType: TRUSTEE_TYPE,
     pub ptstrName: windows_sys::core::PWSTR,
-}
-impl Copy for TRUSTEE_W {}
-impl Clone for TRUSTEE_W {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type FN_PROGRESS = Option<unsafe extern "system" fn(pobjectname: windows_sys::core::PCWSTR, status: u32, pinvokesetting: *mut PROG_INVOKE_SETTING, args: *const core::ffi::c_void, securityset: super::super::Foundation::BOOL)>;
 pub type PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, args: *const core::ffi::c_void, psidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, psidcount: *mut u32, prestrictedsidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, prestrictedsidcount: *mut u32) -> super::super::Foundation::BOOL>;

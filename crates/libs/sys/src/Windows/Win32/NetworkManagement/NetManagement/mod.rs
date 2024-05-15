@@ -2488,73 +2488,44 @@ pub type USER_MODALS_ROLES = u32;
 pub type USER_PRIV = u32;
 pub type USE_INFO_ASG_TYPE = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACCESS_INFO_0 {
     pub acc0_resource_name: windows_sys::core::PWSTR,
 }
-impl Copy for ACCESS_INFO_0 {}
-impl Clone for ACCESS_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACCESS_INFO_1 {
     pub acc1_resource_name: windows_sys::core::PWSTR,
     pub acc1_attr: u32,
     pub acc1_count: u32,
 }
-impl Copy for ACCESS_INFO_1 {}
-impl Clone for ACCESS_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACCESS_INFO_1002 {
     pub acc1002_attr: u32,
 }
-impl Copy for ACCESS_INFO_1002 {}
-impl Clone for ACCESS_INFO_1002 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACCESS_LIST {
     pub acl_ugname: windows_sys::core::PWSTR,
     pub acl_access: u32,
 }
-impl Copy for ACCESS_LIST {}
-impl Clone for ACCESS_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ADMIN_OTHER_INFO {
     pub alrtad_errcode: u32,
     pub alrtad_numstrings: u32,
 }
-impl Copy for ADMIN_OTHER_INFO {}
-impl Clone for ADMIN_OTHER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AE_ACCLIM {
     pub ae_al_compname: u32,
     pub ae_al_username: u32,
     pub ae_al_resname: u32,
     pub ae_al_limit: u32,
 }
-impl Copy for AE_ACCLIM {}
-impl Clone for AE_ACCLIM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AE_ACLMOD {
     pub ae_am_compname: u32,
     pub ae_am_username: u32,
@@ -2562,13 +2533,8 @@ pub struct AE_ACLMOD {
     pub ae_am_action: u32,
     pub ae_am_datalen: u32,
 }
-impl Copy for AE_ACLMOD {}
-impl Clone for AE_ACLMOD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AE_CLOSEFILE {
     pub ae_cf_compname: u32,
     pub ae_cf_username: u32,
@@ -2577,39 +2543,24 @@ pub struct AE_CLOSEFILE {
     pub ae_cf_duration: u32,
     pub ae_cf_reason: u32,
 }
-impl Copy for AE_CLOSEFILE {}
-impl Clone for AE_CLOSEFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AE_CONNREJ {
     pub ae_cr_compname: u32,
     pub ae_cr_username: u32,
     pub ae_cr_netname: u32,
     pub ae_cr_reason: u32,
 }
-impl Copy for AE_CONNREJ {}
-impl Clone for AE_CONNREJ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AE_CONNSTART {
     pub ae_ct_compname: u32,
     pub ae_ct_username: u32,
     pub ae_ct_netname: u32,
     pub ae_ct_connid: u32,
 }
-impl Copy for AE_CONNSTART {}
-impl Clone for AE_CONNSTART {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AE_CONNSTOP {
     pub ae_cp_compname: u32,
     pub ae_cp_username: u32,
@@ -2617,13 +2568,8 @@ pub struct AE_CONNSTOP {
     pub ae_cp_connid: u32,
     pub ae_cp_reason: u32,
 }
-impl Copy for AE_CONNSTOP {}
-impl Clone for AE_CONNSTOP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AE_GENERIC {
     pub ae_ge_msgfile: u32,
     pub ae_ge_msgnum: u32,
@@ -2638,52 +2584,32 @@ pub struct AE_GENERIC {
     pub ae_ge_param8: u32,
     pub ae_ge_param9: u32,
 }
-impl Copy for AE_GENERIC {}
-impl Clone for AE_GENERIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AE_LOCKOUT {
     pub ae_lk_compname: u32,
     pub ae_lk_username: u32,
     pub ae_lk_action: u32,
     pub ae_lk_bad_pw_count: u32,
 }
-impl Copy for AE_LOCKOUT {}
-impl Clone for AE_LOCKOUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AE_NETLOGOFF {
     pub ae_nf_compname: u32,
     pub ae_nf_username: u32,
     pub ae_nf_reserved1: u32,
     pub ae_nf_reserved2: u32,
 }
-impl Copy for AE_NETLOGOFF {}
-impl Clone for AE_NETLOGOFF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AE_NETLOGON {
     pub ae_no_compname: u32,
     pub ae_no_username: u32,
     pub ae_no_privilege: u32,
     pub ae_no_authflags: u32,
 }
-impl Copy for AE_NETLOGON {}
-impl Clone for AE_NETLOGON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AE_RESACCESS {
     pub ae_ra_compname: u32,
     pub ae_ra_username: u32,
@@ -2693,26 +2619,16 @@ pub struct AE_RESACCESS {
     pub ae_ra_restype: u32,
     pub ae_ra_fileid: u32,
 }
-impl Copy for AE_RESACCESS {}
-impl Clone for AE_RESACCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AE_RESACCESSREJ {
     pub ae_rr_compname: u32,
     pub ae_rr_username: u32,
     pub ae_rr_resname: u32,
     pub ae_rr_operation: u32,
 }
-impl Copy for AE_RESACCESSREJ {}
-impl Clone for AE_RESACCESSREJ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AE_SERVICESTAT {
     pub ae_ss_compname: u32,
     pub ae_ss_username: u32,
@@ -2722,58 +2638,33 @@ pub struct AE_SERVICESTAT {
     pub ae_ss_text: u32,
     pub ae_ss_returnval: u32,
 }
-impl Copy for AE_SERVICESTAT {}
-impl Clone for AE_SERVICESTAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AE_SESSLOGOFF {
     pub ae_sf_compname: u32,
     pub ae_sf_username: u32,
     pub ae_sf_reason: u32,
 }
-impl Copy for AE_SESSLOGOFF {}
-impl Clone for AE_SESSLOGOFF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AE_SESSLOGON {
     pub ae_so_compname: u32,
     pub ae_so_username: u32,
     pub ae_so_privilege: u32,
 }
-impl Copy for AE_SESSLOGON {}
-impl Clone for AE_SESSLOGON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AE_SESSPWERR {
     pub ae_sp_compname: u32,
     pub ae_sp_username: u32,
 }
-impl Copy for AE_SESSPWERR {}
-impl Clone for AE_SESSPWERR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AE_SRVSTATUS {
     pub ae_sv_status: u32,
 }
-impl Copy for AE_SRVSTATUS {}
-impl Clone for AE_SRVSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AE_UASMOD {
     pub ae_um_compname: u32,
     pub ae_um_username: u32,
@@ -2782,13 +2673,8 @@ pub struct AE_UASMOD {
     pub ae_um_action: u32,
     pub ae_um_datalen: u32,
 }
-impl Copy for AE_UASMOD {}
-impl Clone for AE_UASMOD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AT_ENUM {
     pub JobId: u32,
     pub JobTime: usize,
@@ -2797,13 +2683,8 @@ pub struct AT_ENUM {
     pub Flags: u8,
     pub Command: windows_sys::core::PWSTR,
 }
-impl Copy for AT_ENUM {}
-impl Clone for AT_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AT_INFO {
     pub JobTime: usize,
     pub DaysOfMonth: u32,
@@ -2811,13 +2692,8 @@ pub struct AT_INFO {
     pub Flags: u8,
     pub Command: windows_sys::core::PWSTR,
 }
-impl Copy for AT_INFO {}
-impl Clone for AT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUDIT_ENTRY {
     pub ae_len: u32,
     pub ae_reserved: u32,
@@ -2826,25 +2702,15 @@ pub struct AUDIT_ENTRY {
     pub ae_data_offset: u32,
     pub ae_data_size: u32,
 }
-impl Copy for AUDIT_ENTRY {}
-impl Clone for AUDIT_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CONFIG_INFO_0 {
     pub cfgi0_key: windows_sys::core::PWSTR,
     pub cfgi0_data: windows_sys::core::PWSTR,
 }
-impl Copy for CONFIG_INFO_0 {}
-impl Clone for CONFIG_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct DSREG_JOIN_INFO {
     pub joinType: DSREG_JOIN_TYPE,
     pub pJoinCertificate: *const super::super::Security::Cryptography::CERT_CONTEXT,
@@ -2859,38 +2725,21 @@ pub struct DSREG_JOIN_INFO {
     pub pszUserSettingSyncUrl: windows_sys::core::PWSTR,
     pub pUserInfo: *mut DSREG_USER_INFO,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for DSREG_JOIN_INFO {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for DSREG_JOIN_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DSREG_USER_INFO {
     pub pszUserEmail: windows_sys::core::PWSTR,
     pub pszUserKeyId: windows_sys::core::PWSTR,
     pub pszUserKeyName: windows_sys::core::PWSTR,
 }
-impl Copy for DSREG_USER_INFO {}
-impl Clone for DSREG_USER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ERRLOG_OTHER_INFO {
     pub alrter_errcode: u32,
     pub alrter_offset: u32,
 }
-impl Copy for ERRLOG_OTHER_INFO {}
-impl Clone for ERRLOG_OTHER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ERROR_LOG {
     pub el_len: u32,
     pub el_reserved: u32,
@@ -2902,295 +2751,161 @@ pub struct ERROR_LOG {
     pub el_data_size: u32,
     pub el_nstrings: u32,
 }
-impl Copy for ERROR_LOG {}
-impl Clone for ERROR_LOG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FLAT_STRING {
     pub MaximumLength: i16,
     pub Length: i16,
     pub Buffer: [i8; 1],
 }
-impl Copy for FLAT_STRING {}
-impl Clone for FLAT_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GROUP_INFO_0 {
     pub grpi0_name: windows_sys::core::PWSTR,
 }
-impl Copy for GROUP_INFO_0 {}
-impl Clone for GROUP_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GROUP_INFO_1 {
     pub grpi1_name: windows_sys::core::PWSTR,
     pub grpi1_comment: windows_sys::core::PWSTR,
 }
-impl Copy for GROUP_INFO_1 {}
-impl Clone for GROUP_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GROUP_INFO_1002 {
     pub grpi1002_comment: windows_sys::core::PWSTR,
 }
-impl Copy for GROUP_INFO_1002 {}
-impl Clone for GROUP_INFO_1002 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GROUP_INFO_1005 {
     pub grpi1005_attributes: u32,
 }
-impl Copy for GROUP_INFO_1005 {}
-impl Clone for GROUP_INFO_1005 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GROUP_INFO_2 {
     pub grpi2_name: windows_sys::core::PWSTR,
     pub grpi2_comment: windows_sys::core::PWSTR,
     pub grpi2_group_id: u32,
     pub grpi2_attributes: u32,
 }
-impl Copy for GROUP_INFO_2 {}
-impl Clone for GROUP_INFO_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GROUP_INFO_3 {
     pub grpi3_name: windows_sys::core::PWSTR,
     pub grpi3_comment: windows_sys::core::PWSTR,
     pub grpi3_group_sid: super::super::Foundation::PSID,
     pub grpi3_attributes: u32,
 }
-impl Copy for GROUP_INFO_3 {}
-impl Clone for GROUP_INFO_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GROUP_USERS_INFO_0 {
     pub grui0_name: windows_sys::core::PWSTR,
 }
-impl Copy for GROUP_USERS_INFO_0 {}
-impl Clone for GROUP_USERS_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GROUP_USERS_INFO_1 {
     pub grui1_name: windows_sys::core::PWSTR,
     pub grui1_attributes: u32,
 }
-impl Copy for GROUP_USERS_INFO_1 {}
-impl Clone for GROUP_USERS_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HARDWARE_ADDRESS {
     pub Address: [u8; 6],
 }
-impl Copy for HARDWARE_ADDRESS {}
-impl Clone for HARDWARE_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HLOG {
     pub time: u32,
     pub last_flags: u32,
     pub offset: u32,
     pub rec_offset: u32,
 }
-impl Copy for HLOG {}
-impl Clone for HLOG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LOCALGROUP_INFO_0 {
     pub lgrpi0_name: windows_sys::core::PWSTR,
 }
-impl Copy for LOCALGROUP_INFO_0 {}
-impl Clone for LOCALGROUP_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LOCALGROUP_INFO_1 {
     pub lgrpi1_name: windows_sys::core::PWSTR,
     pub lgrpi1_comment: windows_sys::core::PWSTR,
 }
-impl Copy for LOCALGROUP_INFO_1 {}
-impl Clone for LOCALGROUP_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LOCALGROUP_INFO_1002 {
     pub lgrpi1002_comment: windows_sys::core::PWSTR,
 }
-impl Copy for LOCALGROUP_INFO_1002 {}
-impl Clone for LOCALGROUP_INFO_1002 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LOCALGROUP_MEMBERS_INFO_0 {
     pub lgrmi0_sid: super::super::Foundation::PSID,
 }
-impl Copy for LOCALGROUP_MEMBERS_INFO_0 {}
-impl Clone for LOCALGROUP_MEMBERS_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct LOCALGROUP_MEMBERS_INFO_1 {
     pub lgrmi1_sid: super::super::Foundation::PSID,
     pub lgrmi1_sidusage: super::super::Security::SID_NAME_USE,
     pub lgrmi1_name: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for LOCALGROUP_MEMBERS_INFO_1 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for LOCALGROUP_MEMBERS_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct LOCALGROUP_MEMBERS_INFO_2 {
     pub lgrmi2_sid: super::super::Foundation::PSID,
     pub lgrmi2_sidusage: super::super::Security::SID_NAME_USE,
     pub lgrmi2_domainandname: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for LOCALGROUP_MEMBERS_INFO_2 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for LOCALGROUP_MEMBERS_INFO_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LOCALGROUP_MEMBERS_INFO_3 {
     pub lgrmi3_domainandname: windows_sys::core::PWSTR,
 }
-impl Copy for LOCALGROUP_MEMBERS_INFO_3 {}
-impl Clone for LOCALGROUP_MEMBERS_INFO_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LOCALGROUP_USERS_INFO_0 {
     pub lgrui0_name: windows_sys::core::PWSTR,
 }
-impl Copy for LOCALGROUP_USERS_INFO_0 {}
-impl Clone for LOCALGROUP_USERS_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MPR_PROTOCOL_0 {
     pub dwProtocolId: u32,
     pub wszProtocol: [u16; 41],
     pub wszDLLName: [u16; 49],
 }
-impl Copy for MPR_PROTOCOL_0 {}
-impl Clone for MPR_PROTOCOL_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MSA_INFO_0 {
     pub State: MSA_INFO_STATE,
 }
-impl Copy for MSA_INFO_0 {}
-impl Clone for MSA_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MSG_INFO_0 {
     pub msgi0_name: windows_sys::core::PWSTR,
 }
-impl Copy for MSG_INFO_0 {}
-impl Clone for MSG_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MSG_INFO_1 {
     pub msgi1_name: windows_sys::core::PWSTR,
     pub msgi1_forward_flag: u32,
     pub msgi1_forward: windows_sys::core::PWSTR,
 }
-impl Copy for MSG_INFO_1 {}
-impl Clone for MSG_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NETLOGON_INFO_1 {
     pub netlog1_flags: u32,
     pub netlog1_pdc_connection_status: u32,
 }
-impl Copy for NETLOGON_INFO_1 {}
-impl Clone for NETLOGON_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NETLOGON_INFO_2 {
     pub netlog2_flags: u32,
     pub netlog2_pdc_connection_status: u32,
     pub netlog2_trusted_dc_name: windows_sys::core::PWSTR,
     pub netlog2_tc_connection_status: u32,
 }
-impl Copy for NETLOGON_INFO_2 {}
-impl Clone for NETLOGON_INFO_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NETLOGON_INFO_3 {
     pub netlog3_flags: u32,
     pub netlog3_logon_attempts: u32,
@@ -3200,24 +2915,14 @@ pub struct NETLOGON_INFO_3 {
     pub netlog3_reserved4: u32,
     pub netlog3_reserved5: u32,
 }
-impl Copy for NETLOGON_INFO_3 {}
-impl Clone for NETLOGON_INFO_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NETLOGON_INFO_4 {
     pub netlog4_trusted_dc_name: windows_sys::core::PWSTR,
     pub netlog4_trusted_domain_name: windows_sys::core::PWSTR,
 }
-impl Copy for NETLOGON_INFO_4 {}
-impl Clone for NETLOGON_INFO_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NETSETUP_PROVISIONING_PARAMS {
     pub dwVersion: u32,
     pub lpDomain: windows_sys::core::PCWSTR,
@@ -3235,23 +2940,13 @@ pub struct NETSETUP_PROVISIONING_PARAMS {
     pub lpSiteName: windows_sys::core::PWSTR,
     pub lpPrimaryDNSDomain: windows_sys::core::PWSTR,
 }
-impl Copy for NETSETUP_PROVISIONING_PARAMS {}
-impl Clone for NETSETUP_PROVISIONING_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NETWORK_NAME {
     pub Name: FLAT_STRING,
 }
-impl Copy for NETWORK_NAME {}
-impl Clone for NETWORK_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NET_DISPLAY_GROUP {
     pub grpi3_name: windows_sys::core::PWSTR,
     pub grpi3_comment: windows_sys::core::PWSTR,
@@ -3259,13 +2954,8 @@ pub struct NET_DISPLAY_GROUP {
     pub grpi3_attributes: u32,
     pub grpi3_next_index: u32,
 }
-impl Copy for NET_DISPLAY_GROUP {}
-impl Clone for NET_DISPLAY_GROUP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NET_DISPLAY_MACHINE {
     pub usri2_name: windows_sys::core::PWSTR,
     pub usri2_comment: windows_sys::core::PWSTR,
@@ -3273,13 +2963,8 @@ pub struct NET_DISPLAY_MACHINE {
     pub usri2_user_id: u32,
     pub usri2_next_index: u32,
 }
-impl Copy for NET_DISPLAY_MACHINE {}
-impl Clone for NET_DISPLAY_MACHINE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NET_DISPLAY_USER {
     pub usri1_name: windows_sys::core::PWSTR,
     pub usri1_comment: windows_sys::core::PWSTR,
@@ -3288,35 +2973,20 @@ pub struct NET_DISPLAY_USER {
     pub usri1_user_id: u32,
     pub usri1_next_index: u32,
 }
-impl Copy for NET_DISPLAY_USER {}
-impl Clone for NET_DISPLAY_USER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
     pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
     pub PasswordMatched: super::super::Foundation::BOOLEAN,
 }
-impl Copy for NET_VALIDATE_AUTHENTICATION_INPUT_ARG {}
-impl Clone for NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NET_VALIDATE_OUTPUT_ARG {
     pub ChangedPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
     pub ValidationStatus: u32,
 }
-impl Copy for NET_VALIDATE_OUTPUT_ARG {}
-impl Clone for NET_VALIDATE_OUTPUT_ARG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
     pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
     pub ClearPassword: windows_sys::core::PWSTR,
@@ -3324,24 +2994,14 @@ pub struct NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
     pub HashedPassword: NET_VALIDATE_PASSWORD_HASH,
     pub PasswordMatch: super::super::Foundation::BOOLEAN,
 }
-impl Copy for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {}
-impl Clone for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NET_VALIDATE_PASSWORD_HASH {
     pub Length: u32,
     pub Hash: *mut u8,
 }
-impl Copy for NET_VALIDATE_PASSWORD_HASH {}
-impl Clone for NET_VALIDATE_PASSWORD_HASH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
     pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
     pub ClearPassword: windows_sys::core::PWSTR,
@@ -3350,13 +3010,8 @@ pub struct NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
     pub PasswordMustChangeAtNextLogon: super::super::Foundation::BOOLEAN,
     pub ClearLockout: super::super::Foundation::BOOLEAN,
 }
-impl Copy for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {}
-impl Clone for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NET_VALIDATE_PERSISTED_FIELDS {
     pub PresentFields: u32,
     pub PasswordLastSet: super::super::Foundation::FILETIME,
@@ -3366,14 +3021,9 @@ pub struct NET_VALIDATE_PERSISTED_FIELDS {
     pub PasswordHistoryLength: u32,
     pub PasswordHistory: *mut NET_VALIDATE_PASSWORD_HASH,
 }
-impl Copy for NET_VALIDATE_PERSISTED_FIELDS {}
-impl Clone for NET_VALIDATE_PERSISTED_FIELDS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const NetProvisioning: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2aa2b5fe_b846_4d07_810c_b21ee45320e3);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OBO_TOKEN {
     pub Type: OBO_TOKEN_TYPE,
     pub pncc: *mut core::ffi::c_void,
@@ -3382,26 +3032,16 @@ pub struct OBO_TOKEN {
     pub pszwDisplayName: windows_sys::core::PCWSTR,
     pub fRegistered: super::super::Foundation::BOOL,
 }
-impl Copy for OBO_TOKEN {}
-impl Clone for OBO_TOKEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINT_OTHER_INFO {
     pub alrtpr_jobid: u32,
     pub alrtpr_status: u32,
     pub alrtpr_submitted: u32,
     pub alrtpr_size: u32,
 }
-impl Copy for PRINT_OTHER_INFO {}
-impl Clone for PRINT_OTHER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASCON_IPUI {
     pub guidConnection: windows_sys::core::GUID,
     pub fIPv6Cfg: super::super::Foundation::BOOL,
@@ -3419,55 +3059,30 @@ pub struct RASCON_IPUI {
     pub dwIPv4InfMetric: u32,
     pub dwIPv6InfMetric: u32,
 }
-impl Copy for RASCON_IPUI {}
-impl Clone for RASCON_IPUI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REPL_EDIR_INFO_0 {
     pub rped0_dirname: windows_sys::core::PWSTR,
 }
-impl Copy for REPL_EDIR_INFO_0 {}
-impl Clone for REPL_EDIR_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REPL_EDIR_INFO_1 {
     pub rped1_dirname: windows_sys::core::PWSTR,
     pub rped1_integrity: u32,
     pub rped1_extent: u32,
 }
-impl Copy for REPL_EDIR_INFO_1 {}
-impl Clone for REPL_EDIR_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REPL_EDIR_INFO_1000 {
     pub rped1000_integrity: u32,
 }
-impl Copy for REPL_EDIR_INFO_1000 {}
-impl Clone for REPL_EDIR_INFO_1000 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REPL_EDIR_INFO_1001 {
     pub rped1001_extent: u32,
 }
-impl Copy for REPL_EDIR_INFO_1001 {}
-impl Clone for REPL_EDIR_INFO_1001 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REPL_EDIR_INFO_2 {
     pub rped2_dirname: windows_sys::core::PWSTR,
     pub rped2_integrity: u32,
@@ -3475,23 +3090,13 @@ pub struct REPL_EDIR_INFO_2 {
     pub rped2_lockcount: u32,
     pub rped2_locktime: u32,
 }
-impl Copy for REPL_EDIR_INFO_2 {}
-impl Clone for REPL_EDIR_INFO_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REPL_IDIR_INFO_0 {
     pub rpid0_dirname: windows_sys::core::PWSTR,
 }
-impl Copy for REPL_IDIR_INFO_0 {}
-impl Clone for REPL_IDIR_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REPL_IDIR_INFO_1 {
     pub rpid1_dirname: windows_sys::core::PWSTR,
     pub rpid1_state: u32,
@@ -3500,13 +3105,8 @@ pub struct REPL_IDIR_INFO_1 {
     pub rpid1_lockcount: u32,
     pub rpid1_locktime: u32,
 }
-impl Copy for REPL_IDIR_INFO_1 {}
-impl Clone for REPL_IDIR_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REPL_INFO_0 {
     pub rp0_role: u32,
     pub rp0_exportpath: windows_sys::core::PWSTR,
@@ -3519,100 +3119,55 @@ pub struct REPL_INFO_0 {
     pub rp0_guardtime: u32,
     pub rp0_random: u32,
 }
-impl Copy for REPL_INFO_0 {}
-impl Clone for REPL_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REPL_INFO_1000 {
     pub rp1000_interval: u32,
 }
-impl Copy for REPL_INFO_1000 {}
-impl Clone for REPL_INFO_1000 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REPL_INFO_1001 {
     pub rp1001_pulse: u32,
 }
-impl Copy for REPL_INFO_1001 {}
-impl Clone for REPL_INFO_1001 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REPL_INFO_1002 {
     pub rp1002_guardtime: u32,
 }
-impl Copy for REPL_INFO_1002 {}
-impl Clone for REPL_INFO_1002 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REPL_INFO_1003 {
     pub rp1003_random: u32,
 }
-impl Copy for REPL_INFO_1003 {}
-impl Clone for REPL_INFO_1003 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTR_INFO_BLOCK_HEADER {
     pub Version: u32,
     pub Size: u32,
     pub TocEntriesCount: u32,
     pub TocEntry: [RTR_TOC_ENTRY; 1],
 }
-impl Copy for RTR_INFO_BLOCK_HEADER {}
-impl Clone for RTR_INFO_BLOCK_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTR_TOC_ENTRY {
     pub InfoType: u32,
     pub InfoSize: u32,
     pub Count: u32,
     pub Offset: u32,
 }
-impl Copy for RTR_TOC_ENTRY {}
-impl Clone for RTR_TOC_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_100 {
     pub sv100_platform_id: u32,
     pub sv100_name: windows_sys::core::PWSTR,
 }
-impl Copy for SERVER_INFO_100 {}
-impl Clone for SERVER_INFO_100 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1005 {
     pub sv1005_comment: windows_sys::core::PWSTR,
 }
-impl Copy for SERVER_INFO_1005 {}
-impl Clone for SERVER_INFO_1005 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_101 {
     pub sv101_platform_id: u32,
     pub sv101_name: windows_sys::core::PWSTR,
@@ -3621,53 +3176,28 @@ pub struct SERVER_INFO_101 {
     pub sv101_type: NET_SERVER_TYPE,
     pub sv101_comment: windows_sys::core::PWSTR,
 }
-impl Copy for SERVER_INFO_101 {}
-impl Clone for SERVER_INFO_101 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1010 {
     pub sv1010_disc: i32,
 }
-impl Copy for SERVER_INFO_1010 {}
-impl Clone for SERVER_INFO_1010 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1016 {
     pub sv1016_hidden: SERVER_INFO_HIDDEN,
 }
-impl Copy for SERVER_INFO_1016 {}
-impl Clone for SERVER_INFO_1016 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1017 {
     pub sv1017_announce: u32,
 }
-impl Copy for SERVER_INFO_1017 {}
-impl Clone for SERVER_INFO_1017 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1018 {
     pub sv1018_anndelta: u32,
 }
-impl Copy for SERVER_INFO_1018 {}
-impl Clone for SERVER_INFO_1018 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_102 {
     pub sv102_platform_id: u32,
     pub sv102_name: windows_sys::core::PWSTR,
@@ -3683,13 +3213,8 @@ pub struct SERVER_INFO_102 {
     pub sv102_licenses: u32,
     pub sv102_userpath: windows_sys::core::PWSTR,
 }
-impl Copy for SERVER_INFO_102 {}
-impl Clone for SERVER_INFO_102 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_103 {
     pub sv103_platform_id: u32,
     pub sv103_name: windows_sys::core::PWSTR,
@@ -3706,903 +3231,453 @@ pub struct SERVER_INFO_103 {
     pub sv103_userpath: windows_sys::core::PWSTR,
     pub sv103_capabilities: u32,
 }
-impl Copy for SERVER_INFO_103 {}
-impl Clone for SERVER_INFO_103 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1107 {
     pub sv1107_users: u32,
 }
-impl Copy for SERVER_INFO_1107 {}
-impl Clone for SERVER_INFO_1107 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1501 {
     pub sv1501_sessopens: u32,
 }
-impl Copy for SERVER_INFO_1501 {}
-impl Clone for SERVER_INFO_1501 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1502 {
     pub sv1502_sessvcs: u32,
 }
-impl Copy for SERVER_INFO_1502 {}
-impl Clone for SERVER_INFO_1502 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1503 {
     pub sv1503_opensearch: u32,
 }
-impl Copy for SERVER_INFO_1503 {}
-impl Clone for SERVER_INFO_1503 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1506 {
     pub sv1506_maxworkitems: u32,
 }
-impl Copy for SERVER_INFO_1506 {}
-impl Clone for SERVER_INFO_1506 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1509 {
     pub sv1509_maxrawbuflen: u32,
 }
-impl Copy for SERVER_INFO_1509 {}
-impl Clone for SERVER_INFO_1509 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1510 {
     pub sv1510_sessusers: u32,
 }
-impl Copy for SERVER_INFO_1510 {}
-impl Clone for SERVER_INFO_1510 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1511 {
     pub sv1511_sessconns: u32,
 }
-impl Copy for SERVER_INFO_1511 {}
-impl Clone for SERVER_INFO_1511 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1512 {
     pub sv1512_maxnonpagedmemoryusage: u32,
 }
-impl Copy for SERVER_INFO_1512 {}
-impl Clone for SERVER_INFO_1512 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1513 {
     pub sv1513_maxpagedmemoryusage: u32,
 }
-impl Copy for SERVER_INFO_1513 {}
-impl Clone for SERVER_INFO_1513 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1514 {
     pub sv1514_enablesoftcompat: super::super::Foundation::BOOL,
 }
-impl Copy for SERVER_INFO_1514 {}
-impl Clone for SERVER_INFO_1514 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1515 {
     pub sv1515_enableforcedlogoff: super::super::Foundation::BOOL,
 }
-impl Copy for SERVER_INFO_1515 {}
-impl Clone for SERVER_INFO_1515 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1516 {
     pub sv1516_timesource: super::super::Foundation::BOOL,
 }
-impl Copy for SERVER_INFO_1516 {}
-impl Clone for SERVER_INFO_1516 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1518 {
     pub sv1518_lmannounce: super::super::Foundation::BOOL,
 }
-impl Copy for SERVER_INFO_1518 {}
-impl Clone for SERVER_INFO_1518 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1520 {
     pub sv1520_maxcopyreadlen: u32,
 }
-impl Copy for SERVER_INFO_1520 {}
-impl Clone for SERVER_INFO_1520 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1521 {
     pub sv1521_maxcopywritelen: u32,
 }
-impl Copy for SERVER_INFO_1521 {}
-impl Clone for SERVER_INFO_1521 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1522 {
     pub sv1522_minkeepsearch: u32,
 }
-impl Copy for SERVER_INFO_1522 {}
-impl Clone for SERVER_INFO_1522 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1523 {
     pub sv1523_maxkeepsearch: u32,
 }
-impl Copy for SERVER_INFO_1523 {}
-impl Clone for SERVER_INFO_1523 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1524 {
     pub sv1524_minkeepcomplsearch: u32,
 }
-impl Copy for SERVER_INFO_1524 {}
-impl Clone for SERVER_INFO_1524 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1525 {
     pub sv1525_maxkeepcomplsearch: u32,
 }
-impl Copy for SERVER_INFO_1525 {}
-impl Clone for SERVER_INFO_1525 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1528 {
     pub sv1528_scavtimeout: u32,
 }
-impl Copy for SERVER_INFO_1528 {}
-impl Clone for SERVER_INFO_1528 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1529 {
     pub sv1529_minrcvqueue: u32,
 }
-impl Copy for SERVER_INFO_1529 {}
-impl Clone for SERVER_INFO_1529 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1530 {
     pub sv1530_minfreeworkitems: u32,
 }
-impl Copy for SERVER_INFO_1530 {}
-impl Clone for SERVER_INFO_1530 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1533 {
     pub sv1533_maxmpxct: u32,
 }
-impl Copy for SERVER_INFO_1533 {}
-impl Clone for SERVER_INFO_1533 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1534 {
     pub sv1534_oplockbreakwait: u32,
 }
-impl Copy for SERVER_INFO_1534 {}
-impl Clone for SERVER_INFO_1534 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1535 {
     pub sv1535_oplockbreakresponsewait: u32,
 }
-impl Copy for SERVER_INFO_1535 {}
-impl Clone for SERVER_INFO_1535 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1536 {
     pub sv1536_enableoplocks: super::super::Foundation::BOOL,
 }
-impl Copy for SERVER_INFO_1536 {}
-impl Clone for SERVER_INFO_1536 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1537 {
     pub sv1537_enableoplockforceclose: super::super::Foundation::BOOL,
 }
-impl Copy for SERVER_INFO_1537 {}
-impl Clone for SERVER_INFO_1537 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1538 {
     pub sv1538_enablefcbopens: super::super::Foundation::BOOL,
 }
-impl Copy for SERVER_INFO_1538 {}
-impl Clone for SERVER_INFO_1538 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1539 {
     pub sv1539_enableraw: super::super::Foundation::BOOL,
 }
-impl Copy for SERVER_INFO_1539 {}
-impl Clone for SERVER_INFO_1539 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1540 {
     pub sv1540_enablesharednetdrives: super::super::Foundation::BOOL,
 }
-impl Copy for SERVER_INFO_1540 {}
-impl Clone for SERVER_INFO_1540 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1541 {
     pub sv1541_minfreeconnections: super::super::Foundation::BOOL,
 }
-impl Copy for SERVER_INFO_1541 {}
-impl Clone for SERVER_INFO_1541 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1542 {
     pub sv1542_maxfreeconnections: super::super::Foundation::BOOL,
 }
-impl Copy for SERVER_INFO_1542 {}
-impl Clone for SERVER_INFO_1542 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1543 {
     pub sv1543_initsesstable: u32,
 }
-impl Copy for SERVER_INFO_1543 {}
-impl Clone for SERVER_INFO_1543 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1544 {
     pub sv1544_initconntable: u32,
 }
-impl Copy for SERVER_INFO_1544 {}
-impl Clone for SERVER_INFO_1544 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1545 {
     pub sv1545_initfiletable: u32,
 }
-impl Copy for SERVER_INFO_1545 {}
-impl Clone for SERVER_INFO_1545 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1546 {
     pub sv1546_initsearchtable: u32,
 }
-impl Copy for SERVER_INFO_1546 {}
-impl Clone for SERVER_INFO_1546 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1547 {
     pub sv1547_alertschedule: u32,
 }
-impl Copy for SERVER_INFO_1547 {}
-impl Clone for SERVER_INFO_1547 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1548 {
     pub sv1548_errorthreshold: u32,
 }
-impl Copy for SERVER_INFO_1548 {}
-impl Clone for SERVER_INFO_1548 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1549 {
     pub sv1549_networkerrorthreshold: u32,
 }
-impl Copy for SERVER_INFO_1549 {}
-impl Clone for SERVER_INFO_1549 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1550 {
     pub sv1550_diskspacethreshold: u32,
 }
-impl Copy for SERVER_INFO_1550 {}
-impl Clone for SERVER_INFO_1550 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1552 {
     pub sv1552_maxlinkdelay: u32,
 }
-impl Copy for SERVER_INFO_1552 {}
-impl Clone for SERVER_INFO_1552 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1553 {
     pub sv1553_minlinkthroughput: u32,
 }
-impl Copy for SERVER_INFO_1553 {}
-impl Clone for SERVER_INFO_1553 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1554 {
     pub sv1554_linkinfovalidtime: u32,
 }
-impl Copy for SERVER_INFO_1554 {}
-impl Clone for SERVER_INFO_1554 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1555 {
     pub sv1555_scavqosinfoupdatetime: u32,
 }
-impl Copy for SERVER_INFO_1555 {}
-impl Clone for SERVER_INFO_1555 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1556 {
     pub sv1556_maxworkitemidletime: u32,
 }
-impl Copy for SERVER_INFO_1556 {}
-impl Clone for SERVER_INFO_1556 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1557 {
     pub sv1557_maxrawworkitems: u32,
 }
-impl Copy for SERVER_INFO_1557 {}
-impl Clone for SERVER_INFO_1557 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1560 {
     pub sv1560_producttype: u32,
 }
-impl Copy for SERVER_INFO_1560 {}
-impl Clone for SERVER_INFO_1560 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1561 {
     pub sv1561_serversize: u32,
 }
-impl Copy for SERVER_INFO_1561 {}
-impl Clone for SERVER_INFO_1561 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1562 {
     pub sv1562_connectionlessautodisc: u32,
 }
-impl Copy for SERVER_INFO_1562 {}
-impl Clone for SERVER_INFO_1562 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1563 {
     pub sv1563_sharingviolationretries: u32,
 }
-impl Copy for SERVER_INFO_1563 {}
-impl Clone for SERVER_INFO_1563 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1564 {
     pub sv1564_sharingviolationdelay: u32,
 }
-impl Copy for SERVER_INFO_1564 {}
-impl Clone for SERVER_INFO_1564 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1565 {
     pub sv1565_maxglobalopensearch: u32,
 }
-impl Copy for SERVER_INFO_1565 {}
-impl Clone for SERVER_INFO_1565 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1566 {
     pub sv1566_removeduplicatesearches: super::super::Foundation::BOOL,
 }
-impl Copy for SERVER_INFO_1566 {}
-impl Clone for SERVER_INFO_1566 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1567 {
     pub sv1567_lockviolationretries: u32,
 }
-impl Copy for SERVER_INFO_1567 {}
-impl Clone for SERVER_INFO_1567 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1568 {
     pub sv1568_lockviolationoffset: u32,
 }
-impl Copy for SERVER_INFO_1568 {}
-impl Clone for SERVER_INFO_1568 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1569 {
     pub sv1569_lockviolationdelay: u32,
 }
-impl Copy for SERVER_INFO_1569 {}
-impl Clone for SERVER_INFO_1569 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1570 {
     pub sv1570_mdlreadswitchover: u32,
 }
-impl Copy for SERVER_INFO_1570 {}
-impl Clone for SERVER_INFO_1570 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1571 {
     pub sv1571_cachedopenlimit: u32,
 }
-impl Copy for SERVER_INFO_1571 {}
-impl Clone for SERVER_INFO_1571 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1572 {
     pub sv1572_criticalthreads: u32,
 }
-impl Copy for SERVER_INFO_1572 {}
-impl Clone for SERVER_INFO_1572 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1573 {
     pub sv1573_restrictnullsessaccess: u32,
 }
-impl Copy for SERVER_INFO_1573 {}
-impl Clone for SERVER_INFO_1573 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1574 {
     pub sv1574_enablewfw311directipx: u32,
 }
-impl Copy for SERVER_INFO_1574 {}
-impl Clone for SERVER_INFO_1574 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1575 {
     pub sv1575_otherqueueaffinity: u32,
 }
-impl Copy for SERVER_INFO_1575 {}
-impl Clone for SERVER_INFO_1575 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1576 {
     pub sv1576_queuesamplesecs: u32,
 }
-impl Copy for SERVER_INFO_1576 {}
-impl Clone for SERVER_INFO_1576 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1577 {
     pub sv1577_balancecount: u32,
 }
-impl Copy for SERVER_INFO_1577 {}
-impl Clone for SERVER_INFO_1577 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1578 {
     pub sv1578_preferredaffinity: u32,
 }
-impl Copy for SERVER_INFO_1578 {}
-impl Clone for SERVER_INFO_1578 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1579 {
     pub sv1579_maxfreerfcbs: u32,
 }
-impl Copy for SERVER_INFO_1579 {}
-impl Clone for SERVER_INFO_1579 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1580 {
     pub sv1580_maxfreemfcbs: u32,
 }
-impl Copy for SERVER_INFO_1580 {}
-impl Clone for SERVER_INFO_1580 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1581 {
     pub sv1581_maxfreemlcbs: u32,
 }
-impl Copy for SERVER_INFO_1581 {}
-impl Clone for SERVER_INFO_1581 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1582 {
     pub sv1582_maxfreepagedpoolchunks: u32,
 }
-impl Copy for SERVER_INFO_1582 {}
-impl Clone for SERVER_INFO_1582 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1583 {
     pub sv1583_minpagedpoolchunksize: u32,
 }
-impl Copy for SERVER_INFO_1583 {}
-impl Clone for SERVER_INFO_1583 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1584 {
     pub sv1584_maxpagedpoolchunksize: u32,
 }
-impl Copy for SERVER_INFO_1584 {}
-impl Clone for SERVER_INFO_1584 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1585 {
     pub sv1585_sendsfrompreferredprocessor: super::super::Foundation::BOOL,
 }
-impl Copy for SERVER_INFO_1585 {}
-impl Clone for SERVER_INFO_1585 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1586 {
     pub sv1586_maxthreadsperqueue: u32,
 }
-impl Copy for SERVER_INFO_1586 {}
-impl Clone for SERVER_INFO_1586 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1587 {
     pub sv1587_cacheddirectorylimit: u32,
 }
-impl Copy for SERVER_INFO_1587 {}
-impl Clone for SERVER_INFO_1587 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1588 {
     pub sv1588_maxcopylength: u32,
 }
-impl Copy for SERVER_INFO_1588 {}
-impl Clone for SERVER_INFO_1588 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1590 {
     pub sv1590_enablecompression: u32,
 }
-impl Copy for SERVER_INFO_1590 {}
-impl Clone for SERVER_INFO_1590 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1591 {
     pub sv1591_autosharewks: u32,
 }
-impl Copy for SERVER_INFO_1591 {}
-impl Clone for SERVER_INFO_1591 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1592 {
     pub sv1592_autosharewks: u32,
 }
-impl Copy for SERVER_INFO_1592 {}
-impl Clone for SERVER_INFO_1592 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1593 {
     pub sv1593_enablesecuritysignature: u32,
 }
-impl Copy for SERVER_INFO_1593 {}
-impl Clone for SERVER_INFO_1593 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1594 {
     pub sv1594_requiresecuritysignature: u32,
 }
-impl Copy for SERVER_INFO_1594 {}
-impl Clone for SERVER_INFO_1594 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1595 {
     pub sv1595_minclientbuffersize: u32,
 }
-impl Copy for SERVER_INFO_1595 {}
-impl Clone for SERVER_INFO_1595 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1596 {
     pub sv1596_ConnectionNoSessionsTimeout: u32,
 }
-impl Copy for SERVER_INFO_1596 {}
-impl Clone for SERVER_INFO_1596 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1597 {
     pub sv1597_IdleThreadTimeOut: u32,
 }
-impl Copy for SERVER_INFO_1597 {}
-impl Clone for SERVER_INFO_1597 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1598 {
     pub sv1598_enableW9xsecuritysignature: u32,
 }
-impl Copy for SERVER_INFO_1598 {}
-impl Clone for SERVER_INFO_1598 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1599 {
     pub sv1598_enforcekerberosreauthentication: super::super::Foundation::BOOLEAN,
 }
-impl Copy for SERVER_INFO_1599 {}
-impl Clone for SERVER_INFO_1599 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1600 {
     pub sv1598_disabledos: super::super::Foundation::BOOLEAN,
 }
-impl Copy for SERVER_INFO_1600 {}
-impl Clone for SERVER_INFO_1600 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1601 {
     pub sv1598_lowdiskspaceminimum: u32,
 }
-impl Copy for SERVER_INFO_1601 {}
-impl Clone for SERVER_INFO_1601 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_1602 {
     pub sv_1598_disablestrictnamechecking: super::super::Foundation::BOOL,
 }
-impl Copy for SERVER_INFO_1602 {}
-impl Clone for SERVER_INFO_1602 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_402 {
     pub sv402_ulist_mtime: u32,
     pub sv402_glist_mtime: u32,
@@ -4636,13 +3711,8 @@ pub struct SERVER_INFO_402 {
     pub sv402_maxauditsz: u32,
     pub sv402_srvheuristics: windows_sys::core::PWSTR,
 }
-impl Copy for SERVER_INFO_402 {}
-impl Clone for SERVER_INFO_402 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_403 {
     pub sv403_ulist_mtime: u32,
     pub sv403_glist_mtime: u32,
@@ -4679,13 +3749,8 @@ pub struct SERVER_INFO_403 {
     pub sv403_autoprofile: u32,
     pub sv403_autopath: windows_sys::core::PWSTR,
 }
-impl Copy for SERVER_INFO_403 {}
-impl Clone for SERVER_INFO_403 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_502 {
     pub sv502_sessopens: u32,
     pub sv502_sessvcs: u32,
@@ -4706,13 +3771,8 @@ pub struct SERVER_INFO_502 {
     pub sv502_acceptdownlevelapis: super::super::Foundation::BOOL,
     pub sv502_lmannounce: super::super::Foundation::BOOL,
 }
-impl Copy for SERVER_INFO_502 {}
-impl Clone for SERVER_INFO_502 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_503 {
     pub sv503_sessopens: u32,
     pub sv503_sessvcs: u32,
@@ -4757,13 +3817,8 @@ pub struct SERVER_INFO_503 {
     pub sv503_minfreeconnections: u32,
     pub sv503_maxfreeconnections: u32,
 }
-impl Copy for SERVER_INFO_503 {}
-impl Clone for SERVER_INFO_503 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_598 {
     pub sv598_maxrawworkitems: u32,
     pub sv598_maxthreadsperqueue: u32,
@@ -4809,13 +3864,8 @@ pub struct SERVER_INFO_598 {
     pub sv598_disablestrictnamechecking: super::super::Foundation::BOOL,
     pub sv598_enableauthenticateusersharing: super::super::Foundation::BOOL,
 }
-impl Copy for SERVER_INFO_598 {}
-impl Clone for SERVER_INFO_598 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_INFO_599 {
     pub sv599_sessopens: u32,
     pub sv599_sessvcs: u32,
@@ -4874,13 +3924,8 @@ pub struct SERVER_INFO_599 {
     pub sv599_scavqosinfoupdatetime: u32,
     pub sv599_maxworkitemidletime: u32,
 }
-impl Copy for SERVER_INFO_599 {}
-impl Clone for SERVER_INFO_599 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_TRANSPORT_INFO_0 {
     pub svti0_numberofvcs: u32,
     pub svti0_transportname: windows_sys::core::PWSTR,
@@ -4888,13 +3933,8 @@ pub struct SERVER_TRANSPORT_INFO_0 {
     pub svti0_transportaddresslength: u32,
     pub svti0_networkaddress: windows_sys::core::PWSTR,
 }
-impl Copy for SERVER_TRANSPORT_INFO_0 {}
-impl Clone for SERVER_TRANSPORT_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_TRANSPORT_INFO_1 {
     pub svti1_numberofvcs: u32,
     pub svti1_transportname: windows_sys::core::PWSTR,
@@ -4903,13 +3943,8 @@ pub struct SERVER_TRANSPORT_INFO_1 {
     pub svti1_networkaddress: windows_sys::core::PWSTR,
     pub svti1_domain: windows_sys::core::PWSTR,
 }
-impl Copy for SERVER_TRANSPORT_INFO_1 {}
-impl Clone for SERVER_TRANSPORT_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_TRANSPORT_INFO_2 {
     pub svti2_numberofvcs: u32,
     pub svti2_transportname: windows_sys::core::PWSTR,
@@ -4919,13 +3954,8 @@ pub struct SERVER_TRANSPORT_INFO_2 {
     pub svti2_domain: windows_sys::core::PWSTR,
     pub svti2_flags: u32,
 }
-impl Copy for SERVER_TRANSPORT_INFO_2 {}
-impl Clone for SERVER_TRANSPORT_INFO_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVER_TRANSPORT_INFO_3 {
     pub svti3_numberofvcs: u32,
     pub svti3_transportname: windows_sys::core::PWSTR,
@@ -4937,36 +3967,21 @@ pub struct SERVER_TRANSPORT_INFO_3 {
     pub svti3_passwordlength: u32,
     pub svti3_password: [u8; 256],
 }
-impl Copy for SERVER_TRANSPORT_INFO_3 {}
-impl Clone for SERVER_TRANSPORT_INFO_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_INFO_0 {
     pub svci0_name: windows_sys::core::PWSTR,
 }
-impl Copy for SERVICE_INFO_0 {}
-impl Clone for SERVICE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_INFO_1 {
     pub svci1_name: windows_sys::core::PWSTR,
     pub svci1_status: u32,
     pub svci1_code: u32,
     pub svci1_pid: u32,
 }
-impl Copy for SERVICE_INFO_1 {}
-impl Clone for SERVICE_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_INFO_2 {
     pub svci2_name: windows_sys::core::PWSTR,
     pub svci2_status: u32,
@@ -4976,63 +3991,38 @@ pub struct SERVICE_INFO_2 {
     pub svci2_specific_error: u32,
     pub svci2_display_name: windows_sys::core::PWSTR,
 }
-impl Copy for SERVICE_INFO_2 {}
-impl Clone for SERVICE_INFO_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SMB_COMPRESSION_INFO {
     pub Switch: super::super::Foundation::BOOLEAN,
     pub Reserved1: u8,
     pub Reserved2: u16,
     pub Reserved3: u32,
 }
-impl Copy for SMB_COMPRESSION_INFO {}
-impl Clone for SMB_COMPRESSION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SMB_TREE_CONNECT_PARAMETERS {
     pub EABufferOffset: u32,
     pub EABufferLen: u32,
     pub CreateOptions: u32,
     pub TreeConnectAttributes: u32,
 }
-impl Copy for SMB_TREE_CONNECT_PARAMETERS {}
-impl Clone for SMB_TREE_CONNECT_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SMB_USE_OPTION_COMPRESSION_PARAMETERS {
     pub Tag: u32,
     pub Length: u16,
     pub Reserved: u16,
 }
-impl Copy for SMB_USE_OPTION_COMPRESSION_PARAMETERS {}
-impl Clone for SMB_USE_OPTION_COMPRESSION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STD_ALERT {
     pub alrt_timestamp: u32,
     pub alrt_eventname: [u16; 17],
     pub alrt_servicename: [u16; 81],
 }
-impl Copy for STD_ALERT {}
-impl Clone for STD_ALERT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TIME_OF_DAY_INFO {
     pub tod_elapsedt: u32,
     pub tod_msecs: u32,
@@ -5047,34 +4037,19 @@ pub struct TIME_OF_DAY_INFO {
     pub tod_year: u32,
     pub tod_weekday: u32,
 }
-impl Copy for TIME_OF_DAY_INFO {}
-impl Clone for TIME_OF_DAY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRANSPORT_INFO {
     pub Type: TRANSPORT_TYPE,
     pub SkipCertificateCheck: super::super::Foundation::BOOLEAN,
 }
-impl Copy for TRANSPORT_INFO {}
-impl Clone for TRANSPORT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_0 {
     pub usri0_name: windows_sys::core::PWSTR,
 }
-impl Copy for USER_INFO_0 {}
-impl Clone for USER_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_1 {
     pub usri1_name: windows_sys::core::PWSTR,
     pub usri1_password: windows_sys::core::PWSTR,
@@ -5085,227 +4060,117 @@ pub struct USER_INFO_1 {
     pub usri1_flags: USER_ACCOUNT_FLAGS,
     pub usri1_script_path: windows_sys::core::PWSTR,
 }
-impl Copy for USER_INFO_1 {}
-impl Clone for USER_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_10 {
     pub usri10_name: windows_sys::core::PWSTR,
     pub usri10_comment: windows_sys::core::PWSTR,
     pub usri10_usr_comment: windows_sys::core::PWSTR,
     pub usri10_full_name: windows_sys::core::PWSTR,
 }
-impl Copy for USER_INFO_10 {}
-impl Clone for USER_INFO_10 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_1003 {
     pub usri1003_password: windows_sys::core::PWSTR,
 }
-impl Copy for USER_INFO_1003 {}
-impl Clone for USER_INFO_1003 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_1005 {
     pub usri1005_priv: USER_PRIV,
 }
-impl Copy for USER_INFO_1005 {}
-impl Clone for USER_INFO_1005 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_1006 {
     pub usri1006_home_dir: windows_sys::core::PWSTR,
 }
-impl Copy for USER_INFO_1006 {}
-impl Clone for USER_INFO_1006 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_1007 {
     pub usri1007_comment: windows_sys::core::PWSTR,
 }
-impl Copy for USER_INFO_1007 {}
-impl Clone for USER_INFO_1007 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_1008 {
     pub usri1008_flags: USER_ACCOUNT_FLAGS,
 }
-impl Copy for USER_INFO_1008 {}
-impl Clone for USER_INFO_1008 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_1009 {
     pub usri1009_script_path: windows_sys::core::PWSTR,
 }
-impl Copy for USER_INFO_1009 {}
-impl Clone for USER_INFO_1009 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_1010 {
     pub usri1010_auth_flags: AF_OP,
 }
-impl Copy for USER_INFO_1010 {}
-impl Clone for USER_INFO_1010 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_1011 {
     pub usri1011_full_name: windows_sys::core::PWSTR,
 }
-impl Copy for USER_INFO_1011 {}
-impl Clone for USER_INFO_1011 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_1012 {
     pub usri1012_usr_comment: windows_sys::core::PWSTR,
 }
-impl Copy for USER_INFO_1012 {}
-impl Clone for USER_INFO_1012 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_1013 {
     pub usri1013_parms: windows_sys::core::PWSTR,
 }
-impl Copy for USER_INFO_1013 {}
-impl Clone for USER_INFO_1013 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_1014 {
     pub usri1014_workstations: windows_sys::core::PWSTR,
 }
-impl Copy for USER_INFO_1014 {}
-impl Clone for USER_INFO_1014 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_1017 {
     pub usri1017_acct_expires: u32,
 }
-impl Copy for USER_INFO_1017 {}
-impl Clone for USER_INFO_1017 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_1018 {
     pub usri1018_max_storage: u32,
 }
-impl Copy for USER_INFO_1018 {}
-impl Clone for USER_INFO_1018 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_1020 {
     pub usri1020_units_per_week: u32,
     pub usri1020_logon_hours: *mut u8,
 }
-impl Copy for USER_INFO_1020 {}
-impl Clone for USER_INFO_1020 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_1023 {
     pub usri1023_logon_server: windows_sys::core::PWSTR,
 }
-impl Copy for USER_INFO_1023 {}
-impl Clone for USER_INFO_1023 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_1024 {
     pub usri1024_country_code: u32,
 }
-impl Copy for USER_INFO_1024 {}
-impl Clone for USER_INFO_1024 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_1025 {
     pub usri1025_code_page: u32,
 }
-impl Copy for USER_INFO_1025 {}
-impl Clone for USER_INFO_1025 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_1051 {
     pub usri1051_primary_group_id: u32,
 }
-impl Copy for USER_INFO_1051 {}
-impl Clone for USER_INFO_1051 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_1052 {
     pub usri1052_profile: windows_sys::core::PWSTR,
 }
-impl Copy for USER_INFO_1052 {}
-impl Clone for USER_INFO_1052 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_1053 {
     pub usri1053_home_dir_drive: windows_sys::core::PWSTR,
 }
-impl Copy for USER_INFO_1053 {}
-impl Clone for USER_INFO_1053 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_11 {
     pub usri11_name: windows_sys::core::PWSTR,
     pub usri11_comment: windows_sys::core::PWSTR,
@@ -5328,13 +4193,8 @@ pub struct USER_INFO_11 {
     pub usri11_logon_hours: *mut u8,
     pub usri11_code_page: u32,
 }
-impl Copy for USER_INFO_11 {}
-impl Clone for USER_INFO_11 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_2 {
     pub usri2_name: windows_sys::core::PWSTR,
     pub usri2_password: windows_sys::core::PWSTR,
@@ -5361,13 +4221,8 @@ pub struct USER_INFO_2 {
     pub usri2_country_code: u32,
     pub usri2_code_page: u32,
 }
-impl Copy for USER_INFO_2 {}
-impl Clone for USER_INFO_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_20 {
     pub usri20_name: windows_sys::core::PWSTR,
     pub usri20_full_name: windows_sys::core::PWSTR,
@@ -5375,23 +4230,13 @@ pub struct USER_INFO_20 {
     pub usri20_flags: USER_ACCOUNT_FLAGS,
     pub usri20_user_id: u32,
 }
-impl Copy for USER_INFO_20 {}
-impl Clone for USER_INFO_20 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_21 {
     pub usri21_password: [u8; 16],
 }
-impl Copy for USER_INFO_21 {}
-impl Clone for USER_INFO_21 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_22 {
     pub usri22_name: windows_sys::core::PWSTR,
     pub usri22_password: [u8; 16],
@@ -5418,13 +4263,8 @@ pub struct USER_INFO_22 {
     pub usri22_country_code: u32,
     pub usri22_code_page: u32,
 }
-impl Copy for USER_INFO_22 {}
-impl Clone for USER_INFO_22 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_23 {
     pub usri23_name: windows_sys::core::PWSTR,
     pub usri23_full_name: windows_sys::core::PWSTR,
@@ -5432,13 +4272,8 @@ pub struct USER_INFO_23 {
     pub usri23_flags: USER_ACCOUNT_FLAGS,
     pub usri23_user_sid: super::super::Foundation::PSID,
 }
-impl Copy for USER_INFO_23 {}
-impl Clone for USER_INFO_23 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_24 {
     pub usri24_internet_identity: super::super::Foundation::BOOL,
     pub usri24_flags: u32,
@@ -5446,13 +4281,8 @@ pub struct USER_INFO_24 {
     pub usri24_internet_principal_name: windows_sys::core::PWSTR,
     pub usri24_user_sid: super::super::Foundation::PSID,
 }
-impl Copy for USER_INFO_24 {}
-impl Clone for USER_INFO_24 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_3 {
     pub usri3_name: windows_sys::core::PWSTR,
     pub usri3_password: windows_sys::core::PWSTR,
@@ -5484,13 +4314,8 @@ pub struct USER_INFO_3 {
     pub usri3_home_dir_drive: windows_sys::core::PWSTR,
     pub usri3_password_expired: u32,
 }
-impl Copy for USER_INFO_3 {}
-impl Clone for USER_INFO_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_INFO_4 {
     pub usri4_name: windows_sys::core::PWSTR,
     pub usri4_password: windows_sys::core::PWSTR,
@@ -5522,13 +4347,8 @@ pub struct USER_INFO_4 {
     pub usri4_home_dir_drive: windows_sys::core::PWSTR,
     pub usri4_password_expired: u32,
 }
-impl Copy for USER_INFO_4 {}
-impl Clone for USER_INFO_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_MODALS_INFO_0 {
     pub usrmod0_min_passwd_len: u32,
     pub usrmod0_max_passwd_age: u32,
@@ -5536,139 +4356,74 @@ pub struct USER_MODALS_INFO_0 {
     pub usrmod0_force_logoff: u32,
     pub usrmod0_password_hist_len: u32,
 }
-impl Copy for USER_MODALS_INFO_0 {}
-impl Clone for USER_MODALS_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_MODALS_INFO_1 {
     pub usrmod1_role: u32,
     pub usrmod1_primary: windows_sys::core::PWSTR,
 }
-impl Copy for USER_MODALS_INFO_1 {}
-impl Clone for USER_MODALS_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_MODALS_INFO_1001 {
     pub usrmod1001_min_passwd_len: u32,
 }
-impl Copy for USER_MODALS_INFO_1001 {}
-impl Clone for USER_MODALS_INFO_1001 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_MODALS_INFO_1002 {
     pub usrmod1002_max_passwd_age: u32,
 }
-impl Copy for USER_MODALS_INFO_1002 {}
-impl Clone for USER_MODALS_INFO_1002 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_MODALS_INFO_1003 {
     pub usrmod1003_min_passwd_age: u32,
 }
-impl Copy for USER_MODALS_INFO_1003 {}
-impl Clone for USER_MODALS_INFO_1003 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_MODALS_INFO_1004 {
     pub usrmod1004_force_logoff: u32,
 }
-impl Copy for USER_MODALS_INFO_1004 {}
-impl Clone for USER_MODALS_INFO_1004 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_MODALS_INFO_1005 {
     pub usrmod1005_password_hist_len: u32,
 }
-impl Copy for USER_MODALS_INFO_1005 {}
-impl Clone for USER_MODALS_INFO_1005 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_MODALS_INFO_1006 {
     pub usrmod1006_role: USER_MODALS_ROLES,
 }
-impl Copy for USER_MODALS_INFO_1006 {}
-impl Clone for USER_MODALS_INFO_1006 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_MODALS_INFO_1007 {
     pub usrmod1007_primary: windows_sys::core::PWSTR,
 }
-impl Copy for USER_MODALS_INFO_1007 {}
-impl Clone for USER_MODALS_INFO_1007 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_MODALS_INFO_2 {
     pub usrmod2_domain_name: windows_sys::core::PWSTR,
     pub usrmod2_domain_id: super::super::Foundation::PSID,
 }
-impl Copy for USER_MODALS_INFO_2 {}
-impl Clone for USER_MODALS_INFO_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_MODALS_INFO_3 {
     pub usrmod3_lockout_duration: u32,
     pub usrmod3_lockout_observation_window: u32,
     pub usrmod3_lockout_threshold: u32,
 }
-impl Copy for USER_MODALS_INFO_3 {}
-impl Clone for USER_MODALS_INFO_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USER_OTHER_INFO {
     pub alrtus_errcode: u32,
     pub alrtus_numstrings: u32,
 }
-impl Copy for USER_OTHER_INFO {}
-impl Clone for USER_OTHER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USE_INFO_0 {
     pub ui0_local: windows_sys::core::PWSTR,
     pub ui0_remote: windows_sys::core::PWSTR,
 }
-impl Copy for USE_INFO_0 {}
-impl Clone for USE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USE_INFO_1 {
     pub ui1_local: windows_sys::core::PWSTR,
     pub ui1_remote: windows_sys::core::PWSTR,
@@ -5678,13 +4433,8 @@ pub struct USE_INFO_1 {
     pub ui1_refcount: u32,
     pub ui1_usecount: u32,
 }
-impl Copy for USE_INFO_1 {}
-impl Clone for USE_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USE_INFO_2 {
     pub ui2_local: windows_sys::core::PWSTR,
     pub ui2_remote: windows_sys::core::PWSTR,
@@ -5696,36 +4446,21 @@ pub struct USE_INFO_2 {
     pub ui2_username: windows_sys::core::PWSTR,
     pub ui2_domainname: windows_sys::core::PWSTR,
 }
-impl Copy for USE_INFO_2 {}
-impl Clone for USE_INFO_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USE_INFO_3 {
     pub ui3_ui2: USE_INFO_2,
     pub ui3_flags: u32,
 }
-impl Copy for USE_INFO_3 {}
-impl Clone for USE_INFO_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USE_INFO_4 {
     pub ui4_ui3: USE_INFO_3,
     pub ui4_auth_identity_length: u32,
     pub ui4_auth_identity: *mut u8,
 }
-impl Copy for USE_INFO_4 {}
-impl Clone for USE_INFO_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USE_INFO_5 {
     pub ui4_ui3: USE_INFO_3,
     pub ui4_auth_identity_length: u32,
@@ -5735,61 +4470,36 @@ pub struct USE_INFO_5 {
     pub ui5_use_options_length: u32,
     pub ui5_use_options: *mut u8,
 }
-impl Copy for USE_INFO_5 {}
-impl Clone for USE_INFO_5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
     pub Tag: u32,
     pub Length: u16,
     pub Reserved: u16,
 }
-impl Copy for USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {}
-impl Clone for USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USE_OPTION_GENERIC {
     pub Tag: u32,
     pub Length: u16,
     pub Reserved: u16,
 }
-impl Copy for USE_OPTION_GENERIC {}
-impl Clone for USE_OPTION_GENERIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USE_OPTION_PROPERTIES {
     pub Tag: u32,
     pub pInfo: *mut core::ffi::c_void,
     pub Length: usize,
 }
-impl Copy for USE_OPTION_PROPERTIES {}
-impl Clone for USE_OPTION_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USE_OPTION_TRANSPORT_PARAMETERS {
     pub Tag: u32,
     pub Length: u16,
     pub Reserved: u16,
 }
-impl Copy for USE_OPTION_TRANSPORT_PARAMETERS {}
-impl Clone for USE_OPTION_TRANSPORT_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_100 {
     pub wki100_platform_id: u32,
     pub wki100_computername: windows_sys::core::PWSTR,
@@ -5797,13 +4507,8 @@ pub struct WKSTA_INFO_100 {
     pub wki100_ver_major: u32,
     pub wki100_ver_minor: u32,
 }
-impl Copy for WKSTA_INFO_100 {}
-impl Clone for WKSTA_INFO_100 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_101 {
     pub wki101_platform_id: u32,
     pub wki101_computername: windows_sys::core::PWSTR,
@@ -5812,63 +4517,33 @@ pub struct WKSTA_INFO_101 {
     pub wki101_ver_minor: u32,
     pub wki101_lanroot: windows_sys::core::PWSTR,
 }
-impl Copy for WKSTA_INFO_101 {}
-impl Clone for WKSTA_INFO_101 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1010 {
     pub wki1010_char_wait: u32,
 }
-impl Copy for WKSTA_INFO_1010 {}
-impl Clone for WKSTA_INFO_1010 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1011 {
     pub wki1011_collection_time: u32,
 }
-impl Copy for WKSTA_INFO_1011 {}
-impl Clone for WKSTA_INFO_1011 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1012 {
     pub wki1012_maximum_collection_count: u32,
 }
-impl Copy for WKSTA_INFO_1012 {}
-impl Clone for WKSTA_INFO_1012 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1013 {
     pub wki1013_keep_conn: u32,
 }
-impl Copy for WKSTA_INFO_1013 {}
-impl Clone for WKSTA_INFO_1013 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1018 {
     pub wki1018_sess_timeout: u32,
 }
-impl Copy for WKSTA_INFO_1018 {}
-impl Clone for WKSTA_INFO_1018 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_102 {
     pub wki102_platform_id: u32,
     pub wki102_computername: windows_sys::core::PWSTR,
@@ -5878,283 +4553,143 @@ pub struct WKSTA_INFO_102 {
     pub wki102_lanroot: windows_sys::core::PWSTR,
     pub wki102_logged_on_users: u32,
 }
-impl Copy for WKSTA_INFO_102 {}
-impl Clone for WKSTA_INFO_102 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1023 {
     pub wki1023_siz_char_buf: u32,
 }
-impl Copy for WKSTA_INFO_1023 {}
-impl Clone for WKSTA_INFO_1023 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1027 {
     pub wki1027_errlog_sz: u32,
 }
-impl Copy for WKSTA_INFO_1027 {}
-impl Clone for WKSTA_INFO_1027 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1028 {
     pub wki1028_print_buf_time: u32,
 }
-impl Copy for WKSTA_INFO_1028 {}
-impl Clone for WKSTA_INFO_1028 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1032 {
     pub wki1032_wrk_heuristics: u32,
 }
-impl Copy for WKSTA_INFO_1032 {}
-impl Clone for WKSTA_INFO_1032 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1033 {
     pub wki1033_max_threads: u32,
 }
-impl Copy for WKSTA_INFO_1033 {}
-impl Clone for WKSTA_INFO_1033 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1041 {
     pub wki1041_lock_quota: u32,
 }
-impl Copy for WKSTA_INFO_1041 {}
-impl Clone for WKSTA_INFO_1041 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1042 {
     pub wki1042_lock_increment: u32,
 }
-impl Copy for WKSTA_INFO_1042 {}
-impl Clone for WKSTA_INFO_1042 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1043 {
     pub wki1043_lock_maximum: u32,
 }
-impl Copy for WKSTA_INFO_1043 {}
-impl Clone for WKSTA_INFO_1043 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1044 {
     pub wki1044_pipe_increment: u32,
 }
-impl Copy for WKSTA_INFO_1044 {}
-impl Clone for WKSTA_INFO_1044 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1045 {
     pub wki1045_pipe_maximum: u32,
 }
-impl Copy for WKSTA_INFO_1045 {}
-impl Clone for WKSTA_INFO_1045 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1046 {
     pub wki1046_dormant_file_limit: u32,
 }
-impl Copy for WKSTA_INFO_1046 {}
-impl Clone for WKSTA_INFO_1046 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1047 {
     pub wki1047_cache_file_timeout: u32,
 }
-impl Copy for WKSTA_INFO_1047 {}
-impl Clone for WKSTA_INFO_1047 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1048 {
     pub wki1048_use_opportunistic_locking: super::super::Foundation::BOOL,
 }
-impl Copy for WKSTA_INFO_1048 {}
-impl Clone for WKSTA_INFO_1048 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1049 {
     pub wki1049_use_unlock_behind: super::super::Foundation::BOOL,
 }
-impl Copy for WKSTA_INFO_1049 {}
-impl Clone for WKSTA_INFO_1049 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1050 {
     pub wki1050_use_close_behind: super::super::Foundation::BOOL,
 }
-impl Copy for WKSTA_INFO_1050 {}
-impl Clone for WKSTA_INFO_1050 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1051 {
     pub wki1051_buf_named_pipes: super::super::Foundation::BOOL,
 }
-impl Copy for WKSTA_INFO_1051 {}
-impl Clone for WKSTA_INFO_1051 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1052 {
     pub wki1052_use_lock_read_unlock: super::super::Foundation::BOOL,
 }
-impl Copy for WKSTA_INFO_1052 {}
-impl Clone for WKSTA_INFO_1052 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1053 {
     pub wki1053_utilize_nt_caching: super::super::Foundation::BOOL,
 }
-impl Copy for WKSTA_INFO_1053 {}
-impl Clone for WKSTA_INFO_1053 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1054 {
     pub wki1054_use_raw_read: super::super::Foundation::BOOL,
 }
-impl Copy for WKSTA_INFO_1054 {}
-impl Clone for WKSTA_INFO_1054 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1055 {
     pub wki1055_use_raw_write: super::super::Foundation::BOOL,
 }
-impl Copy for WKSTA_INFO_1055 {}
-impl Clone for WKSTA_INFO_1055 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1056 {
     pub wki1056_use_write_raw_data: super::super::Foundation::BOOL,
 }
-impl Copy for WKSTA_INFO_1056 {}
-impl Clone for WKSTA_INFO_1056 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1057 {
     pub wki1057_use_encryption: super::super::Foundation::BOOL,
 }
-impl Copy for WKSTA_INFO_1057 {}
-impl Clone for WKSTA_INFO_1057 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1058 {
     pub wki1058_buf_files_deny_write: super::super::Foundation::BOOL,
 }
-impl Copy for WKSTA_INFO_1058 {}
-impl Clone for WKSTA_INFO_1058 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1059 {
     pub wki1059_buf_read_only_files: super::super::Foundation::BOOL,
 }
-impl Copy for WKSTA_INFO_1059 {}
-impl Clone for WKSTA_INFO_1059 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1060 {
     pub wki1060_force_core_create_mode: super::super::Foundation::BOOL,
 }
-impl Copy for WKSTA_INFO_1060 {}
-impl Clone for WKSTA_INFO_1060 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1061 {
     pub wki1061_use_512_byte_max_transfer: super::super::Foundation::BOOL,
 }
-impl Copy for WKSTA_INFO_1061 {}
-impl Clone for WKSTA_INFO_1061 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_1062 {
     pub wki1062_read_ahead_throughput: u32,
 }
-impl Copy for WKSTA_INFO_1062 {}
-impl Clone for WKSTA_INFO_1062 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_302 {
     pub wki302_char_wait: u32,
     pub wki302_collection_time: u32,
@@ -6177,13 +4712,8 @@ pub struct WKSTA_INFO_302 {
     pub wki302_mailslots: u32,
     pub wki302_num_dgram_buf: u32,
 }
-impl Copy for WKSTA_INFO_302 {}
-impl Clone for WKSTA_INFO_302 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_402 {
     pub wki402_char_wait: u32,
     pub wki402_collection_time: u32,
@@ -6207,13 +4737,8 @@ pub struct WKSTA_INFO_402 {
     pub wki402_num_dgram_buf: u32,
     pub wki402_max_threads: u32,
 }
-impl Copy for WKSTA_INFO_402 {}
-impl Clone for WKSTA_INFO_402 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_INFO_502 {
     pub wki502_char_wait: u32,
     pub wki502_collection_time: u32,
@@ -6251,13 +4776,8 @@ pub struct WKSTA_INFO_502 {
     pub wki502_force_core_create_mode: super::super::Foundation::BOOL,
     pub wki502_use_512_byte_max_transfer: super::super::Foundation::BOOL,
 }
-impl Copy for WKSTA_INFO_502 {}
-impl Clone for WKSTA_INFO_502 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_TRANSPORT_INFO_0 {
     pub wkti0_quality_of_service: u32,
     pub wkti0_number_of_vcs: u32,
@@ -6265,43 +4785,22 @@ pub struct WKSTA_TRANSPORT_INFO_0 {
     pub wkti0_transport_address: windows_sys::core::PWSTR,
     pub wkti0_wan_ish: super::super::Foundation::BOOL,
 }
-impl Copy for WKSTA_TRANSPORT_INFO_0 {}
-impl Clone for WKSTA_TRANSPORT_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_USER_INFO_0 {
     pub wkui0_username: windows_sys::core::PWSTR,
 }
-impl Copy for WKSTA_USER_INFO_0 {}
-impl Clone for WKSTA_USER_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_USER_INFO_1 {
     pub wkui1_username: windows_sys::core::PWSTR,
     pub wkui1_logon_domain: windows_sys::core::PWSTR,
     pub wkui1_oth_domains: windows_sys::core::PWSTR,
     pub wkui1_logon_server: windows_sys::core::PWSTR,
 }
-impl Copy for WKSTA_USER_INFO_1 {}
-impl Clone for WKSTA_USER_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WKSTA_USER_INFO_1101 {
     pub wkui1101_oth_domains: windows_sys::core::PWSTR,
-}
-impl Copy for WKSTA_USER_INFO_1101 {}
-impl Clone for WKSTA_USER_INFO_1101 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type WORKERFUNCTION = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void)>;

@@ -38,75 +38,46 @@ pub const CurrentUserData: DdqAccessLevel = 1i32;
 pub const NoData: DdqAccessLevel = 0i32;
 pub type DdqAccessLevel = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
     pub moduleName: windows_sys::core::PWSTR,
     pub friendlyModuleName: windows_sys::core::PWSTR,
     pub eventCount: u32,
     pub uploadSizeBytes: u64,
 }
-impl Copy for DIAGNOSTIC_DATA_EVENT_BINARY_STATS {}
-impl Clone for DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {
     pub id: i32,
     pub name: windows_sys::core::PWSTR,
 }
-impl Copy for DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {}
-impl Clone for DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {
     pub name: windows_sys::core::PWSTR,
 }
-impl Copy for DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {}
-impl Clone for DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {
     pub privacyTag: i32,
     pub name: windows_sys::core::PWSTR,
     pub description: windows_sys::core::PWSTR,
 }
-impl Copy for DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {}
-impl Clone for DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIAGNOSTIC_DATA_EVENT_TAG_STATS {
     pub privacyTag: i32,
     pub eventCount: u32,
 }
-impl Copy for DIAGNOSTIC_DATA_EVENT_TAG_STATS {}
-impl Clone for DIAGNOSTIC_DATA_EVENT_TAG_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {
     pub hoursOfHistoryToKeep: u32,
     pub maxStoreMegabytes: u32,
     pub requestedMaxStoreMegabytes: u32,
 }
-impl Copy for DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {}
-impl Clone for DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIAGNOSTIC_DATA_GENERAL_STATS {
     pub optInLevel: u32,
     pub transcriptSizeBytes: u64,
@@ -114,13 +85,8 @@ pub struct DIAGNOSTIC_DATA_GENERAL_STATS {
     pub totalEventCountLast24Hours: u32,
     pub averageDailyEvents: f32,
 }
-impl Copy for DIAGNOSTIC_DATA_GENERAL_STATS {}
-impl Clone for DIAGNOSTIC_DATA_GENERAL_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIAGNOSTIC_DATA_RECORD {
     pub rowId: i64,
     pub timestamp: u64,
@@ -137,13 +103,8 @@ pub struct DIAGNOSTIC_DATA_RECORD {
     pub extra2: windows_sys::core::PWSTR,
     pub extra3: windows_sys::core::PWSTR,
 }
-impl Copy for DIAGNOSTIC_DATA_RECORD {}
-impl Clone for DIAGNOSTIC_DATA_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIAGNOSTIC_DATA_SEARCH_CRITERIA {
     pub producerNames: *const windows_sys::core::PCWSTR,
     pub producerNameCount: u32,
@@ -154,13 +115,8 @@ pub struct DIAGNOSTIC_DATA_SEARCH_CRITERIA {
     pub privacyTagCount: u32,
     pub coreDataOnly: super::super::Foundation::BOOL,
 }
-impl Copy for DIAGNOSTIC_DATA_SEARCH_CRITERIA {}
-impl Clone for DIAGNOSTIC_DATA_SEARCH_CRITERIA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIAGNOSTIC_REPORT_DATA {
     pub signature: DIAGNOSTIC_REPORT_SIGNATURE,
     pub bucketId: windows_sys::core::GUID,
@@ -180,31 +136,15 @@ pub struct DIAGNOSTIC_REPORT_DATA {
     pub legacyBucketId: u64,
     pub reportKey: windows_sys::core::PWSTR,
 }
-impl Copy for DIAGNOSTIC_REPORT_DATA {}
-impl Clone for DIAGNOSTIC_REPORT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIAGNOSTIC_REPORT_PARAMETER {
     pub name: [u16; 129],
     pub value: [u16; 260],
 }
-impl Copy for DIAGNOSTIC_REPORT_PARAMETER {}
-impl Clone for DIAGNOSTIC_REPORT_PARAMETER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIAGNOSTIC_REPORT_SIGNATURE {
     pub eventName: [u16; 65],
     pub parameters: [DIAGNOSTIC_REPORT_PARAMETER; 10],
-}
-impl Copy for DIAGNOSTIC_REPORT_SIGNATURE {}
-impl Clone for DIAGNOSTIC_REPORT_SIGNATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

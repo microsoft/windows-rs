@@ -630,16 +630,12 @@ pub const SERVER_SEARCH_FLAG_DOMAIN_SCOPE: u32 = 1u32;
 pub const SERVER_SEARCH_FLAG_PHANTOM_ROOT: u32 = 2u32;
 pub type LDAP_RETCODE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BerElement {
     pub opaque: windows_sys::core::PSTR,
 }
-impl Copy for BerElement {}
-impl Clone for BerElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LDAP {
     pub ld_sb: LDAP_0,
     pub ld_host: windows_sys::core::PSTR,
@@ -658,50 +654,30 @@ pub struct LDAP {
     pub ld_refhoplimit: u32,
     pub ld_options: u32,
 }
-impl Copy for LDAP {}
-impl Clone for LDAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LDAP_0 {
     pub sb_sd: usize,
     pub Reserved1: [u8; 41],
     pub sb_naddr: usize,
     pub Reserved2: [u8; 24],
 }
-impl Copy for LDAP_0 {}
-impl Clone for LDAP_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LDAPAPIFeatureInfoA {
     pub ldapaif_info_version: i32,
     pub ldapaif_name: windows_sys::core::PSTR,
     pub ldapaif_version: i32,
 }
-impl Copy for LDAPAPIFeatureInfoA {}
-impl Clone for LDAPAPIFeatureInfoA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LDAPAPIFeatureInfoW {
     pub ldapaif_info_version: i32,
     pub ldapaif_name: windows_sys::core::PWSTR,
     pub ldapaif_version: i32,
 }
-impl Copy for LDAPAPIFeatureInfoW {}
-impl Clone for LDAPAPIFeatureInfoW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LDAPAPIInfoA {
     pub ldapai_info_version: i32,
     pub ldapai_api_version: i32,
@@ -710,13 +686,8 @@ pub struct LDAPAPIInfoA {
     pub ldapai_vendor_name: windows_sys::core::PSTR,
     pub ldapai_vendor_version: i32,
 }
-impl Copy for LDAPAPIInfoA {}
-impl Clone for LDAPAPIInfoA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LDAPAPIInfoW {
     pub ldapai_info_version: i32,
     pub ldapai_api_version: i32,
@@ -725,37 +696,22 @@ pub struct LDAPAPIInfoW {
     pub ldapai_vendor_name: windows_sys::core::PWSTR,
     pub ldapai_vendor_version: i32,
 }
-impl Copy for LDAPAPIInfoW {}
-impl Clone for LDAPAPIInfoW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LDAPControlA {
     pub ldctl_oid: windows_sys::core::PSTR,
     pub ldctl_value: LDAP_BERVAL,
     pub ldctl_iscritical: super::super::Foundation::BOOLEAN,
 }
-impl Copy for LDAPControlA {}
-impl Clone for LDAPControlA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LDAPControlW {
     pub ldctl_oid: windows_sys::core::PWSTR,
     pub ldctl_value: LDAP_BERVAL,
     pub ldctl_iscritical: super::super::Foundation::BOOLEAN,
 }
-impl Copy for LDAPControlW {}
-impl Clone for LDAPControlW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LDAPMessage {
     pub lm_msgid: u32,
     pub lm_msgtype: u32,
@@ -771,83 +727,48 @@ pub struct LDAPMessage {
     pub lm_eom: super::super::Foundation::BOOLEAN,
     pub ConnectionReferenced: super::super::Foundation::BOOLEAN,
 }
-impl Copy for LDAPMessage {}
-impl Clone for LDAPMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LDAPModA {
     pub mod_op: u32,
     pub mod_type: windows_sys::core::PSTR,
     pub mod_vals: LDAPModA_0,
 }
-impl Copy for LDAPModA {}
-impl Clone for LDAPModA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union LDAPModA_0 {
     pub modv_strvals: *mut windows_sys::core::PSTR,
     pub modv_bvals: *mut *mut LDAP_BERVAL,
 }
-impl Copy for LDAPModA_0 {}
-impl Clone for LDAPModA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LDAPModW {
     pub mod_op: u32,
     pub mod_type: windows_sys::core::PWSTR,
     pub mod_vals: LDAPModW_0,
 }
-impl Copy for LDAPModW {}
-impl Clone for LDAPModW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union LDAPModW_0 {
     pub modv_strvals: *mut windows_sys::core::PWSTR,
     pub modv_bvals: *mut *mut LDAP_BERVAL,
 }
-impl Copy for LDAPModW_0 {}
-impl Clone for LDAPModW_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LDAPSortKeyA {
     pub sk_attrtype: windows_sys::core::PSTR,
     pub sk_matchruleoid: windows_sys::core::PSTR,
     pub sk_reverseorder: super::super::Foundation::BOOLEAN,
 }
-impl Copy for LDAPSortKeyA {}
-impl Clone for LDAPSortKeyA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LDAPSortKeyW {
     pub sk_attrtype: windows_sys::core::PWSTR,
     pub sk_matchruleoid: windows_sys::core::PWSTR,
     pub sk_reverseorder: super::super::Foundation::BOOLEAN,
 }
-impl Copy for LDAPSortKeyW {}
-impl Clone for LDAPSortKeyW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LDAPVLVInfo {
     pub ldvlv_version: i32,
     pub ldvlv_before_count: u32,
@@ -858,58 +779,32 @@ pub struct LDAPVLVInfo {
     pub ldvlv_context: *mut LDAP_BERVAL,
     pub ldvlv_extradata: *mut core::ffi::c_void,
 }
-impl Copy for LDAPVLVInfo {}
-impl Clone for LDAPVLVInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LDAP_BERVAL {
     pub bv_len: u32,
     pub bv_val: windows_sys::core::PSTR,
 }
-impl Copy for LDAP_BERVAL {}
-impl Clone for LDAP_BERVAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LDAP_REFERRAL_CALLBACK {
     pub SizeOfCallbacks: u32,
     pub QueryForConnection: QUERYFORCONNECTION,
     pub NotifyRoutine: NOTIFYOFNEWCONNECTION,
     pub DereferenceRoutine: DEREFERENCECONNECTION,
 }
-impl Copy for LDAP_REFERRAL_CALLBACK {}
-impl Clone for LDAP_REFERRAL_CALLBACK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LDAP_TIMEVAL {
     pub tv_sec: i32,
     pub tv_usec: i32,
 }
-impl Copy for LDAP_TIMEVAL {}
-impl Clone for LDAP_TIMEVAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LDAP_VERSION_INFO {
     pub lv_size: u32,
     pub lv_major: u32,
     pub lv_minor: u32,
-}
-impl Copy for LDAP_VERSION_INFO {}
-impl Clone for LDAP_VERSION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type PLDAPSearch = isize;
 pub type DBGPRINT = Option<unsafe extern "system" fn(format: windows_sys::core::PCSTR) -> u32>;

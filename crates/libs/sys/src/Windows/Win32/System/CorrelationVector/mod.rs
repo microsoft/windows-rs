@@ -8,13 +8,8 @@ pub const RTL_CORRELATION_VECTOR_V1_PREFIX_LENGTH: u32 = 16u32;
 pub const RTL_CORRELATION_VECTOR_V2_LENGTH: u32 = 128u32;
 pub const RTL_CORRELATION_VECTOR_V2_PREFIX_LENGTH: u32 = 22u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CORRELATION_VECTOR {
     pub Version: i8,
     pub Vector: [i8; 129],
-}
-impl Copy for CORRELATION_VECTOR {}
-impl Clone for CORRELATION_VECTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

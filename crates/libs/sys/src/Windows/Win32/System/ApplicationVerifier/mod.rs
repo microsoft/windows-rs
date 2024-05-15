@@ -24,18 +24,14 @@ pub type eHeapAllocationState = i32;
 pub type eHeapEnumerationLevel = i32;
 pub type eUserAllocationState = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AVRF_BACKTRACE_INFORMATION {
     pub Depth: u32,
     pub Index: u32,
     pub ReturnAddresses: [u64; 32],
 }
-impl Copy for AVRF_BACKTRACE_INFORMATION {}
-impl Clone for AVRF_BACKTRACE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AVRF_HANDLE_OPERATION {
     pub Handle: u64,
     pub ProcessId: u32,
@@ -44,13 +40,8 @@ pub struct AVRF_HANDLE_OPERATION {
     pub Spare0: u32,
     pub BackTraceInformation: AVRF_BACKTRACE_INFORMATION,
 }
-impl Copy for AVRF_HANDLE_OPERATION {}
-impl Clone for AVRF_HANDLE_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AVRF_HEAP_ALLOCATION {
     pub HeapHandle: u64,
     pub UserAllocation: u64,
@@ -61,12 +52,6 @@ pub struct AVRF_HEAP_ALLOCATION {
     pub HeapState: u32,
     pub HeapContext: u64,
     pub BackTraceInformation: *mut AVRF_BACKTRACE_INFORMATION,
-}
-impl Copy for AVRF_HEAP_ALLOCATION {}
-impl Clone for AVRF_HEAP_ALLOCATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type AVRF_HANDLEOPERATION_ENUMERATE_CALLBACK = Option<unsafe extern "system" fn(handleoperation: *mut AVRF_HANDLE_OPERATION, enumerationcontext: *mut core::ffi::c_void, enumerationlevel: *mut u32) -> u32>;
 pub type AVRF_HEAPALLOCATION_ENUMERATE_CALLBACK = Option<unsafe extern "system" fn(heapallocation: *mut AVRF_HEAP_ALLOCATION, enumerationcontext: *mut core::ffi::c_void, enumerationlevel: *mut u32) -> u32>;

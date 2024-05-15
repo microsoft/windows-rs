@@ -754,75 +754,46 @@ pub type WDMUSB_POWER_STATE = i32;
 pub type WINUSB_PIPE_POLICY = u32;
 pub type WINUSB_POWER_POLICY = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ALTERNATE_INTERFACE {
     pub InterfaceNumber: u16,
     pub AlternateInterfaceNumber: u16,
 }
-impl Copy for ALTERNATE_INTERFACE {}
-impl Clone for ALTERNATE_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union BM_REQUEST_TYPE {
     pub s: BM_REQUEST_TYPE_0,
     pub B: u8,
 }
-impl Copy for BM_REQUEST_TYPE {}
-impl Clone for BM_REQUEST_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BM_REQUEST_TYPE_0 {
     pub _bitfield: u8,
 }
-impl Copy for BM_REQUEST_TYPE_0 {}
-impl Clone for BM_REQUEST_TYPE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CHANNEL_INFO {
     pub EventChannelSize: u32,
     pub uReadDataAlignment: u32,
     pub uWriteDataAlignment: u32,
 }
-impl Copy for CHANNEL_INFO {}
-impl Clone for CHANNEL_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVICE_DESCRIPTOR {
     pub usVendorId: u16,
     pub usProductId: u16,
     pub usBcdDevice: u16,
     pub usLanguageId: u16,
 }
-impl Copy for DEVICE_DESCRIPTOR {}
-impl Clone for DEVICE_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRV_VERSION {
     pub major: u32,
     pub minor: u32,
     pub internal: u32,
 }
-impl Copy for DRV_VERSION {}
-impl Clone for DRV_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct HCD_ISO_STAT_COUNTERS {
     pub LateUrbs: u16,
     pub DoubleBufferedPackets: u16,
@@ -845,13 +816,8 @@ pub struct HCD_ISO_STAT_COUNTERS {
     pub HWIsoMissedCount: u16,
     pub Reserved7: [u32; 8],
 }
-impl Copy for HCD_ISO_STAT_COUNTERS {}
-impl Clone for HCD_ISO_STAT_COUNTERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct HCD_STAT_COUNTERS {
     pub BytesTransferred: u32,
     pub IsoMissedCount: u16,
@@ -865,13 +831,8 @@ pub struct HCD_STAT_COUNTERS {
     pub StallPidCount: u16,
     pub PortDisableCount: u16,
 }
-impl Copy for HCD_STAT_COUNTERS {}
-impl Clone for HCD_STAT_COUNTERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct HCD_STAT_INFORMATION_1 {
     pub Reserved1: u32,
     pub Reserved2: u32,
@@ -879,13 +840,8 @@ pub struct HCD_STAT_INFORMATION_1 {
     pub TimeRead: i64,
     pub Counters: HCD_STAT_COUNTERS,
 }
-impl Copy for HCD_STAT_INFORMATION_1 {}
-impl Clone for HCD_STAT_INFORMATION_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct HCD_STAT_INFORMATION_2 {
     pub Reserved1: u32,
     pub Reserved2: u32,
@@ -895,13 +851,8 @@ pub struct HCD_STAT_INFORMATION_2 {
     pub Counters: HCD_STAT_COUNTERS,
     pub IsoCounters: HCD_ISO_STAT_COUNTERS,
 }
-impl Copy for HCD_STAT_INFORMATION_2 {}
-impl Clone for HCD_STAT_INFORMATION_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct HUB_DEVICE_CONFIG_INFO {
     pub Version: u32,
     pub Length: u32,
@@ -912,26 +863,16 @@ pub struct HUB_DEVICE_CONFIG_INFO {
     pub Reserved: [u32; 19],
     pub UxdSettings: USB_HUB_DEVICE_UXD_SETTINGS,
 }
-impl Copy for HUB_DEVICE_CONFIG_INFO {}
-impl Clone for HUB_DEVICE_CONFIG_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_BLOCK {
     pub uOffset: u32,
     pub uLength: u32,
     pub pbyData: *mut u8,
     pub uIndex: u32,
 }
-impl Copy for IO_BLOCK {}
-impl Clone for IO_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_BLOCK_EX {
     pub uOffset: u32,
     pub uLength: u32,
@@ -941,13 +882,8 @@ pub struct IO_BLOCK_EX {
     pub bmRequestType: u8,
     pub fTransferDirectionIn: u8,
 }
-impl Copy for IO_BLOCK_EX {}
-impl Clone for IO_BLOCK_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OS_STRING {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -955,24 +891,14 @@ pub struct OS_STRING {
     pub bVendorCode: u8,
     pub Anonymous: OS_STRING_0,
 }
-impl Copy for OS_STRING {}
-impl Clone for OS_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union OS_STRING_0 {
     pub bPad: u8,
     pub bFlags: u8,
 }
-impl Copy for OS_STRING_0 {}
-impl Clone for OS_STRING_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PACKET_PARAMETERS {
     pub DeviceAddress: u8,
     pub EndpointAddress: u8,
@@ -987,57 +913,32 @@ pub struct PACKET_PARAMETERS {
     pub UsbdStatusCode: i32,
     pub Data: [u8; 4],
 }
-impl Copy for PACKET_PARAMETERS {}
-impl Clone for PACKET_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RAW_RESET_PORT_PARAMETERS {
     pub PortNumber: u16,
     pub PortStatus: u16,
 }
-impl Copy for RAW_RESET_PORT_PARAMETERS {}
-impl Clone for RAW_RESET_PORT_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RAW_ROOTPORT_FEATURE {
     pub PortNumber: u16,
     pub PortFeature: u16,
     pub PortStatus: u16,
 }
-impl Copy for RAW_ROOTPORT_FEATURE {}
-impl Clone for RAW_ROOTPORT_FEATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RAW_ROOTPORT_PARAMETERS {
     pub PortNumber: u16,
     pub PortStatus: u16,
 }
-impl Copy for RAW_ROOTPORT_PARAMETERS {}
-impl Clone for RAW_ROOTPORT_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct URB {
     pub Anonymous: URB_0,
 }
-impl Copy for URB {}
-impl Clone for URB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union URB_0 {
     pub UrbHeader: _URB_HEADER,
     pub UrbSelectInterface: _URB_SELECT_INTERFACE,
@@ -1061,25 +962,15 @@ pub union URB_0 {
     pub UrbOpenStaticStreams: _URB_OPEN_STATIC_STREAMS,
     pub UrbGetIsochPipeTransferPathDelays: _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS,
 }
-impl Copy for URB_0 {}
-impl Clone for URB_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USBD_DEVICE_INFORMATION {
     pub OffsetNext: u32,
     pub UsbdDeviceHandle: *mut core::ffi::c_void,
     pub DeviceDescriptor: USB_DEVICE_DESCRIPTOR,
 }
-impl Copy for USBD_DEVICE_INFORMATION {}
-impl Clone for USBD_DEVICE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USBD_ENDPOINT_OFFLOAD_INFORMATION {
     pub Size: u32,
     pub EndpointAddress: u16,
@@ -1097,13 +988,8 @@ pub struct USBD_ENDPOINT_OFFLOAD_INFORMATION {
     pub EventRingSize: usize,
     pub EventRingInitialCycleBit: u32,
 }
-impl Copy for USBD_ENDPOINT_OFFLOAD_INFORMATION {}
-impl Clone for USBD_ENDPOINT_OFFLOAD_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USBD_INTERFACE_INFORMATION {
     pub Length: u16,
     pub InterfaceNumber: u8,
@@ -1116,25 +1002,15 @@ pub struct USBD_INTERFACE_INFORMATION {
     pub NumberOfPipes: u32,
     pub Pipes: [USBD_PIPE_INFORMATION; 1],
 }
-impl Copy for USBD_INTERFACE_INFORMATION {}
-impl Clone for USBD_INTERFACE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USBD_ISO_PACKET_DESCRIPTOR {
     pub Offset: u32,
     pub Length: u32,
     pub Status: i32,
 }
-impl Copy for USBD_ISO_PACKET_DESCRIPTOR {}
-impl Clone for USBD_ISO_PACKET_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USBD_PIPE_INFORMATION {
     pub MaximumPacketSize: u16,
     pub EndpointAddress: u8,
@@ -1144,49 +1020,29 @@ pub struct USBD_PIPE_INFORMATION {
     pub MaximumTransferSize: u32,
     pub PipeFlags: u32,
 }
-impl Copy for USBD_PIPE_INFORMATION {}
-impl Clone for USBD_PIPE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USBD_STREAM_INFORMATION {
     pub PipeHandle: *mut core::ffi::c_void,
     pub StreamID: u32,
     pub MaximumTransferSize: u32,
     pub PipeFlags: u32,
 }
-impl Copy for USBD_STREAM_INFORMATION {}
-impl Clone for USBD_STREAM_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USBD_VERSION_INFORMATION {
     pub USBDI_Version: u32,
     pub Supported_USB_Version: u32,
 }
-impl Copy for USBD_VERSION_INFORMATION {}
-impl Clone for USBD_VERSION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USBFN_BUS_CONFIGURATION_INFO {
     pub ConfigurationName: [u16; 40],
     pub IsCurrent: super::super::Foundation::BOOLEAN,
     pub IsActive: super::super::Foundation::BOOLEAN,
 }
-impl Copy for USBFN_BUS_CONFIGURATION_INFO {}
-impl Clone for USBFN_BUS_CONFIGURATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USBFN_CLASS_INFORMATION_PACKET {
     pub FullSpeedClassInterface: USBFN_CLASS_INTERFACE,
     pub HighSpeedClassInterface: USBFN_CLASS_INTERFACE,
@@ -1195,13 +1051,8 @@ pub struct USBFN_CLASS_INFORMATION_PACKET {
     pub HasInterfaceGuid: super::super::Foundation::BOOLEAN,
     pub SuperSpeedClassInterface: USBFN_CLASS_INTERFACE,
 }
-impl Copy for USBFN_CLASS_INFORMATION_PACKET {}
-impl Clone for USBFN_CLASS_INFORMATION_PACKET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USBFN_CLASS_INFORMATION_PACKET_EX {
     pub FullSpeedClassInterfaceEx: USBFN_CLASS_INTERFACE_EX,
     pub HighSpeedClassInterfaceEx: USBFN_CLASS_INTERFACE_EX,
@@ -1210,62 +1061,37 @@ pub struct USBFN_CLASS_INFORMATION_PACKET_EX {
     pub InterfaceGuid: [u16; 39],
     pub HasInterfaceGuid: super::super::Foundation::BOOLEAN,
 }
-impl Copy for USBFN_CLASS_INFORMATION_PACKET_EX {}
-impl Clone for USBFN_CLASS_INFORMATION_PACKET_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USBFN_CLASS_INTERFACE {
     pub InterfaceNumber: u8,
     pub PipeCount: u8,
     pub PipeArr: [USBFN_PIPE_INFORMATION; 16],
 }
-impl Copy for USBFN_CLASS_INTERFACE {}
-impl Clone for USBFN_CLASS_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USBFN_CLASS_INTERFACE_EX {
     pub BaseInterfaceNumber: u8,
     pub InterfaceCount: u8,
     pub PipeCount: u8,
     pub PipeArr: [USBFN_PIPE_INFORMATION; 16],
 }
-impl Copy for USBFN_CLASS_INTERFACE_EX {}
-impl Clone for USBFN_CLASS_INTERFACE_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USBFN_INTERFACE_INFO {
     pub InterfaceNumber: u8,
     pub Speed: USBFN_BUS_SPEED,
     pub Size: u16,
     pub InterfaceDescriptorSet: [u8; 1],
 }
-impl Copy for USBFN_INTERFACE_INFO {}
-impl Clone for USBFN_INTERFACE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USBFN_NOTIFICATION {
     pub Event: USBFN_EVENT,
     pub u: USBFN_NOTIFICATION_0,
 }
-impl Copy for USBFN_NOTIFICATION {}
-impl Clone for USBFN_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union USBFN_NOTIFICATION_0 {
     pub BusSpeed: USBFN_BUS_SPEED,
     pub SetupPacket: USB_DEFAULT_PIPE_SETUP_PACKET,
@@ -1273,314 +1099,174 @@ pub union USBFN_NOTIFICATION_0 {
     pub PortType: USBFN_PORT_TYPE,
     pub AlternateInterface: ALTERNATE_INTERFACE,
 }
-impl Copy for USBFN_NOTIFICATION_0 {}
-impl Clone for USBFN_NOTIFICATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USBFN_PIPE_INFORMATION {
     pub EpDesc: USB_ENDPOINT_DESCRIPTOR,
     pub PipeId: u32,
 }
-impl Copy for USBFN_PIPE_INFORMATION {}
-impl Clone for USBFN_PIPE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USBFN_USB_STRING {
     pub StringIndex: u8,
     pub UsbString: [u16; 255],
 }
-impl Copy for USBFN_USB_STRING {}
-impl Clone for USBFN_USB_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USBSCAN_GET_DESCRIPTOR {
     pub DescriptorType: u8,
     pub Index: u8,
     pub LanguageId: u16,
 }
-impl Copy for USBSCAN_GET_DESCRIPTOR {}
-impl Clone for USBSCAN_GET_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USBSCAN_PIPE_CONFIGURATION {
     pub NumberOfPipes: u32,
     pub PipeInfo: [USBSCAN_PIPE_INFORMATION; 8],
 }
-impl Copy for USBSCAN_PIPE_CONFIGURATION {}
-impl Clone for USBSCAN_PIPE_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USBSCAN_PIPE_INFORMATION {
     pub MaximumPacketSize: u16,
     pub EndpointAddress: u8,
     pub Interval: u8,
     pub PipeType: RAW_PIPE_TYPE,
 }
-impl Copy for USBSCAN_PIPE_INFORMATION {}
-impl Clone for USBSCAN_PIPE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USBSCAN_TIMEOUT {
     pub TimeoutRead: u32,
     pub TimeoutWrite: u32,
     pub TimeoutEvent: u32,
 }
-impl Copy for USBSCAN_TIMEOUT {}
-impl Clone for USBSCAN_TIMEOUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USBUSER_BANDWIDTH_INFO_REQUEST {
     pub Header: USBUSER_REQUEST_HEADER,
     pub BandwidthInformation: USB_BANDWIDTH_INFO,
 }
-impl Copy for USBUSER_BANDWIDTH_INFO_REQUEST {}
-impl Clone for USBUSER_BANDWIDTH_INFO_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USBUSER_BUS_STATISTICS_0_REQUEST {
     pub Header: USBUSER_REQUEST_HEADER,
     pub BusStatistics0: USB_BUS_STATISTICS_0,
 }
-impl Copy for USBUSER_BUS_STATISTICS_0_REQUEST {}
-impl Clone for USBUSER_BUS_STATISTICS_0_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USBUSER_CLOSE_RAW_DEVICE {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Parameters: USB_CLOSE_RAW_DEVICE_PARAMETERS,
 }
-impl Copy for USBUSER_CLOSE_RAW_DEVICE {}
-impl Clone for USBUSER_CLOSE_RAW_DEVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USBUSER_CONTROLLER_INFO_0 {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Info0: USB_CONTROLLER_INFO_0,
 }
-impl Copy for USBUSER_CONTROLLER_INFO_0 {}
-impl Clone for USBUSER_CONTROLLER_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USBUSER_CONTROLLER_UNICODE_NAME {
     pub Header: USBUSER_REQUEST_HEADER,
     pub UnicodeName: USB_UNICODE_NAME,
 }
-impl Copy for USBUSER_CONTROLLER_UNICODE_NAME {}
-impl Clone for USBUSER_CONTROLLER_UNICODE_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USBUSER_GET_DRIVER_VERSION {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Parameters: USB_DRIVER_VERSION_PARAMETERS,
 }
-impl Copy for USBUSER_GET_DRIVER_VERSION {}
-impl Clone for USBUSER_GET_DRIVER_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USBUSER_GET_USB2HW_VERSION {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Parameters: USB_USB2HW_VERSION_PARAMETERS,
 }
-impl Copy for USBUSER_GET_USB2HW_VERSION {}
-impl Clone for USBUSER_GET_USB2HW_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USBUSER_OPEN_RAW_DEVICE {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Parameters: USB_OPEN_RAW_DEVICE_PARAMETERS,
 }
-impl Copy for USBUSER_OPEN_RAW_DEVICE {}
-impl Clone for USBUSER_OPEN_RAW_DEVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USBUSER_PASS_THRU_REQUEST {
     pub Header: USBUSER_REQUEST_HEADER,
     pub PassThru: USB_PASS_THRU_PARAMETERS,
 }
-impl Copy for USBUSER_PASS_THRU_REQUEST {}
-impl Clone for USBUSER_PASS_THRU_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USBUSER_POWER_INFO_REQUEST {
     pub Header: USBUSER_REQUEST_HEADER,
     pub PowerInformation: USB_POWER_INFO,
 }
-impl Copy for USBUSER_POWER_INFO_REQUEST {}
-impl Clone for USBUSER_POWER_INFO_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USBUSER_RAW_RESET_ROOT_PORT {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Parameters: RAW_RESET_PORT_PARAMETERS,
 }
-impl Copy for USBUSER_RAW_RESET_ROOT_PORT {}
-impl Clone for USBUSER_RAW_RESET_ROOT_PORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USBUSER_REFRESH_HCT_REG {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Flags: u32,
 }
-impl Copy for USBUSER_REFRESH_HCT_REG {}
-impl Clone for USBUSER_REFRESH_HCT_REG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USBUSER_REQUEST_HEADER {
     pub UsbUserRequest: u32,
     pub UsbUserStatusCode: USB_USER_ERROR_CODE,
     pub RequestBufferLength: u32,
     pub ActualBufferLength: u32,
 }
-impl Copy for USBUSER_REQUEST_HEADER {}
-impl Clone for USBUSER_REQUEST_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USBUSER_ROOTPORT_FEATURE_REQUEST {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Parameters: RAW_ROOTPORT_FEATURE,
 }
-impl Copy for USBUSER_ROOTPORT_FEATURE_REQUEST {}
-impl Clone for USBUSER_ROOTPORT_FEATURE_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USBUSER_ROOTPORT_PARAMETERS {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Parameters: RAW_ROOTPORT_PARAMETERS,
 }
-impl Copy for USBUSER_ROOTPORT_PARAMETERS {}
-impl Clone for USBUSER_ROOTPORT_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USBUSER_SEND_ONE_PACKET {
     pub Header: USBUSER_REQUEST_HEADER,
     pub PacketParameters: PACKET_PARAMETERS,
 }
-impl Copy for USBUSER_SEND_ONE_PACKET {}
-impl Clone for USBUSER_SEND_ONE_PACKET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USBUSER_SEND_RAW_COMMAND {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Parameters: USB_SEND_RAW_COMMAND_PARAMETERS,
 }
-impl Copy for USBUSER_SEND_RAW_COMMAND {}
-impl Clone for USBUSER_SEND_RAW_COMMAND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_20_PORT_CHANGE {
     pub AsUshort16: u16,
     pub Anonymous: USB_20_PORT_CHANGE_0,
 }
-impl Copy for USB_20_PORT_CHANGE {}
-impl Clone for USB_20_PORT_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_20_PORT_CHANGE_0 {
     pub _bitfield: u16,
 }
-impl Copy for USB_20_PORT_CHANGE_0 {}
-impl Clone for USB_20_PORT_CHANGE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_20_PORT_STATUS {
     pub AsUshort16: u16,
     pub Anonymous: USB_20_PORT_STATUS_0,
 }
-impl Copy for USB_20_PORT_STATUS {}
-impl Clone for USB_20_PORT_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_20_PORT_STATUS_0 {
     pub _bitfield: u16,
 }
-impl Copy for USB_20_PORT_STATUS_0 {}
-impl Clone for USB_20_PORT_STATUS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_30_HUB_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -1592,67 +1278,37 @@ pub struct USB_30_HUB_DESCRIPTOR {
     pub wHubDelay: u16,
     pub DeviceRemovable: u16,
 }
-impl Copy for USB_30_HUB_DESCRIPTOR {}
-impl Clone for USB_30_HUB_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_30_PORT_CHANGE {
     pub AsUshort16: u16,
     pub Anonymous: USB_30_PORT_CHANGE_0,
 }
-impl Copy for USB_30_PORT_CHANGE {}
-impl Clone for USB_30_PORT_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_30_PORT_CHANGE_0 {
     pub _bitfield: u16,
 }
-impl Copy for USB_30_PORT_CHANGE_0 {}
-impl Clone for USB_30_PORT_CHANGE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_30_PORT_STATUS {
     pub AsUshort16: u16,
     pub Anonymous: USB_30_PORT_STATUS_0,
 }
-impl Copy for USB_30_PORT_STATUS {}
-impl Clone for USB_30_PORT_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_30_PORT_STATUS_0 {
     pub _bitfield: u16,
 }
-impl Copy for USB_30_PORT_STATUS_0 {}
-impl Clone for USB_30_PORT_STATUS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_ACQUIRE_INFO {
     pub NotificationType: USB_NOTIFICATION_TYPE,
     pub TotalSize: u32,
     pub Buffer: [u16; 1],
 }
-impl Copy for USB_ACQUIRE_INFO {}
-impl Clone for USB_ACQUIRE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_BANDWIDTH_INFO {
     pub DeviceCount: u32,
     pub TotalBusBandwidth: u32,
@@ -1666,39 +1322,24 @@ pub struct USB_BANDWIDTH_INFO {
     pub AllocedInterrupt_16ms: u32,
     pub AllocedInterrupt_32ms: u32,
 }
-impl Copy for USB_BANDWIDTH_INFO {}
-impl Clone for USB_BANDWIDTH_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_BOS_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
     pub wTotalLength: u16,
     pub bNumDeviceCaps: u8,
 }
-impl Copy for USB_BOS_DESCRIPTOR {}
-impl Clone for USB_BOS_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_BUS_NOTIFICATION {
     pub NotificationType: USB_NOTIFICATION_TYPE,
     pub TotalBandwidth: u32,
     pub ConsumedBandwidth: u32,
     pub ControllerNameLength: u32,
 }
-impl Copy for USB_BUS_NOTIFICATION {}
-impl Clone for USB_BUS_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_BUS_STATISTICS_0 {
     pub DeviceCount: u32,
     pub CurrentSystemTime: i64,
@@ -1717,35 +1358,20 @@ pub struct USB_BUS_STATISTICS_0 {
     pub Unused: u8,
     pub NameIndex: u8,
 }
-impl Copy for USB_BUS_STATISTICS_0 {}
-impl Clone for USB_BUS_STATISTICS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type USB_CHANGE_REGISTRATION_HANDLE = isize;
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_CLOSE_RAW_DEVICE_PARAMETERS {
     pub xxx: u32,
 }
-impl Copy for USB_CLOSE_RAW_DEVICE_PARAMETERS {}
-impl Clone for USB_CLOSE_RAW_DEVICE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USB_COMMON_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
 }
-impl Copy for USB_COMMON_DESCRIPTOR {}
-impl Clone for USB_COMMON_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USB_COMPOSITE_DEVICE_INFO {
     pub DeviceDescriptor: USB_DEVICE_DESCRIPTOR,
     pub CurrentConfigDescriptor: USB_CONFIGURATION_DESCRIPTOR,
@@ -1753,26 +1379,16 @@ pub struct USB_COMPOSITE_DEVICE_INFO {
     pub NumberOfFunctions: u8,
     pub FunctionInfo: [USB_COMPOSITE_FUNCTION_INFO; 1],
 }
-impl Copy for USB_COMPOSITE_DEVICE_INFO {}
-impl Clone for USB_COMPOSITE_DEVICE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USB_COMPOSITE_FUNCTION_INFO {
     pub FunctionNumber: u8,
     pub BaseInterfaceNumber: u8,
     pub NumberOfInterfaces: u8,
     pub FunctionIsIdle: super::super::Foundation::BOOLEAN,
 }
-impl Copy for USB_COMPOSITE_FUNCTION_INFO {}
-impl Clone for USB_COMPOSITE_FUNCTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_CONFIGURATION_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -1783,13 +1399,8 @@ pub struct USB_CONFIGURATION_DESCRIPTOR {
     pub bmAttributes: u8,
     pub MaxPower: u8,
 }
-impl Copy for USB_CONFIGURATION_DESCRIPTOR {}
-impl Clone for USB_CONFIGURATION_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_CONFIGURATION_POWER_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -1805,13 +1416,8 @@ pub struct USB_CONFIGURATION_POWER_DESCRIPTOR {
     pub TransitionTimeFromD2: u16,
     pub TransitionTimeFromD3: u16,
 }
-impl Copy for USB_CONFIGURATION_POWER_DESCRIPTOR {}
-impl Clone for USB_CONFIGURATION_POWER_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_CONNECTION_NOTIFICATION {
     pub NotificationType: USB_NOTIFICATION_TYPE,
     pub ConnectionNumber: u32,
@@ -1820,13 +1426,8 @@ pub struct USB_CONNECTION_NOTIFICATION {
     pub PowerRequested: u32,
     pub HubNameLength: u32,
 }
-impl Copy for USB_CONNECTION_NOTIFICATION {}
-impl Clone for USB_CONNECTION_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_CONTROLLER_DEVICE_INFO {
     pub PciVendorId: u32,
     pub PciDeviceId: u32,
@@ -1834,13 +1435,8 @@ pub struct USB_CONTROLLER_DEVICE_INFO {
     pub NumberOfRootPorts: u32,
     pub HcFeatureFlags: u32,
 }
-impl Copy for USB_CONTROLLER_DEVICE_INFO {}
-impl Clone for USB_CONTROLLER_DEVICE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_CONTROLLER_INFO_0 {
     pub PciVendorId: u32,
     pub PciDeviceId: u32,
@@ -1849,24 +1445,14 @@ pub struct USB_CONTROLLER_INFO_0 {
     pub ControllerFlavor: USB_CONTROLLER_FLAVOR,
     pub HcFeatureFlags: u32,
 }
-impl Copy for USB_CONTROLLER_INFO_0 {}
-impl Clone for USB_CONTROLLER_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_CYCLE_PORT_PARAMS {
     pub ConnectionIndex: u32,
     pub StatusReturned: u32,
 }
-impl Copy for USB_CYCLE_PORT_PARAMS {}
-impl Clone for USB_CYCLE_PORT_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DEFAULT_PIPE_SETUP_PACKET {
     pub bmRequestType: BM_REQUEST_TYPE,
     pub bRequest: u8,
@@ -1874,69 +1460,39 @@ pub struct USB_DEFAULT_PIPE_SETUP_PACKET {
     pub wIndex: USB_DEFAULT_PIPE_SETUP_PACKET_0,
     pub wLength: u16,
 }
-impl Copy for USB_DEFAULT_PIPE_SETUP_PACKET {}
-impl Clone for USB_DEFAULT_PIPE_SETUP_PACKET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_DEFAULT_PIPE_SETUP_PACKET_0 {
     pub Anonymous: USB_DEFAULT_PIPE_SETUP_PACKET_0_0,
     pub W: u16,
 }
-impl Copy for USB_DEFAULT_PIPE_SETUP_PACKET_0 {}
-impl Clone for USB_DEFAULT_PIPE_SETUP_PACKET_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
     pub LowByte: u8,
     pub HiByte: u8,
 }
-impl Copy for USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {}
-impl Clone for USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_DEFAULT_PIPE_SETUP_PACKET_1 {
     pub Anonymous: USB_DEFAULT_PIPE_SETUP_PACKET_1_0,
     pub W: u16,
 }
-impl Copy for USB_DEFAULT_PIPE_SETUP_PACKET_1 {}
-impl Clone for USB_DEFAULT_PIPE_SETUP_PACKET_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
     pub LowByte: u8,
     pub HiByte: u8,
 }
-impl Copy for USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {}
-impl Clone for USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DESCRIPTOR_REQUEST {
     pub ConnectionIndex: u32,
     pub SetupPacket: USB_DESCRIPTOR_REQUEST_0,
     pub Data: [u8; 1],
 }
-impl Copy for USB_DESCRIPTOR_REQUEST {}
-impl Clone for USB_DESCRIPTOR_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DESCRIPTOR_REQUEST_0 {
     pub bmRequest: u8,
     pub bRequest: u8,
@@ -1944,13 +1500,8 @@ pub struct USB_DESCRIPTOR_REQUEST_0 {
     pub wIndex: u16,
     pub wLength: u16,
 }
-impl Copy for USB_DESCRIPTOR_REQUEST_0 {}
-impl Clone for USB_DESCRIPTOR_REQUEST_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -1963,46 +1514,26 @@ pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
     pub bReserved: u32,
     pub AlternateMode: [USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0; 1],
 }
-impl Copy for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {}
-impl Clone for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
     pub wSVID: u16,
     pub bAlternateMode: u8,
     pub iAlternateModeSetting: u8,
 }
-impl Copy for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {}
-impl Clone for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
     pub AsUshort: u16,
     pub Anonymous: USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0,
 }
-impl Copy for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {}
-impl Clone for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0 {
     pub _bitfield: u16,
 }
-impl Copy for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0 {}
-impl Clone for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2010,25 +1541,15 @@ pub struct USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
     pub bReserved: u8,
     pub ContainerID: [u8; 16],
 }
-impl Copy for USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {}
-impl Clone for USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
     pub bDevCapabilityType: u8,
 }
-impl Copy for USB_DEVICE_CAPABILITY_DESCRIPTOR {}
-impl Clone for USB_DEVICE_CAPABILITY_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2036,34 +1557,19 @@ pub struct USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {
     pub bcdDescriptorVersion: u8,
     pub bmAttributes: USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0,
 }
-impl Copy for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {}
-impl Clone for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0 {
     pub AsUlong: u32,
     pub Anonymous: USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0,
 }
-impl Copy for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0 {}
-impl Clone for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
-impl Copy for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0 {}
-impl Clone for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2077,34 +1583,19 @@ pub struct USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {
     pub dwMaxPeakPower: u32,
     pub dwMaxPeakPowerTime: u32,
 }
-impl Copy for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {}
-impl Clone for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0 {
     pub AsUshort: u16,
     pub Anonymous: USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0,
 }
-impl Copy for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0 {}
-impl Clone for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0 {
     pub _bitfield: u16,
 }
-impl Copy for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0 {}
-impl Clone for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2113,13 +1604,8 @@ pub struct USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
     pub PlatformCapabilityUuid: windows_sys::core::GUID,
     pub CapabililityData: [u8; 1],
 }
-impl Copy for USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {}
-impl Clone for USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2132,55 +1618,30 @@ pub struct USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {
     pub bcdPDVersion: u16,
     pub bcdUSBTypeCVersion: u16,
 }
-impl Copy for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {}
-impl Clone for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0 {
     pub AsUlong: u32,
     pub Anonymous: USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0,
 }
-impl Copy for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0 {}
-impl Clone for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
-impl Copy for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0 {}
-impl Clone for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
     pub AsUlong32: u32,
     pub Anonymous: USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0,
 }
-impl Copy for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {}
-impl Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {
     pub _bitfield: u32,
 }
-impl Copy for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {}
-impl Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2191,55 +1652,30 @@ pub struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {
     pub wReserved: u16,
     pub bmSublinkSpeedAttr: [USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED; 1],
 }
-impl Copy for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {}
-impl Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0 {
     pub AsUlong: u32,
     pub Anonymous: USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0,
 }
-impl Copy for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0 {}
-impl Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
-impl Copy for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0 {}
-impl Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1 {
     pub AsUshort: u16,
     pub Anonymous: USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0,
 }
-impl Copy for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1 {}
-impl Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0 {
     pub _bitfield: u16,
 }
-impl Copy for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0 {}
-impl Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2250,47 +1686,27 @@ pub struct USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {
     pub bU1DevExitLat: u8,
     pub wU2DevExitLat: u16,
 }
-impl Copy for USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {}
-impl Clone for USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
     pub bDevCapabilityType: u8,
     pub bmAttributes: USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0,
 }
-impl Copy for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {}
-impl Clone for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0 {
     pub AsUlong: u32,
     pub Anonymous: USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0,
 }
-impl Copy for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0 {}
-impl Clone for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
-impl Copy for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0 {}
-impl Clone for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_CHARACTERISTICS {
     pub Version: u32,
     pub Reserved: [u32; 2],
@@ -2298,13 +1714,8 @@ pub struct USB_DEVICE_CHARACTERISTICS {
     pub MaximumSendPathDelayInMilliSeconds: u32,
     pub MaximumCompletionPathDelayInMilliSeconds: u32,
 }
-impl Copy for USB_DEVICE_CHARACTERISTICS {}
-impl Clone for USB_DEVICE_CHARACTERISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2321,13 +1732,8 @@ pub struct USB_DEVICE_DESCRIPTOR {
     pub iSerialNumber: u8,
     pub bNumConfigurations: u8,
 }
-impl Copy for USB_DEVICE_DESCRIPTOR {}
-impl Clone for USB_DEVICE_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_INFO {
     pub DeviceState: USB_DEVICE_STATE,
     pub PortNumber: u16,
@@ -2344,13 +1750,8 @@ pub struct USB_DEVICE_INFO {
     pub NumberOfOpenPipes: u32,
     pub PipeList: [USB_PIPE_INFO; 1],
 }
-impl Copy for USB_DEVICE_INFO {}
-impl Clone for USB_DEVICE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_NODE_INFO {
     pub Sig: u32,
     pub LengthInBytes: u32,
@@ -2359,13 +1760,8 @@ pub struct USB_DEVICE_NODE_INFO {
     pub BusAddress: USB_TOPOLOGY_ADDRESS,
     pub Anonymous: USB_DEVICE_NODE_INFO_0,
 }
-impl Copy for USB_DEVICE_NODE_INFO {}
-impl Clone for USB_DEVICE_NODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union USB_DEVICE_NODE_INFO_0 {
     pub UsbDeviceInfo: USB_DEVICE_INFO,
     pub HubDeviceInfo: USB_HUB_DEVICE_INFO,
@@ -2373,13 +1769,8 @@ pub union USB_DEVICE_NODE_INFO_0 {
     pub ControllerDeviceInfo: USB_CONTROLLER_DEVICE_INFO,
     pub DeviceInformation: [u8; 4],
 }
-impl Copy for USB_DEVICE_NODE_INFO_0 {}
-impl Clone for USB_DEVICE_NODE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_PERFORMANCE_INFO {
     pub BulkBytes: u32,
     pub ControlDataBytes: u32,
@@ -2405,13 +1796,8 @@ pub struct USB_DEVICE_PERFORMANCE_INFO {
     pub HcPeriodicIdleState: u32,
     pub HcPeriodicCacheFlushCount: u32,
 }
-impl Copy for USB_DEVICE_PERFORMANCE_INFO {}
-impl Clone for USB_DEVICE_PERFORMANCE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_QUALIFIER_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2423,44 +1809,24 @@ pub struct USB_DEVICE_QUALIFIER_DESCRIPTOR {
     pub bNumConfigurations: u8,
     pub bReserved: u8,
 }
-impl Copy for USB_DEVICE_QUALIFIER_DESCRIPTOR {}
-impl Clone for USB_DEVICE_QUALIFIER_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_STATE {
     pub _bitfield: u32,
 }
-impl Copy for USB_DEVICE_STATE {}
-impl Clone for USB_DEVICE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_DEVICE_STATUS {
     pub AsUshort16: u16,
     pub Anonymous: USB_DEVICE_STATUS_0,
 }
-impl Copy for USB_DEVICE_STATUS {}
-impl Clone for USB_DEVICE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DEVICE_STATUS_0 {
     pub _bitfield: u16,
 }
-impl Copy for USB_DEVICE_STATUS_0 {}
-impl Clone for USB_DEVICE_STATUS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_DRIVER_VERSION_PARAMETERS {
     pub DriverTrackingCode: u32,
     pub USBDI_Version: u32,
@@ -2469,13 +1835,8 @@ pub struct USB_DRIVER_VERSION_PARAMETERS {
     pub CheckedMiniportDriver: super::super::Foundation::BOOLEAN,
     pub USB_Version: u16,
 }
-impl Copy for USB_DRIVER_VERSION_PARAMETERS {}
-impl Clone for USB_DRIVER_VERSION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_ENDPOINT_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2484,34 +1845,19 @@ pub struct USB_ENDPOINT_DESCRIPTOR {
     pub wMaxPacketSize: u16,
     pub bInterval: u8,
 }
-impl Copy for USB_ENDPOINT_DESCRIPTOR {}
-impl Clone for USB_ENDPOINT_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_ENDPOINT_STATUS {
     pub AsUshort16: u16,
     pub Anonymous: USB_ENDPOINT_STATUS_0,
 }
-impl Copy for USB_ENDPOINT_STATUS {}
-impl Clone for USB_ENDPOINT_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_ENDPOINT_STATUS_0 {
     pub _bitfield: u16,
 }
-impl Copy for USB_ENDPOINT_STATUS_0 {}
-impl Clone for USB_ENDPOINT_STATUS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {
     pub TimeTrackingHandle: super::super::Foundation::HANDLE,
     pub InputFrameNumber: u32,
@@ -2525,148 +1871,78 @@ pub struct USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {
     pub CurrentHardwareMicroFrameNumber: u32,
     pub CurrentUSBFrameNumber: u32,
 }
-impl Copy for USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {}
-impl Clone for USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union USB_FUNCTION_SUSPEND_OPTIONS {
     pub AsUchar: u8,
     pub Anonymous: USB_FUNCTION_SUSPEND_OPTIONS_0,
 }
-impl Copy for USB_FUNCTION_SUSPEND_OPTIONS {}
-impl Clone for USB_FUNCTION_SUSPEND_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USB_FUNCTION_SUSPEND_OPTIONS_0 {
     pub _bitfield: u8,
 }
-impl Copy for USB_FUNCTION_SUSPEND_OPTIONS_0 {}
-impl Clone for USB_FUNCTION_SUSPEND_OPTIONS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_HCD_DRIVERKEY_NAME {
     pub ActualLength: u32,
     pub DriverKeyName: [u16; 1],
 }
-impl Copy for USB_HCD_DRIVERKEY_NAME {}
-impl Clone for USB_HCD_DRIVERKEY_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_HIGH_SPEED_MAXPACKET {
     pub us: u16,
 }
-impl Copy for USB_HIGH_SPEED_MAXPACKET {}
-impl Clone for USB_HIGH_SPEED_MAXPACKET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_HIGH_SPEED_MAXPACKET_0 {
     pub _bitfield: u16,
 }
-impl Copy for USB_HIGH_SPEED_MAXPACKET_0 {}
-impl Clone for USB_HIGH_SPEED_MAXPACKET_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union USB_HUB_30_PORT_REMOTE_WAKE_MASK {
     pub AsUchar8: u8,
     pub Anonymous: USB_HUB_30_PORT_REMOTE_WAKE_MASK_0,
 }
-impl Copy for USB_HUB_30_PORT_REMOTE_WAKE_MASK {}
-impl Clone for USB_HUB_30_PORT_REMOTE_WAKE_MASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {
     pub _bitfield: u8,
 }
-impl Copy for USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {}
-impl Clone for USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_HUB_CAPABILITIES {
     pub _bitfield: u32,
 }
-impl Copy for USB_HUB_CAPABILITIES {}
-impl Clone for USB_HUB_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USB_HUB_CAPABILITIES_EX {
     pub CapabilityFlags: USB_HUB_CAP_FLAGS,
 }
-impl Copy for USB_HUB_CAPABILITIES_EX {}
-impl Clone for USB_HUB_CAPABILITIES_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_HUB_CAP_FLAGS {
     pub ul: u32,
     pub Anonymous: USB_HUB_CAP_FLAGS_0,
 }
-impl Copy for USB_HUB_CAP_FLAGS {}
-impl Clone for USB_HUB_CAP_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_HUB_CAP_FLAGS_0 {
     pub _bitfield: u32,
 }
-impl Copy for USB_HUB_CAP_FLAGS_0 {}
-impl Clone for USB_HUB_CAP_FLAGS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_HUB_CHANGE {
     pub AsUshort16: u16,
     pub Anonymous: USB_HUB_CHANGE_0,
 }
-impl Copy for USB_HUB_CHANGE {}
-impl Clone for USB_HUB_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_HUB_CHANGE_0 {
     pub _bitfield: u16,
 }
-impl Copy for USB_HUB_CHANGE_0 {}
-impl Clone for USB_HUB_CHANGE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_HUB_DESCRIPTOR {
     pub bDescriptorLength: u8,
     pub bDescriptorType: u8,
@@ -2676,13 +1952,8 @@ pub struct USB_HUB_DESCRIPTOR {
     pub bHubControlCurrent: u8,
     pub bRemoveAndPowerMask: [u8; 64],
 }
-impl Copy for USB_HUB_DESCRIPTOR {}
-impl Clone for USB_HUB_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_HUB_DEVICE_INFO {
     pub HubDescriptor: USB_HUB_DESCRIPTOR,
     pub HubNumber: u32,
@@ -2693,13 +1964,8 @@ pub struct USB_HUB_DEVICE_INFO {
     pub NumberOfHubPorts: u32,
     pub PortInfo: [USB_HUB_PORT_INFORMATION; 1],
 }
-impl Copy for USB_HUB_DEVICE_INFO {}
-impl Clone for USB_HUB_DEVICE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_HUB_DEVICE_UXD_SETTINGS {
     pub Version: u32,
     pub PnpGuid: windows_sys::core::GUID,
@@ -2709,58 +1975,33 @@ pub struct USB_HUB_DEVICE_UXD_SETTINGS {
     pub DeleteOnDisconnect: u32,
     pub Reserved: [u32; 5],
 }
-impl Copy for USB_HUB_DEVICE_UXD_SETTINGS {}
-impl Clone for USB_HUB_DEVICE_UXD_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USB_HUB_INFORMATION {
     pub HubDescriptor: USB_HUB_DESCRIPTOR,
     pub HubIsBusPowered: super::super::Foundation::BOOLEAN,
 }
-impl Copy for USB_HUB_INFORMATION {}
-impl Clone for USB_HUB_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_HUB_INFORMATION_EX {
     pub HubType: USB_HUB_TYPE,
     pub HighestPortNumber: u16,
     pub u: USB_HUB_INFORMATION_EX_0,
 }
-impl Copy for USB_HUB_INFORMATION_EX {}
-impl Clone for USB_HUB_INFORMATION_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union USB_HUB_INFORMATION_EX_0 {
     pub UsbHubDescriptor: USB_HUB_DESCRIPTOR,
     pub Usb30HubDescriptor: USB_30_HUB_DESCRIPTOR,
 }
-impl Copy for USB_HUB_INFORMATION_EX_0 {}
-impl Clone for USB_HUB_INFORMATION_EX_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_HUB_NAME {
     pub ActualLength: u32,
     pub HubName: [u16; 1],
 }
-impl Copy for USB_HUB_NAME {}
-impl Clone for USB_HUB_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_HUB_PORT_INFORMATION {
     pub DeviceState: USB_DEVICE_STATE,
     pub PortNumber: u16,
@@ -2768,80 +2009,45 @@ pub struct USB_HUB_PORT_INFORMATION {
     pub ConnectionIndex: u32,
     pub ConnectionStatus: USB_CONNECTION_STATUS,
 }
-impl Copy for USB_HUB_PORT_INFORMATION {}
-impl Clone for USB_HUB_PORT_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_HUB_STATUS {
     pub AsUshort16: u16,
     pub Anonymous: USB_HUB_STATUS_0,
 }
-impl Copy for USB_HUB_STATUS {}
-impl Clone for USB_HUB_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_HUB_STATUS_0 {
     pub _bitfield: u16,
 }
-impl Copy for USB_HUB_STATUS_0 {}
-impl Clone for USB_HUB_STATUS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_HUB_STATUS_AND_CHANGE {
     pub AsUlong32: u32,
     pub Anonymous: USB_HUB_STATUS_AND_CHANGE_0,
 }
-impl Copy for USB_HUB_STATUS_AND_CHANGE {}
-impl Clone for USB_HUB_STATUS_AND_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USB_HUB_STATUS_AND_CHANGE_0 {
     pub HubStatus: USB_HUB_STATUS,
     pub HubChange: USB_HUB_CHANGE,
 }
-impl Copy for USB_HUB_STATUS_AND_CHANGE_0 {}
-impl Clone for USB_HUB_STATUS_AND_CHANGE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USB_IDLE_CALLBACK_INFO {
     pub IdleCallback: USB_IDLE_CALLBACK,
     pub IdleContext: *mut core::ffi::c_void,
 }
-impl Copy for USB_IDLE_CALLBACK_INFO {}
-impl Clone for USB_IDLE_CALLBACK_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_ID_STRING {
     pub LanguageId: u16,
     pub Pad: u16,
     pub LengthInBytes: u32,
     pub Buffer: windows_sys::core::PWSTR,
 }
-impl Copy for USB_ID_STRING {}
-impl Clone for USB_ID_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2852,13 +2058,8 @@ pub struct USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
     pub bFunctionProtocol: u8,
     pub iFunction: u8,
 }
-impl Copy for USB_INTERFACE_ASSOCIATION_DESCRIPTOR {}
-impl Clone for USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USB_INTERFACE_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2870,13 +2071,8 @@ pub struct USB_INTERFACE_DESCRIPTOR {
     pub bInterfaceProtocol: u8,
     pub iInterface: u8,
 }
-impl Copy for USB_INTERFACE_DESCRIPTOR {}
-impl Clone for USB_INTERFACE_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_INTERFACE_POWER_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2891,68 +2087,38 @@ pub struct USB_INTERFACE_POWER_DESCRIPTOR {
     pub TransitionTimeFromD2: u16,
     pub TransitionTimeFromD3: u16,
 }
-impl Copy for USB_INTERFACE_POWER_DESCRIPTOR {}
-impl Clone for USB_INTERFACE_POWER_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_INTERFACE_STATUS {
     pub AsUshort16: u16,
     pub Anonymous: USB_INTERFACE_STATUS_0,
 }
-impl Copy for USB_INTERFACE_STATUS {}
-impl Clone for USB_INTERFACE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_INTERFACE_STATUS_0 {
     pub _bitfield: u16,
 }
-impl Copy for USB_INTERFACE_STATUS_0 {}
-impl Clone for USB_INTERFACE_STATUS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_MI_PARENT_INFORMATION {
     pub NumberOfInterfaces: u32,
 }
-impl Copy for USB_MI_PARENT_INFORMATION {}
-impl Clone for USB_MI_PARENT_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_NODE_CONNECTION_ATTRIBUTES {
     pub ConnectionIndex: u32,
     pub ConnectionStatus: USB_CONNECTION_STATUS,
     pub PortAttributes: u32,
 }
-impl Copy for USB_NODE_CONNECTION_ATTRIBUTES {}
-impl Clone for USB_NODE_CONNECTION_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_NODE_CONNECTION_DRIVERKEY_NAME {
     pub ConnectionIndex: u32,
     pub ActualLength: u32,
     pub DriverKeyName: [u16; 1],
 }
-impl Copy for USB_NODE_CONNECTION_DRIVERKEY_NAME {}
-impl Clone for USB_NODE_CONNECTION_DRIVERKEY_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_NODE_CONNECTION_INFORMATION {
     pub ConnectionIndex: u32,
     pub DeviceDescriptor: USB_DEVICE_DESCRIPTOR,
@@ -2964,13 +2130,8 @@ pub struct USB_NODE_CONNECTION_INFORMATION {
     pub ConnectionStatus: USB_CONNECTION_STATUS,
     pub PipeList: [USB_PIPE_INFO; 1],
 }
-impl Copy for USB_NODE_CONNECTION_INFORMATION {}
-impl Clone for USB_NODE_CONNECTION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_NODE_CONNECTION_INFORMATION_EX {
     pub ConnectionIndex: u32,
     pub DeviceDescriptor: USB_DEVICE_DESCRIPTOR,
@@ -2982,137 +2143,77 @@ pub struct USB_NODE_CONNECTION_INFORMATION_EX {
     pub ConnectionStatus: USB_CONNECTION_STATUS,
     pub PipeList: [USB_PIPE_INFO; 1],
 }
-impl Copy for USB_NODE_CONNECTION_INFORMATION_EX {}
-impl Clone for USB_NODE_CONNECTION_INFORMATION_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_NODE_CONNECTION_INFORMATION_EX_V2 {
     pub ConnectionIndex: u32,
     pub Length: u32,
     pub SupportedUsbProtocols: USB_PROTOCOLS,
     pub Flags: USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS,
 }
-impl Copy for USB_NODE_CONNECTION_INFORMATION_EX_V2 {}
-impl Clone for USB_NODE_CONNECTION_INFORMATION_EX_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS {
     pub ul: u32,
     pub Anonymous: USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS_0,
 }
-impl Copy for USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS {}
-impl Clone for USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS_0 {
     pub _bitfield: u32,
 }
-impl Copy for USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS_0 {}
-impl Clone for USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_NODE_CONNECTION_NAME {
     pub ConnectionIndex: u32,
     pub ActualLength: u32,
     pub NodeName: [u16; 1],
 }
-impl Copy for USB_NODE_CONNECTION_NAME {}
-impl Clone for USB_NODE_CONNECTION_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_NODE_INFORMATION {
     pub NodeType: USB_HUB_NODE,
     pub u: USB_NODE_INFORMATION_0,
 }
-impl Copy for USB_NODE_INFORMATION {}
-impl Clone for USB_NODE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union USB_NODE_INFORMATION_0 {
     pub HubInformation: USB_HUB_INFORMATION,
     pub MiParentInformation: USB_MI_PARENT_INFORMATION,
 }
-impl Copy for USB_NODE_INFORMATION_0 {}
-impl Clone for USB_NODE_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_NOTIFICATION {
     pub NotificationType: USB_NOTIFICATION_TYPE,
 }
-impl Copy for USB_NOTIFICATION {}
-impl Clone for USB_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_OPEN_RAW_DEVICE_PARAMETERS {
     pub PortStatus: u16,
     pub MaxPacketEp0: u16,
 }
-impl Copy for USB_OPEN_RAW_DEVICE_PARAMETERS {}
-impl Clone for USB_OPEN_RAW_DEVICE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_PASS_THRU_PARAMETERS {
     pub FunctionGUID: windows_sys::core::GUID,
     pub ParameterLength: u32,
     pub Parameters: [u8; 4],
 }
-impl Copy for USB_PASS_THRU_PARAMETERS {}
-impl Clone for USB_PASS_THRU_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_PIPE_INFO {
     pub EndpointDescriptor: USB_ENDPOINT_DESCRIPTOR,
     pub ScheduleOffset: u32,
 }
-impl Copy for USB_PIPE_INFO {}
-impl Clone for USB_PIPE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_PORT_CHANGE {
     pub AsUshort16: u16,
     pub Usb20PortChange: USB_20_PORT_CHANGE,
     pub Usb30PortChange: USB_30_PORT_CHANGE,
 }
-impl Copy for USB_PORT_CHANGE {}
-impl Clone for USB_PORT_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_PORT_CONNECTOR_PROPERTIES {
     pub ConnectionIndex: u32,
     pub ActualLength: u32,
@@ -3121,111 +2222,61 @@ pub struct USB_PORT_CONNECTOR_PROPERTIES {
     pub CompanionPortNumber: u16,
     pub CompanionHubSymbolicLinkName: [u16; 1],
 }
-impl Copy for USB_PORT_CONNECTOR_PROPERTIES {}
-impl Clone for USB_PORT_CONNECTOR_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_PORT_EXT_STATUS {
     pub AsUlong32: u32,
     pub Anonymous: USB_PORT_EXT_STATUS_0,
 }
-impl Copy for USB_PORT_EXT_STATUS {}
-impl Clone for USB_PORT_EXT_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_PORT_EXT_STATUS_0 {
     pub _bitfield: u32,
 }
-impl Copy for USB_PORT_EXT_STATUS_0 {}
-impl Clone for USB_PORT_EXT_STATUS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_PORT_EXT_STATUS_AND_CHANGE {
     pub AsUlong64: u64,
     pub Anonymous: USB_PORT_EXT_STATUS_AND_CHANGE_0,
 }
-impl Copy for USB_PORT_EXT_STATUS_AND_CHANGE {}
-impl Clone for USB_PORT_EXT_STATUS_AND_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USB_PORT_EXT_STATUS_AND_CHANGE_0 {
     pub PortStatusChange: USB_PORT_STATUS_AND_CHANGE,
     pub PortExtStatus: USB_PORT_EXT_STATUS,
 }
-impl Copy for USB_PORT_EXT_STATUS_AND_CHANGE_0 {}
-impl Clone for USB_PORT_EXT_STATUS_AND_CHANGE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_PORT_PROPERTIES {
     pub ul: u32,
     pub Anonymous: USB_PORT_PROPERTIES_0,
 }
-impl Copy for USB_PORT_PROPERTIES {}
-impl Clone for USB_PORT_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_PORT_PROPERTIES_0 {
     pub _bitfield: u32,
 }
-impl Copy for USB_PORT_PROPERTIES_0 {}
-impl Clone for USB_PORT_PROPERTIES_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_PORT_STATUS {
     pub AsUshort16: u16,
     pub Usb20PortStatus: USB_20_PORT_STATUS,
     pub Usb30PortStatus: USB_30_PORT_STATUS,
 }
-impl Copy for USB_PORT_STATUS {}
-impl Clone for USB_PORT_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_PORT_STATUS_AND_CHANGE {
     pub AsUlong32: u32,
     pub Anonymous: USB_PORT_STATUS_AND_CHANGE_0,
 }
-impl Copy for USB_PORT_STATUS_AND_CHANGE {}
-impl Clone for USB_PORT_STATUS_AND_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USB_PORT_STATUS_AND_CHANGE_0 {
     pub PortStatus: USB_PORT_STATUS,
     pub PortChange: USB_PORT_CHANGE,
 }
-impl Copy for USB_PORT_STATUS_AND_CHANGE_0 {}
-impl Clone for USB_PORT_STATUS_AND_CHANGE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_POWER_INFO {
     pub SystemState: WDMUSB_POWER_STATE,
     pub HcDevicePowerState: WDMUSB_POWER_STATE,
@@ -3238,45 +2289,25 @@ pub struct USB_POWER_INFO {
     pub CanWakeup: super::super::Foundation::BOOLEAN,
     pub IsPowered: super::super::Foundation::BOOLEAN,
 }
-impl Copy for USB_POWER_INFO {}
-impl Clone for USB_POWER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union USB_PROTOCOLS {
     pub ul: u32,
     pub Anonymous: USB_PROTOCOLS_0,
 }
-impl Copy for USB_PROTOCOLS {}
-impl Clone for USB_PROTOCOLS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_PROTOCOLS_0 {
     pub _bitfield: u32,
 }
-impl Copy for USB_PROTOCOLS_0 {}
-impl Clone for USB_PROTOCOLS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_ROOT_HUB_NAME {
     pub ActualLength: u32,
     pub RootHubName: [u16; 1],
 }
-impl Copy for USB_ROOT_HUB_NAME {}
-impl Clone for USB_ROOT_HUB_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_SEND_RAW_COMMAND_PARAMETERS {
     pub Usb_bmRequest: u8,
     pub Usb_bRequest: u8,
@@ -3290,59 +2321,34 @@ pub struct USB_SEND_RAW_COMMAND_PARAMETERS {
     pub UsbdStatusCode: i32,
     pub Data: [u8; 4],
 }
-impl Copy for USB_SEND_RAW_COMMAND_PARAMETERS {}
-impl Clone for USB_SEND_RAW_COMMAND_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
     pub TimeTrackingHandle: super::super::Foundation::HANDLE,
     pub IsStartupDelayTolerable: super::super::Foundation::BOOLEAN,
 }
-impl Copy for USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {}
-impl Clone for USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
     pub TimeTrackingHandle: super::super::Foundation::HANDLE,
 }
-impl Copy for USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {}
-impl Clone for USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_STRING_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
     pub bString: [u16; 1],
 }
-impl Copy for USB_STRING_DESCRIPTOR {}
-impl Clone for USB_STRING_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
     pub wReserved: u16,
     pub dwBytesPerInterval: u32,
 }
-impl Copy for USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {}
-impl Clone for USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -3350,45 +2356,25 @@ pub struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
     pub bmAttributes: USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0,
     pub wBytesPerInterval: u16,
 }
-impl Copy for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {}
-impl Clone for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0 {
     pub AsUchar: u8,
     pub Bulk: USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0,
     pub Isochronous: USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1,
 }
-impl Copy for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0 {}
-impl Clone for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 {
     pub _bitfield: u8,
 }
-impl Copy for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 {}
-impl Clone for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 {
     pub _bitfield: u8,
 }
-impl Copy for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 {}
-impl Clone for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USB_TOPOLOGY_ADDRESS {
     pub PciBusNumber: u32,
     pub PciDeviceNumber: u32,
@@ -3398,94 +2384,54 @@ pub struct USB_TOPOLOGY_ADDRESS {
     pub HubPortNumber: [u16; 5],
     pub Reserved2: u16,
 }
-impl Copy for USB_TOPOLOGY_ADDRESS {}
-impl Clone for USB_TOPOLOGY_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_TRANSPORT_CHARACTERISTICS {
     pub Version: u32,
     pub TransportCharacteristicsFlags: u32,
     pub CurrentRoundtripLatencyInMilliSeconds: u64,
     pub MaxPotentialBandwidth: u64,
 }
-impl Copy for USB_TRANSPORT_CHARACTERISTICS {}
-impl Clone for USB_TRANSPORT_CHARACTERISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_TRANSPORT_CHARACTERISTICS_CHANGE_NOTIFICATION {
     pub Handle: USB_CHANGE_REGISTRATION_HANDLE,
     pub UsbTransportCharacteristics: USB_TRANSPORT_CHARACTERISTICS,
 }
-impl Copy for USB_TRANSPORT_CHARACTERISTICS_CHANGE_NOTIFICATION {}
-impl Clone for USB_TRANSPORT_CHARACTERISTICS_CHANGE_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_TRANSPORT_CHARACTERISTICS_CHANGE_REGISTRATION {
     pub ChangeNotificationInputFlags: u32,
     pub Handle: USB_CHANGE_REGISTRATION_HANDLE,
     pub UsbTransportCharacteristics: USB_TRANSPORT_CHARACTERISTICS,
 }
-impl Copy for USB_TRANSPORT_CHARACTERISTICS_CHANGE_REGISTRATION {}
-impl Clone for USB_TRANSPORT_CHARACTERISTICS_CHANGE_REGISTRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_TRANSPORT_CHARACTERISTICS_CHANGE_UNREGISTRATION {
     pub Handle: USB_CHANGE_REGISTRATION_HANDLE,
 }
-impl Copy for USB_TRANSPORT_CHARACTERISTICS_CHANGE_UNREGISTRATION {}
-impl Clone for USB_TRANSPORT_CHARACTERISTICS_CHANGE_UNREGISTRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_UNICODE_NAME {
     pub Length: u32,
     pub String: [u16; 1],
 }
-impl Copy for USB_UNICODE_NAME {}
-impl Clone for USB_UNICODE_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct USB_USB2HW_VERSION_PARAMETERS {
     pub Usb2HwRevision: u8,
 }
-impl Copy for USB_USB2HW_VERSION_PARAMETERS {}
-impl Clone for USB_USB2HW_VERSION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type WINUSB_INTERFACE_HANDLE = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINUSB_PIPE_INFORMATION {
     pub PipeType: USBD_PIPE_TYPE,
     pub PipeId: u8,
     pub MaximumPacketSize: u16,
     pub Interval: u8,
 }
-impl Copy for WINUSB_PIPE_INFORMATION {}
-impl Clone for WINUSB_PIPE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINUSB_PIPE_INFORMATION_EX {
     pub PipeType: USBD_PIPE_TYPE,
     pub PipeId: u8,
@@ -3493,13 +2439,8 @@ pub struct WINUSB_PIPE_INFORMATION_EX {
     pub Interval: u8,
     pub MaximumBytesPerInterval: u32,
 }
-impl Copy for WINUSB_PIPE_INFORMATION_EX {}
-impl Clone for WINUSB_PIPE_INFORMATION_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WINUSB_SETUP_PACKET {
     pub RequestType: u8,
     pub Request: u8,
@@ -3507,13 +2448,8 @@ pub struct WINUSB_SETUP_PACKET {
     pub Index: u16,
     pub Length: u16,
 }
-impl Copy for WINUSB_SETUP_PACKET {}
-impl Clone for WINUSB_SETUP_PACKET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _URB_BULK_OR_INTERRUPT_TRANSFER {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: *mut core::ffi::c_void,
@@ -3524,13 +2460,8 @@ pub struct _URB_BULK_OR_INTERRUPT_TRANSFER {
     pub UrbLink: *mut URB,
     pub hca: _URB_HCD_AREA,
 }
-impl Copy for _URB_BULK_OR_INTERRUPT_TRANSFER {}
-impl Clone for _URB_BULK_OR_INTERRUPT_TRANSFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _URB_CONTROL_DESCRIPTOR_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -3546,13 +2477,8 @@ pub struct _URB_CONTROL_DESCRIPTOR_REQUEST {
     pub LanguageId: u16,
     pub Reserved2: u16,
 }
-impl Copy for _URB_CONTROL_DESCRIPTOR_REQUEST {}
-impl Clone for _URB_CONTROL_DESCRIPTOR_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _URB_CONTROL_FEATURE_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -3567,13 +2493,8 @@ pub struct _URB_CONTROL_FEATURE_REQUEST {
     pub Index: u16,
     pub Reserved1: u16,
 }
-impl Copy for _URB_CONTROL_FEATURE_REQUEST {}
-impl Clone for _URB_CONTROL_FEATURE_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _URB_CONTROL_GET_CONFIGURATION_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -3585,13 +2506,8 @@ pub struct _URB_CONTROL_GET_CONFIGURATION_REQUEST {
     pub hca: _URB_HCD_AREA,
     pub Reserved1: [u8; 8],
 }
-impl Copy for _URB_CONTROL_GET_CONFIGURATION_REQUEST {}
-impl Clone for _URB_CONTROL_GET_CONFIGURATION_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _URB_CONTROL_GET_INTERFACE_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -3605,13 +2521,8 @@ pub struct _URB_CONTROL_GET_INTERFACE_REQUEST {
     pub Interface: u16,
     pub Reserved2: u16,
 }
-impl Copy for _URB_CONTROL_GET_INTERFACE_REQUEST {}
-impl Clone for _URB_CONTROL_GET_INTERFACE_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _URB_CONTROL_GET_STATUS_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -3625,13 +2536,8 @@ pub struct _URB_CONTROL_GET_STATUS_REQUEST {
     pub Index: u16,
     pub Reserved2: u16,
 }
-impl Copy for _URB_CONTROL_GET_STATUS_REQUEST {}
-impl Clone for _URB_CONTROL_GET_STATUS_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _URB_CONTROL_TRANSFER {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: *mut core::ffi::c_void,
@@ -3643,13 +2549,8 @@ pub struct _URB_CONTROL_TRANSFER {
     pub hca: _URB_HCD_AREA,
     pub SetupPacket: [u8; 8],
 }
-impl Copy for _URB_CONTROL_TRANSFER {}
-impl Clone for _URB_CONTROL_TRANSFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _URB_CONTROL_TRANSFER_EX {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: *mut core::ffi::c_void,
@@ -3661,13 +2562,8 @@ pub struct _URB_CONTROL_TRANSFER_EX {
     pub hca: _URB_HCD_AREA,
     pub SetupPacket: [u8; 8],
 }
-impl Copy for _URB_CONTROL_TRANSFER_EX {}
-impl Clone for _URB_CONTROL_TRANSFER_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -3683,69 +2579,39 @@ pub struct _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
     pub Index: u16,
     pub Reserved1: u16,
 }
-impl Copy for _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {}
-impl Clone for _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _URB_FRAME_LENGTH_CONTROL {
     pub Hdr: _URB_HEADER,
 }
-impl Copy for _URB_FRAME_LENGTH_CONTROL {}
-impl Clone for _URB_FRAME_LENGTH_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _URB_GET_CURRENT_FRAME_NUMBER {
     pub Hdr: _URB_HEADER,
     pub FrameNumber: u32,
 }
-impl Copy for _URB_GET_CURRENT_FRAME_NUMBER {}
-impl Clone for _URB_GET_CURRENT_FRAME_NUMBER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _URB_GET_FRAME_LENGTH {
     pub Hdr: _URB_HEADER,
     pub FrameLength: u32,
     pub FrameNumber: u32,
 }
-impl Copy for _URB_GET_FRAME_LENGTH {}
-impl Clone for _URB_GET_FRAME_LENGTH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: *mut core::ffi::c_void,
     pub MaximumSendPathDelayInMilliSeconds: u32,
     pub MaximumCompletionPathDelayInMilliSeconds: u32,
 }
-impl Copy for _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {}
-impl Clone for _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _URB_HCD_AREA {
     pub Reserved8: [*mut core::ffi::c_void; 8],
 }
-impl Copy for _URB_HCD_AREA {}
-impl Clone for _URB_HCD_AREA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _URB_HEADER {
     pub Length: u16,
     pub Function: u16,
@@ -3753,13 +2619,8 @@ pub struct _URB_HEADER {
     pub UsbdDeviceHandle: *mut core::ffi::c_void,
     pub UsbdFlags: u32,
 }
-impl Copy for _URB_HEADER {}
-impl Clone for _URB_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _URB_ISOCH_TRANSFER {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: *mut core::ffi::c_void,
@@ -3774,13 +2635,8 @@ pub struct _URB_ISOCH_TRANSFER {
     pub ErrorCount: u32,
     pub IsoPacket: [USBD_ISO_PACKET_DESCRIPTOR; 1],
 }
-impl Copy for _URB_ISOCH_TRANSFER {}
-impl Clone for _URB_ISOCH_TRANSFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _URB_OPEN_STATIC_STREAMS {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: *mut core::ffi::c_void,
@@ -3789,13 +2645,8 @@ pub struct _URB_OPEN_STATIC_STREAMS {
     pub StreamInfoSize: u16,
     pub Streams: *mut USBD_STREAM_INFORMATION,
 }
-impl Copy for _URB_OPEN_STATIC_STREAMS {}
-impl Clone for _URB_OPEN_STATIC_STREAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -3812,58 +2663,32 @@ pub struct _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
     pub MS_FeatureDescriptorIndex: u16,
     pub Reserved3: u16,
 }
-impl Copy for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {}
-impl Clone for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _URB_PIPE_REQUEST {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: *mut core::ffi::c_void,
     pub Reserved: u32,
 }
-impl Copy for _URB_PIPE_REQUEST {}
-impl Clone for _URB_PIPE_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _URB_SELECT_CONFIGURATION {
     pub Hdr: _URB_HEADER,
     pub ConfigurationDescriptor: *mut USB_CONFIGURATION_DESCRIPTOR,
     pub ConfigurationHandle: *mut core::ffi::c_void,
     pub Interface: USBD_INTERFACE_INFORMATION,
 }
-impl Copy for _URB_SELECT_CONFIGURATION {}
-impl Clone for _URB_SELECT_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _URB_SELECT_INTERFACE {
     pub Hdr: _URB_HEADER,
     pub ConfigurationHandle: *mut core::ffi::c_void,
     pub Interface: USBD_INTERFACE_INFORMATION,
 }
-impl Copy for _URB_SELECT_INTERFACE {}
-impl Clone for _URB_SELECT_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _URB_SET_FRAME_LENGTH {
     pub Hdr: _URB_HEADER,
     pub FrameLengthDelta: i32,
-}
-impl Copy for _URB_SET_FRAME_LENGTH {}
-impl Clone for _URB_SET_FRAME_LENGTH {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type USB_IDLE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;

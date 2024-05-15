@@ -612,28 +612,19 @@ pub type SensorConnectionType = i32;
 pub type SensorState = i32;
 pub type SimpleDeviceOrientation = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MATRIX3X3 {
     pub Anonymous: MATRIX3X3_0,
 }
-impl Copy for MATRIX3X3 {}
-impl Clone for MATRIX3X3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MATRIX3X3_0 {
     pub Anonymous1: MATRIX3X3_0_0,
     pub Anonymous2: MATRIX3X3_0_1,
     pub M: [f32; 9],
 }
-impl Copy for MATRIX3X3_0 {}
-impl Clone for MATRIX3X3_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MATRIX3X3_0_0 {
     pub A11: f32,
     pub A12: f32,
@@ -645,94 +636,52 @@ pub struct MATRIX3X3_0_0 {
     pub A32: f32,
     pub A33: f32,
 }
-impl Copy for MATRIX3X3_0_0 {}
-impl Clone for MATRIX3X3_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MATRIX3X3_0_1 {
     pub V1: VEC3D,
     pub V2: VEC3D,
     pub V3: VEC3D,
 }
-impl Copy for MATRIX3X3_0_1 {}
-impl Clone for MATRIX3X3_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct QUATERNION {
     pub X: f32,
     pub Y: f32,
     pub Z: f32,
     pub W: f32,
 }
-impl Copy for QUATERNION {}
-impl Clone for QUATERNION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[derive(Clone, Copy)]
 pub struct SENSOR_COLLECTION_LIST {
     pub AllocatedSizeInBytes: u32,
     pub Count: u32,
     pub List: [SENSOR_VALUE_PAIR; 1],
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl Copy for SENSOR_COLLECTION_LIST {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl Clone for SENSOR_COLLECTION_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[derive(Clone, Copy)]
 pub struct SENSOR_PROPERTY_LIST {
     pub AllocatedSizeInBytes: u32,
     pub Count: u32,
     pub List: [super::super::UI::Shell::PropertiesSystem::PROPERTYKEY; 1],
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Copy for SENSOR_PROPERTY_LIST {}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Clone for SENSOR_PROPERTY_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[derive(Clone, Copy)]
 pub struct SENSOR_VALUE_PAIR {
     pub Key: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
     pub Value: super::super::System::Com::StructuredStorage::PROPVARIANT,
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl Copy for SENSOR_VALUE_PAIR {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl Clone for SENSOR_VALUE_PAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const Sensor: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe97ced00_523a_4133_bf6f_d3a2dae7f6ba);
 pub const SensorCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x79c43adb_a429_469f_aa39_2f2b74b75937);
 pub const SensorDataReport: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4ea9d6ef_694b_4218_8816_ccda8da74bba);
 pub const SensorManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x77a1c827_fcd2_4689_8915_9d613cc5fa3e);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VEC3D {
     pub X: f32,
     pub Y: f32,
     pub Z: f32,
-}
-impl Copy for VEC3D {}
-impl Clone for VEC3D {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
