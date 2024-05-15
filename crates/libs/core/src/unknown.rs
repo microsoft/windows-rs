@@ -76,6 +76,8 @@ pub trait IUnknownImpl {
     fn get_impl_mut(&mut self) -> &mut Self::Impl;
     fn count(&self) -> &WeakRefCount;
 
+    unsafe fn extract_inner(ptr: NonNull<Self>) -> Self::Impl;
+
     /// Gets the pointer to IUnknown.  This _does not_ increase the reference count.
     unsafe fn iunknown_ptr(&self) -> NonNull<c_void>;
 

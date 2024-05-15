@@ -10,9 +10,9 @@ mod sha1;
 mod waiter;
 mod weak_ref_count;
 
+pub use crate::com_object::ComImpl;
 pub use bindings::*;
 pub use can_into::*;
-pub use crate::box_ref::ComImpl;
 pub use com_bindings::*;
 pub use delay_load::*;
 pub use factory_cache::*;
@@ -108,4 +108,3 @@ pub const E_POINTER: crate::HRESULT = crate::HRESULT(-2147467261);
 
 #[doc(hidden)]
 pub const E_NOINTERFACE: crate::HRESULT = crate::HRESULT(-2147467262);
-

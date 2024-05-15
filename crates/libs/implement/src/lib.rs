@@ -155,6 +155,12 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                 &self.count
             }
 
+            unsafe fn extract_inner(ptr: ::core::ptr::NonNull<Self>) -> Self::Impl {
+                // read() moves the value.
+                let outer: Self = ptr.as_ptr().read();
+                outer.this
+            }
+
             unsafe fn iunknown_ptr(&self) -> ::core::ptr::NonNull<::core::ffi::c_void> {
                 ::core::ptr::NonNull::new_unchecked(&self.identity as *const _ as *mut _)
             }

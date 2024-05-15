@@ -14,17 +14,17 @@ pub unsafe trait ComImpl {
 ///
 /// This type exists so that you can place an object into the heap and query for COM interfaces,
 /// without losing the safe reference to the implementation object.
-pub struct BoxRef<T: ComImpl> {
+pub struct ComObject<T: ComImpl> {
     ptr: NonNull<T::Impl>,
 }
 
-impl<T: Default + ComImpl> Default for BoxRef<T> {
+impl<T: Default + ComImpl> Default for ComObject<T> {
     fn default() -> Self {
         Self::new(T::default())
     }
 }
 
-impl<T: ComImpl> Drop for BoxRef<T> {
+impl<T: ComImpl> Drop for ComObject<T> {
     fn drop(&mut self) {
         unsafe {
             T::Impl::Release(self.ptr.as_ptr());
@@ -32,7 +32,7 @@ impl<T: ComImpl> Drop for BoxRef<T> {
     }
 }
 
-impl<T: ComImpl> BoxRef<T> {
+impl<T: ComImpl> ComObject<T> {
     /// Allocates a heap cell (box) and moves `obj` into it. Returns a counted pointer to `obj`.
     pub fn new(value: T) -> Self {
         unsafe {
@@ -44,7 +44,7 @@ impl<T: ComImpl> BoxRef<T> {
 
     /// Gets a reference to the shared object stored in the box.
     ///
-    /// `BoxRef` also implements `Deref`, so you can often deref directly into the object.
+    /// `ComObject` also implements `Deref`, so you can often deref directly into the object.
     /// For those situations where using the `Deref` impl is inconvenient, you can use
     /// this method to explicitly get a reference to the contents.
     #[inline(always)]
@@ -66,6 +66,25 @@ impl<T: ComImpl> BoxRef<T> {
         }
     }
 
+    /// If this object has only a single object reference (i.e. this `ComObject` is the only
+    /// reference to the heap allocation), then this method will destroy the `ComObject` and will
+    /// return the inner implementation object, wrapped in `Ok`.
+    ///
+    /// If there is more than one reference to this object, then this returns `Err(self)`.
+    #[inline(always)]
+    pub fn try_take(self) -> Result<T, Self> {
+        unsafe {
+            let count = self.ptr.as_ref().count();
+            if count.is_one() {
+                let ptr = self.ptr;
+                core::mem::forget(self);
+                Ok(T::Impl::extract_inner(ptr))
+            } else {
+                Err(self)
+            }
+        }
+    }
+
     /// Casts to a given interface type.
     #[inline(always)]
     pub fn cast<J: Interface>(&self) -> windows_core::Result<J> {
@@ -77,7 +96,7 @@ impl<T: ComImpl> BoxRef<T> {
     }
 }
 
-impl<T: ComImpl> Clone for BoxRef<T> {
+impl<T: ComImpl> Clone for ComObject<T> {
     #[inline(always)]
     fn clone(&self) -> Self {
         unsafe {
@@ -87,7 +106,7 @@ impl<T: ComImpl> Clone for BoxRef<T> {
     }
 }
 
-impl<T: ComImpl> AsRef<T> for BoxRef<T>
+impl<T: ComImpl> AsRef<T> for ComObject<T>
 where
     IUnknown: From<T> + AsImpl<T>,
 {
@@ -97,11 +116,17 @@ where
     }
 }
 
-impl<T: ComImpl> core::ops::Deref for BoxRef<T> {
+impl<T: ComImpl> core::ops::Deref for ComObject<T> {
     type Target = T;
 
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         self.get()
+    }
+}
+
+impl<T: ComImpl> From<T> for ComObject<T> {
+    fn from(value: T) -> ComObject<T> {
+        ComObject::new(value)
     }
 }
