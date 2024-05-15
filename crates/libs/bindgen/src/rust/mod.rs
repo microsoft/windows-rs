@@ -186,10 +186,10 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
         match item {
             metadata::Item::Type(def) => {
                 let type_name = def.type_name();
-                if writer.reader.remap_type(&type_name).is_some() {
+                if writer.reader.remap_type(type_name).is_some() {
                     continue;
                 }
-                if writer.reader.core_type(&type_name).is_some() {
+                if writer.reader.core_type(type_name).is_some() {
                     continue;
                 }
                 types.entry(def.kind()).or_default().entry(type_name.name()).or_default().combine(&writer.type_def(def));
@@ -230,7 +230,7 @@ fn namespace_impl(writer: &Writer, tree: &Tree) -> String {
     for item in writer.reader.namespace_items(tree.namespace) {
         if let metadata::Item::Type(def) = item {
             let type_name = def.type_name();
-            if writer.reader.core_type(&type_name).is_some() {
+            if writer.reader.core_type(type_name).is_some() {
                 continue;
             }
             if def.kind() != metadata::TypeKind::Interface {
