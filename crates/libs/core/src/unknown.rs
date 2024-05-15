@@ -109,6 +109,37 @@ pub trait IUnknownImpl {
 
     /// Gets the trust level of the current object.
     unsafe fn GetTrustLevel(&self, value: *mut i32) -> HRESULT;
+
+    /// Given a reference to an inner type, returns a reference to the outer shared type.
+    ///
+    /// # Safety
+    ///
+    /// This function should only be called from methods that implement COM interfaces, i.e.
+    /// implementations of methods on `IFoo_Impl` traits.
+    // TODO: This can be made safe, if IFoo_Impl are moved to the Object_Impl types.
+    // That requires some substantial redesign, though.
+    unsafe fn from_inner_ref(inner: &Self::Impl) -> &Self;
+
+    /// Gets a borrowed reference to an interface that is implemented by this ComObject.
+    ///
+    /// The returned reference does not have an additional reference count.
+    /// You can AddRef it by calling to_owned().
+    #[inline(always)]
+    fn as_interface<I: Interface>(&self) -> InterfaceRef<'_, I>
+    where
+        Self: ComObjectInterface<I>,
+    {
+        <Self as ComObjectInterface<I>>::as_interface_ref(self)
+    }
+
+    /// Gets an owned (counted) reference to an interface that is implemented by this ComObject.
+    #[inline(always)]
+    fn to_interface<I: Interface>(&self) -> I
+    where
+        Self: ComObjectInterface<I>,
+    {
+        <Self as ComObjectInterface<I>>::as_interface_ref(self).to_owned()
+    }
 }
 
 impl IUnknown_Vtbl {

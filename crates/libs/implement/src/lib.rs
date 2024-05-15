@@ -82,6 +82,10 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
         }
     });
 
+    // The distance from the beginning of the generated type to the 'this' field, in units of pointers (not bytes).
+    let offset_of_this_in_pointers = 1 + attributes.implement.len();
+    let offset_of_this_in_pointers_token = proc_macro2::Literal::usize_unsuffixed(offset_of_this_in_pointers);
+
     let trust_level = proc_macro2::Literal::usize_unsuffixed(attributes.trust_level);
 
     let conversions = attributes.implement.iter().enumerate().map(|(enumerate, implement)| {
@@ -101,7 +105,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
 
             impl #generics ::windows_core::imp::ComObjectInterface<#interface_ident> for #impl_ident::#generics where #constraints {
                 #[inline(always)]
-                fn as_interface(&self) -> ::windows_core::InterfaceRef<'_, #interface_ident> {
+                fn as_interface_ref(&self) -> ::windows_core::InterfaceRef<'_, #interface_ident> {
                     unsafe {
                         let interface_ptr = &self.vtables.#offset;
                         ::core::mem::transmute(interface_ptr)
@@ -233,6 +237,11 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                 *value = #trust_level;
                 ::windows_core::HRESULT(0)
             }
+
+            unsafe fn from_inner_ref(inner: &Self::Impl) -> &Self {
+                &*((inner as *const Self::Impl as *const *const ::core::ffi::c_void)
+                    .sub(#offset_of_this_in_pointers_token) as *const Self)
+            }
         }
 
         impl #generics #original_ident::#generics where #constraints {
@@ -275,7 +284,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
 
         impl #generics ::windows_core::imp::ComObjectInterface<::windows_core::IUnknown> for #impl_ident::#generics where #constraints {
             #[inline(always)]
-            fn as_interface(&self) -> ::windows_core::InterfaceRef<'_, ::windows_core::IUnknown> {
+            fn as_interface_ref(&self) -> ::windows_core::InterfaceRef<'_, ::windows_core::IUnknown> {
                 unsafe {
                     let interface_ptr = &self.identity;
                     ::core::mem::transmute(interface_ptr)

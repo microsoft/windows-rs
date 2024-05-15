@@ -11,9 +11,8 @@ use std::borrow::Borrow;
 ///
 /// This trait is an implementation detail of the Windows crates.
 /// User code should not deal directly with this trait.
-#[allow(missing_docs)]
 pub unsafe trait ComImpl {
-    // The generated <foo>_Impl type (aka the "boxed" type or "outer" type)
+    /// The generated `<foo>_Impl` type (aka the "boxed" type or "outer" type).
     type Outer: IUnknownImpl<Impl = Self>;
 }
 
@@ -26,7 +25,7 @@ pub unsafe trait ComImpl {
 /// User code should not deal directly with this trait.
 pub trait ComObjectInterface<I: Interface> {
     /// Gets a borrowed interface on the ComObject.
-    fn as_interface(&self) -> InterfaceRef<'_, I>;
+    fn as_interface_ref(&self) -> InterfaceRef<'_, I>;
 }
 
 /// A counted pointer to a type that implements COM interfaces, where the object has been
@@ -136,7 +135,7 @@ impl<T: ComImpl> ComObject<T> {
     where
         T::Outer: ComObjectInterface<I>,
     {
-        self.get_box().as_interface()
+        self.get_box().as_interface_ref()
     }
 
     /// Gets an owned (counted) reference to an interface that is implemented by this ComObject.
@@ -157,7 +156,7 @@ impl<T: ComImpl> ComObject<T> {
         T::Outer: ComObjectInterface<I>,
     {
         unsafe {
-            let raw = self.get_box().as_interface().as_raw();
+            let raw = self.get_box().as_interface_ref().as_raw();
             core::mem::forget(self);
             I::from_raw(raw)
         }

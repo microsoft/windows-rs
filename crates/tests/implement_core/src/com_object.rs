@@ -3,17 +3,43 @@
 use std::borrow::Borrow;
 use std::sync::atomic::{AtomicBool, Ordering::SeqCst};
 use std::sync::Arc;
-use windows_core::{implement, interface, ComObject, IUnknown, IUnknown_Vtbl};
+use windows_core::{
+    implement, interface, ComObject, IUnknown, IUnknownImpl, IUnknown_Vtbl, InterfaceRef,
+};
 
 #[interface("818f2fd1-d479-4398-b286-a93c4c7904d1")]
 unsafe trait IFoo: IUnknown {
     fn get_x(&self) -> u32;
+
+    fn get_self_as_bar(&self) -> IBar;
 }
 
-#[implement(IFoo)]
+#[interface("687eb4b2-6df6-41a3-86c7-4b04b94ad2d8")]
+unsafe trait IBar: IUnknown {
+    fn say_hello(&self);
+}
+
+#[implement(IFoo, IBar)]
 struct MyApp {
     x: u32,
     tombstone: Arc<Tombstone>,
+}
+
+impl IFoo_Impl for MyApp {
+    unsafe fn get_x(&self) -> u32 {
+        self.x
+    }
+
+    unsafe fn get_self_as_bar(&self) -> IBar {
+        let outer = MyApp_Impl::from_inner_ref(self);
+        outer.to_interface()
+    }
+}
+
+impl IBar_Impl for MyApp {
+    unsafe fn say_hello(&self) {
+        println!("Hello!");
+    }
 }
 
 impl Borrow<u32> for MyApp {
@@ -100,12 +126,6 @@ impl Drop for MyApp {
     fn drop(&mut self) {
         println!("MyApp::drop");
         self.tombstone.mark_dead();
-    }
-}
-
-impl IFoo_Impl for MyApp {
-    unsafe fn get_x(&self) -> u32 {
-        self.x
     }
 }
 
@@ -303,4 +323,12 @@ fn hashable() {
     let mut map: HashMap<ComObject<MyApp>, &'static str> = HashMap::new();
     map.insert(MyApp::new(100), "hello");
     map.insert(MyApp::new(200), "world");
+}
+
+#[test]
+fn from_inner_ref() {
+    let app = MyApp::new(42);
+    let ifoo: InterfaceRef<IFoo> = app.as_interface();
+    let ibar: IBar = unsafe { ifoo.get_self_as_bar() };
+    unsafe { ibar.say_hello() };
 }
