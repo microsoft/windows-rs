@@ -97,6 +97,16 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                     unsafe { ::core::mem::transmute(vtable_ptr) }
                 }
             }
+
+            impl #generics ::windows_core::imp::ComObjectInterface<#interface_ident> for #impl_ident::#generics where #constraints {
+                fn get_interface(&self) -> ::windows_core::Ref<'_, #interface_ident> {
+                    unsafe {
+                        let vtable_ptr = &self.vtables.#offset;
+                        ::core::mem::transmute(vtable_ptr)
+                    }
+                }
+            }
+
             impl #generics ::windows_core::AsImpl<#original_ident::#generics> for #interface_ident where #constraints {
                 // SAFETY: the offset is guranteed to be in bounds, and the implementation struct
                 // is guaranteed to live at least as long as `self`.
@@ -256,6 +266,16 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                 ::core::ptr::NonNull::new_unchecked(::core::ptr::addr_of!((*this).this) as *const #original_ident::#generics as *mut #original_ident::#generics)
             }
         }
+
+        impl #generics ::core::ops::Deref for #impl_ident::#generics where #constraints {
+            type Target = #original_ident::#generics;
+
+            #[inline(always)]
+            fn deref(&self) -> &Self::Target {
+                ::windows_core::IUnknownImpl::get_impl(self)
+            }
+        }
+
         #(#conversions)*
     };
 

@@ -75,7 +75,7 @@ fn basic() {
     assert_eq!(unsafe { ifoo.get_x() }, 42);
 
     // check lifetimes
-    let tombstone = app.tombstone.clone();
+    let tombstone = app.get().tombstone.clone();
     assert!(!tombstone.is_dead());
 
     drop(app);
@@ -91,11 +91,12 @@ fn basic() {
 #[test]
 fn casting() {
     let app: ComObject<MyApp> = MyApp::new(42);
+    let tombstone = app.get().tombstone.clone();
+
     let ifoo: IFoo = app.cast().unwrap();
-    assert_eq!(unsafe { app.get_x() }, 42);
+    assert_eq!(unsafe { app.get().get_x() }, 42);
 
     // check lifetimes
-    let tombstone = app.tombstone.clone();
     assert!(!tombstone.is_dead());
 
     drop(app);
@@ -139,7 +140,7 @@ fn get_mut() {
 #[test]
 fn try_take() {
     let app: ComObject<MyApp> = MyApp::new(42);
-    let tombstone = app.tombstone.clone();
+    let tombstone = app.get().tombstone.clone();
     // refcount = 1
 
     let app2 = app.clone();
@@ -167,6 +168,14 @@ fn try_take() {
             panic!("try_take should have succeeded");
         }
     }
+}
+
+#[test]
+fn object_interfaces() {
+    let app = MyApp::new(42);
+    let ifoo_ref = app.borrow_interface::<IFoo>();
+    let ifoo = ifoo_ref.ok().unwrap();
+    assert_eq!(unsafe { ifoo.get_x() }, 42);
 }
 
 #[test]

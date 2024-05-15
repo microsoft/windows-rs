@@ -1,4 +1,4 @@
-use crate::{AsImpl, IUnknown, IUnknownImpl, Interface};
+use crate::{AsImpl, IUnknown, IUnknownImpl, Interface, Ref};
 use core::mem::ManuallyDrop;
 use core::ptr::NonNull;
 
@@ -7,6 +7,13 @@ use core::ptr::NonNull;
 pub unsafe trait ComImpl {
     // The generated <foo>_Impl type (aka the "boxed" type)
     type Impl: IUnknownImpl<Impl = Self>;
+}
+
+/// Describes the COM interfaces that a specific ComObject implements.
+/// This trait is implemented by ComObject implementation obejcts (e.g. `MyApp_Impl`).
+pub trait ComObjectInterface<I: Interface> {
+    /// Gets a borrowed interface on the ComObject.
+    fn get_interface(&self) -> Ref<'_, I>;
 }
 
 /// A counted pointed to a type that implements COM interfaces, where the object has been
@@ -49,7 +56,13 @@ impl<T: ComImpl> ComObject<T> {
     /// this method to explicitly get a reference to the contents.
     #[inline(always)]
     pub fn get(&self) -> &T {
-        unsafe { self.ptr.as_ref().get_impl() }
+        self.get_box().get_impl()
+    }
+
+    /// Gets a reference to the shared object's heap box.
+    #[inline(always)]
+    pub fn get_box(&self) -> &T::Impl {
+        unsafe { self.ptr.as_ref() }
     }
 
     /// Gets a mutable reference to the object stored in the box, if the reference count
@@ -94,6 +107,29 @@ impl<T: ComImpl> ComObject<T> {
             unknown.cast()
         }
     }
+
+    /// Gets a reference to an interface that is implemented by this ComObject.
+    ///
+    /// The returned reference does not have an additional reference count.
+    /// You can AddRef it by calling clone().
+    pub fn borrow_interface<I: Interface>(&self) -> Ref<'_, I>
+    where
+        T::Impl: ComObjectInterface<I>,
+    {
+        self.get_box().get_interface()
+    }
+
+    /// Gets a counted reference to an interface that is implemented by this ComObject.
+    pub fn get_interface<I: Interface>(&self) -> I
+    where
+        I: Clone,
+        T::Impl: ComObjectInterface<I>,
+    {
+        let interface_ref: Ref<'_, I> = self.get_box().get_interface();
+        let interface_inner: &I = interface_ref.ok().unwrap();
+        interface_inner.clone()
+    }
+
 }
 
 impl<T: ComImpl> Clone for ComObject<T> {
@@ -116,12 +152,12 @@ where
     }
 }
 
-impl<T: ComImpl> core::ops::Deref for ComObject<T> {
-    type Target = T;
+impl<T: ComImpl<Impl = T>> core::ops::Deref for ComObject<T> {
+    type Target = T::Impl;
 
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
-        self.get()
+        self.get_box()
     }
 }
 
