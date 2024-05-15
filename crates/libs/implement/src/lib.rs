@@ -149,7 +149,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             }
         }
 
-        unsafe impl #generics ::windows_core::imp::ComImpl for #original_ident::#generics where #constraints {
+        impl #generics ::windows_core::imp::ComImpl for #original_ident::#generics where #constraints {
             type Outer = #impl_ident::#generics;
         }
 

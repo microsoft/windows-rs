@@ -190,8 +190,7 @@ impl<'a, I: Interface> InterfaceRef<'a, I> {
     /// Calls AddRef on the underlying COM interface and returns an "owned" (counted) reference.
     #[inline(always)]
     pub fn to_owned(self) -> I {
-        let interface: &I = &*self;
-        interface.clone()
+        (*self).clone()
     }
 }
 

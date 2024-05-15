@@ -11,7 +11,7 @@ use std::borrow::Borrow;
 ///
 /// This trait is an implementation detail of the Windows crates.
 /// User code should not deal directly with this trait.
-pub unsafe trait ComImpl {
+pub trait ComImpl {
     /// The generated `<foo>_Impl` type (aka the "boxed" type or "outer" type).
     type Outer: IUnknownImpl<Impl = Self>;
 }
