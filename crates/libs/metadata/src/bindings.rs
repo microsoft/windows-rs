@@ -28,6 +28,7 @@ pub const ELEMENT_TYPE_VALUETYPE: CorElementType = 17u8;
 pub const ELEMENT_TYPE_VAR: CorElementType = 19u8;
 pub const ELEMENT_TYPE_VOID: CorElementType = 1u8;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_COR20_HEADER {
     pub cb: u32,
     pub MajorRuntimeVersion: u16,
@@ -42,33 +43,17 @@ pub struct IMAGE_COR20_HEADER {
     pub ExportAddressTableJumps: IMAGE_DATA_DIRECTORY,
     pub ManagedNativeHeader: IMAGE_DATA_DIRECTORY,
 }
-impl Copy for IMAGE_COR20_HEADER {}
-impl Clone for IMAGE_COR20_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IMAGE_COR20_HEADER_0 {
     pub EntryPointToken: u32,
     pub EntryPointRVA: u32,
 }
-impl Copy for IMAGE_COR20_HEADER_0 {}
-impl Clone for IMAGE_COR20_HEADER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_DATA_DIRECTORY {
     pub VirtualAddress: u32,
     pub Size: u32,
-}
-impl Copy for IMAGE_DATA_DIRECTORY {}
-impl Clone for IMAGE_DATA_DIRECTORY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type IMAGE_DIRECTORY_ENTRY = u16;
 pub const IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR: IMAGE_DIRECTORY_ENTRY = 14u16;
@@ -77,6 +62,7 @@ pub const IMAGE_DLLCHARACTERISTICS_NO_SEH: IMAGE_DLL_CHARACTERISTICS = 1024u16;
 pub const IMAGE_DLLCHARACTERISTICS_NX_COMPAT: IMAGE_DLL_CHARACTERISTICS = 256u16;
 pub type IMAGE_DLL_CHARACTERISTICS = u16;
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_DOS_HEADER {
     pub e_magic: u16,
     pub e_cblp: u16,
@@ -98,18 +84,13 @@ pub struct IMAGE_DOS_HEADER {
     pub e_res2: [u16; 10],
     pub e_lfanew: i32,
 }
-impl Copy for IMAGE_DOS_HEADER {}
-impl Clone for IMAGE_DOS_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const IMAGE_DOS_SIGNATURE: u16 = 23117u16;
 pub const IMAGE_FILE_32BIT_MACHINE: IMAGE_FILE_CHARACTERISTICS = 256u16;
 pub type IMAGE_FILE_CHARACTERISTICS = u16;
 pub const IMAGE_FILE_DLL: IMAGE_FILE_CHARACTERISTICS = 8192u16;
 pub const IMAGE_FILE_EXECUTABLE_IMAGE: IMAGE_FILE_CHARACTERISTICS = 2u16;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_FILE_HEADER {
     pub Machine: IMAGE_FILE_MACHINE,
     pub NumberOfSections: u16,
@@ -119,18 +100,13 @@ pub struct IMAGE_FILE_HEADER {
     pub SizeOfOptionalHeader: u16,
     pub Characteristics: IMAGE_FILE_CHARACTERISTICS,
 }
-impl Copy for IMAGE_FILE_HEADER {}
-impl Clone for IMAGE_FILE_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type IMAGE_FILE_MACHINE = u16;
 pub const IMAGE_FILE_MACHINE_I386: IMAGE_FILE_MACHINE = 332u16;
 pub const IMAGE_NT_OPTIONAL_HDR32_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = 267u16;
 pub const IMAGE_NT_OPTIONAL_HDR64_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = 523u16;
 pub const IMAGE_NT_SIGNATURE: u32 = 17744u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_OPTIONAL_HEADER32 {
     pub Magic: IMAGE_OPTIONAL_HEADER_MAGIC,
     pub MajorLinkerVersion: u8,
@@ -164,13 +140,8 @@ pub struct IMAGE_OPTIONAL_HEADER32 {
     pub NumberOfRvaAndSizes: u32,
     pub DataDirectory: [IMAGE_DATA_DIRECTORY; 16],
 }
-impl Copy for IMAGE_OPTIONAL_HEADER32 {}
-impl Clone for IMAGE_OPTIONAL_HEADER32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_OPTIONAL_HEADER64 {
     pub Magic: IMAGE_OPTIONAL_HEADER_MAGIC,
     pub MajorLinkerVersion: u8,
@@ -203,15 +174,10 @@ pub struct IMAGE_OPTIONAL_HEADER64 {
     pub NumberOfRvaAndSizes: u32,
     pub DataDirectory: [IMAGE_DATA_DIRECTORY; 16],
 }
-impl Copy for IMAGE_OPTIONAL_HEADER64 {}
-impl Clone for IMAGE_OPTIONAL_HEADER64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type IMAGE_OPTIONAL_HEADER_MAGIC = u16;
 pub type IMAGE_SECTION_CHARACTERISTICS = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_SECTION_HEADER {
     pub Name: [u8; 8],
     pub Misc: IMAGE_SECTION_HEADER_0,
@@ -224,22 +190,11 @@ pub struct IMAGE_SECTION_HEADER {
     pub NumberOfLinenumbers: u16,
     pub Characteristics: IMAGE_SECTION_CHARACTERISTICS,
 }
-impl Copy for IMAGE_SECTION_HEADER {}
-impl Clone for IMAGE_SECTION_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IMAGE_SECTION_HEADER_0 {
     pub PhysicalAddress: u32,
     pub VirtualSize: u32,
-}
-impl Copy for IMAGE_SECTION_HEADER_0 {}
-impl Clone for IMAGE_SECTION_HEADER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type IMAGE_SUBSYSTEM = u16;
 pub const IMAGE_SUBSYSTEM_WINDOWS_CUI: IMAGE_SUBSYSTEM = 3u16;
