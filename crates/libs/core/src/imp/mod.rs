@@ -102,9 +102,3 @@ pub use define_interface;
 
 #[doc(hidden)]
 pub use std::boxed::Box;
-
-#[doc(hidden)]
-pub const E_POINTER: crate::HRESULT = crate::HRESULT(0x80004003u32 as i32);
-
-#[doc(hidden)]
-pub const E_NOINTERFACE: crate::HRESULT = crate::HRESULT(0x80004002u32 as i32);
