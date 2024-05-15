@@ -156,6 +156,7 @@ impl core::fmt::Debug for NS_REQS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct CMD_ENTRY {
     pub pwszCmdToken: windows_core::PCWSTR,
     pub pfnCmdHandler: PFN_HANDLE_CMD,
@@ -164,17 +165,6 @@ pub struct CMD_ENTRY {
     pub dwFlags: u32,
     pub pOsVersionCheck: PNS_OSVERSIONCHECK,
     pub pfnCustomHelpFn: PFN_CUSTOM_HELP,
-}
-impl Copy for CMD_ENTRY {}
-impl Clone for CMD_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMD_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMD_ENTRY").field("pwszCmdToken", &self.pwszCmdToken).field("dwShortCmdHelpToken", &self.dwShortCmdHelpToken).field("dwCmdHlpToken", &self.dwCmdHlpToken).field("dwFlags", &self.dwFlags).finish()
-    }
 }
 impl windows_core::TypeKind for CMD_ENTRY {
     type TypeKind = windows_core::CopyType;
@@ -185,6 +175,7 @@ impl Default for CMD_ENTRY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct CMD_GROUP_ENTRY {
     pub pwszCmdGroupToken: windows_core::PCWSTR,
     pub dwShortCmdHelpToken: u32,
@@ -192,17 +183,6 @@ pub struct CMD_GROUP_ENTRY {
     pub dwFlags: u32,
     pub pCmdGroup: *mut CMD_ENTRY,
     pub pOsVersionCheck: PNS_OSVERSIONCHECK,
-}
-impl Copy for CMD_GROUP_ENTRY {}
-impl Clone for CMD_GROUP_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMD_GROUP_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMD_GROUP_ENTRY").field("pwszCmdGroupToken", &self.pwszCmdGroupToken).field("dwShortCmdHelpToken", &self.dwShortCmdHelpToken).field("ulCmdGroupSize", &self.ulCmdGroupSize).field("dwFlags", &self.dwFlags).field("pCmdGroup", &self.pCmdGroup).finish()
-    }
 }
 impl windows_core::TypeKind for CMD_GROUP_ENTRY {
     type TypeKind = windows_core::CopyType;
@@ -213,6 +193,7 @@ impl Default for CMD_GROUP_ENTRY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NS_CONTEXT_ATTRIBUTES {
     pub Anonymous: NS_CONTEXT_ATTRIBUTES_0,
     pub pwszContext: windows_core::PWSTR,
@@ -229,12 +210,6 @@ pub struct NS_CONTEXT_ATTRIBUTES {
     pub pReserved: *mut core::ffi::c_void,
     pub pfnOsVersionCheck: PNS_OSVERSIONCHECK,
 }
-impl Copy for NS_CONTEXT_ATTRIBUTES {}
-impl Clone for NS_CONTEXT_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for NS_CONTEXT_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
@@ -244,15 +219,10 @@ impl Default for NS_CONTEXT_ATTRIBUTES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union NS_CONTEXT_ATTRIBUTES_0 {
     pub Anonymous: NS_CONTEXT_ATTRIBUTES_0_0,
     pub _ullAlign: u64,
-}
-impl Copy for NS_CONTEXT_ATTRIBUTES_0 {}
-impl Clone for NS_CONTEXT_ATTRIBUTES_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for NS_CONTEXT_ATTRIBUTES_0 {
     type TypeKind = windows_core::CopyType;
@@ -263,47 +233,26 @@ impl Default for NS_CONTEXT_ATTRIBUTES_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NS_CONTEXT_ATTRIBUTES_0_0 {
     pub dwVersion: u32,
     pub dwReserved: u32,
 }
-impl Copy for NS_CONTEXT_ATTRIBUTES_0_0 {}
-impl Clone for NS_CONTEXT_ATTRIBUTES_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NS_CONTEXT_ATTRIBUTES_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NS_CONTEXT_ATTRIBUTES_0_0").field("dwVersion", &self.dwVersion).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 impl windows_core::TypeKind for NS_CONTEXT_ATTRIBUTES_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NS_CONTEXT_ATTRIBUTES_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for NS_CONTEXT_ATTRIBUTES_0_0 {}
 impl Default for NS_CONTEXT_ATTRIBUTES_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NS_HELPER_ATTRIBUTES {
     pub Anonymous: NS_HELPER_ATTRIBUTES_0,
     pub guidHelper: windows_core::GUID,
     pub pfnStart: PNS_HELPER_START_FN,
     pub pfnStop: PNS_HELPER_STOP_FN,
-}
-impl Copy for NS_HELPER_ATTRIBUTES {}
-impl Clone for NS_HELPER_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for NS_HELPER_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
@@ -314,15 +263,10 @@ impl Default for NS_HELPER_ATTRIBUTES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union NS_HELPER_ATTRIBUTES_0 {
     pub Anonymous: NS_HELPER_ATTRIBUTES_0_0,
     pub _ullAlign: u64,
-}
-impl Copy for NS_HELPER_ATTRIBUTES_0 {}
-impl Clone for NS_HELPER_ATTRIBUTES_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for NS_HELPER_ATTRIBUTES_0 {
     type TypeKind = windows_core::CopyType;
@@ -333,91 +277,43 @@ impl Default for NS_HELPER_ATTRIBUTES_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NS_HELPER_ATTRIBUTES_0_0 {
     pub dwVersion: u32,
     pub dwReserved: u32,
 }
-impl Copy for NS_HELPER_ATTRIBUTES_0_0 {}
-impl Clone for NS_HELPER_ATTRIBUTES_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NS_HELPER_ATTRIBUTES_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NS_HELPER_ATTRIBUTES_0_0").field("dwVersion", &self.dwVersion).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 impl windows_core::TypeKind for NS_HELPER_ATTRIBUTES_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NS_HELPER_ATTRIBUTES_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for NS_HELPER_ATTRIBUTES_0_0 {}
 impl Default for NS_HELPER_ATTRIBUTES_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TAG_TYPE {
     pub pwszTag: windows_core::PCWSTR,
     pub dwRequired: u32,
     pub bPresent: super::super::Foundation::BOOL,
 }
-impl Copy for TAG_TYPE {}
-impl Clone for TAG_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TAG_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TAG_TYPE").field("pwszTag", &self.pwszTag).field("dwRequired", &self.dwRequired).field("bPresent", &self.bPresent).finish()
-    }
-}
 impl windows_core::TypeKind for TAG_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TAG_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszTag == other.pwszTag && self.dwRequired == other.dwRequired && self.bPresent == other.bPresent
-    }
-}
-impl Eq for TAG_TYPE {}
 impl Default for TAG_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_VALUE {
     pub pwszToken: windows_core::PCWSTR,
     pub dwValue: u32,
 }
-impl Copy for TOKEN_VALUE {}
-impl Clone for TOKEN_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOKEN_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOKEN_VALUE").field("pwszToken", &self.pwszToken).field("dwValue", &self.dwValue).finish()
-    }
-}
 impl windows_core::TypeKind for TOKEN_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOKEN_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszToken == other.pwszToken && self.dwValue == other.dwValue
-    }
-}
-impl Eq for TOKEN_VALUE {}
 impl Default for TOKEN_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

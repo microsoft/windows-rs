@@ -13739,6 +13739,7 @@ impl core::fmt::Debug for XEKL_KEYSPEC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAINFO {
     pub cbSize: u32,
     pub CAType: ENUM_CATYPES,
@@ -13751,37 +13752,9 @@ pub struct CAINFO {
     pub cKRACertCount: u32,
     pub fAdvancedServer: u32,
 }
-impl Copy for CAINFO {}
-impl Clone for CAINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CAINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CAINFO")
-            .field("cbSize", &self.cbSize)
-            .field("CAType", &self.CAType)
-            .field("cCASignatureCerts", &self.cCASignatureCerts)
-            .field("cCAExchangeCerts", &self.cCAExchangeCerts)
-            .field("cExitModules", &self.cExitModules)
-            .field("lPropIdMax", &self.lPropIdMax)
-            .field("lRoleSeparationEnabled", &self.lRoleSeparationEnabled)
-            .field("cKRACertUsedCount", &self.cKRACertUsedCount)
-            .field("cKRACertCount", &self.cKRACertCount)
-            .field("fAdvancedServer", &self.fAdvancedServer)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for CAINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CAINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.CAType == other.CAType && self.cCASignatureCerts == other.cCASignatureCerts && self.cCAExchangeCerts == other.cCAExchangeCerts && self.cExitModules == other.cExitModules && self.lPropIdMax == other.lPropIdMax && self.lRoleSeparationEnabled == other.lRoleSeparationEnabled && self.cKRACertUsedCount == other.cKRACertUsedCount && self.cKRACertCount == other.cKRACertCount && self.fAdvancedServer == other.fAdvancedServer
-    }
-}
-impl Eq for CAINFO {}
 impl Default for CAINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13826,36 +13799,21 @@ pub const CCspInformation: windows_core::GUID = windows_core::GUID::from_u128(0x
 pub const CCspInformations: windows_core::GUID = windows_core::GUID::from_u128(0x884e2008_217d_11da_b2a4_000e7bbb2b09);
 pub const CCspStatus: windows_core::GUID = windows_core::GUID::from_u128(0x884e2009_217d_11da_b2a4_000e7bbb2b09);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERTTRANSBLOB {
     pub cb: u32,
     pub pb: *mut u8,
 }
-impl Copy for CERTTRANSBLOB {}
-impl Clone for CERTTRANSBLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERTTRANSBLOB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERTTRANSBLOB").field("cb", &self.cb).field("pb", &self.pb).finish()
-    }
-}
 impl windows_core::TypeKind for CERTTRANSBLOB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERTTRANSBLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.pb == other.pb
-    }
-}
-impl Eq for CERTTRANSBLOB {}
 impl Default for CERTTRANSBLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERTVIEWRESTRICTION {
     pub ColumnIndex: u32,
     pub SeekOperator: i32,
@@ -13863,26 +13821,9 @@ pub struct CERTVIEWRESTRICTION {
     pub pbValue: *mut u8,
     pub cbValue: u32,
 }
-impl Copy for CERTVIEWRESTRICTION {}
-impl Clone for CERTVIEWRESTRICTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERTVIEWRESTRICTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERTVIEWRESTRICTION").field("ColumnIndex", &self.ColumnIndex).field("SeekOperator", &self.SeekOperator).field("SortOrder", &self.SortOrder).field("pbValue", &self.pbValue).field("cbValue", &self.cbValue).finish()
-    }
-}
 impl windows_core::TypeKind for CERTVIEWRESTRICTION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERTVIEWRESTRICTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ColumnIndex == other.ColumnIndex && self.SeekOperator == other.SeekOperator && self.SortOrder == other.SortOrder && self.pbValue == other.pbValue && self.cbValue == other.cbValue
-    }
-}
-impl Eq for CERTVIEWRESTRICTION {}
 impl Default for CERTVIEWRESTRICTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13895,30 +13836,14 @@ pub const CObjectIds: windows_core::GUID = windows_core::GUID::from_u128(0x884e2
 pub const CPolicyQualifier: windows_core::GUID = windows_core::GUID::from_u128(0x884e201c_217d_11da_b2a4_000e7bbb2b09);
 pub const CPolicyQualifiers: windows_core::GUID = windows_core::GUID::from_u128(0x884e201d_217d_11da_b2a4_000e7bbb2b09);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CSEDB_RSTMAPW {
     pub pwszDatabaseName: windows_core::PWSTR,
     pub pwszNewDatabaseName: windows_core::PWSTR,
 }
-impl Copy for CSEDB_RSTMAPW {}
-impl Clone for CSEDB_RSTMAPW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CSEDB_RSTMAPW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CSEDB_RSTMAPW").field("pwszDatabaseName", &self.pwszDatabaseName).field("pwszNewDatabaseName", &self.pwszNewDatabaseName).finish()
-    }
-}
 impl windows_core::TypeKind for CSEDB_RSTMAPW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CSEDB_RSTMAPW {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszDatabaseName == other.pwszDatabaseName && self.pwszNewDatabaseName == other.pwszNewDatabaseName
-    }
-}
-impl Eq for CSEDB_RSTMAPW {}
 impl Default for CSEDB_RSTMAPW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

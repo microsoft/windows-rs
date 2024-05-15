@@ -1501,17 +1501,12 @@ impl core::fmt::Debug for VENDORPROPERTIES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RADIUS_ATTRIBUTE {
     pub dwAttrType: u32,
     pub fDataType: RADIUS_DATA_TYPE,
     pub cbDataLength: u32,
     pub Anonymous: RADIUS_ATTRIBUTE_0,
-}
-impl Copy for RADIUS_ATTRIBUTE {}
-impl Clone for RADIUS_ATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RADIUS_ATTRIBUTE {
     type TypeKind = windows_core::CopyType;
@@ -1522,15 +1517,10 @@ impl Default for RADIUS_ATTRIBUTE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union RADIUS_ATTRIBUTE_0 {
     pub dwValue: u32,
     pub lpValue: *const u8,
-}
-impl Copy for RADIUS_ATTRIBUTE_0 {}
-impl Clone for RADIUS_ATTRIBUTE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RADIUS_ATTRIBUTE_0 {
     type TypeKind = windows_core::CopyType;
@@ -1541,6 +1531,7 @@ impl Default for RADIUS_ATTRIBUTE_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RADIUS_ATTRIBUTE_ARRAY {
     pub cbSize: u32,
     pub Add: isize,
@@ -1550,32 +1541,16 @@ pub struct RADIUS_ATTRIBUTE_ARRAY {
     pub RemoveAt: isize,
     pub SetAt: isize,
 }
-impl Copy for RADIUS_ATTRIBUTE_ARRAY {}
-impl Clone for RADIUS_ATTRIBUTE_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RADIUS_ATTRIBUTE_ARRAY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RADIUS_ATTRIBUTE_ARRAY").field("cbSize", &self.cbSize).field("Add", &self.Add).field("AttributeAt", &self.AttributeAt).field("GetSize", &self.GetSize).field("InsertAt", &self.InsertAt).field("RemoveAt", &self.RemoveAt).field("SetAt", &self.SetAt).finish()
-    }
-}
 impl windows_core::TypeKind for RADIUS_ATTRIBUTE_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RADIUS_ATTRIBUTE_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.Add == other.Add && self.AttributeAt == other.AttributeAt && self.GetSize == other.GetSize && self.InsertAt == other.InsertAt && self.RemoveAt == other.RemoveAt && self.SetAt == other.SetAt
-    }
-}
-impl Eq for RADIUS_ATTRIBUTE_ARRAY {}
 impl Default for RADIUS_ATTRIBUTE_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RADIUS_EXTENSION_CONTROL_BLOCK {
     pub cbSize: u32,
     pub dwVersion: u32,
@@ -1586,58 +1561,25 @@ pub struct RADIUS_EXTENSION_CONTROL_BLOCK {
     pub GetResponse: isize,
     pub SetResponseType: isize,
 }
-impl Copy for RADIUS_EXTENSION_CONTROL_BLOCK {}
-impl Clone for RADIUS_EXTENSION_CONTROL_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RADIUS_EXTENSION_CONTROL_BLOCK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RADIUS_EXTENSION_CONTROL_BLOCK").field("cbSize", &self.cbSize).field("dwVersion", &self.dwVersion).field("repPoint", &self.repPoint).field("rcRequestType", &self.rcRequestType).field("rcResponseType", &self.rcResponseType).field("GetRequest", &self.GetRequest).field("GetResponse", &self.GetResponse).field("SetResponseType", &self.SetResponseType).finish()
-    }
-}
 impl windows_core::TypeKind for RADIUS_EXTENSION_CONTROL_BLOCK {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RADIUS_EXTENSION_CONTROL_BLOCK {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwVersion == other.dwVersion && self.repPoint == other.repPoint && self.rcRequestType == other.rcRequestType && self.rcResponseType == other.rcResponseType && self.GetRequest == other.GetRequest && self.GetResponse == other.GetResponse && self.SetResponseType == other.SetResponseType
-    }
-}
-impl Eq for RADIUS_EXTENSION_CONTROL_BLOCK {}
 impl Default for RADIUS_EXTENSION_CONTROL_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RADIUS_VSA_FORMAT {
     pub VendorId: [u8; 4],
     pub VendorType: u8,
     pub VendorLength: u8,
     pub AttributeSpecific: [u8; 1],
 }
-impl Copy for RADIUS_VSA_FORMAT {}
-impl Clone for RADIUS_VSA_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RADIUS_VSA_FORMAT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RADIUS_VSA_FORMAT").field("VendorId", &self.VendorId).field("VendorType", &self.VendorType).field("VendorLength", &self.VendorLength).field("AttributeSpecific", &self.AttributeSpecific).finish()
-    }
-}
 impl windows_core::TypeKind for RADIUS_VSA_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RADIUS_VSA_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.VendorId == other.VendorId && self.VendorType == other.VendorType && self.VendorLength == other.VendorLength && self.AttributeSpecific == other.AttributeSpecific
-    }
-}
-impl Eq for RADIUS_VSA_FORMAT {}
 impl Default for RADIUS_VSA_FORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

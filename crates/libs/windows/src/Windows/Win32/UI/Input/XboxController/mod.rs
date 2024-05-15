@@ -366,36 +366,21 @@ impl core::fmt::Debug for XINPUT_VIRTUAL_KEY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XINPUT_BATTERY_INFORMATION {
     pub BatteryType: BATTERY_TYPE,
     pub BatteryLevel: BATTERY_LEVEL,
 }
-impl Copy for XINPUT_BATTERY_INFORMATION {}
-impl Clone for XINPUT_BATTERY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XINPUT_BATTERY_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XINPUT_BATTERY_INFORMATION").field("BatteryType", &self.BatteryType).field("BatteryLevel", &self.BatteryLevel).finish()
-    }
-}
 impl windows_core::TypeKind for XINPUT_BATTERY_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XINPUT_BATTERY_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.BatteryType == other.BatteryType && self.BatteryLevel == other.BatteryLevel
-    }
-}
-impl Eq for XINPUT_BATTERY_INFORMATION {}
 impl Default for XINPUT_BATTERY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XINPUT_CAPABILITIES {
     pub Type: XINPUT_DEVTYPE,
     pub SubType: XINPUT_DEVSUBTYPE,
@@ -403,32 +388,16 @@ pub struct XINPUT_CAPABILITIES {
     pub Gamepad: XINPUT_GAMEPAD,
     pub Vibration: XINPUT_VIBRATION,
 }
-impl Copy for XINPUT_CAPABILITIES {}
-impl Clone for XINPUT_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XINPUT_CAPABILITIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XINPUT_CAPABILITIES").field("Type", &self.Type).field("SubType", &self.SubType).field("Flags", &self.Flags).field("Gamepad", &self.Gamepad).field("Vibration", &self.Vibration).finish()
-    }
-}
 impl windows_core::TypeKind for XINPUT_CAPABILITIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XINPUT_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.SubType == other.SubType && self.Flags == other.Flags && self.Gamepad == other.Gamepad && self.Vibration == other.Vibration
-    }
-}
-impl Eq for XINPUT_CAPABILITIES {}
 impl Default for XINPUT_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XINPUT_GAMEPAD {
     pub wButtons: XINPUT_GAMEPAD_BUTTON_FLAGS,
     pub bLeftTrigger: u8,
@@ -438,32 +407,16 @@ pub struct XINPUT_GAMEPAD {
     pub sThumbRX: i16,
     pub sThumbRY: i16,
 }
-impl Copy for XINPUT_GAMEPAD {}
-impl Clone for XINPUT_GAMEPAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XINPUT_GAMEPAD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XINPUT_GAMEPAD").field("wButtons", &self.wButtons).field("bLeftTrigger", &self.bLeftTrigger).field("bRightTrigger", &self.bRightTrigger).field("sThumbLX", &self.sThumbLX).field("sThumbLY", &self.sThumbLY).field("sThumbRX", &self.sThumbRX).field("sThumbRY", &self.sThumbRY).finish()
-    }
-}
 impl windows_core::TypeKind for XINPUT_GAMEPAD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XINPUT_GAMEPAD {
-    fn eq(&self, other: &Self) -> bool {
-        self.wButtons == other.wButtons && self.bLeftTrigger == other.bLeftTrigger && self.bRightTrigger == other.bRightTrigger && self.sThumbLX == other.sThumbLX && self.sThumbLY == other.sThumbLY && self.sThumbRX == other.sThumbRX && self.sThumbRY == other.sThumbRY
-    }
-}
-impl Eq for XINPUT_GAMEPAD {}
 impl Default for XINPUT_GAMEPAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XINPUT_KEYSTROKE {
     pub VirtualKey: XINPUT_VIRTUAL_KEY,
     pub Unicode: u16,
@@ -471,86 +424,37 @@ pub struct XINPUT_KEYSTROKE {
     pub UserIndex: u8,
     pub HidCode: u8,
 }
-impl Copy for XINPUT_KEYSTROKE {}
-impl Clone for XINPUT_KEYSTROKE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XINPUT_KEYSTROKE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XINPUT_KEYSTROKE").field("VirtualKey", &self.VirtualKey).field("Unicode", &self.Unicode).field("Flags", &self.Flags).field("UserIndex", &self.UserIndex).field("HidCode", &self.HidCode).finish()
-    }
-}
 impl windows_core::TypeKind for XINPUT_KEYSTROKE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XINPUT_KEYSTROKE {
-    fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey && self.Unicode == other.Unicode && self.Flags == other.Flags && self.UserIndex == other.UserIndex && self.HidCode == other.HidCode
-    }
-}
-impl Eq for XINPUT_KEYSTROKE {}
 impl Default for XINPUT_KEYSTROKE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XINPUT_STATE {
     pub dwPacketNumber: u32,
     pub Gamepad: XINPUT_GAMEPAD,
 }
-impl Copy for XINPUT_STATE {}
-impl Clone for XINPUT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XINPUT_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XINPUT_STATE").field("dwPacketNumber", &self.dwPacketNumber).field("Gamepad", &self.Gamepad).finish()
-    }
-}
 impl windows_core::TypeKind for XINPUT_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XINPUT_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwPacketNumber == other.dwPacketNumber && self.Gamepad == other.Gamepad
-    }
-}
-impl Eq for XINPUT_STATE {}
 impl Default for XINPUT_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XINPUT_VIBRATION {
     pub wLeftMotorSpeed: u16,
     pub wRightMotorSpeed: u16,
 }
-impl Copy for XINPUT_VIBRATION {}
-impl Clone for XINPUT_VIBRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XINPUT_VIBRATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XINPUT_VIBRATION").field("wLeftMotorSpeed", &self.wLeftMotorSpeed).field("wRightMotorSpeed", &self.wRightMotorSpeed).finish()
-    }
-}
 impl windows_core::TypeKind for XINPUT_VIBRATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XINPUT_VIBRATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.wLeftMotorSpeed == other.wLeftMotorSpeed && self.wRightMotorSpeed == other.wRightMotorSpeed
-    }
-}
-impl Eq for XINPUT_VIBRATION {}
 impl Default for XINPUT_VIBRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -769,14 +769,9 @@ impl core::fmt::Debug for XAUDIO2_FILTER_TYPE {
 pub const AudioReverb: windows_core::GUID = windows_core::GUID::from_u128(0xc2633b16_471b_4498_b8c5_4f0959e2ec09);
 pub const AudioVolumeMeter: windows_core::GUID = windows_core::GUID::from_u128(0x4fc3b166_972a_40cf_bc37_7db03db2fba3);
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct FXECHO_INITDATA {
     pub MaxDelay: f32,
-}
-impl Copy for FXECHO_INITDATA {}
-impl Clone for FXECHO_INITDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for FXECHO_INITDATA {
     type TypeKind = windows_core::CopyType;
@@ -787,16 +782,11 @@ impl Default for FXECHO_INITDATA {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct FXECHO_PARAMETERS {
     pub WetDryMix: f32,
     pub Feedback: f32,
     pub Delay: f32,
-}
-impl Copy for FXECHO_PARAMETERS {}
-impl Clone for FXECHO_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for FXECHO_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -808,6 +798,7 @@ impl Default for FXECHO_PARAMETERS {
 }
 pub const FXEQ: windows_core::GUID = windows_core::GUID::from_u128(0xf5e01117_d6c4_485a_a3f5_695196f3dbfa);
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct FXEQ_PARAMETERS {
     pub FrequencyCenter0: f32,
     pub Gain0: f32,
@@ -822,12 +813,6 @@ pub struct FXEQ_PARAMETERS {
     pub Gain3: f32,
     pub Bandwidth3: f32,
 }
-impl Copy for FXEQ_PARAMETERS {}
-impl Clone for FXEQ_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for FXEQ_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
@@ -838,15 +823,10 @@ impl Default for FXEQ_PARAMETERS {
 }
 pub const FXEcho: windows_core::GUID = windows_core::GUID::from_u128(0x5039d740_f736_449a_84d3_a56202557b87);
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct FXMASTERINGLIMITER_PARAMETERS {
     pub Release: u32,
     pub Loudness: u32,
-}
-impl Copy for FXMASTERINGLIMITER_PARAMETERS {}
-impl Clone for FXMASTERINGLIMITER_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for FXMASTERINGLIMITER_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -858,15 +838,10 @@ impl Default for FXMASTERINGLIMITER_PARAMETERS {
 }
 pub const FXMasteringLimiter: windows_core::GUID = windows_core::GUID::from_u128(0xc4137916_2be1_46fd_8599_441536f49856);
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct FXREVERB_PARAMETERS {
     pub Diffusion: f32,
     pub RoomSize: f32,
-}
-impl Copy for FXREVERB_PARAMETERS {}
-impl Clone for FXREVERB_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for FXREVERB_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -878,127 +853,64 @@ impl Default for FXREVERB_PARAMETERS {
 }
 pub const FXReverb: windows_core::GUID = windows_core::GUID::from_u128(0x7d9aca56_cb68_4807_b632_b137352e8596);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HrtfApoInit {
     pub distanceDecay: *mut HrtfDistanceDecay,
     pub directivity: *mut HrtfDirectivity,
 }
-impl Copy for HrtfApoInit {}
-impl Clone for HrtfApoInit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HrtfApoInit {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HrtfApoInit").field("distanceDecay", &self.distanceDecay).field("directivity", &self.directivity).finish()
-    }
-}
 impl windows_core::TypeKind for HrtfApoInit {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HrtfApoInit {
-    fn eq(&self, other: &Self) -> bool {
-        self.distanceDecay == other.distanceDecay && self.directivity == other.directivity
-    }
-}
-impl Eq for HrtfApoInit {}
 impl Default for HrtfApoInit {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HrtfDirectivity {
     pub r#type: HrtfDirectivityType,
     pub scaling: f32,
 }
-impl Copy for HrtfDirectivity {}
-impl Clone for HrtfDirectivity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HrtfDirectivity {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HrtfDirectivity").field("type", &self.r#type).field("scaling", &self.scaling).finish()
-    }
-}
 impl windows_core::TypeKind for HrtfDirectivity {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HrtfDirectivity {
-    fn eq(&self, other: &Self) -> bool {
-        self.r#type == other.r#type && self.scaling == other.scaling
-    }
-}
-impl Eq for HrtfDirectivity {}
 impl Default for HrtfDirectivity {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HrtfDirectivityCardioid {
     pub directivity: HrtfDirectivity,
     pub order: f32,
 }
-impl Copy for HrtfDirectivityCardioid {}
-impl Clone for HrtfDirectivityCardioid {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HrtfDirectivityCardioid {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HrtfDirectivityCardioid").field("directivity", &self.directivity).field("order", &self.order).finish()
-    }
-}
 impl windows_core::TypeKind for HrtfDirectivityCardioid {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HrtfDirectivityCardioid {
-    fn eq(&self, other: &Self) -> bool {
-        self.directivity == other.directivity && self.order == other.order
-    }
-}
-impl Eq for HrtfDirectivityCardioid {}
 impl Default for HrtfDirectivityCardioid {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HrtfDirectivityCone {
     pub directivity: HrtfDirectivity,
     pub innerAngle: f32,
     pub outerAngle: f32,
 }
-impl Copy for HrtfDirectivityCone {}
-impl Clone for HrtfDirectivityCone {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HrtfDirectivityCone {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HrtfDirectivityCone").field("directivity", &self.directivity).field("innerAngle", &self.innerAngle).field("outerAngle", &self.outerAngle).finish()
-    }
-}
 impl windows_core::TypeKind for HrtfDirectivityCone {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HrtfDirectivityCone {
-    fn eq(&self, other: &Self) -> bool {
-        self.directivity == other.directivity && self.innerAngle == other.innerAngle && self.outerAngle == other.outerAngle
-    }
-}
-impl Eq for HrtfDirectivityCone {}
 impl Default for HrtfDirectivityCone {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HrtfDistanceDecay {
     pub r#type: HrtfDistanceDecayType,
     pub maxGain: f32,
@@ -1006,101 +918,47 @@ pub struct HrtfDistanceDecay {
     pub unityGainDistance: f32,
     pub cutoffDistance: f32,
 }
-impl Copy for HrtfDistanceDecay {}
-impl Clone for HrtfDistanceDecay {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HrtfDistanceDecay {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HrtfDistanceDecay").field("type", &self.r#type).field("maxGain", &self.maxGain).field("minGain", &self.minGain).field("unityGainDistance", &self.unityGainDistance).field("cutoffDistance", &self.cutoffDistance).finish()
-    }
-}
 impl windows_core::TypeKind for HrtfDistanceDecay {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HrtfDistanceDecay {
-    fn eq(&self, other: &Self) -> bool {
-        self.r#type == other.r#type && self.maxGain == other.maxGain && self.minGain == other.minGain && self.unityGainDistance == other.unityGainDistance && self.cutoffDistance == other.cutoffDistance
-    }
-}
-impl Eq for HrtfDistanceDecay {}
 impl Default for HrtfDistanceDecay {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HrtfOrientation {
     pub element: [f32; 9],
-}
-impl Copy for HrtfOrientation {}
-impl Clone for HrtfOrientation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HrtfOrientation {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HrtfOrientation").field("element", &self.element).finish()
-    }
 }
 impl windows_core::TypeKind for HrtfOrientation {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HrtfOrientation {
-    fn eq(&self, other: &Self) -> bool {
-        self.element == other.element
-    }
-}
-impl Eq for HrtfOrientation {}
 impl Default for HrtfOrientation {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HrtfPosition {
     pub x: f32,
     pub y: f32,
     pub z: f32,
 }
-impl Copy for HrtfPosition {}
-impl Clone for HrtfPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HrtfPosition {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HrtfPosition").field("x", &self.x).field("y", &self.y).field("z", &self.z).finish()
-    }
-}
 impl windows_core::TypeKind for HrtfPosition {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HrtfPosition {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y && self.z == other.z
-    }
-}
-impl Eq for HrtfPosition {}
 impl Default for HrtfPosition {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct XAPO_LOCKFORPROCESS_PARAMETERS {
     pub pFormat: *const super::WAVEFORMATEX,
     pub MaxFrameCount: u32,
-}
-impl Copy for XAPO_LOCKFORPROCESS_PARAMETERS {}
-impl Clone for XAPO_LOCKFORPROCESS_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for XAPO_LOCKFORPROCESS_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -1111,16 +969,11 @@ impl Default for XAPO_LOCKFORPROCESS_PARAMETERS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct XAPO_PROCESS_BUFFER_PARAMETERS {
     pub pBuffer: *mut core::ffi::c_void,
     pub BufferFlags: XAPO_BUFFER_FLAGS,
     pub ValidFrameCount: u32,
-}
-impl Copy for XAPO_PROCESS_BUFFER_PARAMETERS {}
-impl Clone for XAPO_PROCESS_BUFFER_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for XAPO_PROCESS_BUFFER_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -1131,6 +984,7 @@ impl Default for XAPO_PROCESS_BUFFER_PARAMETERS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct XAPO_REGISTRATION_PROPERTIES {
     pub clsid: windows_core::GUID,
     pub FriendlyName: [u16; 256],
@@ -1143,12 +997,6 @@ pub struct XAPO_REGISTRATION_PROPERTIES {
     pub MinOutputBufferCount: u32,
     pub MaxOutputBufferCount: u32,
 }
-impl Copy for XAPO_REGISTRATION_PROPERTIES {}
-impl Clone for XAPO_REGISTRATION_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for XAPO_REGISTRATION_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
@@ -1158,6 +1006,7 @@ impl Default for XAPO_REGISTRATION_PROPERTIES {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
     pub WetDryMix: f32,
     pub Room: i32,
@@ -1173,12 +1022,6 @@ pub struct XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
     pub Density: f32,
     pub HFReference: f32,
 }
-impl Copy for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {}
-impl Clone for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
@@ -1188,6 +1031,7 @@ impl Default for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2FX_REVERB_PARAMETERS {
     pub WetDryMix: f32,
     pub ReflectionsDelay: u32,
@@ -1214,12 +1058,6 @@ pub struct XAUDIO2FX_REVERB_PARAMETERS {
     pub RoomSize: f32,
     pub DisableLateField: super::super::super::Foundation::BOOL,
 }
-impl Copy for XAUDIO2FX_REVERB_PARAMETERS {}
-impl Clone for XAUDIO2FX_REVERB_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for XAUDIO2FX_REVERB_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
@@ -1229,16 +1067,11 @@ impl Default for XAUDIO2FX_REVERB_PARAMETERS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2FX_VOLUMEMETER_LEVELS {
     pub pPeakLevels: *mut f32,
     pub pRMSLevels: *mut f32,
     pub ChannelCount: u32,
-}
-impl Copy for XAUDIO2FX_VOLUMEMETER_LEVELS {}
-impl Clone for XAUDIO2FX_VOLUMEMETER_LEVELS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for XAUDIO2FX_VOLUMEMETER_LEVELS {
     type TypeKind = windows_core::CopyType;
@@ -1249,6 +1082,7 @@ impl Default for XAUDIO2FX_VOLUMEMETER_LEVELS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2_BUFFER {
     pub Flags: u32,
     pub AudioBytes: u32,
@@ -1260,12 +1094,6 @@ pub struct XAUDIO2_BUFFER {
     pub LoopCount: u32,
     pub pContext: *mut core::ffi::c_void,
 }
-impl Copy for XAUDIO2_BUFFER {}
-impl Clone for XAUDIO2_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for XAUDIO2_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
@@ -1275,15 +1103,10 @@ impl Default for XAUDIO2_BUFFER {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2_BUFFER_WMA {
     pub pDecodedPacketCumulativeBytes: *const u32,
     pub PacketCount: u32,
-}
-impl Copy for XAUDIO2_BUFFER_WMA {}
-impl Clone for XAUDIO2_BUFFER_WMA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for XAUDIO2_BUFFER_WMA {
     type TypeKind = windows_core::CopyType;
@@ -1294,6 +1117,7 @@ impl Default for XAUDIO2_BUFFER_WMA {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2_DEBUG_CONFIGURATION {
     pub TraceMask: u32,
     pub BreakMask: u32,
@@ -1301,12 +1125,6 @@ pub struct XAUDIO2_DEBUG_CONFIGURATION {
     pub LogFileline: super::super::super::Foundation::BOOL,
     pub LogFunctionName: super::super::super::Foundation::BOOL,
     pub LogTiming: super::super::super::Foundation::BOOL,
-}
-impl Copy for XAUDIO2_DEBUG_CONFIGURATION {}
-impl Clone for XAUDIO2_DEBUG_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for XAUDIO2_DEBUG_CONFIGURATION {
     type TypeKind = windows_core::CopyType;
@@ -1317,15 +1135,10 @@ impl Default for XAUDIO2_DEBUG_CONFIGURATION {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2_EFFECT_CHAIN {
     pub EffectCount: u32,
     pub pEffectDescriptors: *mut XAUDIO2_EFFECT_DESCRIPTOR,
-}
-impl Copy for XAUDIO2_EFFECT_CHAIN {}
-impl Clone for XAUDIO2_EFFECT_CHAIN {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for XAUDIO2_EFFECT_CHAIN {
     type TypeKind = windows_core::CopyType;
@@ -1350,16 +1163,11 @@ impl Default for XAUDIO2_EFFECT_DESCRIPTOR {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2_FILTER_PARAMETERS {
     pub Type: XAUDIO2_FILTER_TYPE,
     pub Frequency: f32,
     pub OneOverQ: f32,
-}
-impl Copy for XAUDIO2_FILTER_PARAMETERS {}
-impl Clone for XAUDIO2_FILTER_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for XAUDIO2_FILTER_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -1370,6 +1178,7 @@ impl Default for XAUDIO2_FILTER_PARAMETERS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2_PERFORMANCE_DATA {
     pub AudioCyclesSinceLastQuery: u64,
     pub TotalCyclesSinceLastQuery: u64,
@@ -1385,12 +1194,6 @@ pub struct XAUDIO2_PERFORMANCE_DATA {
     pub ActiveMatrixMixCount: u32,
     pub ActiveXmaSourceVoices: u32,
     pub ActiveXmaStreams: u32,
-}
-impl Copy for XAUDIO2_PERFORMANCE_DATA {}
-impl Clone for XAUDIO2_PERFORMANCE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for XAUDIO2_PERFORMANCE_DATA {
     type TypeKind = windows_core::CopyType;
@@ -1414,17 +1217,12 @@ impl Default for XAUDIO2_SEND_DESCRIPTOR {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2_VOICE_DETAILS {
     pub CreationFlags: u32,
     pub ActiveFlags: u32,
     pub InputChannels: u32,
     pub InputSampleRate: u32,
-}
-impl Copy for XAUDIO2_VOICE_DETAILS {}
-impl Clone for XAUDIO2_VOICE_DETAILS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for XAUDIO2_VOICE_DETAILS {
     type TypeKind = windows_core::CopyType;
@@ -1435,15 +1233,10 @@ impl Default for XAUDIO2_VOICE_DETAILS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2_VOICE_SENDS {
     pub SendCount: u32,
     pub pSends: *mut XAUDIO2_SEND_DESCRIPTOR,
-}
-impl Copy for XAUDIO2_VOICE_SENDS {}
-impl Clone for XAUDIO2_VOICE_SENDS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for XAUDIO2_VOICE_SENDS {
     type TypeKind = windows_core::CopyType;
@@ -1454,16 +1247,11 @@ impl Default for XAUDIO2_VOICE_SENDS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2_VOICE_STATE {
     pub pCurrentBufferContext: *mut core::ffi::c_void,
     pub BuffersQueued: u32,
     pub SamplesPlayed: u64,
-}
-impl Copy for XAUDIO2_VOICE_STATE {}
-impl Clone for XAUDIO2_VOICE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for XAUDIO2_VOICE_STATE {
     type TypeKind = windows_core::CopyType;

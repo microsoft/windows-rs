@@ -2172,22 +2172,12 @@ impl windows_core::RuntimeType for TiffCompressionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.TiffCompressionMode;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BitmapBounds {
     pub X: u32,
     pub Y: u32,
     pub Width: u32,
     pub Height: u32,
-}
-impl Copy for BitmapBounds {}
-impl Clone for BitmapBounds {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BitmapBounds {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BitmapBounds").field("X", &self.X).field("Y", &self.Y).field("Width", &self.Width).field("Height", &self.Height).finish()
-    }
 }
 impl windows_core::TypeKind for BitmapBounds {
     type TypeKind = windows_core::CopyType;
@@ -2195,34 +2185,18 @@ impl windows_core::TypeKind for BitmapBounds {
 impl windows_core::RuntimeType for BitmapBounds {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Imaging.BitmapBounds;u4;u4;u4;u4)");
 }
-impl PartialEq for BitmapBounds {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y && self.Width == other.Width && self.Height == other.Height
-    }
-}
-impl Eq for BitmapBounds {}
 impl Default for BitmapBounds {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BitmapPlaneDescription {
     pub StartIndex: i32,
     pub Width: i32,
     pub Height: i32,
     pub Stride: i32,
-}
-impl Copy for BitmapPlaneDescription {}
-impl Clone for BitmapPlaneDescription {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BitmapPlaneDescription {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BitmapPlaneDescription").field("StartIndex", &self.StartIndex).field("Width", &self.Width).field("Height", &self.Height).field("Stride", &self.Stride).finish()
-    }
 }
 impl windows_core::TypeKind for BitmapPlaneDescription {
     type TypeKind = windows_core::CopyType;
@@ -2230,32 +2204,16 @@ impl windows_core::TypeKind for BitmapPlaneDescription {
 impl windows_core::RuntimeType for BitmapPlaneDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Imaging.BitmapPlaneDescription;i4;i4;i4;i4)");
 }
-impl PartialEq for BitmapPlaneDescription {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartIndex == other.StartIndex && self.Width == other.Width && self.Height == other.Height && self.Stride == other.Stride
-    }
-}
-impl Eq for BitmapPlaneDescription {}
 impl Default for BitmapPlaneDescription {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BitmapSize {
     pub Width: u32,
     pub Height: u32,
-}
-impl Copy for BitmapSize {}
-impl Clone for BitmapSize {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BitmapSize {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BitmapSize").field("Width", &self.Width).field("Height", &self.Height).finish()
-    }
 }
 impl windows_core::TypeKind for BitmapSize {
     type TypeKind = windows_core::CopyType;
@@ -2263,12 +2221,6 @@ impl windows_core::TypeKind for BitmapSize {
 impl windows_core::RuntimeType for BitmapSize {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Imaging.BitmapSize;u4;u4)");
 }
-impl PartialEq for BitmapSize {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height
-    }
-}
-impl Eq for BitmapSize {}
 impl Default for BitmapSize {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

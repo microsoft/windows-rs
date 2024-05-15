@@ -48,6 +48,7 @@ pub struct IPdfRendererNative_Vtbl {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PDF_RENDER_PARAMS {
     pub SourceRect: super::super::super::Graphics::Direct2D::Common::D2D_RECT_F,
     pub DestinationWidth: u32,
@@ -56,31 +57,9 @@ pub struct PDF_RENDER_PARAMS {
     pub IgnoreHighContrast: super::super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Copy for PDF_RENDER_PARAMS {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Clone for PDF_RENDER_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl core::fmt::Debug for PDF_RENDER_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PDF_RENDER_PARAMS").field("SourceRect", &self.SourceRect).field("DestinationWidth", &self.DestinationWidth).field("DestinationHeight", &self.DestinationHeight).field("BackgroundColor", &self.BackgroundColor).field("IgnoreHighContrast", &self.IgnoreHighContrast).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for PDF_RENDER_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl PartialEq for PDF_RENDER_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.SourceRect == other.SourceRect && self.DestinationWidth == other.DestinationWidth && self.DestinationHeight == other.DestinationHeight && self.BackgroundColor == other.BackgroundColor && self.IgnoreHighContrast == other.IgnoreHighContrast
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Eq for PDF_RENDER_PARAMS {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl Default for PDF_RENDER_PARAMS {
     fn default() -> Self {

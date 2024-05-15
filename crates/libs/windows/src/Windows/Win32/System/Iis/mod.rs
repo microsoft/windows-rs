@@ -1824,37 +1824,16 @@ impl core::fmt::Debug for SF_STATUS_TYPE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CONTEXT_EX {
     pub CertContext: super::super::Security::Cryptography::CERT_CONTEXT,
     pub cbAllocated: u32,
     pub dwCertificateFlags: u32,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for CERT_CONTEXT_EX {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for CERT_CONTEXT_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for CERT_CONTEXT_EX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_CONTEXT_EX").field("CertContext", &self.CertContext).field("cbAllocated", &self.cbAllocated).field("dwCertificateFlags", &self.dwCertificateFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for CERT_CONTEXT_EX {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for CERT_CONTEXT_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.CertContext == other.CertContext && self.cbAllocated == other.cbAllocated && self.dwCertificateFlags == other.dwCertificateFlags
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for CERT_CONTEXT_EX {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for CERT_CONTEXT_EX {
     fn default() -> Self {
@@ -1862,6 +1841,7 @@ impl Default for CERT_CONTEXT_EX {
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct CONFIGURATION_ENTRY {
     pub bstrKey: std::mem::ManuallyDrop<windows_core::BSTR>,
     pub bstrValue: std::mem::ManuallyDrop<windows_core::BSTR>,
@@ -1871,26 +1851,16 @@ impl Clone for CONFIGURATION_ENTRY {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for CONFIGURATION_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CONFIGURATION_ENTRY").field("bstrKey", &self.bstrKey).field("bstrValue", &self.bstrValue).finish()
-    }
-}
 impl windows_core::TypeKind for CONFIGURATION_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CONFIGURATION_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.bstrKey == other.bstrKey && self.bstrValue == other.bstrValue
-    }
-}
-impl Eq for CONFIGURATION_ENTRY {}
 impl Default for CONFIGURATION_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct EXTENSION_CONTROL_BLOCK {
     pub cbSize: u32,
     pub dwVersion: u32,
@@ -1909,31 +1879,6 @@ pub struct EXTENSION_CONTROL_BLOCK {
     pub WriteClient: PFN_IIS_WRITECLIENT,
     pub ReadClient: PFN_IIS_READCLIENT,
     pub ServerSupportFunction: PFN_IIS_SERVERSUPPORTFUNCTION,
-}
-impl Copy for EXTENSION_CONTROL_BLOCK {}
-impl Clone for EXTENSION_CONTROL_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EXTENSION_CONTROL_BLOCK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EXTENSION_CONTROL_BLOCK")
-            .field("cbSize", &self.cbSize)
-            .field("dwVersion", &self.dwVersion)
-            .field("ConnID", &self.ConnID)
-            .field("dwHttpStatusCode", &self.dwHttpStatusCode)
-            .field("lpszLogData", &self.lpszLogData)
-            .field("lpszMethod", &self.lpszMethod)
-            .field("lpszQueryString", &self.lpszQueryString)
-            .field("lpszPathInfo", &self.lpszPathInfo)
-            .field("lpszPathTranslated", &self.lpszPathTranslated)
-            .field("cbTotalBytes", &self.cbTotalBytes)
-            .field("cbAvailable", &self.cbAvailable)
-            .field("lpbData", &self.lpbData)
-            .field("lpszContentType", &self.lpszContentType)
-            .finish()
-    }
 }
 impl windows_core::TypeKind for EXTENSION_CONTROL_BLOCK {
     type TypeKind = windows_core::CopyType;
@@ -1961,37 +1906,22 @@ impl windows_core::TypeKind for HCONN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_CUSTOM_ERROR_INFO {
     pub pszStatus: windows_core::PSTR,
     pub uHttpSubError: u16,
     pub fAsync: super::super::Foundation::BOOL,
 }
-impl Copy for HSE_CUSTOM_ERROR_INFO {}
-impl Clone for HSE_CUSTOM_ERROR_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HSE_CUSTOM_ERROR_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HSE_CUSTOM_ERROR_INFO").field("pszStatus", &self.pszStatus).field("uHttpSubError", &self.uHttpSubError).field("fAsync", &self.fAsync).finish()
-    }
-}
 impl windows_core::TypeKind for HSE_CUSTOM_ERROR_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HSE_CUSTOM_ERROR_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszStatus == other.pszStatus && self.uHttpSubError == other.uHttpSubError && self.fAsync == other.fAsync
-    }
-}
-impl Eq for HSE_CUSTOM_ERROR_INFO {}
 impl Default for HSE_CUSTOM_ERROR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_EXEC_UNICODE_URL_INFO {
     pub pszUrl: windows_core::PWSTR,
     pub pszMethod: windows_core::PSTR,
@@ -2000,93 +1930,45 @@ pub struct HSE_EXEC_UNICODE_URL_INFO {
     pub pEntity: *mut HSE_EXEC_URL_ENTITY_INFO,
     pub dwExecUrlFlags: u32,
 }
-impl Copy for HSE_EXEC_UNICODE_URL_INFO {}
-impl Clone for HSE_EXEC_UNICODE_URL_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HSE_EXEC_UNICODE_URL_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HSE_EXEC_UNICODE_URL_INFO").field("pszUrl", &self.pszUrl).field("pszMethod", &self.pszMethod).field("pszChildHeaders", &self.pszChildHeaders).field("pUserInfo", &self.pUserInfo).field("pEntity", &self.pEntity).field("dwExecUrlFlags", &self.dwExecUrlFlags).finish()
-    }
-}
 impl windows_core::TypeKind for HSE_EXEC_UNICODE_URL_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HSE_EXEC_UNICODE_URL_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszUrl == other.pszUrl && self.pszMethod == other.pszMethod && self.pszChildHeaders == other.pszChildHeaders && self.pUserInfo == other.pUserInfo && self.pEntity == other.pEntity && self.dwExecUrlFlags == other.dwExecUrlFlags
-    }
-}
-impl Eq for HSE_EXEC_UNICODE_URL_INFO {}
 impl Default for HSE_EXEC_UNICODE_URL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_EXEC_UNICODE_URL_USER_INFO {
     pub hImpersonationToken: super::super::Foundation::HANDLE,
     pub pszCustomUserName: windows_core::PWSTR,
     pub pszCustomAuthType: windows_core::PSTR,
 }
-impl Copy for HSE_EXEC_UNICODE_URL_USER_INFO {}
-impl Clone for HSE_EXEC_UNICODE_URL_USER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HSE_EXEC_UNICODE_URL_USER_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HSE_EXEC_UNICODE_URL_USER_INFO").field("hImpersonationToken", &self.hImpersonationToken).field("pszCustomUserName", &self.pszCustomUserName).field("pszCustomAuthType", &self.pszCustomAuthType).finish()
-    }
-}
 impl windows_core::TypeKind for HSE_EXEC_UNICODE_URL_USER_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HSE_EXEC_UNICODE_URL_USER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.hImpersonationToken == other.hImpersonationToken && self.pszCustomUserName == other.pszCustomUserName && self.pszCustomAuthType == other.pszCustomAuthType
-    }
-}
-impl Eq for HSE_EXEC_UNICODE_URL_USER_INFO {}
 impl Default for HSE_EXEC_UNICODE_URL_USER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_EXEC_URL_ENTITY_INFO {
     pub cbAvailable: u32,
     pub lpbData: *mut core::ffi::c_void,
 }
-impl Copy for HSE_EXEC_URL_ENTITY_INFO {}
-impl Clone for HSE_EXEC_URL_ENTITY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HSE_EXEC_URL_ENTITY_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HSE_EXEC_URL_ENTITY_INFO").field("cbAvailable", &self.cbAvailable).field("lpbData", &self.lpbData).finish()
-    }
-}
 impl windows_core::TypeKind for HSE_EXEC_URL_ENTITY_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HSE_EXEC_URL_ENTITY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbAvailable == other.cbAvailable && self.lpbData == other.lpbData
-    }
-}
-impl Eq for HSE_EXEC_URL_ENTITY_INFO {}
 impl Default for HSE_EXEC_URL_ENTITY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_EXEC_URL_INFO {
     pub pszUrl: windows_core::PSTR,
     pub pszMethod: windows_core::PSTR,
@@ -2095,94 +1977,46 @@ pub struct HSE_EXEC_URL_INFO {
     pub pEntity: *mut HSE_EXEC_URL_ENTITY_INFO,
     pub dwExecUrlFlags: u32,
 }
-impl Copy for HSE_EXEC_URL_INFO {}
-impl Clone for HSE_EXEC_URL_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HSE_EXEC_URL_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HSE_EXEC_URL_INFO").field("pszUrl", &self.pszUrl).field("pszMethod", &self.pszMethod).field("pszChildHeaders", &self.pszChildHeaders).field("pUserInfo", &self.pUserInfo).field("pEntity", &self.pEntity).field("dwExecUrlFlags", &self.dwExecUrlFlags).finish()
-    }
-}
 impl windows_core::TypeKind for HSE_EXEC_URL_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HSE_EXEC_URL_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszUrl == other.pszUrl && self.pszMethod == other.pszMethod && self.pszChildHeaders == other.pszChildHeaders && self.pUserInfo == other.pUserInfo && self.pEntity == other.pEntity && self.dwExecUrlFlags == other.dwExecUrlFlags
-    }
-}
-impl Eq for HSE_EXEC_URL_INFO {}
 impl Default for HSE_EXEC_URL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_EXEC_URL_STATUS {
     pub uHttpStatusCode: u16,
     pub uHttpSubStatus: u16,
     pub dwWin32Error: u32,
 }
-impl Copy for HSE_EXEC_URL_STATUS {}
-impl Clone for HSE_EXEC_URL_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HSE_EXEC_URL_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HSE_EXEC_URL_STATUS").field("uHttpStatusCode", &self.uHttpStatusCode).field("uHttpSubStatus", &self.uHttpSubStatus).field("dwWin32Error", &self.dwWin32Error).finish()
-    }
-}
 impl windows_core::TypeKind for HSE_EXEC_URL_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HSE_EXEC_URL_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.uHttpStatusCode == other.uHttpStatusCode && self.uHttpSubStatus == other.uHttpSubStatus && self.dwWin32Error == other.dwWin32Error
-    }
-}
-impl Eq for HSE_EXEC_URL_STATUS {}
 impl Default for HSE_EXEC_URL_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_EXEC_URL_USER_INFO {
     pub hImpersonationToken: super::super::Foundation::HANDLE,
     pub pszCustomUserName: windows_core::PSTR,
     pub pszCustomAuthType: windows_core::PSTR,
 }
-impl Copy for HSE_EXEC_URL_USER_INFO {}
-impl Clone for HSE_EXEC_URL_USER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HSE_EXEC_URL_USER_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HSE_EXEC_URL_USER_INFO").field("hImpersonationToken", &self.hImpersonationToken).field("pszCustomUserName", &self.pszCustomUserName).field("pszCustomAuthType", &self.pszCustomAuthType).finish()
-    }
-}
 impl windows_core::TypeKind for HSE_EXEC_URL_USER_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HSE_EXEC_URL_USER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.hImpersonationToken == other.hImpersonationToken && self.pszCustomUserName == other.pszCustomUserName && self.pszCustomAuthType == other.pszCustomAuthType
-    }
-}
-impl Eq for HSE_EXEC_URL_USER_INFO {}
 impl Default for HSE_EXEC_URL_USER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_RESPONSE_VECTOR {
     pub dwFlags: u32,
     pub pszStatus: windows_core::PSTR,
@@ -2190,32 +2024,16 @@ pub struct HSE_RESPONSE_VECTOR {
     pub nElementCount: u32,
     pub lpElementArray: *mut HSE_VECTOR_ELEMENT,
 }
-impl Copy for HSE_RESPONSE_VECTOR {}
-impl Clone for HSE_RESPONSE_VECTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HSE_RESPONSE_VECTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HSE_RESPONSE_VECTOR").field("dwFlags", &self.dwFlags).field("pszStatus", &self.pszStatus).field("pszHeaders", &self.pszHeaders).field("nElementCount", &self.nElementCount).field("lpElementArray", &self.lpElementArray).finish()
-    }
-}
 impl windows_core::TypeKind for HSE_RESPONSE_VECTOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HSE_RESPONSE_VECTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.pszStatus == other.pszStatus && self.pszHeaders == other.pszHeaders && self.nElementCount == other.nElementCount && self.lpElementArray == other.lpElementArray
-    }
-}
-impl Eq for HSE_RESPONSE_VECTOR {}
 impl Default for HSE_RESPONSE_VECTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_SEND_HEADER_EX_INFO {
     pub pszStatus: windows_core::PCSTR,
     pub pszHeader: windows_core::PCSTR,
@@ -2223,32 +2041,16 @@ pub struct HSE_SEND_HEADER_EX_INFO {
     pub cchHeader: u32,
     pub fKeepConn: super::super::Foundation::BOOL,
 }
-impl Copy for HSE_SEND_HEADER_EX_INFO {}
-impl Clone for HSE_SEND_HEADER_EX_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HSE_SEND_HEADER_EX_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HSE_SEND_HEADER_EX_INFO").field("pszStatus", &self.pszStatus).field("pszHeader", &self.pszHeader).field("cchStatus", &self.cchStatus).field("cchHeader", &self.cchHeader).field("fKeepConn", &self.fKeepConn).finish()
-    }
-}
 impl windows_core::TypeKind for HSE_SEND_HEADER_EX_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HSE_SEND_HEADER_EX_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszStatus == other.pszStatus && self.pszHeader == other.pszHeader && self.cchStatus == other.cchStatus && self.cchHeader == other.cchHeader && self.fKeepConn == other.fKeepConn
-    }
-}
-impl Eq for HSE_SEND_HEADER_EX_INFO {}
 impl Default for HSE_SEND_HEADER_EX_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct HSE_TF_INFO {
     pub pfnHseIO: PFN_HSE_IO_COMPLETION,
     pub pContext: *mut core::ffi::c_void,
@@ -2262,17 +2064,6 @@ pub struct HSE_TF_INFO {
     pub TailLength: u32,
     pub dwFlags: u32,
 }
-impl Copy for HSE_TF_INFO {}
-impl Clone for HSE_TF_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HSE_TF_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HSE_TF_INFO").field("pContext", &self.pContext).field("hFile", &self.hFile).field("pszStatusCode", &self.pszStatusCode).field("BytesToWrite", &self.BytesToWrite).field("Offset", &self.Offset).field("pHead", &self.pHead).field("HeadLength", &self.HeadLength).field("pTail", &self.pTail).field("TailLength", &self.TailLength).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for HSE_TF_INFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -2282,70 +2073,39 @@ impl Default for HSE_TF_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_TRACE_INFO {
     pub fTraceRequest: super::super::Foundation::BOOL,
     pub TraceContextId: [u8; 16],
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
-impl Copy for HSE_TRACE_INFO {}
-impl Clone for HSE_TRACE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HSE_TRACE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HSE_TRACE_INFO").field("fTraceRequest", &self.fTraceRequest).field("TraceContextId", &self.TraceContextId).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
-    }
-}
 impl windows_core::TypeKind for HSE_TRACE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HSE_TRACE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.fTraceRequest == other.fTraceRequest && self.TraceContextId == other.TraceContextId && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
-    }
-}
-impl Eq for HSE_TRACE_INFO {}
 impl Default for HSE_TRACE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_UNICODE_URL_MAPEX_INFO {
     pub lpszPath: [u16; 260],
     pub dwFlags: u32,
     pub cchMatchingPath: u32,
     pub cchMatchingURL: u32,
 }
-impl Copy for HSE_UNICODE_URL_MAPEX_INFO {}
-impl Clone for HSE_UNICODE_URL_MAPEX_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HSE_UNICODE_URL_MAPEX_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HSE_UNICODE_URL_MAPEX_INFO").field("lpszPath", &self.lpszPath).field("dwFlags", &self.dwFlags).field("cchMatchingPath", &self.cchMatchingPath).field("cchMatchingURL", &self.cchMatchingURL).finish()
-    }
-}
 impl windows_core::TypeKind for HSE_UNICODE_URL_MAPEX_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HSE_UNICODE_URL_MAPEX_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpszPath == other.lpszPath && self.dwFlags == other.dwFlags && self.cchMatchingPath == other.cchMatchingPath && self.cchMatchingURL == other.cchMatchingURL
-    }
-}
-impl Eq for HSE_UNICODE_URL_MAPEX_INFO {}
 impl Default for HSE_UNICODE_URL_MAPEX_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_URL_MAPEX_INFO {
     pub lpszPath: [i8; 260],
     pub dwFlags: u32,
@@ -2354,157 +2114,77 @@ pub struct HSE_URL_MAPEX_INFO {
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
-impl Copy for HSE_URL_MAPEX_INFO {}
-impl Clone for HSE_URL_MAPEX_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HSE_URL_MAPEX_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HSE_URL_MAPEX_INFO").field("lpszPath", &self.lpszPath).field("dwFlags", &self.dwFlags).field("cchMatchingPath", &self.cchMatchingPath).field("cchMatchingURL", &self.cchMatchingURL).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
-    }
-}
 impl windows_core::TypeKind for HSE_URL_MAPEX_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HSE_URL_MAPEX_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpszPath == other.lpszPath && self.dwFlags == other.dwFlags && self.cchMatchingPath == other.cchMatchingPath && self.cchMatchingURL == other.cchMatchingURL && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
-    }
-}
-impl Eq for HSE_URL_MAPEX_INFO {}
 impl Default for HSE_URL_MAPEX_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_VECTOR_ELEMENT {
     pub ElementType: u32,
     pub pvContext: *mut core::ffi::c_void,
     pub cbOffset: u64,
     pub cbSize: u64,
 }
-impl Copy for HSE_VECTOR_ELEMENT {}
-impl Clone for HSE_VECTOR_ELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HSE_VECTOR_ELEMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HSE_VECTOR_ELEMENT").field("ElementType", &self.ElementType).field("pvContext", &self.pvContext).field("cbOffset", &self.cbOffset).field("cbSize", &self.cbSize).finish()
-    }
-}
 impl windows_core::TypeKind for HSE_VECTOR_ELEMENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HSE_VECTOR_ELEMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.ElementType == other.ElementType && self.pvContext == other.pvContext && self.cbOffset == other.cbOffset && self.cbSize == other.cbSize
-    }
-}
-impl Eq for HSE_VECTOR_ELEMENT {}
 impl Default for HSE_VECTOR_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_VERSION_INFO {
     pub dwExtensionVersion: u32,
     pub lpszExtensionDesc: [i8; 256],
 }
-impl Copy for HSE_VERSION_INFO {}
-impl Clone for HSE_VERSION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HSE_VERSION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HSE_VERSION_INFO").field("dwExtensionVersion", &self.dwExtensionVersion).field("lpszExtensionDesc", &self.lpszExtensionDesc).finish()
-    }
-}
 impl windows_core::TypeKind for HSE_VERSION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HSE_VERSION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwExtensionVersion == other.dwExtensionVersion && self.lpszExtensionDesc == other.lpszExtensionDesc
-    }
-}
-impl Eq for HSE_VERSION_INFO {}
 impl Default for HSE_VERSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_ACCESS_DENIED {
     pub pszURL: windows_core::PCSTR,
     pub pszPhysicalPath: windows_core::PCSTR,
     pub dwReason: u32,
 }
-impl Copy for HTTP_FILTER_ACCESS_DENIED {}
-impl Clone for HTTP_FILTER_ACCESS_DENIED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HTTP_FILTER_ACCESS_DENIED {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HTTP_FILTER_ACCESS_DENIED").field("pszURL", &self.pszURL).field("pszPhysicalPath", &self.pszPhysicalPath).field("dwReason", &self.dwReason).finish()
-    }
-}
 impl windows_core::TypeKind for HTTP_FILTER_ACCESS_DENIED {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HTTP_FILTER_ACCESS_DENIED {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszURL == other.pszURL && self.pszPhysicalPath == other.pszPhysicalPath && self.dwReason == other.dwReason
-    }
-}
-impl Eq for HTTP_FILTER_ACCESS_DENIED {}
 impl Default for HTTP_FILTER_ACCESS_DENIED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_AUTHENT {
     pub pszUser: windows_core::PSTR,
     pub cbUserBuff: u32,
     pub pszPassword: windows_core::PSTR,
     pub cbPasswordBuff: u32,
 }
-impl Copy for HTTP_FILTER_AUTHENT {}
-impl Clone for HTTP_FILTER_AUTHENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HTTP_FILTER_AUTHENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HTTP_FILTER_AUTHENT").field("pszUser", &self.pszUser).field("cbUserBuff", &self.cbUserBuff).field("pszPassword", &self.pszPassword).field("cbPasswordBuff", &self.cbPasswordBuff).finish()
-    }
-}
 impl windows_core::TypeKind for HTTP_FILTER_AUTHENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HTTP_FILTER_AUTHENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszUser == other.pszUser && self.cbUserBuff == other.cbUserBuff && self.pszPassword == other.pszPassword && self.cbPasswordBuff == other.cbPasswordBuff
-    }
-}
-impl Eq for HTTP_FILTER_AUTHENT {}
 impl Default for HTTP_FILTER_AUTHENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_AUTH_COMPLETE_INFO {
     pub GetHeader: isize,
     pub SetHeader: isize,
@@ -2514,32 +2194,16 @@ pub struct HTTP_FILTER_AUTH_COMPLETE_INFO {
     pub fResetAuth: super::super::Foundation::BOOL,
     pub dwReserved: u32,
 }
-impl Copy for HTTP_FILTER_AUTH_COMPLETE_INFO {}
-impl Clone for HTTP_FILTER_AUTH_COMPLETE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HTTP_FILTER_AUTH_COMPLETE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HTTP_FILTER_AUTH_COMPLETE_INFO").field("GetHeader", &self.GetHeader).field("SetHeader", &self.SetHeader).field("AddHeader", &self.AddHeader).field("GetUserToken", &self.GetUserToken).field("HttpStatus", &self.HttpStatus).field("fResetAuth", &self.fResetAuth).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 impl windows_core::TypeKind for HTTP_FILTER_AUTH_COMPLETE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HTTP_FILTER_AUTH_COMPLETE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.GetHeader == other.GetHeader && self.SetHeader == other.SetHeader && self.AddHeader == other.AddHeader && self.GetUserToken == other.GetUserToken && self.HttpStatus == other.HttpStatus && self.fResetAuth == other.fResetAuth && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for HTTP_FILTER_AUTH_COMPLETE_INFO {}
 impl Default for HTTP_FILTER_AUTH_COMPLETE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_CONTEXT {
     pub cbSize: u32,
     pub Revision: u32,
@@ -2553,44 +2217,16 @@ pub struct HTTP_FILTER_CONTEXT {
     pub AllocMem: isize,
     pub ServerSupportFunction: isize,
 }
-impl Copy for HTTP_FILTER_CONTEXT {}
-impl Clone for HTTP_FILTER_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HTTP_FILTER_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HTTP_FILTER_CONTEXT")
-            .field("cbSize", &self.cbSize)
-            .field("Revision", &self.Revision)
-            .field("ServerContext", &self.ServerContext)
-            .field("ulReserved", &self.ulReserved)
-            .field("fIsSecurePort", &self.fIsSecurePort)
-            .field("pFilterContext", &self.pFilterContext)
-            .field("GetServerVariable", &self.GetServerVariable)
-            .field("AddResponseHeaders", &self.AddResponseHeaders)
-            .field("WriteClient", &self.WriteClient)
-            .field("AllocMem", &self.AllocMem)
-            .field("ServerSupportFunction", &self.ServerSupportFunction)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for HTTP_FILTER_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HTTP_FILTER_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.Revision == other.Revision && self.ServerContext == other.ServerContext && self.ulReserved == other.ulReserved && self.fIsSecurePort == other.fIsSecurePort && self.pFilterContext == other.pFilterContext && self.GetServerVariable == other.GetServerVariable && self.AddResponseHeaders == other.AddResponseHeaders && self.WriteClient == other.WriteClient && self.AllocMem == other.AllocMem && self.ServerSupportFunction == other.ServerSupportFunction
-    }
-}
-impl Eq for HTTP_FILTER_CONTEXT {}
 impl Default for HTTP_FILTER_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_LOG {
     pub pszClientHostName: windows_core::PCSTR,
     pub pszClientUserName: windows_core::PCSTR,
@@ -2604,44 +2240,16 @@ pub struct HTTP_FILTER_LOG {
     pub dwBytesRecvd: u32,
     pub msTimeForProcessing: u32,
 }
-impl Copy for HTTP_FILTER_LOG {}
-impl Clone for HTTP_FILTER_LOG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HTTP_FILTER_LOG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HTTP_FILTER_LOG")
-            .field("pszClientHostName", &self.pszClientHostName)
-            .field("pszClientUserName", &self.pszClientUserName)
-            .field("pszServerName", &self.pszServerName)
-            .field("pszOperation", &self.pszOperation)
-            .field("pszTarget", &self.pszTarget)
-            .field("pszParameters", &self.pszParameters)
-            .field("dwHttpStatus", &self.dwHttpStatus)
-            .field("dwWin32Status", &self.dwWin32Status)
-            .field("dwBytesSent", &self.dwBytesSent)
-            .field("dwBytesRecvd", &self.dwBytesRecvd)
-            .field("msTimeForProcessing", &self.msTimeForProcessing)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for HTTP_FILTER_LOG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HTTP_FILTER_LOG {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszClientHostName == other.pszClientHostName && self.pszClientUserName == other.pszClientUserName && self.pszServerName == other.pszServerName && self.pszOperation == other.pszOperation && self.pszTarget == other.pszTarget && self.pszParameters == other.pszParameters && self.dwHttpStatus == other.dwHttpStatus && self.dwWin32Status == other.dwWin32Status && self.dwBytesSent == other.dwBytesSent && self.dwBytesRecvd == other.dwBytesRecvd && self.msTimeForProcessing == other.msTimeForProcessing
-    }
-}
-impl Eq for HTTP_FILTER_LOG {}
 impl Default for HTTP_FILTER_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_PREPROC_HEADERS {
     pub GetHeader: isize,
     pub SetHeader: isize,
@@ -2649,95 +2257,47 @@ pub struct HTTP_FILTER_PREPROC_HEADERS {
     pub HttpStatus: u32,
     pub dwReserved: u32,
 }
-impl Copy for HTTP_FILTER_PREPROC_HEADERS {}
-impl Clone for HTTP_FILTER_PREPROC_HEADERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HTTP_FILTER_PREPROC_HEADERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HTTP_FILTER_PREPROC_HEADERS").field("GetHeader", &self.GetHeader).field("SetHeader", &self.SetHeader).field("AddHeader", &self.AddHeader).field("HttpStatus", &self.HttpStatus).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 impl windows_core::TypeKind for HTTP_FILTER_PREPROC_HEADERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HTTP_FILTER_PREPROC_HEADERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.GetHeader == other.GetHeader && self.SetHeader == other.SetHeader && self.AddHeader == other.AddHeader && self.HttpStatus == other.HttpStatus && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for HTTP_FILTER_PREPROC_HEADERS {}
 impl Default for HTTP_FILTER_PREPROC_HEADERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_RAW_DATA {
     pub pvInData: *mut core::ffi::c_void,
     pub cbInData: u32,
     pub cbInBuffer: u32,
     pub dwReserved: u32,
 }
-impl Copy for HTTP_FILTER_RAW_DATA {}
-impl Clone for HTTP_FILTER_RAW_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HTTP_FILTER_RAW_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HTTP_FILTER_RAW_DATA").field("pvInData", &self.pvInData).field("cbInData", &self.cbInData).field("cbInBuffer", &self.cbInBuffer).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 impl windows_core::TypeKind for HTTP_FILTER_RAW_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HTTP_FILTER_RAW_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pvInData == other.pvInData && self.cbInData == other.cbInData && self.cbInBuffer == other.cbInBuffer && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for HTTP_FILTER_RAW_DATA {}
 impl Default for HTTP_FILTER_RAW_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_URL_MAP {
     pub pszURL: windows_core::PCSTR,
     pub pszPhysicalPath: windows_core::PSTR,
     pub cbPathBuff: u32,
 }
-impl Copy for HTTP_FILTER_URL_MAP {}
-impl Clone for HTTP_FILTER_URL_MAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HTTP_FILTER_URL_MAP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HTTP_FILTER_URL_MAP").field("pszURL", &self.pszURL).field("pszPhysicalPath", &self.pszPhysicalPath).field("cbPathBuff", &self.cbPathBuff).finish()
-    }
-}
 impl windows_core::TypeKind for HTTP_FILTER_URL_MAP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HTTP_FILTER_URL_MAP {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszURL == other.pszURL && self.pszPhysicalPath == other.pszPhysicalPath && self.cbPathBuff == other.cbPathBuff
-    }
-}
-impl Eq for HTTP_FILTER_URL_MAP {}
 impl Default for HTTP_FILTER_URL_MAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_URL_MAP_EX {
     pub pszURL: windows_core::PCSTR,
     pub pszPhysicalPath: windows_core::PSTR,
@@ -2747,96 +2307,48 @@ pub struct HTTP_FILTER_URL_MAP_EX {
     pub cchMatchingURL: u32,
     pub pszScriptMapEntry: windows_core::PCSTR,
 }
-impl Copy for HTTP_FILTER_URL_MAP_EX {}
-impl Clone for HTTP_FILTER_URL_MAP_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HTTP_FILTER_URL_MAP_EX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HTTP_FILTER_URL_MAP_EX").field("pszURL", &self.pszURL).field("pszPhysicalPath", &self.pszPhysicalPath).field("cbPathBuff", &self.cbPathBuff).field("dwFlags", &self.dwFlags).field("cchMatchingPath", &self.cchMatchingPath).field("cchMatchingURL", &self.cchMatchingURL).field("pszScriptMapEntry", &self.pszScriptMapEntry).finish()
-    }
-}
 impl windows_core::TypeKind for HTTP_FILTER_URL_MAP_EX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HTTP_FILTER_URL_MAP_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszURL == other.pszURL && self.pszPhysicalPath == other.pszPhysicalPath && self.cbPathBuff == other.cbPathBuff && self.dwFlags == other.dwFlags && self.cchMatchingPath == other.cchMatchingPath && self.cchMatchingURL == other.cchMatchingURL && self.pszScriptMapEntry == other.pszScriptMapEntry
-    }
-}
-impl Eq for HTTP_FILTER_URL_MAP_EX {}
 impl Default for HTTP_FILTER_URL_MAP_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_VERSION {
     pub dwServerFilterVersion: u32,
     pub dwFilterVersion: u32,
     pub lpszFilterDesc: [i8; 257],
     pub dwFlags: u32,
 }
-impl Copy for HTTP_FILTER_VERSION {}
-impl Clone for HTTP_FILTER_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HTTP_FILTER_VERSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HTTP_FILTER_VERSION").field("dwServerFilterVersion", &self.dwServerFilterVersion).field("dwFilterVersion", &self.dwFilterVersion).field("lpszFilterDesc", &self.lpszFilterDesc).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for HTTP_FILTER_VERSION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HTTP_FILTER_VERSION {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwServerFilterVersion == other.dwServerFilterVersion && self.dwFilterVersion == other.dwFilterVersion && self.lpszFilterDesc == other.lpszFilterDesc && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for HTTP_FILTER_VERSION {}
 impl Default for HTTP_FILTER_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_TRACE_CONFIGURATION {
     pub pProviderGuid: *const windows_core::GUID,
     pub dwAreas: u32,
     pub dwVerbosity: u32,
     pub fProviderEnabled: super::super::Foundation::BOOL,
 }
-impl Copy for HTTP_TRACE_CONFIGURATION {}
-impl Clone for HTTP_TRACE_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HTTP_TRACE_CONFIGURATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HTTP_TRACE_CONFIGURATION").field("pProviderGuid", &self.pProviderGuid).field("dwAreas", &self.dwAreas).field("dwVerbosity", &self.dwVerbosity).field("fProviderEnabled", &self.fProviderEnabled).finish()
-    }
-}
 impl windows_core::TypeKind for HTTP_TRACE_CONFIGURATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HTTP_TRACE_CONFIGURATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.pProviderGuid == other.pProviderGuid && self.dwAreas == other.dwAreas && self.dwVerbosity == other.dwVerbosity && self.fProviderEnabled == other.fProviderEnabled
-    }
-}
-impl Eq for HTTP_TRACE_CONFIGURATION {}
 impl Default for HTTP_TRACE_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_TRACE_EVENT {
     pub pProviderGuid: *const windows_core::GUID,
     pub dwArea: u32,
@@ -2852,46 +2364,16 @@ pub struct HTTP_TRACE_EVENT {
     pub cEventItems: u32,
     pub pEventItems: *mut HTTP_TRACE_EVENT_ITEM,
 }
-impl Copy for HTTP_TRACE_EVENT {}
-impl Clone for HTTP_TRACE_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HTTP_TRACE_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HTTP_TRACE_EVENT")
-            .field("pProviderGuid", &self.pProviderGuid)
-            .field("dwArea", &self.dwArea)
-            .field("pAreaGuid", &self.pAreaGuid)
-            .field("dwEvent", &self.dwEvent)
-            .field("pszEventName", &self.pszEventName)
-            .field("dwEventVersion", &self.dwEventVersion)
-            .field("dwVerbosity", &self.dwVerbosity)
-            .field("pActivityGuid", &self.pActivityGuid)
-            .field("pRelatedActivityGuid", &self.pRelatedActivityGuid)
-            .field("dwTimeStamp", &self.dwTimeStamp)
-            .field("dwFlags", &self.dwFlags)
-            .field("cEventItems", &self.cEventItems)
-            .field("pEventItems", &self.pEventItems)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for HTTP_TRACE_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HTTP_TRACE_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.pProviderGuid == other.pProviderGuid && self.dwArea == other.dwArea && self.pAreaGuid == other.pAreaGuid && self.dwEvent == other.dwEvent && self.pszEventName == other.pszEventName && self.dwEventVersion == other.dwEventVersion && self.dwVerbosity == other.dwVerbosity && self.pActivityGuid == other.pActivityGuid && self.pRelatedActivityGuid == other.pRelatedActivityGuid && self.dwTimeStamp == other.dwTimeStamp && self.dwFlags == other.dwFlags && self.cEventItems == other.cEventItems && self.pEventItems == other.pEventItems
-    }
-}
-impl Eq for HTTP_TRACE_EVENT {}
 impl Default for HTTP_TRACE_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_TRACE_EVENT_ITEM {
     pub pszName: windows_core::PCWSTR,
     pub dwDataType: HTTP_TRACE_TYPE,
@@ -2899,32 +2381,16 @@ pub struct HTTP_TRACE_EVENT_ITEM {
     pub cbData: u32,
     pub pszDataDescription: windows_core::PCWSTR,
 }
-impl Copy for HTTP_TRACE_EVENT_ITEM {}
-impl Clone for HTTP_TRACE_EVENT_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HTTP_TRACE_EVENT_ITEM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HTTP_TRACE_EVENT_ITEM").field("pszName", &self.pszName).field("dwDataType", &self.dwDataType).field("pbData", &self.pbData).field("cbData", &self.cbData).field("pszDataDescription", &self.pszDataDescription).finish()
-    }
-}
 impl windows_core::TypeKind for HTTP_TRACE_EVENT_ITEM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HTTP_TRACE_EVENT_ITEM {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszName == other.pszName && self.dwDataType == other.dwDataType && self.pbData == other.pbData && self.cbData == other.cbData && self.pszDataDescription == other.pszDataDescription
-    }
-}
-impl Eq for HTTP_TRACE_EVENT_ITEM {}
 impl Default for HTTP_TRACE_EVENT_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LOGGING_PARAMETERS {
     pub pszSessionId: windows_core::PCWSTR,
     pub pszSiteName: windows_core::PCWSTR,
@@ -2945,100 +2411,32 @@ pub struct LOGGING_PARAMETERS {
     pub hrStatus: windows_core::HRESULT,
     pub pszInformation: windows_core::PCWSTR,
 }
-impl Copy for LOGGING_PARAMETERS {}
-impl Clone for LOGGING_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LOGGING_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LOGGING_PARAMETERS")
-            .field("pszSessionId", &self.pszSessionId)
-            .field("pszSiteName", &self.pszSiteName)
-            .field("pszUserName", &self.pszUserName)
-            .field("pszHostName", &self.pszHostName)
-            .field("pszRemoteIpAddress", &self.pszRemoteIpAddress)
-            .field("dwRemoteIpPort", &self.dwRemoteIpPort)
-            .field("pszLocalIpAddress", &self.pszLocalIpAddress)
-            .field("dwLocalIpPort", &self.dwLocalIpPort)
-            .field("BytesSent", &self.BytesSent)
-            .field("BytesReceived", &self.BytesReceived)
-            .field("pszCommand", &self.pszCommand)
-            .field("pszCommandParameters", &self.pszCommandParameters)
-            .field("pszFullPath", &self.pszFullPath)
-            .field("dwElapsedMilliseconds", &self.dwElapsedMilliseconds)
-            .field("FtpStatus", &self.FtpStatus)
-            .field("FtpSubStatus", &self.FtpSubStatus)
-            .field("hrStatus", &self.hrStatus)
-            .field("pszInformation", &self.pszInformation)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for LOGGING_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LOGGING_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszSessionId == other.pszSessionId
-            && self.pszSiteName == other.pszSiteName
-            && self.pszUserName == other.pszUserName
-            && self.pszHostName == other.pszHostName
-            && self.pszRemoteIpAddress == other.pszRemoteIpAddress
-            && self.dwRemoteIpPort == other.dwRemoteIpPort
-            && self.pszLocalIpAddress == other.pszLocalIpAddress
-            && self.dwLocalIpPort == other.dwLocalIpPort
-            && self.BytesSent == other.BytesSent
-            && self.BytesReceived == other.BytesReceived
-            && self.pszCommand == other.pszCommand
-            && self.pszCommandParameters == other.pszCommandParameters
-            && self.pszFullPath == other.pszFullPath
-            && self.dwElapsedMilliseconds == other.dwElapsedMilliseconds
-            && self.FtpStatus == other.FtpStatus
-            && self.FtpSubStatus == other.FtpSubStatus
-            && self.hrStatus == other.hrStatus
-            && self.pszInformation == other.pszInformation
-    }
-}
-impl Eq for LOGGING_PARAMETERS {}
 impl Default for LOGGING_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MD_CHANGE_OBJECT_W {
     pub pszMDPath: windows_core::PWSTR,
     pub dwMDChangeType: u32,
     pub dwMDNumDataIDs: u32,
     pub pdwMDDataIDs: *mut u32,
 }
-impl Copy for MD_CHANGE_OBJECT_W {}
-impl Clone for MD_CHANGE_OBJECT_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MD_CHANGE_OBJECT_W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MD_CHANGE_OBJECT_W").field("pszMDPath", &self.pszMDPath).field("dwMDChangeType", &self.dwMDChangeType).field("dwMDNumDataIDs", &self.dwMDNumDataIDs).field("pdwMDDataIDs", &self.pdwMDDataIDs).finish()
-    }
-}
 impl windows_core::TypeKind for MD_CHANGE_OBJECT_W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MD_CHANGE_OBJECT_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszMDPath == other.pszMDPath && self.dwMDChangeType == other.dwMDChangeType && self.dwMDNumDataIDs == other.dwMDNumDataIDs && self.pdwMDDataIDs == other.pdwMDDataIDs
-    }
-}
-impl Eq for MD_CHANGE_OBJECT_W {}
 impl Default for MD_CHANGE_OBJECT_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct METADATA_GETALL_INTERNAL_RECORD {
     pub dwMDIdentifier: u32,
     pub dwMDAttributes: u32,
@@ -3047,12 +2445,6 @@ pub struct METADATA_GETALL_INTERNAL_RECORD {
     pub dwMDDataLen: u32,
     pub Anonymous: METADATA_GETALL_INTERNAL_RECORD_0,
     pub dwMDDataTag: u32,
-}
-impl Copy for METADATA_GETALL_INTERNAL_RECORD {}
-impl Clone for METADATA_GETALL_INTERNAL_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for METADATA_GETALL_INTERNAL_RECORD {
     type TypeKind = windows_core::CopyType;
@@ -3063,15 +2455,10 @@ impl Default for METADATA_GETALL_INTERNAL_RECORD {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union METADATA_GETALL_INTERNAL_RECORD_0 {
     pub dwMDDataOffset: usize,
     pub pbMDData: *mut u8,
-}
-impl Copy for METADATA_GETALL_INTERNAL_RECORD_0 {}
-impl Clone for METADATA_GETALL_INTERNAL_RECORD_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for METADATA_GETALL_INTERNAL_RECORD_0 {
     type TypeKind = windows_core::CopyType;
@@ -3082,6 +2469,7 @@ impl Default for METADATA_GETALL_INTERNAL_RECORD_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct METADATA_GETALL_RECORD {
     pub dwMDIdentifier: u32,
     pub dwMDAttributes: u32,
@@ -3091,62 +2479,30 @@ pub struct METADATA_GETALL_RECORD {
     pub dwMDDataOffset: u32,
     pub dwMDDataTag: u32,
 }
-impl Copy for METADATA_GETALL_RECORD {}
-impl Clone for METADATA_GETALL_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for METADATA_GETALL_RECORD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("METADATA_GETALL_RECORD").field("dwMDIdentifier", &self.dwMDIdentifier).field("dwMDAttributes", &self.dwMDAttributes).field("dwMDUserType", &self.dwMDUserType).field("dwMDDataType", &self.dwMDDataType).field("dwMDDataLen", &self.dwMDDataLen).field("dwMDDataOffset", &self.dwMDDataOffset).field("dwMDDataTag", &self.dwMDDataTag).finish()
-    }
-}
 impl windows_core::TypeKind for METADATA_GETALL_RECORD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for METADATA_GETALL_RECORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMDIdentifier == other.dwMDIdentifier && self.dwMDAttributes == other.dwMDAttributes && self.dwMDUserType == other.dwMDUserType && self.dwMDDataType == other.dwMDDataType && self.dwMDDataLen == other.dwMDDataLen && self.dwMDDataOffset == other.dwMDDataOffset && self.dwMDDataTag == other.dwMDDataTag
-    }
-}
-impl Eq for METADATA_GETALL_RECORD {}
 impl Default for METADATA_GETALL_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct METADATA_HANDLE_INFO {
     pub dwMDPermissions: u32,
     pub dwMDSystemChangeNumber: u32,
 }
-impl Copy for METADATA_HANDLE_INFO {}
-impl Clone for METADATA_HANDLE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for METADATA_HANDLE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("METADATA_HANDLE_INFO").field("dwMDPermissions", &self.dwMDPermissions).field("dwMDSystemChangeNumber", &self.dwMDSystemChangeNumber).finish()
-    }
-}
 impl windows_core::TypeKind for METADATA_HANDLE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for METADATA_HANDLE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMDPermissions == other.dwMDPermissions && self.dwMDSystemChangeNumber == other.dwMDSystemChangeNumber
-    }
-}
-impl Eq for METADATA_HANDLE_INFO {}
 impl Default for METADATA_HANDLE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct METADATA_RECORD {
     pub dwMDIdentifier: u32,
     pub dwMDAttributes: u32,
@@ -3156,32 +2512,16 @@ pub struct METADATA_RECORD {
     pub pbMDData: *mut u8,
     pub dwMDDataTag: u32,
 }
-impl Copy for METADATA_RECORD {}
-impl Clone for METADATA_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for METADATA_RECORD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("METADATA_RECORD").field("dwMDIdentifier", &self.dwMDIdentifier).field("dwMDAttributes", &self.dwMDAttributes).field("dwMDUserType", &self.dwMDUserType).field("dwMDDataType", &self.dwMDDataType).field("dwMDDataLen", &self.dwMDDataLen).field("pbMDData", &self.pbMDData).field("dwMDDataTag", &self.dwMDDataTag).finish()
-    }
-}
 impl windows_core::TypeKind for METADATA_RECORD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for METADATA_RECORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMDIdentifier == other.dwMDIdentifier && self.dwMDAttributes == other.dwMDAttributes && self.dwMDUserType == other.dwMDUserType && self.dwMDDataType == other.dwMDDataType && self.dwMDDataLen == other.dwMDDataLen && self.pbMDData == other.pbMDData && self.dwMDDataTag == other.dwMDDataTag
-    }
-}
-impl Eq for METADATA_RECORD {}
 impl Default for METADATA_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POST_PROCESS_PARAMETERS {
     pub pszSessionId: windows_core::PCWSTR,
     pub pszSiteName: windows_core::PCWSTR,
@@ -3204,72 +2544,16 @@ pub struct POST_PROCESS_PARAMETERS {
     pub BytesSentPerSession: u64,
     pub BytesReceivedPerSession: u64,
 }
-impl Copy for POST_PROCESS_PARAMETERS {}
-impl Clone for POST_PROCESS_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for POST_PROCESS_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("POST_PROCESS_PARAMETERS")
-            .field("pszSessionId", &self.pszSessionId)
-            .field("pszSiteName", &self.pszSiteName)
-            .field("pszUserName", &self.pszUserName)
-            .field("pszHostName", &self.pszHostName)
-            .field("pszRemoteIpAddress", &self.pszRemoteIpAddress)
-            .field("dwRemoteIpPort", &self.dwRemoteIpPort)
-            .field("pszLocalIpAddress", &self.pszLocalIpAddress)
-            .field("dwLocalIpPort", &self.dwLocalIpPort)
-            .field("BytesSent", &self.BytesSent)
-            .field("BytesReceived", &self.BytesReceived)
-            .field("pszCommand", &self.pszCommand)
-            .field("pszCommandParameters", &self.pszCommandParameters)
-            .field("pszFullPath", &self.pszFullPath)
-            .field("pszPhysicalPath", &self.pszPhysicalPath)
-            .field("FtpStatus", &self.FtpStatus)
-            .field("FtpSubStatus", &self.FtpSubStatus)
-            .field("hrStatus", &self.hrStatus)
-            .field("SessionStartTime", &self.SessionStartTime)
-            .field("BytesSentPerSession", &self.BytesSentPerSession)
-            .field("BytesReceivedPerSession", &self.BytesReceivedPerSession)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for POST_PROCESS_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for POST_PROCESS_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszSessionId == other.pszSessionId
-            && self.pszSiteName == other.pszSiteName
-            && self.pszUserName == other.pszUserName
-            && self.pszHostName == other.pszHostName
-            && self.pszRemoteIpAddress == other.pszRemoteIpAddress
-            && self.dwRemoteIpPort == other.dwRemoteIpPort
-            && self.pszLocalIpAddress == other.pszLocalIpAddress
-            && self.dwLocalIpPort == other.dwLocalIpPort
-            && self.BytesSent == other.BytesSent
-            && self.BytesReceived == other.BytesReceived
-            && self.pszCommand == other.pszCommand
-            && self.pszCommandParameters == other.pszCommandParameters
-            && self.pszFullPath == other.pszFullPath
-            && self.pszPhysicalPath == other.pszPhysicalPath
-            && self.FtpStatus == other.FtpStatus
-            && self.FtpSubStatus == other.FtpSubStatus
-            && self.hrStatus == other.hrStatus
-            && self.SessionStartTime == other.SessionStartTime
-            && self.BytesSentPerSession == other.BytesSentPerSession
-            && self.BytesReceivedPerSession == other.BytesReceivedPerSession
-    }
-}
-impl Eq for POST_PROCESS_PARAMETERS {}
 impl Default for POST_PROCESS_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRE_PROCESS_PARAMETERS {
     pub pszSessionId: windows_core::PCWSTR,
     pub pszSiteName: windows_core::PCWSTR,
@@ -3285,40 +2569,9 @@ pub struct PRE_PROCESS_PARAMETERS {
     pub BytesSentPerSession: u64,
     pub BytesReceivedPerSession: u64,
 }
-impl Copy for PRE_PROCESS_PARAMETERS {}
-impl Clone for PRE_PROCESS_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRE_PROCESS_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRE_PROCESS_PARAMETERS")
-            .field("pszSessionId", &self.pszSessionId)
-            .field("pszSiteName", &self.pszSiteName)
-            .field("pszUserName", &self.pszUserName)
-            .field("pszHostName", &self.pszHostName)
-            .field("pszRemoteIpAddress", &self.pszRemoteIpAddress)
-            .field("dwRemoteIpPort", &self.dwRemoteIpPort)
-            .field("pszLocalIpAddress", &self.pszLocalIpAddress)
-            .field("dwLocalIpPort", &self.dwLocalIpPort)
-            .field("pszCommand", &self.pszCommand)
-            .field("pszCommandParameters", &self.pszCommandParameters)
-            .field("SessionStartTime", &self.SessionStartTime)
-            .field("BytesSentPerSession", &self.BytesSentPerSession)
-            .field("BytesReceivedPerSession", &self.BytesReceivedPerSession)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PRE_PROCESS_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRE_PROCESS_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszSessionId == other.pszSessionId && self.pszSiteName == other.pszSiteName && self.pszUserName == other.pszUserName && self.pszHostName == other.pszHostName && self.pszRemoteIpAddress == other.pszRemoteIpAddress && self.dwRemoteIpPort == other.dwRemoteIpPort && self.pszLocalIpAddress == other.pszLocalIpAddress && self.dwLocalIpPort == other.dwLocalIpPort && self.pszCommand == other.pszCommand && self.pszCommandParameters == other.pszCommandParameters && self.SessionStartTime == other.SessionStartTime && self.BytesSentPerSession == other.BytesSentPerSession && self.BytesReceivedPerSession == other.BytesReceivedPerSession
-    }
-}
-impl Eq for PRE_PROCESS_PARAMETERS {}
 impl Default for PRE_PROCESS_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

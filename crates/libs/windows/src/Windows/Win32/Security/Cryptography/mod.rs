@@ -8669,123 +8669,59 @@ impl core::fmt::Debug for SIGNER_TIMESTAMP_FLAGS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwRegPolicySettings: u32,
     pub pSignerInfo: *mut CMSG_SIGNER_INFO,
 }
-impl Copy for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {}
-impl Clone for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA").field("cbSize", &self.cbSize).field("dwRegPolicySettings", &self.dwRegPolicySettings).field("pSignerInfo", &self.pSignerInfo).finish()
-    }
-}
 impl windows_core::TypeKind for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwRegPolicySettings == other.dwRegPolicySettings && self.pSignerInfo == other.pSignerInfo
-    }
-}
-impl Eq for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {}
 impl Default for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub fCommercial: super::super::Foundation::BOOL,
 }
-impl Copy for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {}
-impl Clone for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS").field("cbSize", &self.cbSize).field("fCommercial", &self.fCommercial).finish()
-    }
-}
 impl windows_core::TypeKind for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.fCommercial == other.fCommercial
-    }
-}
-impl Eq for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {}
 impl Default for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwRegPolicySettings: u32,
     pub fCommercial: super::super::Foundation::BOOL,
 }
-impl Copy for AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {}
-impl Clone for AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA").field("cbSize", &self.cbSize).field("dwRegPolicySettings", &self.dwRegPolicySettings).field("fCommercial", &self.fCommercial).finish()
-    }
-}
 impl windows_core::TypeKind for AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwRegPolicySettings == other.dwRegPolicySettings && self.fCommercial == other.fCommercial
-    }
-}
-impl Eq for AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {}
 impl Default for AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_ALGORITHM_IDENTIFIER {
     pub pszName: windows_core::PWSTR,
     pub dwClass: u32,
     pub dwFlags: u32,
 }
-impl Copy for BCRYPT_ALGORITHM_IDENTIFIER {}
-impl Clone for BCRYPT_ALGORITHM_IDENTIFIER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCRYPT_ALGORITHM_IDENTIFIER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCRYPT_ALGORITHM_IDENTIFIER").field("pszName", &self.pszName).field("dwClass", &self.dwClass).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for BCRYPT_ALGORITHM_IDENTIFIER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCRYPT_ALGORITHM_IDENTIFIER {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszName == other.pszName && self.dwClass == other.dwClass && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for BCRYPT_ALGORITHM_IDENTIFIER {}
 impl Default for BCRYPT_ALGORITHM_IDENTIFIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8821,6 +8757,7 @@ impl From<BCRYPT_ALG_HANDLE> for BCRYPT_HANDLE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
     pub cbSize: u32,
     pub dwInfoVersion: u32,
@@ -8836,107 +8773,45 @@ pub struct BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
     pub cbData: u64,
     pub dwFlags: u32,
 }
-impl Copy for BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {}
-impl Clone for BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO")
-            .field("cbSize", &self.cbSize)
-            .field("dwInfoVersion", &self.dwInfoVersion)
-            .field("pbNonce", &self.pbNonce)
-            .field("cbNonce", &self.cbNonce)
-            .field("pbAuthData", &self.pbAuthData)
-            .field("cbAuthData", &self.cbAuthData)
-            .field("pbTag", &self.pbTag)
-            .field("cbTag", &self.cbTag)
-            .field("pbMacContext", &self.pbMacContext)
-            .field("cbMacContext", &self.cbMacContext)
-            .field("cbAAD", &self.cbAAD)
-            .field("cbData", &self.cbData)
-            .field("dwFlags", &self.dwFlags)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwInfoVersion == other.dwInfoVersion && self.pbNonce == other.pbNonce && self.cbNonce == other.cbNonce && self.pbAuthData == other.pbAuthData && self.cbAuthData == other.cbAuthData && self.pbTag == other.pbTag && self.cbTag == other.cbTag && self.pbMacContext == other.pbMacContext && self.cbMacContext == other.cbMacContext && self.cbAAD == other.cbAAD && self.cbData == other.cbData && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {}
 impl Default for BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_DH_KEY_BLOB {
     pub dwMagic: BCRYPT_DH_KEY_BLOB_MAGIC,
     pub cbKey: u32,
 }
-impl Copy for BCRYPT_DH_KEY_BLOB {}
-impl Clone for BCRYPT_DH_KEY_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCRYPT_DH_KEY_BLOB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCRYPT_DH_KEY_BLOB").field("dwMagic", &self.dwMagic).field("cbKey", &self.cbKey).finish()
-    }
-}
 impl windows_core::TypeKind for BCRYPT_DH_KEY_BLOB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCRYPT_DH_KEY_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMagic == other.dwMagic && self.cbKey == other.cbKey
-    }
-}
-impl Eq for BCRYPT_DH_KEY_BLOB {}
 impl Default for BCRYPT_DH_KEY_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_DH_PARAMETER_HEADER {
     pub cbLength: u32,
     pub dwMagic: u32,
     pub cbKeyLength: u32,
 }
-impl Copy for BCRYPT_DH_PARAMETER_HEADER {}
-impl Clone for BCRYPT_DH_PARAMETER_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCRYPT_DH_PARAMETER_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCRYPT_DH_PARAMETER_HEADER").field("cbLength", &self.cbLength).field("dwMagic", &self.dwMagic).field("cbKeyLength", &self.cbKeyLength).finish()
-    }
-}
 impl windows_core::TypeKind for BCRYPT_DH_PARAMETER_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCRYPT_DH_PARAMETER_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbLength == other.cbLength && self.dwMagic == other.dwMagic && self.cbKeyLength == other.cbKeyLength
-    }
-}
-impl Eq for BCRYPT_DH_PARAMETER_HEADER {}
 impl Default for BCRYPT_DH_PARAMETER_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_DSA_KEY_BLOB {
     pub dwMagic: BCRYPT_DSA_MAGIC,
     pub cbKey: u32,
@@ -8944,32 +8819,16 @@ pub struct BCRYPT_DSA_KEY_BLOB {
     pub Seed: [u8; 20],
     pub q: [u8; 20],
 }
-impl Copy for BCRYPT_DSA_KEY_BLOB {}
-impl Clone for BCRYPT_DSA_KEY_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCRYPT_DSA_KEY_BLOB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCRYPT_DSA_KEY_BLOB").field("dwMagic", &self.dwMagic).field("cbKey", &self.cbKey).field("Count", &self.Count).field("Seed", &self.Seed).field("q", &self.q).finish()
-    }
-}
 impl windows_core::TypeKind for BCRYPT_DSA_KEY_BLOB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCRYPT_DSA_KEY_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMagic == other.dwMagic && self.cbKey == other.cbKey && self.Count == other.Count && self.Seed == other.Seed && self.q == other.q
-    }
-}
-impl Eq for BCRYPT_DSA_KEY_BLOB {}
 impl Default for BCRYPT_DSA_KEY_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_DSA_KEY_BLOB_V2 {
     pub dwMagic: BCRYPT_DSA_MAGIC,
     pub cbKey: u32,
@@ -8979,32 +8838,16 @@ pub struct BCRYPT_DSA_KEY_BLOB_V2 {
     pub cbGroupSize: u32,
     pub Count: [u8; 4],
 }
-impl Copy for BCRYPT_DSA_KEY_BLOB_V2 {}
-impl Clone for BCRYPT_DSA_KEY_BLOB_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCRYPT_DSA_KEY_BLOB_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCRYPT_DSA_KEY_BLOB_V2").field("dwMagic", &self.dwMagic).field("cbKey", &self.cbKey).field("hashAlgorithm", &self.hashAlgorithm).field("standardVersion", &self.standardVersion).field("cbSeedLength", &self.cbSeedLength).field("cbGroupSize", &self.cbGroupSize).field("Count", &self.Count).finish()
-    }
-}
 impl windows_core::TypeKind for BCRYPT_DSA_KEY_BLOB_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCRYPT_DSA_KEY_BLOB_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMagic == other.dwMagic && self.cbKey == other.cbKey && self.hashAlgorithm == other.hashAlgorithm && self.standardVersion == other.standardVersion && self.cbSeedLength == other.cbSeedLength && self.cbGroupSize == other.cbGroupSize && self.Count == other.Count
-    }
-}
-impl Eq for BCRYPT_DSA_KEY_BLOB_V2 {}
 impl Default for BCRYPT_DSA_KEY_BLOB_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_DSA_PARAMETER_HEADER {
     pub cbLength: u32,
     pub dwMagic: u32,
@@ -9013,32 +8856,16 @@ pub struct BCRYPT_DSA_PARAMETER_HEADER {
     pub Seed: [u8; 20],
     pub q: [u8; 20],
 }
-impl Copy for BCRYPT_DSA_PARAMETER_HEADER {}
-impl Clone for BCRYPT_DSA_PARAMETER_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCRYPT_DSA_PARAMETER_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCRYPT_DSA_PARAMETER_HEADER").field("cbLength", &self.cbLength).field("dwMagic", &self.dwMagic).field("cbKeyLength", &self.cbKeyLength).field("Count", &self.Count).field("Seed", &self.Seed).field("q", &self.q).finish()
-    }
-}
 impl windows_core::TypeKind for BCRYPT_DSA_PARAMETER_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCRYPT_DSA_PARAMETER_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbLength == other.cbLength && self.dwMagic == other.dwMagic && self.cbKeyLength == other.cbKeyLength && self.Count == other.Count && self.Seed == other.Seed && self.q == other.q
-    }
-}
-impl Eq for BCRYPT_DSA_PARAMETER_HEADER {}
 impl Default for BCRYPT_DSA_PARAMETER_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_DSA_PARAMETER_HEADER_V2 {
     pub cbLength: u32,
     pub dwMagic: u32,
@@ -9049,32 +8876,16 @@ pub struct BCRYPT_DSA_PARAMETER_HEADER_V2 {
     pub cbGroupSize: u32,
     pub Count: [u8; 4],
 }
-impl Copy for BCRYPT_DSA_PARAMETER_HEADER_V2 {}
-impl Clone for BCRYPT_DSA_PARAMETER_HEADER_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCRYPT_DSA_PARAMETER_HEADER_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCRYPT_DSA_PARAMETER_HEADER_V2").field("cbLength", &self.cbLength).field("dwMagic", &self.dwMagic).field("cbKeyLength", &self.cbKeyLength).field("hashAlgorithm", &self.hashAlgorithm).field("standardVersion", &self.standardVersion).field("cbSeedLength", &self.cbSeedLength).field("cbGroupSize", &self.cbGroupSize).field("Count", &self.Count).finish()
-    }
-}
 impl windows_core::TypeKind for BCRYPT_DSA_PARAMETER_HEADER_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCRYPT_DSA_PARAMETER_HEADER_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbLength == other.cbLength && self.dwMagic == other.dwMagic && self.cbKeyLength == other.cbKeyLength && self.hashAlgorithm == other.hashAlgorithm && self.standardVersion == other.standardVersion && self.cbSeedLength == other.cbSeedLength && self.cbGroupSize == other.cbGroupSize && self.Count == other.Count
-    }
-}
-impl Eq for BCRYPT_DSA_PARAMETER_HEADER_V2 {}
 impl Default for BCRYPT_DSA_PARAMETER_HEADER_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_ECCFULLKEY_BLOB {
     pub dwMagic: u32,
     pub dwVersion: u32,
@@ -9085,86 +8896,37 @@ pub struct BCRYPT_ECCFULLKEY_BLOB {
     pub cbCofactor: u32,
     pub cbSeed: u32,
 }
-impl Copy for BCRYPT_ECCFULLKEY_BLOB {}
-impl Clone for BCRYPT_ECCFULLKEY_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCRYPT_ECCFULLKEY_BLOB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCRYPT_ECCFULLKEY_BLOB").field("dwMagic", &self.dwMagic).field("dwVersion", &self.dwVersion).field("dwCurveType", &self.dwCurveType).field("dwCurveGenerationAlgId", &self.dwCurveGenerationAlgId).field("cbFieldLength", &self.cbFieldLength).field("cbSubgroupOrder", &self.cbSubgroupOrder).field("cbCofactor", &self.cbCofactor).field("cbSeed", &self.cbSeed).finish()
-    }
-}
 impl windows_core::TypeKind for BCRYPT_ECCFULLKEY_BLOB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCRYPT_ECCFULLKEY_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMagic == other.dwMagic && self.dwVersion == other.dwVersion && self.dwCurveType == other.dwCurveType && self.dwCurveGenerationAlgId == other.dwCurveGenerationAlgId && self.cbFieldLength == other.cbFieldLength && self.cbSubgroupOrder == other.cbSubgroupOrder && self.cbCofactor == other.cbCofactor && self.cbSeed == other.cbSeed
-    }
-}
-impl Eq for BCRYPT_ECCFULLKEY_BLOB {}
 impl Default for BCRYPT_ECCFULLKEY_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_ECCKEY_BLOB {
     pub dwMagic: u32,
     pub cbKey: u32,
 }
-impl Copy for BCRYPT_ECCKEY_BLOB {}
-impl Clone for BCRYPT_ECCKEY_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCRYPT_ECCKEY_BLOB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCRYPT_ECCKEY_BLOB").field("dwMagic", &self.dwMagic).field("cbKey", &self.cbKey).finish()
-    }
-}
 impl windows_core::TypeKind for BCRYPT_ECCKEY_BLOB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCRYPT_ECCKEY_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMagic == other.dwMagic && self.cbKey == other.cbKey
-    }
-}
-impl Eq for BCRYPT_ECCKEY_BLOB {}
 impl Default for BCRYPT_ECCKEY_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_ECC_CURVE_NAMES {
     pub dwEccCurveNames: u32,
     pub pEccCurveNames: *mut windows_core::PWSTR,
 }
-impl Copy for BCRYPT_ECC_CURVE_NAMES {}
-impl Clone for BCRYPT_ECC_CURVE_NAMES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCRYPT_ECC_CURVE_NAMES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCRYPT_ECC_CURVE_NAMES").field("dwEccCurveNames", &self.dwEccCurveNames).field("pEccCurveNames", &self.pEccCurveNames).finish()
-    }
-}
 impl windows_core::TypeKind for BCRYPT_ECC_CURVE_NAMES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCRYPT_ECC_CURVE_NAMES {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwEccCurveNames == other.dwEccCurveNames && self.pEccCurveNames == other.pEccCurveNames
-    }
-}
-impl Eq for BCRYPT_ECC_CURVE_NAMES {}
 impl Default for BCRYPT_ECC_CURVE_NAMES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9216,90 +8978,42 @@ impl From<BCRYPT_HASH_HANDLE> for BCRYPT_HANDLE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_INTERFACE_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
 }
-impl Copy for BCRYPT_INTERFACE_VERSION {}
-impl Clone for BCRYPT_INTERFACE_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCRYPT_INTERFACE_VERSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCRYPT_INTERFACE_VERSION").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
-    }
-}
 impl windows_core::TypeKind for BCRYPT_INTERFACE_VERSION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCRYPT_INTERFACE_VERSION {
-    fn eq(&self, other: &Self) -> bool {
-        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion
-    }
-}
-impl Eq for BCRYPT_INTERFACE_VERSION {}
 impl Default for BCRYPT_INTERFACE_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_KEY_BLOB {
     pub Magic: u32,
-}
-impl Copy for BCRYPT_KEY_BLOB {}
-impl Clone for BCRYPT_KEY_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCRYPT_KEY_BLOB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCRYPT_KEY_BLOB").field("Magic", &self.Magic).finish()
-    }
 }
 impl windows_core::TypeKind for BCRYPT_KEY_BLOB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCRYPT_KEY_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.Magic == other.Magic
-    }
-}
-impl Eq for BCRYPT_KEY_BLOB {}
 impl Default for BCRYPT_KEY_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_KEY_DATA_BLOB_HEADER {
     pub dwMagic: u32,
     pub dwVersion: u32,
     pub cbKeyData: u32,
 }
-impl Copy for BCRYPT_KEY_DATA_BLOB_HEADER {}
-impl Clone for BCRYPT_KEY_DATA_BLOB_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCRYPT_KEY_DATA_BLOB_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCRYPT_KEY_DATA_BLOB_HEADER").field("dwMagic", &self.dwMagic).field("dwVersion", &self.dwVersion).field("cbKeyData", &self.cbKeyData).finish()
-    }
-}
 impl windows_core::TypeKind for BCRYPT_KEY_DATA_BLOB_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCRYPT_KEY_DATA_BLOB_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMagic == other.dwMagic && self.dwVersion == other.dwVersion && self.cbKeyData == other.cbKeyData
-    }
-}
-impl Eq for BCRYPT_KEY_DATA_BLOB_HEADER {}
 impl Default for BCRYPT_KEY_DATA_BLOB_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9335,278 +9049,135 @@ impl From<BCRYPT_KEY_HANDLE> for BCRYPT_HANDLE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_KEY_LENGTHS_STRUCT {
     pub dwMinLength: u32,
     pub dwMaxLength: u32,
     pub dwIncrement: u32,
 }
-impl Copy for BCRYPT_KEY_LENGTHS_STRUCT {}
-impl Clone for BCRYPT_KEY_LENGTHS_STRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCRYPT_KEY_LENGTHS_STRUCT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCRYPT_KEY_LENGTHS_STRUCT").field("dwMinLength", &self.dwMinLength).field("dwMaxLength", &self.dwMaxLength).field("dwIncrement", &self.dwIncrement).finish()
-    }
-}
 impl windows_core::TypeKind for BCRYPT_KEY_LENGTHS_STRUCT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCRYPT_KEY_LENGTHS_STRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMinLength == other.dwMinLength && self.dwMaxLength == other.dwMaxLength && self.dwIncrement == other.dwIncrement
-    }
-}
-impl Eq for BCRYPT_KEY_LENGTHS_STRUCT {}
 impl Default for BCRYPT_KEY_LENGTHS_STRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_MULTI_HASH_OPERATION {
     pub iHash: u32,
     pub hashOperation: BCRYPT_HASH_OPERATION_TYPE,
     pub pbBuffer: *mut u8,
     pub cbBuffer: u32,
 }
-impl Copy for BCRYPT_MULTI_HASH_OPERATION {}
-impl Clone for BCRYPT_MULTI_HASH_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCRYPT_MULTI_HASH_OPERATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCRYPT_MULTI_HASH_OPERATION").field("iHash", &self.iHash).field("hashOperation", &self.hashOperation).field("pbBuffer", &self.pbBuffer).field("cbBuffer", &self.cbBuffer).finish()
-    }
-}
 impl windows_core::TypeKind for BCRYPT_MULTI_HASH_OPERATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCRYPT_MULTI_HASH_OPERATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.iHash == other.iHash && self.hashOperation == other.hashOperation && self.pbBuffer == other.pbBuffer && self.cbBuffer == other.cbBuffer
-    }
-}
-impl Eq for BCRYPT_MULTI_HASH_OPERATION {}
 impl Default for BCRYPT_MULTI_HASH_OPERATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
     pub cbPerObject: u32,
     pub cbPerElement: u32,
 }
-impl Copy for BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {}
-impl Clone for BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCRYPT_MULTI_OBJECT_LENGTH_STRUCT").field("cbPerObject", &self.cbPerObject).field("cbPerElement", &self.cbPerElement).finish()
-    }
-}
 impl windows_core::TypeKind for BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbPerObject == other.cbPerObject && self.cbPerElement == other.cbPerElement
-    }
-}
-impl Eq for BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {}
 impl Default for BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_OAEP_PADDING_INFO {
     pub pszAlgId: windows_core::PCWSTR,
     pub pbLabel: *mut u8,
     pub cbLabel: u32,
 }
-impl Copy for BCRYPT_OAEP_PADDING_INFO {}
-impl Clone for BCRYPT_OAEP_PADDING_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCRYPT_OAEP_PADDING_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCRYPT_OAEP_PADDING_INFO").field("pszAlgId", &self.pszAlgId).field("pbLabel", &self.pbLabel).field("cbLabel", &self.cbLabel).finish()
-    }
-}
 impl windows_core::TypeKind for BCRYPT_OAEP_PADDING_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCRYPT_OAEP_PADDING_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszAlgId == other.pszAlgId && self.pbLabel == other.pbLabel && self.cbLabel == other.cbLabel
-    }
-}
-impl Eq for BCRYPT_OAEP_PADDING_INFO {}
 impl Default for BCRYPT_OAEP_PADDING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_OID {
     pub cbOID: u32,
     pub pbOID: *mut u8,
 }
-impl Copy for BCRYPT_OID {}
-impl Clone for BCRYPT_OID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCRYPT_OID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCRYPT_OID").field("cbOID", &self.cbOID).field("pbOID", &self.pbOID).finish()
-    }
-}
 impl windows_core::TypeKind for BCRYPT_OID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCRYPT_OID {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbOID == other.cbOID && self.pbOID == other.pbOID
-    }
-}
-impl Eq for BCRYPT_OID {}
 impl Default for BCRYPT_OID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_OID_LIST {
     pub dwOIDCount: u32,
     pub pOIDs: *mut BCRYPT_OID,
 }
-impl Copy for BCRYPT_OID_LIST {}
-impl Clone for BCRYPT_OID_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCRYPT_OID_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCRYPT_OID_LIST").field("dwOIDCount", &self.dwOIDCount).field("pOIDs", &self.pOIDs).finish()
-    }
-}
 impl windows_core::TypeKind for BCRYPT_OID_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCRYPT_OID_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwOIDCount == other.dwOIDCount && self.pOIDs == other.pOIDs
-    }
-}
-impl Eq for BCRYPT_OID_LIST {}
 impl Default for BCRYPT_OID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_PKCS1_PADDING_INFO {
     pub pszAlgId: windows_core::PCWSTR,
-}
-impl Copy for BCRYPT_PKCS1_PADDING_INFO {}
-impl Clone for BCRYPT_PKCS1_PADDING_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCRYPT_PKCS1_PADDING_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCRYPT_PKCS1_PADDING_INFO").field("pszAlgId", &self.pszAlgId).finish()
-    }
 }
 impl windows_core::TypeKind for BCRYPT_PKCS1_PADDING_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCRYPT_PKCS1_PADDING_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszAlgId == other.pszAlgId
-    }
-}
-impl Eq for BCRYPT_PKCS1_PADDING_INFO {}
 impl Default for BCRYPT_PKCS1_PADDING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_PROVIDER_NAME {
     pub pszProviderName: windows_core::PWSTR,
-}
-impl Copy for BCRYPT_PROVIDER_NAME {}
-impl Clone for BCRYPT_PROVIDER_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCRYPT_PROVIDER_NAME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCRYPT_PROVIDER_NAME").field("pszProviderName", &self.pszProviderName).finish()
-    }
 }
 impl windows_core::TypeKind for BCRYPT_PROVIDER_NAME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCRYPT_PROVIDER_NAME {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszProviderName == other.pszProviderName
-    }
-}
-impl Eq for BCRYPT_PROVIDER_NAME {}
 impl Default for BCRYPT_PROVIDER_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_PSS_PADDING_INFO {
     pub pszAlgId: windows_core::PCWSTR,
     pub cbSalt: u32,
 }
-impl Copy for BCRYPT_PSS_PADDING_INFO {}
-impl Clone for BCRYPT_PSS_PADDING_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCRYPT_PSS_PADDING_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCRYPT_PSS_PADDING_INFO").field("pszAlgId", &self.pszAlgId).field("cbSalt", &self.cbSalt).finish()
-    }
-}
 impl windows_core::TypeKind for BCRYPT_PSS_PADDING_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCRYPT_PSS_PADDING_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszAlgId == other.pszAlgId && self.cbSalt == other.cbSalt
-    }
-}
-impl Eq for BCRYPT_PSS_PADDING_INFO {}
 impl Default for BCRYPT_PSS_PADDING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_RSAKEY_BLOB {
     pub Magic: BCRYPT_RSAKEY_BLOB_MAGIC,
     pub BitLength: u32,
@@ -9615,26 +9186,9 @@ pub struct BCRYPT_RSAKEY_BLOB {
     pub cbPrime1: u32,
     pub cbPrime2: u32,
 }
-impl Copy for BCRYPT_RSAKEY_BLOB {}
-impl Clone for BCRYPT_RSAKEY_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCRYPT_RSAKEY_BLOB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCRYPT_RSAKEY_BLOB").field("Magic", &self.Magic).field("BitLength", &self.BitLength).field("cbPublicExp", &self.cbPublicExp).field("cbModulus", &self.cbModulus).field("cbPrime1", &self.cbPrime1).field("cbPrime2", &self.cbPrime2).finish()
-    }
-}
 impl windows_core::TypeKind for BCRYPT_RSAKEY_BLOB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCRYPT_RSAKEY_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.Magic == other.Magic && self.BitLength == other.BitLength && self.cbPublicExp == other.cbPublicExp && self.cbModulus == other.cbModulus && self.cbPrime1 == other.cbPrime1 && self.cbPrime2 == other.cbPrime2
-    }
-}
-impl Eq for BCRYPT_RSAKEY_BLOB {}
 impl Default for BCRYPT_RSAKEY_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9670,62 +9224,30 @@ impl From<BCRYPT_SECRET_HANDLE> for BCRYPT_HANDLE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCryptBuffer {
     pub cbBuffer: u32,
     pub BufferType: u32,
     pub pvBuffer: *mut core::ffi::c_void,
 }
-impl Copy for BCryptBuffer {}
-impl Clone for BCryptBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCryptBuffer {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCryptBuffer").field("cbBuffer", &self.cbBuffer).field("BufferType", &self.BufferType).field("pvBuffer", &self.pvBuffer).finish()
-    }
-}
 impl windows_core::TypeKind for BCryptBuffer {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCryptBuffer {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbBuffer == other.cbBuffer && self.BufferType == other.BufferType && self.pvBuffer == other.pvBuffer
-    }
-}
-impl Eq for BCryptBuffer {}
 impl Default for BCryptBuffer {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCryptBufferDesc {
     pub ulVersion: u32,
     pub cBuffers: u32,
     pub pBuffers: *mut BCryptBuffer,
 }
-impl Copy for BCryptBufferDesc {}
-impl Clone for BCryptBufferDesc {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BCryptBufferDesc {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BCryptBufferDesc").field("ulVersion", &self.ulVersion).field("cBuffers", &self.cBuffers).field("pBuffers", &self.pBuffers).finish()
-    }
-}
 impl windows_core::TypeKind for BCryptBufferDesc {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BCryptBufferDesc {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulVersion == other.ulVersion && self.cBuffers == other.cBuffers && self.pBuffers == other.pBuffers
-    }
-}
-impl Eq for BCryptBufferDesc {}
 impl Default for BCryptBufferDesc {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9736,45 +9258,24 @@ pub const CCertSrvSetupKeyInformation: windows_core::GUID = windows_core::GUID::
 pub const CCertificateEnrollmentPolicyServerSetup: windows_core::GUID = windows_core::GUID::from_u128(0xafe2fa32_41b1_459d_a5de_49add8a72182);
 pub const CCertificateEnrollmentServerSetup: windows_core::GUID = windows_core::GUID::from_u128(0x9902f3bc_88af_4cf8_ae62_7140531552b6);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERTIFICATE_CHAIN_BLOB {
     pub certCount: u32,
     pub rawCertificates: *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERTIFICATE_CHAIN_BLOB {}
-impl Clone for CERTIFICATE_CHAIN_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERTIFICATE_CHAIN_BLOB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERTIFICATE_CHAIN_BLOB").field("certCount", &self.certCount).field("rawCertificates", &self.rawCertificates).finish()
-    }
-}
 impl windows_core::TypeKind for CERTIFICATE_CHAIN_BLOB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERTIFICATE_CHAIN_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.certCount == other.certCount && self.rawCertificates == other.rawCertificates
-    }
-}
-impl Eq for CERTIFICATE_CHAIN_BLOB {}
 impl Default for CERTIFICATE_CHAIN_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_ACCESS_DESCRIPTION {
     pub pszAccessMethod: windows_core::PSTR,
     pub AccessLocation: CERT_ALT_NAME_ENTRY,
-}
-impl Copy for CERT_ACCESS_DESCRIPTION {}
-impl Clone for CERT_ACCESS_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CERT_ACCESS_DESCRIPTION {
     type TypeKind = windows_core::CopyType;
@@ -9785,15 +9286,10 @@ impl Default for CERT_ACCESS_DESCRIPTION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_ALT_NAME_ENTRY {
     pub dwAltNameChoice: u32,
     pub Anonymous: CERT_ALT_NAME_ENTRY_0,
-}
-impl Copy for CERT_ALT_NAME_ENTRY {}
-impl Clone for CERT_ALT_NAME_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CERT_ALT_NAME_ENTRY {
     type TypeKind = windows_core::CopyType;
@@ -9804,6 +9300,7 @@ impl Default for CERT_ALT_NAME_ENTRY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CERT_ALT_NAME_ENTRY_0 {
     pub pOtherName: *mut CERT_OTHER_NAME,
     pub pwszRfc822Name: windows_core::PWSTR,
@@ -9812,12 +9309,6 @@ pub union CERT_ALT_NAME_ENTRY_0 {
     pub pwszURL: windows_core::PWSTR,
     pub IPAddress: CRYPT_INTEGER_BLOB,
     pub pszRegisteredID: windows_core::PSTR,
-}
-impl Copy for CERT_ALT_NAME_ENTRY_0 {}
-impl Clone for CERT_ALT_NAME_ENTRY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CERT_ALT_NAME_ENTRY_0 {
     type TypeKind = windows_core::CopyType;
@@ -9828,159 +9319,80 @@ impl Default for CERT_ALT_NAME_ENTRY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_ALT_NAME_INFO {
     pub cAltEntry: u32,
     pub rgAltEntry: *mut CERT_ALT_NAME_ENTRY,
 }
-impl Copy for CERT_ALT_NAME_INFO {}
-impl Clone for CERT_ALT_NAME_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_ALT_NAME_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_ALT_NAME_INFO").field("cAltEntry", &self.cAltEntry).field("rgAltEntry", &self.rgAltEntry).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_ALT_NAME_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_ALT_NAME_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cAltEntry == other.cAltEntry && self.rgAltEntry == other.rgAltEntry
-    }
-}
-impl Eq for CERT_ALT_NAME_INFO {}
 impl Default for CERT_ALT_NAME_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_AUTHORITY_INFO_ACCESS {
     pub cAccDescr: u32,
     pub rgAccDescr: *mut CERT_ACCESS_DESCRIPTION,
 }
-impl Copy for CERT_AUTHORITY_INFO_ACCESS {}
-impl Clone for CERT_AUTHORITY_INFO_ACCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_AUTHORITY_INFO_ACCESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_AUTHORITY_INFO_ACCESS").field("cAccDescr", &self.cAccDescr).field("rgAccDescr", &self.rgAccDescr).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_AUTHORITY_INFO_ACCESS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_AUTHORITY_INFO_ACCESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cAccDescr == other.cAccDescr && self.rgAccDescr == other.rgAccDescr
-    }
-}
-impl Eq for CERT_AUTHORITY_INFO_ACCESS {}
 impl Default for CERT_AUTHORITY_INFO_ACCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_AUTHORITY_KEY_ID2_INFO {
     pub KeyId: CRYPT_INTEGER_BLOB,
     pub AuthorityCertIssuer: CERT_ALT_NAME_INFO,
     pub AuthorityCertSerialNumber: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_AUTHORITY_KEY_ID2_INFO {}
-impl Clone for CERT_AUTHORITY_KEY_ID2_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_AUTHORITY_KEY_ID2_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_AUTHORITY_KEY_ID2_INFO").field("KeyId", &self.KeyId).field("AuthorityCertIssuer", &self.AuthorityCertIssuer).field("AuthorityCertSerialNumber", &self.AuthorityCertSerialNumber).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_AUTHORITY_KEY_ID2_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_AUTHORITY_KEY_ID2_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.KeyId == other.KeyId && self.AuthorityCertIssuer == other.AuthorityCertIssuer && self.AuthorityCertSerialNumber == other.AuthorityCertSerialNumber
-    }
-}
-impl Eq for CERT_AUTHORITY_KEY_ID2_INFO {}
 impl Default for CERT_AUTHORITY_KEY_ID2_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_AUTHORITY_KEY_ID_INFO {
     pub KeyId: CRYPT_INTEGER_BLOB,
     pub CertIssuer: CRYPT_INTEGER_BLOB,
     pub CertSerialNumber: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_AUTHORITY_KEY_ID_INFO {}
-impl Clone for CERT_AUTHORITY_KEY_ID_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_AUTHORITY_KEY_ID_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_AUTHORITY_KEY_ID_INFO").field("KeyId", &self.KeyId).field("CertIssuer", &self.CertIssuer).field("CertSerialNumber", &self.CertSerialNumber).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_AUTHORITY_KEY_ID_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_AUTHORITY_KEY_ID_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.KeyId == other.KeyId && self.CertIssuer == other.CertIssuer && self.CertSerialNumber == other.CertSerialNumber
-    }
-}
-impl Eq for CERT_AUTHORITY_KEY_ID_INFO {}
 impl Default for CERT_AUTHORITY_KEY_ID_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_BASIC_CONSTRAINTS2_INFO {
     pub fCA: super::super::Foundation::BOOL,
     pub fPathLenConstraint: super::super::Foundation::BOOL,
     pub dwPathLenConstraint: u32,
 }
-impl Copy for CERT_BASIC_CONSTRAINTS2_INFO {}
-impl Clone for CERT_BASIC_CONSTRAINTS2_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_BASIC_CONSTRAINTS2_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_BASIC_CONSTRAINTS2_INFO").field("fCA", &self.fCA).field("fPathLenConstraint", &self.fPathLenConstraint).field("dwPathLenConstraint", &self.dwPathLenConstraint).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_BASIC_CONSTRAINTS2_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_BASIC_CONSTRAINTS2_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.fCA == other.fCA && self.fPathLenConstraint == other.fPathLenConstraint && self.dwPathLenConstraint == other.dwPathLenConstraint
-    }
-}
-impl Eq for CERT_BASIC_CONSTRAINTS2_INFO {}
 impl Default for CERT_BASIC_CONSTRAINTS2_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_BASIC_CONSTRAINTS_INFO {
     pub SubjectType: CRYPT_BIT_BLOB,
     pub fPathLenConstraint: super::super::Foundation::BOOL,
@@ -9988,42 +9400,20 @@ pub struct CERT_BASIC_CONSTRAINTS_INFO {
     pub cSubtreesConstraint: u32,
     pub rgSubtreesConstraint: *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_BASIC_CONSTRAINTS_INFO {}
-impl Clone for CERT_BASIC_CONSTRAINTS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_BASIC_CONSTRAINTS_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_BASIC_CONSTRAINTS_INFO").field("SubjectType", &self.SubjectType).field("fPathLenConstraint", &self.fPathLenConstraint).field("dwPathLenConstraint", &self.dwPathLenConstraint).field("cSubtreesConstraint", &self.cSubtreesConstraint).field("rgSubtreesConstraint", &self.rgSubtreesConstraint).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_BASIC_CONSTRAINTS_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_BASIC_CONSTRAINTS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.SubjectType == other.SubjectType && self.fPathLenConstraint == other.fPathLenConstraint && self.dwPathLenConstraint == other.dwPathLenConstraint && self.cSubtreesConstraint == other.cSubtreesConstraint && self.rgSubtreesConstraint == other.rgSubtreesConstraint
-    }
-}
-impl Eq for CERT_BASIC_CONSTRAINTS_INFO {}
 impl Default for CERT_BASIC_CONSTRAINTS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_BIOMETRIC_DATA {
     pub dwTypeOfBiometricDataChoice: CERT_BIOMETRIC_DATA_TYPE,
     pub Anonymous: CERT_BIOMETRIC_DATA_0,
     pub HashedUrl: CERT_HASHED_URL,
-}
-impl Copy for CERT_BIOMETRIC_DATA {}
-impl Clone for CERT_BIOMETRIC_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CERT_BIOMETRIC_DATA {
     type TypeKind = windows_core::CopyType;
@@ -10034,15 +9424,10 @@ impl Default for CERT_BIOMETRIC_DATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CERT_BIOMETRIC_DATA_0 {
     pub dwPredefined: u32,
     pub pszObjId: windows_core::PSTR,
-}
-impl Copy for CERT_BIOMETRIC_DATA_0 {}
-impl Clone for CERT_BIOMETRIC_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CERT_BIOMETRIC_DATA_0 {
     type TypeKind = windows_core::CopyType;
@@ -10053,67 +9438,36 @@ impl Default for CERT_BIOMETRIC_DATA_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_BIOMETRIC_EXT_INFO {
     pub cBiometricData: u32,
     pub rgBiometricData: *mut CERT_BIOMETRIC_DATA,
 }
-impl Copy for CERT_BIOMETRIC_EXT_INFO {}
-impl Clone for CERT_BIOMETRIC_EXT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_BIOMETRIC_EXT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_BIOMETRIC_EXT_INFO").field("cBiometricData", &self.cBiometricData).field("rgBiometricData", &self.rgBiometricData).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_BIOMETRIC_EXT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_BIOMETRIC_EXT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cBiometricData == other.cBiometricData && self.rgBiometricData == other.rgBiometricData
-    }
-}
-impl Eq for CERT_BIOMETRIC_EXT_INFO {}
 impl Default for CERT_BIOMETRIC_EXT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CHAIN {
     pub cCerts: u32,
     pub certs: *mut CRYPT_INTEGER_BLOB,
     pub keyLocatorInfo: CRYPT_KEY_PROV_INFO,
 }
-impl Copy for CERT_CHAIN {}
-impl Clone for CERT_CHAIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_CHAIN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_CHAIN").field("cCerts", &self.cCerts).field("certs", &self.certs).field("keyLocatorInfo", &self.keyLocatorInfo).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_CHAIN {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_CHAIN {
-    fn eq(&self, other: &Self) -> bool {
-        self.cCerts == other.cCerts && self.certs == other.certs && self.keyLocatorInfo == other.keyLocatorInfo
-    }
-}
-impl Eq for CERT_CHAIN {}
 impl Default for CERT_CHAIN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CHAIN_CONTEXT {
     pub cbSize: u32,
     pub TrustStatus: CERT_TRUST_STATUS,
@@ -10126,43 +9480,16 @@ pub struct CERT_CHAIN_CONTEXT {
     pub dwCreateFlags: u32,
     pub ChainId: windows_core::GUID,
 }
-impl Copy for CERT_CHAIN_CONTEXT {}
-impl Clone for CERT_CHAIN_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_CHAIN_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_CHAIN_CONTEXT")
-            .field("cbSize", &self.cbSize)
-            .field("TrustStatus", &self.TrustStatus)
-            .field("cChain", &self.cChain)
-            .field("rgpChain", &self.rgpChain)
-            .field("cLowerQualityChainContext", &self.cLowerQualityChainContext)
-            .field("rgpLowerQualityChainContext", &self.rgpLowerQualityChainContext)
-            .field("fHasRevocationFreshnessTime", &self.fHasRevocationFreshnessTime)
-            .field("dwRevocationFreshnessTime", &self.dwRevocationFreshnessTime)
-            .field("dwCreateFlags", &self.dwCreateFlags)
-            .field("ChainId", &self.ChainId)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for CERT_CHAIN_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_CHAIN_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.TrustStatus == other.TrustStatus && self.cChain == other.cChain && self.rgpChain == other.rgpChain && self.cLowerQualityChainContext == other.cLowerQualityChainContext && self.rgpLowerQualityChainContext == other.rgpLowerQualityChainContext && self.fHasRevocationFreshnessTime == other.fHasRevocationFreshnessTime && self.dwRevocationFreshnessTime == other.dwRevocationFreshnessTime && self.dwCreateFlags == other.dwCreateFlags && self.ChainId == other.ChainId
-    }
-}
-impl Eq for CERT_CHAIN_CONTEXT {}
 impl Default for CERT_CHAIN_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CHAIN_ELEMENT {
     pub cbSize: u32,
     pub pCertContext: *const CERT_CONTEXT,
@@ -10172,32 +9499,16 @@ pub struct CERT_CHAIN_ELEMENT {
     pub pApplicationUsage: *mut CTL_USAGE,
     pub pwszExtendedErrorInfo: windows_core::PCWSTR,
 }
-impl Copy for CERT_CHAIN_ELEMENT {}
-impl Clone for CERT_CHAIN_ELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_CHAIN_ELEMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_CHAIN_ELEMENT").field("cbSize", &self.cbSize).field("pCertContext", &self.pCertContext).field("TrustStatus", &self.TrustStatus).field("pRevocationInfo", &self.pRevocationInfo).field("pIssuanceUsage", &self.pIssuanceUsage).field("pApplicationUsage", &self.pApplicationUsage).field("pwszExtendedErrorInfo", &self.pwszExtendedErrorInfo).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_CHAIN_ELEMENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_CHAIN_ELEMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pCertContext == other.pCertContext && self.TrustStatus == other.TrustStatus && self.pRevocationInfo == other.pRevocationInfo && self.pIssuanceUsage == other.pIssuanceUsage && self.pApplicationUsage == other.pApplicationUsage && self.pwszExtendedErrorInfo == other.pwszExtendedErrorInfo
-    }
-}
-impl Eq for CERT_CHAIN_ELEMENT {}
 impl Default for CERT_CHAIN_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CHAIN_ENGINE_CONFIG {
     pub cbSize: u32,
     pub hRestrictedRoot: HCERTSTORE,
@@ -10213,46 +9524,16 @@ pub struct CERT_CHAIN_ENGINE_CONFIG {
     pub hExclusiveTrustedPeople: HCERTSTORE,
     pub dwExclusiveFlags: u32,
 }
-impl Copy for CERT_CHAIN_ENGINE_CONFIG {}
-impl Clone for CERT_CHAIN_ENGINE_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_CHAIN_ENGINE_CONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_CHAIN_ENGINE_CONFIG")
-            .field("cbSize", &self.cbSize)
-            .field("hRestrictedRoot", &self.hRestrictedRoot)
-            .field("hRestrictedTrust", &self.hRestrictedTrust)
-            .field("hRestrictedOther", &self.hRestrictedOther)
-            .field("cAdditionalStore", &self.cAdditionalStore)
-            .field("rghAdditionalStore", &self.rghAdditionalStore)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwUrlRetrievalTimeout", &self.dwUrlRetrievalTimeout)
-            .field("MaximumCachedCertificates", &self.MaximumCachedCertificates)
-            .field("CycleDetectionModulus", &self.CycleDetectionModulus)
-            .field("hExclusiveRoot", &self.hExclusiveRoot)
-            .field("hExclusiveTrustedPeople", &self.hExclusiveTrustedPeople)
-            .field("dwExclusiveFlags", &self.dwExclusiveFlags)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for CERT_CHAIN_ENGINE_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_CHAIN_ENGINE_CONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.hRestrictedRoot == other.hRestrictedRoot && self.hRestrictedTrust == other.hRestrictedTrust && self.hRestrictedOther == other.hRestrictedOther && self.cAdditionalStore == other.cAdditionalStore && self.rghAdditionalStore == other.rghAdditionalStore && self.dwFlags == other.dwFlags && self.dwUrlRetrievalTimeout == other.dwUrlRetrievalTimeout && self.MaximumCachedCertificates == other.MaximumCachedCertificates && self.CycleDetectionModulus == other.CycleDetectionModulus && self.hExclusiveRoot == other.hExclusiveRoot && self.hExclusiveTrustedPeople == other.hExclusiveTrustedPeople && self.dwExclusiveFlags == other.dwExclusiveFlags
-    }
-}
-impl Eq for CERT_CHAIN_ENGINE_CONFIG {}
 impl Default for CERT_CHAIN_ENGINE_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct CERT_CHAIN_FIND_BY_ISSUER_PARA {
     pub cbSize: u32,
     pub pszUsageIdentifier: windows_core::PCSTR,
@@ -10263,17 +9544,6 @@ pub struct CERT_CHAIN_FIND_BY_ISSUER_PARA {
     pub pfnFindCallback: PFN_CERT_CHAIN_FIND_BY_ISSUER_CALLBACK,
     pub pvFindArg: *mut core::ffi::c_void,
 }
-impl Copy for CERT_CHAIN_FIND_BY_ISSUER_PARA {}
-impl Clone for CERT_CHAIN_FIND_BY_ISSUER_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_CHAIN_FIND_BY_ISSUER_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_CHAIN_FIND_BY_ISSUER_PARA").field("cbSize", &self.cbSize).field("pszUsageIdentifier", &self.pszUsageIdentifier).field("dwKeySpec", &self.dwKeySpec).field("dwAcquirePrivateKeyFlags", &self.dwAcquirePrivateKeyFlags).field("cIssuer", &self.cIssuer).field("rgIssuer", &self.rgIssuer).field("pvFindArg", &self.pvFindArg).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_CHAIN_FIND_BY_ISSUER_PARA {
     type TypeKind = windows_core::CopyType;
 }
@@ -10283,67 +9553,36 @@ impl Default for CERT_CHAIN_FIND_BY_ISSUER_PARA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CHAIN_PARA {
     pub cbSize: u32,
     pub RequestedUsage: CERT_USAGE_MATCH,
 }
-impl Copy for CERT_CHAIN_PARA {}
-impl Clone for CERT_CHAIN_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_CHAIN_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_CHAIN_PARA").field("cbSize", &self.cbSize).field("RequestedUsage", &self.RequestedUsage).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_CHAIN_PARA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_CHAIN_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.RequestedUsage == other.RequestedUsage
-    }
-}
-impl Eq for CERT_CHAIN_PARA {}
 impl Default for CERT_CHAIN_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwFlags: CERT_CHAIN_POLICY_FLAGS,
     pub pvExtraPolicyPara: *mut core::ffi::c_void,
 }
-impl Copy for CERT_CHAIN_POLICY_PARA {}
-impl Clone for CERT_CHAIN_POLICY_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_CHAIN_POLICY_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_CHAIN_POLICY_PARA").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("pvExtraPolicyPara", &self.pvExtraPolicyPara).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_CHAIN_POLICY_PARA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_CHAIN_POLICY_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.pvExtraPolicyPara == other.pvExtraPolicyPara
-    }
-}
-impl Eq for CERT_CHAIN_POLICY_PARA {}
 impl Default for CERT_CHAIN_POLICY_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub dwError: u32,
@@ -10351,32 +9590,16 @@ pub struct CERT_CHAIN_POLICY_STATUS {
     pub lElementIndex: i32,
     pub pvExtraPolicyStatus: *mut core::ffi::c_void,
 }
-impl Copy for CERT_CHAIN_POLICY_STATUS {}
-impl Clone for CERT_CHAIN_POLICY_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_CHAIN_POLICY_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_CHAIN_POLICY_STATUS").field("cbSize", &self.cbSize).field("dwError", &self.dwError).field("lChainIndex", &self.lChainIndex).field("lElementIndex", &self.lElementIndex).field("pvExtraPolicyStatus", &self.pvExtraPolicyStatus).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_CHAIN_POLICY_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_CHAIN_POLICY_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwError == other.dwError && self.lChainIndex == other.lChainIndex && self.lElementIndex == other.lElementIndex && self.pvExtraPolicyStatus == other.pvExtraPolicyStatus
-    }
-}
-impl Eq for CERT_CHAIN_POLICY_STATUS {}
 impl Default for CERT_CHAIN_POLICY_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CONTEXT {
     pub dwCertEncodingType: CERT_QUERY_ENCODING_TYPE,
     pub pbCertEncoded: *mut u8,
@@ -10384,49 +9607,22 @@ pub struct CERT_CONTEXT {
     pub pCertInfo: *mut CERT_INFO,
     pub hCertStore: HCERTSTORE,
 }
-impl Copy for CERT_CONTEXT {}
-impl Clone for CERT_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_CONTEXT").field("dwCertEncodingType", &self.dwCertEncodingType).field("pbCertEncoded", &self.pbCertEncoded).field("cbCertEncoded", &self.cbCertEncoded).field("pCertInfo", &self.pCertInfo).field("hCertStore", &self.hCertStore).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwCertEncodingType == other.dwCertEncodingType && self.pbCertEncoded == other.pbCertEncoded && self.cbCertEncoded == other.cbCertEncoded && self.pCertInfo == other.pCertInfo && self.hCertStore == other.hCertStore
-    }
-}
-impl Eq for CERT_CONTEXT {}
 impl Default for CERT_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct CERT_CREATE_CONTEXT_PARA {
     pub cbSize: u32,
     pub pfnFree: PFN_CRYPT_FREE,
     pub pvFree: *mut core::ffi::c_void,
     pub pfnSort: PFN_CERT_CREATE_CONTEXT_SORT_FUNC,
     pub pvSort: *mut core::ffi::c_void,
-}
-impl Copy for CERT_CREATE_CONTEXT_PARA {}
-impl Clone for CERT_CREATE_CONTEXT_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_CREATE_CONTEXT_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_CREATE_CONTEXT_PARA").field("cbSize", &self.cbSize).field("pvFree", &self.pvFree).field("pvSort", &self.pvSort).finish()
-    }
 }
 impl windows_core::TypeKind for CERT_CREATE_CONTEXT_PARA {
     type TypeKind = windows_core::CopyType;
@@ -10437,230 +9633,113 @@ impl Default for CERT_CREATE_CONTEXT_PARA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CRL_CONTEXT_PAIR {
     pub pCertContext: *const CERT_CONTEXT,
     pub pCrlContext: *mut CRL_CONTEXT,
 }
-impl Copy for CERT_CRL_CONTEXT_PAIR {}
-impl Clone for CERT_CRL_CONTEXT_PAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_CRL_CONTEXT_PAIR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_CRL_CONTEXT_PAIR").field("pCertContext", &self.pCertContext).field("pCrlContext", &self.pCrlContext).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_CRL_CONTEXT_PAIR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_CRL_CONTEXT_PAIR {
-    fn eq(&self, other: &Self) -> bool {
-        self.pCertContext == other.pCertContext && self.pCrlContext == other.pCrlContext
-    }
-}
-impl Eq for CERT_CRL_CONTEXT_PAIR {}
 impl Default for CERT_CRL_CONTEXT_PAIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_DH_PARAMETERS {
     pub p: CRYPT_INTEGER_BLOB,
     pub g: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_DH_PARAMETERS {}
-impl Clone for CERT_DH_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_DH_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_DH_PARAMETERS").field("p", &self.p).field("g", &self.g).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_DH_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_DH_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.p == other.p && self.g == other.g
-    }
-}
-impl Eq for CERT_DH_PARAMETERS {}
 impl Default for CERT_DH_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_DSS_PARAMETERS {
     pub p: CRYPT_INTEGER_BLOB,
     pub q: CRYPT_INTEGER_BLOB,
     pub g: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_DSS_PARAMETERS {}
-impl Clone for CERT_DSS_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_DSS_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_DSS_PARAMETERS").field("p", &self.p).field("q", &self.q).field("g", &self.g).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_DSS_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_DSS_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.p == other.p && self.q == other.q && self.g == other.g
-    }
-}
-impl Eq for CERT_DSS_PARAMETERS {}
 impl Default for CERT_DSS_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_ECC_SIGNATURE {
     pub r: CRYPT_INTEGER_BLOB,
     pub s: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_ECC_SIGNATURE {}
-impl Clone for CERT_ECC_SIGNATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_ECC_SIGNATURE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_ECC_SIGNATURE").field("r", &self.r).field("s", &self.s).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_ECC_SIGNATURE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_ECC_SIGNATURE {
-    fn eq(&self, other: &Self) -> bool {
-        self.r == other.r && self.s == other.s
-    }
-}
-impl Eq for CERT_ECC_SIGNATURE {}
 impl Default for CERT_ECC_SIGNATURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_EXTENSION {
     pub pszObjId: windows_core::PSTR,
     pub fCritical: super::super::Foundation::BOOL,
     pub Value: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_EXTENSION {}
-impl Clone for CERT_EXTENSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_EXTENSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_EXTENSION").field("pszObjId", &self.pszObjId).field("fCritical", &self.fCritical).field("Value", &self.Value).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_EXTENSION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_EXTENSION {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszObjId == other.pszObjId && self.fCritical == other.fCritical && self.Value == other.Value
-    }
-}
-impl Eq for CERT_EXTENSION {}
 impl Default for CERT_EXTENSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_EXTENSIONS {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-impl Copy for CERT_EXTENSIONS {}
-impl Clone for CERT_EXTENSIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_EXTENSIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_EXTENSIONS").field("cExtension", &self.cExtension).field("rgExtension", &self.rgExtension).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_EXTENSIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_EXTENSIONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cExtension == other.cExtension && self.rgExtension == other.rgExtension
-    }
-}
-impl Eq for CERT_EXTENSIONS {}
 impl Default for CERT_EXTENSIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_FORTEZZA_DATA_PROP {
     pub SerialNumber: [u8; 8],
     pub CertIndex: i32,
     pub CertLabel: [u8; 36],
 }
-impl Copy for CERT_FORTEZZA_DATA_PROP {}
-impl Clone for CERT_FORTEZZA_DATA_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_FORTEZZA_DATA_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_FORTEZZA_DATA_PROP").field("SerialNumber", &self.SerialNumber).field("CertIndex", &self.CertIndex).field("CertLabel", &self.CertLabel).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_FORTEZZA_DATA_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_FORTEZZA_DATA_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.SerialNumber == other.SerialNumber && self.CertIndex == other.CertIndex && self.CertLabel == other.CertLabel
-    }
-}
-impl Eq for CERT_FORTEZZA_DATA_PROP {}
 impl Default for CERT_FORTEZZA_DATA_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_GENERAL_SUBTREE {
     pub Base: CERT_ALT_NAME_ENTRY,
     pub dwMinimum: u32,
     pub fMaximum: super::super::Foundation::BOOL,
     pub dwMaximum: u32,
-}
-impl Copy for CERT_GENERAL_SUBTREE {}
-impl Clone for CERT_GENERAL_SUBTREE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CERT_GENERAL_SUBTREE {
     type TypeKind = windows_core::CopyType;
@@ -10671,46 +9750,25 @@ impl Default for CERT_GENERAL_SUBTREE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_HASHED_URL {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub Hash: CRYPT_INTEGER_BLOB,
     pub pwszUrl: windows_core::PWSTR,
 }
-impl Copy for CERT_HASHED_URL {}
-impl Clone for CERT_HASHED_URL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_HASHED_URL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_HASHED_URL").field("HashAlgorithm", &self.HashAlgorithm).field("Hash", &self.Hash).field("pwszUrl", &self.pwszUrl).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_HASHED_URL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_HASHED_URL {
-    fn eq(&self, other: &Self) -> bool {
-        self.HashAlgorithm == other.HashAlgorithm && self.Hash == other.Hash && self.pwszUrl == other.pwszUrl
-    }
-}
-impl Eq for CERT_HASHED_URL {}
 impl Default for CERT_HASHED_URL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_ID {
     pub dwIdChoice: CERT_ID_OPTION,
     pub Anonymous: CERT_ID_0,
-}
-impl Copy for CERT_ID {}
-impl Clone for CERT_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CERT_ID {
     type TypeKind = windows_core::CopyType;
@@ -10721,16 +9779,11 @@ impl Default for CERT_ID {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CERT_ID_0 {
     pub IssuerSerialNumber: CERT_ISSUER_SERIAL_NUMBER,
     pub KeyId: CRYPT_INTEGER_BLOB,
     pub HashId: CRYPT_INTEGER_BLOB,
-}
-impl Copy for CERT_ID_0 {}
-impl Clone for CERT_ID_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CERT_ID_0 {
     type TypeKind = windows_core::CopyType;
@@ -10741,6 +9794,7 @@ impl Default for CERT_ID_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_INFO {
     pub dwVersion: u32,
     pub SerialNumber: CRYPT_INTEGER_BLOB,
@@ -10755,147 +9809,64 @@ pub struct CERT_INFO {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-impl Copy for CERT_INFO {}
-impl Clone for CERT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_INFO")
-            .field("dwVersion", &self.dwVersion)
-            .field("SerialNumber", &self.SerialNumber)
-            .field("SignatureAlgorithm", &self.SignatureAlgorithm)
-            .field("Issuer", &self.Issuer)
-            .field("NotBefore", &self.NotBefore)
-            .field("NotAfter", &self.NotAfter)
-            .field("Subject", &self.Subject)
-            .field("SubjectPublicKeyInfo", &self.SubjectPublicKeyInfo)
-            .field("IssuerUniqueId", &self.IssuerUniqueId)
-            .field("SubjectUniqueId", &self.SubjectUniqueId)
-            .field("cExtension", &self.cExtension)
-            .field("rgExtension", &self.rgExtension)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for CERT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.SerialNumber == other.SerialNumber && self.SignatureAlgorithm == other.SignatureAlgorithm && self.Issuer == other.Issuer && self.NotBefore == other.NotBefore && self.NotAfter == other.NotAfter && self.Subject == other.Subject && self.SubjectPublicKeyInfo == other.SubjectPublicKeyInfo && self.IssuerUniqueId == other.IssuerUniqueId && self.SubjectUniqueId == other.SubjectUniqueId && self.cExtension == other.cExtension && self.rgExtension == other.rgExtension
-    }
-}
-impl Eq for CERT_INFO {}
 impl Default for CERT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_ISSUER_SERIAL_NUMBER {
     pub Issuer: CRYPT_INTEGER_BLOB,
     pub SerialNumber: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_ISSUER_SERIAL_NUMBER {}
-impl Clone for CERT_ISSUER_SERIAL_NUMBER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_ISSUER_SERIAL_NUMBER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_ISSUER_SERIAL_NUMBER").field("Issuer", &self.Issuer).field("SerialNumber", &self.SerialNumber).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_ISSUER_SERIAL_NUMBER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_ISSUER_SERIAL_NUMBER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Issuer == other.Issuer && self.SerialNumber == other.SerialNumber
-    }
-}
-impl Eq for CERT_ISSUER_SERIAL_NUMBER {}
 impl Default for CERT_ISSUER_SERIAL_NUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_KEYGEN_REQUEST_INFO {
     pub dwVersion: u32,
     pub SubjectPublicKeyInfo: CERT_PUBLIC_KEY_INFO,
     pub pwszChallengeString: windows_core::PWSTR,
 }
-impl Copy for CERT_KEYGEN_REQUEST_INFO {}
-impl Clone for CERT_KEYGEN_REQUEST_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_KEYGEN_REQUEST_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_KEYGEN_REQUEST_INFO").field("dwVersion", &self.dwVersion).field("SubjectPublicKeyInfo", &self.SubjectPublicKeyInfo).field("pwszChallengeString", &self.pwszChallengeString).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_KEYGEN_REQUEST_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_KEYGEN_REQUEST_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.SubjectPublicKeyInfo == other.SubjectPublicKeyInfo && self.pwszChallengeString == other.pwszChallengeString
-    }
-}
-impl Eq for CERT_KEYGEN_REQUEST_INFO {}
 impl Default for CERT_KEYGEN_REQUEST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_KEY_ATTRIBUTES_INFO {
     pub KeyId: CRYPT_INTEGER_BLOB,
     pub IntendedKeyUsage: CRYPT_BIT_BLOB,
     pub pPrivateKeyUsagePeriod: *mut CERT_PRIVATE_KEY_VALIDITY,
 }
-impl Copy for CERT_KEY_ATTRIBUTES_INFO {}
-impl Clone for CERT_KEY_ATTRIBUTES_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_KEY_ATTRIBUTES_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_KEY_ATTRIBUTES_INFO").field("KeyId", &self.KeyId).field("IntendedKeyUsage", &self.IntendedKeyUsage).field("pPrivateKeyUsagePeriod", &self.pPrivateKeyUsagePeriod).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_KEY_ATTRIBUTES_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_KEY_ATTRIBUTES_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.KeyId == other.KeyId && self.IntendedKeyUsage == other.IntendedKeyUsage && self.pPrivateKeyUsagePeriod == other.pPrivateKeyUsagePeriod
-    }
-}
-impl Eq for CERT_KEY_ATTRIBUTES_INFO {}
 impl Default for CERT_KEY_ATTRIBUTES_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_KEY_CONTEXT {
     pub cbSize: u32,
     pub Anonymous: CERT_KEY_CONTEXT_0,
     pub dwKeySpec: u32,
-}
-impl Copy for CERT_KEY_CONTEXT {}
-impl Clone for CERT_KEY_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CERT_KEY_CONTEXT {
     type TypeKind = windows_core::CopyType;
@@ -10906,15 +9877,10 @@ impl Default for CERT_KEY_CONTEXT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CERT_KEY_CONTEXT_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: NCRYPT_KEY_HANDLE,
-}
-impl Copy for CERT_KEY_CONTEXT_0 {}
-impl Clone for CERT_KEY_CONTEXT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CERT_KEY_CONTEXT_0 {
     type TypeKind = windows_core::CopyType;
@@ -10925,97 +9891,50 @@ impl Default for CERT_KEY_CONTEXT_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_KEY_USAGE_RESTRICTION_INFO {
     pub cCertPolicyId: u32,
     pub rgCertPolicyId: *mut CERT_POLICY_ID,
     pub RestrictedKeyUsage: CRYPT_BIT_BLOB,
 }
-impl Copy for CERT_KEY_USAGE_RESTRICTION_INFO {}
-impl Clone for CERT_KEY_USAGE_RESTRICTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_KEY_USAGE_RESTRICTION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_KEY_USAGE_RESTRICTION_INFO").field("cCertPolicyId", &self.cCertPolicyId).field("rgCertPolicyId", &self.rgCertPolicyId).field("RestrictedKeyUsage", &self.RestrictedKeyUsage).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_KEY_USAGE_RESTRICTION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_KEY_USAGE_RESTRICTION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cCertPolicyId == other.cCertPolicyId && self.rgCertPolicyId == other.rgCertPolicyId && self.RestrictedKeyUsage == other.RestrictedKeyUsage
-    }
-}
-impl Eq for CERT_KEY_USAGE_RESTRICTION_INFO {}
 impl Default for CERT_KEY_USAGE_RESTRICTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_LDAP_STORE_OPENED_PARA {
     pub pvLdapSessionHandle: *mut core::ffi::c_void,
     pub pwszLdapUrl: windows_core::PCWSTR,
 }
-impl Copy for CERT_LDAP_STORE_OPENED_PARA {}
-impl Clone for CERT_LDAP_STORE_OPENED_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_LDAP_STORE_OPENED_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_LDAP_STORE_OPENED_PARA").field("pvLdapSessionHandle", &self.pvLdapSessionHandle).field("pwszLdapUrl", &self.pwszLdapUrl).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_LDAP_STORE_OPENED_PARA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_LDAP_STORE_OPENED_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pvLdapSessionHandle == other.pvLdapSessionHandle && self.pwszLdapUrl == other.pwszLdapUrl
-    }
-}
-impl Eq for CERT_LDAP_STORE_OPENED_PARA {}
 impl Default for CERT_LDAP_STORE_OPENED_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_AUDIO {
     pub LogotypeDetails: CERT_LOGOTYPE_DETAILS,
     pub pLogotypeAudioInfo: *mut CERT_LOGOTYPE_AUDIO_INFO,
 }
-impl Copy for CERT_LOGOTYPE_AUDIO {}
-impl Clone for CERT_LOGOTYPE_AUDIO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_LOGOTYPE_AUDIO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_LOGOTYPE_AUDIO").field("LogotypeDetails", &self.LogotypeDetails).field("pLogotypeAudioInfo", &self.pLogotypeAudioInfo).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_LOGOTYPE_AUDIO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_LOGOTYPE_AUDIO {
-    fn eq(&self, other: &Self) -> bool {
-        self.LogotypeDetails == other.LogotypeDetails && self.pLogotypeAudioInfo == other.pLogotypeAudioInfo
-    }
-}
-impl Eq for CERT_LOGOTYPE_AUDIO {}
 impl Default for CERT_LOGOTYPE_AUDIO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_AUDIO_INFO {
     pub dwFileSize: u32,
     pub dwPlayTime: u32,
@@ -11023,95 +9942,47 @@ pub struct CERT_LOGOTYPE_AUDIO_INFO {
     pub dwSampleRate: u32,
     pub pwszLanguage: windows_core::PWSTR,
 }
-impl Copy for CERT_LOGOTYPE_AUDIO_INFO {}
-impl Clone for CERT_LOGOTYPE_AUDIO_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_LOGOTYPE_AUDIO_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_LOGOTYPE_AUDIO_INFO").field("dwFileSize", &self.dwFileSize).field("dwPlayTime", &self.dwPlayTime).field("dwChannels", &self.dwChannels).field("dwSampleRate", &self.dwSampleRate).field("pwszLanguage", &self.pwszLanguage).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_LOGOTYPE_AUDIO_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_LOGOTYPE_AUDIO_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFileSize == other.dwFileSize && self.dwPlayTime == other.dwPlayTime && self.dwChannels == other.dwChannels && self.dwSampleRate == other.dwSampleRate && self.pwszLanguage == other.pwszLanguage
-    }
-}
-impl Eq for CERT_LOGOTYPE_AUDIO_INFO {}
 impl Default for CERT_LOGOTYPE_AUDIO_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_DATA {
     pub cLogotypeImage: u32,
     pub rgLogotypeImage: *mut CERT_LOGOTYPE_IMAGE,
     pub cLogotypeAudio: u32,
     pub rgLogotypeAudio: *mut CERT_LOGOTYPE_AUDIO,
 }
-impl Copy for CERT_LOGOTYPE_DATA {}
-impl Clone for CERT_LOGOTYPE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_LOGOTYPE_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_LOGOTYPE_DATA").field("cLogotypeImage", &self.cLogotypeImage).field("rgLogotypeImage", &self.rgLogotypeImage).field("cLogotypeAudio", &self.cLogotypeAudio).field("rgLogotypeAudio", &self.rgLogotypeAudio).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_LOGOTYPE_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_LOGOTYPE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cLogotypeImage == other.cLogotypeImage && self.rgLogotypeImage == other.rgLogotypeImage && self.cLogotypeAudio == other.cLogotypeAudio && self.rgLogotypeAudio == other.rgLogotypeAudio
-    }
-}
-impl Eq for CERT_LOGOTYPE_DATA {}
 impl Default for CERT_LOGOTYPE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_DETAILS {
     pub pwszMimeType: windows_core::PWSTR,
     pub cHashedUrl: u32,
     pub rgHashedUrl: *mut CERT_HASHED_URL,
 }
-impl Copy for CERT_LOGOTYPE_DETAILS {}
-impl Clone for CERT_LOGOTYPE_DETAILS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_LOGOTYPE_DETAILS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_LOGOTYPE_DETAILS").field("pwszMimeType", &self.pwszMimeType).field("cHashedUrl", &self.cHashedUrl).field("rgHashedUrl", &self.rgHashedUrl).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_LOGOTYPE_DETAILS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_LOGOTYPE_DETAILS {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszMimeType == other.pwszMimeType && self.cHashedUrl == other.cHashedUrl && self.rgHashedUrl == other.rgHashedUrl
-    }
-}
-impl Eq for CERT_LOGOTYPE_DETAILS {}
 impl Default for CERT_LOGOTYPE_DETAILS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_EXT_INFO {
     pub cCommunityLogo: u32,
     pub rgCommunityLogo: *mut CERT_LOGOTYPE_INFO,
@@ -11120,62 +9991,30 @@ pub struct CERT_LOGOTYPE_EXT_INFO {
     pub cOtherLogo: u32,
     pub rgOtherLogo: *mut CERT_OTHER_LOGOTYPE_INFO,
 }
-impl Copy for CERT_LOGOTYPE_EXT_INFO {}
-impl Clone for CERT_LOGOTYPE_EXT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_LOGOTYPE_EXT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_LOGOTYPE_EXT_INFO").field("cCommunityLogo", &self.cCommunityLogo).field("rgCommunityLogo", &self.rgCommunityLogo).field("pIssuerLogo", &self.pIssuerLogo).field("pSubjectLogo", &self.pSubjectLogo).field("cOtherLogo", &self.cOtherLogo).field("rgOtherLogo", &self.rgOtherLogo).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_LOGOTYPE_EXT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_LOGOTYPE_EXT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cCommunityLogo == other.cCommunityLogo && self.rgCommunityLogo == other.rgCommunityLogo && self.pIssuerLogo == other.pIssuerLogo && self.pSubjectLogo == other.pSubjectLogo && self.cOtherLogo == other.cOtherLogo && self.rgOtherLogo == other.rgOtherLogo
-    }
-}
-impl Eq for CERT_LOGOTYPE_EXT_INFO {}
 impl Default for CERT_LOGOTYPE_EXT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_IMAGE {
     pub LogotypeDetails: CERT_LOGOTYPE_DETAILS,
     pub pLogotypeImageInfo: *mut CERT_LOGOTYPE_IMAGE_INFO,
 }
-impl Copy for CERT_LOGOTYPE_IMAGE {}
-impl Clone for CERT_LOGOTYPE_IMAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_LOGOTYPE_IMAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_LOGOTYPE_IMAGE").field("LogotypeDetails", &self.LogotypeDetails).field("pLogotypeImageInfo", &self.pLogotypeImageInfo).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_LOGOTYPE_IMAGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_LOGOTYPE_IMAGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.LogotypeDetails == other.LogotypeDetails && self.pLogotypeImageInfo == other.pLogotypeImageInfo
-    }
-}
-impl Eq for CERT_LOGOTYPE_IMAGE {}
 impl Default for CERT_LOGOTYPE_IMAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_LOGOTYPE_IMAGE_INFO {
     pub dwLogotypeImageInfoChoice: CERT_LOGOTYPE_IMAGE_INFO_TYPE,
     pub dwFileSize: u32,
@@ -11184,12 +10023,6 @@ pub struct CERT_LOGOTYPE_IMAGE_INFO {
     pub dwLogotypeImageResolutionChoice: CERT_LOGOTYPE_CHOICE,
     pub Anonymous: CERT_LOGOTYPE_IMAGE_INFO_0,
     pub pwszLanguage: windows_core::PWSTR,
-}
-impl Copy for CERT_LOGOTYPE_IMAGE_INFO {}
-impl Clone for CERT_LOGOTYPE_IMAGE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CERT_LOGOTYPE_IMAGE_INFO {
     type TypeKind = windows_core::CopyType;
@@ -11200,15 +10033,10 @@ impl Default for CERT_LOGOTYPE_IMAGE_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CERT_LOGOTYPE_IMAGE_INFO_0 {
     pub dwNumBits: u32,
     pub dwTableSize: u32,
-}
-impl Copy for CERT_LOGOTYPE_IMAGE_INFO_0 {}
-impl Clone for CERT_LOGOTYPE_IMAGE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CERT_LOGOTYPE_IMAGE_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -11219,15 +10047,10 @@ impl Default for CERT_LOGOTYPE_IMAGE_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_LOGOTYPE_INFO {
     pub dwLogotypeInfoChoice: CERT_LOGOTYPE_OPTION,
     pub Anonymous: CERT_LOGOTYPE_INFO_0,
-}
-impl Copy for CERT_LOGOTYPE_INFO {}
-impl Clone for CERT_LOGOTYPE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CERT_LOGOTYPE_INFO {
     type TypeKind = windows_core::CopyType;
@@ -11238,15 +10061,10 @@ impl Default for CERT_LOGOTYPE_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CERT_LOGOTYPE_INFO_0 {
     pub pLogotypeDirectInfo: *mut CERT_LOGOTYPE_DATA,
     pub pLogotypeIndirectInfo: *mut CERT_LOGOTYPE_REFERENCE,
-}
-impl Copy for CERT_LOGOTYPE_INFO_0 {}
-impl Clone for CERT_LOGOTYPE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CERT_LOGOTYPE_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -11257,198 +10075,97 @@ impl Default for CERT_LOGOTYPE_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_REFERENCE {
     pub cHashedUrl: u32,
     pub rgHashedUrl: *mut CERT_HASHED_URL,
 }
-impl Copy for CERT_LOGOTYPE_REFERENCE {}
-impl Clone for CERT_LOGOTYPE_REFERENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_LOGOTYPE_REFERENCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_LOGOTYPE_REFERENCE").field("cHashedUrl", &self.cHashedUrl).field("rgHashedUrl", &self.rgHashedUrl).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_LOGOTYPE_REFERENCE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_LOGOTYPE_REFERENCE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cHashedUrl == other.cHashedUrl && self.rgHashedUrl == other.rgHashedUrl
-    }
-}
-impl Eq for CERT_LOGOTYPE_REFERENCE {}
 impl Default for CERT_LOGOTYPE_REFERENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_NAME_CONSTRAINTS_INFO {
     pub cPermittedSubtree: u32,
     pub rgPermittedSubtree: *mut CERT_GENERAL_SUBTREE,
     pub cExcludedSubtree: u32,
     pub rgExcludedSubtree: *mut CERT_GENERAL_SUBTREE,
 }
-impl Copy for CERT_NAME_CONSTRAINTS_INFO {}
-impl Clone for CERT_NAME_CONSTRAINTS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_NAME_CONSTRAINTS_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_NAME_CONSTRAINTS_INFO").field("cPermittedSubtree", &self.cPermittedSubtree).field("rgPermittedSubtree", &self.rgPermittedSubtree).field("cExcludedSubtree", &self.cExcludedSubtree).field("rgExcludedSubtree", &self.rgExcludedSubtree).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_NAME_CONSTRAINTS_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_NAME_CONSTRAINTS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cPermittedSubtree == other.cPermittedSubtree && self.rgPermittedSubtree == other.rgPermittedSubtree && self.cExcludedSubtree == other.cExcludedSubtree && self.rgExcludedSubtree == other.rgExcludedSubtree
-    }
-}
-impl Eq for CERT_NAME_CONSTRAINTS_INFO {}
 impl Default for CERT_NAME_CONSTRAINTS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_NAME_INFO {
     pub cRDN: u32,
     pub rgRDN: *mut CERT_RDN,
 }
-impl Copy for CERT_NAME_INFO {}
-impl Clone for CERT_NAME_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_NAME_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_NAME_INFO").field("cRDN", &self.cRDN).field("rgRDN", &self.rgRDN).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_NAME_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_NAME_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cRDN == other.cRDN && self.rgRDN == other.rgRDN
-    }
-}
-impl Eq for CERT_NAME_INFO {}
 impl Default for CERT_NAME_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_NAME_VALUE {
     pub dwValueType: u32,
     pub Value: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_NAME_VALUE {}
-impl Clone for CERT_NAME_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_NAME_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_NAME_VALUE").field("dwValueType", &self.dwValueType).field("Value", &self.Value).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_NAME_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_NAME_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwValueType == other.dwValueType && self.Value == other.Value
-    }
-}
-impl Eq for CERT_NAME_VALUE {}
 impl Default for CERT_NAME_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_OR_CRL_BLOB {
     pub dwChoice: u32,
     pub cbEncoded: u32,
     pub pbEncoded: *mut u8,
 }
-impl Copy for CERT_OR_CRL_BLOB {}
-impl Clone for CERT_OR_CRL_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_OR_CRL_BLOB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_OR_CRL_BLOB").field("dwChoice", &self.dwChoice).field("cbEncoded", &self.cbEncoded).field("pbEncoded", &self.pbEncoded).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_OR_CRL_BLOB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_OR_CRL_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwChoice == other.dwChoice && self.cbEncoded == other.cbEncoded && self.pbEncoded == other.pbEncoded
-    }
-}
-impl Eq for CERT_OR_CRL_BLOB {}
 impl Default for CERT_OR_CRL_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_OR_CRL_BUNDLE {
     pub cItem: u32,
     pub rgItem: *mut CERT_OR_CRL_BLOB,
 }
-impl Copy for CERT_OR_CRL_BUNDLE {}
-impl Clone for CERT_OR_CRL_BUNDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_OR_CRL_BUNDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_OR_CRL_BUNDLE").field("cItem", &self.cItem).field("rgItem", &self.rgItem).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_OR_CRL_BUNDLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_OR_CRL_BUNDLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cItem == other.cItem && self.rgItem == other.rgItem
-    }
-}
-impl Eq for CERT_OR_CRL_BUNDLE {}
 impl Default for CERT_OR_CRL_BUNDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_OTHER_LOGOTYPE_INFO {
     pub pszObjId: windows_core::PSTR,
     pub LogotypeInfo: CERT_LOGOTYPE_INFO,
-}
-impl Copy for CERT_OTHER_LOGOTYPE_INFO {}
-impl Clone for CERT_OTHER_LOGOTYPE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CERT_OTHER_LOGOTYPE_INFO {
     type TypeKind = windows_core::CopyType;
@@ -11459,66 +10176,35 @@ impl Default for CERT_OTHER_LOGOTYPE_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_OTHER_NAME {
     pub pszObjId: windows_core::PSTR,
     pub Value: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_OTHER_NAME {}
-impl Clone for CERT_OTHER_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_OTHER_NAME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_OTHER_NAME").field("pszObjId", &self.pszObjId).field("Value", &self.Value).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_OTHER_NAME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_OTHER_NAME {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszObjId == other.pszObjId && self.Value == other.Value
-    }
-}
-impl Eq for CERT_OTHER_NAME {}
 impl Default for CERT_OTHER_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_PAIR {
     pub Forward: CRYPT_INTEGER_BLOB,
     pub Reverse: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_PAIR {}
-impl Clone for CERT_PAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_PAIR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_PAIR").field("Forward", &self.Forward).field("Reverse", &self.Reverse).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_PAIR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_PAIR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Forward == other.Forward && self.Reverse == other.Reverse
-    }
-}
-impl Eq for CERT_PAIR {}
 impl Default for CERT_PAIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_PHYSICAL_STORE_INFO {
     pub cbSize: u32,
     pub pszOpenStoreProvider: windows_core::PSTR,
@@ -11528,62 +10214,30 @@ pub struct CERT_PHYSICAL_STORE_INFO {
     pub dwFlags: u32,
     pub dwPriority: u32,
 }
-impl Copy for CERT_PHYSICAL_STORE_INFO {}
-impl Clone for CERT_PHYSICAL_STORE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_PHYSICAL_STORE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_PHYSICAL_STORE_INFO").field("cbSize", &self.cbSize).field("pszOpenStoreProvider", &self.pszOpenStoreProvider).field("dwOpenEncodingType", &self.dwOpenEncodingType).field("dwOpenFlags", &self.dwOpenFlags).field("OpenParameters", &self.OpenParameters).field("dwFlags", &self.dwFlags).field("dwPriority", &self.dwPriority).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_PHYSICAL_STORE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_PHYSICAL_STORE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pszOpenStoreProvider == other.pszOpenStoreProvider && self.dwOpenEncodingType == other.dwOpenEncodingType && self.dwOpenFlags == other.dwOpenFlags && self.OpenParameters == other.OpenParameters && self.dwFlags == other.dwFlags && self.dwPriority == other.dwPriority
-    }
-}
-impl Eq for CERT_PHYSICAL_STORE_INFO {}
 impl Default for CERT_PHYSICAL_STORE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICIES_INFO {
     pub cPolicyInfo: u32,
     pub rgPolicyInfo: *mut CERT_POLICY_INFO,
 }
-impl Copy for CERT_POLICIES_INFO {}
-impl Clone for CERT_POLICIES_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_POLICIES_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_POLICIES_INFO").field("cPolicyInfo", &self.cPolicyInfo).field("rgPolicyInfo", &self.rgPolicyInfo).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_POLICIES_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_POLICIES_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cPolicyInfo == other.cPolicyInfo && self.rgPolicyInfo == other.rgPolicyInfo
-    }
-}
-impl Eq for CERT_POLICIES_INFO {}
 impl Default for CERT_POLICIES_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY95_QUALIFIER1 {
     pub pszPracticesReference: windows_core::PWSTR,
     pub pszNoticeIdentifier: windows_core::PSTR,
@@ -11591,451 +10245,210 @@ pub struct CERT_POLICY95_QUALIFIER1 {
     pub cCPSURLs: u32,
     pub rgCPSURLs: *mut CPS_URLS,
 }
-impl Copy for CERT_POLICY95_QUALIFIER1 {}
-impl Clone for CERT_POLICY95_QUALIFIER1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_POLICY95_QUALIFIER1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_POLICY95_QUALIFIER1").field("pszPracticesReference", &self.pszPracticesReference).field("pszNoticeIdentifier", &self.pszNoticeIdentifier).field("pszNSINoticeIdentifier", &self.pszNSINoticeIdentifier).field("cCPSURLs", &self.cCPSURLs).field("rgCPSURLs", &self.rgCPSURLs).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_POLICY95_QUALIFIER1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_POLICY95_QUALIFIER1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszPracticesReference == other.pszPracticesReference && self.pszNoticeIdentifier == other.pszNoticeIdentifier && self.pszNSINoticeIdentifier == other.pszNSINoticeIdentifier && self.cCPSURLs == other.cCPSURLs && self.rgCPSURLs == other.rgCPSURLs
-    }
-}
-impl Eq for CERT_POLICY95_QUALIFIER1 {}
 impl Default for CERT_POLICY95_QUALIFIER1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY_CONSTRAINTS_INFO {
     pub fRequireExplicitPolicy: super::super::Foundation::BOOL,
     pub dwRequireExplicitPolicySkipCerts: u32,
     pub fInhibitPolicyMapping: super::super::Foundation::BOOL,
     pub dwInhibitPolicyMappingSkipCerts: u32,
 }
-impl Copy for CERT_POLICY_CONSTRAINTS_INFO {}
-impl Clone for CERT_POLICY_CONSTRAINTS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_POLICY_CONSTRAINTS_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_POLICY_CONSTRAINTS_INFO").field("fRequireExplicitPolicy", &self.fRequireExplicitPolicy).field("dwRequireExplicitPolicySkipCerts", &self.dwRequireExplicitPolicySkipCerts).field("fInhibitPolicyMapping", &self.fInhibitPolicyMapping).field("dwInhibitPolicyMappingSkipCerts", &self.dwInhibitPolicyMappingSkipCerts).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_POLICY_CONSTRAINTS_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_POLICY_CONSTRAINTS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.fRequireExplicitPolicy == other.fRequireExplicitPolicy && self.dwRequireExplicitPolicySkipCerts == other.dwRequireExplicitPolicySkipCerts && self.fInhibitPolicyMapping == other.fInhibitPolicyMapping && self.dwInhibitPolicyMappingSkipCerts == other.dwInhibitPolicyMappingSkipCerts
-    }
-}
-impl Eq for CERT_POLICY_CONSTRAINTS_INFO {}
 impl Default for CERT_POLICY_CONSTRAINTS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY_ID {
     pub cCertPolicyElementId: u32,
     pub rgpszCertPolicyElementId: *mut windows_core::PSTR,
 }
-impl Copy for CERT_POLICY_ID {}
-impl Clone for CERT_POLICY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_POLICY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_POLICY_ID").field("cCertPolicyElementId", &self.cCertPolicyElementId).field("rgpszCertPolicyElementId", &self.rgpszCertPolicyElementId).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_POLICY_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_POLICY_ID {
-    fn eq(&self, other: &Self) -> bool {
-        self.cCertPolicyElementId == other.cCertPolicyElementId && self.rgpszCertPolicyElementId == other.rgpszCertPolicyElementId
-    }
-}
-impl Eq for CERT_POLICY_ID {}
 impl Default for CERT_POLICY_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY_INFO {
     pub pszPolicyIdentifier: windows_core::PSTR,
     pub cPolicyQualifier: u32,
     pub rgPolicyQualifier: *mut CERT_POLICY_QUALIFIER_INFO,
 }
-impl Copy for CERT_POLICY_INFO {}
-impl Clone for CERT_POLICY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_POLICY_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_POLICY_INFO").field("pszPolicyIdentifier", &self.pszPolicyIdentifier).field("cPolicyQualifier", &self.cPolicyQualifier).field("rgPolicyQualifier", &self.rgPolicyQualifier).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_POLICY_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_POLICY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszPolicyIdentifier == other.pszPolicyIdentifier && self.cPolicyQualifier == other.cPolicyQualifier && self.rgPolicyQualifier == other.rgPolicyQualifier
-    }
-}
-impl Eq for CERT_POLICY_INFO {}
 impl Default for CERT_POLICY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY_MAPPING {
     pub pszIssuerDomainPolicy: windows_core::PSTR,
     pub pszSubjectDomainPolicy: windows_core::PSTR,
 }
-impl Copy for CERT_POLICY_MAPPING {}
-impl Clone for CERT_POLICY_MAPPING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_POLICY_MAPPING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_POLICY_MAPPING").field("pszIssuerDomainPolicy", &self.pszIssuerDomainPolicy).field("pszSubjectDomainPolicy", &self.pszSubjectDomainPolicy).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_POLICY_MAPPING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_POLICY_MAPPING {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszIssuerDomainPolicy == other.pszIssuerDomainPolicy && self.pszSubjectDomainPolicy == other.pszSubjectDomainPolicy
-    }
-}
-impl Eq for CERT_POLICY_MAPPING {}
 impl Default for CERT_POLICY_MAPPING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY_MAPPINGS_INFO {
     pub cPolicyMapping: u32,
     pub rgPolicyMapping: *mut CERT_POLICY_MAPPING,
 }
-impl Copy for CERT_POLICY_MAPPINGS_INFO {}
-impl Clone for CERT_POLICY_MAPPINGS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_POLICY_MAPPINGS_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_POLICY_MAPPINGS_INFO").field("cPolicyMapping", &self.cPolicyMapping).field("rgPolicyMapping", &self.rgPolicyMapping).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_POLICY_MAPPINGS_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_POLICY_MAPPINGS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cPolicyMapping == other.cPolicyMapping && self.rgPolicyMapping == other.rgPolicyMapping
-    }
-}
-impl Eq for CERT_POLICY_MAPPINGS_INFO {}
 impl Default for CERT_POLICY_MAPPINGS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY_QUALIFIER_INFO {
     pub pszPolicyQualifierId: windows_core::PSTR,
     pub Qualifier: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_POLICY_QUALIFIER_INFO {}
-impl Clone for CERT_POLICY_QUALIFIER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_POLICY_QUALIFIER_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_POLICY_QUALIFIER_INFO").field("pszPolicyQualifierId", &self.pszPolicyQualifierId).field("Qualifier", &self.Qualifier).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_POLICY_QUALIFIER_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_POLICY_QUALIFIER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszPolicyQualifierId == other.pszPolicyQualifierId && self.Qualifier == other.Qualifier
-    }
-}
-impl Eq for CERT_POLICY_QUALIFIER_INFO {}
 impl Default for CERT_POLICY_QUALIFIER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
     pub pszOrganization: windows_core::PSTR,
     pub cNoticeNumbers: u32,
     pub rgNoticeNumbers: *mut i32,
 }
-impl Copy for CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {}
-impl Clone for CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_POLICY_QUALIFIER_NOTICE_REFERENCE").field("pszOrganization", &self.pszOrganization).field("cNoticeNumbers", &self.cNoticeNumbers).field("rgNoticeNumbers", &self.rgNoticeNumbers).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszOrganization == other.pszOrganization && self.cNoticeNumbers == other.cNoticeNumbers && self.rgNoticeNumbers == other.rgNoticeNumbers
-    }
-}
-impl Eq for CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {}
 impl Default for CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY_QUALIFIER_USER_NOTICE {
     pub pNoticeReference: *mut CERT_POLICY_QUALIFIER_NOTICE_REFERENCE,
     pub pszDisplayText: windows_core::PWSTR,
 }
-impl Copy for CERT_POLICY_QUALIFIER_USER_NOTICE {}
-impl Clone for CERT_POLICY_QUALIFIER_USER_NOTICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_POLICY_QUALIFIER_USER_NOTICE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_POLICY_QUALIFIER_USER_NOTICE").field("pNoticeReference", &self.pNoticeReference).field("pszDisplayText", &self.pszDisplayText).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_POLICY_QUALIFIER_USER_NOTICE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_POLICY_QUALIFIER_USER_NOTICE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pNoticeReference == other.pNoticeReference && self.pszDisplayText == other.pszDisplayText
-    }
-}
-impl Eq for CERT_POLICY_QUALIFIER_USER_NOTICE {}
 impl Default for CERT_POLICY_QUALIFIER_USER_NOTICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_PRIVATE_KEY_VALIDITY {
     pub NotBefore: super::super::Foundation::FILETIME,
     pub NotAfter: super::super::Foundation::FILETIME,
 }
-impl Copy for CERT_PRIVATE_KEY_VALIDITY {}
-impl Clone for CERT_PRIVATE_KEY_VALIDITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_PRIVATE_KEY_VALIDITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_PRIVATE_KEY_VALIDITY").field("NotBefore", &self.NotBefore).field("NotAfter", &self.NotAfter).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_PRIVATE_KEY_VALIDITY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_PRIVATE_KEY_VALIDITY {
-    fn eq(&self, other: &Self) -> bool {
-        self.NotBefore == other.NotBefore && self.NotAfter == other.NotAfter
-    }
-}
-impl Eq for CERT_PRIVATE_KEY_VALIDITY {}
 impl Default for CERT_PRIVATE_KEY_VALIDITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_PUBLIC_KEY_INFO {
     pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub PublicKey: CRYPT_BIT_BLOB,
 }
-impl Copy for CERT_PUBLIC_KEY_INFO {}
-impl Clone for CERT_PUBLIC_KEY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_PUBLIC_KEY_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_PUBLIC_KEY_INFO").field("Algorithm", &self.Algorithm).field("PublicKey", &self.PublicKey).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_PUBLIC_KEY_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_PUBLIC_KEY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Algorithm == other.Algorithm && self.PublicKey == other.PublicKey
-    }
-}
-impl Eq for CERT_PUBLIC_KEY_INFO {}
 impl Default for CERT_PUBLIC_KEY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_QC_STATEMENT {
     pub pszStatementId: windows_core::PSTR,
     pub StatementInfo: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_QC_STATEMENT {}
-impl Clone for CERT_QC_STATEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_QC_STATEMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_QC_STATEMENT").field("pszStatementId", &self.pszStatementId).field("StatementInfo", &self.StatementInfo).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_QC_STATEMENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_QC_STATEMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszStatementId == other.pszStatementId && self.StatementInfo == other.StatementInfo
-    }
-}
-impl Eq for CERT_QC_STATEMENT {}
 impl Default for CERT_QC_STATEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_QC_STATEMENTS_EXT_INFO {
     pub cStatement: u32,
     pub rgStatement: *mut CERT_QC_STATEMENT,
 }
-impl Copy for CERT_QC_STATEMENTS_EXT_INFO {}
-impl Clone for CERT_QC_STATEMENTS_EXT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_QC_STATEMENTS_EXT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_QC_STATEMENTS_EXT_INFO").field("cStatement", &self.cStatement).field("rgStatement", &self.rgStatement).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_QC_STATEMENTS_EXT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_QC_STATEMENTS_EXT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cStatement == other.cStatement && self.rgStatement == other.rgStatement
-    }
-}
-impl Eq for CERT_QC_STATEMENTS_EXT_INFO {}
 impl Default for CERT_QC_STATEMENTS_EXT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_RDN {
     pub cRDNAttr: u32,
     pub rgRDNAttr: *mut CERT_RDN_ATTR,
 }
-impl Copy for CERT_RDN {}
-impl Clone for CERT_RDN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_RDN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_RDN").field("cRDNAttr", &self.cRDNAttr).field("rgRDNAttr", &self.rgRDNAttr).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_RDN {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_RDN {
-    fn eq(&self, other: &Self) -> bool {
-        self.cRDNAttr == other.cRDNAttr && self.rgRDNAttr == other.rgRDNAttr
-    }
-}
-impl Eq for CERT_RDN {}
 impl Default for CERT_RDN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_RDN_ATTR {
     pub pszObjId: windows_core::PSTR,
     pub dwValueType: u32,
     pub Value: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_RDN_ATTR {}
-impl Clone for CERT_RDN_ATTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_RDN_ATTR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_RDN_ATTR").field("pszObjId", &self.pszObjId).field("dwValueType", &self.dwValueType).field("Value", &self.Value).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_RDN_ATTR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_RDN_ATTR {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszObjId == other.pszObjId && self.dwValueType == other.dwValueType && self.Value == other.Value
-    }
-}
-impl Eq for CERT_RDN_ATTR {}
 impl Default for CERT_RDN_ATTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -12043,36 +10456,15 @@ impl Default for CERT_RDN_ATTR {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
     pub hKeyBase: super::super::System::Registry::HKEY,
     pub pwszRegPath: windows_core::PWSTR,
 }
 #[cfg(feature = "Win32_System_Registry")]
-impl Copy for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl core::fmt::Debug for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_REGISTRY_STORE_CLIENT_GPT_PARA").field("hKeyBase", &self.hKeyBase).field("pwszRegPath", &self.pwszRegPath).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Registry")]
 impl windows_core::TypeKind for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl PartialEq for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.hKeyBase == other.hKeyBase && self.pwszRegPath == other.pwszRegPath
-    }
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl Eq for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {}
 #[cfg(feature = "Win32_System_Registry")]
 impl Default for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
     fn default() -> Self {
@@ -12081,36 +10473,15 @@ impl Default for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_REGISTRY_STORE_ROAMING_PARA {
     pub hKey: super::super::System::Registry::HKEY,
     pub pwszStoreDirectory: windows_core::PWSTR,
 }
 #[cfg(feature = "Win32_System_Registry")]
-impl Copy for CERT_REGISTRY_STORE_ROAMING_PARA {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for CERT_REGISTRY_STORE_ROAMING_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl core::fmt::Debug for CERT_REGISTRY_STORE_ROAMING_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_REGISTRY_STORE_ROAMING_PARA").field("hKey", &self.hKey).field("pwszStoreDirectory", &self.pwszStoreDirectory).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Registry")]
 impl windows_core::TypeKind for CERT_REGISTRY_STORE_ROAMING_PARA {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl PartialEq for CERT_REGISTRY_STORE_ROAMING_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.hKey == other.hKey && self.pwszStoreDirectory == other.pwszStoreDirectory
-    }
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl Eq for CERT_REGISTRY_STORE_ROAMING_PARA {}
 #[cfg(feature = "Win32_System_Registry")]
 impl Default for CERT_REGISTRY_STORE_ROAMING_PARA {
     fn default() -> Self {
@@ -12118,6 +10489,7 @@ impl Default for CERT_REGISTRY_STORE_ROAMING_PARA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_REQUEST_INFO {
     pub dwVersion: u32,
     pub Subject: CRYPT_INTEGER_BLOB,
@@ -12125,32 +10497,16 @@ pub struct CERT_REQUEST_INFO {
     pub cAttribute: u32,
     pub rgAttribute: *mut CRYPT_ATTRIBUTE,
 }
-impl Copy for CERT_REQUEST_INFO {}
-impl Clone for CERT_REQUEST_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_REQUEST_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_REQUEST_INFO").field("dwVersion", &self.dwVersion).field("Subject", &self.Subject).field("SubjectPublicKeyInfo", &self.SubjectPublicKeyInfo).field("cAttribute", &self.cAttribute).field("rgAttribute", &self.rgAttribute).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_REQUEST_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_REQUEST_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.Subject == other.Subject && self.SubjectPublicKeyInfo == other.SubjectPublicKeyInfo && self.cAttribute == other.cAttribute && self.rgAttribute == other.rgAttribute
-    }
-}
-impl Eq for CERT_REQUEST_INFO {}
 impl Default for CERT_REQUEST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_REVOCATION_CHAIN_PARA {
     pub cbSize: u32,
     pub hChainEngine: HCERTCHAINENGINE,
@@ -12161,32 +10517,16 @@ pub struct CERT_REVOCATION_CHAIN_PARA {
     pub pftCacheResync: *mut super::super::Foundation::FILETIME,
     pub cbMaxUrlRetrievalByteCount: u32,
 }
-impl Copy for CERT_REVOCATION_CHAIN_PARA {}
-impl Clone for CERT_REVOCATION_CHAIN_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_REVOCATION_CHAIN_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_REVOCATION_CHAIN_PARA").field("cbSize", &self.cbSize).field("hChainEngine", &self.hChainEngine).field("hAdditionalStore", &self.hAdditionalStore).field("dwChainFlags", &self.dwChainFlags).field("dwUrlRetrievalTimeout", &self.dwUrlRetrievalTimeout).field("pftCurrentTime", &self.pftCurrentTime).field("pftCacheResync", &self.pftCacheResync).field("cbMaxUrlRetrievalByteCount", &self.cbMaxUrlRetrievalByteCount).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_REVOCATION_CHAIN_PARA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_REVOCATION_CHAIN_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.hChainEngine == other.hChainEngine && self.hAdditionalStore == other.hAdditionalStore && self.dwChainFlags == other.dwChainFlags && self.dwUrlRetrievalTimeout == other.dwUrlRetrievalTimeout && self.pftCurrentTime == other.pftCurrentTime && self.pftCacheResync == other.pftCacheResync && self.cbMaxUrlRetrievalByteCount == other.cbMaxUrlRetrievalByteCount
-    }
-}
-impl Eq for CERT_REVOCATION_CHAIN_PARA {}
 impl Default for CERT_REVOCATION_CHAIN_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_REVOCATION_CRL_INFO {
     pub cbSize: u32,
     pub pBaseCrlContext: *mut CRL_CONTEXT,
@@ -12194,32 +10534,16 @@ pub struct CERT_REVOCATION_CRL_INFO {
     pub pCrlEntry: *mut CRL_ENTRY,
     pub fDeltaCrlEntry: super::super::Foundation::BOOL,
 }
-impl Copy for CERT_REVOCATION_CRL_INFO {}
-impl Clone for CERT_REVOCATION_CRL_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_REVOCATION_CRL_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_REVOCATION_CRL_INFO").field("cbSize", &self.cbSize).field("pBaseCrlContext", &self.pBaseCrlContext).field("pDeltaCrlContext", &self.pDeltaCrlContext).field("pCrlEntry", &self.pCrlEntry).field("fDeltaCrlEntry", &self.fDeltaCrlEntry).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_REVOCATION_CRL_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_REVOCATION_CRL_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pBaseCrlContext == other.pBaseCrlContext && self.pDeltaCrlContext == other.pDeltaCrlContext && self.pCrlEntry == other.pCrlEntry && self.fDeltaCrlEntry == other.fDeltaCrlEntry
-    }
-}
-impl Eq for CERT_REVOCATION_CRL_INFO {}
 impl Default for CERT_REVOCATION_CRL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_REVOCATION_INFO {
     pub cbSize: u32,
     pub dwRevocationResult: u32,
@@ -12229,32 +10553,16 @@ pub struct CERT_REVOCATION_INFO {
     pub dwFreshnessTime: u32,
     pub pCrlInfo: *mut CERT_REVOCATION_CRL_INFO,
 }
-impl Copy for CERT_REVOCATION_INFO {}
-impl Clone for CERT_REVOCATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_REVOCATION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_REVOCATION_INFO").field("cbSize", &self.cbSize).field("dwRevocationResult", &self.dwRevocationResult).field("pszRevocationOid", &self.pszRevocationOid).field("pvOidSpecificInfo", &self.pvOidSpecificInfo).field("fHasFreshnessTime", &self.fHasFreshnessTime).field("dwFreshnessTime", &self.dwFreshnessTime).field("pCrlInfo", &self.pCrlInfo).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_REVOCATION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_REVOCATION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwRevocationResult == other.dwRevocationResult && self.pszRevocationOid == other.pszRevocationOid && self.pvOidSpecificInfo == other.pvOidSpecificInfo && self.fHasFreshnessTime == other.fHasFreshnessTime && self.dwFreshnessTime == other.dwFreshnessTime && self.pCrlInfo == other.pCrlInfo
-    }
-}
-impl Eq for CERT_REVOCATION_INFO {}
 impl Default for CERT_REVOCATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_REVOCATION_PARA {
     pub cbSize: u32,
     pub pIssuerCert: *const CERT_CONTEXT,
@@ -12263,32 +10571,16 @@ pub struct CERT_REVOCATION_PARA {
     pub hCrlStore: HCERTSTORE,
     pub pftTimeToUse: *mut super::super::Foundation::FILETIME,
 }
-impl Copy for CERT_REVOCATION_PARA {}
-impl Clone for CERT_REVOCATION_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_REVOCATION_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_REVOCATION_PARA").field("cbSize", &self.cbSize).field("pIssuerCert", &self.pIssuerCert).field("cCertStore", &self.cCertStore).field("rgCertStore", &self.rgCertStore).field("hCrlStore", &self.hCrlStore).field("pftTimeToUse", &self.pftTimeToUse).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_REVOCATION_PARA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_REVOCATION_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pIssuerCert == other.pIssuerCert && self.cCertStore == other.cCertStore && self.rgCertStore == other.rgCertStore && self.hCrlStore == other.hCrlStore && self.pftTimeToUse == other.pftTimeToUse
-    }
-}
-impl Eq for CERT_REVOCATION_PARA {}
 impl Default for CERT_REVOCATION_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_REVOCATION_STATUS {
     pub cbSize: u32,
     pub dwIndex: u32,
@@ -12297,32 +10589,16 @@ pub struct CERT_REVOCATION_STATUS {
     pub fHasFreshnessTime: super::super::Foundation::BOOL,
     pub dwFreshnessTime: u32,
 }
-impl Copy for CERT_REVOCATION_STATUS {}
-impl Clone for CERT_REVOCATION_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_REVOCATION_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_REVOCATION_STATUS").field("cbSize", &self.cbSize).field("dwIndex", &self.dwIndex).field("dwError", &self.dwError).field("dwReason", &self.dwReason).field("fHasFreshnessTime", &self.fHasFreshnessTime).field("dwFreshnessTime", &self.dwFreshnessTime).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_REVOCATION_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_REVOCATION_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwIndex == other.dwIndex && self.dwError == other.dwError && self.dwReason == other.dwReason && self.fHasFreshnessTime == other.fHasFreshnessTime && self.dwFreshnessTime == other.dwFreshnessTime
-    }
-}
-impl Eq for CERT_REVOCATION_STATUS {}
 impl Default for CERT_REVOCATION_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_SELECT_CHAIN_PARA {
     pub hChainEngine: HCERTCHAINENGINE,
     pub pTime: *mut super::super::Foundation::FILETIME,
@@ -12330,94 +10606,46 @@ pub struct CERT_SELECT_CHAIN_PARA {
     pub pChainPara: *mut CERT_CHAIN_PARA,
     pub dwFlags: u32,
 }
-impl Copy for CERT_SELECT_CHAIN_PARA {}
-impl Clone for CERT_SELECT_CHAIN_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_SELECT_CHAIN_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_SELECT_CHAIN_PARA").field("hChainEngine", &self.hChainEngine).field("pTime", &self.pTime).field("hAdditionalStore", &self.hAdditionalStore).field("pChainPara", &self.pChainPara).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_SELECT_CHAIN_PARA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_SELECT_CHAIN_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.hChainEngine == other.hChainEngine && self.pTime == other.pTime && self.hAdditionalStore == other.hAdditionalStore && self.pChainPara == other.pChainPara && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for CERT_SELECT_CHAIN_PARA {}
 impl Default for CERT_SELECT_CHAIN_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_SELECT_CRITERIA {
     pub dwType: CERT_SELECT_CRITERIA_TYPE,
     pub cPara: u32,
     pub ppPara: *mut *mut core::ffi::c_void,
 }
-impl Copy for CERT_SELECT_CRITERIA {}
-impl Clone for CERT_SELECT_CRITERIA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_SELECT_CRITERIA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_SELECT_CRITERIA").field("dwType", &self.dwType).field("cPara", &self.cPara).field("ppPara", &self.ppPara).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_SELECT_CRITERIA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_SELECT_CRITERIA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwType == other.dwType && self.cPara == other.cPara && self.ppPara == other.ppPara
-    }
-}
-impl Eq for CERT_SELECT_CRITERIA {}
 impl Default for CERT_SELECT_CRITERIA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_SERVER_OCSP_RESPONSE_CONTEXT {
     pub cbSize: u32,
     pub pbEncodedOcspResponse: *mut u8,
     pub cbEncodedOcspResponse: u32,
 }
-impl Copy for CERT_SERVER_OCSP_RESPONSE_CONTEXT {}
-impl Clone for CERT_SERVER_OCSP_RESPONSE_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_SERVER_OCSP_RESPONSE_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_SERVER_OCSP_RESPONSE_CONTEXT").field("cbSize", &self.cbSize).field("pbEncodedOcspResponse", &self.pbEncodedOcspResponse).field("cbEncodedOcspResponse", &self.cbEncodedOcspResponse).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_SERVER_OCSP_RESPONSE_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_SERVER_OCSP_RESPONSE_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pbEncodedOcspResponse == other.pbEncodedOcspResponse && self.cbEncodedOcspResponse == other.cbEncodedOcspResponse
-    }
-}
-impl Eq for CERT_SERVER_OCSP_RESPONSE_CONTEXT {}
 impl Default for CERT_SERVER_OCSP_RESPONSE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -12425,17 +10653,6 @@ pub struct CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
     pub pwszOcspDirectory: windows_core::PWSTR,
     pub pfnUpdateCallback: PFN_CERT_SERVER_OCSP_RESPONSE_UPDATE_CALLBACK,
     pub pvUpdateCallbackArg: *mut core::ffi::c_void,
-}
-impl Copy for CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {}
-impl Clone for CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_SERVER_OCSP_RESPONSE_OPEN_PARA").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("pcbUsedSize", &self.pcbUsedSize).field("pwszOcspDirectory", &self.pwszOcspDirectory).field("pvUpdateCallbackArg", &self.pvUpdateCallbackArg).finish()
-    }
 }
 impl windows_core::TypeKind for CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
     type TypeKind = windows_core::CopyType;
@@ -12446,37 +10663,22 @@ impl Default for CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_SIGNED_CONTENT_INFO {
     pub ToBeSigned: CRYPT_INTEGER_BLOB,
     pub SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub Signature: CRYPT_BIT_BLOB,
 }
-impl Copy for CERT_SIGNED_CONTENT_INFO {}
-impl Clone for CERT_SIGNED_CONTENT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_SIGNED_CONTENT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_SIGNED_CONTENT_INFO").field("ToBeSigned", &self.ToBeSigned).field("SignatureAlgorithm", &self.SignatureAlgorithm).field("Signature", &self.Signature).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_SIGNED_CONTENT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_SIGNED_CONTENT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ToBeSigned == other.ToBeSigned && self.SignatureAlgorithm == other.SignatureAlgorithm && self.Signature == other.Signature
-    }
-}
-impl Eq for CERT_SIGNED_CONTENT_INFO {}
 impl Default for CERT_SIGNED_CONTENT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_SIMPLE_CHAIN {
     pub cbSize: u32,
     pub TrustStatus: CERT_TRUST_STATUS,
@@ -12486,32 +10688,16 @@ pub struct CERT_SIMPLE_CHAIN {
     pub fHasRevocationFreshnessTime: super::super::Foundation::BOOL,
     pub dwRevocationFreshnessTime: u32,
 }
-impl Copy for CERT_SIMPLE_CHAIN {}
-impl Clone for CERT_SIMPLE_CHAIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_SIMPLE_CHAIN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_SIMPLE_CHAIN").field("cbSize", &self.cbSize).field("TrustStatus", &self.TrustStatus).field("cElement", &self.cElement).field("rgpElement", &self.rgpElement).field("pTrustListInfo", &self.pTrustListInfo).field("fHasRevocationFreshnessTime", &self.fHasRevocationFreshnessTime).field("dwRevocationFreshnessTime", &self.dwRevocationFreshnessTime).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_SIMPLE_CHAIN {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_SIMPLE_CHAIN {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.TrustStatus == other.TrustStatus && self.cElement == other.cElement && self.rgpElement == other.rgpElement && self.pTrustListInfo == other.pTrustListInfo && self.fHasRevocationFreshnessTime == other.fHasRevocationFreshnessTime && self.dwRevocationFreshnessTime == other.dwRevocationFreshnessTime
-    }
-}
-impl Eq for CERT_SIMPLE_CHAIN {}
 impl Default for CERT_SIMPLE_CHAIN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_STORE_PROV_FIND_INFO {
     pub cbSize: u32,
     pub dwMsgAndCertEncodingType: u32,
@@ -12519,32 +10705,16 @@ pub struct CERT_STORE_PROV_FIND_INFO {
     pub dwFindType: u32,
     pub pvFindPara: *const core::ffi::c_void,
 }
-impl Copy for CERT_STORE_PROV_FIND_INFO {}
-impl Clone for CERT_STORE_PROV_FIND_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_STORE_PROV_FIND_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_STORE_PROV_FIND_INFO").field("cbSize", &self.cbSize).field("dwMsgAndCertEncodingType", &self.dwMsgAndCertEncodingType).field("dwFindFlags", &self.dwFindFlags).field("dwFindType", &self.dwFindType).field("pvFindPara", &self.pvFindPara).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_STORE_PROV_FIND_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_STORE_PROV_FIND_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwMsgAndCertEncodingType == other.dwMsgAndCertEncodingType && self.dwFindFlags == other.dwFindFlags && self.dwFindType == other.dwFindType && self.pvFindPara == other.pvFindPara
-    }
-}
-impl Eq for CERT_STORE_PROV_FIND_INFO {}
 impl Default for CERT_STORE_PROV_FIND_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_STORE_PROV_INFO {
     pub cbSize: u32,
     pub cStoreProvFunc: u32,
@@ -12553,42 +10723,20 @@ pub struct CERT_STORE_PROV_INFO {
     pub dwStoreProvFlags: CERT_STORE_PROV_FLAGS,
     pub hStoreProvFuncAddr2: *mut core::ffi::c_void,
 }
-impl Copy for CERT_STORE_PROV_INFO {}
-impl Clone for CERT_STORE_PROV_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_STORE_PROV_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_STORE_PROV_INFO").field("cbSize", &self.cbSize).field("cStoreProvFunc", &self.cStoreProvFunc).field("rgpvStoreProvFunc", &self.rgpvStoreProvFunc).field("hStoreProv", &self.hStoreProv).field("dwStoreProvFlags", &self.dwStoreProvFlags).field("hStoreProvFuncAddr2", &self.hStoreProvFuncAddr2).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_STORE_PROV_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_STORE_PROV_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.cStoreProvFunc == other.cStoreProvFunc && self.rgpvStoreProvFunc == other.rgpvStoreProvFunc && self.hStoreProv == other.hStoreProv && self.dwStoreProvFlags == other.dwStoreProvFlags && self.hStoreProvFuncAddr2 == other.hStoreProvFuncAddr2
-    }
-}
-impl Eq for CERT_STORE_PROV_INFO {}
 impl Default for CERT_STORE_PROV_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_STRONG_SIGN_PARA {
     pub cbSize: u32,
     pub dwInfoChoice: u32,
     pub Anonymous: CERT_STRONG_SIGN_PARA_0,
-}
-impl Copy for CERT_STRONG_SIGN_PARA {}
-impl Clone for CERT_STRONG_SIGN_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CERT_STRONG_SIGN_PARA {
     type TypeKind = windows_core::CopyType;
@@ -12599,16 +10747,11 @@ impl Default for CERT_STRONG_SIGN_PARA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CERT_STRONG_SIGN_PARA_0 {
     pub pvInfo: *mut core::ffi::c_void,
     pub pSerializedInfo: *mut CERT_STRONG_SIGN_SERIALIZED_INFO,
     pub pszOID: windows_core::PSTR,
-}
-impl Copy for CERT_STRONG_SIGN_PARA_0 {}
-impl Clone for CERT_STRONG_SIGN_PARA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CERT_STRONG_SIGN_PARA_0 {
     type TypeKind = windows_core::CopyType;
@@ -12619,91 +10762,43 @@ impl Default for CERT_STRONG_SIGN_PARA_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_STRONG_SIGN_SERIALIZED_INFO {
     pub dwFlags: CERT_STRONG_SIGN_FLAGS,
     pub pwszCNGSignHashAlgids: windows_core::PWSTR,
     pub pwszCNGPubKeyMinBitLengths: windows_core::PWSTR,
 }
-impl Copy for CERT_STRONG_SIGN_SERIALIZED_INFO {}
-impl Clone for CERT_STRONG_SIGN_SERIALIZED_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_STRONG_SIGN_SERIALIZED_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_STRONG_SIGN_SERIALIZED_INFO").field("dwFlags", &self.dwFlags).field("pwszCNGSignHashAlgids", &self.pwszCNGSignHashAlgids).field("pwszCNGPubKeyMinBitLengths", &self.pwszCNGPubKeyMinBitLengths).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_STRONG_SIGN_SERIALIZED_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_STRONG_SIGN_SERIALIZED_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.pwszCNGSignHashAlgids == other.pwszCNGSignHashAlgids && self.pwszCNGPubKeyMinBitLengths == other.pwszCNGPubKeyMinBitLengths
-    }
-}
-impl Eq for CERT_STRONG_SIGN_SERIALIZED_INFO {}
 impl Default for CERT_STRONG_SIGN_SERIALIZED_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_SUPPORTED_ALGORITHM_INFO {
     pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub IntendedKeyUsage: CRYPT_BIT_BLOB,
     pub IntendedCertPolicies: CERT_POLICIES_INFO,
 }
-impl Copy for CERT_SUPPORTED_ALGORITHM_INFO {}
-impl Clone for CERT_SUPPORTED_ALGORITHM_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_SUPPORTED_ALGORITHM_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_SUPPORTED_ALGORITHM_INFO").field("Algorithm", &self.Algorithm).field("IntendedKeyUsage", &self.IntendedKeyUsage).field("IntendedCertPolicies", &self.IntendedCertPolicies).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_SUPPORTED_ALGORITHM_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_SUPPORTED_ALGORITHM_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Algorithm == other.Algorithm && self.IntendedKeyUsage == other.IntendedKeyUsage && self.IntendedCertPolicies == other.IntendedCertPolicies
-    }
-}
-impl Eq for CERT_SUPPORTED_ALGORITHM_INFO {}
 impl Default for CERT_SUPPORTED_ALGORITHM_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_SYSTEM_STORE_INFO {
     pub cbSize: u32,
-}
-impl Copy for CERT_SYSTEM_STORE_INFO {}
-impl Clone for CERT_SYSTEM_STORE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_SYSTEM_STORE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_SYSTEM_STORE_INFO").field("cbSize", &self.cbSize).finish()
-    }
 }
 impl windows_core::TypeKind for CERT_SYSTEM_STORE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_SYSTEM_STORE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-    }
-}
-impl Eq for CERT_SYSTEM_STORE_INFO {}
 impl Default for CERT_SYSTEM_STORE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -12711,17 +10806,10 @@ impl Default for CERT_SYSTEM_STORE_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
 pub struct CERT_SYSTEM_STORE_RELOCATE_PARA {
     pub Anonymous1: CERT_SYSTEM_STORE_RELOCATE_PARA_0,
     pub Anonymous2: CERT_SYSTEM_STORE_RELOCATE_PARA_1,
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl Copy for CERT_SYSTEM_STORE_RELOCATE_PARA {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for CERT_SYSTEM_STORE_RELOCATE_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Registry")]
 impl windows_core::TypeKind for CERT_SYSTEM_STORE_RELOCATE_PARA {
@@ -12735,17 +10823,10 @@ impl Default for CERT_SYSTEM_STORE_RELOCATE_PARA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
 pub union CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
     pub hKeyBase: super::super::System::Registry::HKEY,
     pub pvBase: *mut core::ffi::c_void,
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl Copy for CERT_SYSTEM_STORE_RELOCATE_PARA_0 {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Registry")]
 impl windows_core::TypeKind for CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
@@ -12759,18 +10840,11 @@ impl Default for CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
 pub union CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
     pub pvSystemStore: *mut core::ffi::c_void,
     pub pszSystemStore: windows_core::PCSTR,
     pub pwszSystemStore: windows_core::PCWSTR,
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl Copy for CERT_SYSTEM_STORE_RELOCATE_PARA_1 {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Registry")]
 impl windows_core::TypeKind for CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
@@ -12783,160 +10857,81 @@ impl Default for CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_TEMPLATE_EXT {
     pub pszObjId: windows_core::PSTR,
     pub dwMajorVersion: u32,
     pub fMinorVersion: super::super::Foundation::BOOL,
     pub dwMinorVersion: u32,
 }
-impl Copy for CERT_TEMPLATE_EXT {}
-impl Clone for CERT_TEMPLATE_EXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_TEMPLATE_EXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_TEMPLATE_EXT").field("pszObjId", &self.pszObjId).field("dwMajorVersion", &self.dwMajorVersion).field("fMinorVersion", &self.fMinorVersion).field("dwMinorVersion", &self.dwMinorVersion).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_TEMPLATE_EXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_TEMPLATE_EXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszObjId == other.pszObjId && self.dwMajorVersion == other.dwMajorVersion && self.fMinorVersion == other.fMinorVersion && self.dwMinorVersion == other.dwMinorVersion
-    }
-}
-impl Eq for CERT_TEMPLATE_EXT {}
 impl Default for CERT_TEMPLATE_EXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_TPM_SPECIFICATION_INFO {
     pub pwszFamily: windows_core::PWSTR,
     pub dwLevel: u32,
     pub dwRevision: u32,
 }
-impl Copy for CERT_TPM_SPECIFICATION_INFO {}
-impl Clone for CERT_TPM_SPECIFICATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_TPM_SPECIFICATION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_TPM_SPECIFICATION_INFO").field("pwszFamily", &self.pwszFamily).field("dwLevel", &self.dwLevel).field("dwRevision", &self.dwRevision).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_TPM_SPECIFICATION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_TPM_SPECIFICATION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszFamily == other.pwszFamily && self.dwLevel == other.dwLevel && self.dwRevision == other.dwRevision
-    }
-}
-impl Eq for CERT_TPM_SPECIFICATION_INFO {}
 impl Default for CERT_TPM_SPECIFICATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_TRUST_LIST_INFO {
     pub cbSize: u32,
     pub pCtlEntry: *mut CTL_ENTRY,
     pub pCtlContext: *mut CTL_CONTEXT,
 }
-impl Copy for CERT_TRUST_LIST_INFO {}
-impl Clone for CERT_TRUST_LIST_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_TRUST_LIST_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_TRUST_LIST_INFO").field("cbSize", &self.cbSize).field("pCtlEntry", &self.pCtlEntry).field("pCtlContext", &self.pCtlContext).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_TRUST_LIST_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_TRUST_LIST_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pCtlEntry == other.pCtlEntry && self.pCtlContext == other.pCtlContext
-    }
-}
-impl Eq for CERT_TRUST_LIST_INFO {}
 impl Default for CERT_TRUST_LIST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_TRUST_STATUS {
     pub dwErrorStatus: u32,
     pub dwInfoStatus: u32,
 }
-impl Copy for CERT_TRUST_STATUS {}
-impl Clone for CERT_TRUST_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_TRUST_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_TRUST_STATUS").field("dwErrorStatus", &self.dwErrorStatus).field("dwInfoStatus", &self.dwInfoStatus).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_TRUST_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_TRUST_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwErrorStatus == other.dwErrorStatus && self.dwInfoStatus == other.dwInfoStatus
-    }
-}
-impl Eq for CERT_TRUST_STATUS {}
 impl Default for CERT_TRUST_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_USAGE_MATCH {
     pub dwType: u32,
     pub Usage: CTL_USAGE,
 }
-impl Copy for CERT_USAGE_MATCH {}
-impl Clone for CERT_USAGE_MATCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_USAGE_MATCH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_USAGE_MATCH").field("dwType", &self.dwType).field("Usage", &self.Usage).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_USAGE_MATCH {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_USAGE_MATCH {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwType == other.dwType && self.Usage == other.Usage
-    }
-}
-impl Eq for CERT_USAGE_MATCH {}
 impl Default for CERT_USAGE_MATCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_X942_DH_PARAMETERS {
     pub p: CRYPT_INTEGER_BLOB,
     pub g: CRYPT_INTEGER_BLOB,
@@ -12944,92 +10939,44 @@ pub struct CERT_X942_DH_PARAMETERS {
     pub j: CRYPT_INTEGER_BLOB,
     pub pValidationParams: *mut CERT_X942_DH_VALIDATION_PARAMS,
 }
-impl Copy for CERT_X942_DH_PARAMETERS {}
-impl Clone for CERT_X942_DH_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_X942_DH_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_X942_DH_PARAMETERS").field("p", &self.p).field("g", &self.g).field("q", &self.q).field("j", &self.j).field("pValidationParams", &self.pValidationParams).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_X942_DH_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_X942_DH_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.p == other.p && self.g == other.g && self.q == other.q && self.j == other.j && self.pValidationParams == other.pValidationParams
-    }
-}
-impl Eq for CERT_X942_DH_PARAMETERS {}
 impl Default for CERT_X942_DH_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_X942_DH_VALIDATION_PARAMS {
     pub seed: CRYPT_BIT_BLOB,
     pub pgenCounter: u32,
 }
-impl Copy for CERT_X942_DH_VALIDATION_PARAMS {}
-impl Clone for CERT_X942_DH_VALIDATION_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_X942_DH_VALIDATION_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_X942_DH_VALIDATION_PARAMS").field("seed", &self.seed).field("pgenCounter", &self.pgenCounter).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_X942_DH_VALIDATION_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_X942_DH_VALIDATION_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.seed == other.seed && self.pgenCounter == other.pgenCounter
-    }
-}
-impl Eq for CERT_X942_DH_VALIDATION_PARAMS {}
 impl Default for CERT_X942_DH_VALIDATION_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLAIMLIST {
     pub count: u32,
     pub claims: *const windows_core::PCWSTR,
 }
-impl Copy for CLAIMLIST {}
-impl Clone for CLAIMLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLAIMLIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLAIMLIST").field("count", &self.count).field("claims", &self.claims).finish()
-    }
-}
 impl windows_core::TypeKind for CLAIMLIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLAIMLIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.count == other.count && self.claims == other.claims
-    }
-}
-impl Eq for CLAIMLIST {}
 impl Default for CLAIMLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMC_ADD_ATTRIBUTES_INFO {
     pub dwCmcDataReference: u32,
     pub cCertReference: u32,
@@ -13037,32 +10984,16 @@ pub struct CMC_ADD_ATTRIBUTES_INFO {
     pub cAttribute: u32,
     pub rgAttribute: *mut CRYPT_ATTRIBUTE,
 }
-impl Copy for CMC_ADD_ATTRIBUTES_INFO {}
-impl Clone for CMC_ADD_ATTRIBUTES_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMC_ADD_ATTRIBUTES_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMC_ADD_ATTRIBUTES_INFO").field("dwCmcDataReference", &self.dwCmcDataReference).field("cCertReference", &self.cCertReference).field("rgdwCertReference", &self.rgdwCertReference).field("cAttribute", &self.cAttribute).field("rgAttribute", &self.rgAttribute).finish()
-    }
-}
 impl windows_core::TypeKind for CMC_ADD_ATTRIBUTES_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMC_ADD_ATTRIBUTES_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwCmcDataReference == other.dwCmcDataReference && self.cCertReference == other.cCertReference && self.rgdwCertReference == other.rgdwCertReference && self.cAttribute == other.cAttribute && self.rgAttribute == other.rgAttribute
-    }
-}
-impl Eq for CMC_ADD_ATTRIBUTES_INFO {}
 impl Default for CMC_ADD_ATTRIBUTES_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMC_ADD_EXTENSIONS_INFO {
     pub dwCmcDataReference: u32,
     pub cCertReference: u32,
@@ -13070,32 +11001,16 @@ pub struct CMC_ADD_EXTENSIONS_INFO {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-impl Copy for CMC_ADD_EXTENSIONS_INFO {}
-impl Clone for CMC_ADD_EXTENSIONS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMC_ADD_EXTENSIONS_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMC_ADD_EXTENSIONS_INFO").field("dwCmcDataReference", &self.dwCmcDataReference).field("cCertReference", &self.cCertReference).field("rgdwCertReference", &self.rgdwCertReference).field("cExtension", &self.cExtension).field("rgExtension", &self.rgExtension).finish()
-    }
-}
 impl windows_core::TypeKind for CMC_ADD_EXTENSIONS_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMC_ADD_EXTENSIONS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwCmcDataReference == other.dwCmcDataReference && self.cCertReference == other.cCertReference && self.rgdwCertReference == other.rgdwCertReference && self.cExtension == other.cExtension && self.rgExtension == other.rgExtension
-    }
-}
-impl Eq for CMC_ADD_EXTENSIONS_INFO {}
 impl Default for CMC_ADD_EXTENSIONS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMC_DATA_INFO {
     pub cTaggedAttribute: u32,
     pub rgTaggedAttribute: *mut CMC_TAGGED_ATTRIBUTE,
@@ -13106,62 +11021,30 @@ pub struct CMC_DATA_INFO {
     pub cTaggedOtherMsg: u32,
     pub rgTaggedOtherMsg: *mut CMC_TAGGED_OTHER_MSG,
 }
-impl Copy for CMC_DATA_INFO {}
-impl Clone for CMC_DATA_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMC_DATA_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMC_DATA_INFO").field("cTaggedAttribute", &self.cTaggedAttribute).field("rgTaggedAttribute", &self.rgTaggedAttribute).field("cTaggedRequest", &self.cTaggedRequest).field("rgTaggedRequest", &self.rgTaggedRequest).field("cTaggedContentInfo", &self.cTaggedContentInfo).field("rgTaggedContentInfo", &self.rgTaggedContentInfo).field("cTaggedOtherMsg", &self.cTaggedOtherMsg).field("rgTaggedOtherMsg", &self.rgTaggedOtherMsg).finish()
-    }
-}
 impl windows_core::TypeKind for CMC_DATA_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMC_DATA_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cTaggedAttribute == other.cTaggedAttribute && self.rgTaggedAttribute == other.rgTaggedAttribute && self.cTaggedRequest == other.cTaggedRequest && self.rgTaggedRequest == other.rgTaggedRequest && self.cTaggedContentInfo == other.cTaggedContentInfo && self.rgTaggedContentInfo == other.rgTaggedContentInfo && self.cTaggedOtherMsg == other.cTaggedOtherMsg && self.rgTaggedOtherMsg == other.rgTaggedOtherMsg
-    }
-}
-impl Eq for CMC_DATA_INFO {}
 impl Default for CMC_DATA_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMC_PEND_INFO {
     pub PendToken: CRYPT_INTEGER_BLOB,
     pub PendTime: super::super::Foundation::FILETIME,
 }
-impl Copy for CMC_PEND_INFO {}
-impl Clone for CMC_PEND_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMC_PEND_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMC_PEND_INFO").field("PendToken", &self.PendToken).field("PendTime", &self.PendTime).finish()
-    }
-}
 impl windows_core::TypeKind for CMC_PEND_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMC_PEND_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.PendToken == other.PendToken && self.PendTime == other.PendTime
-    }
-}
-impl Eq for CMC_PEND_INFO {}
 impl Default for CMC_PEND_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMC_RESPONSE_INFO {
     pub cTaggedAttribute: u32,
     pub rgTaggedAttribute: *mut CMC_TAGGED_ATTRIBUTE,
@@ -13170,32 +11053,16 @@ pub struct CMC_RESPONSE_INFO {
     pub cTaggedOtherMsg: u32,
     pub rgTaggedOtherMsg: *mut CMC_TAGGED_OTHER_MSG,
 }
-impl Copy for CMC_RESPONSE_INFO {}
-impl Clone for CMC_RESPONSE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMC_RESPONSE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMC_RESPONSE_INFO").field("cTaggedAttribute", &self.cTaggedAttribute).field("rgTaggedAttribute", &self.rgTaggedAttribute).field("cTaggedContentInfo", &self.cTaggedContentInfo).field("rgTaggedContentInfo", &self.rgTaggedContentInfo).field("cTaggedOtherMsg", &self.cTaggedOtherMsg).field("rgTaggedOtherMsg", &self.rgTaggedOtherMsg).finish()
-    }
-}
 impl windows_core::TypeKind for CMC_RESPONSE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMC_RESPONSE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cTaggedAttribute == other.cTaggedAttribute && self.rgTaggedAttribute == other.rgTaggedAttribute && self.cTaggedContentInfo == other.cTaggedContentInfo && self.rgTaggedContentInfo == other.rgTaggedContentInfo && self.cTaggedOtherMsg == other.cTaggedOtherMsg && self.rgTaggedOtherMsg == other.rgTaggedOtherMsg
-    }
-}
-impl Eq for CMC_RESPONSE_INFO {}
 impl Default for CMC_RESPONSE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMC_STATUS_INFO {
     pub dwStatus: u32,
     pub cBodyList: u32,
@@ -13203,12 +11070,6 @@ pub struct CMC_STATUS_INFO {
     pub pwszStatusString: windows_core::PWSTR,
     pub dwOtherInfoChoice: u32,
     pub Anonymous: CMC_STATUS_INFO_0,
-}
-impl Copy for CMC_STATUS_INFO {}
-impl Clone for CMC_STATUS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMC_STATUS_INFO {
     type TypeKind = windows_core::CopyType;
@@ -13219,15 +11080,10 @@ impl Default for CMC_STATUS_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMC_STATUS_INFO_0 {
     pub dwFailInfo: u32,
     pub pPendInfo: *mut CMC_PEND_INFO,
-}
-impl Copy for CMC_STATUS_INFO_0 {}
-impl Clone for CMC_STATUS_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMC_STATUS_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -13238,136 +11094,67 @@ impl Default for CMC_STATUS_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMC_TAGGED_ATTRIBUTE {
     pub dwBodyPartID: u32,
     pub Attribute: CRYPT_ATTRIBUTE,
 }
-impl Copy for CMC_TAGGED_ATTRIBUTE {}
-impl Clone for CMC_TAGGED_ATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMC_TAGGED_ATTRIBUTE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMC_TAGGED_ATTRIBUTE").field("dwBodyPartID", &self.dwBodyPartID).field("Attribute", &self.Attribute).finish()
-    }
-}
 impl windows_core::TypeKind for CMC_TAGGED_ATTRIBUTE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMC_TAGGED_ATTRIBUTE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwBodyPartID == other.dwBodyPartID && self.Attribute == other.Attribute
-    }
-}
-impl Eq for CMC_TAGGED_ATTRIBUTE {}
 impl Default for CMC_TAGGED_ATTRIBUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMC_TAGGED_CERT_REQUEST {
     pub dwBodyPartID: u32,
     pub SignedCertRequest: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CMC_TAGGED_CERT_REQUEST {}
-impl Clone for CMC_TAGGED_CERT_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMC_TAGGED_CERT_REQUEST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMC_TAGGED_CERT_REQUEST").field("dwBodyPartID", &self.dwBodyPartID).field("SignedCertRequest", &self.SignedCertRequest).finish()
-    }
-}
 impl windows_core::TypeKind for CMC_TAGGED_CERT_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMC_TAGGED_CERT_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwBodyPartID == other.dwBodyPartID && self.SignedCertRequest == other.SignedCertRequest
-    }
-}
-impl Eq for CMC_TAGGED_CERT_REQUEST {}
 impl Default for CMC_TAGGED_CERT_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMC_TAGGED_CONTENT_INFO {
     pub dwBodyPartID: u32,
     pub EncodedContentInfo: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CMC_TAGGED_CONTENT_INFO {}
-impl Clone for CMC_TAGGED_CONTENT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMC_TAGGED_CONTENT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMC_TAGGED_CONTENT_INFO").field("dwBodyPartID", &self.dwBodyPartID).field("EncodedContentInfo", &self.EncodedContentInfo).finish()
-    }
-}
 impl windows_core::TypeKind for CMC_TAGGED_CONTENT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMC_TAGGED_CONTENT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwBodyPartID == other.dwBodyPartID && self.EncodedContentInfo == other.EncodedContentInfo
-    }
-}
-impl Eq for CMC_TAGGED_CONTENT_INFO {}
 impl Default for CMC_TAGGED_CONTENT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMC_TAGGED_OTHER_MSG {
     pub dwBodyPartID: u32,
     pub pszObjId: windows_core::PSTR,
     pub Value: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CMC_TAGGED_OTHER_MSG {}
-impl Clone for CMC_TAGGED_OTHER_MSG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMC_TAGGED_OTHER_MSG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMC_TAGGED_OTHER_MSG").field("dwBodyPartID", &self.dwBodyPartID).field("pszObjId", &self.pszObjId).field("Value", &self.Value).finish()
-    }
-}
 impl windows_core::TypeKind for CMC_TAGGED_OTHER_MSG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMC_TAGGED_OTHER_MSG {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwBodyPartID == other.dwBodyPartID && self.pszObjId == other.pszObjId && self.Value == other.Value
-    }
-}
-impl Eq for CMC_TAGGED_OTHER_MSG {}
 impl Default for CMC_TAGGED_OTHER_MSG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMC_TAGGED_REQUEST {
     pub dwTaggedRequestChoice: u32,
     pub Anonymous: CMC_TAGGED_REQUEST_0,
-}
-impl Copy for CMC_TAGGED_REQUEST {}
-impl Clone for CMC_TAGGED_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMC_TAGGED_REQUEST {
     type TypeKind = windows_core::CopyType;
@@ -13378,14 +11165,9 @@ impl Default for CMC_TAGGED_REQUEST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMC_TAGGED_REQUEST_0 {
     pub pTaggedCertRequest: *mut CMC_TAGGED_CERT_REQUEST,
-}
-impl Copy for CMC_TAGGED_REQUEST_0 {}
-impl Clone for CMC_TAGGED_REQUEST_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMC_TAGGED_REQUEST_0 {
     type TypeKind = windows_core::CopyType;
@@ -13397,15 +11179,10 @@ impl Default for CMC_TAGGED_REQUEST_0 {
 }
 pub const CMSCEPSetup: windows_core::GUID = windows_core::GUID::from_u128(0xaa4f5c02_8e7c_49c4_94fa_67a5cc5eadb4);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_CMS_RECIPIENT_INFO {
     pub dwRecipientChoice: u32,
     pub Anonymous: CMSG_CMS_RECIPIENT_INFO_0,
-}
-impl Copy for CMSG_CMS_RECIPIENT_INFO {}
-impl Clone for CMSG_CMS_RECIPIENT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMSG_CMS_RECIPIENT_INFO {
     type TypeKind = windows_core::CopyType;
@@ -13416,16 +11193,11 @@ impl Default for CMSG_CMS_RECIPIENT_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMSG_CMS_RECIPIENT_INFO_0 {
     pub pKeyTrans: *mut CMSG_KEY_TRANS_RECIPIENT_INFO,
     pub pKeyAgree: *mut CMSG_KEY_AGREE_RECIPIENT_INFO,
     pub pMailList: *mut CMSG_MAIL_LIST_RECIPIENT_INFO,
-}
-impl Copy for CMSG_CMS_RECIPIENT_INFO_0 {}
-impl Clone for CMSG_CMS_RECIPIENT_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMSG_CMS_RECIPIENT_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -13436,6 +11208,7 @@ impl Default for CMSG_CMS_RECIPIENT_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_CMS_SIGNER_INFO {
     pub dwVersion: u32,
     pub SignerId: CERT_ID,
@@ -13444,12 +11217,6 @@ pub struct CMSG_CMS_SIGNER_INFO {
     pub EncryptedHash: CRYPT_INTEGER_BLOB,
     pub AuthAttrs: CRYPT_ATTRIBUTES,
     pub UnauthAttrs: CRYPT_ATTRIBUTES,
-}
-impl Copy for CMSG_CMS_SIGNER_INFO {}
-impl Clone for CMSG_CMS_SIGNER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMSG_CMS_SIGNER_INFO {
     type TypeKind = windows_core::CopyType;
@@ -13460,6 +11227,7 @@ impl Default for CMSG_CMS_SIGNER_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct CMSG_CNG_CONTENT_DECRYPT_INFO {
     pub cbSize: u32,
     pub ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -13471,17 +11239,6 @@ pub struct CMSG_CNG_CONTENT_DECRYPT_INFO {
     pub hCNGContentEncryptKey: BCRYPT_KEY_HANDLE,
     pub pbCNGContentEncryptKeyObject: *mut u8,
 }
-impl Copy for CMSG_CNG_CONTENT_DECRYPT_INFO {}
-impl Clone for CMSG_CNG_CONTENT_DECRYPT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMSG_CNG_CONTENT_DECRYPT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMSG_CNG_CONTENT_DECRYPT_INFO").field("cbSize", &self.cbSize).field("ContentEncryptionAlgorithm", &self.ContentEncryptionAlgorithm).field("hNCryptKey", &self.hNCryptKey).field("pbContentEncryptKey", &self.pbContentEncryptKey).field("cbContentEncryptKey", &self.cbContentEncryptKey).field("hCNGContentEncryptKey", &self.hCNGContentEncryptKey).field("pbCNGContentEncryptKeyObject", &self.pbCNGContentEncryptKeyObject).finish()
-    }
-}
 impl windows_core::TypeKind for CMSG_CNG_CONTENT_DECRYPT_INFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -13491,6 +11248,7 @@ impl Default for CMSG_CNG_CONTENT_DECRYPT_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_CONTENT_ENCRYPT_INFO {
     pub cbSize: u32,
     pub hCryptProv: HCRYPTPROV_LEGACY,
@@ -13508,12 +11266,6 @@ pub struct CMSG_CONTENT_ENCRYPT_INFO {
     pub pbContentEncryptKey: *mut u8,
     pub cbContentEncryptKey: u32,
 }
-impl Copy for CMSG_CONTENT_ENCRYPT_INFO {}
-impl Clone for CMSG_CONTENT_ENCRYPT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for CMSG_CONTENT_ENCRYPT_INFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -13523,15 +11275,10 @@ impl Default for CMSG_CONTENT_ENCRYPT_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMSG_CONTENT_ENCRYPT_INFO_0 {
     pub hContentEncryptKey: usize,
     pub hCNGContentEncryptKey: BCRYPT_KEY_HANDLE,
-}
-impl Copy for CMSG_CONTENT_ENCRYPT_INFO_0 {}
-impl Clone for CMSG_CONTENT_ENCRYPT_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMSG_CONTENT_ENCRYPT_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -13542,48 +11289,27 @@ impl Default for CMSG_CONTENT_ENCRYPT_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {
     pub cbSize: u32,
     pub dwSignerIndex: u32,
     pub blob: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {}
-impl Clone for CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA").field("cbSize", &self.cbSize).field("dwSignerIndex", &self.dwSignerIndex).field("blob", &self.blob).finish()
-    }
-}
 impl windows_core::TypeKind for CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwSignerIndex == other.dwSignerIndex && self.blob == other.blob
-    }
-}
-impl Eq for CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {}
 impl Default for CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_CTRL_DECRYPT_PARA {
     pub cbSize: u32,
     pub Anonymous: CMSG_CTRL_DECRYPT_PARA_0,
     pub dwKeySpec: u32,
     pub dwRecipientIndex: u32,
-}
-impl Copy for CMSG_CTRL_DECRYPT_PARA {}
-impl Clone for CMSG_CTRL_DECRYPT_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMSG_CTRL_DECRYPT_PARA {
     type TypeKind = windows_core::CopyType;
@@ -13594,15 +11320,10 @@ impl Default for CMSG_CTRL_DECRYPT_PARA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMSG_CTRL_DECRYPT_PARA_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: NCRYPT_KEY_HANDLE,
-}
-impl Copy for CMSG_CTRL_DECRYPT_PARA_0 {}
-impl Clone for CMSG_CTRL_DECRYPT_PARA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMSG_CTRL_DECRYPT_PARA_0 {
     type TypeKind = windows_core::CopyType;
@@ -13613,37 +11334,22 @@ impl Default for CMSG_CTRL_DECRYPT_PARA_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {
     pub cbSize: u32,
     pub dwSignerIndex: u32,
     pub dwUnauthAttrIndex: u32,
 }
-impl Copy for CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {}
-impl Clone for CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA").field("cbSize", &self.cbSize).field("dwSignerIndex", &self.dwSignerIndex).field("dwUnauthAttrIndex", &self.dwUnauthAttrIndex).finish()
-    }
-}
 impl windows_core::TypeKind for CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwSignerIndex == other.dwSignerIndex && self.dwUnauthAttrIndex == other.dwUnauthAttrIndex
-    }
-}
-impl Eq for CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {}
 impl Default for CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
     pub cbSize: u32,
     pub Anonymous: CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0,
@@ -13652,12 +11358,6 @@ pub struct CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
     pub dwRecipientIndex: u32,
     pub dwRecipientEncryptedKeyIndex: u32,
     pub OriginatorPublicKey: CRYPT_BIT_BLOB,
-}
-impl Copy for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {}
-impl Clone for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
     type TypeKind = windows_core::CopyType;
@@ -13668,15 +11368,10 @@ impl Default for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: NCRYPT_KEY_HANDLE,
-}
-impl Copy for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {}
-impl Clone for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
     type TypeKind = windows_core::CopyType;
@@ -13687,18 +11382,13 @@ impl Default for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
     pub cbSize: u32,
     pub Anonymous: CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0,
     pub dwKeySpec: u32,
     pub pKeyTrans: *mut CMSG_KEY_TRANS_RECIPIENT_INFO,
     pub dwRecipientIndex: u32,
-}
-impl Copy for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {}
-impl Clone for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
     type TypeKind = windows_core::CopyType;
@@ -13709,15 +11399,10 @@ impl Default for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: NCRYPT_KEY_HANDLE,
-}
-impl Copy for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {}
-impl Clone for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
     type TypeKind = windows_core::CopyType;
@@ -13728,6 +11413,7 @@ impl Default for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
     pub cbSize: u32,
     pub hCryptProv: usize,
@@ -13735,12 +11421,6 @@ pub struct CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
     pub dwRecipientIndex: u32,
     pub dwKeyChoice: u32,
     pub Anonymous: CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0,
-}
-impl Copy for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {}
-impl Clone for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
     type TypeKind = windows_core::CopyType;
@@ -13751,15 +11431,10 @@ impl Default for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
     pub hKeyEncryptionKey: usize,
     pub pvKeyEncryptionKey: *mut core::ffi::c_void,
-}
-impl Copy for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {}
-impl Clone for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
     type TypeKind = windows_core::CopyType;
@@ -13770,6 +11445,7 @@ impl Default for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
     pub cbSize: u32,
     pub hCryptProv: HCRYPTPROV_LEGACY,
@@ -13777,63 +11453,31 @@ pub struct CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
     pub dwSignerType: u32,
     pub pvSigner: *mut core::ffi::c_void,
 }
-impl Copy for CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {}
-impl Clone for CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA").field("cbSize", &self.cbSize).field("hCryptProv", &self.hCryptProv).field("dwSignerIndex", &self.dwSignerIndex).field("dwSignerType", &self.dwSignerType).field("pvSigner", &self.pvSigner).finish()
-    }
-}
 impl windows_core::TypeKind for CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.hCryptProv == other.hCryptProv && self.dwSignerIndex == other.dwSignerIndex && self.dwSignerType == other.dwSignerType && self.pvSigner == other.pvSigner
-    }
-}
-impl Eq for CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {}
 impl Default for CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_ENCRYPTED_ENCODE_INFO {
     pub cbSize: u32,
     pub ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub pvEncryptionAuxInfo: *mut core::ffi::c_void,
 }
-impl Copy for CMSG_ENCRYPTED_ENCODE_INFO {}
-impl Clone for CMSG_ENCRYPTED_ENCODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMSG_ENCRYPTED_ENCODE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMSG_ENCRYPTED_ENCODE_INFO").field("cbSize", &self.cbSize).field("ContentEncryptionAlgorithm", &self.ContentEncryptionAlgorithm).field("pvEncryptionAuxInfo", &self.pvEncryptionAuxInfo).finish()
-    }
-}
 impl windows_core::TypeKind for CMSG_ENCRYPTED_ENCODE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMSG_ENCRYPTED_ENCODE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.ContentEncryptionAlgorithm == other.ContentEncryptionAlgorithm && self.pvEncryptionAuxInfo == other.pvEncryptionAuxInfo
-    }
-}
-impl Eq for CMSG_ENCRYPTED_ENCODE_INFO {}
 impl Default for CMSG_ENCRYPTED_ENCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_ENVELOPED_ENCODE_INFO {
     pub cbSize: u32,
     pub hCryptProv: HCRYPTPROV_LEGACY,
@@ -13842,64 +11486,32 @@ pub struct CMSG_ENVELOPED_ENCODE_INFO {
     pub cRecipients: u32,
     pub rgpRecipients: *mut *mut CERT_INFO,
 }
-impl Copy for CMSG_ENVELOPED_ENCODE_INFO {}
-impl Clone for CMSG_ENVELOPED_ENCODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMSG_ENVELOPED_ENCODE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMSG_ENVELOPED_ENCODE_INFO").field("cbSize", &self.cbSize).field("hCryptProv", &self.hCryptProv).field("ContentEncryptionAlgorithm", &self.ContentEncryptionAlgorithm).field("pvEncryptionAuxInfo", &self.pvEncryptionAuxInfo).field("cRecipients", &self.cRecipients).field("rgpRecipients", &self.rgpRecipients).finish()
-    }
-}
 impl windows_core::TypeKind for CMSG_ENVELOPED_ENCODE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMSG_ENVELOPED_ENCODE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.hCryptProv == other.hCryptProv && self.ContentEncryptionAlgorithm == other.ContentEncryptionAlgorithm && self.pvEncryptionAuxInfo == other.pvEncryptionAuxInfo && self.cRecipients == other.cRecipients && self.rgpRecipients == other.rgpRecipients
-    }
-}
-impl Eq for CMSG_ENVELOPED_ENCODE_INFO {}
 impl Default for CMSG_ENVELOPED_ENCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_HASHED_ENCODE_INFO {
     pub cbSize: u32,
     pub hCryptProv: HCRYPTPROV_LEGACY,
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub pvHashAuxInfo: *mut core::ffi::c_void,
 }
-impl Copy for CMSG_HASHED_ENCODE_INFO {}
-impl Clone for CMSG_HASHED_ENCODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMSG_HASHED_ENCODE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMSG_HASHED_ENCODE_INFO").field("cbSize", &self.cbSize).field("hCryptProv", &self.hCryptProv).field("HashAlgorithm", &self.HashAlgorithm).field("pvHashAuxInfo", &self.pvHashAuxInfo).finish()
-    }
-}
 impl windows_core::TypeKind for CMSG_HASHED_ENCODE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMSG_HASHED_ENCODE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.hCryptProv == other.hCryptProv && self.HashAlgorithm == other.HashAlgorithm && self.pvHashAuxInfo == other.pvHashAuxInfo
-    }
-}
-impl Eq for CMSG_HASHED_ENCODE_INFO {}
 impl Default for CMSG_HASHED_ENCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_KEY_AGREE_ENCRYPT_INFO {
     pub cbSize: u32,
     pub dwRecipientIndex: u32,
@@ -13911,12 +11523,6 @@ pub struct CMSG_KEY_AGREE_ENCRYPT_INFO {
     pub rgpKeyAgreeKeyEncryptInfo: *mut *mut CMSG_KEY_AGREE_KEY_ENCRYPT_INFO,
     pub dwFlags: u32,
 }
-impl Copy for CMSG_KEY_AGREE_ENCRYPT_INFO {}
-impl Clone for CMSG_KEY_AGREE_ENCRYPT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for CMSG_KEY_AGREE_ENCRYPT_INFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -13926,15 +11532,10 @@ impl Default for CMSG_KEY_AGREE_ENCRYPT_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMSG_KEY_AGREE_ENCRYPT_INFO_0 {
     pub OriginatorCertId: CERT_ID,
     pub OriginatorPublicKeyInfo: CERT_PUBLIC_KEY_INFO,
-}
-impl Copy for CMSG_KEY_AGREE_ENCRYPT_INFO_0 {}
-impl Clone for CMSG_KEY_AGREE_ENCRYPT_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMSG_KEY_AGREE_ENCRYPT_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -13945,36 +11546,21 @@ impl Default for CMSG_KEY_AGREE_ENCRYPT_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {
     pub cbSize: u32,
     pub EncryptedKey: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {}
-impl Clone for CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMSG_KEY_AGREE_KEY_ENCRYPT_INFO").field("cbSize", &self.cbSize).field("EncryptedKey", &self.EncryptedKey).finish()
-    }
-}
 impl windows_core::TypeKind for CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.EncryptedKey == other.EncryptedKey
-    }
-}
-impl Eq for CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {}
 impl Default for CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
     pub cbSize: u32,
     pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -13989,12 +11575,6 @@ pub struct CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
     pub cRecipientEncryptedKeys: u32,
     pub rgpRecipientEncryptedKeys: *mut *mut CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO,
 }
-impl Copy for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {}
-impl Clone for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -14004,15 +11584,10 @@ impl Default for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 {
     pub pEphemeralAlgorithm: *mut CRYPT_ALGORITHM_IDENTIFIER,
     pub pSenderId: *mut CERT_ID,
-}
-impl Copy for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 {}
-impl Clone for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -14023,6 +11598,7 @@ impl Default for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_KEY_AGREE_RECIPIENT_INFO {
     pub dwVersion: u32,
     pub dwOriginatorChoice: CMSG_KEY_AGREE_ORIGINATOR,
@@ -14031,12 +11607,6 @@ pub struct CMSG_KEY_AGREE_RECIPIENT_INFO {
     pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub cRecipientEncryptedKeys: u32,
     pub rgpRecipientEncryptedKeys: *mut *mut CMSG_RECIPIENT_ENCRYPTED_KEY_INFO,
-}
-impl Copy for CMSG_KEY_AGREE_RECIPIENT_INFO {}
-impl Clone for CMSG_KEY_AGREE_RECIPIENT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMSG_KEY_AGREE_RECIPIENT_INFO {
     type TypeKind = windows_core::CopyType;
@@ -14047,15 +11617,10 @@ impl Default for CMSG_KEY_AGREE_RECIPIENT_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMSG_KEY_AGREE_RECIPIENT_INFO_0 {
     pub OriginatorCertId: CERT_ID,
     pub OriginatorPublicKeyInfo: CERT_PUBLIC_KEY_INFO,
-}
-impl Copy for CMSG_KEY_AGREE_RECIPIENT_INFO_0 {}
-impl Clone for CMSG_KEY_AGREE_RECIPIENT_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMSG_KEY_AGREE_RECIPIENT_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -14066,6 +11631,7 @@ impl Default for CMSG_KEY_AGREE_RECIPIENT_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_KEY_TRANS_ENCRYPT_INFO {
     pub cbSize: u32,
     pub dwRecipientIndex: u32,
@@ -14073,32 +11639,16 @@ pub struct CMSG_KEY_TRANS_ENCRYPT_INFO {
     pub EncryptedKey: CRYPT_INTEGER_BLOB,
     pub dwFlags: u32,
 }
-impl Copy for CMSG_KEY_TRANS_ENCRYPT_INFO {}
-impl Clone for CMSG_KEY_TRANS_ENCRYPT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMSG_KEY_TRANS_ENCRYPT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMSG_KEY_TRANS_ENCRYPT_INFO").field("cbSize", &self.cbSize).field("dwRecipientIndex", &self.dwRecipientIndex).field("KeyEncryptionAlgorithm", &self.KeyEncryptionAlgorithm).field("EncryptedKey", &self.EncryptedKey).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for CMSG_KEY_TRANS_ENCRYPT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMSG_KEY_TRANS_ENCRYPT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwRecipientIndex == other.dwRecipientIndex && self.KeyEncryptionAlgorithm == other.KeyEncryptionAlgorithm && self.EncryptedKey == other.EncryptedKey && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for CMSG_KEY_TRANS_ENCRYPT_INFO {}
 impl Default for CMSG_KEY_TRANS_ENCRYPT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {
     pub cbSize: u32,
     pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -14106,12 +11656,6 @@ pub struct CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {
     pub hCryptProv: HCRYPTPROV_LEGACY,
     pub RecipientPublicKey: CRYPT_BIT_BLOB,
     pub RecipientId: CERT_ID,
-}
-impl Copy for CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {}
-impl Clone for CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {
     type TypeKind = windows_core::CopyType;
@@ -14122,17 +11666,12 @@ impl Default for CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_KEY_TRANS_RECIPIENT_INFO {
     pub dwVersion: u32,
     pub RecipientId: CERT_ID,
     pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub EncryptedKey: CRYPT_INTEGER_BLOB,
-}
-impl Copy for CMSG_KEY_TRANS_RECIPIENT_INFO {}
-impl Clone for CMSG_KEY_TRANS_RECIPIENT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMSG_KEY_TRANS_RECIPIENT_INFO {
     type TypeKind = windows_core::CopyType;
@@ -14143,6 +11682,7 @@ impl Default for CMSG_KEY_TRANS_RECIPIENT_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_MAIL_LIST_ENCRYPT_INFO {
     pub cbSize: u32,
     pub dwRecipientIndex: u32,
@@ -14150,32 +11690,16 @@ pub struct CMSG_MAIL_LIST_ENCRYPT_INFO {
     pub EncryptedKey: CRYPT_INTEGER_BLOB,
     pub dwFlags: u32,
 }
-impl Copy for CMSG_MAIL_LIST_ENCRYPT_INFO {}
-impl Clone for CMSG_MAIL_LIST_ENCRYPT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMSG_MAIL_LIST_ENCRYPT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMSG_MAIL_LIST_ENCRYPT_INFO").field("cbSize", &self.cbSize).field("dwRecipientIndex", &self.dwRecipientIndex).field("KeyEncryptionAlgorithm", &self.KeyEncryptionAlgorithm).field("EncryptedKey", &self.EncryptedKey).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for CMSG_MAIL_LIST_ENCRYPT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMSG_MAIL_LIST_ENCRYPT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwRecipientIndex == other.dwRecipientIndex && self.KeyEncryptionAlgorithm == other.KeyEncryptionAlgorithm && self.EncryptedKey == other.EncryptedKey && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for CMSG_MAIL_LIST_ENCRYPT_INFO {}
 impl Default for CMSG_MAIL_LIST_ENCRYPT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
     pub cbSize: u32,
     pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -14187,12 +11711,6 @@ pub struct CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
     pub Date: super::super::Foundation::FILETIME,
     pub pOtherAttr: *mut CRYPT_ATTRIBUTE_TYPE_VALUE,
 }
-impl Copy for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {}
-impl Clone for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -14202,15 +11720,10 @@ impl Default for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
     pub hKeyEncryptionKey: usize,
     pub pvKeyEncryptionKey: *mut core::ffi::c_void,
-}
-impl Copy for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {}
-impl Clone for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -14221,6 +11734,7 @@ impl Default for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_MAIL_LIST_RECIPIENT_INFO {
     pub dwVersion: u32,
     pub KeyId: CRYPT_INTEGER_BLOB,
@@ -14229,101 +11743,47 @@ pub struct CMSG_MAIL_LIST_RECIPIENT_INFO {
     pub Date: super::super::Foundation::FILETIME,
     pub pOtherAttr: *mut CRYPT_ATTRIBUTE_TYPE_VALUE,
 }
-impl Copy for CMSG_MAIL_LIST_RECIPIENT_INFO {}
-impl Clone for CMSG_MAIL_LIST_RECIPIENT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMSG_MAIL_LIST_RECIPIENT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMSG_MAIL_LIST_RECIPIENT_INFO").field("dwVersion", &self.dwVersion).field("KeyId", &self.KeyId).field("KeyEncryptionAlgorithm", &self.KeyEncryptionAlgorithm).field("EncryptedKey", &self.EncryptedKey).field("Date", &self.Date).field("pOtherAttr", &self.pOtherAttr).finish()
-    }
-}
 impl windows_core::TypeKind for CMSG_MAIL_LIST_RECIPIENT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMSG_MAIL_LIST_RECIPIENT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.KeyId == other.KeyId && self.KeyEncryptionAlgorithm == other.KeyEncryptionAlgorithm && self.EncryptedKey == other.EncryptedKey && self.Date == other.Date && self.pOtherAttr == other.pOtherAttr
-    }
-}
-impl Eq for CMSG_MAIL_LIST_RECIPIENT_INFO {}
 impl Default for CMSG_MAIL_LIST_RECIPIENT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_RC2_AUX_INFO {
     pub cbSize: u32,
     pub dwBitLen: u32,
 }
-impl Copy for CMSG_RC2_AUX_INFO {}
-impl Clone for CMSG_RC2_AUX_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMSG_RC2_AUX_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMSG_RC2_AUX_INFO").field("cbSize", &self.cbSize).field("dwBitLen", &self.dwBitLen).finish()
-    }
-}
 impl windows_core::TypeKind for CMSG_RC2_AUX_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMSG_RC2_AUX_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwBitLen == other.dwBitLen
-    }
-}
-impl Eq for CMSG_RC2_AUX_INFO {}
 impl Default for CMSG_RC2_AUX_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_RC4_AUX_INFO {
     pub cbSize: u32,
     pub dwBitLen: u32,
 }
-impl Copy for CMSG_RC4_AUX_INFO {}
-impl Clone for CMSG_RC4_AUX_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMSG_RC4_AUX_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMSG_RC4_AUX_INFO").field("cbSize", &self.cbSize).field("dwBitLen", &self.dwBitLen).finish()
-    }
-}
 impl windows_core::TypeKind for CMSG_RC4_AUX_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMSG_RC4_AUX_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwBitLen == other.dwBitLen
-    }
-}
-impl Eq for CMSG_RC4_AUX_INFO {}
 impl Default for CMSG_RC4_AUX_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_RECIPIENT_ENCODE_INFO {
     pub dwRecipientChoice: u32,
     pub Anonymous: CMSG_RECIPIENT_ENCODE_INFO_0,
-}
-impl Copy for CMSG_RECIPIENT_ENCODE_INFO {}
-impl Clone for CMSG_RECIPIENT_ENCODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMSG_RECIPIENT_ENCODE_INFO {
     type TypeKind = windows_core::CopyType;
@@ -14334,16 +11794,11 @@ impl Default for CMSG_RECIPIENT_ENCODE_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMSG_RECIPIENT_ENCODE_INFO_0 {
     pub pKeyTrans: *mut CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO,
     pub pKeyAgree: *mut CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO,
     pub pMailList: *mut CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO,
-}
-impl Copy for CMSG_RECIPIENT_ENCODE_INFO_0 {}
-impl Clone for CMSG_RECIPIENT_ENCODE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMSG_RECIPIENT_ENCODE_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -14354,18 +11809,13 @@ impl Default for CMSG_RECIPIENT_ENCODE_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {
     pub cbSize: u32,
     pub RecipientPublicKey: CRYPT_BIT_BLOB,
     pub RecipientId: CERT_ID,
     pub Date: super::super::Foundation::FILETIME,
     pub pOtherAttr: *mut CRYPT_ATTRIBUTE_TYPE_VALUE,
-}
-impl Copy for CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {}
-impl Clone for CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {
     type TypeKind = windows_core::CopyType;
@@ -14376,17 +11826,12 @@ impl Default for CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {
     pub RecipientId: CERT_ID,
     pub EncryptedKey: CRYPT_INTEGER_BLOB,
     pub Date: super::super::Foundation::FILETIME,
     pub pOtherAttr: *mut CRYPT_ATTRIBUTE_TYPE_VALUE,
-}
-impl Copy for CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {}
-impl Clone for CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {
     type TypeKind = windows_core::CopyType;
@@ -14397,37 +11842,22 @@ impl Default for CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {
     pub cbSize: u32,
     pub SignedInfo: CMSG_SIGNED_ENCODE_INFO,
     pub EnvelopedInfo: CMSG_ENVELOPED_ENCODE_INFO,
 }
-impl Copy for CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {}
-impl Clone for CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO").field("cbSize", &self.cbSize).field("SignedInfo", &self.SignedInfo).field("EnvelopedInfo", &self.EnvelopedInfo).finish()
-    }
-}
 impl windows_core::TypeKind for CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.SignedInfo == other.SignedInfo && self.EnvelopedInfo == other.EnvelopedInfo
-    }
-}
-impl Eq for CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {}
 impl Default for CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_SIGNED_ENCODE_INFO {
     pub cbSize: u32,
     pub cSigners: u32,
@@ -14437,32 +11867,16 @@ pub struct CMSG_SIGNED_ENCODE_INFO {
     pub cCrlEncoded: u32,
     pub rgCrlEncoded: *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for CMSG_SIGNED_ENCODE_INFO {}
-impl Clone for CMSG_SIGNED_ENCODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMSG_SIGNED_ENCODE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMSG_SIGNED_ENCODE_INFO").field("cbSize", &self.cbSize).field("cSigners", &self.cSigners).field("rgSigners", &self.rgSigners).field("cCertEncoded", &self.cCertEncoded).field("rgCertEncoded", &self.rgCertEncoded).field("cCrlEncoded", &self.cCrlEncoded).field("rgCrlEncoded", &self.rgCrlEncoded).finish()
-    }
-}
 impl windows_core::TypeKind for CMSG_SIGNED_ENCODE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMSG_SIGNED_ENCODE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.cSigners == other.cSigners && self.rgSigners == other.rgSigners && self.cCertEncoded == other.cCertEncoded && self.rgCertEncoded == other.rgCertEncoded && self.cCrlEncoded == other.cCrlEncoded && self.rgCrlEncoded == other.rgCrlEncoded
-    }
-}
-impl Eq for CMSG_SIGNED_ENCODE_INFO {}
 impl Default for CMSG_SIGNED_ENCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CMSG_SIGNER_ENCODE_INFO {
     pub cbSize: u32,
     pub pCertInfo: *mut CERT_INFO,
@@ -14475,12 +11889,6 @@ pub struct CMSG_SIGNER_ENCODE_INFO {
     pub cUnauthAttr: u32,
     pub rgUnauthAttr: *mut CRYPT_ATTRIBUTE,
 }
-impl Copy for CMSG_SIGNER_ENCODE_INFO {}
-impl Clone for CMSG_SIGNER_ENCODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for CMSG_SIGNER_ENCODE_INFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -14490,15 +11898,10 @@ impl Default for CMSG_SIGNER_ENCODE_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CMSG_SIGNER_ENCODE_INFO_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: NCRYPT_KEY_HANDLE,
-}
-impl Copy for CMSG_SIGNER_ENCODE_INFO_0 {}
-impl Clone for CMSG_SIGNER_ENCODE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CMSG_SIGNER_ENCODE_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -14509,6 +11912,7 @@ impl Default for CMSG_SIGNER_ENCODE_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_SIGNER_INFO {
     pub dwVersion: u32,
     pub Issuer: CRYPT_INTEGER_BLOB,
@@ -14519,77 +11923,34 @@ pub struct CMSG_SIGNER_INFO {
     pub AuthAttrs: CRYPT_ATTRIBUTES,
     pub UnauthAttrs: CRYPT_ATTRIBUTES,
 }
-impl Copy for CMSG_SIGNER_INFO {}
-impl Clone for CMSG_SIGNER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMSG_SIGNER_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMSG_SIGNER_INFO").field("dwVersion", &self.dwVersion).field("Issuer", &self.Issuer).field("SerialNumber", &self.SerialNumber).field("HashAlgorithm", &self.HashAlgorithm).field("HashEncryptionAlgorithm", &self.HashEncryptionAlgorithm).field("EncryptedHash", &self.EncryptedHash).field("AuthAttrs", &self.AuthAttrs).field("UnauthAttrs", &self.UnauthAttrs).finish()
-    }
-}
 impl windows_core::TypeKind for CMSG_SIGNER_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMSG_SIGNER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.Issuer == other.Issuer && self.SerialNumber == other.SerialNumber && self.HashAlgorithm == other.HashAlgorithm && self.HashEncryptionAlgorithm == other.HashEncryptionAlgorithm && self.EncryptedHash == other.EncryptedHash && self.AuthAttrs == other.AuthAttrs && self.UnauthAttrs == other.UnauthAttrs
-    }
-}
-impl Eq for CMSG_SIGNER_INFO {}
 impl Default for CMSG_SIGNER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_SP3_COMPATIBLE_AUX_INFO {
     pub cbSize: u32,
     pub dwFlags: u32,
 }
-impl Copy for CMSG_SP3_COMPATIBLE_AUX_INFO {}
-impl Clone for CMSG_SP3_COMPATIBLE_AUX_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMSG_SP3_COMPATIBLE_AUX_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMSG_SP3_COMPATIBLE_AUX_INFO").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for CMSG_SP3_COMPATIBLE_AUX_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMSG_SP3_COMPATIBLE_AUX_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for CMSG_SP3_COMPATIBLE_AUX_INFO {}
 impl Default for CMSG_SP3_COMPATIBLE_AUX_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct CMSG_STREAM_INFO {
     pub cbContent: u32,
     pub pfnStreamOutput: PFN_CMSG_STREAM_OUTPUT,
     pub pvArg: *mut core::ffi::c_void,
-}
-impl Copy for CMSG_STREAM_INFO {}
-impl Clone for CMSG_STREAM_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMSG_STREAM_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMSG_STREAM_INFO").field("cbContent", &self.cbContent).field("pvArg", &self.pvArg).finish()
-    }
 }
 impl windows_core::TypeKind for CMSG_STREAM_INFO {
     type TypeKind = windows_core::CopyType;
@@ -14600,6 +11961,7 @@ impl Default for CMSG_STREAM_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMS_DH_KEY_INFO {
     pub dwVersion: u32,
     pub Algid: ALG_ID,
@@ -14607,95 +11969,47 @@ pub struct CMS_DH_KEY_INFO {
     pub PubInfo: CRYPT_INTEGER_BLOB,
     pub pReserved: *mut core::ffi::c_void,
 }
-impl Copy for CMS_DH_KEY_INFO {}
-impl Clone for CMS_DH_KEY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMS_DH_KEY_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMS_DH_KEY_INFO").field("dwVersion", &self.dwVersion).field("Algid", &self.Algid).field("pszContentEncObjId", &self.pszContentEncObjId).field("PubInfo", &self.PubInfo).field("pReserved", &self.pReserved).finish()
-    }
-}
 impl windows_core::TypeKind for CMS_DH_KEY_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMS_DH_KEY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.Algid == other.Algid && self.pszContentEncObjId == other.pszContentEncObjId && self.PubInfo == other.PubInfo && self.pReserved == other.pReserved
-    }
-}
-impl Eq for CMS_DH_KEY_INFO {}
 impl Default for CMS_DH_KEY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMS_KEY_INFO {
     pub dwVersion: u32,
     pub Algid: ALG_ID,
     pub pbOID: *mut u8,
     pub cbOID: u32,
 }
-impl Copy for CMS_KEY_INFO {}
-impl Clone for CMS_KEY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMS_KEY_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMS_KEY_INFO").field("dwVersion", &self.dwVersion).field("Algid", &self.Algid).field("pbOID", &self.pbOID).field("cbOID", &self.cbOID).finish()
-    }
-}
 impl windows_core::TypeKind for CMS_KEY_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMS_KEY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.Algid == other.Algid && self.pbOID == other.pbOID && self.cbOID == other.cbOID
-    }
-}
-impl Eq for CMS_KEY_INFO {}
 impl Default for CMS_KEY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CPS_URLS {
     pub pszURL: windows_core::PWSTR,
     pub pAlgorithm: *mut CRYPT_ALGORITHM_IDENTIFIER,
     pub pDigest: *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for CPS_URLS {}
-impl Clone for CPS_URLS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CPS_URLS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CPS_URLS").field("pszURL", &self.pszURL).field("pAlgorithm", &self.pAlgorithm).field("pDigest", &self.pDigest).finish()
-    }
-}
 impl windows_core::TypeKind for CPS_URLS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CPS_URLS {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszURL == other.pszURL && self.pAlgorithm == other.pAlgorithm && self.pDigest == other.pDigest
-    }
-}
-impl Eq for CPS_URLS {}
 impl Default for CPS_URLS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRL_CONTEXT {
     pub dwCertEncodingType: CERT_QUERY_ENCODING_TYPE,
     pub pbCrlEncoded: *mut u8,
@@ -14703,42 +12017,20 @@ pub struct CRL_CONTEXT {
     pub pCrlInfo: *mut CRL_INFO,
     pub hCertStore: HCERTSTORE,
 }
-impl Copy for CRL_CONTEXT {}
-impl Clone for CRL_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRL_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRL_CONTEXT").field("dwCertEncodingType", &self.dwCertEncodingType).field("pbCrlEncoded", &self.pbCrlEncoded).field("cbCrlEncoded", &self.cbCrlEncoded).field("pCrlInfo", &self.pCrlInfo).field("hCertStore", &self.hCertStore).finish()
-    }
-}
 impl windows_core::TypeKind for CRL_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRL_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwCertEncodingType == other.dwCertEncodingType && self.pbCrlEncoded == other.pbCrlEncoded && self.cbCrlEncoded == other.cbCrlEncoded && self.pCrlInfo == other.pCrlInfo && self.hCertStore == other.hCertStore
-    }
-}
-impl Eq for CRL_CONTEXT {}
 impl Default for CRL_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRL_DIST_POINT {
     pub DistPointName: CRL_DIST_POINT_NAME,
     pub ReasonFlags: CRYPT_BIT_BLOB,
     pub CRLIssuer: CERT_ALT_NAME_INFO,
-}
-impl Copy for CRL_DIST_POINT {}
-impl Clone for CRL_DIST_POINT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CRL_DIST_POINT {
     type TypeKind = windows_core::CopyType;
@@ -14749,45 +12041,24 @@ impl Default for CRL_DIST_POINT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRL_DIST_POINTS_INFO {
     pub cDistPoint: u32,
     pub rgDistPoint: *mut CRL_DIST_POINT,
 }
-impl Copy for CRL_DIST_POINTS_INFO {}
-impl Clone for CRL_DIST_POINTS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRL_DIST_POINTS_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRL_DIST_POINTS_INFO").field("cDistPoint", &self.cDistPoint).field("rgDistPoint", &self.rgDistPoint).finish()
-    }
-}
 impl windows_core::TypeKind for CRL_DIST_POINTS_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRL_DIST_POINTS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cDistPoint == other.cDistPoint && self.rgDistPoint == other.rgDistPoint
-    }
-}
-impl Eq for CRL_DIST_POINTS_INFO {}
 impl Default for CRL_DIST_POINTS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRL_DIST_POINT_NAME {
     pub dwDistPointNameChoice: u32,
     pub Anonymous: CRL_DIST_POINT_NAME_0,
-}
-impl Copy for CRL_DIST_POINT_NAME {}
-impl Clone for CRL_DIST_POINT_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CRL_DIST_POINT_NAME {
     type TypeKind = windows_core::CopyType;
@@ -14798,14 +12069,9 @@ impl Default for CRL_DIST_POINT_NAME {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CRL_DIST_POINT_NAME_0 {
     pub FullName: CERT_ALT_NAME_INFO,
-}
-impl Copy for CRL_DIST_POINT_NAME_0 {}
-impl Clone for CRL_DIST_POINT_NAME_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CRL_DIST_POINT_NAME_0 {
     type TypeKind = windows_core::CopyType;
@@ -14816,68 +12082,37 @@ impl Default for CRL_DIST_POINT_NAME_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRL_ENTRY {
     pub SerialNumber: CRYPT_INTEGER_BLOB,
     pub RevocationDate: super::super::Foundation::FILETIME,
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-impl Copy for CRL_ENTRY {}
-impl Clone for CRL_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRL_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRL_ENTRY").field("SerialNumber", &self.SerialNumber).field("RevocationDate", &self.RevocationDate).field("cExtension", &self.cExtension).field("rgExtension", &self.rgExtension).finish()
-    }
-}
 impl windows_core::TypeKind for CRL_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRL_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.SerialNumber == other.SerialNumber && self.RevocationDate == other.RevocationDate && self.cExtension == other.cExtension && self.rgExtension == other.rgExtension
-    }
-}
-impl Eq for CRL_ENTRY {}
 impl Default for CRL_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRL_FIND_ISSUED_FOR_PARA {
     pub pSubjectCert: *const CERT_CONTEXT,
     pub pIssuerCert: *const CERT_CONTEXT,
 }
-impl Copy for CRL_FIND_ISSUED_FOR_PARA {}
-impl Clone for CRL_FIND_ISSUED_FOR_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRL_FIND_ISSUED_FOR_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRL_FIND_ISSUED_FOR_PARA").field("pSubjectCert", &self.pSubjectCert).field("pIssuerCert", &self.pIssuerCert).finish()
-    }
-}
 impl windows_core::TypeKind for CRL_FIND_ISSUED_FOR_PARA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRL_FIND_ISSUED_FOR_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pSubjectCert == other.pSubjectCert && self.pIssuerCert == other.pIssuerCert
-    }
-}
-impl Eq for CRL_FIND_ISSUED_FOR_PARA {}
 impl Default for CRL_FIND_ISSUED_FOR_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRL_INFO {
     pub dwVersion: u32,
     pub SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -14889,44 +12124,22 @@ pub struct CRL_INFO {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-impl Copy for CRL_INFO {}
-impl Clone for CRL_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRL_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRL_INFO").field("dwVersion", &self.dwVersion).field("SignatureAlgorithm", &self.SignatureAlgorithm).field("Issuer", &self.Issuer).field("ThisUpdate", &self.ThisUpdate).field("NextUpdate", &self.NextUpdate).field("cCRLEntry", &self.cCRLEntry).field("rgCRLEntry", &self.rgCRLEntry).field("cExtension", &self.cExtension).field("rgExtension", &self.rgExtension).finish()
-    }
-}
 impl windows_core::TypeKind for CRL_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRL_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.SignatureAlgorithm == other.SignatureAlgorithm && self.Issuer == other.Issuer && self.ThisUpdate == other.ThisUpdate && self.NextUpdate == other.NextUpdate && self.cCRLEntry == other.cCRLEntry && self.rgCRLEntry == other.rgCRLEntry && self.cExtension == other.cExtension && self.rgExtension == other.rgExtension
-    }
-}
-impl Eq for CRL_INFO {}
 impl Default for CRL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRL_ISSUING_DIST_POINT {
     pub DistPointName: CRL_DIST_POINT_NAME,
     pub fOnlyContainsUserCerts: super::super::Foundation::BOOL,
     pub fOnlyContainsCACerts: super::super::Foundation::BOOL,
     pub OnlySomeReasonFlags: CRYPT_BIT_BLOB,
     pub fIndirectCRL: super::super::Foundation::BOOL,
-}
-impl Copy for CRL_ISSUING_DIST_POINT {}
-impl Clone for CRL_ISSUING_DIST_POINT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CRL_ISSUING_DIST_POINT {
     type TypeKind = windows_core::CopyType;
@@ -14937,99 +12150,52 @@ impl Default for CRL_ISSUING_DIST_POINT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRL_REVOCATION_INFO {
     pub pCrlEntry: *mut CRL_ENTRY,
     pub pCrlContext: *mut CRL_CONTEXT,
     pub pCrlIssuerChain: *mut CERT_CHAIN_CONTEXT,
 }
-impl Copy for CRL_REVOCATION_INFO {}
-impl Clone for CRL_REVOCATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRL_REVOCATION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRL_REVOCATION_INFO").field("pCrlEntry", &self.pCrlEntry).field("pCrlContext", &self.pCrlContext).field("pCrlIssuerChain", &self.pCrlIssuerChain).finish()
-    }
-}
 impl windows_core::TypeKind for CRL_REVOCATION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRL_REVOCATION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pCrlEntry == other.pCrlEntry && self.pCrlContext == other.pCrlContext && self.pCrlIssuerChain == other.pCrlIssuerChain
-    }
-}
-impl Eq for CRL_REVOCATION_INFO {}
 impl Default for CRL_REVOCATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CROSS_CERT_DIST_POINTS_INFO {
     pub dwSyncDeltaTime: u32,
     pub cDistPoint: u32,
     pub rgDistPoint: *mut CERT_ALT_NAME_INFO,
 }
-impl Copy for CROSS_CERT_DIST_POINTS_INFO {}
-impl Clone for CROSS_CERT_DIST_POINTS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CROSS_CERT_DIST_POINTS_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CROSS_CERT_DIST_POINTS_INFO").field("dwSyncDeltaTime", &self.dwSyncDeltaTime).field("cDistPoint", &self.cDistPoint).field("rgDistPoint", &self.rgDistPoint).finish()
-    }
-}
 impl windows_core::TypeKind for CROSS_CERT_DIST_POINTS_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CROSS_CERT_DIST_POINTS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSyncDeltaTime == other.dwSyncDeltaTime && self.cDistPoint == other.cDistPoint && self.rgDistPoint == other.rgDistPoint
-    }
-}
-impl Eq for CROSS_CERT_DIST_POINTS_INFO {}
 impl Default for CROSS_CERT_DIST_POINTS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPTNET_URL_CACHE_FLUSH_INFO {
     pub cbSize: u32,
     pub dwExemptSeconds: u32,
     pub ExpireTime: super::super::Foundation::FILETIME,
 }
-impl Copy for CRYPTNET_URL_CACHE_FLUSH_INFO {}
-impl Clone for CRYPTNET_URL_CACHE_FLUSH_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPTNET_URL_CACHE_FLUSH_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPTNET_URL_CACHE_FLUSH_INFO").field("cbSize", &self.cbSize).field("dwExemptSeconds", &self.dwExemptSeconds).field("ExpireTime", &self.ExpireTime).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPTNET_URL_CACHE_FLUSH_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPTNET_URL_CACHE_FLUSH_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwExemptSeconds == other.dwExemptSeconds && self.ExpireTime == other.ExpireTime
-    }
-}
-impl Eq for CRYPTNET_URL_CACHE_FLUSH_INFO {}
 impl Default for CRYPTNET_URL_CACHE_FLUSH_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
     pub cbSize: u32,
     pub dwObjectType: u32,
@@ -15039,32 +12205,16 @@ pub struct CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
     pub NextUpdateTime: super::super::Foundation::FILETIME,
     pub PublishTime: super::super::Foundation::FILETIME,
 }
-impl Copy for CRYPTNET_URL_CACHE_PRE_FETCH_INFO {}
-impl Clone for CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPTNET_URL_CACHE_PRE_FETCH_INFO").field("cbSize", &self.cbSize).field("dwObjectType", &self.dwObjectType).field("dwError", &self.dwError).field("dwReserved", &self.dwReserved).field("ThisUpdateTime", &self.ThisUpdateTime).field("NextUpdateTime", &self.NextUpdateTime).field("PublishTime", &self.PublishTime).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwObjectType == other.dwObjectType && self.dwError == other.dwError && self.dwReserved == other.dwReserved && self.ThisUpdateTime == other.ThisUpdateTime && self.NextUpdateTime == other.NextUpdateTime && self.PublishTime == other.PublishTime
-    }
-}
-impl Eq for CRYPTNET_URL_CACHE_PRE_FETCH_INFO {}
 impl Default for CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPTNET_URL_CACHE_RESPONSE_INFO {
     pub cbSize: u32,
     pub wResponseType: u16,
@@ -15074,95 +12224,47 @@ pub struct CRYPTNET_URL_CACHE_RESPONSE_INFO {
     pub pwszETag: windows_core::PCWSTR,
     pub dwProxyId: u32,
 }
-impl Copy for CRYPTNET_URL_CACHE_RESPONSE_INFO {}
-impl Clone for CRYPTNET_URL_CACHE_RESPONSE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPTNET_URL_CACHE_RESPONSE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPTNET_URL_CACHE_RESPONSE_INFO").field("cbSize", &self.cbSize).field("wResponseType", &self.wResponseType).field("wResponseFlags", &self.wResponseFlags).field("LastModifiedTime", &self.LastModifiedTime).field("dwMaxAge", &self.dwMaxAge).field("pwszETag", &self.pwszETag).field("dwProxyId", &self.dwProxyId).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPTNET_URL_CACHE_RESPONSE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPTNET_URL_CACHE_RESPONSE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.wResponseType == other.wResponseType && self.wResponseFlags == other.wResponseFlags && self.LastModifiedTime == other.LastModifiedTime && self.dwMaxAge == other.dwMaxAge && self.pwszETag == other.pwszETag && self.dwProxyId == other.dwProxyId
-    }
-}
-impl Eq for CRYPTNET_URL_CACHE_RESPONSE_INFO {}
 impl Default for CRYPTNET_URL_CACHE_RESPONSE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPTPROTECT_PROMPTSTRUCT {
     pub cbSize: u32,
     pub dwPromptFlags: u32,
     pub hwndApp: super::super::Foundation::HWND,
     pub szPrompt: windows_core::PCWSTR,
 }
-impl Copy for CRYPTPROTECT_PROMPTSTRUCT {}
-impl Clone for CRYPTPROTECT_PROMPTSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPTPROTECT_PROMPTSTRUCT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPTPROTECT_PROMPTSTRUCT").field("cbSize", &self.cbSize).field("dwPromptFlags", &self.dwPromptFlags).field("hwndApp", &self.hwndApp).field("szPrompt", &self.szPrompt).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPTPROTECT_PROMPTSTRUCT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPTPROTECT_PROMPTSTRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwPromptFlags == other.dwPromptFlags && self.hwndApp == other.hwndApp && self.szPrompt == other.szPrompt
-    }
-}
-impl Eq for CRYPTPROTECT_PROMPTSTRUCT {}
 impl Default for CRYPTPROTECT_PROMPTSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_3DES_KEY_STATE {
     pub Key: [u8; 24],
     pub IV: [u8; 8],
     pub Feedback: [u8; 8],
 }
-impl Copy for CRYPT_3DES_KEY_STATE {}
-impl Clone for CRYPT_3DES_KEY_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_3DES_KEY_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_3DES_KEY_STATE").field("Key", &self.Key).field("IV", &self.IV).field("Feedback", &self.Feedback).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_3DES_KEY_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_3DES_KEY_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Key == other.Key && self.IV == other.IV && self.Feedback == other.Feedback
-    }
-}
-impl Eq for CRYPT_3DES_KEY_STATE {}
 impl Default for CRYPT_3DES_KEY_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_AES_128_KEY_STATE {
     pub Key: [u8; 16],
     pub IV: [u8; 16],
@@ -15170,32 +12272,16 @@ pub struct CRYPT_AES_128_KEY_STATE {
     pub DecryptionState: [u8; 176],
     pub Feedback: [u8; 16],
 }
-impl Copy for CRYPT_AES_128_KEY_STATE {}
-impl Clone for CRYPT_AES_128_KEY_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_AES_128_KEY_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_AES_128_KEY_STATE").field("Key", &self.Key).field("IV", &self.IV).field("EncryptionState", &self.EncryptionState).field("DecryptionState", &self.DecryptionState).field("Feedback", &self.Feedback).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_AES_128_KEY_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_AES_128_KEY_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Key == other.Key && self.IV == other.IV && self.EncryptionState == other.EncryptionState && self.DecryptionState == other.DecryptionState && self.Feedback == other.Feedback
-    }
-}
-impl Eq for CRYPT_AES_128_KEY_STATE {}
 impl Default for CRYPT_AES_128_KEY_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_AES_256_KEY_STATE {
     pub Key: [u8; 32],
     pub IV: [u8; 16],
@@ -15203,76 +12289,33 @@ pub struct CRYPT_AES_256_KEY_STATE {
     pub DecryptionState: [u8; 240],
     pub Feedback: [u8; 16],
 }
-impl Copy for CRYPT_AES_256_KEY_STATE {}
-impl Clone for CRYPT_AES_256_KEY_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_AES_256_KEY_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_AES_256_KEY_STATE").field("Key", &self.Key).field("IV", &self.IV).field("EncryptionState", &self.EncryptionState).field("DecryptionState", &self.DecryptionState).field("Feedback", &self.Feedback).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_AES_256_KEY_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_AES_256_KEY_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Key == other.Key && self.IV == other.IV && self.EncryptionState == other.EncryptionState && self.DecryptionState == other.DecryptionState && self.Feedback == other.Feedback
-    }
-}
-impl Eq for CRYPT_AES_256_KEY_STATE {}
 impl Default for CRYPT_AES_256_KEY_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ALGORITHM_IDENTIFIER {
     pub pszObjId: windows_core::PSTR,
     pub Parameters: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_ALGORITHM_IDENTIFIER {}
-impl Clone for CRYPT_ALGORITHM_IDENTIFIER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_ALGORITHM_IDENTIFIER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_ALGORITHM_IDENTIFIER").field("pszObjId", &self.pszObjId).field("Parameters", &self.Parameters).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_ALGORITHM_IDENTIFIER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_ALGORITHM_IDENTIFIER {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszObjId == other.pszObjId && self.Parameters == other.Parameters
-    }
-}
-impl Eq for CRYPT_ALGORITHM_IDENTIFIER {}
 impl Default for CRYPT_ALGORITHM_IDENTIFIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct CRYPT_ASYNC_RETRIEVAL_COMPLETION {
     pub pfnCompletion: PFN_CRYPT_ASYNC_RETRIEVAL_COMPLETION_FUNC,
     pub pvCompletion: *mut core::ffi::c_void,
-}
-impl Copy for CRYPT_ASYNC_RETRIEVAL_COMPLETION {}
-impl Clone for CRYPT_ASYNC_RETRIEVAL_COMPLETION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_ASYNC_RETRIEVAL_COMPLETION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_ASYNC_RETRIEVAL_COMPLETION").field("pvCompletion", &self.pvCompletion).finish()
-    }
 }
 impl windows_core::TypeKind for CRYPT_ASYNC_RETRIEVAL_COMPLETION {
     type TypeKind = windows_core::CopyType;
@@ -15283,446 +12326,212 @@ impl Default for CRYPT_ASYNC_RETRIEVAL_COMPLETION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ATTRIBUTE {
     pub pszObjId: windows_core::PSTR,
     pub cValue: u32,
     pub rgValue: *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_ATTRIBUTE {}
-impl Clone for CRYPT_ATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_ATTRIBUTE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_ATTRIBUTE").field("pszObjId", &self.pszObjId).field("cValue", &self.cValue).field("rgValue", &self.rgValue).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_ATTRIBUTE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_ATTRIBUTE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszObjId == other.pszObjId && self.cValue == other.cValue && self.rgValue == other.rgValue
-    }
-}
-impl Eq for CRYPT_ATTRIBUTE {}
 impl Default for CRYPT_ATTRIBUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ATTRIBUTES {
     pub cAttr: u32,
     pub rgAttr: *mut CRYPT_ATTRIBUTE,
 }
-impl Copy for CRYPT_ATTRIBUTES {}
-impl Clone for CRYPT_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_ATTRIBUTES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_ATTRIBUTES").field("cAttr", &self.cAttr).field("rgAttr", &self.rgAttr).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.cAttr == other.cAttr && self.rgAttr == other.rgAttr
-    }
-}
-impl Eq for CRYPT_ATTRIBUTES {}
 impl Default for CRYPT_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ATTRIBUTE_TYPE_VALUE {
     pub pszObjId: windows_core::PSTR,
     pub Value: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_ATTRIBUTE_TYPE_VALUE {}
-impl Clone for CRYPT_ATTRIBUTE_TYPE_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_ATTRIBUTE_TYPE_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_ATTRIBUTE_TYPE_VALUE").field("pszObjId", &self.pszObjId).field("Value", &self.Value).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_ATTRIBUTE_TYPE_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_ATTRIBUTE_TYPE_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszObjId == other.pszObjId && self.Value == other.Value
-    }
-}
-impl Eq for CRYPT_ATTRIBUTE_TYPE_VALUE {}
 impl Default for CRYPT_ATTRIBUTE_TYPE_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_BIT_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
     pub cUnusedBits: u32,
 }
-impl Copy for CRYPT_BIT_BLOB {}
-impl Clone for CRYPT_BIT_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_BIT_BLOB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_BIT_BLOB").field("cbData", &self.cbData).field("pbData", &self.pbData).field("cUnusedBits", &self.cUnusedBits).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_BIT_BLOB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_BIT_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbData == other.cbData && self.pbData == other.pbData && self.cUnusedBits == other.cUnusedBits
-    }
-}
-impl Eq for CRYPT_BIT_BLOB {}
 impl Default for CRYPT_BIT_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_BLOB_ARRAY {
     pub cBlob: u32,
     pub rgBlob: *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_BLOB_ARRAY {}
-impl Clone for CRYPT_BLOB_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_BLOB_ARRAY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_BLOB_ARRAY").field("cBlob", &self.cBlob).field("rgBlob", &self.rgBlob).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_BLOB_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_BLOB_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.cBlob == other.cBlob && self.rgBlob == other.rgBlob
-    }
-}
-impl Eq for CRYPT_BLOB_ARRAY {}
 impl Default for CRYPT_BLOB_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_CONTENT_INFO {
     pub pszObjId: windows_core::PSTR,
     pub Content: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_CONTENT_INFO {}
-impl Clone for CRYPT_CONTENT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_CONTENT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_CONTENT_INFO").field("pszObjId", &self.pszObjId).field("Content", &self.Content).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_CONTENT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_CONTENT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszObjId == other.pszObjId && self.Content == other.Content
-    }
-}
-impl Eq for CRYPT_CONTENT_INFO {}
 impl Default for CRYPT_CONTENT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
     pub pszObjId: windows_core::PSTR,
     pub cValue: u32,
     pub rgValue: *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {}
-impl Clone for CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY").field("pszObjId", &self.pszObjId).field("cValue", &self.cValue).field("rgValue", &self.rgValue).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszObjId == other.pszObjId && self.cValue == other.cValue && self.rgValue == other.rgValue
-    }
-}
-impl Eq for CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {}
 impl Default for CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_CONTEXTS {
     pub cContexts: u32,
     pub rgpszContexts: *mut windows_core::PWSTR,
 }
-impl Copy for CRYPT_CONTEXTS {}
-impl Clone for CRYPT_CONTEXTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_CONTEXTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_CONTEXTS").field("cContexts", &self.cContexts).field("rgpszContexts", &self.rgpszContexts).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_CONTEXTS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_CONTEXTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cContexts == other.cContexts && self.rgpszContexts == other.rgpszContexts
-    }
-}
-impl Eq for CRYPT_CONTEXTS {}
 impl Default for CRYPT_CONTEXTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_CONTEXT_CONFIG {
     pub dwFlags: CRYPT_CONTEXT_CONFIG_FLAGS,
     pub dwReserved: u32,
 }
-impl Copy for CRYPT_CONTEXT_CONFIG {}
-impl Clone for CRYPT_CONTEXT_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_CONTEXT_CONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_CONTEXT_CONFIG").field("dwFlags", &self.dwFlags).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_CONTEXT_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_CONTEXT_CONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for CRYPT_CONTEXT_CONFIG {}
 impl Default for CRYPT_CONTEXT_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_CONTEXT_FUNCTIONS {
     pub cFunctions: u32,
     pub rgpszFunctions: *mut windows_core::PWSTR,
 }
-impl Copy for CRYPT_CONTEXT_FUNCTIONS {}
-impl Clone for CRYPT_CONTEXT_FUNCTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_CONTEXT_FUNCTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_CONTEXT_FUNCTIONS").field("cFunctions", &self.cFunctions).field("rgpszFunctions", &self.rgpszFunctions).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_CONTEXT_FUNCTIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_CONTEXT_FUNCTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cFunctions == other.cFunctions && self.rgpszFunctions == other.rgpszFunctions
-    }
-}
-impl Eq for CRYPT_CONTEXT_FUNCTIONS {}
 impl Default for CRYPT_CONTEXT_FUNCTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_CONTEXT_FUNCTION_CONFIG {
     pub dwFlags: u32,
     pub dwReserved: u32,
 }
-impl Copy for CRYPT_CONTEXT_FUNCTION_CONFIG {}
-impl Clone for CRYPT_CONTEXT_FUNCTION_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_CONTEXT_FUNCTION_CONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_CONTEXT_FUNCTION_CONFIG").field("dwFlags", &self.dwFlags).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_CONTEXT_FUNCTION_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_CONTEXT_FUNCTION_CONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for CRYPT_CONTEXT_FUNCTION_CONFIG {}
 impl Default for CRYPT_CONTEXT_FUNCTION_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_CONTEXT_FUNCTION_PROVIDERS {
     pub cProviders: u32,
     pub rgpszProviders: *mut windows_core::PWSTR,
 }
-impl Copy for CRYPT_CONTEXT_FUNCTION_PROVIDERS {}
-impl Clone for CRYPT_CONTEXT_FUNCTION_PROVIDERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_CONTEXT_FUNCTION_PROVIDERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_CONTEXT_FUNCTION_PROVIDERS").field("cProviders", &self.cProviders).field("rgpszProviders", &self.rgpszProviders).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_CONTEXT_FUNCTION_PROVIDERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_CONTEXT_FUNCTION_PROVIDERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cProviders == other.cProviders && self.rgpszProviders == other.rgpszProviders
-    }
-}
-impl Eq for CRYPT_CONTEXT_FUNCTION_PROVIDERS {}
 impl Default for CRYPT_CONTEXT_FUNCTION_PROVIDERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_CREDENTIALS {
     pub cbSize: u32,
     pub pszCredentialsOid: windows_core::PCSTR,
     pub pvCredentials: *mut core::ffi::c_void,
 }
-impl Copy for CRYPT_CREDENTIALS {}
-impl Clone for CRYPT_CREDENTIALS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_CREDENTIALS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_CREDENTIALS").field("cbSize", &self.cbSize).field("pszCredentialsOid", &self.pszCredentialsOid).field("pvCredentials", &self.pvCredentials).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_CREDENTIALS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_CREDENTIALS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pszCredentialsOid == other.pszCredentialsOid && self.pvCredentials == other.pvCredentials
-    }
-}
-impl Eq for CRYPT_CREDENTIALS {}
 impl Default for CRYPT_CREDENTIALS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_CSP_PROVIDER {
     pub dwKeySpec: u32,
     pub pwszProviderName: windows_core::PWSTR,
     pub Signature: CRYPT_BIT_BLOB,
 }
-impl Copy for CRYPT_CSP_PROVIDER {}
-impl Clone for CRYPT_CSP_PROVIDER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_CSP_PROVIDER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_CSP_PROVIDER").field("dwKeySpec", &self.dwKeySpec).field("pwszProviderName", &self.pwszProviderName).field("Signature", &self.Signature).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_CSP_PROVIDER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_CSP_PROVIDER {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwKeySpec == other.dwKeySpec && self.pwszProviderName == other.pwszProviderName && self.Signature == other.Signature
-    }
-}
-impl Eq for CRYPT_CSP_PROVIDER {}
 impl Default for CRYPT_CSP_PROVIDER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct CRYPT_DECODE_PARA {
     pub cbSize: u32,
     pub pfnAlloc: PFN_CRYPT_ALLOC,
     pub pfnFree: PFN_CRYPT_FREE,
-}
-impl Copy for CRYPT_DECODE_PARA {}
-impl Clone for CRYPT_DECODE_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_DECODE_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_DECODE_PARA").field("cbSize", &self.cbSize).finish()
-    }
 }
 impl windows_core::TypeKind for CRYPT_DECODE_PARA {
     type TypeKind = windows_core::CopyType;
@@ -15733,177 +12542,87 @@ impl Default for CRYPT_DECODE_PARA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_DECRYPT_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgAndCertEncodingType: u32,
     pub cCertStore: u32,
     pub rghCertStore: *mut HCERTSTORE,
 }
-impl Copy for CRYPT_DECRYPT_MESSAGE_PARA {}
-impl Clone for CRYPT_DECRYPT_MESSAGE_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_DECRYPT_MESSAGE_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_DECRYPT_MESSAGE_PARA").field("cbSize", &self.cbSize).field("dwMsgAndCertEncodingType", &self.dwMsgAndCertEncodingType).field("cCertStore", &self.cCertStore).field("rghCertStore", &self.rghCertStore).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_DECRYPT_MESSAGE_PARA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_DECRYPT_MESSAGE_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwMsgAndCertEncodingType == other.dwMsgAndCertEncodingType && self.cCertStore == other.cCertStore && self.rghCertStore == other.rghCertStore
-    }
-}
-impl Eq for CRYPT_DECRYPT_MESSAGE_PARA {}
 impl Default for CRYPT_DECRYPT_MESSAGE_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
     pub cOID: u32,
     pub rgpszOID: *mut windows_core::PSTR,
 }
-impl Copy for CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {}
-impl Clone for CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA").field("cOID", &self.cOID).field("rgpszOID", &self.rgpszOID).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cOID == other.cOID && self.rgpszOID == other.rgpszOID
-    }
-}
-impl Eq for CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {}
 impl Default for CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_DES_KEY_STATE {
     pub Key: [u8; 8],
     pub IV: [u8; 8],
     pub Feedback: [u8; 8],
 }
-impl Copy for CRYPT_DES_KEY_STATE {}
-impl Clone for CRYPT_DES_KEY_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_DES_KEY_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_DES_KEY_STATE").field("Key", &self.Key).field("IV", &self.IV).field("Feedback", &self.Feedback).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_DES_KEY_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_DES_KEY_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Key == other.Key && self.IV == other.IV && self.Feedback == other.Feedback
-    }
-}
-impl Eq for CRYPT_DES_KEY_STATE {}
 impl Default for CRYPT_DES_KEY_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ECC_CMS_SHARED_INFO {
     pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub EntityUInfo: CRYPT_INTEGER_BLOB,
     pub rgbSuppPubInfo: [u8; 4],
 }
-impl Copy for CRYPT_ECC_CMS_SHARED_INFO {}
-impl Clone for CRYPT_ECC_CMS_SHARED_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_ECC_CMS_SHARED_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_ECC_CMS_SHARED_INFO").field("Algorithm", &self.Algorithm).field("EntityUInfo", &self.EntityUInfo).field("rgbSuppPubInfo", &self.rgbSuppPubInfo).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_ECC_CMS_SHARED_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_ECC_CMS_SHARED_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Algorithm == other.Algorithm && self.EntityUInfo == other.EntityUInfo && self.rgbSuppPubInfo == other.rgbSuppPubInfo
-    }
-}
-impl Eq for CRYPT_ECC_CMS_SHARED_INFO {}
 impl Default for CRYPT_ECC_CMS_SHARED_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ECC_PRIVATE_KEY_INFO {
     pub dwVersion: u32,
     pub PrivateKey: CRYPT_INTEGER_BLOB,
     pub szCurveOid: windows_core::PSTR,
     pub PublicKey: CRYPT_BIT_BLOB,
 }
-impl Copy for CRYPT_ECC_PRIVATE_KEY_INFO {}
-impl Clone for CRYPT_ECC_PRIVATE_KEY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_ECC_PRIVATE_KEY_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_ECC_PRIVATE_KEY_INFO").field("dwVersion", &self.dwVersion).field("PrivateKey", &self.PrivateKey).field("szCurveOid", &self.szCurveOid).field("PublicKey", &self.PublicKey).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_ECC_PRIVATE_KEY_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_ECC_PRIVATE_KEY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.PrivateKey == other.PrivateKey && self.szCurveOid == other.szCurveOid && self.PublicKey == other.PublicKey
-    }
-}
-impl Eq for CRYPT_ECC_PRIVATE_KEY_INFO {}
 impl Default for CRYPT_ECC_PRIVATE_KEY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct CRYPT_ENCODE_PARA {
     pub cbSize: u32,
     pub pfnAlloc: PFN_CRYPT_ALLOC,
     pub pfnFree: PFN_CRYPT_FREE,
-}
-impl Copy for CRYPT_ENCODE_PARA {}
-impl Clone for CRYPT_ENCODE_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_ENCODE_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_ENCODE_PARA").field("cbSize", &self.cbSize).finish()
-    }
 }
 impl windows_core::TypeKind for CRYPT_ENCODE_PARA {
     type TypeKind = windows_core::CopyType;
@@ -15914,36 +12633,21 @@ impl Default for CRYPT_ENCODE_PARA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {
     pub EncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub EncryptedPrivateKey: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {}
-impl Clone for CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_ENCRYPTED_PRIVATE_KEY_INFO").field("EncryptionAlgorithm", &self.EncryptionAlgorithm).field("EncryptedPrivateKey", &self.EncryptedPrivateKey).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.EncryptionAlgorithm == other.EncryptionAlgorithm && self.EncryptedPrivateKey == other.EncryptedPrivateKey
-    }
-}
-impl Eq for CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {}
 impl Default for CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ENCRYPT_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgEncodingType: u32,
@@ -15953,62 +12657,30 @@ pub struct CRYPT_ENCRYPT_MESSAGE_PARA {
     pub dwFlags: u32,
     pub dwInnerContentType: u32,
 }
-impl Copy for CRYPT_ENCRYPT_MESSAGE_PARA {}
-impl Clone for CRYPT_ENCRYPT_MESSAGE_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_ENCRYPT_MESSAGE_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_ENCRYPT_MESSAGE_PARA").field("cbSize", &self.cbSize).field("dwMsgEncodingType", &self.dwMsgEncodingType).field("hCryptProv", &self.hCryptProv).field("ContentEncryptionAlgorithm", &self.ContentEncryptionAlgorithm).field("pvEncryptionAuxInfo", &self.pvEncryptionAuxInfo).field("dwFlags", &self.dwFlags).field("dwInnerContentType", &self.dwInnerContentType).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_ENCRYPT_MESSAGE_PARA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_ENCRYPT_MESSAGE_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwMsgEncodingType == other.dwMsgEncodingType && self.hCryptProv == other.hCryptProv && self.ContentEncryptionAlgorithm == other.ContentEncryptionAlgorithm && self.pvEncryptionAuxInfo == other.pvEncryptionAuxInfo && self.dwFlags == other.dwFlags && self.dwInnerContentType == other.dwInnerContentType
-    }
-}
-impl Eq for CRYPT_ENCRYPT_MESSAGE_PARA {}
 impl Default for CRYPT_ENCRYPT_MESSAGE_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ENROLLMENT_NAME_VALUE_PAIR {
     pub pwszName: windows_core::PWSTR,
     pub pwszValue: windows_core::PWSTR,
 }
-impl Copy for CRYPT_ENROLLMENT_NAME_VALUE_PAIR {}
-impl Clone for CRYPT_ENROLLMENT_NAME_VALUE_PAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_ENROLLMENT_NAME_VALUE_PAIR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_ENROLLMENT_NAME_VALUE_PAIR").field("pwszName", &self.pwszName).field("pwszValue", &self.pwszValue).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_ENROLLMENT_NAME_VALUE_PAIR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_ENROLLMENT_NAME_VALUE_PAIR {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszName == other.pwszName && self.pwszValue == other.pwszValue
-    }
-}
-impl Eq for CRYPT_ENROLLMENT_NAME_VALUE_PAIR {}
 impl Default for CRYPT_ENROLLMENT_NAME_VALUE_PAIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
     pub cbSize: u32,
     pub iDeltaCrlIndicator: i32,
@@ -16018,62 +12690,30 @@ pub struct CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
     pub pChainPara: *mut CERT_REVOCATION_CHAIN_PARA,
     pub pDeltaCrlIndicator: *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {}
-impl Clone for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO").field("cbSize", &self.cbSize).field("iDeltaCrlIndicator", &self.iDeltaCrlIndicator).field("pftCacheResync", &self.pftCacheResync).field("pLastSyncTime", &self.pLastSyncTime).field("pMaxAgeTime", &self.pMaxAgeTime).field("pChainPara", &self.pChainPara).field("pDeltaCrlIndicator", &self.pDeltaCrlIndicator).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.iDeltaCrlIndicator == other.iDeltaCrlIndicator && self.pftCacheResync == other.pftCacheResync && self.pLastSyncTime == other.pLastSyncTime && self.pMaxAgeTime == other.pMaxAgeTime && self.pChainPara == other.pChainPara && self.pDeltaCrlIndicator == other.pDeltaCrlIndicator
-    }
-}
-impl Eq for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {}
 impl Default for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_HASH_INFO {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub Hash: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_HASH_INFO {}
-impl Clone for CRYPT_HASH_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_HASH_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_HASH_INFO").field("HashAlgorithm", &self.HashAlgorithm).field("Hash", &self.Hash).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_HASH_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_HASH_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.HashAlgorithm == other.HashAlgorithm && self.Hash == other.Hash
-    }
-}
-impl Eq for CRYPT_HASH_INFO {}
 impl Default for CRYPT_HASH_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_HASH_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgEncodingType: u32,
@@ -16081,155 +12721,75 @@ pub struct CRYPT_HASH_MESSAGE_PARA {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub pvHashAuxInfo: *mut core::ffi::c_void,
 }
-impl Copy for CRYPT_HASH_MESSAGE_PARA {}
-impl Clone for CRYPT_HASH_MESSAGE_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_HASH_MESSAGE_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_HASH_MESSAGE_PARA").field("cbSize", &self.cbSize).field("dwMsgEncodingType", &self.dwMsgEncodingType).field("hCryptProv", &self.hCryptProv).field("HashAlgorithm", &self.HashAlgorithm).field("pvHashAuxInfo", &self.pvHashAuxInfo).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_HASH_MESSAGE_PARA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_HASH_MESSAGE_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwMsgEncodingType == other.dwMsgEncodingType && self.hCryptProv == other.hCryptProv && self.HashAlgorithm == other.HashAlgorithm && self.pvHashAuxInfo == other.pvHashAuxInfo
-    }
-}
-impl Eq for CRYPT_HASH_MESSAGE_PARA {}
 impl Default for CRYPT_HASH_MESSAGE_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_IMAGE_REF {
     pub pszImage: windows_core::PWSTR,
     pub dwFlags: CRYPT_IMAGE_REF_FLAGS,
 }
-impl Copy for CRYPT_IMAGE_REF {}
-impl Clone for CRYPT_IMAGE_REF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_IMAGE_REF {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_IMAGE_REF").field("pszImage", &self.pszImage).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_IMAGE_REF {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_IMAGE_REF {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszImage == other.pszImage && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for CRYPT_IMAGE_REF {}
 impl Default for CRYPT_IMAGE_REF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_IMAGE_REG {
     pub pszImage: windows_core::PWSTR,
     pub cInterfaces: u32,
     pub rgpInterfaces: *mut *mut CRYPT_INTERFACE_REG,
 }
-impl Copy for CRYPT_IMAGE_REG {}
-impl Clone for CRYPT_IMAGE_REG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_IMAGE_REG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_IMAGE_REG").field("pszImage", &self.pszImage).field("cInterfaces", &self.cInterfaces).field("rgpInterfaces", &self.rgpInterfaces).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_IMAGE_REG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_IMAGE_REG {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszImage == other.pszImage && self.cInterfaces == other.cInterfaces && self.rgpInterfaces == other.rgpInterfaces
-    }
-}
-impl Eq for CRYPT_IMAGE_REG {}
 impl Default for CRYPT_IMAGE_REG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_INTEGER_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
 }
-impl Copy for CRYPT_INTEGER_BLOB {}
-impl Clone for CRYPT_INTEGER_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_INTEGER_BLOB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_INTEGER_BLOB").field("cbData", &self.cbData).field("pbData", &self.pbData).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_INTEGER_BLOB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_INTEGER_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbData == other.cbData && self.pbData == other.pbData
-    }
-}
-impl Eq for CRYPT_INTEGER_BLOB {}
 impl Default for CRYPT_INTEGER_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_INTERFACE_REG {
     pub dwInterface: BCRYPT_INTERFACE,
     pub dwFlags: BCRYPT_TABLE,
     pub cFunctions: u32,
     pub rgpszFunctions: *mut windows_core::PWSTR,
 }
-impl Copy for CRYPT_INTERFACE_REG {}
-impl Clone for CRYPT_INTERFACE_REG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_INTERFACE_REG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_INTERFACE_REG").field("dwInterface", &self.dwInterface).field("dwFlags", &self.dwFlags).field("cFunctions", &self.cFunctions).field("rgpszFunctions", &self.rgpszFunctions).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_INTERFACE_REG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_INTERFACE_REG {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwInterface == other.dwInterface && self.dwFlags == other.dwFlags && self.cFunctions == other.cFunctions && self.rgpszFunctions == other.rgpszFunctions
-    }
-}
-impl Eq for CRYPT_INTERFACE_REG {}
 impl Default for CRYPT_INTERFACE_REG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_KEY_PROV_INFO {
     pub pwszContainerName: windows_core::PWSTR,
     pub pwszProvName: windows_core::PWSTR,
@@ -16239,64 +12799,32 @@ pub struct CRYPT_KEY_PROV_INFO {
     pub rgProvParam: *mut CRYPT_KEY_PROV_PARAM,
     pub dwKeySpec: u32,
 }
-impl Copy for CRYPT_KEY_PROV_INFO {}
-impl Clone for CRYPT_KEY_PROV_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_KEY_PROV_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_KEY_PROV_INFO").field("pwszContainerName", &self.pwszContainerName).field("pwszProvName", &self.pwszProvName).field("dwProvType", &self.dwProvType).field("dwFlags", &self.dwFlags).field("cProvParam", &self.cProvParam).field("rgProvParam", &self.rgProvParam).field("dwKeySpec", &self.dwKeySpec).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_KEY_PROV_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_KEY_PROV_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszContainerName == other.pwszContainerName && self.pwszProvName == other.pwszProvName && self.dwProvType == other.dwProvType && self.dwFlags == other.dwFlags && self.cProvParam == other.cProvParam && self.rgProvParam == other.rgProvParam && self.dwKeySpec == other.dwKeySpec
-    }
-}
-impl Eq for CRYPT_KEY_PROV_INFO {}
 impl Default for CRYPT_KEY_PROV_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_KEY_PROV_PARAM {
     pub dwParam: u32,
     pub pbData: *mut u8,
     pub cbData: u32,
     pub dwFlags: u32,
 }
-impl Copy for CRYPT_KEY_PROV_PARAM {}
-impl Clone for CRYPT_KEY_PROV_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_KEY_PROV_PARAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_KEY_PROV_PARAM").field("dwParam", &self.dwParam).field("pbData", &self.pbData).field("cbData", &self.cbData).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_KEY_PROV_PARAM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_KEY_PROV_PARAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwParam == other.dwParam && self.pbData == other.pbData && self.cbData == other.cbData && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for CRYPT_KEY_PROV_PARAM {}
 impl Default for CRYPT_KEY_PROV_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_KEY_SIGN_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgAndCertEncodingType: CERT_QUERY_ENCODING_TYPE,
@@ -16305,12 +12833,6 @@ pub struct CRYPT_KEY_SIGN_MESSAGE_PARA {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub pvHashAuxInfo: *mut core::ffi::c_void,
     pub PubKeyAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
-}
-impl Copy for CRYPT_KEY_SIGN_MESSAGE_PARA {}
-impl Clone for CRYPT_KEY_SIGN_MESSAGE_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CRYPT_KEY_SIGN_MESSAGE_PARA {
     type TypeKind = windows_core::CopyType;
@@ -16321,15 +12843,10 @@ impl Default for CRYPT_KEY_SIGN_MESSAGE_PARA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: NCRYPT_KEY_HANDLE,
-}
-impl Copy for CRYPT_KEY_SIGN_MESSAGE_PARA_0 {}
-impl Clone for CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
     type TypeKind = windows_core::CopyType;
@@ -16340,67 +12857,36 @@ impl Default for CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_KEY_VERIFY_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgEncodingType: u32,
     pub hCryptProv: HCRYPTPROV_LEGACY,
 }
-impl Copy for CRYPT_KEY_VERIFY_MESSAGE_PARA {}
-impl Clone for CRYPT_KEY_VERIFY_MESSAGE_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_KEY_VERIFY_MESSAGE_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_KEY_VERIFY_MESSAGE_PARA").field("cbSize", &self.cbSize).field("dwMsgEncodingType", &self.dwMsgEncodingType).field("hCryptProv", &self.hCryptProv).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_KEY_VERIFY_MESSAGE_PARA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_KEY_VERIFY_MESSAGE_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwMsgEncodingType == other.dwMsgEncodingType && self.hCryptProv == other.hCryptProv
-    }
-}
-impl Eq for CRYPT_KEY_VERIFY_MESSAGE_PARA {}
 impl Default for CRYPT_KEY_VERIFY_MESSAGE_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_MASK_GEN_ALGORITHM {
     pub pszObjId: windows_core::PSTR,
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
 }
-impl Copy for CRYPT_MASK_GEN_ALGORITHM {}
-impl Clone for CRYPT_MASK_GEN_ALGORITHM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_MASK_GEN_ALGORITHM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_MASK_GEN_ALGORITHM").field("pszObjId", &self.pszObjId).field("HashAlgorithm", &self.HashAlgorithm).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_MASK_GEN_ALGORITHM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_MASK_GEN_ALGORITHM {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszObjId == other.pszObjId && self.HashAlgorithm == other.HashAlgorithm
-    }
-}
-impl Eq for CRYPT_MASK_GEN_ALGORITHM {}
 impl Default for CRYPT_MASK_GEN_ALGORITHM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
     pub cbSize: u32,
     pub pfnGet: PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_GET,
@@ -16408,17 +12894,6 @@ pub struct CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
     pub pfnFreePassword: PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE_PASSWORD,
     pub pfnFree: PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE,
     pub pfnFreeIdentifier: PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE_IDENTIFIER,
-}
-impl Copy for CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {}
-impl Clone for CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE").field("cbSize", &self.cbSize).finish()
-    }
 }
 impl windows_core::TypeKind for CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
     type TypeKind = windows_core::CopyType;
@@ -16429,66 +12904,35 @@ impl Default for CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_OBJID_TABLE {
     pub dwAlgId: u32,
     pub pszObjId: windows_core::PCSTR,
 }
-impl Copy for CRYPT_OBJID_TABLE {}
-impl Clone for CRYPT_OBJID_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_OBJID_TABLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_OBJID_TABLE").field("dwAlgId", &self.dwAlgId).field("pszObjId", &self.pszObjId).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_OBJID_TABLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_OBJID_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwAlgId == other.dwAlgId && self.pszObjId == other.pszObjId
-    }
-}
-impl Eq for CRYPT_OBJID_TABLE {}
 impl Default for CRYPT_OBJID_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_OID_FUNC_ENTRY {
     pub pszOID: windows_core::PCSTR,
     pub pvFuncAddr: *mut core::ffi::c_void,
 }
-impl Copy for CRYPT_OID_FUNC_ENTRY {}
-impl Clone for CRYPT_OID_FUNC_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_OID_FUNC_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_OID_FUNC_ENTRY").field("pszOID", &self.pszOID).field("pvFuncAddr", &self.pvFuncAddr).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_OID_FUNC_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_OID_FUNC_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszOID == other.pszOID && self.pvFuncAddr == other.pvFuncAddr
-    }
-}
-impl Eq for CRYPT_OID_FUNC_ENTRY {}
 impl Default for CRYPT_OID_FUNC_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_OID_INFO {
     pub cbSize: u32,
     pub pszOID: windows_core::PCSTR,
@@ -16496,12 +12940,6 @@ pub struct CRYPT_OID_INFO {
     pub dwGroupId: u32,
     pub Anonymous: CRYPT_OID_INFO_0,
     pub ExtraInfo: CRYPT_INTEGER_BLOB,
-}
-impl Copy for CRYPT_OID_INFO {}
-impl Clone for CRYPT_OID_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CRYPT_OID_INFO {
     type TypeKind = windows_core::CopyType;
@@ -16512,16 +12950,11 @@ impl Default for CRYPT_OID_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CRYPT_OID_INFO_0 {
     pub dwValue: u32,
     pub Algid: ALG_ID,
     pub dwLength: u32,
-}
-impl Copy for CRYPT_OID_INFO_0 {}
-impl Clone for CRYPT_OID_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CRYPT_OID_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -16532,115 +12965,57 @@ impl Default for CRYPT_OID_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PASSWORD_CREDENTIALSA {
     pub cbSize: u32,
     pub pszUsername: windows_core::PSTR,
     pub pszPassword: windows_core::PSTR,
 }
-impl Copy for CRYPT_PASSWORD_CREDENTIALSA {}
-impl Clone for CRYPT_PASSWORD_CREDENTIALSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_PASSWORD_CREDENTIALSA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_PASSWORD_CREDENTIALSA").field("cbSize", &self.cbSize).field("pszUsername", &self.pszUsername).field("pszPassword", &self.pszPassword).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_PASSWORD_CREDENTIALSA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_PASSWORD_CREDENTIALSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pszUsername == other.pszUsername && self.pszPassword == other.pszPassword
-    }
-}
-impl Eq for CRYPT_PASSWORD_CREDENTIALSA {}
 impl Default for CRYPT_PASSWORD_CREDENTIALSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PASSWORD_CREDENTIALSW {
     pub cbSize: u32,
     pub pszUsername: windows_core::PWSTR,
     pub pszPassword: windows_core::PWSTR,
 }
-impl Copy for CRYPT_PASSWORD_CREDENTIALSW {}
-impl Clone for CRYPT_PASSWORD_CREDENTIALSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_PASSWORD_CREDENTIALSW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_PASSWORD_CREDENTIALSW").field("cbSize", &self.cbSize).field("pszUsername", &self.pszUsername).field("pszPassword", &self.pszPassword).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_PASSWORD_CREDENTIALSW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_PASSWORD_CREDENTIALSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pszUsername == other.pszUsername && self.pszPassword == other.pszPassword
-    }
-}
-impl Eq for CRYPT_PASSWORD_CREDENTIALSW {}
 impl Default for CRYPT_PASSWORD_CREDENTIALSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PKCS12_PBE_PARAMS {
     pub iIterations: i32,
     pub cbSalt: u32,
 }
-impl Copy for CRYPT_PKCS12_PBE_PARAMS {}
-impl Clone for CRYPT_PKCS12_PBE_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_PKCS12_PBE_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_PKCS12_PBE_PARAMS").field("iIterations", &self.iIterations).field("cbSalt", &self.cbSalt).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_PKCS12_PBE_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_PKCS12_PBE_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.iIterations == other.iIterations && self.cbSalt == other.cbSalt
-    }
-}
-impl Eq for CRYPT_PKCS12_PBE_PARAMS {}
 impl Default for CRYPT_PKCS12_PBE_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct CRYPT_PKCS8_EXPORT_PARAMS {
     pub hCryptProv: usize,
     pub dwKeySpec: u32,
     pub pszPrivateKeyObjId: windows_core::PSTR,
     pub pEncryptPrivateKeyFunc: PCRYPT_ENCRYPT_PRIVATE_KEY_FUNC,
     pub pVoidEncryptFunc: *mut core::ffi::c_void,
-}
-impl Copy for CRYPT_PKCS8_EXPORT_PARAMS {}
-impl Clone for CRYPT_PKCS8_EXPORT_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_PKCS8_EXPORT_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_PKCS8_EXPORT_PARAMS").field("hCryptProv", &self.hCryptProv).field("dwKeySpec", &self.dwKeySpec).field("pszPrivateKeyObjId", &self.pszPrivateKeyObjId).field("pVoidEncryptFunc", &self.pVoidEncryptFunc).finish()
-    }
 }
 impl windows_core::TypeKind for CRYPT_PKCS8_EXPORT_PARAMS {
     type TypeKind = windows_core::CopyType;
@@ -16651,23 +13026,13 @@ impl Default for CRYPT_PKCS8_EXPORT_PARAMS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct CRYPT_PKCS8_IMPORT_PARAMS {
     pub PrivateKey: CRYPT_INTEGER_BLOB,
     pub pResolvehCryptProvFunc: PCRYPT_RESOLVE_HCRYPTPROV_FUNC,
     pub pVoidResolveFunc: *mut core::ffi::c_void,
     pub pDecryptPrivateKeyFunc: PCRYPT_DECRYPT_PRIVATE_KEY_FUNC,
     pub pVoidDecryptFunc: *mut core::ffi::c_void,
-}
-impl Copy for CRYPT_PKCS8_IMPORT_PARAMS {}
-impl Clone for CRYPT_PKCS8_IMPORT_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_PKCS8_IMPORT_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_PKCS8_IMPORT_PARAMS").field("PrivateKey", &self.PrivateKey).field("pVoidResolveFunc", &self.pVoidResolveFunc).field("pVoidDecryptFunc", &self.pVoidDecryptFunc).finish()
-    }
 }
 impl windows_core::TypeKind for CRYPT_PKCS8_IMPORT_PARAMS {
     type TypeKind = windows_core::CopyType;
@@ -16678,99 +13043,52 @@ impl Default for CRYPT_PKCS8_IMPORT_PARAMS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PRIVATE_KEY_INFO {
     pub Version: u32,
     pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub PrivateKey: CRYPT_INTEGER_BLOB,
     pub pAttributes: *mut CRYPT_ATTRIBUTES,
 }
-impl Copy for CRYPT_PRIVATE_KEY_INFO {}
-impl Clone for CRYPT_PRIVATE_KEY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_PRIVATE_KEY_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_PRIVATE_KEY_INFO").field("Version", &self.Version).field("Algorithm", &self.Algorithm).field("PrivateKey", &self.PrivateKey).field("pAttributes", &self.pAttributes).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_PRIVATE_KEY_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_PRIVATE_KEY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Algorithm == other.Algorithm && self.PrivateKey == other.PrivateKey && self.pAttributes == other.pAttributes
-    }
-}
-impl Eq for CRYPT_PRIVATE_KEY_INFO {}
 impl Default for CRYPT_PRIVATE_KEY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PROPERTY_REF {
     pub pszProperty: windows_core::PWSTR,
     pub cbValue: u32,
     pub pbValue: *mut u8,
 }
-impl Copy for CRYPT_PROPERTY_REF {}
-impl Clone for CRYPT_PROPERTY_REF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_PROPERTY_REF {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_PROPERTY_REF").field("pszProperty", &self.pszProperty).field("cbValue", &self.cbValue).field("pbValue", &self.pbValue).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_PROPERTY_REF {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_PROPERTY_REF {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszProperty == other.pszProperty && self.cbValue == other.cbValue && self.pbValue == other.pbValue
-    }
-}
-impl Eq for CRYPT_PROPERTY_REF {}
 impl Default for CRYPT_PROPERTY_REF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PROVIDERS {
     pub cProviders: u32,
     pub rgpszProviders: *mut windows_core::PWSTR,
 }
-impl Copy for CRYPT_PROVIDERS {}
-impl Clone for CRYPT_PROVIDERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_PROVIDERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_PROVIDERS").field("cProviders", &self.cProviders).field("rgpszProviders", &self.rgpszProviders).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_PROVIDERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_PROVIDERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cProviders == other.cProviders && self.rgpszProviders == other.rgpszProviders
-    }
-}
-impl Eq for CRYPT_PROVIDERS {}
 impl Default for CRYPT_PROVIDERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PROVIDER_REF {
     pub dwInterface: u32,
     pub pszFunction: windows_core::PWSTR,
@@ -16780,187 +13098,91 @@ pub struct CRYPT_PROVIDER_REF {
     pub pUM: *mut CRYPT_IMAGE_REF,
     pub pKM: *mut CRYPT_IMAGE_REF,
 }
-impl Copy for CRYPT_PROVIDER_REF {}
-impl Clone for CRYPT_PROVIDER_REF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_PROVIDER_REF {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_PROVIDER_REF").field("dwInterface", &self.dwInterface).field("pszFunction", &self.pszFunction).field("pszProvider", &self.pszProvider).field("cProperties", &self.cProperties).field("rgpProperties", &self.rgpProperties).field("pUM", &self.pUM).field("pKM", &self.pKM).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_PROVIDER_REF {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_PROVIDER_REF {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwInterface == other.dwInterface && self.pszFunction == other.pszFunction && self.pszProvider == other.pszProvider && self.cProperties == other.cProperties && self.rgpProperties == other.rgpProperties && self.pUM == other.pUM && self.pKM == other.pKM
-    }
-}
-impl Eq for CRYPT_PROVIDER_REF {}
 impl Default for CRYPT_PROVIDER_REF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PROVIDER_REFS {
     pub cProviders: u32,
     pub rgpProviders: *mut *mut CRYPT_PROVIDER_REF,
 }
-impl Copy for CRYPT_PROVIDER_REFS {}
-impl Clone for CRYPT_PROVIDER_REFS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_PROVIDER_REFS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_PROVIDER_REFS").field("cProviders", &self.cProviders).field("rgpProviders", &self.rgpProviders).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_PROVIDER_REFS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_PROVIDER_REFS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cProviders == other.cProviders && self.rgpProviders == other.rgpProviders
-    }
-}
-impl Eq for CRYPT_PROVIDER_REFS {}
 impl Default for CRYPT_PROVIDER_REFS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PROVIDER_REG {
     pub cAliases: u32,
     pub rgpszAliases: *mut windows_core::PWSTR,
     pub pUM: *mut CRYPT_IMAGE_REG,
     pub pKM: *mut CRYPT_IMAGE_REG,
 }
-impl Copy for CRYPT_PROVIDER_REG {}
-impl Clone for CRYPT_PROVIDER_REG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_PROVIDER_REG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_PROVIDER_REG").field("cAliases", &self.cAliases).field("rgpszAliases", &self.rgpszAliases).field("pUM", &self.pUM).field("pKM", &self.pKM).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_PROVIDER_REG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_PROVIDER_REG {
-    fn eq(&self, other: &Self) -> bool {
-        self.cAliases == other.cAliases && self.rgpszAliases == other.rgpszAliases && self.pUM == other.pUM && self.pKM == other.pKM
-    }
-}
-impl Eq for CRYPT_PROVIDER_REG {}
 impl Default for CRYPT_PROVIDER_REG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PSOURCE_ALGORITHM {
     pub pszObjId: windows_core::PSTR,
     pub EncodingParameters: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_PSOURCE_ALGORITHM {}
-impl Clone for CRYPT_PSOURCE_ALGORITHM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_PSOURCE_ALGORITHM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_PSOURCE_ALGORITHM").field("pszObjId", &self.pszObjId).field("EncodingParameters", &self.EncodingParameters).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_PSOURCE_ALGORITHM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_PSOURCE_ALGORITHM {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszObjId == other.pszObjId && self.EncodingParameters == other.EncodingParameters
-    }
-}
-impl Eq for CRYPT_PSOURCE_ALGORITHM {}
 impl Default for CRYPT_PSOURCE_ALGORITHM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_RC2_CBC_PARAMETERS {
     pub dwVersion: u32,
     pub fIV: super::super::Foundation::BOOL,
     pub rgbIV: [u8; 8],
 }
-impl Copy for CRYPT_RC2_CBC_PARAMETERS {}
-impl Clone for CRYPT_RC2_CBC_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_RC2_CBC_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_RC2_CBC_PARAMETERS").field("dwVersion", &self.dwVersion).field("fIV", &self.fIV).field("rgbIV", &self.rgbIV).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_RC2_CBC_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_RC2_CBC_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.fIV == other.fIV && self.rgbIV == other.rgbIV
-    }
-}
-impl Eq for CRYPT_RC2_CBC_PARAMETERS {}
 impl Default for CRYPT_RC2_CBC_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_RC4_KEY_STATE {
     pub Key: [u8; 16],
     pub SBox: [u8; 256],
     pub i: u8,
     pub j: u8,
 }
-impl Copy for CRYPT_RC4_KEY_STATE {}
-impl Clone for CRYPT_RC4_KEY_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_RC4_KEY_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_RC4_KEY_STATE").field("Key", &self.Key).field("SBox", &self.SBox).field("i", &self.i).field("j", &self.j).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_RC4_KEY_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_RC4_KEY_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Key == other.Key && self.SBox == other.SBox && self.i == other.i && self.j == other.j
-    }
-}
-impl Eq for CRYPT_RC4_KEY_STATE {}
 impl Default for CRYPT_RC4_KEY_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_RETRIEVE_AUX_INFO {
     pub cbSize: u32,
     pub pLastSyncTime: *mut super::super::Foundation::FILETIME,
@@ -16975,138 +13197,61 @@ pub struct CRYPT_RETRIEVE_AUX_INFO {
     pub ppwszErrorResponseHeaders: *mut windows_core::PWSTR,
     pub ppErrorContentBlob: *mut *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_RETRIEVE_AUX_INFO {}
-impl Clone for CRYPT_RETRIEVE_AUX_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_RETRIEVE_AUX_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_RETRIEVE_AUX_INFO")
-            .field("cbSize", &self.cbSize)
-            .field("pLastSyncTime", &self.pLastSyncTime)
-            .field("dwMaxUrlRetrievalByteCount", &self.dwMaxUrlRetrievalByteCount)
-            .field("pPreFetchInfo", &self.pPreFetchInfo)
-            .field("pFlushInfo", &self.pFlushInfo)
-            .field("ppResponseInfo", &self.ppResponseInfo)
-            .field("pwszCacheFileNamePrefix", &self.pwszCacheFileNamePrefix)
-            .field("pftCacheResync", &self.pftCacheResync)
-            .field("fProxyCacheRetrieval", &self.fProxyCacheRetrieval)
-            .field("dwHttpStatusCode", &self.dwHttpStatusCode)
-            .field("ppwszErrorResponseHeaders", &self.ppwszErrorResponseHeaders)
-            .field("ppErrorContentBlob", &self.ppErrorContentBlob)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_RETRIEVE_AUX_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_RETRIEVE_AUX_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pLastSyncTime == other.pLastSyncTime && self.dwMaxUrlRetrievalByteCount == other.dwMaxUrlRetrievalByteCount && self.pPreFetchInfo == other.pPreFetchInfo && self.pFlushInfo == other.pFlushInfo && self.ppResponseInfo == other.ppResponseInfo && self.pwszCacheFileNamePrefix == other.pwszCacheFileNamePrefix && self.pftCacheResync == other.pftCacheResync && self.fProxyCacheRetrieval == other.fProxyCacheRetrieval && self.dwHttpStatusCode == other.dwHttpStatusCode && self.ppwszErrorResponseHeaders == other.ppwszErrorResponseHeaders && self.ppErrorContentBlob == other.ppErrorContentBlob
-    }
-}
-impl Eq for CRYPT_RETRIEVE_AUX_INFO {}
 impl Default for CRYPT_RETRIEVE_AUX_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_RSAES_OAEP_PARAMETERS {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub MaskGenAlgorithm: CRYPT_MASK_GEN_ALGORITHM,
     pub PSourceAlgorithm: CRYPT_PSOURCE_ALGORITHM,
 }
-impl Copy for CRYPT_RSAES_OAEP_PARAMETERS {}
-impl Clone for CRYPT_RSAES_OAEP_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_RSAES_OAEP_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_RSAES_OAEP_PARAMETERS").field("HashAlgorithm", &self.HashAlgorithm).field("MaskGenAlgorithm", &self.MaskGenAlgorithm).field("PSourceAlgorithm", &self.PSourceAlgorithm).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_RSAES_OAEP_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_RSAES_OAEP_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.HashAlgorithm == other.HashAlgorithm && self.MaskGenAlgorithm == other.MaskGenAlgorithm && self.PSourceAlgorithm == other.PSourceAlgorithm
-    }
-}
-impl Eq for CRYPT_RSAES_OAEP_PARAMETERS {}
 impl Default for CRYPT_RSAES_OAEP_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_RSA_SSA_PSS_PARAMETERS {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub MaskGenAlgorithm: CRYPT_MASK_GEN_ALGORITHM,
     pub dwSaltLength: u32,
     pub dwTrailerField: u32,
 }
-impl Copy for CRYPT_RSA_SSA_PSS_PARAMETERS {}
-impl Clone for CRYPT_RSA_SSA_PSS_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_RSA_SSA_PSS_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_RSA_SSA_PSS_PARAMETERS").field("HashAlgorithm", &self.HashAlgorithm).field("MaskGenAlgorithm", &self.MaskGenAlgorithm).field("dwSaltLength", &self.dwSaltLength).field("dwTrailerField", &self.dwTrailerField).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_RSA_SSA_PSS_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_RSA_SSA_PSS_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.HashAlgorithm == other.HashAlgorithm && self.MaskGenAlgorithm == other.MaskGenAlgorithm && self.dwSaltLength == other.dwSaltLength && self.dwTrailerField == other.dwTrailerField
-    }
-}
-impl Eq for CRYPT_RSA_SSA_PSS_PARAMETERS {}
 impl Default for CRYPT_RSA_SSA_PSS_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_SEQUENCE_OF_ANY {
     pub cValue: u32,
     pub rgValue: *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_SEQUENCE_OF_ANY {}
-impl Clone for CRYPT_SEQUENCE_OF_ANY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_SEQUENCE_OF_ANY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_SEQUENCE_OF_ANY").field("cValue", &self.cValue).field("rgValue", &self.rgValue).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_SEQUENCE_OF_ANY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_SEQUENCE_OF_ANY {
-    fn eq(&self, other: &Self) -> bool {
-        self.cValue == other.cValue && self.rgValue == other.rgValue
-    }
-}
-impl Eq for CRYPT_SEQUENCE_OF_ANY {}
 impl Default for CRYPT_SEQUENCE_OF_ANY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_SIGN_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgEncodingType: u32,
@@ -17124,200 +13269,88 @@ pub struct CRYPT_SIGN_MESSAGE_PARA {
     pub dwFlags: u32,
     pub dwInnerContentType: u32,
 }
-impl Copy for CRYPT_SIGN_MESSAGE_PARA {}
-impl Clone for CRYPT_SIGN_MESSAGE_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_SIGN_MESSAGE_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_SIGN_MESSAGE_PARA")
-            .field("cbSize", &self.cbSize)
-            .field("dwMsgEncodingType", &self.dwMsgEncodingType)
-            .field("pSigningCert", &self.pSigningCert)
-            .field("HashAlgorithm", &self.HashAlgorithm)
-            .field("pvHashAuxInfo", &self.pvHashAuxInfo)
-            .field("cMsgCert", &self.cMsgCert)
-            .field("rgpMsgCert", &self.rgpMsgCert)
-            .field("cMsgCrl", &self.cMsgCrl)
-            .field("rgpMsgCrl", &self.rgpMsgCrl)
-            .field("cAuthAttr", &self.cAuthAttr)
-            .field("rgAuthAttr", &self.rgAuthAttr)
-            .field("cUnauthAttr", &self.cUnauthAttr)
-            .field("rgUnauthAttr", &self.rgUnauthAttr)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwInnerContentType", &self.dwInnerContentType)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_SIGN_MESSAGE_PARA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_SIGN_MESSAGE_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwMsgEncodingType == other.dwMsgEncodingType && self.pSigningCert == other.pSigningCert && self.HashAlgorithm == other.HashAlgorithm && self.pvHashAuxInfo == other.pvHashAuxInfo && self.cMsgCert == other.cMsgCert && self.rgpMsgCert == other.rgpMsgCert && self.cMsgCrl == other.cMsgCrl && self.rgpMsgCrl == other.rgpMsgCrl && self.cAuthAttr == other.cAuthAttr && self.rgAuthAttr == other.rgAuthAttr && self.cUnauthAttr == other.cUnauthAttr && self.rgUnauthAttr == other.rgUnauthAttr && self.dwFlags == other.dwFlags && self.dwInnerContentType == other.dwInnerContentType
-    }
-}
-impl Eq for CRYPT_SIGN_MESSAGE_PARA {}
 impl Default for CRYPT_SIGN_MESSAGE_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_SMART_CARD_ROOT_INFO {
     pub rgbCardID: [u8; 16],
     pub luid: ROOT_INFO_LUID,
 }
-impl Copy for CRYPT_SMART_CARD_ROOT_INFO {}
-impl Clone for CRYPT_SMART_CARD_ROOT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_SMART_CARD_ROOT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_SMART_CARD_ROOT_INFO").field("rgbCardID", &self.rgbCardID).field("luid", &self.luid).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_SMART_CARD_ROOT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_SMART_CARD_ROOT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.rgbCardID == other.rgbCardID && self.luid == other.luid
-    }
-}
-impl Eq for CRYPT_SMART_CARD_ROOT_INFO {}
 impl Default for CRYPT_SMART_CARD_ROOT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_SMIME_CAPABILITIES {
     pub cCapability: u32,
     pub rgCapability: *mut CRYPT_SMIME_CAPABILITY,
 }
-impl Copy for CRYPT_SMIME_CAPABILITIES {}
-impl Clone for CRYPT_SMIME_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_SMIME_CAPABILITIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_SMIME_CAPABILITIES").field("cCapability", &self.cCapability).field("rgCapability", &self.rgCapability).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_SMIME_CAPABILITIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_SMIME_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.cCapability == other.cCapability && self.rgCapability == other.rgCapability
-    }
-}
-impl Eq for CRYPT_SMIME_CAPABILITIES {}
 impl Default for CRYPT_SMIME_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_SMIME_CAPABILITY {
     pub pszObjId: windows_core::PSTR,
     pub Parameters: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_SMIME_CAPABILITY {}
-impl Clone for CRYPT_SMIME_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_SMIME_CAPABILITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_SMIME_CAPABILITY").field("pszObjId", &self.pszObjId).field("Parameters", &self.Parameters).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_SMIME_CAPABILITY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_SMIME_CAPABILITY {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszObjId == other.pszObjId && self.Parameters == other.Parameters
-    }
-}
-impl Eq for CRYPT_SMIME_CAPABILITY {}
 impl Default for CRYPT_SMIME_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_TIMESTAMP_ACCURACY {
     pub dwSeconds: u32,
     pub dwMillis: u32,
     pub dwMicros: u32,
 }
-impl Copy for CRYPT_TIMESTAMP_ACCURACY {}
-impl Clone for CRYPT_TIMESTAMP_ACCURACY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_TIMESTAMP_ACCURACY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_TIMESTAMP_ACCURACY").field("dwSeconds", &self.dwSeconds).field("dwMillis", &self.dwMillis).field("dwMicros", &self.dwMicros).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_TIMESTAMP_ACCURACY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_TIMESTAMP_ACCURACY {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSeconds == other.dwSeconds && self.dwMillis == other.dwMillis && self.dwMicros == other.dwMicros
-    }
-}
-impl Eq for CRYPT_TIMESTAMP_ACCURACY {}
 impl Default for CRYPT_TIMESTAMP_ACCURACY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_TIMESTAMP_CONTEXT {
     pub cbEncoded: u32,
     pub pbEncoded: *mut u8,
     pub pTimeStamp: *mut CRYPT_TIMESTAMP_INFO,
 }
-impl Copy for CRYPT_TIMESTAMP_CONTEXT {}
-impl Clone for CRYPT_TIMESTAMP_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_TIMESTAMP_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_TIMESTAMP_CONTEXT").field("cbEncoded", &self.cbEncoded).field("pbEncoded", &self.pbEncoded).field("pTimeStamp", &self.pTimeStamp).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_TIMESTAMP_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_TIMESTAMP_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbEncoded == other.cbEncoded && self.pbEncoded == other.pbEncoded && self.pTimeStamp == other.pTimeStamp
-    }
-}
-impl Eq for CRYPT_TIMESTAMP_CONTEXT {}
 impl Default for CRYPT_TIMESTAMP_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_TIMESTAMP_INFO {
     pub dwVersion: u32,
     pub pszTSAPolicyId: windows_core::PSTR,
@@ -17332,45 +13365,16 @@ pub struct CRYPT_TIMESTAMP_INFO {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-impl Copy for CRYPT_TIMESTAMP_INFO {}
-impl Clone for CRYPT_TIMESTAMP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_TIMESTAMP_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_TIMESTAMP_INFO")
-            .field("dwVersion", &self.dwVersion)
-            .field("pszTSAPolicyId", &self.pszTSAPolicyId)
-            .field("HashAlgorithm", &self.HashAlgorithm)
-            .field("HashedMessage", &self.HashedMessage)
-            .field("SerialNumber", &self.SerialNumber)
-            .field("ftTime", &self.ftTime)
-            .field("pvAccuracy", &self.pvAccuracy)
-            .field("fOrdering", &self.fOrdering)
-            .field("Nonce", &self.Nonce)
-            .field("Tsa", &self.Tsa)
-            .field("cExtension", &self.cExtension)
-            .field("rgExtension", &self.rgExtension)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_TIMESTAMP_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_TIMESTAMP_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.pszTSAPolicyId == other.pszTSAPolicyId && self.HashAlgorithm == other.HashAlgorithm && self.HashedMessage == other.HashedMessage && self.SerialNumber == other.SerialNumber && self.ftTime == other.ftTime && self.pvAccuracy == other.pvAccuracy && self.fOrdering == other.fOrdering && self.Nonce == other.Nonce && self.Tsa == other.Tsa && self.cExtension == other.cExtension && self.rgExtension == other.rgExtension
-    }
-}
-impl Eq for CRYPT_TIMESTAMP_INFO {}
 impl Default for CRYPT_TIMESTAMP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_TIMESTAMP_PARA {
     pub pszTSAPolicyId: windows_core::PCSTR,
     pub fRequestCerts: super::super::Foundation::BOOL,
@@ -17378,32 +13382,16 @@ pub struct CRYPT_TIMESTAMP_PARA {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-impl Copy for CRYPT_TIMESTAMP_PARA {}
-impl Clone for CRYPT_TIMESTAMP_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_TIMESTAMP_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_TIMESTAMP_PARA").field("pszTSAPolicyId", &self.pszTSAPolicyId).field("fRequestCerts", &self.fRequestCerts).field("Nonce", &self.Nonce).field("cExtension", &self.cExtension).field("rgExtension", &self.rgExtension).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_TIMESTAMP_PARA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_TIMESTAMP_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszTSAPolicyId == other.pszTSAPolicyId && self.fRequestCerts == other.fRequestCerts && self.Nonce == other.Nonce && self.cExtension == other.cExtension && self.rgExtension == other.rgExtension
-    }
-}
-impl Eq for CRYPT_TIMESTAMP_PARA {}
 impl Default for CRYPT_TIMESTAMP_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_TIMESTAMP_REQUEST {
     pub dwVersion: CRYPT_TIMESTAMP_VERSION,
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -17414,32 +13402,16 @@ pub struct CRYPT_TIMESTAMP_REQUEST {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-impl Copy for CRYPT_TIMESTAMP_REQUEST {}
-impl Clone for CRYPT_TIMESTAMP_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_TIMESTAMP_REQUEST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_TIMESTAMP_REQUEST").field("dwVersion", &self.dwVersion).field("HashAlgorithm", &self.HashAlgorithm).field("HashedMessage", &self.HashedMessage).field("pszTSAPolicyId", &self.pszTSAPolicyId).field("Nonce", &self.Nonce).field("fCertReq", &self.fCertReq).field("cExtension", &self.cExtension).field("rgExtension", &self.rgExtension).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_TIMESTAMP_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_TIMESTAMP_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.HashAlgorithm == other.HashAlgorithm && self.HashedMessage == other.HashedMessage && self.pszTSAPolicyId == other.pszTSAPolicyId && self.Nonce == other.Nonce && self.fCertReq == other.fCertReq && self.cExtension == other.cExtension && self.rgExtension == other.rgExtension
-    }
-}
-impl Eq for CRYPT_TIMESTAMP_REQUEST {}
 impl Default for CRYPT_TIMESTAMP_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_TIMESTAMP_RESPONSE {
     pub dwStatus: CRYPT_TIMESTAMP_RESPONSE_STATUS,
     pub cFreeText: u32,
@@ -17447,32 +13419,16 @@ pub struct CRYPT_TIMESTAMP_RESPONSE {
     pub FailureInfo: CRYPT_BIT_BLOB,
     pub ContentInfo: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_TIMESTAMP_RESPONSE {}
-impl Clone for CRYPT_TIMESTAMP_RESPONSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_TIMESTAMP_RESPONSE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_TIMESTAMP_RESPONSE").field("dwStatus", &self.dwStatus).field("cFreeText", &self.cFreeText).field("rgFreeText", &self.rgFreeText).field("FailureInfo", &self.FailureInfo).field("ContentInfo", &self.ContentInfo).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_TIMESTAMP_RESPONSE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_TIMESTAMP_RESPONSE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwStatus == other.dwStatus && self.cFreeText == other.cFreeText && self.rgFreeText == other.rgFreeText && self.FailureInfo == other.FailureInfo && self.ContentInfo == other.ContentInfo
-    }
-}
-impl Eq for CRYPT_TIMESTAMP_RESPONSE {}
 impl Default for CRYPT_TIMESTAMP_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_TIME_STAMP_REQUEST_INFO {
     pub pszTimeStampAlgorithm: windows_core::PSTR,
     pub pszContentType: windows_core::PSTR,
@@ -17480,172 +13436,81 @@ pub struct CRYPT_TIME_STAMP_REQUEST_INFO {
     pub cAttribute: u32,
     pub rgAttribute: *mut CRYPT_ATTRIBUTE,
 }
-impl Copy for CRYPT_TIME_STAMP_REQUEST_INFO {}
-impl Clone for CRYPT_TIME_STAMP_REQUEST_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_TIME_STAMP_REQUEST_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_TIME_STAMP_REQUEST_INFO").field("pszTimeStampAlgorithm", &self.pszTimeStampAlgorithm).field("pszContentType", &self.pszContentType).field("Content", &self.Content).field("cAttribute", &self.cAttribute).field("rgAttribute", &self.rgAttribute).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_TIME_STAMP_REQUEST_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_TIME_STAMP_REQUEST_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszTimeStampAlgorithm == other.pszTimeStampAlgorithm && self.pszContentType == other.pszContentType && self.Content == other.Content && self.cAttribute == other.cAttribute && self.rgAttribute == other.rgAttribute
-    }
-}
-impl Eq for CRYPT_TIME_STAMP_REQUEST_INFO {}
 impl Default for CRYPT_TIME_STAMP_REQUEST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_URL_ARRAY {
     pub cUrl: u32,
     pub rgwszUrl: *mut windows_core::PWSTR,
 }
-impl Copy for CRYPT_URL_ARRAY {}
-impl Clone for CRYPT_URL_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_URL_ARRAY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_URL_ARRAY").field("cUrl", &self.cUrl).field("rgwszUrl", &self.rgwszUrl).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_URL_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_URL_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.cUrl == other.cUrl && self.rgwszUrl == other.rgwszUrl
-    }
-}
-impl Eq for CRYPT_URL_ARRAY {}
 impl Default for CRYPT_URL_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_URL_INFO {
     pub cbSize: u32,
     pub dwSyncDeltaTime: u32,
     pub cGroup: u32,
     pub rgcGroupEntry: *mut u32,
 }
-impl Copy for CRYPT_URL_INFO {}
-impl Clone for CRYPT_URL_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_URL_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_URL_INFO").field("cbSize", &self.cbSize).field("dwSyncDeltaTime", &self.dwSyncDeltaTime).field("cGroup", &self.cGroup).field("rgcGroupEntry", &self.rgcGroupEntry).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_URL_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_URL_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwSyncDeltaTime == other.dwSyncDeltaTime && self.cGroup == other.cGroup && self.rgcGroupEntry == other.rgcGroupEntry
-    }
-}
-impl Eq for CRYPT_URL_INFO {}
 impl Default for CRYPT_URL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {
     pub CertSignHashCNGAlgPropData: CRYPT_INTEGER_BLOB,
     pub CertIssuerPubKeyBitLengthPropData: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {}
-impl Clone for CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO").field("CertSignHashCNGAlgPropData", &self.CertSignHashCNGAlgPropData).field("CertIssuerPubKeyBitLengthPropData", &self.CertIssuerPubKeyBitLengthPropData).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.CertSignHashCNGAlgPropData == other.CertSignHashCNGAlgPropData && self.CertIssuerPubKeyBitLengthPropData == other.CertIssuerPubKeyBitLengthPropData
-    }
-}
-impl Eq for CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {}
 impl Default for CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
     pub cCNGHashAlgid: u32,
     pub rgpwszCNGHashAlgid: *const windows_core::PCWSTR,
     pub dwWeakIndex: u32,
 }
-impl Copy for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {}
-impl Clone for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO").field("cCNGHashAlgid", &self.cCNGHashAlgid).field("rgpwszCNGHashAlgid", &self.rgpwszCNGHashAlgid).field("dwWeakIndex", &self.dwWeakIndex).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cCNGHashAlgid == other.cCNGHashAlgid && self.rgpwszCNGHashAlgid == other.rgpwszCNGHashAlgid && self.dwWeakIndex == other.dwWeakIndex
-    }
-}
-impl Eq for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {}
 impl Default for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct CRYPT_VERIFY_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgAndCertEncodingType: u32,
     pub hCryptProv: HCRYPTPROV_LEGACY,
     pub pfnGetSignerCertificate: PFN_CRYPT_GET_SIGNER_CERTIFICATE,
     pub pvGetArg: *mut core::ffi::c_void,
-}
-impl Copy for CRYPT_VERIFY_MESSAGE_PARA {}
-impl Clone for CRYPT_VERIFY_MESSAGE_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_VERIFY_MESSAGE_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_VERIFY_MESSAGE_PARA").field("cbSize", &self.cbSize).field("dwMsgAndCertEncodingType", &self.dwMsgAndCertEncodingType).field("hCryptProv", &self.hCryptProv).field("pvGetArg", &self.pvGetArg).finish()
-    }
 }
 impl windows_core::TypeKind for CRYPT_VERIFY_MESSAGE_PARA {
     type TypeKind = windows_core::CopyType;
@@ -17656,69 +13521,38 @@ impl Default for CRYPT_VERIFY_MESSAGE_PARA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_X942_OTHER_INFO {
     pub pszContentEncryptionObjId: windows_core::PSTR,
     pub rgbCounter: [u8; 4],
     pub rgbKeyLength: [u8; 4],
     pub PubInfo: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_X942_OTHER_INFO {}
-impl Clone for CRYPT_X942_OTHER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_X942_OTHER_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_X942_OTHER_INFO").field("pszContentEncryptionObjId", &self.pszContentEncryptionObjId).field("rgbCounter", &self.rgbCounter).field("rgbKeyLength", &self.rgbKeyLength).field("PubInfo", &self.PubInfo).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_X942_OTHER_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_X942_OTHER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszContentEncryptionObjId == other.pszContentEncryptionObjId && self.rgbCounter == other.rgbCounter && self.rgbKeyLength == other.rgbKeyLength && self.PubInfo == other.PubInfo
-    }
-}
-impl Eq for CRYPT_X942_OTHER_INFO {}
 impl Default for CRYPT_X942_OTHER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_ALGORITHM {
     pub cbSize: u32,
     pub wszAlgorithm: windows_core::PCWSTR,
     pub Encoded: CRYPT_XML_BLOB,
 }
-impl Copy for CRYPT_XML_ALGORITHM {}
-impl Clone for CRYPT_XML_ALGORITHM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_XML_ALGORITHM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_XML_ALGORITHM").field("cbSize", &self.cbSize).field("wszAlgorithm", &self.wszAlgorithm).field("Encoded", &self.Encoded).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_XML_ALGORITHM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_XML_ALGORITHM {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.wszAlgorithm == other.wszAlgorithm && self.Encoded == other.Encoded
-    }
-}
-impl Eq for CRYPT_XML_ALGORITHM {}
 impl Default for CRYPT_XML_ALGORITHM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_ALGORITHM_INFO {
     pub cbSize: u32,
     pub wszAlgorithmURI: windows_core::PWSTR,
@@ -17731,63 +13565,31 @@ pub struct CRYPT_XML_ALGORITHM_INFO {
     pub pvPaddingInfo: *mut core::ffi::c_void,
     pub pvExtraInfo: *mut core::ffi::c_void,
 }
-impl Copy for CRYPT_XML_ALGORITHM_INFO {}
-impl Clone for CRYPT_XML_ALGORITHM_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_XML_ALGORITHM_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_XML_ALGORITHM_INFO").field("cbSize", &self.cbSize).field("wszAlgorithmURI", &self.wszAlgorithmURI).field("wszName", &self.wszName).field("dwGroupId", &self.dwGroupId).field("wszCNGAlgid", &self.wszCNGAlgid).field("wszCNGExtraAlgid", &self.wszCNGExtraAlgid).field("dwSignFlags", &self.dwSignFlags).field("dwVerifyFlags", &self.dwVerifyFlags).field("pvPaddingInfo", &self.pvPaddingInfo).field("pvExtraInfo", &self.pvExtraInfo).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_XML_ALGORITHM_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_XML_ALGORITHM_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.wszAlgorithmURI == other.wszAlgorithmURI && self.wszName == other.wszName && self.dwGroupId == other.dwGroupId && self.wszCNGAlgid == other.wszCNGAlgid && self.wszCNGExtraAlgid == other.wszCNGExtraAlgid && self.dwSignFlags == other.dwSignFlags && self.dwVerifyFlags == other.dwVerifyFlags && self.pvPaddingInfo == other.pvPaddingInfo && self.pvExtraInfo == other.pvExtraInfo
-    }
-}
-impl Eq for CRYPT_XML_ALGORITHM_INFO {}
 impl Default for CRYPT_XML_ALGORITHM_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_BLOB {
     pub dwCharset: CRYPT_XML_CHARSET,
     pub cbData: u32,
     pub pbData: *mut u8,
 }
-impl Copy for CRYPT_XML_BLOB {}
-impl Clone for CRYPT_XML_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_XML_BLOB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_XML_BLOB").field("dwCharset", &self.dwCharset).field("cbData", &self.cbData).field("pbData", &self.pbData).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_XML_BLOB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_XML_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwCharset == other.dwCharset && self.cbData == other.cbData && self.pbData == other.pbData
-    }
-}
-impl Eq for CRYPT_XML_BLOB {}
 impl Default for CRYPT_XML_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
     pub cbSize: u32,
     pub fpCryptXmlEncodeAlgorithm: CryptXmlDllEncodeAlgorithm,
@@ -17799,17 +13601,6 @@ pub struct CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
     pub fpCryptXmlVerifySignature: CryptXmlDllVerifySignature,
     pub fpCryptXmlGetAlgorithmInfo: CryptXmlDllGetAlgorithmInfo,
 }
-impl Copy for CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {}
-impl Clone for CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_XML_CRYPTOGRAPHIC_INTERFACE").field("cbSize", &self.cbSize).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
     type TypeKind = windows_core::CopyType;
 }
@@ -17819,52 +13610,26 @@ impl Default for CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_DATA_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
 }
-impl Copy for CRYPT_XML_DATA_BLOB {}
-impl Clone for CRYPT_XML_DATA_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_XML_DATA_BLOB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_XML_DATA_BLOB").field("cbData", &self.cbData).field("pbData", &self.pbData).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_XML_DATA_BLOB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_XML_DATA_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbData == other.cbData && self.pbData == other.pbData
-    }
-}
-impl Eq for CRYPT_XML_DATA_BLOB {}
 impl Default for CRYPT_XML_DATA_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct CRYPT_XML_DATA_PROVIDER {
     pub pvCallbackState: *mut core::ffi::c_void,
     pub cbBufferSize: u32,
     pub pfnRead: PFN_CRYPT_XML_DATA_PROVIDER_READ,
     pub pfnClose: PFN_CRYPT_XML_DATA_PROVIDER_CLOSE,
-}
-impl Copy for CRYPT_XML_DATA_PROVIDER {}
-impl Clone for CRYPT_XML_DATA_PROVIDER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_XML_DATA_PROVIDER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_XML_DATA_PROVIDER").field("pvCallbackState", &self.pvCallbackState).field("cbBufferSize", &self.cbBufferSize).finish()
-    }
 }
 impl windows_core::TypeKind for CRYPT_XML_DATA_PROVIDER {
     type TypeKind = windows_core::CopyType;
@@ -17875,6 +13640,7 @@ impl Default for CRYPT_XML_DATA_PROVIDER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_DOC_CTXT {
     pub cbSize: u32,
     pub hDocCtxt: *mut core::ffi::c_void,
@@ -17882,62 +13648,30 @@ pub struct CRYPT_XML_DOC_CTXT {
     pub cSignature: u32,
     pub rgpSignature: *mut *mut CRYPT_XML_SIGNATURE,
 }
-impl Copy for CRYPT_XML_DOC_CTXT {}
-impl Clone for CRYPT_XML_DOC_CTXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_XML_DOC_CTXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_XML_DOC_CTXT").field("cbSize", &self.cbSize).field("hDocCtxt", &self.hDocCtxt).field("pTransformsConfig", &self.pTransformsConfig).field("cSignature", &self.cSignature).field("rgpSignature", &self.rgpSignature).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_XML_DOC_CTXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_XML_DOC_CTXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.hDocCtxt == other.hDocCtxt && self.pTransformsConfig == other.pTransformsConfig && self.cSignature == other.cSignature && self.rgpSignature == other.rgpSignature
-    }
-}
-impl Eq for CRYPT_XML_DOC_CTXT {}
 impl Default for CRYPT_XML_DOC_CTXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_ISSUER_SERIAL {
     pub wszIssuer: windows_core::PCWSTR,
     pub wszSerial: windows_core::PCWSTR,
 }
-impl Copy for CRYPT_XML_ISSUER_SERIAL {}
-impl Clone for CRYPT_XML_ISSUER_SERIAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_XML_ISSUER_SERIAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_XML_ISSUER_SERIAL").field("wszIssuer", &self.wszIssuer).field("wszSerial", &self.wszSerial).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_XML_ISSUER_SERIAL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_XML_ISSUER_SERIAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.wszIssuer == other.wszIssuer && self.wszSerial == other.wszSerial
-    }
-}
-impl Eq for CRYPT_XML_ISSUER_SERIAL {}
 impl Default for CRYPT_XML_ISSUER_SERIAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_KEYINFO_PARAM {
     pub wszId: windows_core::PCWSTR,
     pub wszKeyName: windows_core::PCWSTR,
@@ -17948,32 +13682,16 @@ pub struct CRYPT_XML_KEYINFO_PARAM {
     pub cCRL: u32,
     pub rgCRL: *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for CRYPT_XML_KEYINFO_PARAM {}
-impl Clone for CRYPT_XML_KEYINFO_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_XML_KEYINFO_PARAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_XML_KEYINFO_PARAM").field("wszId", &self.wszId).field("wszKeyName", &self.wszKeyName).field("SKI", &self.SKI).field("wszSubjectName", &self.wszSubjectName).field("cCertificate", &self.cCertificate).field("rgCertificate", &self.rgCertificate).field("cCRL", &self.cCRL).field("rgCRL", &self.rgCRL).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_XML_KEYINFO_PARAM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_XML_KEYINFO_PARAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.wszId == other.wszId && self.wszKeyName == other.wszKeyName && self.SKI == other.SKI && self.wszSubjectName == other.wszSubjectName && self.cCertificate == other.cCertificate && self.rgCertificate == other.rgCertificate && self.cCRL == other.cCRL && self.rgCRL == other.rgCRL
-    }
-}
-impl Eq for CRYPT_XML_KEYINFO_PARAM {}
 impl Default for CRYPT_XML_KEYINFO_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_KEY_DSA_KEY_VALUE {
     pub P: CRYPT_XML_DATA_BLOB,
     pub Q: CRYPT_XML_DATA_BLOB,
@@ -17983,64 +13701,32 @@ pub struct CRYPT_XML_KEY_DSA_KEY_VALUE {
     pub Seed: CRYPT_XML_DATA_BLOB,
     pub Counter: CRYPT_XML_DATA_BLOB,
 }
-impl Copy for CRYPT_XML_KEY_DSA_KEY_VALUE {}
-impl Clone for CRYPT_XML_KEY_DSA_KEY_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_XML_KEY_DSA_KEY_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_XML_KEY_DSA_KEY_VALUE").field("P", &self.P).field("Q", &self.Q).field("G", &self.G).field("Y", &self.Y).field("J", &self.J).field("Seed", &self.Seed).field("Counter", &self.Counter).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_XML_KEY_DSA_KEY_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_XML_KEY_DSA_KEY_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.P == other.P && self.Q == other.Q && self.G == other.G && self.Y == other.Y && self.J == other.J && self.Seed == other.Seed && self.Counter == other.Counter
-    }
-}
-impl Eq for CRYPT_XML_KEY_DSA_KEY_VALUE {}
 impl Default for CRYPT_XML_KEY_DSA_KEY_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_KEY_ECDSA_KEY_VALUE {
     pub wszNamedCurve: windows_core::PCWSTR,
     pub X: CRYPT_XML_DATA_BLOB,
     pub Y: CRYPT_XML_DATA_BLOB,
     pub ExplicitPara: CRYPT_XML_BLOB,
 }
-impl Copy for CRYPT_XML_KEY_ECDSA_KEY_VALUE {}
-impl Clone for CRYPT_XML_KEY_ECDSA_KEY_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_XML_KEY_ECDSA_KEY_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_XML_KEY_ECDSA_KEY_VALUE").field("wszNamedCurve", &self.wszNamedCurve).field("X", &self.X).field("Y", &self.Y).field("ExplicitPara", &self.ExplicitPara).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_XML_KEY_ECDSA_KEY_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_XML_KEY_ECDSA_KEY_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.wszNamedCurve == other.wszNamedCurve && self.X == other.X && self.Y == other.Y && self.ExplicitPara == other.ExplicitPara
-    }
-}
-impl Eq for CRYPT_XML_KEY_ECDSA_KEY_VALUE {}
 impl Default for CRYPT_XML_KEY_ECDSA_KEY_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_KEY_INFO {
     pub cbSize: u32,
     pub wszId: windows_core::PCWSTR,
@@ -18048,41 +13734,19 @@ pub struct CRYPT_XML_KEY_INFO {
     pub rgKeyInfo: *mut CRYPT_XML_KEY_INFO_ITEM,
     pub hVerifyKey: BCRYPT_KEY_HANDLE,
 }
-impl Copy for CRYPT_XML_KEY_INFO {}
-impl Clone for CRYPT_XML_KEY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_XML_KEY_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_XML_KEY_INFO").field("cbSize", &self.cbSize).field("wszId", &self.wszId).field("cKeyInfo", &self.cKeyInfo).field("rgKeyInfo", &self.rgKeyInfo).field("hVerifyKey", &self.hVerifyKey).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_XML_KEY_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_XML_KEY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.wszId == other.wszId && self.cKeyInfo == other.cKeyInfo && self.rgKeyInfo == other.rgKeyInfo && self.hVerifyKey == other.hVerifyKey
-    }
-}
-impl Eq for CRYPT_XML_KEY_INFO {}
 impl Default for CRYPT_XML_KEY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_KEY_INFO_ITEM {
     pub dwType: CRYPT_XML_KEYINFO_TYPE,
     pub Anonymous: CRYPT_XML_KEY_INFO_ITEM_0,
-}
-impl Copy for CRYPT_XML_KEY_INFO_ITEM {}
-impl Clone for CRYPT_XML_KEY_INFO_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CRYPT_XML_KEY_INFO_ITEM {
     type TypeKind = windows_core::CopyType;
@@ -18093,18 +13757,13 @@ impl Default for CRYPT_XML_KEY_INFO_ITEM {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CRYPT_XML_KEY_INFO_ITEM_0 {
     pub wszKeyName: windows_core::PCWSTR,
     pub KeyValue: CRYPT_XML_KEY_VALUE,
     pub RetrievalMethod: CRYPT_XML_BLOB,
     pub X509Data: CRYPT_XML_X509DATA,
     pub Custom: CRYPT_XML_BLOB,
-}
-impl Copy for CRYPT_XML_KEY_INFO_ITEM_0 {}
-impl Clone for CRYPT_XML_KEY_INFO_ITEM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CRYPT_XML_KEY_INFO_ITEM_0 {
     type TypeKind = windows_core::CopyType;
@@ -18115,45 +13774,24 @@ impl Default for CRYPT_XML_KEY_INFO_ITEM_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_KEY_RSA_KEY_VALUE {
     pub Modulus: CRYPT_XML_DATA_BLOB,
     pub Exponent: CRYPT_XML_DATA_BLOB,
 }
-impl Copy for CRYPT_XML_KEY_RSA_KEY_VALUE {}
-impl Clone for CRYPT_XML_KEY_RSA_KEY_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_XML_KEY_RSA_KEY_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_XML_KEY_RSA_KEY_VALUE").field("Modulus", &self.Modulus).field("Exponent", &self.Exponent).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_XML_KEY_RSA_KEY_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_XML_KEY_RSA_KEY_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Modulus == other.Modulus && self.Exponent == other.Exponent
-    }
-}
-impl Eq for CRYPT_XML_KEY_RSA_KEY_VALUE {}
 impl Default for CRYPT_XML_KEY_RSA_KEY_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_KEY_VALUE {
     pub dwType: CRYPT_XML_KEY_VALUE_TYPE,
     pub Anonymous: CRYPT_XML_KEY_VALUE_0,
-}
-impl Copy for CRYPT_XML_KEY_VALUE {}
-impl Clone for CRYPT_XML_KEY_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CRYPT_XML_KEY_VALUE {
     type TypeKind = windows_core::CopyType;
@@ -18164,17 +13802,12 @@ impl Default for CRYPT_XML_KEY_VALUE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CRYPT_XML_KEY_VALUE_0 {
     pub DSAKeyValue: CRYPT_XML_KEY_DSA_KEY_VALUE,
     pub RSAKeyValue: CRYPT_XML_KEY_RSA_KEY_VALUE,
     pub ECDSAKeyValue: CRYPT_XML_KEY_ECDSA_KEY_VALUE,
     pub Custom: CRYPT_XML_BLOB,
-}
-impl Copy for CRYPT_XML_KEY_VALUE_0 {}
-impl Clone for CRYPT_XML_KEY_VALUE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CRYPT_XML_KEY_VALUE_0 {
     type TypeKind = windows_core::CopyType;
@@ -18185,6 +13818,7 @@ impl Default for CRYPT_XML_KEY_VALUE_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_OBJECT {
     pub cbSize: u32,
     pub hObject: *mut core::ffi::c_void,
@@ -18194,63 +13828,31 @@ pub struct CRYPT_XML_OBJECT {
     pub Manifest: CRYPT_XML_REFERENCES,
     pub Encoded: CRYPT_XML_BLOB,
 }
-impl Copy for CRYPT_XML_OBJECT {}
-impl Clone for CRYPT_XML_OBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_XML_OBJECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_XML_OBJECT").field("cbSize", &self.cbSize).field("hObject", &self.hObject).field("wszId", &self.wszId).field("wszMimeType", &self.wszMimeType).field("wszEncoding", &self.wszEncoding).field("Manifest", &self.Manifest).field("Encoded", &self.Encoded).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_XML_OBJECT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_XML_OBJECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.hObject == other.hObject && self.wszId == other.wszId && self.wszMimeType == other.wszMimeType && self.wszEncoding == other.wszEncoding && self.Manifest == other.Manifest && self.Encoded == other.Encoded
-    }
-}
-impl Eq for CRYPT_XML_OBJECT {}
 impl Default for CRYPT_XML_OBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_PROPERTY {
     pub dwPropId: CRYPT_XML_PROPERTY_ID,
     pub pvValue: *const core::ffi::c_void,
     pub cbValue: u32,
 }
-impl Copy for CRYPT_XML_PROPERTY {}
-impl Clone for CRYPT_XML_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_XML_PROPERTY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_XML_PROPERTY").field("dwPropId", &self.dwPropId).field("pvValue", &self.pvValue).field("cbValue", &self.cbValue).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_XML_PROPERTY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_XML_PROPERTY {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwPropId == other.dwPropId && self.pvValue == other.pvValue && self.cbValue == other.cbValue
-    }
-}
-impl Eq for CRYPT_XML_PROPERTY {}
 impl Default for CRYPT_XML_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_REFERENCE {
     pub cbSize: u32,
     pub hReference: *mut core::ffi::c_void,
@@ -18262,62 +13864,30 @@ pub struct CRYPT_XML_REFERENCE {
     pub cTransform: u32,
     pub rgTransform: *mut CRYPT_XML_ALGORITHM,
 }
-impl Copy for CRYPT_XML_REFERENCE {}
-impl Clone for CRYPT_XML_REFERENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_XML_REFERENCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_XML_REFERENCE").field("cbSize", &self.cbSize).field("hReference", &self.hReference).field("wszId", &self.wszId).field("wszUri", &self.wszUri).field("wszType", &self.wszType).field("DigestMethod", &self.DigestMethod).field("DigestValue", &self.DigestValue).field("cTransform", &self.cTransform).field("rgTransform", &self.rgTransform).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_XML_REFERENCE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_XML_REFERENCE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.hReference == other.hReference && self.wszId == other.wszId && self.wszUri == other.wszUri && self.wszType == other.wszType && self.DigestMethod == other.DigestMethod && self.DigestValue == other.DigestValue && self.cTransform == other.cTransform && self.rgTransform == other.rgTransform
-    }
-}
-impl Eq for CRYPT_XML_REFERENCE {}
 impl Default for CRYPT_XML_REFERENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_REFERENCES {
     pub cReference: u32,
     pub rgpReference: *mut *mut CRYPT_XML_REFERENCE,
 }
-impl Copy for CRYPT_XML_REFERENCES {}
-impl Clone for CRYPT_XML_REFERENCES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_XML_REFERENCES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_XML_REFERENCES").field("cReference", &self.cReference).field("rgpReference", &self.rgpReference).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_XML_REFERENCES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_XML_REFERENCES {
-    fn eq(&self, other: &Self) -> bool {
-        self.cReference == other.cReference && self.rgpReference == other.rgpReference
-    }
-}
-impl Eq for CRYPT_XML_REFERENCES {}
 impl Default for CRYPT_XML_REFERENCES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_SIGNATURE {
     pub cbSize: u32,
     pub hSignature: *mut core::ffi::c_void,
@@ -18328,32 +13898,16 @@ pub struct CRYPT_XML_SIGNATURE {
     pub cObject: u32,
     pub rgpObject: *mut *mut CRYPT_XML_OBJECT,
 }
-impl Copy for CRYPT_XML_SIGNATURE {}
-impl Clone for CRYPT_XML_SIGNATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_XML_SIGNATURE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_XML_SIGNATURE").field("cbSize", &self.cbSize).field("hSignature", &self.hSignature).field("wszId", &self.wszId).field("SignedInfo", &self.SignedInfo).field("SignatureValue", &self.SignatureValue).field("pKeyInfo", &self.pKeyInfo).field("cObject", &self.cObject).field("rgpObject", &self.rgpObject).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_XML_SIGNATURE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_XML_SIGNATURE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.hSignature == other.hSignature && self.wszId == other.wszId && self.SignedInfo == other.SignedInfo && self.SignatureValue == other.SignatureValue && self.pKeyInfo == other.pKeyInfo && self.cObject == other.cObject && self.rgpObject == other.rgpObject
-    }
-}
-impl Eq for CRYPT_XML_SIGNATURE {}
 impl Default for CRYPT_XML_SIGNATURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_SIGNED_INFO {
     pub cbSize: u32,
     pub wszId: windows_core::PCWSTR,
@@ -18363,111 +13917,52 @@ pub struct CRYPT_XML_SIGNED_INFO {
     pub rgpReference: *mut *mut CRYPT_XML_REFERENCE,
     pub Encoded: CRYPT_XML_BLOB,
 }
-impl Copy for CRYPT_XML_SIGNED_INFO {}
-impl Clone for CRYPT_XML_SIGNED_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_XML_SIGNED_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_XML_SIGNED_INFO").field("cbSize", &self.cbSize).field("wszId", &self.wszId).field("Canonicalization", &self.Canonicalization).field("SignatureMethod", &self.SignatureMethod).field("cReference", &self.cReference).field("rgpReference", &self.rgpReference).field("Encoded", &self.Encoded).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_XML_SIGNED_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_XML_SIGNED_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.wszId == other.wszId && self.Canonicalization == other.Canonicalization && self.SignatureMethod == other.SignatureMethod && self.cReference == other.cReference && self.rgpReference == other.rgpReference && self.Encoded == other.Encoded
-    }
-}
-impl Eq for CRYPT_XML_SIGNED_INFO {}
 impl Default for CRYPT_XML_SIGNED_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_STATUS {
     pub cbSize: u32,
     pub dwErrorStatus: CRYPT_XML_STATUS_ERROR_STATUS,
     pub dwInfoStatus: CRYPT_XML_STATUS_INFO_STATUS,
 }
-impl Copy for CRYPT_XML_STATUS {}
-impl Clone for CRYPT_XML_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_XML_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_XML_STATUS").field("cbSize", &self.cbSize).field("dwErrorStatus", &self.dwErrorStatus).field("dwInfoStatus", &self.dwInfoStatus).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_XML_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_XML_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwErrorStatus == other.dwErrorStatus && self.dwInfoStatus == other.dwInfoStatus
-    }
-}
-impl Eq for CRYPT_XML_STATUS {}
 impl Default for CRYPT_XML_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
     pub cbSize: u32,
     pub cTransformInfo: u32,
     pub rgpTransformInfo: *mut *mut CRYPT_XML_TRANSFORM_INFO,
 }
-impl Copy for CRYPT_XML_TRANSFORM_CHAIN_CONFIG {}
-impl Clone for CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_XML_TRANSFORM_CHAIN_CONFIG").field("cbSize", &self.cbSize).field("cTransformInfo", &self.cTransformInfo).field("rgpTransformInfo", &self.rgpTransformInfo).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.cTransformInfo == other.cTransformInfo && self.rgpTransformInfo == other.rgpTransformInfo
-    }
-}
-impl Eq for CRYPT_XML_TRANSFORM_CHAIN_CONFIG {}
 impl Default for CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct CRYPT_XML_TRANSFORM_INFO {
     pub cbSize: u32,
     pub wszAlgorithm: windows_core::PCWSTR,
     pub cbBufferSize: u32,
     pub dwFlags: CRYPT_XML_TRANSFORM_FLAGS,
     pub pfnCreateTransform: PFN_CRYPT_XML_CREATE_TRANSFORM,
-}
-impl Copy for CRYPT_XML_TRANSFORM_INFO {}
-impl Clone for CRYPT_XML_TRANSFORM_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_XML_TRANSFORM_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_XML_TRANSFORM_INFO").field("cbSize", &self.cbSize).field("wszAlgorithm", &self.wszAlgorithm).field("cbBufferSize", &self.cbBufferSize).field("dwFlags", &self.dwFlags).finish()
-    }
 }
 impl windows_core::TypeKind for CRYPT_XML_TRANSFORM_INFO {
     type TypeKind = windows_core::CopyType;
@@ -18478,45 +13973,24 @@ impl Default for CRYPT_XML_TRANSFORM_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_X509DATA {
     pub cX509Data: u32,
     pub rgX509Data: *mut CRYPT_XML_X509DATA_ITEM,
 }
-impl Copy for CRYPT_XML_X509DATA {}
-impl Clone for CRYPT_XML_X509DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CRYPT_XML_X509DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CRYPT_XML_X509DATA").field("cX509Data", &self.cX509Data).field("rgX509Data", &self.rgX509Data).finish()
-    }
-}
 impl windows_core::TypeKind for CRYPT_XML_X509DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CRYPT_XML_X509DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cX509Data == other.cX509Data && self.rgX509Data == other.rgX509Data
-    }
-}
-impl Eq for CRYPT_XML_X509DATA {}
 impl Default for CRYPT_XML_X509DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_X509DATA_ITEM {
     pub dwType: CRYPT_XML_X509DATA_TYPE,
     pub Anonymous: CRYPT_XML_X509DATA_ITEM_0,
-}
-impl Copy for CRYPT_XML_X509DATA_ITEM {}
-impl Clone for CRYPT_XML_X509DATA_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CRYPT_XML_X509DATA_ITEM {
     type TypeKind = windows_core::CopyType;
@@ -18527,6 +14001,7 @@ impl Default for CRYPT_XML_X509DATA_ITEM {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CRYPT_XML_X509DATA_ITEM_0 {
     pub IssuerSerial: CRYPT_XML_ISSUER_SERIAL,
     pub SKI: CRYPT_XML_DATA_BLOB,
@@ -18534,12 +14009,6 @@ pub union CRYPT_XML_X509DATA_ITEM_0 {
     pub Certificate: CRYPT_XML_DATA_BLOB,
     pub CRL: CRYPT_XML_DATA_BLOB,
     pub Custom: CRYPT_XML_BLOB,
-}
-impl Copy for CRYPT_XML_X509DATA_ITEM_0 {}
-impl Clone for CRYPT_XML_X509DATA_ITEM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CRYPT_XML_X509DATA_ITEM_0 {
     type TypeKind = windows_core::CopyType;
@@ -18550,36 +14019,21 @@ impl Default for CRYPT_XML_X509DATA_ITEM_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_ANY_SUBJECT_INFO {
     pub SubjectAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub SubjectIdentifier: CRYPT_INTEGER_BLOB,
 }
-impl Copy for CTL_ANY_SUBJECT_INFO {}
-impl Clone for CTL_ANY_SUBJECT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CTL_ANY_SUBJECT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CTL_ANY_SUBJECT_INFO").field("SubjectAlgorithm", &self.SubjectAlgorithm).field("SubjectIdentifier", &self.SubjectIdentifier).finish()
-    }
-}
 impl windows_core::TypeKind for CTL_ANY_SUBJECT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CTL_ANY_SUBJECT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.SubjectAlgorithm == other.SubjectAlgorithm && self.SubjectIdentifier == other.SubjectIdentifier
-    }
-}
-impl Eq for CTL_ANY_SUBJECT_INFO {}
 impl Default for CTL_ANY_SUBJECT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_CONTEXT {
     pub dwMsgAndCertEncodingType: u32,
     pub pbCtlEncoded: *mut u8,
@@ -18590,127 +14044,63 @@ pub struct CTL_CONTEXT {
     pub pbCtlContent: *mut u8,
     pub cbCtlContent: u32,
 }
-impl Copy for CTL_CONTEXT {}
-impl Clone for CTL_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CTL_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CTL_CONTEXT").field("dwMsgAndCertEncodingType", &self.dwMsgAndCertEncodingType).field("pbCtlEncoded", &self.pbCtlEncoded).field("cbCtlEncoded", &self.cbCtlEncoded).field("pCtlInfo", &self.pCtlInfo).field("hCertStore", &self.hCertStore).field("hCryptMsg", &self.hCryptMsg).field("pbCtlContent", &self.pbCtlContent).field("cbCtlContent", &self.cbCtlContent).finish()
-    }
-}
 impl windows_core::TypeKind for CTL_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CTL_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMsgAndCertEncodingType == other.dwMsgAndCertEncodingType && self.pbCtlEncoded == other.pbCtlEncoded && self.cbCtlEncoded == other.cbCtlEncoded && self.pCtlInfo == other.pCtlInfo && self.hCertStore == other.hCertStore && self.hCryptMsg == other.hCryptMsg && self.pbCtlContent == other.pbCtlContent && self.cbCtlContent == other.cbCtlContent
-    }
-}
-impl Eq for CTL_CONTEXT {}
 impl Default for CTL_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_ENTRY {
     pub SubjectIdentifier: CRYPT_INTEGER_BLOB,
     pub cAttribute: u32,
     pub rgAttribute: *mut CRYPT_ATTRIBUTE,
 }
-impl Copy for CTL_ENTRY {}
-impl Clone for CTL_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CTL_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CTL_ENTRY").field("SubjectIdentifier", &self.SubjectIdentifier).field("cAttribute", &self.cAttribute).field("rgAttribute", &self.rgAttribute).finish()
-    }
-}
 impl windows_core::TypeKind for CTL_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CTL_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.SubjectIdentifier == other.SubjectIdentifier && self.cAttribute == other.cAttribute && self.rgAttribute == other.rgAttribute
-    }
-}
-impl Eq for CTL_ENTRY {}
 impl Default for CTL_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_FIND_SUBJECT_PARA {
     pub cbSize: u32,
     pub pUsagePara: *mut CTL_FIND_USAGE_PARA,
     pub dwSubjectType: u32,
     pub pvSubject: *mut core::ffi::c_void,
 }
-impl Copy for CTL_FIND_SUBJECT_PARA {}
-impl Clone for CTL_FIND_SUBJECT_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CTL_FIND_SUBJECT_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CTL_FIND_SUBJECT_PARA").field("cbSize", &self.cbSize).field("pUsagePara", &self.pUsagePara).field("dwSubjectType", &self.dwSubjectType).field("pvSubject", &self.pvSubject).finish()
-    }
-}
 impl windows_core::TypeKind for CTL_FIND_SUBJECT_PARA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CTL_FIND_SUBJECT_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pUsagePara == other.pUsagePara && self.dwSubjectType == other.dwSubjectType && self.pvSubject == other.pvSubject
-    }
-}
-impl Eq for CTL_FIND_SUBJECT_PARA {}
 impl Default for CTL_FIND_SUBJECT_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_FIND_USAGE_PARA {
     pub cbSize: u32,
     pub SubjectUsage: CTL_USAGE,
     pub ListIdentifier: CRYPT_INTEGER_BLOB,
     pub pSigner: *mut CERT_INFO,
 }
-impl Copy for CTL_FIND_USAGE_PARA {}
-impl Clone for CTL_FIND_USAGE_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CTL_FIND_USAGE_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CTL_FIND_USAGE_PARA").field("cbSize", &self.cbSize).field("SubjectUsage", &self.SubjectUsage).field("ListIdentifier", &self.ListIdentifier).field("pSigner", &self.pSigner).finish()
-    }
-}
 impl windows_core::TypeKind for CTL_FIND_USAGE_PARA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CTL_FIND_USAGE_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.SubjectUsage == other.SubjectUsage && self.ListIdentifier == other.ListIdentifier && self.pSigner == other.pSigner
-    }
-}
-impl Eq for CTL_FIND_USAGE_PARA {}
 impl Default for CTL_FIND_USAGE_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_INFO {
     pub dwVersion: u32,
     pub SubjectUsage: CTL_USAGE,
@@ -18724,104 +14114,44 @@ pub struct CTL_INFO {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-impl Copy for CTL_INFO {}
-impl Clone for CTL_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CTL_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CTL_INFO")
-            .field("dwVersion", &self.dwVersion)
-            .field("SubjectUsage", &self.SubjectUsage)
-            .field("ListIdentifier", &self.ListIdentifier)
-            .field("SequenceNumber", &self.SequenceNumber)
-            .field("ThisUpdate", &self.ThisUpdate)
-            .field("NextUpdate", &self.NextUpdate)
-            .field("SubjectAlgorithm", &self.SubjectAlgorithm)
-            .field("cCTLEntry", &self.cCTLEntry)
-            .field("rgCTLEntry", &self.rgCTLEntry)
-            .field("cExtension", &self.cExtension)
-            .field("rgExtension", &self.rgExtension)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for CTL_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CTL_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.SubjectUsage == other.SubjectUsage && self.ListIdentifier == other.ListIdentifier && self.SequenceNumber == other.SequenceNumber && self.ThisUpdate == other.ThisUpdate && self.NextUpdate == other.NextUpdate && self.SubjectAlgorithm == other.SubjectAlgorithm && self.cCTLEntry == other.cCTLEntry && self.rgCTLEntry == other.rgCTLEntry && self.cExtension == other.cExtension && self.rgExtension == other.rgExtension
-    }
-}
-impl Eq for CTL_INFO {}
 impl Default for CTL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_USAGE {
     pub cUsageIdentifier: u32,
     pub rgpszUsageIdentifier: *mut windows_core::PSTR,
 }
-impl Copy for CTL_USAGE {}
-impl Clone for CTL_USAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CTL_USAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CTL_USAGE").field("cUsageIdentifier", &self.cUsageIdentifier).field("rgpszUsageIdentifier", &self.rgpszUsageIdentifier).finish()
-    }
-}
 impl windows_core::TypeKind for CTL_USAGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CTL_USAGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cUsageIdentifier == other.cUsageIdentifier && self.rgpszUsageIdentifier == other.rgpszUsageIdentifier
-    }
-}
-impl Eq for CTL_USAGE {}
 impl Default for CTL_USAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_USAGE_MATCH {
     pub dwType: u32,
     pub Usage: CTL_USAGE,
 }
-impl Copy for CTL_USAGE_MATCH {}
-impl Clone for CTL_USAGE_MATCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CTL_USAGE_MATCH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CTL_USAGE_MATCH").field("dwType", &self.dwType).field("Usage", &self.Usage).finish()
-    }
-}
 impl windows_core::TypeKind for CTL_USAGE_MATCH {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CTL_USAGE_MATCH {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwType == other.dwType && self.Usage == other.Usage
-    }
-}
-impl Eq for CTL_USAGE_MATCH {}
 impl Default for CTL_USAGE_MATCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_VERIFY_USAGE_PARA {
     pub cbSize: u32,
     pub ListIdentifier: CRYPT_INTEGER_BLOB,
@@ -18830,32 +14160,16 @@ pub struct CTL_VERIFY_USAGE_PARA {
     pub cSignerStore: u32,
     pub rghSignerStore: *mut HCERTSTORE,
 }
-impl Copy for CTL_VERIFY_USAGE_PARA {}
-impl Clone for CTL_VERIFY_USAGE_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CTL_VERIFY_USAGE_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CTL_VERIFY_USAGE_PARA").field("cbSize", &self.cbSize).field("ListIdentifier", &self.ListIdentifier).field("cCtlStore", &self.cCtlStore).field("rghCtlStore", &self.rghCtlStore).field("cSignerStore", &self.cSignerStore).field("rghSignerStore", &self.rghSignerStore).finish()
-    }
-}
 impl windows_core::TypeKind for CTL_VERIFY_USAGE_PARA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CTL_VERIFY_USAGE_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.ListIdentifier == other.ListIdentifier && self.cCtlStore == other.cCtlStore && self.rghCtlStore == other.rghCtlStore && self.cSignerStore == other.cSignerStore && self.rghSignerStore == other.rghSignerStore
-    }
-}
-impl Eq for CTL_VERIFY_USAGE_PARA {}
 impl Default for CTL_VERIFY_USAGE_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_VERIFY_USAGE_STATUS {
     pub cbSize: u32,
     pub dwError: u32,
@@ -18865,198 +14179,96 @@ pub struct CTL_VERIFY_USAGE_STATUS {
     pub ppSigner: *mut *mut CERT_CONTEXT,
     pub dwSignerIndex: u32,
 }
-impl Copy for CTL_VERIFY_USAGE_STATUS {}
-impl Clone for CTL_VERIFY_USAGE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CTL_VERIFY_USAGE_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CTL_VERIFY_USAGE_STATUS").field("cbSize", &self.cbSize).field("dwError", &self.dwError).field("dwFlags", &self.dwFlags).field("ppCtl", &self.ppCtl).field("dwCtlEntryIndex", &self.dwCtlEntryIndex).field("ppSigner", &self.ppSigner).field("dwSignerIndex", &self.dwSignerIndex).finish()
-    }
-}
 impl windows_core::TypeKind for CTL_VERIFY_USAGE_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CTL_VERIFY_USAGE_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwError == other.dwError && self.dwFlags == other.dwFlags && self.ppCtl == other.ppCtl && self.dwCtlEntryIndex == other.dwCtlEntryIndex && self.ppSigner == other.ppSigner && self.dwSignerIndex == other.dwSignerIndex
-    }
-}
-impl Eq for CTL_VERIFY_USAGE_STATUS {}
 impl Default for CTL_VERIFY_USAGE_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSSSEED {
     pub counter: u32,
     pub seed: [u8; 20],
 }
-impl Copy for DSSSEED {}
-impl Clone for DSSSEED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSSSEED {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSSSEED").field("counter", &self.counter).field("seed", &self.seed).finish()
-    }
-}
 impl windows_core::TypeKind for DSSSEED {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSSSEED {
-    fn eq(&self, other: &Self) -> bool {
-        self.counter == other.counter && self.seed == other.seed
-    }
-}
-impl Eq for DSSSEED {}
 impl Default for DSSSEED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENDPOINTADDRESS {
     pub serviceUrl: windows_core::PCWSTR,
     pub policyUrl: windows_core::PCWSTR,
     pub rawCertificate: CRYPT_INTEGER_BLOB,
 }
-impl Copy for ENDPOINTADDRESS {}
-impl Clone for ENDPOINTADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ENDPOINTADDRESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ENDPOINTADDRESS").field("serviceUrl", &self.serviceUrl).field("policyUrl", &self.policyUrl).field("rawCertificate", &self.rawCertificate).finish()
-    }
-}
 impl windows_core::TypeKind for ENDPOINTADDRESS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ENDPOINTADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.serviceUrl == other.serviceUrl && self.policyUrl == other.policyUrl && self.rawCertificate == other.rawCertificate
-    }
-}
-impl Eq for ENDPOINTADDRESS {}
 impl Default for ENDPOINTADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENDPOINTADDRESS2 {
     pub serviceUrl: windows_core::PCWSTR,
     pub policyUrl: windows_core::PCWSTR,
     pub identityType: u32,
     pub identityBytes: *mut core::ffi::c_void,
 }
-impl Copy for ENDPOINTADDRESS2 {}
-impl Clone for ENDPOINTADDRESS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ENDPOINTADDRESS2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ENDPOINTADDRESS2").field("serviceUrl", &self.serviceUrl).field("policyUrl", &self.policyUrl).field("identityType", &self.identityType).field("identityBytes", &self.identityBytes).finish()
-    }
-}
 impl windows_core::TypeKind for ENDPOINTADDRESS2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ENDPOINTADDRESS2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.serviceUrl == other.serviceUrl && self.policyUrl == other.policyUrl && self.identityType == other.identityType && self.identityBytes == other.identityBytes
-    }
-}
-impl Eq for ENDPOINTADDRESS2 {}
 impl Default for ENDPOINTADDRESS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EV_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwRootProgramQualifierFlags: CERT_ROOT_PROGRAM_FLAGS,
 }
-impl Copy for EV_EXTRA_CERT_CHAIN_POLICY_PARA {}
-impl Clone for EV_EXTRA_CERT_CHAIN_POLICY_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EV_EXTRA_CERT_CHAIN_POLICY_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EV_EXTRA_CERT_CHAIN_POLICY_PARA").field("cbSize", &self.cbSize).field("dwRootProgramQualifierFlags", &self.dwRootProgramQualifierFlags).finish()
-    }
-}
 impl windows_core::TypeKind for EV_EXTRA_CERT_CHAIN_POLICY_PARA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EV_EXTRA_CERT_CHAIN_POLICY_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwRootProgramQualifierFlags == other.dwRootProgramQualifierFlags
-    }
-}
-impl Eq for EV_EXTRA_CERT_CHAIN_POLICY_PARA {}
 impl Default for EV_EXTRA_CERT_CHAIN_POLICY_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EV_EXTRA_CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub dwQualifiers: u32,
     pub dwIssuanceUsageIndex: u32,
 }
-impl Copy for EV_EXTRA_CERT_CHAIN_POLICY_STATUS {}
-impl Clone for EV_EXTRA_CERT_CHAIN_POLICY_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EV_EXTRA_CERT_CHAIN_POLICY_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EV_EXTRA_CERT_CHAIN_POLICY_STATUS").field("cbSize", &self.cbSize).field("dwQualifiers", &self.dwQualifiers).field("dwIssuanceUsageIndex", &self.dwIssuanceUsageIndex).finish()
-    }
-}
 impl windows_core::TypeKind for EV_EXTRA_CERT_CHAIN_POLICY_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EV_EXTRA_CERT_CHAIN_POLICY_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwQualifiers == other.dwQualifiers && self.dwIssuanceUsageIndex == other.dwIssuanceUsageIndex
-    }
-}
-impl Eq for EV_EXTRA_CERT_CHAIN_POLICY_STATUS {}
 impl Default for EV_EXTRA_CERT_CHAIN_POLICY_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct GENERIC_XML_TOKEN {
     pub createDate: super::super::Foundation::FILETIME,
     pub expiryDate: super::super::Foundation::FILETIME,
     pub xmlToken: windows_core::PWSTR,
     pub internalTokenReference: windows_core::PWSTR,
     pub externalTokenReference: windows_core::PWSTR,
-}
-impl Copy for GENERIC_XML_TOKEN {}
-impl Clone for GENERIC_XML_TOKEN {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for GENERIC_XML_TOKEN {
     type TypeKind = windows_core::CopyType;
@@ -19177,6 +14389,7 @@ impl windows_core::TypeKind for HCRYPTPROV_OR_NCRYPT_KEY_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HMAC_INFO {
     pub HashAlgid: ALG_ID,
     pub pbInnerString: *mut u8,
@@ -19184,43 +14397,21 @@ pub struct HMAC_INFO {
     pub pbOuterString: *mut u8,
     pub cbOuterString: u32,
 }
-impl Copy for HMAC_INFO {}
-impl Clone for HMAC_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HMAC_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HMAC_INFO").field("HashAlgid", &self.HashAlgid).field("pbInnerString", &self.pbInnerString).field("cbInnerString", &self.cbInnerString).field("pbOuterString", &self.pbOuterString).field("cbOuterString", &self.cbOuterString).finish()
-    }
-}
 impl windows_core::TypeKind for HMAC_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HMAC_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.HashAlgid == other.HashAlgid && self.pbInnerString == other.pbInnerString && self.cbInnerString == other.cbInnerString && self.pbOuterString == other.pbOuterString && self.cbOuterString == other.cbOuterString
-    }
-}
-impl Eq for HMAC_INFO {}
 impl Default for HMAC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTPSPolicyCallbackData {
     pub Anonymous: HTTPSPolicyCallbackData_0,
     pub dwAuthType: HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE,
     pub fdwChecks: u32,
     pub pwszServerName: windows_core::PWSTR,
-}
-impl Copy for HTTPSPolicyCallbackData {}
-impl Clone for HTTPSPolicyCallbackData {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for HTTPSPolicyCallbackData {
     type TypeKind = windows_core::CopyType;
@@ -19231,15 +14422,10 @@ impl Default for HTTPSPolicyCallbackData {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union HTTPSPolicyCallbackData_0 {
     pub cbStruct: u32,
     pub cbSize: u32,
-}
-impl Copy for HTTPSPolicyCallbackData_0 {}
-impl Clone for HTTPSPolicyCallbackData_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for HTTPSPolicyCallbackData_0 {
     type TypeKind = windows_core::CopyType;
@@ -19250,207 +14436,101 @@ impl Default for HTTPSPolicyCallbackData_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {
     pub keySize: i32,
     pub keyExchangeAlgorithm: windows_core::PWSTR,
     pub signatureAlgorithm: windows_core::PWSTR,
 }
-impl Copy for INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {}
-impl Clone for INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS").field("keySize", &self.keySize).field("keyExchangeAlgorithm", &self.keyExchangeAlgorithm).field("signatureAlgorithm", &self.signatureAlgorithm).finish()
-    }
-}
 impl windows_core::TypeKind for INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.keySize == other.keySize && self.keyExchangeAlgorithm == other.keyExchangeAlgorithm && self.signatureAlgorithm == other.signatureAlgorithm
-    }
-}
-impl Eq for INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {}
 impl Default for INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INFORMATIONCARD_CRYPTO_HANDLE {
     pub r#type: HandleType,
     pub expiration: i64,
     pub cryptoParameters: *mut core::ffi::c_void,
 }
-impl Copy for INFORMATIONCARD_CRYPTO_HANDLE {}
-impl Clone for INFORMATIONCARD_CRYPTO_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INFORMATIONCARD_CRYPTO_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INFORMATIONCARD_CRYPTO_HANDLE").field("type", &self.r#type).field("expiration", &self.expiration).field("cryptoParameters", &self.cryptoParameters).finish()
-    }
-}
 impl windows_core::TypeKind for INFORMATIONCARD_CRYPTO_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INFORMATIONCARD_CRYPTO_HANDLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.r#type == other.r#type && self.expiration == other.expiration && self.cryptoParameters == other.cryptoParameters
-    }
-}
-impl Eq for INFORMATIONCARD_CRYPTO_HANDLE {}
 impl Default for INFORMATIONCARD_CRYPTO_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {
     pub hashSize: i32,
     pub transform: INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS,
 }
-impl Copy for INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {}
-impl Clone for INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INFORMATIONCARD_HASH_CRYPTO_PARAMETERS").field("hashSize", &self.hashSize).field("transform", &self.transform).finish()
-    }
-}
 impl windows_core::TypeKind for INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.hashSize == other.hashSize && self.transform == other.transform
-    }
-}
-impl Eq for INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {}
 impl Default for INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {
     pub keySize: i32,
     pub blockSize: i32,
     pub feedbackSize: i32,
 }
-impl Copy for INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {}
-impl Clone for INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS").field("keySize", &self.keySize).field("blockSize", &self.blockSize).field("feedbackSize", &self.feedbackSize).finish()
-    }
-}
 impl windows_core::TypeKind for INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.keySize == other.keySize && self.blockSize == other.blockSize && self.feedbackSize == other.feedbackSize
-    }
-}
-impl Eq for INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {}
 impl Default for INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS {
     pub inputBlockSize: i32,
     pub outputBlockSize: i32,
     pub canTransformMultipleBlocks: super::super::Foundation::BOOL,
     pub canReuseTransform: super::super::Foundation::BOOL,
 }
-impl Copy for INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS {}
-impl Clone for INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS").field("inputBlockSize", &self.inputBlockSize).field("outputBlockSize", &self.outputBlockSize).field("canTransformMultipleBlocks", &self.canTransformMultipleBlocks).field("canReuseTransform", &self.canReuseTransform).finish()
-    }
-}
 impl windows_core::TypeKind for INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.inputBlockSize == other.inputBlockSize && self.outputBlockSize == other.outputBlockSize && self.canTransformMultipleBlocks == other.canTransformMultipleBlocks && self.canReuseTransform == other.canReuseTransform
-    }
-}
-impl Eq for INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS {}
 impl Default for INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_TYPE_SUBTYPE {
     pub dwKeySpec: u32,
     pub Type: windows_core::GUID,
     pub Subtype: windows_core::GUID,
 }
-impl Copy for KEY_TYPE_SUBTYPE {}
-impl Clone for KEY_TYPE_SUBTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for KEY_TYPE_SUBTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("KEY_TYPE_SUBTYPE").field("dwKeySpec", &self.dwKeySpec).field("Type", &self.Type).field("Subtype", &self.Subtype).finish()
-    }
-}
 impl windows_core::TypeKind for KEY_TYPE_SUBTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for KEY_TYPE_SUBTYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwKeySpec == other.dwKeySpec && self.Type == other.Type && self.Subtype == other.Subtype
-    }
-}
-impl Eq for KEY_TYPE_SUBTYPE {}
 impl Default for KEY_TYPE_SUBTYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct NCRYPT_ALLOC_PARA {
     pub cbSize: u32,
     pub pfnAlloc: PFN_NCRYPT_ALLOC,
     pub pfnFree: PFN_NCRYPT_FREE,
-}
-impl Copy for NCRYPT_ALLOC_PARA {}
-impl Clone for NCRYPT_ALLOC_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NCRYPT_ALLOC_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NCRYPT_ALLOC_PARA").field("cbSize", &self.cbSize).finish()
-    }
 }
 impl windows_core::TypeKind for NCRYPT_ALLOC_PARA {
     type TypeKind = windows_core::CopyType;
@@ -19461,6 +14541,7 @@ impl Default for NCRYPT_ALLOC_PARA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_CIPHER_PADDING_INFO {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -19469,61 +14550,29 @@ pub struct NCRYPT_CIPHER_PADDING_INFO {
     pub pbOtherInfo: *mut u8,
     pub cbOtherInfo: u32,
 }
-impl Copy for NCRYPT_CIPHER_PADDING_INFO {}
-impl Clone for NCRYPT_CIPHER_PADDING_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NCRYPT_CIPHER_PADDING_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NCRYPT_CIPHER_PADDING_INFO").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("pbIV", &self.pbIV).field("cbIV", &self.cbIV).field("pbOtherInfo", &self.pbOtherInfo).field("cbOtherInfo", &self.cbOtherInfo).finish()
-    }
-}
 impl windows_core::TypeKind for NCRYPT_CIPHER_PADDING_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NCRYPT_CIPHER_PADDING_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.pbIV == other.pbIV && self.cbIV == other.cbIV && self.pbOtherInfo == other.pbOtherInfo && self.cbOtherInfo == other.cbOtherInfo
-    }
-}
-impl Eq for NCRYPT_CIPHER_PADDING_INFO {}
 impl Default for NCRYPT_CIPHER_PADDING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
     pub Header: NCRYPT_EXPORTED_ISOLATED_KEY_HEADER,
-}
-impl Copy for NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {}
-impl Clone for NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE").field("Header", &self.Header).finish()
-    }
 }
 impl windows_core::TypeKind for NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-    }
-}
-impl Eq for NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {}
 impl Default for NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
     pub Version: u32,
     pub KeyUsage: u32,
@@ -19534,26 +14583,9 @@ pub struct NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
     pub cbWrappingKey: u32,
     pub cbIsolatedKey: u32,
 }
-impl Copy for NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {}
-impl Clone for NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NCRYPT_EXPORTED_ISOLATED_KEY_HEADER").field("Version", &self.Version).field("KeyUsage", &self.KeyUsage).field("_bitfield", &self._bitfield).field("cbAlgName", &self.cbAlgName).field("cbNonce", &self.cbNonce).field("cbAuthTag", &self.cbAuthTag).field("cbWrappingKey", &self.cbWrappingKey).field("cbIsolatedKey", &self.cbIsolatedKey).finish()
-    }
-}
 impl windows_core::TypeKind for NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.KeyUsage == other.KeyUsage && self._bitfield == other._bitfield && self.cbAlgName == other.cbAlgName && self.cbNonce == other.cbNonce && self.cbAuthTag == other.cbAuthTag && self.cbWrappingKey == other.cbWrappingKey && self.cbIsolatedKey == other.cbIsolatedKey
-    }
-}
-impl Eq for NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {}
 impl Default for NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -19592,69 +14624,38 @@ impl windows_core::TypeKind for NCRYPT_HASH_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
     pub Version: u32,
     pub Flags: u32,
     pub cbPublicKeyBlob: u32,
 }
-impl Copy for NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {}
-impl Clone for NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES").field("Version", &self.Version).field("Flags", &self.Flags).field("cbPublicKeyBlob", &self.cbPublicKeyBlob).finish()
-    }
-}
 impl windows_core::TypeKind for NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Flags == other.Flags && self.cbPublicKeyBlob == other.cbPublicKeyBlob
-    }
-}
-impl Eq for NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {}
 impl Default for NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_KEY_ACCESS_POLICY_BLOB {
     pub dwVersion: u32,
     pub dwPolicyFlags: u32,
     pub cbUserSid: u32,
     pub cbApplicationSid: u32,
 }
-impl Copy for NCRYPT_KEY_ACCESS_POLICY_BLOB {}
-impl Clone for NCRYPT_KEY_ACCESS_POLICY_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NCRYPT_KEY_ACCESS_POLICY_BLOB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NCRYPT_KEY_ACCESS_POLICY_BLOB").field("dwVersion", &self.dwVersion).field("dwPolicyFlags", &self.dwPolicyFlags).field("cbUserSid", &self.cbUserSid).field("cbApplicationSid", &self.cbApplicationSid).finish()
-    }
-}
 impl windows_core::TypeKind for NCRYPT_KEY_ACCESS_POLICY_BLOB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NCRYPT_KEY_ACCESS_POLICY_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.dwPolicyFlags == other.dwPolicyFlags && self.cbUserSid == other.cbUserSid && self.cbApplicationSid == other.cbApplicationSid
-    }
-}
-impl Eq for NCRYPT_KEY_ACCESS_POLICY_BLOB {}
 impl Default for NCRYPT_KEY_ACCESS_POLICY_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_KEY_ATTEST_PADDING_INFO {
     pub magic: u32,
     pub pbKeyBlob: *mut u8,
@@ -19662,58 +14663,25 @@ pub struct NCRYPT_KEY_ATTEST_PADDING_INFO {
     pub pbKeyAuth: *mut u8,
     pub cbKeyAuth: u32,
 }
-impl Copy for NCRYPT_KEY_ATTEST_PADDING_INFO {}
-impl Clone for NCRYPT_KEY_ATTEST_PADDING_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NCRYPT_KEY_ATTEST_PADDING_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NCRYPT_KEY_ATTEST_PADDING_INFO").field("magic", &self.magic).field("pbKeyBlob", &self.pbKeyBlob).field("cbKeyBlob", &self.cbKeyBlob).field("pbKeyAuth", &self.pbKeyAuth).field("cbKeyAuth", &self.cbKeyAuth).finish()
-    }
-}
 impl windows_core::TypeKind for NCRYPT_KEY_ATTEST_PADDING_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NCRYPT_KEY_ATTEST_PADDING_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.magic == other.magic && self.pbKeyBlob == other.pbKeyBlob && self.cbKeyBlob == other.cbKeyBlob && self.pbKeyAuth == other.pbKeyAuth && self.cbKeyAuth == other.cbKeyAuth
-    }
-}
-impl Eq for NCRYPT_KEY_ATTEST_PADDING_INFO {}
 impl Default for NCRYPT_KEY_ATTEST_PADDING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_KEY_BLOB_HEADER {
     pub cbSize: u32,
     pub dwMagic: u32,
     pub cbAlgName: u32,
     pub cbKeyData: u32,
 }
-impl Copy for NCRYPT_KEY_BLOB_HEADER {}
-impl Clone for NCRYPT_KEY_BLOB_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NCRYPT_KEY_BLOB_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NCRYPT_KEY_BLOB_HEADER").field("cbSize", &self.cbSize).field("dwMagic", &self.dwMagic).field("cbAlgName", &self.cbAlgName).field("cbKeyData", &self.cbKeyData).finish()
-    }
-}
 impl windows_core::TypeKind for NCRYPT_KEY_BLOB_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NCRYPT_KEY_BLOB_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwMagic == other.dwMagic && self.cbAlgName == other.cbAlgName && self.cbKeyData == other.cbKeyData
-    }
-}
-impl Eq for NCRYPT_KEY_BLOB_HEADER {}
 impl Default for NCRYPT_KEY_BLOB_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -19749,6 +14717,7 @@ impl From<NCRYPT_KEY_HANDLE> for NCRYPT_HANDLE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
     pub dwVersion: u32,
     pub iExpiration: i32,
@@ -19756,94 +14725,46 @@ pub struct NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
     pub pabPolicyRef: [u8; 32],
     pub pabHMAC: [u8; 32],
 }
-impl Copy for NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {}
-impl Clone for NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO").field("dwVersion", &self.dwVersion).field("iExpiration", &self.iExpiration).field("pabNonce", &self.pabNonce).field("pabPolicyRef", &self.pabPolicyRef).field("pabHMAC", &self.pabHMAC).finish()
-    }
-}
 impl windows_core::TypeKind for NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.iExpiration == other.iExpiration && self.pabNonce == other.pabNonce && self.pabPolicyRef == other.pabPolicyRef && self.pabHMAC == other.pabHMAC
-    }
-}
-impl Eq for NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {}
 impl Default for NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
     pub dwVersion: u32,
     pub cbDigest: u32,
 }
-impl Copy for NCRYPT_PCP_RAW_POLICYDIGEST_INFO {}
-impl Clone for NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NCRYPT_PCP_RAW_POLICYDIGEST_INFO").field("dwVersion", &self.dwVersion).field("cbDigest", &self.cbDigest).finish()
-    }
-}
 impl windows_core::TypeKind for NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.cbDigest == other.cbDigest
-    }
-}
-impl Eq for NCRYPT_PCP_RAW_POLICYDIGEST_INFO {}
 impl Default for NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_PCP_TPM_FW_VERSION_INFO {
     pub major1: u16,
     pub major2: u16,
     pub minor1: u16,
     pub minor2: u16,
 }
-impl Copy for NCRYPT_PCP_TPM_FW_VERSION_INFO {}
-impl Clone for NCRYPT_PCP_TPM_FW_VERSION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NCRYPT_PCP_TPM_FW_VERSION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NCRYPT_PCP_TPM_FW_VERSION_INFO").field("major1", &self.major1).field("major2", &self.major2).field("minor1", &self.minor1).field("minor2", &self.minor2).finish()
-    }
-}
 impl windows_core::TypeKind for NCRYPT_PCP_TPM_FW_VERSION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NCRYPT_PCP_TPM_FW_VERSION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.major1 == other.major1 && self.major2 == other.major2 && self.minor1 == other.minor1 && self.minor2 == other.minor2
-    }
-}
-impl Eq for NCRYPT_PCP_TPM_FW_VERSION_INFO {}
 impl Default for NCRYPT_PCP_TPM_FW_VERSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
     pub Magic: u32,
     pub Version: u32,
@@ -19852,76 +14773,33 @@ pub struct NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
     pub cbSignature: u32,
     pub cbTpmPublic: u32,
 }
-impl Copy for NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {}
-impl Clone for NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT").field("Magic", &self.Magic).field("Version", &self.Version).field("HeaderSize", &self.HeaderSize).field("cbCertifyInfo", &self.cbCertifyInfo).field("cbSignature", &self.cbSignature).field("cbTpmPublic", &self.cbTpmPublic).finish()
-    }
-}
 impl windows_core::TypeKind for NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Magic == other.Magic && self.Version == other.Version && self.HeaderSize == other.HeaderSize && self.cbCertifyInfo == other.cbCertifyInfo && self.cbSignature == other.cbSignature && self.cbTpmPublic == other.cbTpmPublic
-    }
-}
-impl Eq for NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {}
 impl Default for NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_PLATFORM_ATTEST_PADDING_INFO {
     pub magic: u32,
     pub pcrMask: u32,
 }
-impl Copy for NCRYPT_PLATFORM_ATTEST_PADDING_INFO {}
-impl Clone for NCRYPT_PLATFORM_ATTEST_PADDING_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NCRYPT_PLATFORM_ATTEST_PADDING_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NCRYPT_PLATFORM_ATTEST_PADDING_INFO").field("magic", &self.magic).field("pcrMask", &self.pcrMask).finish()
-    }
-}
 impl windows_core::TypeKind for NCRYPT_PLATFORM_ATTEST_PADDING_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NCRYPT_PLATFORM_ATTEST_PADDING_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.magic == other.magic && self.pcrMask == other.pcrMask
-    }
-}
-impl Eq for NCRYPT_PLATFORM_ATTEST_PADDING_INFO {}
 impl Default for NCRYPT_PLATFORM_ATTEST_PADDING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct NCRYPT_PROTECT_STREAM_INFO {
     pub pfnStreamOutput: PFNCryptStreamOutputCallback,
     pub pvCallbackCtxt: *mut core::ffi::c_void,
-}
-impl Copy for NCRYPT_PROTECT_STREAM_INFO {}
-impl Clone for NCRYPT_PROTECT_STREAM_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NCRYPT_PROTECT_STREAM_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NCRYPT_PROTECT_STREAM_INFO").field("pvCallbackCtxt", &self.pvCallbackCtxt).finish()
-    }
 }
 impl windows_core::TypeKind for NCRYPT_PROTECT_STREAM_INFO {
     type TypeKind = windows_core::CopyType;
@@ -19932,20 +14810,10 @@ impl Default for NCRYPT_PROTECT_STREAM_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct NCRYPT_PROTECT_STREAM_INFO_EX {
     pub pfnStreamOutput: PFNCryptStreamOutputCallbackEx,
     pub pvCallbackCtxt: *mut core::ffi::c_void,
-}
-impl Copy for NCRYPT_PROTECT_STREAM_INFO_EX {}
-impl Clone for NCRYPT_PROTECT_STREAM_INFO_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NCRYPT_PROTECT_STREAM_INFO_EX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NCRYPT_PROTECT_STREAM_INFO_EX").field("pvCallbackCtxt", &self.pvCallbackCtxt).finish()
-    }
 }
 impl windows_core::TypeKind for NCRYPT_PROTECT_STREAM_INFO_EX {
     type TypeKind = windows_core::CopyType;
@@ -20001,38 +14869,23 @@ impl windows_core::TypeKind for NCRYPT_SECRET_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_SUPPORTED_LENGTHS {
     pub dwMinLength: u32,
     pub dwMaxLength: u32,
     pub dwIncrement: u32,
     pub dwDefaultLength: u32,
 }
-impl Copy for NCRYPT_SUPPORTED_LENGTHS {}
-impl Clone for NCRYPT_SUPPORTED_LENGTHS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NCRYPT_SUPPORTED_LENGTHS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NCRYPT_SUPPORTED_LENGTHS").field("dwMinLength", &self.dwMinLength).field("dwMaxLength", &self.dwMaxLength).field("dwIncrement", &self.dwIncrement).field("dwDefaultLength", &self.dwDefaultLength).finish()
-    }
-}
 impl windows_core::TypeKind for NCRYPT_SUPPORTED_LENGTHS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NCRYPT_SUPPORTED_LENGTHS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMinLength == other.dwMinLength && self.dwMaxLength == other.dwMaxLength && self.dwIncrement == other.dwIncrement && self.dwDefaultLength == other.dwDefaultLength
-    }
-}
-impl Eq for NCRYPT_SUPPORTED_LENGTHS {}
 impl Default for NCRYPT_SUPPORTED_LENGTHS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
     pub magic: u32,
     pub cbHeader: u32,
@@ -20040,32 +14893,16 @@ pub struct NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
     pub cbPrivate: u32,
     pub cbName: u32,
 }
-impl Copy for NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {}
-impl Clone for NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER").field("magic", &self.magic).field("cbHeader", &self.cbHeader).field("cbPublic", &self.cbPublic).field("cbPrivate", &self.cbPrivate).field("cbName", &self.cbName).finish()
-    }
-}
 impl windows_core::TypeKind for NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.magic == other.magic && self.cbHeader == other.cbHeader && self.cbPublic == other.cbPublic && self.cbPrivate == other.cbPrivate && self.cbName == other.cbName
-    }
-}
-impl Eq for NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {}
 impl Default for NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
     pub Magic: u32,
     pub Version: u32,
@@ -20074,32 +14911,16 @@ pub struct NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
     pub cbQuote: u32,
     pub cbPcrs: u32,
 }
-impl Copy for NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {}
-impl Clone for NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT").field("Magic", &self.Magic).field("Version", &self.Version).field("pcrAlg", &self.pcrAlg).field("cbSignature", &self.cbSignature).field("cbQuote", &self.cbQuote).field("cbPcrs", &self.cbPcrs).finish()
-    }
-}
 impl windows_core::TypeKind for NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Magic == other.Magic && self.Version == other.Version && self.pcrAlg == other.pcrAlg && self.cbSignature == other.cbSignature && self.cbQuote == other.cbQuote && self.cbPcrs == other.cbPcrs
-    }
-}
-impl Eq for NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {}
 impl Default for NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_UI_POLICY {
     pub dwVersion: u32,
     pub dwFlags: u32,
@@ -20107,32 +14928,16 @@ pub struct NCRYPT_UI_POLICY {
     pub pszFriendlyName: windows_core::PCWSTR,
     pub pszDescription: windows_core::PCWSTR,
 }
-impl Copy for NCRYPT_UI_POLICY {}
-impl Clone for NCRYPT_UI_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NCRYPT_UI_POLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NCRYPT_UI_POLICY").field("dwVersion", &self.dwVersion).field("dwFlags", &self.dwFlags).field("pszCreationTitle", &self.pszCreationTitle).field("pszFriendlyName", &self.pszFriendlyName).field("pszDescription", &self.pszDescription).finish()
-    }
-}
 impl windows_core::TypeKind for NCRYPT_UI_POLICY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NCRYPT_UI_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.dwFlags == other.dwFlags && self.pszCreationTitle == other.pszCreationTitle && self.pszFriendlyName == other.pszFriendlyName && self.pszDescription == other.pszDescription
-    }
-}
-impl Eq for NCRYPT_UI_POLICY {}
 impl Default for NCRYPT_UI_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {
     pub Version: u32,
     pub TrustletId: u64,
@@ -20141,32 +14946,16 @@ pub struct NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {
     pub FlagsExpected: u32,
     pub _bitfield: u32,
 }
-impl Copy for NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {}
-impl Clone for NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS").field("Version", &self.Version).field("TrustletId", &self.TrustletId).field("MinSvn", &self.MinSvn).field("FlagsMask", &self.FlagsMask).field("FlagsExpected", &self.FlagsExpected).field("_bitfield", &self._bitfield).finish()
-    }
-}
 impl windows_core::TypeKind for NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.TrustletId == other.TrustletId && self.MinSvn == other.MinSvn && self.FlagsMask == other.FlagsMask && self.FlagsExpected == other.FlagsExpected && self._bitfield == other._bitfield
-    }
-}
-impl Eq for NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {}
 impl Default for NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {
     pub Magic: u32,
     pub Version: u32,
@@ -20174,126 +14963,62 @@ pub struct NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {
     pub cbReport: u32,
     pub cbAttributes: u32,
 }
-impl Copy for NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {}
-impl Clone for NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NCRYPT_VSM_KEY_ATTESTATION_STATEMENT").field("Magic", &self.Magic).field("Version", &self.Version).field("cbSignature", &self.cbSignature).field("cbReport", &self.cbReport).field("cbAttributes", &self.cbAttributes).finish()
-    }
-}
 impl windows_core::TypeKind for NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Magic == other.Magic && self.Version == other.Version && self.cbSignature == other.cbSignature && self.cbReport == other.cbReport && self.cbAttributes == other.cbAttributes
-    }
-}
-impl Eq for NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {}
 impl Default for NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCryptAlgorithmName {
     pub pszName: windows_core::PWSTR,
     pub dwClass: NCRYPT_ALGORITHM_NAME_CLASS,
     pub dwAlgOperations: NCRYPT_OPERATION,
     pub dwFlags: u32,
 }
-impl Copy for NCryptAlgorithmName {}
-impl Clone for NCryptAlgorithmName {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NCryptAlgorithmName {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NCryptAlgorithmName").field("pszName", &self.pszName).field("dwClass", &self.dwClass).field("dwAlgOperations", &self.dwAlgOperations).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for NCryptAlgorithmName {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NCryptAlgorithmName {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszName == other.pszName && self.dwClass == other.dwClass && self.dwAlgOperations == other.dwAlgOperations && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for NCryptAlgorithmName {}
 impl Default for NCryptAlgorithmName {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCryptKeyName {
     pub pszName: windows_core::PWSTR,
     pub pszAlgid: windows_core::PWSTR,
     pub dwLegacyKeySpec: CERT_KEY_SPEC,
     pub dwFlags: u32,
 }
-impl Copy for NCryptKeyName {}
-impl Clone for NCryptKeyName {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NCryptKeyName {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NCryptKeyName").field("pszName", &self.pszName).field("pszAlgid", &self.pszAlgid).field("dwLegacyKeySpec", &self.dwLegacyKeySpec).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for NCryptKeyName {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NCryptKeyName {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszName == other.pszName && self.pszAlgid == other.pszAlgid && self.dwLegacyKeySpec == other.dwLegacyKeySpec && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for NCryptKeyName {}
 impl Default for NCryptKeyName {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCryptProviderName {
     pub pszName: windows_core::PWSTR,
     pub pszComment: windows_core::PWSTR,
 }
-impl Copy for NCryptProviderName {}
-impl Clone for NCryptProviderName {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NCryptProviderName {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NCryptProviderName").field("pszName", &self.pszName).field("pszComment", &self.pszComment).finish()
-    }
-}
 impl windows_core::TypeKind for NCryptProviderName {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NCryptProviderName {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszName == other.pszName && self.pszComment == other.pszComment
-    }
-}
-impl Eq for NCryptProviderName {}
 impl Default for NCryptProviderName {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OCSP_BASIC_RESPONSE_ENTRY {
     pub CertId: OCSP_CERT_ID,
     pub dwCertStatus: u32,
@@ -20302,12 +15027,6 @@ pub struct OCSP_BASIC_RESPONSE_ENTRY {
     pub NextUpdate: super::super::Foundation::FILETIME,
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
-}
-impl Copy for OCSP_BASIC_RESPONSE_ENTRY {}
-impl Clone for OCSP_BASIC_RESPONSE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for OCSP_BASIC_RESPONSE_ENTRY {
     type TypeKind = windows_core::CopyType;
@@ -20318,14 +15037,9 @@ impl Default for OCSP_BASIC_RESPONSE_ENTRY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union OCSP_BASIC_RESPONSE_ENTRY_0 {
     pub pRevokedInfo: *mut OCSP_BASIC_REVOKED_INFO,
-}
-impl Copy for OCSP_BASIC_RESPONSE_ENTRY_0 {}
-impl Clone for OCSP_BASIC_RESPONSE_ENTRY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for OCSP_BASIC_RESPONSE_ENTRY_0 {
     type TypeKind = windows_core::CopyType;
@@ -20336,6 +15050,7 @@ impl Default for OCSP_BASIC_RESPONSE_ENTRY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OCSP_BASIC_RESPONSE_INFO {
     pub dwVersion: u32,
     pub dwResponderIdChoice: u32,
@@ -20346,12 +15061,6 @@ pub struct OCSP_BASIC_RESPONSE_INFO {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-impl Copy for OCSP_BASIC_RESPONSE_INFO {}
-impl Clone for OCSP_BASIC_RESPONSE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for OCSP_BASIC_RESPONSE_INFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -20361,15 +15070,10 @@ impl Default for OCSP_BASIC_RESPONSE_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union OCSP_BASIC_RESPONSE_INFO_0 {
     pub ByNameResponderId: CRYPT_INTEGER_BLOB,
     pub ByKeyResponderId: CRYPT_INTEGER_BLOB,
-}
-impl Copy for OCSP_BASIC_RESPONSE_INFO_0 {}
-impl Clone for OCSP_BASIC_RESPONSE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for OCSP_BASIC_RESPONSE_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -20380,129 +15084,66 @@ impl Default for OCSP_BASIC_RESPONSE_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OCSP_BASIC_REVOKED_INFO {
     pub RevocationDate: super::super::Foundation::FILETIME,
     pub dwCrlReasonCode: CERT_REVOCATION_STATUS_REASON,
 }
-impl Copy for OCSP_BASIC_REVOKED_INFO {}
-impl Clone for OCSP_BASIC_REVOKED_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OCSP_BASIC_REVOKED_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OCSP_BASIC_REVOKED_INFO").field("RevocationDate", &self.RevocationDate).field("dwCrlReasonCode", &self.dwCrlReasonCode).finish()
-    }
-}
 impl windows_core::TypeKind for OCSP_BASIC_REVOKED_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OCSP_BASIC_REVOKED_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.RevocationDate == other.RevocationDate && self.dwCrlReasonCode == other.dwCrlReasonCode
-    }
-}
-impl Eq for OCSP_BASIC_REVOKED_INFO {}
 impl Default for OCSP_BASIC_REVOKED_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OCSP_BASIC_SIGNED_RESPONSE_INFO {
     pub ToBeSigned: CRYPT_INTEGER_BLOB,
     pub SignatureInfo: OCSP_SIGNATURE_INFO,
 }
-impl Copy for OCSP_BASIC_SIGNED_RESPONSE_INFO {}
-impl Clone for OCSP_BASIC_SIGNED_RESPONSE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OCSP_BASIC_SIGNED_RESPONSE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OCSP_BASIC_SIGNED_RESPONSE_INFO").field("ToBeSigned", &self.ToBeSigned).field("SignatureInfo", &self.SignatureInfo).finish()
-    }
-}
 impl windows_core::TypeKind for OCSP_BASIC_SIGNED_RESPONSE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OCSP_BASIC_SIGNED_RESPONSE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ToBeSigned == other.ToBeSigned && self.SignatureInfo == other.SignatureInfo
-    }
-}
-impl Eq for OCSP_BASIC_SIGNED_RESPONSE_INFO {}
 impl Default for OCSP_BASIC_SIGNED_RESPONSE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OCSP_CERT_ID {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub IssuerNameHash: CRYPT_INTEGER_BLOB,
     pub IssuerKeyHash: CRYPT_INTEGER_BLOB,
     pub SerialNumber: CRYPT_INTEGER_BLOB,
 }
-impl Copy for OCSP_CERT_ID {}
-impl Clone for OCSP_CERT_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OCSP_CERT_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OCSP_CERT_ID").field("HashAlgorithm", &self.HashAlgorithm).field("IssuerNameHash", &self.IssuerNameHash).field("IssuerKeyHash", &self.IssuerKeyHash).field("SerialNumber", &self.SerialNumber).finish()
-    }
-}
 impl windows_core::TypeKind for OCSP_CERT_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OCSP_CERT_ID {
-    fn eq(&self, other: &Self) -> bool {
-        self.HashAlgorithm == other.HashAlgorithm && self.IssuerNameHash == other.IssuerNameHash && self.IssuerKeyHash == other.IssuerKeyHash && self.SerialNumber == other.SerialNumber
-    }
-}
-impl Eq for OCSP_CERT_ID {}
 impl Default for OCSP_CERT_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OCSP_REQUEST_ENTRY {
     pub CertId: OCSP_CERT_ID,
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-impl Copy for OCSP_REQUEST_ENTRY {}
-impl Clone for OCSP_REQUEST_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OCSP_REQUEST_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OCSP_REQUEST_ENTRY").field("CertId", &self.CertId).field("cExtension", &self.cExtension).field("rgExtension", &self.rgExtension).finish()
-    }
-}
 impl windows_core::TypeKind for OCSP_REQUEST_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OCSP_REQUEST_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.CertId == other.CertId && self.cExtension == other.cExtension && self.rgExtension == other.rgExtension
-    }
-}
-impl Eq for OCSP_REQUEST_ENTRY {}
 impl Default for OCSP_REQUEST_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OCSP_REQUEST_INFO {
     pub dwVersion: u32,
     pub pRequestorName: *mut CERT_ALT_NAME_ENTRY,
@@ -20511,156 +15152,76 @@ pub struct OCSP_REQUEST_INFO {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
-impl Copy for OCSP_REQUEST_INFO {}
-impl Clone for OCSP_REQUEST_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OCSP_REQUEST_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OCSP_REQUEST_INFO").field("dwVersion", &self.dwVersion).field("pRequestorName", &self.pRequestorName).field("cRequestEntry", &self.cRequestEntry).field("rgRequestEntry", &self.rgRequestEntry).field("cExtension", &self.cExtension).field("rgExtension", &self.rgExtension).finish()
-    }
-}
 impl windows_core::TypeKind for OCSP_REQUEST_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OCSP_REQUEST_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.pRequestorName == other.pRequestorName && self.cRequestEntry == other.cRequestEntry && self.rgRequestEntry == other.rgRequestEntry && self.cExtension == other.cExtension && self.rgExtension == other.rgExtension
-    }
-}
-impl Eq for OCSP_REQUEST_INFO {}
 impl Default for OCSP_REQUEST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OCSP_RESPONSE_INFO {
     pub dwStatus: u32,
     pub pszObjId: windows_core::PSTR,
     pub Value: CRYPT_INTEGER_BLOB,
 }
-impl Copy for OCSP_RESPONSE_INFO {}
-impl Clone for OCSP_RESPONSE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OCSP_RESPONSE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OCSP_RESPONSE_INFO").field("dwStatus", &self.dwStatus).field("pszObjId", &self.pszObjId).field("Value", &self.Value).finish()
-    }
-}
 impl windows_core::TypeKind for OCSP_RESPONSE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OCSP_RESPONSE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwStatus == other.dwStatus && self.pszObjId == other.pszObjId && self.Value == other.Value
-    }
-}
-impl Eq for OCSP_RESPONSE_INFO {}
 impl Default for OCSP_RESPONSE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OCSP_SIGNATURE_INFO {
     pub SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub Signature: CRYPT_BIT_BLOB,
     pub cCertEncoded: u32,
     pub rgCertEncoded: *mut CRYPT_INTEGER_BLOB,
 }
-impl Copy for OCSP_SIGNATURE_INFO {}
-impl Clone for OCSP_SIGNATURE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OCSP_SIGNATURE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OCSP_SIGNATURE_INFO").field("SignatureAlgorithm", &self.SignatureAlgorithm).field("Signature", &self.Signature).field("cCertEncoded", &self.cCertEncoded).field("rgCertEncoded", &self.rgCertEncoded).finish()
-    }
-}
 impl windows_core::TypeKind for OCSP_SIGNATURE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OCSP_SIGNATURE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.SignatureAlgorithm == other.SignatureAlgorithm && self.Signature == other.Signature && self.cCertEncoded == other.cCertEncoded && self.rgCertEncoded == other.rgCertEncoded
-    }
-}
-impl Eq for OCSP_SIGNATURE_INFO {}
 impl Default for OCSP_SIGNATURE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OCSP_SIGNED_REQUEST_INFO {
     pub ToBeSigned: CRYPT_INTEGER_BLOB,
     pub pOptionalSignatureInfo: *mut OCSP_SIGNATURE_INFO,
 }
-impl Copy for OCSP_SIGNED_REQUEST_INFO {}
-impl Clone for OCSP_SIGNED_REQUEST_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OCSP_SIGNED_REQUEST_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OCSP_SIGNED_REQUEST_INFO").field("ToBeSigned", &self.ToBeSigned).field("pOptionalSignatureInfo", &self.pOptionalSignatureInfo).finish()
-    }
-}
 impl windows_core::TypeKind for OCSP_SIGNED_REQUEST_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OCSP_SIGNED_REQUEST_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ToBeSigned == other.ToBeSigned && self.pOptionalSignatureInfo == other.pOptionalSignatureInfo
-    }
-}
-impl Eq for OCSP_SIGNED_REQUEST_INFO {}
 impl Default for OCSP_SIGNED_REQUEST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PKCS12_PBES2_EXPORT_PARAMS {
     pub dwSize: u32,
     pub hNcryptDescriptor: *mut core::ffi::c_void,
     pub pwszPbes2Alg: windows_core::PWSTR,
 }
-impl Copy for PKCS12_PBES2_EXPORT_PARAMS {}
-impl Clone for PKCS12_PBES2_EXPORT_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PKCS12_PBES2_EXPORT_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PKCS12_PBES2_EXPORT_PARAMS").field("dwSize", &self.dwSize).field("hNcryptDescriptor", &self.hNcryptDescriptor).field("pwszPbes2Alg", &self.pwszPbes2Alg).finish()
-    }
-}
 impl windows_core::TypeKind for PKCS12_PBES2_EXPORT_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PKCS12_PBES2_EXPORT_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.hNcryptDescriptor == other.hNcryptDescriptor && self.pwszPbes2Alg == other.pwszPbes2Alg
-    }
-}
-impl Eq for PKCS12_PBES2_EXPORT_PARAMS {}
 impl Default for PKCS12_PBES2_EXPORT_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POLICY_ELEMENT {
     pub targetEndpointAddress: windows_core::PCWSTR,
     pub issuerEndpointAddress: windows_core::PCWSTR,
@@ -20669,32 +15230,16 @@ pub struct POLICY_ELEMENT {
     pub privacyNoticeVersion: u32,
     pub useManagedPresentation: super::super::Foundation::BOOL,
 }
-impl Copy for POLICY_ELEMENT {}
-impl Clone for POLICY_ELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for POLICY_ELEMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("POLICY_ELEMENT").field("targetEndpointAddress", &self.targetEndpointAddress).field("issuerEndpointAddress", &self.issuerEndpointAddress).field("issuedTokenParameters", &self.issuedTokenParameters).field("privacyNoticeLink", &self.privacyNoticeLink).field("privacyNoticeVersion", &self.privacyNoticeVersion).field("useManagedPresentation", &self.useManagedPresentation).finish()
-    }
-}
 impl windows_core::TypeKind for POLICY_ELEMENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for POLICY_ELEMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.targetEndpointAddress == other.targetEndpointAddress && self.issuerEndpointAddress == other.issuerEndpointAddress && self.issuedTokenParameters == other.issuedTokenParameters && self.privacyNoticeLink == other.privacyNoticeLink && self.privacyNoticeVersion == other.privacyNoticeVersion && self.useManagedPresentation == other.useManagedPresentation
-    }
-}
-impl Eq for POLICY_ELEMENT {}
 impl Default for POLICY_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRIVKEYVER3 {
     pub magic: u32,
     pub bitlenP: u32,
@@ -20703,64 +15248,32 @@ pub struct PRIVKEYVER3 {
     pub bitlenX: u32,
     pub DSSSeed: DSSSEED,
 }
-impl Copy for PRIVKEYVER3 {}
-impl Clone for PRIVKEYVER3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRIVKEYVER3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRIVKEYVER3").field("magic", &self.magic).field("bitlenP", &self.bitlenP).field("bitlenQ", &self.bitlenQ).field("bitlenJ", &self.bitlenJ).field("bitlenX", &self.bitlenX).field("DSSSeed", &self.DSSSeed).finish()
-    }
-}
 impl windows_core::TypeKind for PRIVKEYVER3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRIVKEYVER3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.magic == other.magic && self.bitlenP == other.bitlenP && self.bitlenQ == other.bitlenQ && self.bitlenJ == other.bitlenJ && self.bitlenX == other.bitlenX && self.DSSSeed == other.DSSSeed
-    }
-}
-impl Eq for PRIVKEYVER3 {}
 impl Default for PRIVKEYVER3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROV_ENUMALGS {
     pub aiAlgid: ALG_ID,
     pub dwBitLen: u32,
     pub dwNameLen: u32,
     pub szName: [i8; 20],
 }
-impl Copy for PROV_ENUMALGS {}
-impl Clone for PROV_ENUMALGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROV_ENUMALGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROV_ENUMALGS").field("aiAlgid", &self.aiAlgid).field("dwBitLen", &self.dwBitLen).field("dwNameLen", &self.dwNameLen).field("szName", &self.szName).finish()
-    }
-}
 impl windows_core::TypeKind for PROV_ENUMALGS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROV_ENUMALGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.aiAlgid == other.aiAlgid && self.dwBitLen == other.dwBitLen && self.dwNameLen == other.dwNameLen && self.szName == other.szName
-    }
-}
-impl Eq for PROV_ENUMALGS {}
 impl Default for PROV_ENUMALGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROV_ENUMALGS_EX {
     pub aiAlgid: ALG_ID,
     pub dwDefaultLen: u32,
@@ -20772,62 +15285,30 @@ pub struct PROV_ENUMALGS_EX {
     pub dwLongNameLen: u32,
     pub szLongName: [i8; 40],
 }
-impl Copy for PROV_ENUMALGS_EX {}
-impl Clone for PROV_ENUMALGS_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROV_ENUMALGS_EX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROV_ENUMALGS_EX").field("aiAlgid", &self.aiAlgid).field("dwDefaultLen", &self.dwDefaultLen).field("dwMinLen", &self.dwMinLen).field("dwMaxLen", &self.dwMaxLen).field("dwProtocols", &self.dwProtocols).field("dwNameLen", &self.dwNameLen).field("szName", &self.szName).field("dwLongNameLen", &self.dwLongNameLen).field("szLongName", &self.szLongName).finish()
-    }
-}
 impl windows_core::TypeKind for PROV_ENUMALGS_EX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROV_ENUMALGS_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.aiAlgid == other.aiAlgid && self.dwDefaultLen == other.dwDefaultLen && self.dwMinLen == other.dwMinLen && self.dwMaxLen == other.dwMaxLen && self.dwProtocols == other.dwProtocols && self.dwNameLen == other.dwNameLen && self.szName == other.szName && self.dwLongNameLen == other.dwLongNameLen && self.szLongName == other.szLongName
-    }
-}
-impl Eq for PROV_ENUMALGS_EX {}
 impl Default for PROV_ENUMALGS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PUBKEY {
     pub magic: u32,
     pub bitlen: u32,
 }
-impl Copy for PUBKEY {}
-impl Clone for PUBKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PUBKEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PUBKEY").field("magic", &self.magic).field("bitlen", &self.bitlen).finish()
-    }
-}
 impl windows_core::TypeKind for PUBKEY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PUBKEY {
-    fn eq(&self, other: &Self) -> bool {
-        self.magic == other.magic && self.bitlen == other.bitlen
-    }
-}
-impl Eq for PUBKEY {}
 impl Default for PUBKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PUBKEYVER3 {
     pub magic: u32,
     pub bitlenP: u32,
@@ -20835,64 +15316,32 @@ pub struct PUBKEYVER3 {
     pub bitlenJ: u32,
     pub DSSSeed: DSSSEED,
 }
-impl Copy for PUBKEYVER3 {}
-impl Clone for PUBKEYVER3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PUBKEYVER3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PUBKEYVER3").field("magic", &self.magic).field("bitlenP", &self.bitlenP).field("bitlenQ", &self.bitlenQ).field("bitlenJ", &self.bitlenJ).field("DSSSeed", &self.DSSSeed).finish()
-    }
-}
 impl windows_core::TypeKind for PUBKEYVER3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PUBKEYVER3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.magic == other.magic && self.bitlenP == other.bitlenP && self.bitlenQ == other.bitlenQ && self.bitlenJ == other.bitlenJ && self.DSSSeed == other.DSSSeed
-    }
-}
-impl Eq for PUBKEYVER3 {}
 impl Default for PUBKEYVER3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PUBLICKEYSTRUC {
     pub bType: u8,
     pub bVersion: u8,
     pub reserved: u16,
     pub aiKeyAlg: ALG_ID,
 }
-impl Copy for PUBLICKEYSTRUC {}
-impl Clone for PUBLICKEYSTRUC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PUBLICKEYSTRUC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PUBLICKEYSTRUC").field("bType", &self.bType).field("bVersion", &self.bVersion).field("reserved", &self.reserved).field("aiKeyAlg", &self.aiKeyAlg).finish()
-    }
-}
 impl windows_core::TypeKind for PUBLICKEYSTRUC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PUBLICKEYSTRUC {
-    fn eq(&self, other: &Self) -> bool {
-        self.bType == other.bType && self.bVersion == other.bVersion && self.reserved == other.reserved && self.aiKeyAlg == other.aiKeyAlg
-    }
-}
-impl Eq for PUBLICKEYSTRUC {}
 impl Default for PUBLICKEYSTRUC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RECIPIENTPOLICY {
     pub recipient: ENDPOINTADDRESS,
     pub issuer: ENDPOINTADDRESS,
@@ -20902,32 +15351,16 @@ pub struct RECIPIENTPOLICY {
     pub privacyUrl: windows_core::PCWSTR,
     pub privacyVersion: u32,
 }
-impl Copy for RECIPIENTPOLICY {}
-impl Clone for RECIPIENTPOLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RECIPIENTPOLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RECIPIENTPOLICY").field("recipient", &self.recipient).field("issuer", &self.issuer).field("tokenType", &self.tokenType).field("requiredClaims", &self.requiredClaims).field("optionalClaims", &self.optionalClaims).field("privacyUrl", &self.privacyUrl).field("privacyVersion", &self.privacyVersion).finish()
-    }
-}
 impl windows_core::TypeKind for RECIPIENTPOLICY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RECIPIENTPOLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.recipient == other.recipient && self.issuer == other.issuer && self.tokenType == other.tokenType && self.requiredClaims == other.requiredClaims && self.optionalClaims == other.optionalClaims && self.privacyUrl == other.privacyUrl && self.privacyVersion == other.privacyVersion
-    }
-}
-impl Eq for RECIPIENTPOLICY {}
 impl Default for RECIPIENTPOLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RECIPIENTPOLICY2 {
     pub recipient: ENDPOINTADDRESS2,
     pub issuer: ENDPOINTADDRESS2,
@@ -20937,93 +15370,45 @@ pub struct RECIPIENTPOLICY2 {
     pub privacyUrl: windows_core::PCWSTR,
     pub privacyVersion: u32,
 }
-impl Copy for RECIPIENTPOLICY2 {}
-impl Clone for RECIPIENTPOLICY2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RECIPIENTPOLICY2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RECIPIENTPOLICY2").field("recipient", &self.recipient).field("issuer", &self.issuer).field("tokenType", &self.tokenType).field("requiredClaims", &self.requiredClaims).field("optionalClaims", &self.optionalClaims).field("privacyUrl", &self.privacyUrl).field("privacyVersion", &self.privacyVersion).finish()
-    }
-}
 impl windows_core::TypeKind for RECIPIENTPOLICY2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RECIPIENTPOLICY2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.recipient == other.recipient && self.issuer == other.issuer && self.tokenType == other.tokenType && self.requiredClaims == other.requiredClaims && self.optionalClaims == other.optionalClaims && self.privacyUrl == other.privacyUrl && self.privacyVersion == other.privacyVersion
-    }
-}
-impl Eq for RECIPIENTPOLICY2 {}
 impl Default for RECIPIENTPOLICY2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ROOT_INFO_LUID {
     pub LowPart: u32,
     pub HighPart: i32,
 }
-impl Copy for ROOT_INFO_LUID {}
-impl Clone for ROOT_INFO_LUID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ROOT_INFO_LUID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ROOT_INFO_LUID").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
-    }
-}
 impl windows_core::TypeKind for ROOT_INFO_LUID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ROOT_INFO_LUID {
-    fn eq(&self, other: &Self) -> bool {
-        self.LowPart == other.LowPart && self.HighPart == other.HighPart
-    }
-}
-impl Eq for ROOT_INFO_LUID {}
 impl Default for ROOT_INFO_LUID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RSAPUBKEY {
     pub magic: u32,
     pub bitlen: u32,
     pub pubexp: u32,
 }
-impl Copy for RSAPUBKEY {}
-impl Clone for RSAPUBKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RSAPUBKEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RSAPUBKEY").field("magic", &self.magic).field("bitlen", &self.bitlen).field("pubexp", &self.pubexp).finish()
-    }
-}
 impl windows_core::TypeKind for RSAPUBKEY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RSAPUBKEY {
-    fn eq(&self, other: &Self) -> bool {
-        self.magic == other.magic && self.bitlen == other.bitlen && self.pubexp == other.pubexp
-    }
-}
-impl Eq for RSAPUBKEY {}
 impl Default for RSAPUBKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCHANNEL_ALG {
     pub dwUse: u32,
     pub Algid: ALG_ID,
@@ -21031,32 +15416,16 @@ pub struct SCHANNEL_ALG {
     pub dwFlags: u32,
     pub dwReserved: u32,
 }
-impl Copy for SCHANNEL_ALG {}
-impl Clone for SCHANNEL_ALG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCHANNEL_ALG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCHANNEL_ALG").field("dwUse", &self.dwUse).field("Algid", &self.Algid).field("cBits", &self.cBits).field("dwFlags", &self.dwFlags).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 impl windows_core::TypeKind for SCHANNEL_ALG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCHANNEL_ALG {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwUse == other.dwUse && self.Algid == other.Algid && self.cBits == other.cBits && self.dwFlags == other.dwFlags && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for SCHANNEL_ALG {}
 impl Default for SCHANNEL_ALG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SIGNER_ATTR_AUTHCODE {
     pub cbSize: u32,
     pub fCommercial: super::super::Foundation::BOOL,
@@ -21064,32 +15433,16 @@ pub struct SIGNER_ATTR_AUTHCODE {
     pub pwszName: windows_core::PCWSTR,
     pub pwszInfo: windows_core::PCWSTR,
 }
-impl Copy for SIGNER_ATTR_AUTHCODE {}
-impl Clone for SIGNER_ATTR_AUTHCODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SIGNER_ATTR_AUTHCODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SIGNER_ATTR_AUTHCODE").field("cbSize", &self.cbSize).field("fCommercial", &self.fCommercial).field("fIndividual", &self.fIndividual).field("pwszName", &self.pwszName).field("pwszInfo", &self.pwszInfo).finish()
-    }
-}
 impl windows_core::TypeKind for SIGNER_ATTR_AUTHCODE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SIGNER_ATTR_AUTHCODE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.fCommercial == other.fCommercial && self.fIndividual == other.fIndividual && self.pwszName == other.pwszName && self.pwszInfo == other.pwszInfo
-    }
-}
-impl Eq for SIGNER_ATTR_AUTHCODE {}
 impl Default for SIGNER_ATTR_AUTHCODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SIGNER_BLOB_INFO {
     pub cbSize: u32,
     pub pGuidSubject: *mut windows_core::GUID,
@@ -21097,43 +15450,21 @@ pub struct SIGNER_BLOB_INFO {
     pub pbBlob: *mut u8,
     pub pwszDisplayName: windows_core::PCWSTR,
 }
-impl Copy for SIGNER_BLOB_INFO {}
-impl Clone for SIGNER_BLOB_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SIGNER_BLOB_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SIGNER_BLOB_INFO").field("cbSize", &self.cbSize).field("pGuidSubject", &self.pGuidSubject).field("cbBlob", &self.cbBlob).field("pbBlob", &self.pbBlob).field("pwszDisplayName", &self.pwszDisplayName).finish()
-    }
-}
 impl windows_core::TypeKind for SIGNER_BLOB_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SIGNER_BLOB_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pGuidSubject == other.pGuidSubject && self.cbBlob == other.cbBlob && self.pbBlob == other.pbBlob && self.pwszDisplayName == other.pwszDisplayName
-    }
-}
-impl Eq for SIGNER_BLOB_INFO {}
 impl Default for SIGNER_BLOB_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SIGNER_CERT {
     pub cbSize: u32,
     pub dwCertChoice: SIGNER_CERT_CHOICE,
     pub Anonymous: SIGNER_CERT_0,
     pub hwnd: super::super::Foundation::HWND,
-}
-impl Copy for SIGNER_CERT {}
-impl Clone for SIGNER_CERT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SIGNER_CERT {
     type TypeKind = windows_core::CopyType;
@@ -21144,16 +15475,11 @@ impl Default for SIGNER_CERT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SIGNER_CERT_0 {
     pub pwszSpcFile: windows_core::PCWSTR,
     pub pCertStoreInfo: *mut SIGNER_CERT_STORE_INFO,
     pub pSpcChainInfo: *mut SIGNER_SPC_CHAIN_INFO,
-}
-impl Copy for SIGNER_CERT_0 {}
-impl Clone for SIGNER_CERT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SIGNER_CERT_0 {
     type TypeKind = windows_core::CopyType;
@@ -21164,69 +15490,38 @@ impl Default for SIGNER_CERT_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SIGNER_CERT_STORE_INFO {
     pub cbSize: u32,
     pub pSigningCert: *const CERT_CONTEXT,
     pub dwCertPolicy: SIGNER_CERT_POLICY,
     pub hCertStore: HCERTSTORE,
 }
-impl Copy for SIGNER_CERT_STORE_INFO {}
-impl Clone for SIGNER_CERT_STORE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SIGNER_CERT_STORE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SIGNER_CERT_STORE_INFO").field("cbSize", &self.cbSize).field("pSigningCert", &self.pSigningCert).field("dwCertPolicy", &self.dwCertPolicy).field("hCertStore", &self.hCertStore).finish()
-    }
-}
 impl windows_core::TypeKind for SIGNER_CERT_STORE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SIGNER_CERT_STORE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pSigningCert == other.pSigningCert && self.dwCertPolicy == other.dwCertPolicy && self.hCertStore == other.hCertStore
-    }
-}
-impl Eq for SIGNER_CERT_STORE_INFO {}
 impl Default for SIGNER_CERT_STORE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SIGNER_CONTEXT {
     pub cbSize: u32,
     pub cbBlob: u32,
     pub pbBlob: *mut u8,
 }
-impl Copy for SIGNER_CONTEXT {}
-impl Clone for SIGNER_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SIGNER_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SIGNER_CONTEXT").field("cbSize", &self.cbSize).field("cbBlob", &self.cbBlob).field("pbBlob", &self.pbBlob).finish()
-    }
-}
 impl windows_core::TypeKind for SIGNER_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SIGNER_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.cbBlob == other.cbBlob && self.pbBlob == other.pbBlob
-    }
-}
-impl Eq for SIGNER_CONTEXT {}
 impl Default for SIGNER_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SIGNER_DIGEST_SIGN_INFO {
     pub cbSize: u32,
     pub dwDigestSignChoice: u32,
@@ -21235,12 +15530,6 @@ pub struct SIGNER_DIGEST_SIGN_INFO {
     pub dwReserved: u32,
     pub dwReserved2: u32,
     pub dwReserved3: u32,
-}
-impl Copy for SIGNER_DIGEST_SIGN_INFO {}
-impl Clone for SIGNER_DIGEST_SIGN_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SIGNER_DIGEST_SIGN_INFO {
     type TypeKind = windows_core::CopyType;
@@ -21251,17 +15540,12 @@ impl Default for SIGNER_DIGEST_SIGN_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SIGNER_DIGEST_SIGN_INFO_0 {
     pub pfnAuthenticodeDigestSign: PFN_AUTHENTICODE_DIGEST_SIGN,
     pub pfnAuthenticodeDigestSignWithFileHandle: PFN_AUTHENTICODE_DIGEST_SIGN_WITHFILEHANDLE,
     pub pfnAuthenticodeDigestSignEx: PFN_AUTHENTICODE_DIGEST_SIGN_EX,
     pub pfnAuthenticodeDigestSignExWithFileHandle: PFN_AUTHENTICODE_DIGEST_SIGN_EX_WITHFILEHANDLE,
-}
-impl Copy for SIGNER_DIGEST_SIGN_INFO_0 {}
-impl Clone for SIGNER_DIGEST_SIGN_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SIGNER_DIGEST_SIGN_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -21272,21 +15556,11 @@ impl Default for SIGNER_DIGEST_SIGN_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct SIGNER_DIGEST_SIGN_INFO_V1 {
     pub cbSize: u32,
     pub pfnAuthenticodeDigestSign: PFN_AUTHENTICODE_DIGEST_SIGN,
     pub pMetadataBlob: *mut CRYPT_INTEGER_BLOB,
-}
-impl Copy for SIGNER_DIGEST_SIGN_INFO_V1 {}
-impl Clone for SIGNER_DIGEST_SIGN_INFO_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SIGNER_DIGEST_SIGN_INFO_V1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SIGNER_DIGEST_SIGN_INFO_V1").field("cbSize", &self.cbSize).field("pMetadataBlob", &self.pMetadataBlob).finish()
-    }
 }
 impl windows_core::TypeKind for SIGNER_DIGEST_SIGN_INFO_V1 {
     type TypeKind = windows_core::CopyType;
@@ -21297,22 +15571,12 @@ impl Default for SIGNER_DIGEST_SIGN_INFO_V1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct SIGNER_DIGEST_SIGN_INFO_V2 {
     pub cbSize: u32,
     pub pfnAuthenticodeDigestSign: PFN_AUTHENTICODE_DIGEST_SIGN,
     pub pfnAuthenticodeDigestSignEx: PFN_AUTHENTICODE_DIGEST_SIGN_EX,
     pub pMetadataBlob: *mut CRYPT_INTEGER_BLOB,
-}
-impl Copy for SIGNER_DIGEST_SIGN_INFO_V2 {}
-impl Clone for SIGNER_DIGEST_SIGN_INFO_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SIGNER_DIGEST_SIGN_INFO_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SIGNER_DIGEST_SIGN_INFO_V2").field("cbSize", &self.cbSize).field("pMetadataBlob", &self.pMetadataBlob).finish()
-    }
 }
 impl windows_core::TypeKind for SIGNER_DIGEST_SIGN_INFO_V2 {
     type TypeKind = windows_core::CopyType;
@@ -21323,37 +15587,22 @@ impl Default for SIGNER_DIGEST_SIGN_INFO_V2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SIGNER_FILE_INFO {
     pub cbSize: u32,
     pub pwszFileName: windows_core::PCWSTR,
     pub hFile: super::super::Foundation::HANDLE,
 }
-impl Copy for SIGNER_FILE_INFO {}
-impl Clone for SIGNER_FILE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SIGNER_FILE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SIGNER_FILE_INFO").field("cbSize", &self.cbSize).field("pwszFileName", &self.pwszFileName).field("hFile", &self.hFile).finish()
-    }
-}
 impl windows_core::TypeKind for SIGNER_FILE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SIGNER_FILE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pwszFileName == other.pwszFileName && self.hFile == other.hFile
-    }
-}
-impl Eq for SIGNER_FILE_INFO {}
 impl Default for SIGNER_FILE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SIGNER_PROVIDER_INFO {
     pub cbSize: u32,
     pub pwszProviderName: windows_core::PCWSTR,
@@ -21361,12 +15610,6 @@ pub struct SIGNER_PROVIDER_INFO {
     pub dwKeySpec: u32,
     pub dwPvkChoice: SIGNER_PRIVATE_KEY_CHOICE,
     pub Anonymous: SIGNER_PROVIDER_INFO_0,
-}
-impl Copy for SIGNER_PROVIDER_INFO {}
-impl Clone for SIGNER_PROVIDER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SIGNER_PROVIDER_INFO {
     type TypeKind = windows_core::CopyType;
@@ -21377,15 +15620,10 @@ impl Default for SIGNER_PROVIDER_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SIGNER_PROVIDER_INFO_0 {
     pub pwszPvkFileName: windows_core::PWSTR,
     pub pwszKeyContainer: windows_core::PWSTR,
-}
-impl Copy for SIGNER_PROVIDER_INFO_0 {}
-impl Clone for SIGNER_PROVIDER_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SIGNER_PROVIDER_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -21396,6 +15634,7 @@ impl Default for SIGNER_PROVIDER_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SIGNER_SIGNATURE_INFO {
     pub cbSize: u32,
     pub algidHash: ALG_ID,
@@ -21403,12 +15642,6 @@ pub struct SIGNER_SIGNATURE_INFO {
     pub Anonymous: SIGNER_SIGNATURE_INFO_0,
     pub psAuthenticated: *mut CRYPT_ATTRIBUTES,
     pub psUnauthenticated: *mut CRYPT_ATTRIBUTES,
-}
-impl Copy for SIGNER_SIGNATURE_INFO {}
-impl Clone for SIGNER_SIGNATURE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SIGNER_SIGNATURE_INFO {
     type TypeKind = windows_core::CopyType;
@@ -21419,14 +15652,9 @@ impl Default for SIGNER_SIGNATURE_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SIGNER_SIGNATURE_INFO_0 {
     pub pAttrAuthcode: *mut SIGNER_ATTR_AUTHCODE,
-}
-impl Copy for SIGNER_SIGNATURE_INFO_0 {}
-impl Clone for SIGNER_SIGNATURE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SIGNER_SIGNATURE_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -21437,49 +15665,28 @@ impl Default for SIGNER_SIGNATURE_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SIGNER_SPC_CHAIN_INFO {
     pub cbSize: u32,
     pub pwszSpcFile: windows_core::PCWSTR,
     pub dwCertPolicy: u32,
     pub hCertStore: HCERTSTORE,
 }
-impl Copy for SIGNER_SPC_CHAIN_INFO {}
-impl Clone for SIGNER_SPC_CHAIN_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SIGNER_SPC_CHAIN_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SIGNER_SPC_CHAIN_INFO").field("cbSize", &self.cbSize).field("pwszSpcFile", &self.pwszSpcFile).field("dwCertPolicy", &self.dwCertPolicy).field("hCertStore", &self.hCertStore).finish()
-    }
-}
 impl windows_core::TypeKind for SIGNER_SPC_CHAIN_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SIGNER_SPC_CHAIN_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pwszSpcFile == other.pwszSpcFile && self.dwCertPolicy == other.dwCertPolicy && self.hCertStore == other.hCertStore
-    }
-}
-impl Eq for SIGNER_SPC_CHAIN_INFO {}
 impl Default for SIGNER_SPC_CHAIN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SIGNER_SUBJECT_INFO {
     pub cbSize: u32,
     pub pdwIndex: *mut u32,
     pub dwSubjectChoice: SIGNER_SUBJECT_CHOICE,
     pub Anonymous: SIGNER_SUBJECT_INFO_0,
-}
-impl Copy for SIGNER_SUBJECT_INFO {}
-impl Clone for SIGNER_SUBJECT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SIGNER_SUBJECT_INFO {
     type TypeKind = windows_core::CopyType;
@@ -21490,15 +15697,10 @@ impl Default for SIGNER_SUBJECT_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SIGNER_SUBJECT_INFO_0 {
     pub pSignerFileInfo: *mut SIGNER_FILE_INFO,
     pub pSignerBlobInfo: *mut SIGNER_BLOB_INFO,
-}
-impl Copy for SIGNER_SUBJECT_INFO_0 {}
-impl Clone for SIGNER_SUBJECT_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SIGNER_SUBJECT_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -21509,36 +15711,21 @@ impl Default for SIGNER_SUBJECT_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SSL_ECCKEY_BLOB {
     pub dwCurveType: u32,
     pub cbKey: u32,
 }
-impl Copy for SSL_ECCKEY_BLOB {}
-impl Clone for SSL_ECCKEY_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SSL_ECCKEY_BLOB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SSL_ECCKEY_BLOB").field("dwCurveType", &self.dwCurveType).field("cbKey", &self.cbKey).finish()
-    }
-}
 impl windows_core::TypeKind for SSL_ECCKEY_BLOB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SSL_ECCKEY_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwCurveType == other.dwCurveType && self.cbKey == other.cbKey
-    }
-}
-impl Eq for SSL_ECCKEY_BLOB {}
 impl Default for SSL_ECCKEY_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub dwErrorLevel: u32,
@@ -21546,120 +15733,55 @@ pub struct SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
     pub dwReserved: u32,
     pub wszErrorText: [u16; 256],
 }
-impl Copy for SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {}
-impl Clone for SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS").field("cbSize", &self.cbSize).field("dwErrorLevel", &self.dwErrorLevel).field("dwErrorCategory", &self.dwErrorCategory).field("dwReserved", &self.dwReserved).field("wszErrorText", &self.wszErrorText).finish()
-    }
-}
 impl windows_core::TypeKind for SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwErrorLevel == other.dwErrorLevel && self.dwErrorCategory == other.dwErrorCategory && self.dwReserved == other.dwReserved && self.wszErrorText == other.wszErrorText
-    }
-}
-impl Eq for SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {}
 impl Default for SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwReserved: u32,
     pub pwszServerName: windows_core::PWSTR,
     pub rgpszHpkpValue: [windows_core::PSTR; 2],
 }
-impl Copy for SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {}
-impl Clone for SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA").field("cbSize", &self.cbSize).field("dwReserved", &self.dwReserved).field("pwszServerName", &self.pwszServerName).field("rgpszHpkpValue", &self.rgpszHpkpValue).finish()
-    }
-}
 impl windows_core::TypeKind for SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwReserved == other.dwReserved && self.pwszServerName == other.pwszServerName && self.rgpszHpkpValue == other.rgpszHpkpValue
-    }
-}
-impl Eq for SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {}
 impl Default for SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwReserved: u32,
     pub pwszServerName: windows_core::PCWSTR,
 }
-impl Copy for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {}
-impl Clone for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA").field("cbSize", &self.cbSize).field("dwReserved", &self.dwReserved).field("pwszServerName", &self.pwszServerName).finish()
-    }
-}
 impl windows_core::TypeKind for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwReserved == other.dwReserved && self.pwszServerName == other.pwszServerName
-    }
-}
-impl Eq for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {}
 impl Default for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub lError: i32,
     pub wszErrorText: [u16; 512],
 }
-impl Copy for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {}
-impl Clone for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS").field("cbSize", &self.cbSize).field("lError", &self.lError).field("wszErrorText", &self.wszErrorText).finish()
-    }
-}
 impl windows_core::TypeKind for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.lError == other.lError && self.wszErrorText == other.wszErrorText
-    }
-}
-impl Eq for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {}
 impl Default for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

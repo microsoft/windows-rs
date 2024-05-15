@@ -2797,20 +2797,10 @@ impl windows_core::RuntimeType for SystemMediaTransportControlsProperty {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SystemMediaTransportControlsProperty;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MediaTimeRange {
     pub Start: super::Foundation::TimeSpan,
     pub End: super::Foundation::TimeSpan,
-}
-impl Copy for MediaTimeRange {}
-impl Clone for MediaTimeRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MediaTimeRange {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MediaTimeRange").field("Start", &self.Start).field("End", &self.End).finish()
-    }
 }
 impl windows_core::TypeKind for MediaTimeRange {
     type TypeKind = windows_core::CopyType;
@@ -2818,12 +2808,6 @@ impl windows_core::TypeKind for MediaTimeRange {
 impl windows_core::RuntimeType for MediaTimeRange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Media.MediaTimeRange;struct(Windows.Foundation.TimeSpan;i8);struct(Windows.Foundation.TimeSpan;i8))");
 }
-impl PartialEq for MediaTimeRange {
-    fn eq(&self, other: &Self) -> bool {
-        self.Start == other.Start && self.End == other.End
-    }
-}
-impl Eq for MediaTimeRange {}
 impl Default for MediaTimeRange {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

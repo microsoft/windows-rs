@@ -24,23 +24,13 @@ pub type ENTERPRISE_DATA_POLICIES = i32;
 pub type SRPHOSTING_TYPE = i32;
 pub type SRPHOSTING_VERSION = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_UNPROTECT_OPTIONS {
     pub audit: u8,
 }
-impl Copy for FILE_UNPROTECT_OPTIONS {}
-impl Clone for FILE_UNPROTECT_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTHREAD_NETWORK_CONTEXT {
     pub ThreadId: u32,
     pub ThreadContext: super::super::Foundation::HANDLE,
-}
-impl Copy for HTHREAD_NETWORK_CONTEXT {}
-impl Clone for HTHREAD_NETWORK_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

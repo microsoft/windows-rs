@@ -821,6 +821,7 @@ impl core::ops::Not for PRINTDLGEX_FLAGS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct CHOOSECOLORA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -831,14 +832,6 @@ pub struct CHOOSECOLORA {
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPCCHOOKPROC,
     pub lpTemplateName: windows_core::PCSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for CHOOSECOLORA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for CHOOSECOLORA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for CHOOSECOLORA {
@@ -852,6 +845,7 @@ impl Default for CHOOSECOLORA {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct CHOOSECOLORA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -862,14 +856,6 @@ pub struct CHOOSECOLORA {
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPCCHOOKPROC,
     pub lpTemplateName: windows_core::PCSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for CHOOSECOLORA {}
-#[cfg(target_arch = "x86")]
-impl Clone for CHOOSECOLORA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for CHOOSECOLORA {
@@ -883,6 +869,7 @@ impl Default for CHOOSECOLORA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct CHOOSECOLORW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -893,14 +880,6 @@ pub struct CHOOSECOLORW {
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPCCHOOKPROC,
     pub lpTemplateName: windows_core::PCWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for CHOOSECOLORW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for CHOOSECOLORW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for CHOOSECOLORW {
@@ -914,6 +893,7 @@ impl Default for CHOOSECOLORW {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct CHOOSECOLORW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -924,14 +904,6 @@ pub struct CHOOSECOLORW {
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPCCHOOKPROC,
     pub lpTemplateName: windows_core::PCWSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for CHOOSECOLORW {}
-#[cfg(target_arch = "x86")]
-impl Clone for CHOOSECOLORW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for CHOOSECOLORW {
@@ -946,6 +918,7 @@ impl Default for CHOOSECOLORW {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct CHOOSEFONTA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -966,16 +939,6 @@ pub struct CHOOSEFONTA {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for CHOOSEFONTA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for CHOOSEFONTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for CHOOSEFONTA {
     type TypeKind = windows_core::CopyType;
 }
@@ -989,6 +952,7 @@ impl Default for CHOOSEFONTA {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct CHOOSEFONTA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1009,16 +973,6 @@ pub struct CHOOSEFONTA {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for CHOOSEFONTA {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for CHOOSEFONTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for CHOOSEFONTA {
     type TypeKind = windows_core::CopyType;
 }
@@ -1032,6 +986,7 @@ impl Default for CHOOSEFONTA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct CHOOSEFONTW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1052,16 +1007,6 @@ pub struct CHOOSEFONTW {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for CHOOSEFONTW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for CHOOSEFONTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for CHOOSEFONTW {
     type TypeKind = windows_core::CopyType;
 }
@@ -1075,6 +1020,7 @@ impl Default for CHOOSEFONTW {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct CHOOSEFONTW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1095,16 +1041,6 @@ pub struct CHOOSEFONTW {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for CHOOSEFONTW {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for CHOOSEFONTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for CHOOSEFONTW {
     type TypeKind = windows_core::CopyType;
 }
@@ -1117,19 +1053,12 @@ impl Default for CHOOSEFONTW {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct DEVNAMES {
     pub wDriverOffset: u16,
     pub wDeviceOffset: u16,
     pub wOutputOffset: u16,
     pub wDefault: u16,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for DEVNAMES {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for DEVNAMES {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for DEVNAMES {
@@ -1143,19 +1072,12 @@ impl Default for DEVNAMES {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct DEVNAMES {
     pub wDriverOffset: u16,
     pub wDeviceOffset: u16,
     pub wOutputOffset: u16,
     pub wDefault: u16,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for DEVNAMES {}
-#[cfg(target_arch = "x86")]
-impl Clone for DEVNAMES {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for DEVNAMES {
@@ -1169,6 +1091,7 @@ impl Default for DEVNAMES {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct FINDREPLACEA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1183,14 +1106,6 @@ pub struct FINDREPLACEA {
     pub lpTemplateName: windows_core::PCSTR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for FINDREPLACEA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for FINDREPLACEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for FINDREPLACEA {
     type TypeKind = windows_core::CopyType;
 }
@@ -1202,6 +1117,7 @@ impl Default for FINDREPLACEA {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct FINDREPLACEA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1216,14 +1132,6 @@ pub struct FINDREPLACEA {
     pub lpTemplateName: windows_core::PCSTR,
 }
 #[cfg(target_arch = "x86")]
-impl Copy for FINDREPLACEA {}
-#[cfg(target_arch = "x86")]
-impl Clone for FINDREPLACEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for FINDREPLACEA {
     type TypeKind = windows_core::CopyType;
 }
@@ -1235,6 +1143,7 @@ impl Default for FINDREPLACEA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct FINDREPLACEW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1249,14 +1158,6 @@ pub struct FINDREPLACEW {
     pub lpTemplateName: windows_core::PCWSTR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for FINDREPLACEW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for FINDREPLACEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for FINDREPLACEW {
     type TypeKind = windows_core::CopyType;
 }
@@ -1268,6 +1169,7 @@ impl Default for FINDREPLACEW {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct FINDREPLACEW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1282,14 +1184,6 @@ pub struct FINDREPLACEW {
     pub lpTemplateName: windows_core::PCWSTR,
 }
 #[cfg(target_arch = "x86")]
-impl Copy for FINDREPLACEW {}
-#[cfg(target_arch = "x86")]
-impl Clone for FINDREPLACEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for FINDREPLACEW {
     type TypeKind = windows_core::CopyType;
 }
@@ -1301,18 +1195,11 @@ impl Default for FINDREPLACEW {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct OFNOTIFYA {
     pub hdr: super::NMHDR,
     pub lpOFN: *mut OPENFILENAMEA,
     pub pszFile: windows_core::PSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for OFNOTIFYA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for OFNOTIFYA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for OFNOTIFYA {
@@ -1326,18 +1213,11 @@ impl Default for OFNOTIFYA {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct OFNOTIFYA {
     pub hdr: super::NMHDR,
     pub lpOFN: *mut OPENFILENAMEA,
     pub pszFile: windows_core::PSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for OFNOTIFYA {}
-#[cfg(target_arch = "x86")]
-impl Clone for OFNOTIFYA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for OFNOTIFYA {
@@ -1351,19 +1231,12 @@ impl Default for OFNOTIFYA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct OFNOTIFYEXA {
     pub hdr: super::NMHDR,
     pub lpOFN: *mut OPENFILENAMEA,
     pub psf: *mut core::ffi::c_void,
     pub pidl: *mut core::ffi::c_void,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for OFNOTIFYEXA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for OFNOTIFYEXA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for OFNOTIFYEXA {
@@ -1377,19 +1250,12 @@ impl Default for OFNOTIFYEXA {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct OFNOTIFYEXA {
     pub hdr: super::NMHDR,
     pub lpOFN: *mut OPENFILENAMEA,
     pub psf: *mut core::ffi::c_void,
     pub pidl: *mut core::ffi::c_void,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for OFNOTIFYEXA {}
-#[cfg(target_arch = "x86")]
-impl Clone for OFNOTIFYEXA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for OFNOTIFYEXA {
@@ -1403,19 +1269,12 @@ impl Default for OFNOTIFYEXA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct OFNOTIFYEXW {
     pub hdr: super::NMHDR,
     pub lpOFN: *mut OPENFILENAMEW,
     pub psf: *mut core::ffi::c_void,
     pub pidl: *mut core::ffi::c_void,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for OFNOTIFYEXW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for OFNOTIFYEXW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for OFNOTIFYEXW {
@@ -1429,19 +1288,12 @@ impl Default for OFNOTIFYEXW {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct OFNOTIFYEXW {
     pub hdr: super::NMHDR,
     pub lpOFN: *mut OPENFILENAMEW,
     pub psf: *mut core::ffi::c_void,
     pub pidl: *mut core::ffi::c_void,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for OFNOTIFYEXW {}
-#[cfg(target_arch = "x86")]
-impl Clone for OFNOTIFYEXW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for OFNOTIFYEXW {
@@ -1455,18 +1307,11 @@ impl Default for OFNOTIFYEXW {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct OFNOTIFYW {
     pub hdr: super::NMHDR,
     pub lpOFN: *mut OPENFILENAMEW,
     pub pszFile: windows_core::PWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for OFNOTIFYW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for OFNOTIFYW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for OFNOTIFYW {
@@ -1480,18 +1325,11 @@ impl Default for OFNOTIFYW {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct OFNOTIFYW {
     pub hdr: super::NMHDR,
     pub lpOFN: *mut OPENFILENAMEW,
     pub pszFile: windows_core::PWSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for OFNOTIFYW {}
-#[cfg(target_arch = "x86")]
-impl Clone for OFNOTIFYW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for OFNOTIFYW {
@@ -1505,6 +1343,7 @@ impl Default for OFNOTIFYW {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct OPENFILENAMEA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1531,14 +1370,6 @@ pub struct OPENFILENAMEA {
     pub FlagsEx: OPEN_FILENAME_FLAGS_EX,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for OPENFILENAMEA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for OPENFILENAMEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for OPENFILENAMEA {
     type TypeKind = windows_core::CopyType;
 }
@@ -1550,6 +1381,7 @@ impl Default for OPENFILENAMEA {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct OPENFILENAMEA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1576,14 +1408,6 @@ pub struct OPENFILENAMEA {
     pub FlagsEx: OPEN_FILENAME_FLAGS_EX,
 }
 #[cfg(target_arch = "x86")]
-impl Copy for OPENFILENAMEA {}
-#[cfg(target_arch = "x86")]
-impl Clone for OPENFILENAMEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for OPENFILENAMEA {
     type TypeKind = windows_core::CopyType;
 }
@@ -1595,6 +1419,7 @@ impl Default for OPENFILENAMEA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct OPENFILENAMEW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1621,14 +1446,6 @@ pub struct OPENFILENAMEW {
     pub FlagsEx: OPEN_FILENAME_FLAGS_EX,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for OPENFILENAMEW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for OPENFILENAMEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for OPENFILENAMEW {
     type TypeKind = windows_core::CopyType;
 }
@@ -1640,6 +1457,7 @@ impl Default for OPENFILENAMEW {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct OPENFILENAMEW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1666,14 +1484,6 @@ pub struct OPENFILENAMEW {
     pub FlagsEx: OPEN_FILENAME_FLAGS_EX,
 }
 #[cfg(target_arch = "x86")]
-impl Copy for OPENFILENAMEW {}
-#[cfg(target_arch = "x86")]
-impl Clone for OPENFILENAMEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for OPENFILENAMEW {
     type TypeKind = windows_core::CopyType;
 }
@@ -1685,6 +1495,7 @@ impl Default for OPENFILENAMEW {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct OPENFILENAME_NT4A {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1708,14 +1519,6 @@ pub struct OPENFILENAME_NT4A {
     pub lpTemplateName: windows_core::PCSTR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for OPENFILENAME_NT4A {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for OPENFILENAME_NT4A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for OPENFILENAME_NT4A {
     type TypeKind = windows_core::CopyType;
 }
@@ -1727,6 +1530,7 @@ impl Default for OPENFILENAME_NT4A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct OPENFILENAME_NT4A {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1750,14 +1554,6 @@ pub struct OPENFILENAME_NT4A {
     pub lpTemplateName: windows_core::PCSTR,
 }
 #[cfg(target_arch = "x86")]
-impl Copy for OPENFILENAME_NT4A {}
-#[cfg(target_arch = "x86")]
-impl Clone for OPENFILENAME_NT4A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for OPENFILENAME_NT4A {
     type TypeKind = windows_core::CopyType;
 }
@@ -1769,6 +1565,7 @@ impl Default for OPENFILENAME_NT4A {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct OPENFILENAME_NT4W {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1792,14 +1589,6 @@ pub struct OPENFILENAME_NT4W {
     pub lpTemplateName: windows_core::PCWSTR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for OPENFILENAME_NT4W {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for OPENFILENAME_NT4W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for OPENFILENAME_NT4W {
     type TypeKind = windows_core::CopyType;
 }
@@ -1811,6 +1600,7 @@ impl Default for OPENFILENAME_NT4W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct OPENFILENAME_NT4W {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1834,14 +1624,6 @@ pub struct OPENFILENAME_NT4W {
     pub lpTemplateName: windows_core::PCWSTR,
 }
 #[cfg(target_arch = "x86")]
-impl Copy for OPENFILENAME_NT4W {}
-#[cfg(target_arch = "x86")]
-impl Clone for OPENFILENAME_NT4W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for OPENFILENAME_NT4W {
     type TypeKind = windows_core::CopyType;
 }
@@ -1853,6 +1635,7 @@ impl Default for OPENFILENAME_NT4W {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct PAGESETUPDLGA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1868,14 +1651,6 @@ pub struct PAGESETUPDLGA {
     pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
     pub lpPageSetupTemplateName: windows_core::PCSTR,
     pub hPageSetupTemplate: super::super::super::Foundation::HGLOBAL,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for PAGESETUPDLGA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for PAGESETUPDLGA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for PAGESETUPDLGA {
@@ -1889,6 +1664,7 @@ impl Default for PAGESETUPDLGA {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct PAGESETUPDLGA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1906,14 +1682,6 @@ pub struct PAGESETUPDLGA {
     pub hPageSetupTemplate: super::super::super::Foundation::HGLOBAL,
 }
 #[cfg(target_arch = "x86")]
-impl Copy for PAGESETUPDLGA {}
-#[cfg(target_arch = "x86")]
-impl Clone for PAGESETUPDLGA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for PAGESETUPDLGA {
     type TypeKind = windows_core::CopyType;
 }
@@ -1925,6 +1693,7 @@ impl Default for PAGESETUPDLGA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct PAGESETUPDLGW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1940,14 +1709,6 @@ pub struct PAGESETUPDLGW {
     pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
     pub lpPageSetupTemplateName: windows_core::PCWSTR,
     pub hPageSetupTemplate: super::super::super::Foundation::HGLOBAL,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for PAGESETUPDLGW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for PAGESETUPDLGW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for PAGESETUPDLGW {
@@ -1961,6 +1722,7 @@ impl Default for PAGESETUPDLGW {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct PAGESETUPDLGW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1976,14 +1738,6 @@ pub struct PAGESETUPDLGW {
     pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
     pub lpPageSetupTemplateName: windows_core::PCWSTR,
     pub hPageSetupTemplate: super::super::super::Foundation::HGLOBAL,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for PAGESETUPDLGW {}
-#[cfg(target_arch = "x86")]
-impl Clone for PAGESETUPDLGW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for PAGESETUPDLGW {
@@ -1998,6 +1752,7 @@ impl Default for PAGESETUPDLGW {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct PRINTDLGA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -2018,16 +1773,6 @@ pub struct PRINTDLGA {
     pub lpSetupTemplateName: windows_core::PCSTR,
     pub hPrintTemplate: super::super::super::Foundation::HGLOBAL,
     pub hSetupTemplate: super::super::super::Foundation::HGLOBAL,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for PRINTDLGA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for PRINTDLGA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2044,6 +1789,7 @@ impl Default for PRINTDLGA {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct PRINTDLGA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -2064,16 +1810,6 @@ pub struct PRINTDLGA {
     pub lpSetupTemplateName: windows_core::PCSTR,
     pub hPrintTemplate: super::super::super::Foundation::HGLOBAL,
     pub hSetupTemplate: super::super::super::Foundation::HGLOBAL,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for PRINTDLGA {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for PRINTDLGA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2256,6 +1992,7 @@ impl Default for PRINTDLGEXW {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct PRINTDLGW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -2276,16 +2013,6 @@ pub struct PRINTDLGW {
     pub lpSetupTemplateName: windows_core::PCWSTR,
     pub hPrintTemplate: super::super::super::Foundation::HGLOBAL,
     pub hSetupTemplate: super::super::super::Foundation::HGLOBAL,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for PRINTDLGW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for PRINTDLGW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2302,6 +2029,7 @@ impl Default for PRINTDLGW {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct PRINTDLGW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -2322,16 +2050,6 @@ pub struct PRINTDLGW {
     pub lpSetupTemplateName: windows_core::PCWSTR,
     pub hPrintTemplate: super::super::super::Foundation::HGLOBAL,
     pub hSetupTemplate: super::super::super::Foundation::HGLOBAL,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for PRINTDLGW {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for PRINTDLGW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2347,17 +2065,10 @@ impl Default for PRINTDLGW {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct PRINTPAGERANGE {
     pub nFromPage: u32,
     pub nToPage: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for PRINTPAGERANGE {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for PRINTPAGERANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for PRINTPAGERANGE {
@@ -2371,17 +2082,10 @@ impl Default for PRINTPAGERANGE {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct PRINTPAGERANGE {
     pub nFromPage: u32,
     pub nToPage: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for PRINTPAGERANGE {}
-#[cfg(target_arch = "x86")]
-impl Clone for PRINTPAGERANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for PRINTPAGERANGE {

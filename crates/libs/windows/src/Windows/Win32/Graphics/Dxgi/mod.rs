@@ -2869,6 +2869,7 @@ impl core::ops::Not for DXGI_USAGE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_ADAPTER_DESC {
     pub Description: [u16; 128],
     pub VendorId: u32,
@@ -2880,32 +2881,16 @@ pub struct DXGI_ADAPTER_DESC {
     pub SharedSystemMemory: usize,
     pub AdapterLuid: super::super::Foundation::LUID,
 }
-impl Copy for DXGI_ADAPTER_DESC {}
-impl Clone for DXGI_ADAPTER_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXGI_ADAPTER_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_ADAPTER_DESC").field("Description", &self.Description).field("VendorId", &self.VendorId).field("DeviceId", &self.DeviceId).field("SubSysId", &self.SubSysId).field("Revision", &self.Revision).field("DedicatedVideoMemory", &self.DedicatedVideoMemory).field("DedicatedSystemMemory", &self.DedicatedSystemMemory).field("SharedSystemMemory", &self.SharedSystemMemory).field("AdapterLuid", &self.AdapterLuid).finish()
-    }
-}
 impl windows_core::TypeKind for DXGI_ADAPTER_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXGI_ADAPTER_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Description == other.Description && self.VendorId == other.VendorId && self.DeviceId == other.DeviceId && self.SubSysId == other.SubSysId && self.Revision == other.Revision && self.DedicatedVideoMemory == other.DedicatedVideoMemory && self.DedicatedSystemMemory == other.DedicatedSystemMemory && self.SharedSystemMemory == other.SharedSystemMemory && self.AdapterLuid == other.AdapterLuid
-    }
-}
-impl Eq for DXGI_ADAPTER_DESC {}
 impl Default for DXGI_ADAPTER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_ADAPTER_DESC1 {
     pub Description: [u16; 128],
     pub VendorId: u32,
@@ -2918,32 +2903,16 @@ pub struct DXGI_ADAPTER_DESC1 {
     pub AdapterLuid: super::super::Foundation::LUID,
     pub Flags: u32,
 }
-impl Copy for DXGI_ADAPTER_DESC1 {}
-impl Clone for DXGI_ADAPTER_DESC1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXGI_ADAPTER_DESC1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_ADAPTER_DESC1").field("Description", &self.Description).field("VendorId", &self.VendorId).field("DeviceId", &self.DeviceId).field("SubSysId", &self.SubSysId).field("Revision", &self.Revision).field("DedicatedVideoMemory", &self.DedicatedVideoMemory).field("DedicatedSystemMemory", &self.DedicatedSystemMemory).field("SharedSystemMemory", &self.SharedSystemMemory).field("AdapterLuid", &self.AdapterLuid).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for DXGI_ADAPTER_DESC1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXGI_ADAPTER_DESC1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Description == other.Description && self.VendorId == other.VendorId && self.DeviceId == other.DeviceId && self.SubSysId == other.SubSysId && self.Revision == other.Revision && self.DedicatedVideoMemory == other.DedicatedVideoMemory && self.DedicatedSystemMemory == other.DedicatedSystemMemory && self.SharedSystemMemory == other.SharedSystemMemory && self.AdapterLuid == other.AdapterLuid && self.Flags == other.Flags
-    }
-}
-impl Eq for DXGI_ADAPTER_DESC1 {}
 impl Default for DXGI_ADAPTER_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_ADAPTER_DESC2 {
     pub Description: [u16; 128],
     pub VendorId: u32,
@@ -2958,45 +2927,16 @@ pub struct DXGI_ADAPTER_DESC2 {
     pub GraphicsPreemptionGranularity: DXGI_GRAPHICS_PREEMPTION_GRANULARITY,
     pub ComputePreemptionGranularity: DXGI_COMPUTE_PREEMPTION_GRANULARITY,
 }
-impl Copy for DXGI_ADAPTER_DESC2 {}
-impl Clone for DXGI_ADAPTER_DESC2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXGI_ADAPTER_DESC2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_ADAPTER_DESC2")
-            .field("Description", &self.Description)
-            .field("VendorId", &self.VendorId)
-            .field("DeviceId", &self.DeviceId)
-            .field("SubSysId", &self.SubSysId)
-            .field("Revision", &self.Revision)
-            .field("DedicatedVideoMemory", &self.DedicatedVideoMemory)
-            .field("DedicatedSystemMemory", &self.DedicatedSystemMemory)
-            .field("SharedSystemMemory", &self.SharedSystemMemory)
-            .field("AdapterLuid", &self.AdapterLuid)
-            .field("Flags", &self.Flags)
-            .field("GraphicsPreemptionGranularity", &self.GraphicsPreemptionGranularity)
-            .field("ComputePreemptionGranularity", &self.ComputePreemptionGranularity)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DXGI_ADAPTER_DESC2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXGI_ADAPTER_DESC2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Description == other.Description && self.VendorId == other.VendorId && self.DeviceId == other.DeviceId && self.SubSysId == other.SubSysId && self.Revision == other.Revision && self.DedicatedVideoMemory == other.DedicatedVideoMemory && self.DedicatedSystemMemory == other.DedicatedSystemMemory && self.SharedSystemMemory == other.SharedSystemMemory && self.AdapterLuid == other.AdapterLuid && self.Flags == other.Flags && self.GraphicsPreemptionGranularity == other.GraphicsPreemptionGranularity && self.ComputePreemptionGranularity == other.ComputePreemptionGranularity
-    }
-}
-impl Eq for DXGI_ADAPTER_DESC2 {}
 impl Default for DXGI_ADAPTER_DESC2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_ADAPTER_DESC3 {
     pub Description: [u16; 128],
     pub VendorId: u32,
@@ -3011,104 +2951,43 @@ pub struct DXGI_ADAPTER_DESC3 {
     pub GraphicsPreemptionGranularity: DXGI_GRAPHICS_PREEMPTION_GRANULARITY,
     pub ComputePreemptionGranularity: DXGI_COMPUTE_PREEMPTION_GRANULARITY,
 }
-impl Copy for DXGI_ADAPTER_DESC3 {}
-impl Clone for DXGI_ADAPTER_DESC3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXGI_ADAPTER_DESC3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_ADAPTER_DESC3")
-            .field("Description", &self.Description)
-            .field("VendorId", &self.VendorId)
-            .field("DeviceId", &self.DeviceId)
-            .field("SubSysId", &self.SubSysId)
-            .field("Revision", &self.Revision)
-            .field("DedicatedVideoMemory", &self.DedicatedVideoMemory)
-            .field("DedicatedSystemMemory", &self.DedicatedSystemMemory)
-            .field("SharedSystemMemory", &self.SharedSystemMemory)
-            .field("AdapterLuid", &self.AdapterLuid)
-            .field("Flags", &self.Flags)
-            .field("GraphicsPreemptionGranularity", &self.GraphicsPreemptionGranularity)
-            .field("ComputePreemptionGranularity", &self.ComputePreemptionGranularity)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DXGI_ADAPTER_DESC3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXGI_ADAPTER_DESC3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Description == other.Description && self.VendorId == other.VendorId && self.DeviceId == other.DeviceId && self.SubSysId == other.SubSysId && self.Revision == other.Revision && self.DedicatedVideoMemory == other.DedicatedVideoMemory && self.DedicatedSystemMemory == other.DedicatedSystemMemory && self.SharedSystemMemory == other.SharedSystemMemory && self.AdapterLuid == other.AdapterLuid && self.Flags == other.Flags && self.GraphicsPreemptionGranularity == other.GraphicsPreemptionGranularity && self.ComputePreemptionGranularity == other.ComputePreemptionGranularity
-    }
-}
-impl Eq for DXGI_ADAPTER_DESC3 {}
 impl Default for DXGI_ADAPTER_DESC3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_DECODE_SWAP_CHAIN_DESC {
     pub Flags: u32,
-}
-impl Copy for DXGI_DECODE_SWAP_CHAIN_DESC {}
-impl Clone for DXGI_DECODE_SWAP_CHAIN_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXGI_DECODE_SWAP_CHAIN_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_DECODE_SWAP_CHAIN_DESC").field("Flags", &self.Flags).finish()
-    }
 }
 impl windows_core::TypeKind for DXGI_DECODE_SWAP_CHAIN_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXGI_DECODE_SWAP_CHAIN_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-    }
-}
-impl Eq for DXGI_DECODE_SWAP_CHAIN_DESC {}
 impl Default for DXGI_DECODE_SWAP_CHAIN_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_DISPLAY_COLOR_SPACE {
     pub PrimaryCoordinates: [f32; 16],
     pub WhitePoints: [f32; 32],
 }
-impl Copy for DXGI_DISPLAY_COLOR_SPACE {}
-impl Clone for DXGI_DISPLAY_COLOR_SPACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXGI_DISPLAY_COLOR_SPACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_DISPLAY_COLOR_SPACE").field("PrimaryCoordinates", &self.PrimaryCoordinates).field("WhitePoints", &self.WhitePoints).finish()
-    }
-}
 impl windows_core::TypeKind for DXGI_DISPLAY_COLOR_SPACE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXGI_DISPLAY_COLOR_SPACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.PrimaryCoordinates == other.PrimaryCoordinates && self.WhitePoints == other.WhitePoints
-    }
-}
-impl Eq for DXGI_DISPLAY_COLOR_SPACE {}
 impl Default for DXGI_DISPLAY_COLOR_SPACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_FRAME_STATISTICS {
     pub PresentCount: u32,
     pub PresentRefreshCount: u32,
@@ -3116,32 +2995,16 @@ pub struct DXGI_FRAME_STATISTICS {
     pub SyncQPCTime: i64,
     pub SyncGPUTime: i64,
 }
-impl Copy for DXGI_FRAME_STATISTICS {}
-impl Clone for DXGI_FRAME_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXGI_FRAME_STATISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_FRAME_STATISTICS").field("PresentCount", &self.PresentCount).field("PresentRefreshCount", &self.PresentRefreshCount).field("SyncRefreshCount", &self.SyncRefreshCount).field("SyncQPCTime", &self.SyncQPCTime).field("SyncGPUTime", &self.SyncGPUTime).finish()
-    }
-}
 impl windows_core::TypeKind for DXGI_FRAME_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXGI_FRAME_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.PresentCount == other.PresentCount && self.PresentRefreshCount == other.PresentRefreshCount && self.SyncRefreshCount == other.SyncRefreshCount && self.SyncQPCTime == other.SyncQPCTime && self.SyncGPUTime == other.SyncGPUTime
-    }
-}
-impl Eq for DXGI_FRAME_STATISTICS {}
 impl Default for DXGI_FRAME_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_FRAME_STATISTICS_MEDIA {
     pub PresentCount: u32,
     pub PresentRefreshCount: u32,
@@ -3151,32 +3014,16 @@ pub struct DXGI_FRAME_STATISTICS_MEDIA {
     pub CompositionMode: DXGI_FRAME_PRESENTATION_MODE,
     pub ApprovedPresentDuration: u32,
 }
-impl Copy for DXGI_FRAME_STATISTICS_MEDIA {}
-impl Clone for DXGI_FRAME_STATISTICS_MEDIA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXGI_FRAME_STATISTICS_MEDIA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_FRAME_STATISTICS_MEDIA").field("PresentCount", &self.PresentCount).field("PresentRefreshCount", &self.PresentRefreshCount).field("SyncRefreshCount", &self.SyncRefreshCount).field("SyncQPCTime", &self.SyncQPCTime).field("SyncGPUTime", &self.SyncGPUTime).field("CompositionMode", &self.CompositionMode).field("ApprovedPresentDuration", &self.ApprovedPresentDuration).finish()
-    }
-}
 impl windows_core::TypeKind for DXGI_FRAME_STATISTICS_MEDIA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXGI_FRAME_STATISTICS_MEDIA {
-    fn eq(&self, other: &Self) -> bool {
-        self.PresentCount == other.PresentCount && self.PresentRefreshCount == other.PresentRefreshCount && self.SyncRefreshCount == other.SyncRefreshCount && self.SyncQPCTime == other.SyncQPCTime && self.SyncGPUTime == other.SyncGPUTime && self.CompositionMode == other.CompositionMode && self.ApprovedPresentDuration == other.ApprovedPresentDuration
-    }
-}
-impl Eq for DXGI_FRAME_STATISTICS_MEDIA {}
 impl Default for DXGI_FRAME_STATISTICS_MEDIA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_HDR_METADATA_HDR10 {
     pub RedPrimary: [u16; 2],
     pub GreenPrimary: [u16; 2],
@@ -3187,91 +3034,43 @@ pub struct DXGI_HDR_METADATA_HDR10 {
     pub MaxContentLightLevel: u16,
     pub MaxFrameAverageLightLevel: u16,
 }
-impl Copy for DXGI_HDR_METADATA_HDR10 {}
-impl Clone for DXGI_HDR_METADATA_HDR10 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXGI_HDR_METADATA_HDR10 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_HDR_METADATA_HDR10").field("RedPrimary", &self.RedPrimary).field("GreenPrimary", &self.GreenPrimary).field("BluePrimary", &self.BluePrimary).field("WhitePoint", &self.WhitePoint).field("MaxMasteringLuminance", &self.MaxMasteringLuminance).field("MinMasteringLuminance", &self.MinMasteringLuminance).field("MaxContentLightLevel", &self.MaxContentLightLevel).field("MaxFrameAverageLightLevel", &self.MaxFrameAverageLightLevel).finish()
-    }
-}
 impl windows_core::TypeKind for DXGI_HDR_METADATA_HDR10 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXGI_HDR_METADATA_HDR10 {
-    fn eq(&self, other: &Self) -> bool {
-        self.RedPrimary == other.RedPrimary && self.GreenPrimary == other.GreenPrimary && self.BluePrimary == other.BluePrimary && self.WhitePoint == other.WhitePoint && self.MaxMasteringLuminance == other.MaxMasteringLuminance && self.MinMasteringLuminance == other.MinMasteringLuminance && self.MaxContentLightLevel == other.MaxContentLightLevel && self.MaxFrameAverageLightLevel == other.MaxFrameAverageLightLevel
-    }
-}
-impl Eq for DXGI_HDR_METADATA_HDR10 {}
 impl Default for DXGI_HDR_METADATA_HDR10 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_HDR_METADATA_HDR10PLUS {
     pub Data: [u8; 72],
-}
-impl Copy for DXGI_HDR_METADATA_HDR10PLUS {}
-impl Clone for DXGI_HDR_METADATA_HDR10PLUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXGI_HDR_METADATA_HDR10PLUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_HDR_METADATA_HDR10PLUS").field("Data", &self.Data).finish()
-    }
 }
 impl windows_core::TypeKind for DXGI_HDR_METADATA_HDR10PLUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXGI_HDR_METADATA_HDR10PLUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Data == other.Data
-    }
-}
-impl Eq for DXGI_HDR_METADATA_HDR10PLUS {}
 impl Default for DXGI_HDR_METADATA_HDR10PLUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_INFO_QUEUE_FILTER {
     pub AllowList: DXGI_INFO_QUEUE_FILTER_DESC,
     pub DenyList: DXGI_INFO_QUEUE_FILTER_DESC,
 }
-impl Copy for DXGI_INFO_QUEUE_FILTER {}
-impl Clone for DXGI_INFO_QUEUE_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXGI_INFO_QUEUE_FILTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_INFO_QUEUE_FILTER").field("AllowList", &self.AllowList).field("DenyList", &self.DenyList).finish()
-    }
-}
 impl windows_core::TypeKind for DXGI_INFO_QUEUE_FILTER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXGI_INFO_QUEUE_FILTER {
-    fn eq(&self, other: &Self) -> bool {
-        self.AllowList == other.AllowList && self.DenyList == other.DenyList
-    }
-}
-impl Eq for DXGI_INFO_QUEUE_FILTER {}
 impl Default for DXGI_INFO_QUEUE_FILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_INFO_QUEUE_FILTER_DESC {
     pub NumCategories: u32,
     pub pCategoryList: *mut DXGI_INFO_QUEUE_MESSAGE_CATEGORY,
@@ -3280,32 +3079,16 @@ pub struct DXGI_INFO_QUEUE_FILTER_DESC {
     pub NumIDs: u32,
     pub pIDList: *mut i32,
 }
-impl Copy for DXGI_INFO_QUEUE_FILTER_DESC {}
-impl Clone for DXGI_INFO_QUEUE_FILTER_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXGI_INFO_QUEUE_FILTER_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_INFO_QUEUE_FILTER_DESC").field("NumCategories", &self.NumCategories).field("pCategoryList", &self.pCategoryList).field("NumSeverities", &self.NumSeverities).field("pSeverityList", &self.pSeverityList).field("NumIDs", &self.NumIDs).field("pIDList", &self.pIDList).finish()
-    }
-}
 impl windows_core::TypeKind for DXGI_INFO_QUEUE_FILTER_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXGI_INFO_QUEUE_FILTER_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumCategories == other.NumCategories && self.pCategoryList == other.pCategoryList && self.NumSeverities == other.NumSeverities && self.pSeverityList == other.pSeverityList && self.NumIDs == other.NumIDs && self.pIDList == other.pIDList
-    }
-}
-impl Eq for DXGI_INFO_QUEUE_FILTER_DESC {}
 impl Default for DXGI_INFO_QUEUE_FILTER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_INFO_QUEUE_MESSAGE {
     pub Producer: windows_core::GUID,
     pub Category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY,
@@ -3314,62 +3097,30 @@ pub struct DXGI_INFO_QUEUE_MESSAGE {
     pub pDescription: *const u8,
     pub DescriptionByteLength: usize,
 }
-impl Copy for DXGI_INFO_QUEUE_MESSAGE {}
-impl Clone for DXGI_INFO_QUEUE_MESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXGI_INFO_QUEUE_MESSAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_INFO_QUEUE_MESSAGE").field("Producer", &self.Producer).field("Category", &self.Category).field("Severity", &self.Severity).field("ID", &self.ID).field("pDescription", &self.pDescription).field("DescriptionByteLength", &self.DescriptionByteLength).finish()
-    }
-}
 impl windows_core::TypeKind for DXGI_INFO_QUEUE_MESSAGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXGI_INFO_QUEUE_MESSAGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Producer == other.Producer && self.Category == other.Category && self.Severity == other.Severity && self.ID == other.ID && self.pDescription == other.pDescription && self.DescriptionByteLength == other.DescriptionByteLength
-    }
-}
-impl Eq for DXGI_INFO_QUEUE_MESSAGE {}
 impl Default for DXGI_INFO_QUEUE_MESSAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_MAPPED_RECT {
     pub Pitch: i32,
     pub pBits: *mut u8,
 }
-impl Copy for DXGI_MAPPED_RECT {}
-impl Clone for DXGI_MAPPED_RECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXGI_MAPPED_RECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_MAPPED_RECT").field("Pitch", &self.Pitch).field("pBits", &self.pBits).finish()
-    }
-}
 impl windows_core::TypeKind for DXGI_MAPPED_RECT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXGI_MAPPED_RECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Pitch == other.Pitch && self.pBits == other.pBits
-    }
-}
-impl Eq for DXGI_MAPPED_RECT {}
 impl Default for DXGI_MAPPED_RECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_MATRIX_3X2_F {
     pub _11: f32,
     pub _12: f32,
@@ -3378,26 +3129,9 @@ pub struct DXGI_MATRIX_3X2_F {
     pub _31: f32,
     pub _32: f32,
 }
-impl Copy for DXGI_MATRIX_3X2_F {}
-impl Clone for DXGI_MATRIX_3X2_F {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXGI_MATRIX_3X2_F {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_MATRIX_3X2_F").field("_11", &self._11).field("_12", &self._12).field("_21", &self._21).field("_22", &self._22).field("_31", &self._31).field("_32", &self._32).finish()
-    }
-}
 impl windows_core::TypeKind for DXGI_MATRIX_3X2_F {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXGI_MATRIX_3X2_F {
-    fn eq(&self, other: &Self) -> bool {
-        self._11 == other._11 && self._12 == other._12 && self._21 == other._21 && self._22 == other._22 && self._31 == other._31 && self._32 == other._32
-    }
-}
-impl Eq for DXGI_MATRIX_3X2_F {}
 impl Default for DXGI_MATRIX_3X2_F {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3405,6 +3139,7 @@ impl Default for DXGI_MATRIX_3X2_F {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_MODE_DESC1 {
     pub Width: u32,
     pub Height: u32,
@@ -3415,31 +3150,9 @@ pub struct DXGI_MODE_DESC1 {
     pub Stereo: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for DXGI_MODE_DESC1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for DXGI_MODE_DESC1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for DXGI_MODE_DESC1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_MODE_DESC1").field("Width", &self.Width).field("Height", &self.Height).field("RefreshRate", &self.RefreshRate).field("Format", &self.Format).field("ScanlineOrdering", &self.ScanlineOrdering).field("Scaling", &self.Scaling).field("Stereo", &self.Stereo).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for DXGI_MODE_DESC1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for DXGI_MODE_DESC1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height && self.RefreshRate == other.RefreshRate && self.Format == other.Format && self.ScanlineOrdering == other.ScanlineOrdering && self.Scaling == other.Scaling && self.Stereo == other.Stereo
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for DXGI_MODE_DESC1 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for DXGI_MODE_DESC1 {
     fn default() -> Self {
@@ -3448,37 +3161,16 @@ impl Default for DXGI_MODE_DESC1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_OUTDUPL_DESC {
     pub ModeDesc: Common::DXGI_MODE_DESC,
     pub Rotation: Common::DXGI_MODE_ROTATION,
     pub DesktopImageInSystemMemory: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for DXGI_OUTDUPL_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for DXGI_OUTDUPL_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for DXGI_OUTDUPL_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_OUTDUPL_DESC").field("ModeDesc", &self.ModeDesc).field("Rotation", &self.Rotation).field("DesktopImageInSystemMemory", &self.DesktopImageInSystemMemory).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for DXGI_OUTDUPL_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for DXGI_OUTDUPL_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ModeDesc == other.ModeDesc && self.Rotation == other.Rotation && self.DesktopImageInSystemMemory == other.DesktopImageInSystemMemory
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for DXGI_OUTDUPL_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for DXGI_OUTDUPL_DESC {
     fn default() -> Self {
@@ -3486,6 +3178,7 @@ impl Default for DXGI_OUTDUPL_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_OUTDUPL_FRAME_INFO {
     pub LastPresentTime: i64,
     pub LastMouseUpdateTime: i64,
@@ -3496,101 +3189,44 @@ pub struct DXGI_OUTDUPL_FRAME_INFO {
     pub TotalMetadataBufferSize: u32,
     pub PointerShapeBufferSize: u32,
 }
-impl Copy for DXGI_OUTDUPL_FRAME_INFO {}
-impl Clone for DXGI_OUTDUPL_FRAME_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXGI_OUTDUPL_FRAME_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_OUTDUPL_FRAME_INFO")
-            .field("LastPresentTime", &self.LastPresentTime)
-            .field("LastMouseUpdateTime", &self.LastMouseUpdateTime)
-            .field("AccumulatedFrames", &self.AccumulatedFrames)
-            .field("RectsCoalesced", &self.RectsCoalesced)
-            .field("ProtectedContentMaskedOut", &self.ProtectedContentMaskedOut)
-            .field("PointerPosition", &self.PointerPosition)
-            .field("TotalMetadataBufferSize", &self.TotalMetadataBufferSize)
-            .field("PointerShapeBufferSize", &self.PointerShapeBufferSize)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DXGI_OUTDUPL_FRAME_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXGI_OUTDUPL_FRAME_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.LastPresentTime == other.LastPresentTime && self.LastMouseUpdateTime == other.LastMouseUpdateTime && self.AccumulatedFrames == other.AccumulatedFrames && self.RectsCoalesced == other.RectsCoalesced && self.ProtectedContentMaskedOut == other.ProtectedContentMaskedOut && self.PointerPosition == other.PointerPosition && self.TotalMetadataBufferSize == other.TotalMetadataBufferSize && self.PointerShapeBufferSize == other.PointerShapeBufferSize
-    }
-}
-impl Eq for DXGI_OUTDUPL_FRAME_INFO {}
 impl Default for DXGI_OUTDUPL_FRAME_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_OUTDUPL_MOVE_RECT {
     pub SourcePoint: super::super::Foundation::POINT,
     pub DestinationRect: super::super::Foundation::RECT,
 }
-impl Copy for DXGI_OUTDUPL_MOVE_RECT {}
-impl Clone for DXGI_OUTDUPL_MOVE_RECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXGI_OUTDUPL_MOVE_RECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_OUTDUPL_MOVE_RECT").field("SourcePoint", &self.SourcePoint).field("DestinationRect", &self.DestinationRect).finish()
-    }
-}
 impl windows_core::TypeKind for DXGI_OUTDUPL_MOVE_RECT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXGI_OUTDUPL_MOVE_RECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.SourcePoint == other.SourcePoint && self.DestinationRect == other.DestinationRect
-    }
-}
-impl Eq for DXGI_OUTDUPL_MOVE_RECT {}
 impl Default for DXGI_OUTDUPL_MOVE_RECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_OUTDUPL_POINTER_POSITION {
     pub Position: super::super::Foundation::POINT,
     pub Visible: super::super::Foundation::BOOL,
 }
-impl Copy for DXGI_OUTDUPL_POINTER_POSITION {}
-impl Clone for DXGI_OUTDUPL_POINTER_POSITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXGI_OUTDUPL_POINTER_POSITION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_OUTDUPL_POINTER_POSITION").field("Position", &self.Position).field("Visible", &self.Visible).finish()
-    }
-}
 impl windows_core::TypeKind for DXGI_OUTDUPL_POINTER_POSITION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXGI_OUTDUPL_POINTER_POSITION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Position == other.Position && self.Visible == other.Visible
-    }
-}
-impl Eq for DXGI_OUTDUPL_POINTER_POSITION {}
 impl Default for DXGI_OUTDUPL_POINTER_POSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_OUTDUPL_POINTER_SHAPE_INFO {
     pub Type: u32,
     pub Width: u32,
@@ -3598,26 +3234,9 @@ pub struct DXGI_OUTDUPL_POINTER_SHAPE_INFO {
     pub Pitch: u32,
     pub HotSpot: super::super::Foundation::POINT,
 }
-impl Copy for DXGI_OUTDUPL_POINTER_SHAPE_INFO {}
-impl Clone for DXGI_OUTDUPL_POINTER_SHAPE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXGI_OUTDUPL_POINTER_SHAPE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_OUTDUPL_POINTER_SHAPE_INFO").field("Type", &self.Type).field("Width", &self.Width).field("Height", &self.Height).field("Pitch", &self.Pitch).field("HotSpot", &self.HotSpot).finish()
-    }
-}
 impl windows_core::TypeKind for DXGI_OUTDUPL_POINTER_SHAPE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXGI_OUTDUPL_POINTER_SHAPE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Width == other.Width && self.Height == other.Height && self.Pitch == other.Pitch && self.HotSpot == other.HotSpot
-    }
-}
-impl Eq for DXGI_OUTDUPL_POINTER_SHAPE_INFO {}
 impl Default for DXGI_OUTDUPL_POINTER_SHAPE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3625,6 +3244,7 @@ impl Default for DXGI_OUTDUPL_POINTER_SHAPE_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_OUTPUT_DESC {
     pub DeviceName: [u16; 32],
     pub DesktopCoordinates: super::super::Foundation::RECT,
@@ -3633,31 +3253,9 @@ pub struct DXGI_OUTPUT_DESC {
     pub Monitor: super::Gdi::HMONITOR,
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-impl Copy for DXGI_OUTPUT_DESC {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-impl Clone for DXGI_OUTPUT_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-impl core::fmt::Debug for DXGI_OUTPUT_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_OUTPUT_DESC").field("DeviceName", &self.DeviceName).field("DesktopCoordinates", &self.DesktopCoordinates).field("AttachedToDesktop", &self.AttachedToDesktop).field("Rotation", &self.Rotation).field("Monitor", &self.Monitor).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::TypeKind for DXGI_OUTPUT_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-impl PartialEq for DXGI_OUTPUT_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.DeviceName == other.DeviceName && self.DesktopCoordinates == other.DesktopCoordinates && self.AttachedToDesktop == other.AttachedToDesktop && self.Rotation == other.Rotation && self.Monitor == other.Monitor
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-impl Eq for DXGI_OUTPUT_DESC {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl Default for DXGI_OUTPUT_DESC {
     fn default() -> Self {
@@ -3666,6 +3264,7 @@ impl Default for DXGI_OUTPUT_DESC {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_OUTPUT_DESC1 {
     pub DeviceName: [u16; 32],
     pub DesktopCoordinates: super::super::Foundation::RECT,
@@ -3683,46 +3282,9 @@ pub struct DXGI_OUTPUT_DESC1 {
     pub MaxFullFrameLuminance: f32,
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-impl Copy for DXGI_OUTPUT_DESC1 {}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-impl Clone for DXGI_OUTPUT_DESC1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-impl core::fmt::Debug for DXGI_OUTPUT_DESC1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_OUTPUT_DESC1")
-            .field("DeviceName", &self.DeviceName)
-            .field("DesktopCoordinates", &self.DesktopCoordinates)
-            .field("AttachedToDesktop", &self.AttachedToDesktop)
-            .field("Rotation", &self.Rotation)
-            .field("Monitor", &self.Monitor)
-            .field("BitsPerColor", &self.BitsPerColor)
-            .field("ColorSpace", &self.ColorSpace)
-            .field("RedPrimary", &self.RedPrimary)
-            .field("GreenPrimary", &self.GreenPrimary)
-            .field("BluePrimary", &self.BluePrimary)
-            .field("WhitePoint", &self.WhitePoint)
-            .field("MinLuminance", &self.MinLuminance)
-            .field("MaxLuminance", &self.MaxLuminance)
-            .field("MaxFullFrameLuminance", &self.MaxFullFrameLuminance)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::TypeKind for DXGI_OUTPUT_DESC1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-impl PartialEq for DXGI_OUTPUT_DESC1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.DeviceName == other.DeviceName && self.DesktopCoordinates == other.DesktopCoordinates && self.AttachedToDesktop == other.AttachedToDesktop && self.Rotation == other.Rotation && self.Monitor == other.Monitor && self.BitsPerColor == other.BitsPerColor && self.ColorSpace == other.ColorSpace && self.RedPrimary == other.RedPrimary && self.GreenPrimary == other.GreenPrimary && self.BluePrimary == other.BluePrimary && self.WhitePoint == other.WhitePoint && self.MinLuminance == other.MinLuminance && self.MaxLuminance == other.MaxLuminance && self.MaxFullFrameLuminance == other.MaxFullFrameLuminance
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-impl Eq for DXGI_OUTPUT_DESC1 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl Default for DXGI_OUTPUT_DESC1 {
     fn default() -> Self {
@@ -3730,125 +3292,61 @@ impl Default for DXGI_OUTPUT_DESC1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_PRESENT_PARAMETERS {
     pub DirtyRectsCount: u32,
     pub pDirtyRects: *mut super::super::Foundation::RECT,
     pub pScrollRect: *mut super::super::Foundation::RECT,
     pub pScrollOffset: *mut super::super::Foundation::POINT,
 }
-impl Copy for DXGI_PRESENT_PARAMETERS {}
-impl Clone for DXGI_PRESENT_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXGI_PRESENT_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_PRESENT_PARAMETERS").field("DirtyRectsCount", &self.DirtyRectsCount).field("pDirtyRects", &self.pDirtyRects).field("pScrollRect", &self.pScrollRect).field("pScrollOffset", &self.pScrollOffset).finish()
-    }
-}
 impl windows_core::TypeKind for DXGI_PRESENT_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXGI_PRESENT_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.DirtyRectsCount == other.DirtyRectsCount && self.pDirtyRects == other.pDirtyRects && self.pScrollRect == other.pScrollRect && self.pScrollOffset == other.pScrollOffset
-    }
-}
-impl Eq for DXGI_PRESENT_PARAMETERS {}
 impl Default for DXGI_PRESENT_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_QUERY_VIDEO_MEMORY_INFO {
     pub Budget: u64,
     pub CurrentUsage: u64,
     pub AvailableForReservation: u64,
     pub CurrentReservation: u64,
 }
-impl Copy for DXGI_QUERY_VIDEO_MEMORY_INFO {}
-impl Clone for DXGI_QUERY_VIDEO_MEMORY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXGI_QUERY_VIDEO_MEMORY_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_QUERY_VIDEO_MEMORY_INFO").field("Budget", &self.Budget).field("CurrentUsage", &self.CurrentUsage).field("AvailableForReservation", &self.AvailableForReservation).field("CurrentReservation", &self.CurrentReservation).finish()
-    }
-}
 impl windows_core::TypeKind for DXGI_QUERY_VIDEO_MEMORY_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXGI_QUERY_VIDEO_MEMORY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Budget == other.Budget && self.CurrentUsage == other.CurrentUsage && self.AvailableForReservation == other.AvailableForReservation && self.CurrentReservation == other.CurrentReservation
-    }
-}
-impl Eq for DXGI_QUERY_VIDEO_MEMORY_INFO {}
 impl Default for DXGI_QUERY_VIDEO_MEMORY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_RGBA {
     pub r: f32,
     pub g: f32,
     pub b: f32,
     pub a: f32,
 }
-impl Copy for DXGI_RGBA {}
-impl Clone for DXGI_RGBA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXGI_RGBA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_RGBA").field("r", &self.r).field("g", &self.g).field("b", &self.b).field("a", &self.a).finish()
-    }
-}
 impl windows_core::TypeKind for DXGI_RGBA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXGI_RGBA {
-    fn eq(&self, other: &Self) -> bool {
-        self.r == other.r && self.g == other.g && self.b == other.b && self.a == other.a
-    }
-}
-impl Eq for DXGI_RGBA {}
 impl Default for DXGI_RGBA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_SHARED_RESOURCE {
     pub Handle: super::super::Foundation::HANDLE,
-}
-impl Copy for DXGI_SHARED_RESOURCE {}
-impl Clone for DXGI_SHARED_RESOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXGI_SHARED_RESOURCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_SHARED_RESOURCE").field("Handle", &self.Handle).finish()
-    }
 }
 impl windows_core::TypeKind for DXGI_SHARED_RESOURCE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXGI_SHARED_RESOURCE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Handle == other.Handle
-    }
-}
-impl Eq for DXGI_SHARED_RESOURCE {}
 impl Default for DXGI_SHARED_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3856,6 +3354,7 @@ impl Default for DXGI_SHARED_RESOURCE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_SURFACE_DESC {
     pub Width: u32,
     pub Height: u32,
@@ -3863,31 +3362,9 @@ pub struct DXGI_SURFACE_DESC {
     pub SampleDesc: Common::DXGI_SAMPLE_DESC,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for DXGI_SURFACE_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for DXGI_SURFACE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for DXGI_SURFACE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_SURFACE_DESC").field("Width", &self.Width).field("Height", &self.Height).field("Format", &self.Format).field("SampleDesc", &self.SampleDesc).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for DXGI_SURFACE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for DXGI_SURFACE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height && self.Format == other.Format && self.SampleDesc == other.SampleDesc
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for DXGI_SURFACE_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for DXGI_SURFACE_DESC {
     fn default() -> Self {
@@ -3896,6 +3373,7 @@ impl Default for DXGI_SURFACE_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_SWAP_CHAIN_DESC {
     pub BufferDesc: Common::DXGI_MODE_DESC,
     pub SampleDesc: Common::DXGI_SAMPLE_DESC,
@@ -3907,31 +3385,9 @@ pub struct DXGI_SWAP_CHAIN_DESC {
     pub Flags: u32,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for DXGI_SWAP_CHAIN_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for DXGI_SWAP_CHAIN_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for DXGI_SWAP_CHAIN_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_SWAP_CHAIN_DESC").field("BufferDesc", &self.BufferDesc).field("SampleDesc", &self.SampleDesc).field("BufferUsage", &self.BufferUsage).field("BufferCount", &self.BufferCount).field("OutputWindow", &self.OutputWindow).field("Windowed", &self.Windowed).field("SwapEffect", &self.SwapEffect).field("Flags", &self.Flags).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for DXGI_SWAP_CHAIN_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for DXGI_SWAP_CHAIN_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.BufferDesc == other.BufferDesc && self.SampleDesc == other.SampleDesc && self.BufferUsage == other.BufferUsage && self.BufferCount == other.BufferCount && self.OutputWindow == other.OutputWindow && self.Windowed == other.Windowed && self.SwapEffect == other.SwapEffect && self.Flags == other.Flags
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for DXGI_SWAP_CHAIN_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for DXGI_SWAP_CHAIN_DESC {
     fn default() -> Self {
@@ -3940,6 +3396,7 @@ impl Default for DXGI_SWAP_CHAIN_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_SWAP_CHAIN_DESC1 {
     pub Width: u32,
     pub Height: u32,
@@ -3954,31 +3411,9 @@ pub struct DXGI_SWAP_CHAIN_DESC1 {
     pub Flags: u32,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for DXGI_SWAP_CHAIN_DESC1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for DXGI_SWAP_CHAIN_DESC1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for DXGI_SWAP_CHAIN_DESC1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_SWAP_CHAIN_DESC1").field("Width", &self.Width).field("Height", &self.Height).field("Format", &self.Format).field("Stereo", &self.Stereo).field("SampleDesc", &self.SampleDesc).field("BufferUsage", &self.BufferUsage).field("BufferCount", &self.BufferCount).field("Scaling", &self.Scaling).field("SwapEffect", &self.SwapEffect).field("AlphaMode", &self.AlphaMode).field("Flags", &self.Flags).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for DXGI_SWAP_CHAIN_DESC1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for DXGI_SWAP_CHAIN_DESC1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height && self.Format == other.Format && self.Stereo == other.Stereo && self.SampleDesc == other.SampleDesc && self.BufferUsage == other.BufferUsage && self.BufferCount == other.BufferCount && self.Scaling == other.Scaling && self.SwapEffect == other.SwapEffect && self.AlphaMode == other.AlphaMode && self.Flags == other.Flags
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for DXGI_SWAP_CHAIN_DESC1 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for DXGI_SWAP_CHAIN_DESC1 {
     fn default() -> Self {
@@ -3987,6 +3422,7 @@ impl Default for DXGI_SWAP_CHAIN_DESC1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
     pub RefreshRate: Common::DXGI_RATIONAL,
     pub ScanlineOrdering: Common::DXGI_MODE_SCANLINE_ORDER,
@@ -3994,31 +3430,9 @@ pub struct DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
     pub Windowed: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXGI_SWAP_CHAIN_FULLSCREEN_DESC").field("RefreshRate", &self.RefreshRate).field("ScanlineOrdering", &self.ScanlineOrdering).field("Scaling", &self.Scaling).field("Windowed", &self.Windowed).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.RefreshRate == other.RefreshRate && self.ScanlineOrdering == other.ScanlineOrdering && self.Scaling == other.Scaling && self.Windowed == other.Windowed
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
     fn default() -> Self {

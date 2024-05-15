@@ -597,18 +597,14 @@ pub type ISOLATION_STATE = i32;
 pub type PPP_EAP_ACTION = i32;
 pub type RAS_AUTH_ATTRIBUTE_TYPE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAPHOST_AUTH_INFO {
     pub status: EAPHOST_AUTH_STATUS,
     pub dwErrorCode: u32,
     pub dwReasonCode: u32,
 }
-impl Copy for EAPHOST_AUTH_INFO {}
-impl Clone for EAPHOST_AUTH_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAPHOST_IDENTITY_UI_PARAMS {
     pub eapMethodType: EAP_METHOD_TYPE,
     pub dwFlags: u32,
@@ -622,13 +618,8 @@ pub struct EAPHOST_IDENTITY_UI_PARAMS {
     pub dwError: u32,
     pub pEapError: *mut EAP_ERROR,
 }
-impl Copy for EAPHOST_IDENTITY_UI_PARAMS {}
-impl Clone for EAPHOST_IDENTITY_UI_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAPHOST_INTERACTIVE_UI_PARAMS {
     pub dwSizeofContextData: u32,
     pub pContextData: *mut u8,
@@ -637,36 +628,21 @@ pub struct EAPHOST_INTERACTIVE_UI_PARAMS {
     pub dwError: u32,
     pub pEapError: *mut EAP_ERROR,
 }
-impl Copy for EAPHOST_INTERACTIVE_UI_PARAMS {}
-impl Clone for EAPHOST_INTERACTIVE_UI_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAP_ATTRIBUTE {
     pub eaType: EAP_ATTRIBUTE_TYPE,
     pub dwLength: u32,
     pub pValue: *mut u8,
 }
-impl Copy for EAP_ATTRIBUTE {}
-impl Clone for EAP_ATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAP_ATTRIBUTES {
     pub dwNumberOfAttributes: u32,
     pub pAttribs: *mut EAP_ATTRIBUTE,
 }
-impl Copy for EAP_ATTRIBUTES {}
-impl Clone for EAP_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAP_AUTHENTICATOR_METHOD_ROUTINES {
     pub dwSizeInBytes: u32,
     pub pEapType: *mut EAP_METHOD_TYPE,
@@ -681,25 +657,15 @@ pub struct EAP_AUTHENTICATOR_METHOD_ROUTINES {
     pub EapMethodAuthenticatorEndSession: isize,
     pub EapMethodAuthenticatorShutdown: isize,
 }
-impl Copy for EAP_AUTHENTICATOR_METHOD_ROUTINES {}
-impl Clone for EAP_AUTHENTICATOR_METHOD_ROUTINES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAP_CONFIG_INPUT_FIELD_ARRAY {
     pub dwVersion: u32,
     pub dwNumberOfFields: u32,
     pub pFields: *mut EAP_CONFIG_INPUT_FIELD_DATA,
 }
-impl Copy for EAP_CONFIG_INPUT_FIELD_ARRAY {}
-impl Clone for EAP_CONFIG_INPUT_FIELD_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAP_CONFIG_INPUT_FIELD_DATA {
     pub dwSize: u32,
     pub Type: EAP_CONFIG_INPUT_FIELD_TYPE,
@@ -709,24 +675,14 @@ pub struct EAP_CONFIG_INPUT_FIELD_DATA {
     pub dwMinDataLength: u32,
     pub dwMaxDataLength: u32,
 }
-impl Copy for EAP_CONFIG_INPUT_FIELD_DATA {}
-impl Clone for EAP_CONFIG_INPUT_FIELD_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAP_CRED_EXPIRY_REQ {
     pub curCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
     pub newCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
 }
-impl Copy for EAP_CRED_EXPIRY_REQ {}
-impl Clone for EAP_CRED_EXPIRY_REQ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAP_ERROR {
     pub dwWinError: u32,
     pub r#type: EAP_METHOD_TYPE,
@@ -737,13 +693,8 @@ pub struct EAP_ERROR {
     pub pRootCauseString: windows_sys::core::PWSTR,
     pub pRepairString: windows_sys::core::PWSTR,
 }
-impl Copy for EAP_ERROR {}
-impl Clone for EAP_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAP_INTERACTIVE_UI_DATA {
     pub dwVersion: u32,
     pub dwSize: u32,
@@ -751,25 +702,15 @@ pub struct EAP_INTERACTIVE_UI_DATA {
     pub cbUiData: u32,
     pub pbUiData: EAP_UI_DATA_FORMAT,
 }
-impl Copy for EAP_INTERACTIVE_UI_DATA {}
-impl Clone for EAP_INTERACTIVE_UI_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAP_METHOD_AUTHENTICATOR_RESULT {
     pub fIsSuccess: super::super::Foundation::BOOL,
     pub dwFailureReason: u32,
     pub pAuthAttribs: *mut EAP_ATTRIBUTES,
 }
-impl Copy for EAP_METHOD_AUTHENTICATOR_RESULT {}
-impl Clone for EAP_METHOD_AUTHENTICATOR_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAP_METHOD_INFO {
     pub eaptype: EAP_METHOD_TYPE,
     pub pwszAuthorName: windows_sys::core::PWSTR,
@@ -777,35 +718,20 @@ pub struct EAP_METHOD_INFO {
     pub eapProperties: u32,
     pub pInnerMethodInfo: *mut EAP_METHOD_INFO,
 }
-impl Copy for EAP_METHOD_INFO {}
-impl Clone for EAP_METHOD_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAP_METHOD_INFO_ARRAY {
     pub dwNumberOfMethods: u32,
     pub pEapMethods: *mut EAP_METHOD_INFO,
 }
-impl Copy for EAP_METHOD_INFO_ARRAY {}
-impl Clone for EAP_METHOD_INFO_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAP_METHOD_INFO_ARRAY_EX {
     pub dwNumberOfMethods: u32,
     pub pEapMethods: *mut EAP_METHOD_INFO_EX,
 }
-impl Copy for EAP_METHOD_INFO_ARRAY_EX {}
-impl Clone for EAP_METHOD_INFO_ARRAY_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAP_METHOD_INFO_EX {
     pub eaptype: EAP_METHOD_TYPE,
     pub pwszAuthorName: windows_sys::core::PWSTR,
@@ -813,92 +739,52 @@ pub struct EAP_METHOD_INFO_EX {
     pub eapProperties: u32,
     pub pInnerMethodInfoArray: *mut EAP_METHOD_INFO_ARRAY_EX,
 }
-impl Copy for EAP_METHOD_INFO_EX {}
-impl Clone for EAP_METHOD_INFO_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAP_METHOD_PROPERTY {
     pub eapMethodPropertyType: EAP_METHOD_PROPERTY_TYPE,
     pub eapMethodPropertyValueType: EAP_METHOD_PROPERTY_VALUE_TYPE,
     pub eapMethodPropertyValue: EAP_METHOD_PROPERTY_VALUE,
 }
-impl Copy for EAP_METHOD_PROPERTY {}
-impl Clone for EAP_METHOD_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAP_METHOD_PROPERTY_ARRAY {
     pub dwNumberOfProperties: u32,
     pub pMethodProperty: *mut EAP_METHOD_PROPERTY,
 }
-impl Copy for EAP_METHOD_PROPERTY_ARRAY {}
-impl Clone for EAP_METHOD_PROPERTY_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union EAP_METHOD_PROPERTY_VALUE {
     pub empvBool: EAP_METHOD_PROPERTY_VALUE_BOOL,
     pub empvDword: EAP_METHOD_PROPERTY_VALUE_DWORD,
     pub empvString: EAP_METHOD_PROPERTY_VALUE_STRING,
 }
-impl Copy for EAP_METHOD_PROPERTY_VALUE {}
-impl Clone for EAP_METHOD_PROPERTY_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAP_METHOD_PROPERTY_VALUE_BOOL {
     pub length: u32,
     pub value: super::super::Foundation::BOOL,
 }
-impl Copy for EAP_METHOD_PROPERTY_VALUE_BOOL {}
-impl Clone for EAP_METHOD_PROPERTY_VALUE_BOOL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAP_METHOD_PROPERTY_VALUE_DWORD {
     pub length: u32,
     pub value: u32,
 }
-impl Copy for EAP_METHOD_PROPERTY_VALUE_DWORD {}
-impl Clone for EAP_METHOD_PROPERTY_VALUE_DWORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAP_METHOD_PROPERTY_VALUE_STRING {
     pub length: u32,
     pub value: *mut u8,
 }
-impl Copy for EAP_METHOD_PROPERTY_VALUE_STRING {}
-impl Clone for EAP_METHOD_PROPERTY_VALUE_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAP_METHOD_TYPE {
     pub eapType: EAP_TYPE,
     pub dwAuthorId: u32,
 }
-impl Copy for EAP_METHOD_TYPE {}
-impl Clone for EAP_METHOD_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAP_PEER_METHOD_ROUTINES {
     pub dwVersion: u32,
     pub pEapType: *mut EAP_TYPE,
@@ -916,71 +802,41 @@ pub struct EAP_PEER_METHOD_ROUTINES {
     pub EapPeerEndSession: isize,
     pub EapPeerShutdown: isize,
 }
-impl Copy for EAP_PEER_METHOD_ROUTINES {}
-impl Clone for EAP_PEER_METHOD_ROUTINES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAP_TYPE {
     pub r#type: u8,
     pub dwVendorId: u32,
     pub dwVendorType: u32,
 }
-impl Copy for EAP_TYPE {}
-impl Clone for EAP_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union EAP_UI_DATA_FORMAT {
     pub credData: *mut EAP_CONFIG_INPUT_FIELD_ARRAY,
     pub credExpiryData: *mut EAP_CRED_EXPIRY_REQ,
     pub credLogonData: *mut EAP_CONFIG_INPUT_FIELD_ARRAY,
 }
-impl Copy for EAP_UI_DATA_FORMAT {}
-impl Clone for EAP_UI_DATA_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EapCertificateCredential {
     pub certHash: [u8; 20],
     pub password: windows_sys::core::PWSTR,
 }
-impl Copy for EapCertificateCredential {}
-impl Clone for EapCertificateCredential {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EapCredential {
     pub credType: EapCredentialType,
     pub credData: EapCredentialTypeData,
 }
-impl Copy for EapCredential {}
-impl Clone for EapCredential {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union EapCredentialTypeData {
     pub username_password: EapUsernamePasswordCredential,
     pub certificate: EapCertificateCredential,
     pub sim: EapSimCredential,
 }
-impl Copy for EapCredentialTypeData {}
-impl Clone for EapCredentialTypeData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EapHostPeerMethodResult {
     pub fIsSuccess: super::super::Foundation::BOOL,
     pub dwFailureReasonCode: u32,
@@ -995,38 +851,23 @@ pub struct EapHostPeerMethodResult {
     pub pEapMethodInfo: *mut EAP_METHOD_INFO,
     pub pEapError: *mut EAP_ERROR,
 }
-impl Copy for EapHostPeerMethodResult {}
-impl Clone for EapHostPeerMethodResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EapPacket {
     pub Code: u8,
     pub Id: u8,
     pub Length: [u8; 2],
     pub Data: [u8; 1],
 }
-impl Copy for EapPacket {}
-impl Clone for EapPacket {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EapPeerMethodOutput {
     pub action: EapPeerMethodResponseAction,
     pub fAllowNotifications: super::super::Foundation::BOOL,
 }
-impl Copy for EapPeerMethodOutput {}
-impl Clone for EapPeerMethodOutput {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct EapPeerMethodResult {
     pub fIsSuccess: super::super::Foundation::BOOL,
     pub dwFailureReasonCode: u32,
@@ -1041,36 +882,19 @@ pub struct EapPeerMethodResult {
     pub pNgcKerbTicket: *mut NgcTicketContext,
     pub fSaveToCredMan: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for EapPeerMethodResult {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for EapPeerMethodResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EapSimCredential {
     pub iccID: windows_sys::core::PWSTR,
 }
-impl Copy for EapSimCredential {}
-impl Clone for EapSimCredential {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EapUsernamePasswordCredential {
     pub username: windows_sys::core::PWSTR,
     pub password: windows_sys::core::PWSTR,
 }
-impl Copy for EapUsernamePasswordCredential {}
-impl Clone for EapUsernamePasswordCredential {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LEGACY_IDENTITY_UI_PARAMS {
     pub eapType: u32,
     pub dwFlags: u32,
@@ -1083,13 +907,8 @@ pub struct LEGACY_IDENTITY_UI_PARAMS {
     pub pwszIdentity: windows_sys::core::PWSTR,
     pub dwError: u32,
 }
-impl Copy for LEGACY_IDENTITY_UI_PARAMS {}
-impl Clone for LEGACY_IDENTITY_UI_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LEGACY_INTERACTIVE_UI_PARAMS {
     pub eapType: u32,
     pub dwSizeofContextData: u32,
@@ -1098,28 +917,16 @@ pub struct LEGACY_INTERACTIVE_UI_PARAMS {
     pub pInteractiveUIData: *mut u8,
     pub dwError: u32,
 }
-impl Copy for LEGACY_INTERACTIVE_UI_PARAMS {}
-impl Clone for LEGACY_INTERACTIVE_UI_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct NgcTicketContext {
     pub wszTicket: [u16; 45],
     pub hKey: super::Cryptography::NCRYPT_KEY_HANDLE,
     pub hImpersonateToken: super::super::Foundation::HANDLE,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for NgcTicketContext {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for NgcTicketContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PPP_EAP_INFO {
     pub dwSizeInBytes: u32,
     pub dwEapTypeId: u32,
@@ -1128,13 +935,8 @@ pub struct PPP_EAP_INFO {
     pub RasEapEnd: isize,
     pub RasEapMakeMessage: isize,
 }
-impl Copy for PPP_EAP_INFO {}
-impl Clone for PPP_EAP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PPP_EAP_INPUT {
     pub dwSizeInBytes: u32,
     pub fFlags: u32,
@@ -1158,14 +960,9 @@ pub struct PPP_EAP_INPUT {
     pub guidConnectionId: windows_sys::core::GUID,
     pub isVpn: super::super::Foundation::BOOL,
 }
-impl Copy for PPP_EAP_INPUT {}
-impl Clone for PPP_EAP_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct PPP_EAP_OUTPUT {
     pub dwSizeInBytes: u32,
     pub Action: PPP_EAP_ACTION,
@@ -1183,37 +980,19 @@ pub struct PPP_EAP_OUTPUT {
     pub pNgcKerbTicket: *mut NgcTicketContext,
     pub fSaveToCredMan: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for PPP_EAP_OUTPUT {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for PPP_EAP_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PPP_EAP_PACKET {
     pub Code: u8,
     pub Id: u8,
     pub Length: [u8; 2],
     pub Data: [u8; 1],
 }
-impl Copy for PPP_EAP_PACKET {}
-impl Clone for PPP_EAP_PACKET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RAS_AUTH_ATTRIBUTE {
     pub raaType: RAS_AUTH_ATTRIBUTE_TYPE,
     pub dwLength: u32,
     pub Value: *mut core::ffi::c_void,
-}
-impl Copy for RAS_AUTH_ATTRIBUTE {}
-impl Clone for RAS_AUTH_ATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type NotificationHandler = Option<unsafe extern "system" fn(connectionid: windows_sys::core::GUID, pcontextdata: *mut core::ffi::c_void)>;

@@ -99,62 +99,30 @@ impl core::ops::Not for OPERATION_START_FLAGS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OPERATION_END_PARAMETERS {
     pub Version: u32,
     pub OperationId: u32,
     pub Flags: OPERATION_END_PARAMETERS_FLAGS,
 }
-impl Copy for OPERATION_END_PARAMETERS {}
-impl Clone for OPERATION_END_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OPERATION_END_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OPERATION_END_PARAMETERS").field("Version", &self.Version).field("OperationId", &self.OperationId).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for OPERATION_END_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OPERATION_END_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.OperationId == other.OperationId && self.Flags == other.Flags
-    }
-}
-impl Eq for OPERATION_END_PARAMETERS {}
 impl Default for OPERATION_END_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OPERATION_START_PARAMETERS {
     pub Version: u32,
     pub OperationId: u32,
     pub Flags: OPERATION_START_FLAGS,
 }
-impl Copy for OPERATION_START_PARAMETERS {}
-impl Clone for OPERATION_START_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OPERATION_START_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OPERATION_START_PARAMETERS").field("Version", &self.Version).field("OperationId", &self.OperationId).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for OPERATION_START_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OPERATION_START_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.OperationId == other.OperationId && self.Flags == other.Flags
-    }
-}
-impl Eq for OPERATION_START_PARAMETERS {}
 impl Default for OPERATION_START_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -430,6 +430,19 @@ pub fn type_def_has_callback(row: TypeDef) -> bool {
     }
 }
 
+pub fn type_def_has_float(def: TypeDef) -> bool {
+    def.kind() == TypeKind::Struct && def.fields().any(|field| type_has_float(&field.ty(Some(def))))
+}
+
+pub fn type_has_float(ty: &Type) -> bool {
+    match ty {
+        Type::F32 | Type::F64 => true,
+        Type::Win32Array(ty, _) => type_has_float(ty),
+        Type::TypeDef(def, _) => type_def_has_float(*def),
+        _ => false,
+    }
+}
+
 pub fn type_interfaces(ty: &Type) -> Vec<Interface> {
     // TODO: collect into btree map and then return collected vec
     // This will both sort the results and should make finding dupes faster

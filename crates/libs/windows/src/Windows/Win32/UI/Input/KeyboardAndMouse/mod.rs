@@ -992,77 +992,40 @@ impl core::fmt::Debug for VIRTUAL_KEY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEADKEY {
     pub dwBoth: u32,
     pub wchComposed: u16,
     pub uFlags: u16,
 }
-impl Copy for DEADKEY {}
-impl Clone for DEADKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DEADKEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DEADKEY").field("dwBoth", &self.dwBoth).field("wchComposed", &self.wchComposed).field("uFlags", &self.uFlags).finish()
-    }
-}
 impl windows_core::TypeKind for DEADKEY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DEADKEY {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwBoth == other.dwBoth && self.wchComposed == other.wchComposed && self.uFlags == other.uFlags
-    }
-}
-impl Eq for DEADKEY {}
 impl Default for DEADKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HARDWAREINPUT {
     pub uMsg: u32,
     pub wParamL: u16,
     pub wParamH: u16,
 }
-impl Copy for HARDWAREINPUT {}
-impl Clone for HARDWAREINPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HARDWAREINPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HARDWAREINPUT").field("uMsg", &self.uMsg).field("wParamL", &self.wParamL).field("wParamH", &self.wParamH).finish()
-    }
-}
 impl windows_core::TypeKind for HARDWAREINPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HARDWAREINPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.uMsg == other.uMsg && self.wParamL == other.wParamL && self.wParamH == other.wParamH
-    }
-}
-impl Eq for HARDWAREINPUT {}
 impl Default for HARDWAREINPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INPUT {
     pub r#type: INPUT_TYPE,
     pub Anonymous: INPUT_0,
-}
-impl Copy for INPUT {}
-impl Clone for INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for INPUT {
     type TypeKind = windows_core::CopyType;
@@ -1073,16 +1036,11 @@ impl Default for INPUT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union INPUT_0 {
     pub mi: MOUSEINPUT,
     pub ki: KEYBDINPUT,
     pub hi: HARDWAREINPUT,
-}
-impl Copy for INPUT_0 {}
-impl Clone for INPUT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for INPUT_0 {
     type TypeKind = windows_core::CopyType;
@@ -1093,6 +1051,7 @@ impl Default for INPUT_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KBDNLSTABLES {
     pub OEMIdentifier: u16,
     pub LayoutInformation: u16,
@@ -1101,32 +1060,16 @@ pub struct KBDNLSTABLES {
     pub NumOfMouseVKey: i32,
     pub pusMouseVKey: *mut u16,
 }
-impl Copy for KBDNLSTABLES {}
-impl Clone for KBDNLSTABLES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for KBDNLSTABLES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("KBDNLSTABLES").field("OEMIdentifier", &self.OEMIdentifier).field("LayoutInformation", &self.LayoutInformation).field("NumOfVkToF", &self.NumOfVkToF).field("pVkToF", &self.pVkToF).field("NumOfMouseVKey", &self.NumOfMouseVKey).field("pusMouseVKey", &self.pusMouseVKey).finish()
-    }
-}
 impl windows_core::TypeKind for KBDNLSTABLES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for KBDNLSTABLES {
-    fn eq(&self, other: &Self) -> bool {
-        self.OEMIdentifier == other.OEMIdentifier && self.LayoutInformation == other.LayoutInformation && self.NumOfVkToF == other.NumOfVkToF && self.pVkToF == other.pVkToF && self.NumOfMouseVKey == other.NumOfMouseVKey && self.pusMouseVKey == other.pusMouseVKey
-    }
-}
-impl Eq for KBDNLSTABLES {}
 impl Default for KBDNLSTABLES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KBDTABLES {
     pub pCharModifiers: *mut MODIFIERS,
     pub pVkToWcharTable: *mut VK_TO_WCHAR_TABLE,
@@ -1145,141 +1088,60 @@ pub struct KBDTABLES {
     pub dwType: u32,
     pub dwSubType: u32,
 }
-impl Copy for KBDTABLES {}
-impl Clone for KBDTABLES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for KBDTABLES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("KBDTABLES")
-            .field("pCharModifiers", &self.pCharModifiers)
-            .field("pVkToWcharTable", &self.pVkToWcharTable)
-            .field("pDeadKey", &self.pDeadKey)
-            .field("pKeyNames", &self.pKeyNames)
-            .field("pKeyNamesExt", &self.pKeyNamesExt)
-            .field("pKeyNamesDead", &self.pKeyNamesDead)
-            .field("pusVSCtoVK", &self.pusVSCtoVK)
-            .field("bMaxVSCtoVK", &self.bMaxVSCtoVK)
-            .field("pVSCtoVK_E0", &self.pVSCtoVK_E0)
-            .field("pVSCtoVK_E1", &self.pVSCtoVK_E1)
-            .field("fLocaleFlags", &self.fLocaleFlags)
-            .field("nLgMax", &self.nLgMax)
-            .field("cbLgEntry", &self.cbLgEntry)
-            .field("pLigature", &self.pLigature)
-            .field("dwType", &self.dwType)
-            .field("dwSubType", &self.dwSubType)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for KBDTABLES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for KBDTABLES {
-    fn eq(&self, other: &Self) -> bool {
-        self.pCharModifiers == other.pCharModifiers && self.pVkToWcharTable == other.pVkToWcharTable && self.pDeadKey == other.pDeadKey && self.pKeyNames == other.pKeyNames && self.pKeyNamesExt == other.pKeyNamesExt && self.pKeyNamesDead == other.pKeyNamesDead && self.pusVSCtoVK == other.pusVSCtoVK && self.bMaxVSCtoVK == other.bMaxVSCtoVK && self.pVSCtoVK_E0 == other.pVSCtoVK_E0 && self.pVSCtoVK_E1 == other.pVSCtoVK_E1 && self.fLocaleFlags == other.fLocaleFlags && self.nLgMax == other.nLgMax && self.cbLgEntry == other.cbLgEntry && self.pLigature == other.pLigature && self.dwType == other.dwType && self.dwSubType == other.dwSubType
-    }
-}
-impl Eq for KBDTABLES {}
 impl Default for KBDTABLES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KBDTABLE_DESC {
     pub wszDllName: [u16; 32],
     pub dwType: u32,
     pub dwSubType: u32,
 }
-impl Copy for KBDTABLE_DESC {}
-impl Clone for KBDTABLE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for KBDTABLE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("KBDTABLE_DESC").field("wszDllName", &self.wszDllName).field("dwType", &self.dwType).field("dwSubType", &self.dwSubType).finish()
-    }
-}
 impl windows_core::TypeKind for KBDTABLE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for KBDTABLE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.wszDllName == other.wszDllName && self.dwType == other.dwType && self.dwSubType == other.dwSubType
-    }
-}
-impl Eq for KBDTABLE_DESC {}
 impl Default for KBDTABLE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KBDTABLE_MULTI {
     pub nTables: u32,
     pub aKbdTables: [KBDTABLE_DESC; 8],
 }
-impl Copy for KBDTABLE_MULTI {}
-impl Clone for KBDTABLE_MULTI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for KBDTABLE_MULTI {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("KBDTABLE_MULTI").field("nTables", &self.nTables).field("aKbdTables", &self.aKbdTables).finish()
-    }
-}
 impl windows_core::TypeKind for KBDTABLE_MULTI {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for KBDTABLE_MULTI {
-    fn eq(&self, other: &Self) -> bool {
-        self.nTables == other.nTables && self.aKbdTables == other.aKbdTables
-    }
-}
-impl Eq for KBDTABLE_MULTI {}
 impl Default for KBDTABLE_MULTI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KBD_TYPE_INFO {
     pub dwVersion: u32,
     pub dwType: u32,
     pub dwSubType: u32,
 }
-impl Copy for KBD_TYPE_INFO {}
-impl Clone for KBD_TYPE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for KBD_TYPE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("KBD_TYPE_INFO").field("dwVersion", &self.dwVersion).field("dwType", &self.dwType).field("dwSubType", &self.dwSubType).finish()
-    }
-}
 impl windows_core::TypeKind for KBD_TYPE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for KBD_TYPE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.dwType == other.dwType && self.dwSubType == other.dwSubType
-    }
-}
-impl Eq for KBD_TYPE_INFO {}
 impl Default for KBD_TYPE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEYBDINPUT {
     pub wVk: VIRTUAL_KEY,
     pub wScan: u16,
@@ -1287,248 +1149,120 @@ pub struct KEYBDINPUT {
     pub time: u32,
     pub dwExtraInfo: usize,
 }
-impl Copy for KEYBDINPUT {}
-impl Clone for KEYBDINPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for KEYBDINPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("KEYBDINPUT").field("wVk", &self.wVk).field("wScan", &self.wScan).field("dwFlags", &self.dwFlags).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
-    }
-}
 impl windows_core::TypeKind for KEYBDINPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for KEYBDINPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.wVk == other.wVk && self.wScan == other.wScan && self.dwFlags == other.dwFlags && self.time == other.time && self.dwExtraInfo == other.dwExtraInfo
-    }
-}
-impl Eq for KEYBDINPUT {}
 impl Default for KEYBDINPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LASTINPUTINFO {
     pub cbSize: u32,
     pub dwTime: u32,
 }
-impl Copy for LASTINPUTINFO {}
-impl Clone for LASTINPUTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LASTINPUTINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LASTINPUTINFO").field("cbSize", &self.cbSize).field("dwTime", &self.dwTime).finish()
-    }
-}
 impl windows_core::TypeKind for LASTINPUTINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LASTINPUTINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwTime == other.dwTime
-    }
-}
-impl Eq for LASTINPUTINFO {}
 impl Default for LASTINPUTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LIGATURE1 {
     pub VirtualKey: u8,
     pub ModificationNumber: u16,
     pub wch: [u16; 1],
 }
-impl Copy for LIGATURE1 {}
-impl Clone for LIGATURE1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LIGATURE1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LIGATURE1").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
-    }
-}
 impl windows_core::TypeKind for LIGATURE1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LIGATURE1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey && self.ModificationNumber == other.ModificationNumber && self.wch == other.wch
-    }
-}
-impl Eq for LIGATURE1 {}
 impl Default for LIGATURE1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LIGATURE2 {
     pub VirtualKey: u8,
     pub ModificationNumber: u16,
     pub wch: [u16; 2],
 }
-impl Copy for LIGATURE2 {}
-impl Clone for LIGATURE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LIGATURE2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LIGATURE2").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
-    }
-}
 impl windows_core::TypeKind for LIGATURE2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LIGATURE2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey && self.ModificationNumber == other.ModificationNumber && self.wch == other.wch
-    }
-}
-impl Eq for LIGATURE2 {}
 impl Default for LIGATURE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LIGATURE3 {
     pub VirtualKey: u8,
     pub ModificationNumber: u16,
     pub wch: [u16; 3],
 }
-impl Copy for LIGATURE3 {}
-impl Clone for LIGATURE3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LIGATURE3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LIGATURE3").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
-    }
-}
 impl windows_core::TypeKind for LIGATURE3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LIGATURE3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey && self.ModificationNumber == other.ModificationNumber && self.wch == other.wch
-    }
-}
-impl Eq for LIGATURE3 {}
 impl Default for LIGATURE3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LIGATURE4 {
     pub VirtualKey: u8,
     pub ModificationNumber: u16,
     pub wch: [u16; 4],
 }
-impl Copy for LIGATURE4 {}
-impl Clone for LIGATURE4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LIGATURE4 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LIGATURE4").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
-    }
-}
 impl windows_core::TypeKind for LIGATURE4 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LIGATURE4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey && self.ModificationNumber == other.ModificationNumber && self.wch == other.wch
-    }
-}
-impl Eq for LIGATURE4 {}
 impl Default for LIGATURE4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LIGATURE5 {
     pub VirtualKey: u8,
     pub ModificationNumber: u16,
     pub wch: [u16; 5],
 }
-impl Copy for LIGATURE5 {}
-impl Clone for LIGATURE5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LIGATURE5 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LIGATURE5").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
-    }
-}
 impl windows_core::TypeKind for LIGATURE5 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LIGATURE5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey && self.ModificationNumber == other.ModificationNumber && self.wch == other.wch
-    }
-}
-impl Eq for LIGATURE5 {}
 impl Default for LIGATURE5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MODIFIERS {
     pub pVkToBit: *mut VK_TO_BIT,
     pub wMaxModBits: u16,
     pub ModNumber: [u8; 1],
 }
-impl Copy for MODIFIERS {}
-impl Clone for MODIFIERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MODIFIERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MODIFIERS").field("pVkToBit", &self.pVkToBit).field("wMaxModBits", &self.wMaxModBits).field("ModNumber", &self.ModNumber).finish()
-    }
-}
 impl windows_core::TypeKind for MODIFIERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MODIFIERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.pVkToBit == other.pVkToBit && self.wMaxModBits == other.wMaxModBits && self.ModNumber == other.ModNumber
-    }
-}
-impl Eq for MODIFIERS {}
 impl Default for MODIFIERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MOUSEINPUT {
     pub dx: i32,
     pub dy: i32,
@@ -1537,96 +1271,48 @@ pub struct MOUSEINPUT {
     pub time: u32,
     pub dwExtraInfo: usize,
 }
-impl Copy for MOUSEINPUT {}
-impl Clone for MOUSEINPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MOUSEINPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MOUSEINPUT").field("dx", &self.dx).field("dy", &self.dy).field("mouseData", &self.mouseData).field("dwFlags", &self.dwFlags).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
-    }
-}
 impl windows_core::TypeKind for MOUSEINPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MOUSEINPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.dx == other.dx && self.dy == other.dy && self.mouseData == other.mouseData && self.dwFlags == other.dwFlags && self.time == other.time && self.dwExtraInfo == other.dwExtraInfo
-    }
-}
-impl Eq for MOUSEINPUT {}
 impl Default for MOUSEINPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MOUSEMOVEPOINT {
     pub x: i32,
     pub y: i32,
     pub time: u32,
     pub dwExtraInfo: usize,
 }
-impl Copy for MOUSEMOVEPOINT {}
-impl Clone for MOUSEMOVEPOINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MOUSEMOVEPOINT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MOUSEMOVEPOINT").field("x", &self.x).field("y", &self.y).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
-    }
-}
 impl windows_core::TypeKind for MOUSEMOVEPOINT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MOUSEMOVEPOINT {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y && self.time == other.time && self.dwExtraInfo == other.dwExtraInfo
-    }
-}
-impl Eq for MOUSEMOVEPOINT {}
 impl Default for MOUSEMOVEPOINT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRACKMOUSEEVENT {
     pub cbSize: u32,
     pub dwFlags: TRACKMOUSEEVENT_FLAGS,
     pub hwndTrack: super::super::super::Foundation::HWND,
     pub dwHoverTime: u32,
 }
-impl Copy for TRACKMOUSEEVENT {}
-impl Clone for TRACKMOUSEEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TRACKMOUSEEVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRACKMOUSEEVENT").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("hwndTrack", &self.hwndTrack).field("dwHoverTime", &self.dwHoverTime).finish()
-    }
-}
 impl windows_core::TypeKind for TRACKMOUSEEVENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TRACKMOUSEEVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.hwndTrack == other.hwndTrack && self.dwHoverTime == other.dwHoverTime
-    }
-}
-impl Eq for TRACKMOUSEEVENT {}
 impl Default for TRACKMOUSEEVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VK_F {
     pub Vk: u8,
     pub NLSFEProcType: u8,
@@ -1635,517 +1321,244 @@ pub struct VK_F {
     pub NLSFEProc: [VK_FPARAM; 8],
     pub NLSFEProcAlt: [VK_FPARAM; 8],
 }
-impl Copy for VK_F {}
-impl Clone for VK_F {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VK_F {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VK_F").field("Vk", &self.Vk).field("NLSFEProcType", &self.NLSFEProcType).field("NLSFEProcCurrent", &self.NLSFEProcCurrent).field("NLSFEProcSwitch", &self.NLSFEProcSwitch).field("NLSFEProc", &self.NLSFEProc).field("NLSFEProcAlt", &self.NLSFEProcAlt).finish()
-    }
-}
 impl windows_core::TypeKind for VK_F {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VK_F {
-    fn eq(&self, other: &Self) -> bool {
-        self.Vk == other.Vk && self.NLSFEProcType == other.NLSFEProcType && self.NLSFEProcCurrent == other.NLSFEProcCurrent && self.NLSFEProcSwitch == other.NLSFEProcSwitch && self.NLSFEProc == other.NLSFEProc && self.NLSFEProcAlt == other.NLSFEProcAlt
-    }
-}
-impl Eq for VK_F {}
 impl Default for VK_F {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VK_FPARAM {
     pub NLSFEProcIndex: u8,
     pub NLSFEProcParam: u32,
 }
-impl Copy for VK_FPARAM {}
-impl Clone for VK_FPARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VK_FPARAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VK_FPARAM").field("NLSFEProcIndex", &self.NLSFEProcIndex).field("NLSFEProcParam", &self.NLSFEProcParam).finish()
-    }
-}
 impl windows_core::TypeKind for VK_FPARAM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VK_FPARAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.NLSFEProcIndex == other.NLSFEProcIndex && self.NLSFEProcParam == other.NLSFEProcParam
-    }
-}
-impl Eq for VK_FPARAM {}
 impl Default for VK_FPARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VK_TO_BIT {
     pub Vk: u8,
     pub ModBits: u8,
 }
-impl Copy for VK_TO_BIT {}
-impl Clone for VK_TO_BIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VK_TO_BIT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VK_TO_BIT").field("Vk", &self.Vk).field("ModBits", &self.ModBits).finish()
-    }
-}
 impl windows_core::TypeKind for VK_TO_BIT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VK_TO_BIT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Vk == other.Vk && self.ModBits == other.ModBits
-    }
-}
-impl Eq for VK_TO_BIT {}
 impl Default for VK_TO_BIT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VK_TO_WCHARS1 {
     pub VirtualKey: u8,
     pub Attributes: u8,
     pub wch: [u16; 1],
 }
-impl Copy for VK_TO_WCHARS1 {}
-impl Clone for VK_TO_WCHARS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VK_TO_WCHARS1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VK_TO_WCHARS1").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
-    }
-}
 impl windows_core::TypeKind for VK_TO_WCHARS1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VK_TO_WCHARS1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
-    }
-}
-impl Eq for VK_TO_WCHARS1 {}
 impl Default for VK_TO_WCHARS1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VK_TO_WCHARS10 {
     pub VirtualKey: u8,
     pub Attributes: u8,
     pub wch: [u16; 10],
 }
-impl Copy for VK_TO_WCHARS10 {}
-impl Clone for VK_TO_WCHARS10 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VK_TO_WCHARS10 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VK_TO_WCHARS10").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
-    }
-}
 impl windows_core::TypeKind for VK_TO_WCHARS10 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VK_TO_WCHARS10 {
-    fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
-    }
-}
-impl Eq for VK_TO_WCHARS10 {}
 impl Default for VK_TO_WCHARS10 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VK_TO_WCHARS2 {
     pub VirtualKey: u8,
     pub Attributes: u8,
     pub wch: [u16; 2],
 }
-impl Copy for VK_TO_WCHARS2 {}
-impl Clone for VK_TO_WCHARS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VK_TO_WCHARS2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VK_TO_WCHARS2").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
-    }
-}
 impl windows_core::TypeKind for VK_TO_WCHARS2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VK_TO_WCHARS2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
-    }
-}
-impl Eq for VK_TO_WCHARS2 {}
 impl Default for VK_TO_WCHARS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VK_TO_WCHARS3 {
     pub VirtualKey: u8,
     pub Attributes: u8,
     pub wch: [u16; 3],
 }
-impl Copy for VK_TO_WCHARS3 {}
-impl Clone for VK_TO_WCHARS3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VK_TO_WCHARS3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VK_TO_WCHARS3").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
-    }
-}
 impl windows_core::TypeKind for VK_TO_WCHARS3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VK_TO_WCHARS3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
-    }
-}
-impl Eq for VK_TO_WCHARS3 {}
 impl Default for VK_TO_WCHARS3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VK_TO_WCHARS4 {
     pub VirtualKey: u8,
     pub Attributes: u8,
     pub wch: [u16; 4],
 }
-impl Copy for VK_TO_WCHARS4 {}
-impl Clone for VK_TO_WCHARS4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VK_TO_WCHARS4 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VK_TO_WCHARS4").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
-    }
-}
 impl windows_core::TypeKind for VK_TO_WCHARS4 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VK_TO_WCHARS4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
-    }
-}
-impl Eq for VK_TO_WCHARS4 {}
 impl Default for VK_TO_WCHARS4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VK_TO_WCHARS5 {
     pub VirtualKey: u8,
     pub Attributes: u8,
     pub wch: [u16; 5],
 }
-impl Copy for VK_TO_WCHARS5 {}
-impl Clone for VK_TO_WCHARS5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VK_TO_WCHARS5 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VK_TO_WCHARS5").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
-    }
-}
 impl windows_core::TypeKind for VK_TO_WCHARS5 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VK_TO_WCHARS5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
-    }
-}
-impl Eq for VK_TO_WCHARS5 {}
 impl Default for VK_TO_WCHARS5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VK_TO_WCHARS6 {
     pub VirtualKey: u8,
     pub Attributes: u8,
     pub wch: [u16; 6],
 }
-impl Copy for VK_TO_WCHARS6 {}
-impl Clone for VK_TO_WCHARS6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VK_TO_WCHARS6 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VK_TO_WCHARS6").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
-    }
-}
 impl windows_core::TypeKind for VK_TO_WCHARS6 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VK_TO_WCHARS6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
-    }
-}
-impl Eq for VK_TO_WCHARS6 {}
 impl Default for VK_TO_WCHARS6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VK_TO_WCHARS7 {
     pub VirtualKey: u8,
     pub Attributes: u8,
     pub wch: [u16; 7],
 }
-impl Copy for VK_TO_WCHARS7 {}
-impl Clone for VK_TO_WCHARS7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VK_TO_WCHARS7 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VK_TO_WCHARS7").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
-    }
-}
 impl windows_core::TypeKind for VK_TO_WCHARS7 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VK_TO_WCHARS7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
-    }
-}
-impl Eq for VK_TO_WCHARS7 {}
 impl Default for VK_TO_WCHARS7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VK_TO_WCHARS8 {
     pub VirtualKey: u8,
     pub Attributes: u8,
     pub wch: [u16; 8],
 }
-impl Copy for VK_TO_WCHARS8 {}
-impl Clone for VK_TO_WCHARS8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VK_TO_WCHARS8 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VK_TO_WCHARS8").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
-    }
-}
 impl windows_core::TypeKind for VK_TO_WCHARS8 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VK_TO_WCHARS8 {
-    fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
-    }
-}
-impl Eq for VK_TO_WCHARS8 {}
 impl Default for VK_TO_WCHARS8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VK_TO_WCHARS9 {
     pub VirtualKey: u8,
     pub Attributes: u8,
     pub wch: [u16; 9],
 }
-impl Copy for VK_TO_WCHARS9 {}
-impl Clone for VK_TO_WCHARS9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VK_TO_WCHARS9 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VK_TO_WCHARS9").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
-    }
-}
 impl windows_core::TypeKind for VK_TO_WCHARS9 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VK_TO_WCHARS9 {
-    fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
-    }
-}
-impl Eq for VK_TO_WCHARS9 {}
 impl Default for VK_TO_WCHARS9 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VK_TO_WCHAR_TABLE {
     pub pVkToWchars: *mut VK_TO_WCHARS1,
     pub nModifications: u8,
     pub cbSize: u8,
 }
-impl Copy for VK_TO_WCHAR_TABLE {}
-impl Clone for VK_TO_WCHAR_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VK_TO_WCHAR_TABLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VK_TO_WCHAR_TABLE").field("pVkToWchars", &self.pVkToWchars).field("nModifications", &self.nModifications).field("cbSize", &self.cbSize).finish()
-    }
-}
 impl windows_core::TypeKind for VK_TO_WCHAR_TABLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VK_TO_WCHAR_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pVkToWchars == other.pVkToWchars && self.nModifications == other.nModifications && self.cbSize == other.cbSize
-    }
-}
-impl Eq for VK_TO_WCHAR_TABLE {}
 impl Default for VK_TO_WCHAR_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VK_VSC {
     pub Vk: u8,
     pub Vsc: u8,
 }
-impl Copy for VK_VSC {}
-impl Clone for VK_VSC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VK_VSC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VK_VSC").field("Vk", &self.Vk).field("Vsc", &self.Vsc).finish()
-    }
-}
 impl windows_core::TypeKind for VK_VSC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VK_VSC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Vk == other.Vk && self.Vsc == other.Vsc
-    }
-}
-impl Eq for VK_VSC {}
 impl Default for VK_VSC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VSC_LPWSTR {
     pub vsc: u8,
     pub pwsz: windows_core::PWSTR,
 }
-impl Copy for VSC_LPWSTR {}
-impl Clone for VSC_LPWSTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VSC_LPWSTR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VSC_LPWSTR").field("vsc", &self.vsc).field("pwsz", &self.pwsz).finish()
-    }
-}
 impl windows_core::TypeKind for VSC_LPWSTR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VSC_LPWSTR {
-    fn eq(&self, other: &Self) -> bool {
-        self.vsc == other.vsc && self.pwsz == other.pwsz
-    }
-}
-impl Eq for VSC_LPWSTR {}
 impl Default for VSC_LPWSTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VSC_VK {
     pub Vsc: u8,
     pub Vk: u16,
 }
-impl Copy for VSC_VK {}
-impl Clone for VSC_VK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VSC_VK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VSC_VK").field("Vsc", &self.Vsc).field("Vk", &self.Vk).finish()
-    }
-}
 impl windows_core::TypeKind for VSC_VK {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VSC_VK {
-    fn eq(&self, other: &Self) -> bool {
-        self.Vsc == other.Vsc && self.Vk == other.Vk
-    }
-}
-impl Eq for VSC_VK {}
 impl Default for VSC_VK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

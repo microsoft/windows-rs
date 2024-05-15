@@ -91,6 +91,7 @@ pub const SPC_MARKER_CHECK_CURRENTLY_SUPPORTED_FLAGS: u32 = 1u32;
 pub const SPC_MARKER_CHECK_SKIP_SIP_INDIRECT_DATA_FLAG: u32 = 1u32;
 pub const SPC_RELAXED_PE_MARKER_CHECK: u32 = 2048u32;
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MS_ADDINFO_BLOB {
     pub cbStruct: u32,
     pub cbMemObject: u32,
@@ -98,62 +99,30 @@ pub struct MS_ADDINFO_BLOB {
     pub cbMemSignedMsg: u32,
     pub pbMemSignedMsg: *mut u8,
 }
-impl Copy for MS_ADDINFO_BLOB {}
-impl Clone for MS_ADDINFO_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MS_ADDINFO_BLOB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MS_ADDINFO_BLOB").field("cbStruct", &self.cbStruct).field("cbMemObject", &self.cbMemObject).field("pbMemObject", &self.pbMemObject).field("cbMemSignedMsg", &self.cbMemSignedMsg).field("pbMemSignedMsg", &self.pbMemSignedMsg).finish()
-    }
-}
 impl windows_core::TypeKind for MS_ADDINFO_BLOB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MS_ADDINFO_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.cbMemObject == other.cbMemObject && self.pbMemObject == other.pbMemObject && self.cbMemSignedMsg == other.cbMemSignedMsg && self.pbMemSignedMsg == other.pbMemSignedMsg
-    }
-}
-impl Eq for MS_ADDINFO_BLOB {}
 impl Default for MS_ADDINFO_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MS_ADDINFO_FLAT {
     pub cbStruct: u32,
     pub pIndirectData: *mut SIP_INDIRECT_DATA,
 }
-impl Copy for MS_ADDINFO_FLAT {}
-impl Clone for MS_ADDINFO_FLAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MS_ADDINFO_FLAT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MS_ADDINFO_FLAT").field("cbStruct", &self.cbStruct).field("pIndirectData", &self.pIndirectData).finish()
-    }
-}
 impl windows_core::TypeKind for MS_ADDINFO_FLAT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MS_ADDINFO_FLAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.pIndirectData == other.pIndirectData
-    }
-}
-impl Eq for MS_ADDINFO_FLAT {}
 impl Default for MS_ADDINFO_FLAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SIP_ADD_NEWPROVIDER {
     pub cbStruct: u32,
     pub pgSubject: *mut windows_core::GUID,
@@ -168,88 +137,37 @@ pub struct SIP_ADD_NEWPROVIDER {
     pub pwszIsFunctionNameFmt2: windows_core::PWSTR,
     pub pwszGetCapFuncName: windows_core::PWSTR,
 }
-impl Copy for SIP_ADD_NEWPROVIDER {}
-impl Clone for SIP_ADD_NEWPROVIDER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SIP_ADD_NEWPROVIDER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SIP_ADD_NEWPROVIDER")
-            .field("cbStruct", &self.cbStruct)
-            .field("pgSubject", &self.pgSubject)
-            .field("pwszDLLFileName", &self.pwszDLLFileName)
-            .field("pwszMagicNumber", &self.pwszMagicNumber)
-            .field("pwszIsFunctionName", &self.pwszIsFunctionName)
-            .field("pwszGetFuncName", &self.pwszGetFuncName)
-            .field("pwszPutFuncName", &self.pwszPutFuncName)
-            .field("pwszCreateFuncName", &self.pwszCreateFuncName)
-            .field("pwszVerifyFuncName", &self.pwszVerifyFuncName)
-            .field("pwszRemoveFuncName", &self.pwszRemoveFuncName)
-            .field("pwszIsFunctionNameFmt2", &self.pwszIsFunctionNameFmt2)
-            .field("pwszGetCapFuncName", &self.pwszGetCapFuncName)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for SIP_ADD_NEWPROVIDER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SIP_ADD_NEWPROVIDER {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.pgSubject == other.pgSubject && self.pwszDLLFileName == other.pwszDLLFileName && self.pwszMagicNumber == other.pwszMagicNumber && self.pwszIsFunctionName == other.pwszIsFunctionName && self.pwszGetFuncName == other.pwszGetFuncName && self.pwszPutFuncName == other.pwszPutFuncName && self.pwszCreateFuncName == other.pwszCreateFuncName && self.pwszVerifyFuncName == other.pwszVerifyFuncName && self.pwszRemoveFuncName == other.pwszRemoveFuncName && self.pwszIsFunctionNameFmt2 == other.pwszIsFunctionNameFmt2 && self.pwszGetCapFuncName == other.pwszGetCapFuncName
-    }
-}
-impl Eq for SIP_ADD_NEWPROVIDER {}
 impl Default for SIP_ADD_NEWPROVIDER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SIP_CAP_SET_V2 {
     pub cbSize: u32,
     pub dwVersion: u32,
     pub isMultiSign: super::super::super::Foundation::BOOL,
     pub dwReserved: u32,
 }
-impl Copy for SIP_CAP_SET_V2 {}
-impl Clone for SIP_CAP_SET_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SIP_CAP_SET_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SIP_CAP_SET_V2").field("cbSize", &self.cbSize).field("dwVersion", &self.dwVersion).field("isMultiSign", &self.isMultiSign).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 impl windows_core::TypeKind for SIP_CAP_SET_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SIP_CAP_SET_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwVersion == other.dwVersion && self.isMultiSign == other.isMultiSign && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for SIP_CAP_SET_V2 {}
 impl Default for SIP_CAP_SET_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SIP_CAP_SET_V3 {
     pub cbSize: u32,
     pub dwVersion: u32,
     pub isMultiSign: super::super::super::Foundation::BOOL,
     pub Anonymous: SIP_CAP_SET_V3_0,
-}
-impl Copy for SIP_CAP_SET_V3 {}
-impl Clone for SIP_CAP_SET_V3 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SIP_CAP_SET_V3 {
     type TypeKind = windows_core::CopyType;
@@ -260,15 +178,10 @@ impl Default for SIP_CAP_SET_V3 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SIP_CAP_SET_V3_0 {
     pub dwFlags: u32,
     pub dwReserved: u32,
-}
-impl Copy for SIP_CAP_SET_V3_0 {}
-impl Clone for SIP_CAP_SET_V3_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SIP_CAP_SET_V3_0 {
     type TypeKind = windows_core::CopyType;
@@ -280,6 +193,7 @@ impl Default for SIP_CAP_SET_V3_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
+#[derive(Clone, Copy, Debug)]
 pub struct SIP_DISPATCH_INFO {
     pub cbSize: u32,
     pub hSIP: super::super::super::Foundation::HANDLE,
@@ -288,20 +202,6 @@ pub struct SIP_DISPATCH_INFO {
     pub pfCreate: pCryptSIPCreateIndirectData,
     pub pfVerify: pCryptSIPVerifyIndirectData,
     pub pfRemove: pCryptSIPRemoveSignedDataMsg,
-}
-#[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-impl Copy for SIP_DISPATCH_INFO {}
-#[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-impl Clone for SIP_DISPATCH_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-impl core::fmt::Debug for SIP_DISPATCH_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SIP_DISPATCH_INFO").field("cbSize", &self.cbSize).field("hSIP", &self.hSIP).finish()
-    }
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 impl windows_core::TypeKind for SIP_DISPATCH_INFO {
@@ -314,31 +214,15 @@ impl Default for SIP_DISPATCH_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SIP_INDIRECT_DATA {
     pub Data: super::CRYPT_ATTRIBUTE_TYPE_VALUE,
     pub DigestAlgorithm: super::CRYPT_ALGORITHM_IDENTIFIER,
     pub Digest: super::CRYPT_INTEGER_BLOB,
 }
-impl Copy for SIP_INDIRECT_DATA {}
-impl Clone for SIP_INDIRECT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SIP_INDIRECT_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SIP_INDIRECT_DATA").field("Data", &self.Data).field("DigestAlgorithm", &self.DigestAlgorithm).field("Digest", &self.Digest).finish()
-    }
-}
 impl windows_core::TypeKind for SIP_INDIRECT_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SIP_INDIRECT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Data == other.Data && self.DigestAlgorithm == other.DigestAlgorithm && self.Digest == other.Digest
-    }
-}
-impl Eq for SIP_INDIRECT_DATA {}
 impl Default for SIP_INDIRECT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -346,6 +230,7 @@ impl Default for SIP_INDIRECT_DATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
+#[derive(Clone, Copy)]
 pub struct SIP_SUBJECTINFO {
     pub cbSize: u32,
     pub pgSubjectType: *mut windows_core::GUID,
@@ -367,14 +252,6 @@ pub struct SIP_SUBJECTINFO {
     pub pClientData: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-impl Copy for SIP_SUBJECTINFO {}
-#[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-impl Clone for SIP_SUBJECTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 impl windows_core::TypeKind for SIP_SUBJECTINFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -386,18 +263,11 @@ impl Default for SIP_SUBJECTINFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
+#[derive(Clone, Copy)]
 pub union SIP_SUBJECTINFO_0 {
     pub psFlat: *mut MS_ADDINFO_FLAT,
     pub psCatMember: *mut super::Catalog::MS_ADDINFO_CATALOGMEMBER,
     pub psBlob: *mut MS_ADDINFO_BLOB,
-}
-#[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-impl Copy for SIP_SUBJECTINFO_0 {}
-#[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-impl Clone for SIP_SUBJECTINFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 impl windows_core::TypeKind for SIP_SUBJECTINFO_0 {

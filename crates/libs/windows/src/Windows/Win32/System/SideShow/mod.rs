@@ -486,6 +486,7 @@ impl core::fmt::Debug for SIDESHOW_SCREEN_TYPE {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct APPLICATION_EVENT_DATA {
     pub cbApplicationEventData: u32,
     pub ApplicationId: windows_core::GUID,
@@ -493,12 +494,6 @@ pub struct APPLICATION_EVENT_DATA {
     pub dwEventId: u32,
     pub cbEventData: u32,
     pub bEventData: [u8; 1],
-}
-impl Copy for APPLICATION_EVENT_DATA {}
-impl Clone for APPLICATION_EVENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for APPLICATION_EVENT_DATA {
     type TypeKind = windows_core::CopyType;
@@ -509,17 +504,12 @@ impl Default for APPLICATION_EVENT_DATA {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct CONTENT_MISSING_EVENT_DATA {
     pub cbContentMissingEventData: u32,
     pub ApplicationId: windows_core::GUID,
     pub EndpointId: windows_core::GUID,
     pub ContentId: u32,
-}
-impl Copy for CONTENT_MISSING_EVENT_DATA {}
-impl Clone for CONTENT_MISSING_EVENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CONTENT_MISSING_EVENT_DATA {
     type TypeKind = windows_core::CopyType;
@@ -530,15 +520,10 @@ impl Default for CONTENT_MISSING_EVENT_DATA {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DEVICE_USER_CHANGE_EVENT_DATA {
     pub cbDeviceUserChangeEventData: u32,
     pub wszUser: u16,
-}
-impl Copy for DEVICE_USER_CHANGE_EVENT_DATA {}
-impl Clone for DEVICE_USER_CHANGE_EVENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DEVICE_USER_CHANGE_EVENT_DATA {
     type TypeKind = windows_core::CopyType;
@@ -549,17 +534,12 @@ impl Default for DEVICE_USER_CHANGE_EVENT_DATA {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct EVENT_DATA_HEADER {
     pub cbEventDataHeader: u32,
     pub guidEventType: windows_core::GUID,
     pub dwVersion: u32,
     pub cbEventDataSid: u32,
-}
-impl Copy for EVENT_DATA_HEADER {}
-impl Clone for EVENT_DATA_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for EVENT_DATA_HEADER {
     type TypeKind = windows_core::CopyType;
@@ -570,15 +550,10 @@ impl Default for EVENT_DATA_HEADER {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct NEW_EVENT_DATA_AVAILABLE {
     pub cbNewEventDataAvailable: u32,
     pub dwVersion: u32,
-}
-impl Copy for NEW_EVENT_DATA_AVAILABLE {}
-impl Clone for NEW_EVENT_DATA_AVAILABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for NEW_EVENT_DATA_AVAILABLE {
     type TypeKind = windows_core::CopyType;
@@ -589,6 +564,7 @@ impl Default for NEW_EVENT_DATA_AVAILABLE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCF_CONTEXTMENU_EVENT {
     pub PreviousPage: u32,
     pub TargetPage: u32,
@@ -596,119 +572,54 @@ pub struct SCF_CONTEXTMENU_EVENT {
     pub MenuPage: u32,
     pub MenuItemId: u32,
 }
-impl Copy for SCF_CONTEXTMENU_EVENT {}
-impl Clone for SCF_CONTEXTMENU_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCF_CONTEXTMENU_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCF_CONTEXTMENU_EVENT").field("PreviousPage", &self.PreviousPage).field("TargetPage", &self.TargetPage).field("PreviousItemId", &self.PreviousItemId).field("MenuPage", &self.MenuPage).field("MenuItemId", &self.MenuItemId).finish()
-    }
-}
 impl windows_core::TypeKind for SCF_CONTEXTMENU_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCF_CONTEXTMENU_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.PreviousPage == other.PreviousPage && self.TargetPage == other.TargetPage && self.PreviousItemId == other.PreviousItemId && self.MenuPage == other.MenuPage && self.MenuItemId == other.MenuItemId
-    }
-}
-impl Eq for SCF_CONTEXTMENU_EVENT {}
 impl Default for SCF_CONTEXTMENU_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCF_EVENT_HEADER {
     pub PreviousPage: u32,
     pub TargetPage: u32,
 }
-impl Copy for SCF_EVENT_HEADER {}
-impl Clone for SCF_EVENT_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCF_EVENT_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCF_EVENT_HEADER").field("PreviousPage", &self.PreviousPage).field("TargetPage", &self.TargetPage).finish()
-    }
-}
 impl windows_core::TypeKind for SCF_EVENT_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCF_EVENT_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.PreviousPage == other.PreviousPage && self.TargetPage == other.TargetPage
-    }
-}
-impl Eq for SCF_EVENT_HEADER {}
 impl Default for SCF_EVENT_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCF_MENUACTION_EVENT {
     pub PreviousPage: u32,
     pub TargetPage: u32,
     pub Button: u32,
     pub ItemId: u32,
 }
-impl Copy for SCF_MENUACTION_EVENT {}
-impl Clone for SCF_MENUACTION_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCF_MENUACTION_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCF_MENUACTION_EVENT").field("PreviousPage", &self.PreviousPage).field("TargetPage", &self.TargetPage).field("Button", &self.Button).field("ItemId", &self.ItemId).finish()
-    }
-}
 impl windows_core::TypeKind for SCF_MENUACTION_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCF_MENUACTION_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.PreviousPage == other.PreviousPage && self.TargetPage == other.TargetPage && self.Button == other.Button && self.ItemId == other.ItemId
-    }
-}
-impl Eq for SCF_MENUACTION_EVENT {}
 impl Default for SCF_MENUACTION_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCF_NAVIGATION_EVENT {
     pub PreviousPage: u32,
     pub TargetPage: u32,
     pub Button: u32,
 }
-impl Copy for SCF_NAVIGATION_EVENT {}
-impl Clone for SCF_NAVIGATION_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCF_NAVIGATION_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCF_NAVIGATION_EVENT").field("PreviousPage", &self.PreviousPage).field("TargetPage", &self.TargetPage).field("Button", &self.Button).finish()
-    }
-}
 impl windows_core::TypeKind for SCF_NAVIGATION_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCF_NAVIGATION_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.PreviousPage == other.PreviousPage && self.TargetPage == other.TargetPage && self.Button == other.Button
-    }
-}
-impl Eq for SCF_NAVIGATION_EVENT {}
 impl Default for SCF_NAVIGATION_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -1251,20 +1251,10 @@ impl windows_core::RuntimeType for ImageScannerScanSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerScanSource;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ImageScannerResolution {
     pub DpiX: f32,
     pub DpiY: f32,
-}
-impl Copy for ImageScannerResolution {}
-impl Clone for ImageScannerResolution {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ImageScannerResolution {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ImageScannerResolution").field("DpiX", &self.DpiX).field("DpiY", &self.DpiY).finish()
-    }
 }
 impl windows_core::TypeKind for ImageScannerResolution {
     type TypeKind = windows_core::CopyType;
@@ -1272,12 +1262,6 @@ impl windows_core::TypeKind for ImageScannerResolution {
 impl windows_core::RuntimeType for ImageScannerResolution {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Scanners.ImageScannerResolution;f4;f4)");
 }
-impl PartialEq for ImageScannerResolution {
-    fn eq(&self, other: &Self) -> bool {
-        self.DpiX == other.DpiX && self.DpiY == other.DpiY
-    }
-}
-impl Eq for ImageScannerResolution {}
 impl Default for ImageScannerResolution {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

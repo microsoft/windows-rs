@@ -2153,35 +2153,20 @@ impl core::fmt::Debug for LDAP_RETCODE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BerElement {
     pub opaque: windows_core::PSTR,
-}
-impl Copy for BerElement {}
-impl Clone for BerElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BerElement {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BerElement").field("opaque", &self.opaque).finish()
-    }
 }
 impl windows_core::TypeKind for BerElement {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BerElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.opaque == other.opaque
-    }
-}
-impl Eq for BerElement {}
 impl Default for BerElement {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDAP {
     pub ld_sb: LDAP_0,
     pub ld_host: windows_core::PSTR,
@@ -2200,143 +2185,62 @@ pub struct LDAP {
     pub ld_refhoplimit: u32,
     pub ld_options: u32,
 }
-impl Copy for LDAP {}
-impl Clone for LDAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LDAP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LDAP")
-            .field("ld_sb", &self.ld_sb)
-            .field("ld_host", &self.ld_host)
-            .field("ld_version", &self.ld_version)
-            .field("ld_lberoptions", &self.ld_lberoptions)
-            .field("ld_deref", &self.ld_deref)
-            .field("ld_timelimit", &self.ld_timelimit)
-            .field("ld_sizelimit", &self.ld_sizelimit)
-            .field("ld_errno", &self.ld_errno)
-            .field("ld_matched", &self.ld_matched)
-            .field("ld_error", &self.ld_error)
-            .field("ld_msgid", &self.ld_msgid)
-            .field("Reserved3", &self.Reserved3)
-            .field("ld_cldaptries", &self.ld_cldaptries)
-            .field("ld_cldaptimeout", &self.ld_cldaptimeout)
-            .field("ld_refhoplimit", &self.ld_refhoplimit)
-            .field("ld_options", &self.ld_options)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for LDAP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LDAP {
-    fn eq(&self, other: &Self) -> bool {
-        self.ld_sb == other.ld_sb && self.ld_host == other.ld_host && self.ld_version == other.ld_version && self.ld_lberoptions == other.ld_lberoptions && self.ld_deref == other.ld_deref && self.ld_timelimit == other.ld_timelimit && self.ld_sizelimit == other.ld_sizelimit && self.ld_errno == other.ld_errno && self.ld_matched == other.ld_matched && self.ld_error == other.ld_error && self.ld_msgid == other.ld_msgid && self.Reserved3 == other.Reserved3 && self.ld_cldaptries == other.ld_cldaptries && self.ld_cldaptimeout == other.ld_cldaptimeout && self.ld_refhoplimit == other.ld_refhoplimit && self.ld_options == other.ld_options
-    }
-}
-impl Eq for LDAP {}
 impl Default for LDAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDAP_0 {
     pub sb_sd: usize,
     pub Reserved1: [u8; 41],
     pub sb_naddr: usize,
     pub Reserved2: [u8; 24],
 }
-impl Copy for LDAP_0 {}
-impl Clone for LDAP_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LDAP_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LDAP_0").field("sb_sd", &self.sb_sd).field("Reserved1", &self.Reserved1).field("sb_naddr", &self.sb_naddr).field("Reserved2", &self.Reserved2).finish()
-    }
-}
 impl windows_core::TypeKind for LDAP_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LDAP_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.sb_sd == other.sb_sd && self.Reserved1 == other.Reserved1 && self.sb_naddr == other.sb_naddr && self.Reserved2 == other.Reserved2
-    }
-}
-impl Eq for LDAP_0 {}
 impl Default for LDAP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDAPAPIFeatureInfoA {
     pub ldapaif_info_version: i32,
     pub ldapaif_name: windows_core::PSTR,
     pub ldapaif_version: i32,
 }
-impl Copy for LDAPAPIFeatureInfoA {}
-impl Clone for LDAPAPIFeatureInfoA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LDAPAPIFeatureInfoA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LDAPAPIFeatureInfoA").field("ldapaif_info_version", &self.ldapaif_info_version).field("ldapaif_name", &self.ldapaif_name).field("ldapaif_version", &self.ldapaif_version).finish()
-    }
-}
 impl windows_core::TypeKind for LDAPAPIFeatureInfoA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LDAPAPIFeatureInfoA {
-    fn eq(&self, other: &Self) -> bool {
-        self.ldapaif_info_version == other.ldapaif_info_version && self.ldapaif_name == other.ldapaif_name && self.ldapaif_version == other.ldapaif_version
-    }
-}
-impl Eq for LDAPAPIFeatureInfoA {}
 impl Default for LDAPAPIFeatureInfoA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDAPAPIFeatureInfoW {
     pub ldapaif_info_version: i32,
     pub ldapaif_name: windows_core::PWSTR,
     pub ldapaif_version: i32,
 }
-impl Copy for LDAPAPIFeatureInfoW {}
-impl Clone for LDAPAPIFeatureInfoW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LDAPAPIFeatureInfoW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LDAPAPIFeatureInfoW").field("ldapaif_info_version", &self.ldapaif_info_version).field("ldapaif_name", &self.ldapaif_name).field("ldapaif_version", &self.ldapaif_version).finish()
-    }
-}
 impl windows_core::TypeKind for LDAPAPIFeatureInfoW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LDAPAPIFeatureInfoW {
-    fn eq(&self, other: &Self) -> bool {
-        self.ldapaif_info_version == other.ldapaif_info_version && self.ldapaif_name == other.ldapaif_name && self.ldapaif_version == other.ldapaif_version
-    }
-}
-impl Eq for LDAPAPIFeatureInfoW {}
 impl Default for LDAPAPIFeatureInfoW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDAPAPIInfoA {
     pub ldapai_info_version: i32,
     pub ldapai_api_version: i32,
@@ -2345,32 +2249,16 @@ pub struct LDAPAPIInfoA {
     pub ldapai_vendor_name: windows_core::PSTR,
     pub ldapai_vendor_version: i32,
 }
-impl Copy for LDAPAPIInfoA {}
-impl Clone for LDAPAPIInfoA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LDAPAPIInfoA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LDAPAPIInfoA").field("ldapai_info_version", &self.ldapai_info_version).field("ldapai_api_version", &self.ldapai_api_version).field("ldapai_protocol_version", &self.ldapai_protocol_version).field("ldapai_extensions", &self.ldapai_extensions).field("ldapai_vendor_name", &self.ldapai_vendor_name).field("ldapai_vendor_version", &self.ldapai_vendor_version).finish()
-    }
-}
 impl windows_core::TypeKind for LDAPAPIInfoA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LDAPAPIInfoA {
-    fn eq(&self, other: &Self) -> bool {
-        self.ldapai_info_version == other.ldapai_info_version && self.ldapai_api_version == other.ldapai_api_version && self.ldapai_protocol_version == other.ldapai_protocol_version && self.ldapai_extensions == other.ldapai_extensions && self.ldapai_vendor_name == other.ldapai_vendor_name && self.ldapai_vendor_version == other.ldapai_vendor_version
-    }
-}
-impl Eq for LDAPAPIInfoA {}
 impl Default for LDAPAPIInfoA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDAPAPIInfoW {
     pub ldapai_info_version: i32,
     pub ldapai_api_version: i32,
@@ -2379,94 +2267,46 @@ pub struct LDAPAPIInfoW {
     pub ldapai_vendor_name: windows_core::PWSTR,
     pub ldapai_vendor_version: i32,
 }
-impl Copy for LDAPAPIInfoW {}
-impl Clone for LDAPAPIInfoW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LDAPAPIInfoW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LDAPAPIInfoW").field("ldapai_info_version", &self.ldapai_info_version).field("ldapai_api_version", &self.ldapai_api_version).field("ldapai_protocol_version", &self.ldapai_protocol_version).field("ldapai_extensions", &self.ldapai_extensions).field("ldapai_vendor_name", &self.ldapai_vendor_name).field("ldapai_vendor_version", &self.ldapai_vendor_version).finish()
-    }
-}
 impl windows_core::TypeKind for LDAPAPIInfoW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LDAPAPIInfoW {
-    fn eq(&self, other: &Self) -> bool {
-        self.ldapai_info_version == other.ldapai_info_version && self.ldapai_api_version == other.ldapai_api_version && self.ldapai_protocol_version == other.ldapai_protocol_version && self.ldapai_extensions == other.ldapai_extensions && self.ldapai_vendor_name == other.ldapai_vendor_name && self.ldapai_vendor_version == other.ldapai_vendor_version
-    }
-}
-impl Eq for LDAPAPIInfoW {}
 impl Default for LDAPAPIInfoW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDAPControlA {
     pub ldctl_oid: windows_core::PSTR,
     pub ldctl_value: LDAP_BERVAL,
     pub ldctl_iscritical: super::super::Foundation::BOOLEAN,
 }
-impl Copy for LDAPControlA {}
-impl Clone for LDAPControlA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LDAPControlA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LDAPControlA").field("ldctl_oid", &self.ldctl_oid).field("ldctl_value", &self.ldctl_value).field("ldctl_iscritical", &self.ldctl_iscritical).finish()
-    }
-}
 impl windows_core::TypeKind for LDAPControlA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LDAPControlA {
-    fn eq(&self, other: &Self) -> bool {
-        self.ldctl_oid == other.ldctl_oid && self.ldctl_value == other.ldctl_value && self.ldctl_iscritical == other.ldctl_iscritical
-    }
-}
-impl Eq for LDAPControlA {}
 impl Default for LDAPControlA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDAPControlW {
     pub ldctl_oid: windows_core::PWSTR,
     pub ldctl_value: LDAP_BERVAL,
     pub ldctl_iscritical: super::super::Foundation::BOOLEAN,
 }
-impl Copy for LDAPControlW {}
-impl Clone for LDAPControlW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LDAPControlW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LDAPControlW").field("ldctl_oid", &self.ldctl_oid).field("ldctl_value", &self.ldctl_value).field("ldctl_iscritical", &self.ldctl_iscritical).finish()
-    }
-}
 impl windows_core::TypeKind for LDAPControlW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LDAPControlW {
-    fn eq(&self, other: &Self) -> bool {
-        self.ldctl_oid == other.ldctl_oid && self.ldctl_value == other.ldctl_value && self.ldctl_iscritical == other.ldctl_iscritical
-    }
-}
-impl Eq for LDAPControlW {}
 impl Default for LDAPControlW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDAPMessage {
     pub lm_msgid: u32,
     pub lm_msgtype: u32,
@@ -2482,56 +2322,20 @@ pub struct LDAPMessage {
     pub lm_eom: super::super::Foundation::BOOLEAN,
     pub ConnectionReferenced: super::super::Foundation::BOOLEAN,
 }
-impl Copy for LDAPMessage {}
-impl Clone for LDAPMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LDAPMessage {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LDAPMessage")
-            .field("lm_msgid", &self.lm_msgid)
-            .field("lm_msgtype", &self.lm_msgtype)
-            .field("lm_ber", &self.lm_ber)
-            .field("lm_chain", &self.lm_chain)
-            .field("lm_next", &self.lm_next)
-            .field("lm_time", &self.lm_time)
-            .field("Connection", &self.Connection)
-            .field("Request", &self.Request)
-            .field("lm_returncode", &self.lm_returncode)
-            .field("lm_referral", &self.lm_referral)
-            .field("lm_chased", &self.lm_chased)
-            .field("lm_eom", &self.lm_eom)
-            .field("ConnectionReferenced", &self.ConnectionReferenced)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for LDAPMessage {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LDAPMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.lm_msgid == other.lm_msgid && self.lm_msgtype == other.lm_msgtype && self.lm_ber == other.lm_ber && self.lm_chain == other.lm_chain && self.lm_next == other.lm_next && self.lm_time == other.lm_time && self.Connection == other.Connection && self.Request == other.Request && self.lm_returncode == other.lm_returncode && self.lm_referral == other.lm_referral && self.lm_chased == other.lm_chased && self.lm_eom == other.lm_eom && self.ConnectionReferenced == other.ConnectionReferenced
-    }
-}
-impl Eq for LDAPMessage {}
 impl Default for LDAPMessage {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LDAPModA {
     pub mod_op: u32,
     pub mod_type: windows_core::PSTR,
     pub mod_vals: LDAPModA_0,
-}
-impl Copy for LDAPModA {}
-impl Clone for LDAPModA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LDAPModA {
     type TypeKind = windows_core::CopyType;
@@ -2542,15 +2346,10 @@ impl Default for LDAPModA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union LDAPModA_0 {
     pub modv_strvals: *mut windows_core::PSTR,
     pub modv_bvals: *mut *mut LDAP_BERVAL,
-}
-impl Copy for LDAPModA_0 {}
-impl Clone for LDAPModA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LDAPModA_0 {
     type TypeKind = windows_core::CopyType;
@@ -2561,16 +2360,11 @@ impl Default for LDAPModA_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LDAPModW {
     pub mod_op: u32,
     pub mod_type: windows_core::PWSTR,
     pub mod_vals: LDAPModW_0,
-}
-impl Copy for LDAPModW {}
-impl Clone for LDAPModW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LDAPModW {
     type TypeKind = windows_core::CopyType;
@@ -2581,15 +2375,10 @@ impl Default for LDAPModW {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union LDAPModW_0 {
     pub modv_strvals: *mut windows_core::PWSTR,
     pub modv_bvals: *mut *mut LDAP_BERVAL,
-}
-impl Copy for LDAPModW_0 {}
-impl Clone for LDAPModW_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LDAPModW_0 {
     type TypeKind = windows_core::CopyType;
@@ -2600,68 +2389,37 @@ impl Default for LDAPModW_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDAPSortKeyA {
     pub sk_attrtype: windows_core::PSTR,
     pub sk_matchruleoid: windows_core::PSTR,
     pub sk_reverseorder: super::super::Foundation::BOOLEAN,
 }
-impl Copy for LDAPSortKeyA {}
-impl Clone for LDAPSortKeyA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LDAPSortKeyA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LDAPSortKeyA").field("sk_attrtype", &self.sk_attrtype).field("sk_matchruleoid", &self.sk_matchruleoid).field("sk_reverseorder", &self.sk_reverseorder).finish()
-    }
-}
 impl windows_core::TypeKind for LDAPSortKeyA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LDAPSortKeyA {
-    fn eq(&self, other: &Self) -> bool {
-        self.sk_attrtype == other.sk_attrtype && self.sk_matchruleoid == other.sk_matchruleoid && self.sk_reverseorder == other.sk_reverseorder
-    }
-}
-impl Eq for LDAPSortKeyA {}
 impl Default for LDAPSortKeyA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDAPSortKeyW {
     pub sk_attrtype: windows_core::PWSTR,
     pub sk_matchruleoid: windows_core::PWSTR,
     pub sk_reverseorder: super::super::Foundation::BOOLEAN,
 }
-impl Copy for LDAPSortKeyW {}
-impl Clone for LDAPSortKeyW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LDAPSortKeyW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LDAPSortKeyW").field("sk_attrtype", &self.sk_attrtype).field("sk_matchruleoid", &self.sk_matchruleoid).field("sk_reverseorder", &self.sk_reverseorder).finish()
-    }
-}
 impl windows_core::TypeKind for LDAPSortKeyW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LDAPSortKeyW {
-    fn eq(&self, other: &Self) -> bool {
-        self.sk_attrtype == other.sk_attrtype && self.sk_matchruleoid == other.sk_matchruleoid && self.sk_reverseorder == other.sk_reverseorder
-    }
-}
-impl Eq for LDAPSortKeyW {}
 impl Default for LDAPSortKeyW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDAPVLVInfo {
     pub ldvlv_version: i32,
     pub ldvlv_before_count: u32,
@@ -2672,78 +2430,35 @@ pub struct LDAPVLVInfo {
     pub ldvlv_context: *mut LDAP_BERVAL,
     pub ldvlv_extradata: *mut core::ffi::c_void,
 }
-impl Copy for LDAPVLVInfo {}
-impl Clone for LDAPVLVInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LDAPVLVInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LDAPVLVInfo").field("ldvlv_version", &self.ldvlv_version).field("ldvlv_before_count", &self.ldvlv_before_count).field("ldvlv_after_count", &self.ldvlv_after_count).field("ldvlv_offset", &self.ldvlv_offset).field("ldvlv_count", &self.ldvlv_count).field("ldvlv_attrvalue", &self.ldvlv_attrvalue).field("ldvlv_context", &self.ldvlv_context).field("ldvlv_extradata", &self.ldvlv_extradata).finish()
-    }
-}
 impl windows_core::TypeKind for LDAPVLVInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LDAPVLVInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.ldvlv_version == other.ldvlv_version && self.ldvlv_before_count == other.ldvlv_before_count && self.ldvlv_after_count == other.ldvlv_after_count && self.ldvlv_offset == other.ldvlv_offset && self.ldvlv_count == other.ldvlv_count && self.ldvlv_attrvalue == other.ldvlv_attrvalue && self.ldvlv_context == other.ldvlv_context && self.ldvlv_extradata == other.ldvlv_extradata
-    }
-}
-impl Eq for LDAPVLVInfo {}
 impl Default for LDAPVLVInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDAP_BERVAL {
     pub bv_len: u32,
     pub bv_val: windows_core::PSTR,
 }
-impl Copy for LDAP_BERVAL {}
-impl Clone for LDAP_BERVAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LDAP_BERVAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LDAP_BERVAL").field("bv_len", &self.bv_len).field("bv_val", &self.bv_val).finish()
-    }
-}
 impl windows_core::TypeKind for LDAP_BERVAL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LDAP_BERVAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.bv_len == other.bv_len && self.bv_val == other.bv_val
-    }
-}
-impl Eq for LDAP_BERVAL {}
 impl Default for LDAP_BERVAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct LDAP_REFERRAL_CALLBACK {
     pub SizeOfCallbacks: u32,
     pub QueryForConnection: QUERYFORCONNECTION,
     pub NotifyRoutine: NOTIFYOFNEWCONNECTION,
     pub DereferenceRoutine: DEREFERENCECONNECTION,
-}
-impl Copy for LDAP_REFERRAL_CALLBACK {}
-impl Clone for LDAP_REFERRAL_CALLBACK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LDAP_REFERRAL_CALLBACK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LDAP_REFERRAL_CALLBACK").field("SizeOfCallbacks", &self.SizeOfCallbacks).finish()
-    }
 }
 impl windows_core::TypeKind for LDAP_REFERRAL_CALLBACK {
     type TypeKind = windows_core::CopyType;
@@ -2754,61 +2469,29 @@ impl Default for LDAP_REFERRAL_CALLBACK {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDAP_TIMEVAL {
     pub tv_sec: i32,
     pub tv_usec: i32,
 }
-impl Copy for LDAP_TIMEVAL {}
-impl Clone for LDAP_TIMEVAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LDAP_TIMEVAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LDAP_TIMEVAL").field("tv_sec", &self.tv_sec).field("tv_usec", &self.tv_usec).finish()
-    }
-}
 impl windows_core::TypeKind for LDAP_TIMEVAL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LDAP_TIMEVAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.tv_sec == other.tv_sec && self.tv_usec == other.tv_usec
-    }
-}
-impl Eq for LDAP_TIMEVAL {}
 impl Default for LDAP_TIMEVAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDAP_VERSION_INFO {
     pub lv_size: u32,
     pub lv_major: u32,
     pub lv_minor: u32,
 }
-impl Copy for LDAP_VERSION_INFO {}
-impl Clone for LDAP_VERSION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LDAP_VERSION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LDAP_VERSION_INFO").field("lv_size", &self.lv_size).field("lv_major", &self.lv_major).field("lv_minor", &self.lv_minor).finish()
-    }
-}
 impl windows_core::TypeKind for LDAP_VERSION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LDAP_VERSION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.lv_size == other.lv_size && self.lv_major == other.lv_major && self.lv_minor == other.lv_minor
-    }
-}
-impl Eq for LDAP_VERSION_INFO {}
 impl Default for LDAP_VERSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

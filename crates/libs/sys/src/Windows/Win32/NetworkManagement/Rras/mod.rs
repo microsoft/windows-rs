@@ -1186,6 +1186,7 @@ pub type ROUTER_INTERFACE_TYPE = i32;
 pub type RTM_EVENT_TYPE = i32;
 pub type SECURITY_MESSAGE_MSG_ID = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUTH_VALIDATION_EX {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub hRasConnection: super::super::Foundation::HANDLE,
@@ -1194,41 +1195,24 @@ pub struct AUTH_VALIDATION_EX {
     pub AuthInfoSize: u32,
     pub AuthInfo: [u8; 1],
 }
-impl Copy for AUTH_VALIDATION_EX {}
-impl Clone for AUTH_VALIDATION_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GRE_CONFIG_PARAMS0 {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
 }
-impl Copy for GRE_CONFIG_PARAMS0 {}
-impl Clone for GRE_CONFIG_PARAMS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type HRASCONN = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct IKEV2_CONFIG_PARAMS {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
     pub dwTunnelConfigParamFlags: u32,
     pub TunnelConfigParams: IKEV2_TUNNEL_CONFIG_PARAMS4,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for IKEV2_CONFIG_PARAMS {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for IKEV2_CONFIG_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEV2_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
     pub wszAddress: [u16; 16],
@@ -1246,13 +1230,8 @@ pub struct IKEV2_PROJECTION_INFO {
     pub dwCompressionAlgorithm: u32,
     pub dwEncryptionMethod: u32,
 }
-impl Copy for IKEV2_PROJECTION_INFO {}
-impl Clone for IKEV2_PROJECTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEV2_PROJECTION_INFO2 {
     pub dwIPv4NegotiationError: u32,
     pub wszAddress: [u16; 16],
@@ -1271,14 +1250,9 @@ pub struct IKEV2_PROJECTION_INFO2 {
     pub dwCompressionAlgorithm: u32,
     pub dwEncryptionMethod: u32,
 }
-impl Copy for IKEV2_PROJECTION_INFO2 {}
-impl Clone for IKEV2_PROJECTION_INFO2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS2 {
     pub dwIdleTimeout: u32,
     pub dwNetworkBlackoutTime: u32,
@@ -1291,16 +1265,9 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS2 {
     pub dwEncryptionType: u32,
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for IKEV2_TUNNEL_CONFIG_PARAMS2 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for IKEV2_TUNNEL_CONFIG_PARAMS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS3 {
     pub dwIdleTimeout: u32,
     pub dwNetworkBlackoutTime: u32,
@@ -1316,16 +1283,9 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS3 {
     pub certificateEKUs: *mut MPR_CERT_EKU,
     pub machineCertificateHash: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for IKEV2_TUNNEL_CONFIG_PARAMS3 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for IKEV2_TUNNEL_CONFIG_PARAMS3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS4 {
     pub dwIdleTimeout: u32,
     pub dwNetworkBlackoutTime: u32,
@@ -1342,39 +1302,22 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS4 {
     pub machineCertificateHash: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
     pub dwMmSaLifeTime: u32,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for IKEV2_TUNNEL_CONFIG_PARAMS4 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for IKEV2_TUNNEL_CONFIG_PARAMS4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct L2TP_CONFIG_PARAMS0 {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
 }
-impl Copy for L2TP_CONFIG_PARAMS0 {}
-impl Clone for L2TP_CONFIG_PARAMS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct L2TP_CONFIG_PARAMS1 {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
     pub dwTunnelConfigParamFlags: u32,
     pub TunnelConfigParams: L2TP_TUNNEL_CONFIG_PARAMS2,
 }
-impl Copy for L2TP_CONFIG_PARAMS1 {}
-impl Clone for L2TP_CONFIG_PARAMS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct L2TP_TUNNEL_CONFIG_PARAMS1 {
     pub dwIdleTimeout: u32,
     pub dwEncryptionType: u32,
@@ -1382,13 +1325,8 @@ pub struct L2TP_TUNNEL_CONFIG_PARAMS1 {
     pub dwSaDataSizeForRenegotiation: u32,
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
 }
-impl Copy for L2TP_TUNNEL_CONFIG_PARAMS1 {}
-impl Clone for L2TP_TUNNEL_CONFIG_PARAMS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct L2TP_TUNNEL_CONFIG_PARAMS2 {
     pub dwIdleTimeout: u32,
     pub dwEncryptionType: u32,
@@ -1397,27 +1335,17 @@ pub struct L2TP_TUNNEL_CONFIG_PARAMS2 {
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
     pub dwMmSaLifeTime: u32,
 }
-impl Copy for L2TP_TUNNEL_CONFIG_PARAMS2 {}
-impl Clone for L2TP_TUNNEL_CONFIG_PARAMS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MGM_IF_ENTRY {
     pub dwIfIndex: u32,
     pub dwIfNextHopAddr: u32,
     pub bIGMP: super::super::Foundation::BOOL,
     pub bIsEnabled: super::super::Foundation::BOOL,
 }
-impl Copy for MGM_IF_ENTRY {}
-impl Clone for MGM_IF_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct MPRAPI_ADMIN_DLL_CALLBACKS {
     pub revision: u8,
     pub lpfnMprAdminGetIpAddressForUser: PMPRADMINGETIPADDRESSFORUSER,
@@ -1433,44 +1361,25 @@ pub struct MPRAPI_ADMIN_DLL_CALLBACKS {
     pub lpfnRasAdminConnectionHangupNotificationEx: PMPRADMINCONNECTIONHANGUPNOTIFICATIONEX,
     pub lpfnRASValidatePreAuthenticatedConnectionEx: PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEX,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for MPRAPI_ADMIN_DLL_CALLBACKS {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for MPRAPI_ADMIN_DLL_CALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MPRAPI_OBJECT_HEADER {
     pub revision: u8,
     pub r#type: u8,
     pub size: u16,
 }
-impl Copy for MPRAPI_OBJECT_HEADER {}
-impl Clone for MPRAPI_OBJECT_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct MPRAPI_TUNNEL_CONFIG_PARAMS0 {
     pub IkeConfigParams: IKEV2_CONFIG_PARAMS,
     pub PptpConfigParams: PPTP_CONFIG_PARAMS,
     pub L2tpConfigParams: L2TP_CONFIG_PARAMS1,
     pub SstpConfigParams: SSTP_CONFIG_PARAMS,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for MPRAPI_TUNNEL_CONFIG_PARAMS0 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     pub IkeConfigParams: IKEV2_CONFIG_PARAMS,
     pub PptpConfigParams: PPTP_CONFIG_PARAMS,
@@ -1478,140 +1387,77 @@ pub struct MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     pub SstpConfigParams: SSTP_CONFIG_PARAMS,
     pub GREConfigParams: GRE_CONFIG_PARAMS0,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for MPRAPI_TUNNEL_CONFIG_PARAMS1 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MPR_CERT_EKU {
     pub dwSize: u32,
     pub IsEKUOID: super::super::Foundation::BOOL,
     pub pwszEKU: windows_sys::core::PWSTR,
 }
-impl Copy for MPR_CERT_EKU {}
-impl Clone for MPR_CERT_EKU {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MPR_CREDENTIALSEX_0 {
     pub dwSize: u32,
     pub lpbCredentialsInfo: *mut u8,
 }
-impl Copy for MPR_CREDENTIALSEX_0 {}
-impl Clone for MPR_CREDENTIALSEX_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MPR_CREDENTIALSEX_1 {
     pub dwSize: u32,
     pub lpbCredentialsInfo: *mut u8,
 }
-impl Copy for MPR_CREDENTIALSEX_1 {}
-impl Clone for MPR_CREDENTIALSEX_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MPR_DEVICE_0 {
     pub szDeviceType: [u16; 17],
     pub szDeviceName: [u16; 129],
 }
-impl Copy for MPR_DEVICE_0 {}
-impl Clone for MPR_DEVICE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MPR_DEVICE_1 {
     pub szDeviceType: [u16; 17],
     pub szDeviceName: [u16; 129],
     pub szLocalPhoneNumber: [u16; 129],
     pub szAlternates: windows_sys::core::PWSTR,
 }
-impl Copy for MPR_DEVICE_1 {}
-impl Clone for MPR_DEVICE_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MPR_FILTER_0 {
     pub fEnable: super::super::Foundation::BOOL,
 }
-impl Copy for MPR_FILTER_0 {}
-impl Clone for MPR_FILTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MPR_IFTRANSPORT_0 {
     pub dwTransportId: u32,
     pub hIfTransport: super::super::Foundation::HANDLE,
     pub wszIfTransportName: [u16; 41],
 }
-impl Copy for MPR_IFTRANSPORT_0 {}
-impl Clone for MPR_IFTRANSPORT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct MPR_IF_CUSTOMINFOEX0 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwFlags: u32,
     pub customIkev2Config: ROUTER_IKEv2_IF_CUSTOM_CONFIG0,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for MPR_IF_CUSTOMINFOEX0 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for MPR_IF_CUSTOMINFOEX0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct MPR_IF_CUSTOMINFOEX1 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwFlags: u32,
     pub customIkev2Config: ROUTER_IKEv2_IF_CUSTOM_CONFIG1,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for MPR_IF_CUSTOMINFOEX1 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for MPR_IF_CUSTOMINFOEX1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+#[derive(Clone, Copy)]
 pub struct MPR_IF_CUSTOMINFOEX2 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwFlags: u32,
     pub customIkev2Config: ROUTER_IKEv2_IF_CUSTOM_CONFIG2,
 }
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl Copy for MPR_IF_CUSTOMINFOEX2 {}
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl Clone for MPR_IF_CUSTOMINFOEX2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MPR_INTERFACE_0 {
     pub wszInterfaceName: [u16; 257],
     pub hInterface: super::super::Foundation::HANDLE,
@@ -1621,13 +1467,8 @@ pub struct MPR_INTERFACE_0 {
     pub fUnReachabilityReasons: u32,
     pub dwLastError: u32,
 }
-impl Copy for MPR_INTERFACE_0 {}
-impl Clone for MPR_INTERFACE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MPR_INTERFACE_1 {
     pub wszInterfaceName: [u16; 257],
     pub hInterface: super::super::Foundation::HANDLE,
@@ -1638,13 +1479,8 @@ pub struct MPR_INTERFACE_1 {
     pub dwLastError: u32,
     pub lpwsDialoutHoursRestriction: windows_sys::core::PWSTR,
 }
-impl Copy for MPR_INTERFACE_1 {}
-impl Clone for MPR_INTERFACE_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MPR_INTERFACE_2 {
     pub wszInterfaceName: [u16; 257],
     pub hInterface: super::super::Foundation::HANDLE,
@@ -1684,14 +1520,9 @@ pub struct MPR_INTERFACE_2 {
     pub guidId: windows_sys::core::GUID,
     pub dwVpnStrategy: MPR_VS,
 }
-impl Copy for MPR_INTERFACE_2 {}
-impl Clone for MPR_INTERFACE_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct MPR_INTERFACE_3 {
     pub wszInterfaceName: [u16; 257],
     pub hInterface: super::super::Foundation::HANDLE,
@@ -1735,52 +1566,30 @@ pub struct MPR_INTERFACE_3 {
     pub ipv6addrDnsAlt: super::super::Networking::WinSock::IN6_ADDR,
     pub ipv6addr: *mut super::super::Networking::WinSock::IN6_ADDR,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for MPR_INTERFACE_3 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for MPR_INTERFACE_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MPR_IPINIP_INTERFACE_0 {
     pub wszFriendlyName: [u16; 257],
     pub Guid: windows_sys::core::GUID,
 }
-impl Copy for MPR_IPINIP_INTERFACE_0 {}
-impl Clone for MPR_IPINIP_INTERFACE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MPR_SERVER_0 {
     pub fLanOnlyMode: super::super::Foundation::BOOL,
     pub dwUpTime: u32,
     pub dwTotalPorts: u32,
     pub dwPortsInUse: u32,
 }
-impl Copy for MPR_SERVER_0 {}
-impl Clone for MPR_SERVER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MPR_SERVER_1 {
     pub dwNumPptpPorts: u32,
     pub dwPptpPortFlags: u32,
     pub dwNumL2tpPorts: u32,
     pub dwL2tpPortFlags: u32,
 }
-impl Copy for MPR_SERVER_1 {}
-impl Clone for MPR_SERVER_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MPR_SERVER_2 {
     pub dwNumPptpPorts: u32,
     pub dwPptpPortFlags: u32,
@@ -1789,14 +1598,9 @@ pub struct MPR_SERVER_2 {
     pub dwNumSstpPorts: u32,
     pub dwSstpPortFlags: u32,
 }
-impl Copy for MPR_SERVER_2 {}
-impl Clone for MPR_SERVER_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct MPR_SERVER_EX0 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub fLanOnlyMode: u32,
@@ -1806,16 +1610,9 @@ pub struct MPR_SERVER_EX0 {
     pub Reserved: u32,
     pub ConfigParams: MPRAPI_TUNNEL_CONFIG_PARAMS0,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for MPR_SERVER_EX0 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for MPR_SERVER_EX0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct MPR_SERVER_EX1 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub fLanOnlyMode: u32,
@@ -1825,58 +1622,32 @@ pub struct MPR_SERVER_EX1 {
     pub Reserved: u32,
     pub ConfigParams: MPRAPI_TUNNEL_CONFIG_PARAMS1,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for MPR_SERVER_EX1 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for MPR_SERVER_EX1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct MPR_SERVER_SET_CONFIG_EX0 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub setConfigForProtocols: u32,
     pub ConfigParams: MPRAPI_TUNNEL_CONFIG_PARAMS0,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for MPR_SERVER_SET_CONFIG_EX0 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for MPR_SERVER_SET_CONFIG_EX0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct MPR_SERVER_SET_CONFIG_EX1 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub setConfigForProtocols: u32,
     pub ConfigParams: MPRAPI_TUNNEL_CONFIG_PARAMS1,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for MPR_SERVER_SET_CONFIG_EX1 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for MPR_SERVER_SET_CONFIG_EX1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MPR_TRANSPORT_0 {
     pub dwTransportId: u32,
     pub hTransport: super::super::Foundation::HANDLE,
     pub wszTransportName: [u16; 41],
 }
-impl Copy for MPR_TRANSPORT_0 {}
-impl Clone for MPR_TRANSPORT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct MPR_VPN_TRAFFIC_SELECTOR {
     pub r#type: MPR_VPN_TS_TYPE,
     pub protocolId: u8,
@@ -1886,42 +1657,23 @@ pub struct MPR_VPN_TRAFFIC_SELECTOR {
     pub addrStart: VPN_TS_IP_ADDRESS,
     pub addrEnd: VPN_TS_IP_ADDRESS,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for MPR_VPN_TRAFFIC_SELECTOR {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for MPR_VPN_TRAFFIC_SELECTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct MPR_VPN_TRAFFIC_SELECTORS {
     pub numTsi: u32,
     pub numTsr: u32,
     pub tsI: *mut MPR_VPN_TRAFFIC_SELECTOR,
     pub tsR: *mut MPR_VPN_TRAFFIC_SELECTOR,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for MPR_VPN_TRAFFIC_SELECTORS {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for MPR_VPN_TRAFFIC_SELECTORS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PPP_ATCP_INFO {
     pub dwError: u32,
     pub wszAddress: [u16; 33],
 }
-impl Copy for PPP_ATCP_INFO {}
-impl Clone for PPP_ATCP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PPP_CCP_INFO {
     pub dwError: u32,
     pub dwCompressionAlgorithm: u32,
@@ -1929,26 +1681,16 @@ pub struct PPP_CCP_INFO {
     pub dwRemoteCompressionAlgorithm: u32,
     pub dwRemoteOptions: u32,
 }
-impl Copy for PPP_CCP_INFO {}
-impl Clone for PPP_CCP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PPP_INFO {
     pub nbf: PPP_NBFCP_INFO,
     pub ip: PPP_IPCP_INFO,
     pub ipx: PPP_IPXCP_INFO,
     pub at: PPP_ATCP_INFO,
 }
-impl Copy for PPP_INFO {}
-impl Clone for PPP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PPP_INFO_2 {
     pub nbf: PPP_NBFCP_INFO,
     pub ip: PPP_IPCP_INFO2,
@@ -1957,13 +1699,8 @@ pub struct PPP_INFO_2 {
     pub ccp: PPP_CCP_INFO,
     pub lcp: PPP_LCP_INFO,
 }
-impl Copy for PPP_INFO_2 {}
-impl Clone for PPP_INFO_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PPP_INFO_3 {
     pub nbf: PPP_NBFCP_INFO,
     pub ip: PPP_IPCP_INFO2,
@@ -1971,25 +1708,15 @@ pub struct PPP_INFO_3 {
     pub ccp: PPP_CCP_INFO,
     pub lcp: PPP_LCP_INFO,
 }
-impl Copy for PPP_INFO_3 {}
-impl Clone for PPP_INFO_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PPP_IPCP_INFO {
     pub dwError: u32,
     pub wszAddress: [u16; 16],
     pub wszRemoteAddress: [u16; 16],
 }
-impl Copy for PPP_IPCP_INFO {}
-impl Clone for PPP_IPCP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PPP_IPCP_INFO2 {
     pub dwError: u32,
     pub wszAddress: [u16; 16],
@@ -1997,13 +1724,8 @@ pub struct PPP_IPCP_INFO2 {
     pub dwOptions: u32,
     pub dwRemoteOptions: u32,
 }
-impl Copy for PPP_IPCP_INFO2 {}
-impl Clone for PPP_IPCP_INFO2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PPP_IPV6_CP_INFO {
     pub dwVersion: u32,
     pub dwSize: u32,
@@ -2015,24 +1737,14 @@ pub struct PPP_IPV6_CP_INFO {
     pub bPrefix: [u8; 8],
     pub dwPrefixLength: u32,
 }
-impl Copy for PPP_IPV6_CP_INFO {}
-impl Clone for PPP_IPV6_CP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PPP_IPXCP_INFO {
     pub dwError: u32,
     pub wszAddress: [u16; 23],
 }
-impl Copy for PPP_IPXCP_INFO {}
-impl Clone for PPP_IPXCP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PPP_LCP_INFO {
     pub dwError: u32,
     pub dwAuthenticationProtocol: PPP_LCP,
@@ -2046,24 +1758,14 @@ pub struct PPP_LCP_INFO {
     pub dwEapTypeId: u32,
     pub dwRemoteEapTypeId: u32,
 }
-impl Copy for PPP_LCP_INFO {}
-impl Clone for PPP_LCP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PPP_NBFCP_INFO {
     pub dwError: u32,
     pub wszWksta: [u16; 17],
 }
-impl Copy for PPP_NBFCP_INFO {}
-impl Clone for PPP_NBFCP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PPP_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
     pub wszAddress: [u16; 16],
@@ -2094,13 +1796,8 @@ pub struct PPP_PROJECTION_INFO {
     pub dwRemoteCompressionAlgorithm: u32,
     pub dwCcpRemoteOptions: u32,
 }
-impl Copy for PPP_PROJECTION_INFO {}
-impl Clone for PPP_PROJECTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PPP_PROJECTION_INFO2 {
     pub dwIPv4NegotiationError: u32,
     pub wszAddress: [u16; 16],
@@ -2132,68 +1829,38 @@ pub struct PPP_PROJECTION_INFO2 {
     pub dwRemoteCompressionAlgorithm: u32,
     pub dwCcpRemoteOptions: u32,
 }
-impl Copy for PPP_PROJECTION_INFO2 {}
-impl Clone for PPP_PROJECTION_INFO2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PPTP_CONFIG_PARAMS {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
 }
-impl Copy for PPTP_CONFIG_PARAMS {}
-impl Clone for PPTP_CONFIG_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROJECTION_INFO {
     pub projectionInfoType: u8,
     pub Anonymous: PROJECTION_INFO_0,
 }
-impl Copy for PROJECTION_INFO {}
-impl Clone for PROJECTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROJECTION_INFO_0 {
     pub PppProjectionInfo: PPP_PROJECTION_INFO,
     pub Ikev2ProjectionInfo: IKEV2_PROJECTION_INFO,
 }
-impl Copy for PROJECTION_INFO_0 {}
-impl Clone for PROJECTION_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROJECTION_INFO2 {
     pub projectionInfoType: u8,
     pub Anonymous: PROJECTION_INFO2_0,
 }
-impl Copy for PROJECTION_INFO2 {}
-impl Clone for PROJECTION_INFO2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROJECTION_INFO2_0 {
     pub PppProjectionInfo: PPP_PROJECTION_INFO2,
     pub Ikev2ProjectionInfo: IKEV2_PROJECTION_INFO2,
 }
-impl Copy for PROJECTION_INFO2_0 {}
-impl Clone for PROJECTION_INFO2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct RASADPARAMS {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -2201,65 +1868,40 @@ pub struct RASADPARAMS {
     pub xDlg: i32,
     pub yDlg: i32,
 }
-impl Copy for RASADPARAMS {}
-impl Clone for RASADPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASAMBA {
     pub dwSize: u32,
     pub dwError: u32,
     pub szNetBiosError: [i8; 17],
     pub bLana: u8,
 }
-impl Copy for RASAMBA {}
-impl Clone for RASAMBA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASAMBW {
     pub dwSize: u32,
     pub dwError: u32,
     pub szNetBiosError: [u16; 17],
     pub bLana: u8,
 }
-impl Copy for RASAMBW {}
-impl Clone for RASAMBW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASAUTODIALENTRYA {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwDialingLocation: u32,
     pub szEntry: [i8; 257],
 }
-impl Copy for RASAUTODIALENTRYA {}
-impl Clone for RASAUTODIALENTRYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASAUTODIALENTRYW {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwDialingLocation: u32,
     pub szEntry: [u16; 257],
 }
-impl Copy for RASAUTODIALENTRYW {}
-impl Clone for RASAUTODIALENTRYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASCOMMSETTINGS {
     pub dwSize: u32,
     pub bParity: u8,
@@ -2267,14 +1909,9 @@ pub struct RASCOMMSETTINGS {
     pub bByteSize: u8,
     pub bAlign: u8,
 }
-impl Copy for RASCOMMSETTINGS {}
-impl Clone for RASCOMMSETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct RASCONNA {
     pub dwSize: u32,
     pub hrasconn: HRASCONN,
@@ -2287,17 +1924,10 @@ pub struct RASCONNA {
     pub dwFlags: u32,
     pub luid: super::super::Foundation::LUID,
     pub guidCorrelationId: windows_sys::core::GUID,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for RASCONNA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for RASCONNA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct RASCONNA {
     pub dwSize: u32,
     pub hrasconn: HRASCONN,
@@ -2310,17 +1940,10 @@ pub struct RASCONNA {
     pub dwFlags: u32,
     pub luid: super::super::Foundation::LUID,
     pub guidCorrelationId: windows_sys::core::GUID,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for RASCONNA {}
-#[cfg(target_arch = "x86")]
-impl Clone for RASCONNA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct RASCONNSTATUSA {
     pub dwSize: u32,
     pub rasconnstate: RASCONNSTATE,
@@ -2332,16 +1955,9 @@ pub struct RASCONNSTATUSA {
     pub remoteEndPoint: RASTUNNELENDPOINT,
     pub rasconnsubstate: RASCONNSUBSTATE,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for RASCONNSTATUSA {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for RASCONNSTATUSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct RASCONNSTATUSW {
     pub dwSize: u32,
     pub rasconnstate: RASCONNSTATE,
@@ -2353,16 +1969,9 @@ pub struct RASCONNSTATUSW {
     pub remoteEndPoint: RASTUNNELENDPOINT,
     pub rasconnsubstate: RASCONNSUBSTATE,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for RASCONNSTATUSW {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for RASCONNSTATUSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct RASCONNW {
     pub dwSize: u32,
     pub hrasconn: HRASCONN,
@@ -2376,16 +1985,9 @@ pub struct RASCONNW {
     pub luid: super::super::Foundation::LUID,
     pub guidCorrelationId: windows_sys::core::GUID,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for RASCONNW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for RASCONNW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct RASCONNW {
     pub dwSize: u32,
     pub hrasconn: HRASCONN,
@@ -2399,15 +2001,8 @@ pub struct RASCONNW {
     pub luid: super::super::Foundation::LUID,
     pub guidCorrelationId: windows_sys::core::GUID,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for RASCONNW {}
-#[cfg(target_arch = "x86")]
-impl Clone for RASCONNW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASCREDENTIALSA {
     pub dwSize: u32,
     pub dwMask: u32,
@@ -2415,13 +2010,8 @@ pub struct RASCREDENTIALSA {
     pub szPassword: [i8; 257],
     pub szDomain: [i8; 16],
 }
-impl Copy for RASCREDENTIALSA {}
-impl Clone for RASCREDENTIALSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASCREDENTIALSW {
     pub dwSize: u32,
     pub dwMask: u32,
@@ -2429,13 +2019,8 @@ pub struct RASCREDENTIALSW {
     pub szPassword: [u16; 257],
     pub szDomain: [u16; 16],
 }
-impl Copy for RASCREDENTIALSW {}
-impl Clone for RASCREDENTIALSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASCTRYINFO {
     pub dwSize: u32,
     pub dwCountryID: u32,
@@ -2443,76 +2028,42 @@ pub struct RASCTRYINFO {
     pub dwCountryCode: u32,
     pub dwCountryNameOffset: u32,
 }
-impl Copy for RASCTRYINFO {}
-impl Clone for RASCTRYINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct RASCUSTOMSCRIPTEXTENSIONS {
     pub dwSize: u32,
     pub pfnRasSetCommSettings: PFNRASSETCOMMSETTINGS,
 }
-impl Copy for RASCUSTOMSCRIPTEXTENSIONS {}
-impl Clone for RASCUSTOMSCRIPTEXTENSIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASDEVINFOA {
     pub dwSize: u32,
     pub szDeviceType: [i8; 17],
     pub szDeviceName: [i8; 129],
 }
-impl Copy for RASDEVINFOA {}
-impl Clone for RASDEVINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASDEVINFOW {
     pub dwSize: u32,
     pub szDeviceType: [u16; 17],
     pub szDeviceName: [u16; 129],
 }
-impl Copy for RASDEVINFOW {}
-impl Clone for RASDEVINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct RASDEVSPECIFICINFO {
     pub dwSize: u32,
     pub pbDevSpecificInfo: *mut u8,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for RASDEVSPECIFICINFO {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for RASDEVSPECIFICINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct RASDEVSPECIFICINFO {
     pub dwSize: u32,
     pub pbDevSpecificInfo: *mut u8,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for RASDEVSPECIFICINFO {}
-#[cfg(target_arch = "x86")]
-impl Clone for RASDEVSPECIFICINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct RASDIALDLG {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -2524,13 +2075,8 @@ pub struct RASDIALDLG {
     pub reserved: usize,
     pub reserved2: usize,
 }
-impl Copy for RASDIALDLG {}
-impl Clone for RASDIALDLG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct RASDIALEXTENSIONS {
     pub dwSize: u32,
     pub dwfOptions: u32,
@@ -2541,14 +2087,9 @@ pub struct RASDIALEXTENSIONS {
     pub fSkipPppAuth: super::super::Foundation::BOOL,
     pub RasDevSpecificInfo: RASDEVSPECIFICINFO,
 }
-impl Copy for RASDIALEXTENSIONS {}
-impl Clone for RASDIALEXTENSIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct RASDIALPARAMSA {
     pub dwSize: u32,
     pub szEntryName: [i8; 257],
@@ -2562,16 +2103,9 @@ pub struct RASDIALPARAMSA {
     pub dwIfIndex: u32,
     pub szEncPassword: windows_sys::core::PSTR,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for RASDIALPARAMSA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for RASDIALPARAMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct RASDIALPARAMSA {
     pub dwSize: u32,
     pub szEntryName: [i8; 257],
@@ -2585,16 +2119,9 @@ pub struct RASDIALPARAMSA {
     pub dwIfIndex: u32,
     pub szEncPassword: windows_sys::core::PSTR,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for RASDIALPARAMSA {}
-#[cfg(target_arch = "x86")]
-impl Clone for RASDIALPARAMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct RASDIALPARAMSW {
     pub dwSize: u32,
     pub szEntryName: [u16; 257],
@@ -2607,17 +2134,10 @@ pub struct RASDIALPARAMSW {
     pub dwCallbackId: usize,
     pub dwIfIndex: u32,
     pub szEncPassword: windows_sys::core::PWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for RASDIALPARAMSW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for RASDIALPARAMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct RASDIALPARAMSW {
     pub dwSize: u32,
     pub szEntryName: [u16; 257],
@@ -2631,51 +2151,29 @@ pub struct RASDIALPARAMSW {
     pub dwIfIndex: u32,
     pub szEncPassword: windows_sys::core::PWSTR,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for RASDIALPARAMSW {}
-#[cfg(target_arch = "x86")]
-impl Clone for RASDIALPARAMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct RASEAPINFO {
     pub dwSizeofEapInfo: u32,
     pub pbEapInfo: *mut u8,
 }
-impl Copy for RASEAPINFO {}
-impl Clone for RASEAPINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASEAPUSERIDENTITYA {
     pub szUserName: [i8; 257],
     pub dwSizeofEapInfo: u32,
     pub pbEapInfo: [u8; 1],
 }
-impl Copy for RASEAPUSERIDENTITYA {}
-impl Clone for RASEAPUSERIDENTITYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASEAPUSERIDENTITYW {
     pub szUserName: [u16; 257],
     pub dwSizeofEapInfo: u32,
     pub pbEapInfo: [u8; 1],
 }
-impl Copy for RASEAPUSERIDENTITYW {}
-impl Clone for RASEAPUSERIDENTITYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct RASENTRYA {
     pub dwSize: u32,
     pub dwfOptions: u32,
@@ -2739,16 +2237,9 @@ pub struct RASENTRYA {
     pub IdrType: IKEV2_ID_PAYLOAD_TYPE,
     pub fDisableIKEv2Fragmentation: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for RASENTRYA {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for RASENTRYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct RASENTRYDLGA {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -2760,16 +2251,9 @@ pub struct RASENTRYDLGA {
     pub reserved: usize,
     pub reserved2: usize,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for RASENTRYDLGA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for RASENTRYDLGA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct RASENTRYDLGA {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -2781,16 +2265,9 @@ pub struct RASENTRYDLGA {
     pub reserved: usize,
     pub reserved2: usize,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for RASENTRYDLGA {}
-#[cfg(target_arch = "x86")]
-impl Clone for RASENTRYDLGA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct RASENTRYDLGW {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -2802,16 +2279,9 @@ pub struct RASENTRYDLGW {
     pub reserved: usize,
     pub reserved2: usize,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for RASENTRYDLGW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for RASENTRYDLGW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct RASENTRYDLGW {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -2823,42 +2293,25 @@ pub struct RASENTRYDLGW {
     pub reserved: usize,
     pub reserved2: usize,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for RASENTRYDLGW {}
-#[cfg(target_arch = "x86")]
-impl Clone for RASENTRYDLGW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASENTRYNAMEA {
     pub dwSize: u32,
     pub szEntryName: [i8; 257],
     pub dwFlags: u32,
     pub szPhonebookPath: [i8; 261],
 }
-impl Copy for RASENTRYNAMEA {}
-impl Clone for RASENTRYNAMEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASENTRYNAMEW {
     pub dwSize: u32,
     pub szEntryName: [u16; 257],
     pub dwFlags: u32,
     pub szPhonebookPath: [u16; 261],
 }
-impl Copy for RASENTRYNAMEW {}
-impl Clone for RASENTRYNAMEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct RASENTRYW {
     pub dwSize: u32,
     pub dwfOptions: u32,
@@ -2922,17 +2375,10 @@ pub struct RASENTRYW {
     pub IdrType: IKEV2_ID_PAYLOAD_TYPE,
     pub fDisableIKEv2Fragmentation: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for RASENTRYW {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for RASENTRYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct RASIKEV2_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
     pub ipv4Address: super::super::Networking::WinSock::IN_ADDR,
@@ -2950,19 +2396,10 @@ pub struct RASIKEV2_PROJECTION_INFO {
     pub numIPv6ServerAddresses: u32,
     pub ipv6ServerAddresses: *mut super::super::Networking::WinSock::IN6_ADDR,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for RASIKEV2_PROJECTION_INFO {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for RASIKEV2_PROJECTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct RASIKEV2_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
     pub ipv4Address: super::super::Networking::WinSock::IN_ADDR,
@@ -2980,42 +2417,23 @@ pub struct RASIKEV2_PROJECTION_INFO {
     pub numIPv6ServerAddresses: u32,
     pub ipv6ServerAddresses: *mut super::super::Networking::WinSock::IN6_ADDR,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for RASIKEV2_PROJECTION_INFO {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for RASIKEV2_PROJECTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASIPADDR {
     pub a: u8,
     pub b: u8,
     pub c: u8,
     pub d: u8,
 }
-impl Copy for RASIPADDR {}
-impl Clone for RASIPADDR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASIPXW {
     pub dwSize: u32,
     pub dwError: u32,
     pub szIpxAddress: [u16; 22],
 }
-impl Copy for RASIPXW {}
-impl Clone for RASIPXW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASNOUSERA {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -3024,13 +2442,8 @@ pub struct RASNOUSERA {
     pub szPassword: [i8; 257],
     pub szDomain: [i8; 16],
 }
-impl Copy for RASNOUSERA {}
-impl Clone for RASNOUSERA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASNOUSERW {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -3039,14 +2452,9 @@ pub struct RASNOUSERW {
     pub szPassword: [u16; 257],
     pub szDomain: [u16; 16],
 }
-impl Copy for RASNOUSERW {}
-impl Clone for RASNOUSERW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct RASPBDLGA {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -3059,16 +2467,9 @@ pub struct RASPBDLGA {
     pub reserved: usize,
     pub reserved2: usize,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for RASPBDLGA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for RASPBDLGA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct RASPBDLGA {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -3081,16 +2482,9 @@ pub struct RASPBDLGA {
     pub reserved: usize,
     pub reserved2: usize,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for RASPBDLGA {}
-#[cfg(target_arch = "x86")]
-impl Clone for RASPBDLGA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct RASPBDLGW {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -3103,16 +2497,9 @@ pub struct RASPBDLGW {
     pub reserved: usize,
     pub reserved2: usize,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for RASPBDLGW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for RASPBDLGW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct RASPBDLGW {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -3125,15 +2512,8 @@ pub struct RASPBDLGW {
     pub reserved: usize,
     pub reserved2: usize,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for RASPBDLGW {}
-#[cfg(target_arch = "x86")]
-impl Clone for RASPBDLGW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASPPPCCP {
     pub dwSize: u32,
     pub dwError: u32,
@@ -3142,13 +2522,8 @@ pub struct RASPPPCCP {
     pub dwServerCompressionAlgorithm: u32,
     pub dwServerOptions: u32,
 }
-impl Copy for RASPPPCCP {}
-impl Clone for RASPPPCCP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASPPPIPA {
     pub dwSize: u32,
     pub dwError: u32,
@@ -3157,13 +2532,8 @@ pub struct RASPPPIPA {
     pub dwOptions: u32,
     pub dwServerOptions: u32,
 }
-impl Copy for RASPPPIPA {}
-impl Clone for RASPPPIPA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASPPPIPV6 {
     pub dwSize: u32,
     pub dwError: u32,
@@ -3172,13 +2542,8 @@ pub struct RASPPPIPV6 {
     pub bLocalCompressionProtocol: [u8; 2],
     pub bPeerCompressionProtocol: [u8; 2],
 }
-impl Copy for RASPPPIPV6 {}
-impl Clone for RASPPPIPV6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASPPPIPW {
     pub dwSize: u32,
     pub dwError: u32,
@@ -3187,25 +2552,15 @@ pub struct RASPPPIPW {
     pub dwOptions: u32,
     pub dwServerOptions: u32,
 }
-impl Copy for RASPPPIPW {}
-impl Clone for RASPPPIPW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASPPPIPXA {
     pub dwSize: u32,
     pub dwError: u32,
     pub szIpxAddress: [i8; 22],
 }
-impl Copy for RASPPPIPXA {}
-impl Clone for RASPPPIPXA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASPPPLCPA {
     pub dwSize: u32,
     pub fBundled: super::super::Foundation::BOOL,
@@ -3223,13 +2578,8 @@ pub struct RASPPPLCPA {
     pub dwOptions: u32,
     pub dwServerOptions: u32,
 }
-impl Copy for RASPPPLCPA {}
-impl Clone for RASPPPLCPA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASPPPLCPW {
     pub dwSize: u32,
     pub fBundled: super::super::Foundation::BOOL,
@@ -3247,13 +2597,8 @@ pub struct RASPPPLCPW {
     pub dwOptions: u32,
     pub dwServerOptions: u32,
 }
-impl Copy for RASPPPLCPW {}
-impl Clone for RASPPPLCPW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASPPPNBFA {
     pub dwSize: u32,
     pub dwError: u32,
@@ -3262,13 +2607,8 @@ pub struct RASPPPNBFA {
     pub szWorkstationName: [i8; 17],
     pub bLana: u8,
 }
-impl Copy for RASPPPNBFA {}
-impl Clone for RASPPPNBFA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASPPPNBFW {
     pub dwSize: u32,
     pub dwError: u32,
@@ -3277,14 +2617,9 @@ pub struct RASPPPNBFW {
     pub szWorkstationName: [u16; 17],
     pub bLana: u8,
 }
-impl Copy for RASPPPNBFW {}
-impl Clone for RASPPPNBFW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct RASPPP_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
     pub ipv4Address: super::super::Networking::WinSock::IN_ADDR,
@@ -3310,15 +2645,8 @@ pub struct RASPPP_PROJECTION_INFO {
     pub dwCcpOptions: u32,
     pub dwCcpServerOptions: u32,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for RASPPP_PROJECTION_INFO {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for RASPPP_PROJECTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASSUBENTRYA {
     pub dwSize: u32,
     pub dwfFlags: u32,
@@ -3327,13 +2655,8 @@ pub struct RASSUBENTRYA {
     pub szLocalPhoneNumber: [i8; 129],
     pub dwAlternateOffset: u32,
 }
-impl Copy for RASSUBENTRYA {}
-impl Clone for RASSUBENTRYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASSUBENTRYW {
     pub dwSize: u32,
     pub dwfFlags: u32,
@@ -3342,42 +2665,23 @@ pub struct RASSUBENTRYW {
     pub szLocalPhoneNumber: [u16; 129],
     pub dwAlternateOffset: u32,
 }
-impl Copy for RASSUBENTRYW {}
-impl Clone for RASSUBENTRYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct RASTUNNELENDPOINT {
     pub dwType: u32,
     pub Anonymous: RASTUNNELENDPOINT_0,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for RASTUNNELENDPOINT {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for RASTUNNELENDPOINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub union RASTUNNELENDPOINT_0 {
     pub ipv4: super::super::Networking::WinSock::IN_ADDR,
     pub ipv6: super::super::Networking::WinSock::IN6_ADDR,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for RASTUNNELENDPOINT_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for RASTUNNELENDPOINT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct RASUPDATECONN {
     pub version: RASAPIVERSION,
     pub dwSize: u32,
@@ -3386,15 +2690,8 @@ pub struct RASUPDATECONN {
     pub localEndPoint: RASTUNNELENDPOINT,
     pub remoteEndPoint: RASTUNNELENDPOINT,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for RASUPDATECONN {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for RASUPDATECONN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RAS_CONNECTION_0 {
     pub hConnection: super::super::Foundation::HANDLE,
     pub hInterface: super::super::Foundation::HANDLE,
@@ -3406,13 +2703,8 @@ pub struct RAS_CONNECTION_0 {
     pub wszLogonDomain: [u16; 16],
     pub wszRemoteComputer: [u16; 17],
 }
-impl Copy for RAS_CONNECTION_0 {}
-impl Clone for RAS_CONNECTION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RAS_CONNECTION_1 {
     pub hConnection: super::super::Foundation::HANDLE,
     pub hInterface: super::super::Foundation::HANDLE,
@@ -3430,13 +2722,8 @@ pub struct RAS_CONNECTION_1 {
     pub dwCompressionRatioIn: u32,
     pub dwCompressionRatioOut: u32,
 }
-impl Copy for RAS_CONNECTION_1 {}
-impl Clone for RAS_CONNECTION_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RAS_CONNECTION_2 {
     pub hConnection: super::super::Foundation::HANDLE,
     pub wszUserName: [u16; 257],
@@ -3444,13 +2731,8 @@ pub struct RAS_CONNECTION_2 {
     pub guid: windows_sys::core::GUID,
     pub PppInfo2: PPP_INFO_2,
 }
-impl Copy for RAS_CONNECTION_2 {}
-impl Clone for RAS_CONNECTION_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RAS_CONNECTION_3 {
     pub dwVersion: u32,
     pub dwSize: u32,
@@ -3462,13 +2744,8 @@ pub struct RAS_CONNECTION_3 {
     pub rasQuarState: RAS_QUARANTINE_STATE,
     pub timer: super::super::Foundation::FILETIME,
 }
-impl Copy for RAS_CONNECTION_3 {}
-impl Clone for RAS_CONNECTION_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RAS_CONNECTION_4 {
     pub dwConnectDuration: u32,
     pub dwInterfaceType: ROUTER_INTERFACE_TYPE,
@@ -3501,13 +2778,8 @@ pub struct RAS_CONNECTION_4 {
     pub hInterface: super::super::Foundation::HANDLE,
     pub dwDeviceType: u32,
 }
-impl Copy for RAS_CONNECTION_4 {}
-impl Clone for RAS_CONNECTION_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RAS_CONNECTION_EX {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwConnectDuration: u32,
@@ -3539,13 +2811,8 @@ pub struct RAS_CONNECTION_EX {
     pub hConnection: super::super::Foundation::HANDLE,
     pub hInterface: super::super::Foundation::HANDLE,
 }
-impl Copy for RAS_CONNECTION_EX {}
-impl Clone for RAS_CONNECTION_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RAS_PORT_0 {
     pub hPort: super::super::Foundation::HANDLE,
     pub hConnection: super::super::Foundation::HANDLE,
@@ -3557,13 +2824,8 @@ pub struct RAS_PORT_0 {
     pub wszDeviceName: [u16; 129],
     pub wszDeviceType: [u16; 17],
 }
-impl Copy for RAS_PORT_0 {}
-impl Clone for RAS_PORT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RAS_PORT_1 {
     pub hPort: super::super::Foundation::HANDLE,
     pub hConnection: super::super::Foundation::HANDLE,
@@ -3582,13 +2844,8 @@ pub struct RAS_PORT_1 {
     pub dwCompressionRatioIn: u32,
     pub dwCompressionRatioOut: u32,
 }
-impl Copy for RAS_PORT_1 {}
-impl Clone for RAS_PORT_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RAS_PORT_2 {
     pub hPort: super::super::Foundation::HANDLE,
     pub hConnection: super::super::Foundation::HANDLE,
@@ -3618,54 +2875,30 @@ pub struct RAS_PORT_2 {
     pub ullBytesRcvUncompressed: u64,
     pub ullBytesRcvCompressed: u64,
 }
-impl Copy for RAS_PORT_2 {}
-impl Clone for RAS_PORT_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct RAS_PROJECTION_INFO {
     pub version: RASAPIVERSION,
     pub r#type: RASPROJECTION_INFO_TYPE,
     pub Anonymous: RAS_PROJECTION_INFO_0,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for RAS_PROJECTION_INFO {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for RAS_PROJECTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub union RAS_PROJECTION_INFO_0 {
     pub ppp: RASPPP_PROJECTION_INFO,
     pub ikev2: RASIKEV2_PROJECTION_INFO,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for RAS_PROJECTION_INFO_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for RAS_PROJECTION_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RAS_SECURITY_INFO {
     pub LastError: u32,
     pub BytesReceived: u32,
     pub DeviceName: [i8; 129],
 }
-impl Copy for RAS_SECURITY_INFO {}
-impl Clone for RAS_SECURITY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RAS_STATS {
     pub dwSize: u32,
     pub dwBytesXmited: u32,
@@ -3683,49 +2916,29 @@ pub struct RAS_STATS {
     pub dwBps: u32,
     pub dwConnectDuration: u32,
 }
-impl Copy for RAS_STATS {}
-impl Clone for RAS_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RAS_UPDATE_CONNECTION {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwIfIndex: u32,
     pub wszLocalEndpointAddress: [u16; 65],
     pub wszRemoteEndpointAddress: [u16; 65],
 }
-impl Copy for RAS_UPDATE_CONNECTION {}
-impl Clone for RAS_UPDATE_CONNECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RAS_USER_0 {
     pub bfPrivilege: u8,
     pub wszPhoneNumber: [u16; 129],
 }
-impl Copy for RAS_USER_0 {}
-impl Clone for RAS_USER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RAS_USER_1 {
     pub bfPrivilege: u8,
     pub wszPhoneNumber: [u16; 129],
     pub bfPrivilege2: u8,
 }
-impl Copy for RAS_USER_1 {}
-impl Clone for RAS_USER_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ROUTER_CUSTOM_IKEv2_POLICY0 {
     pub dwIntegrityMethod: u32,
     pub dwEncryptionMethod: u32,
@@ -3734,30 +2947,18 @@ pub struct ROUTER_CUSTOM_IKEv2_POLICY0 {
     pub dwPfsGroup: u32,
     pub dwDhGroup: u32,
 }
-impl Copy for ROUTER_CUSTOM_IKEv2_POLICY0 {}
-impl Clone for ROUTER_CUSTOM_IKEv2_POLICY0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
     pub dwSaLifeTime: u32,
     pub dwSaDataSize: u32,
     pub certificateName: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     pub dwSaLifeTime: u32,
     pub dwSaDataSize: u32,
@@ -3765,16 +2966,9 @@ pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
     pub certificateHash: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+#[derive(Clone, Copy)]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     pub dwSaLifeTime: u32,
     pub dwSaDataSize: u32,
@@ -3784,15 +2978,8 @@ pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     pub dwMmSaLifeTime: u32,
     pub vpnTrafficSelectors: MPR_VPN_TRAFFIC_SELECTORS,
 }
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl Copy for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {}
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl Clone for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ROUTING_PROTOCOL_CONFIG {
     pub dwCallbackFlags: u32,
     pub pfnRpfCallback: PMGM_RPF_CALLBACK,
@@ -3805,13 +2992,8 @@ pub struct ROUTING_PROTOCOL_CONFIG {
     pub pfnDisableIgmpCallback: PMGM_DISABLE_IGMP_CALLBACK,
     pub pfnEnableIgmpCallback: PMGM_ENABLE_IGMP_CALLBACK,
 }
-impl Copy for ROUTING_PROTOCOL_CONFIG {}
-impl Clone for ROUTING_PROTOCOL_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTM_DEST_INFO {
     pub DestHandle: isize,
     pub DestAddress: RTM_NET_ADDRESS,
@@ -3820,13 +3002,8 @@ pub struct RTM_DEST_INFO {
     pub NumberOfViews: u32,
     pub ViewInfo: [RTM_DEST_INFO_0; 1],
 }
-impl Copy for RTM_DEST_INFO {}
-impl Clone for RTM_DEST_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTM_DEST_INFO_0 {
     pub ViewId: i32,
     pub NumRoutes: u32,
@@ -3835,105 +3012,60 @@ pub struct RTM_DEST_INFO_0 {
     pub DestFlags: u32,
     pub HoldRoute: isize,
 }
-impl Copy for RTM_DEST_INFO_0 {}
-impl Clone for RTM_DEST_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTM_ENTITY_EXPORT_METHODS {
     pub NumMethods: u32,
     pub Methods: [RTM_ENTITY_EXPORT_METHOD; 1],
 }
-impl Copy for RTM_ENTITY_EXPORT_METHODS {}
-impl Clone for RTM_ENTITY_EXPORT_METHODS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTM_ENTITY_ID {
     pub Anonymous: RTM_ENTITY_ID_0,
 }
-impl Copy for RTM_ENTITY_ID {}
-impl Clone for RTM_ENTITY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union RTM_ENTITY_ID_0 {
     pub Anonymous: RTM_ENTITY_ID_0_0,
     pub EntityId: u64,
 }
-impl Copy for RTM_ENTITY_ID_0 {}
-impl Clone for RTM_ENTITY_ID_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTM_ENTITY_ID_0_0 {
     pub EntityProtocolId: u32,
     pub EntityInstanceId: u32,
 }
-impl Copy for RTM_ENTITY_ID_0_0 {}
-impl Clone for RTM_ENTITY_ID_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTM_ENTITY_INFO {
     pub RtmInstanceId: u16,
     pub AddressFamily: u16,
     pub EntityId: RTM_ENTITY_ID,
 }
-impl Copy for RTM_ENTITY_INFO {}
-impl Clone for RTM_ENTITY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTM_ENTITY_METHOD_INPUT {
     pub MethodType: u32,
     pub InputSize: u32,
     pub InputData: [u8; 1],
 }
-impl Copy for RTM_ENTITY_METHOD_INPUT {}
-impl Clone for RTM_ENTITY_METHOD_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTM_ENTITY_METHOD_OUTPUT {
     pub MethodType: u32,
     pub MethodStatus: u32,
     pub OutputSize: u32,
     pub OutputData: [u8; 1],
 }
-impl Copy for RTM_ENTITY_METHOD_OUTPUT {}
-impl Clone for RTM_ENTITY_METHOD_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTM_NET_ADDRESS {
     pub AddressFamily: u16,
     pub NumBits: u16,
     pub AddrBits: [u8; 16],
 }
-impl Copy for RTM_NET_ADDRESS {}
-impl Clone for RTM_NET_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTM_NEXTHOP_INFO {
     pub NextHopAddress: RTM_NET_ADDRESS,
     pub NextHopOwner: isize,
@@ -3943,48 +3075,28 @@ pub struct RTM_NEXTHOP_INFO {
     pub EntitySpecificInfo: *mut core::ffi::c_void,
     pub RemoteNextHop: isize,
 }
-impl Copy for RTM_NEXTHOP_INFO {}
-impl Clone for RTM_NEXTHOP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTM_NEXTHOP_LIST {
     pub NumNextHops: u16,
     pub NextHops: [isize; 1],
 }
-impl Copy for RTM_NEXTHOP_LIST {}
-impl Clone for RTM_NEXTHOP_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTM_PREF_INFO {
     pub Metric: u32,
     pub Preference: u32,
 }
-impl Copy for RTM_PREF_INFO {}
-impl Clone for RTM_PREF_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTM_REGN_PROFILE {
     pub MaxNextHopsInRoute: u32,
     pub MaxHandlesInEnum: u32,
     pub ViewsSupported: u32,
     pub NumberOfViews: u32,
 }
-impl Copy for RTM_REGN_PROFILE {}
-impl Clone for RTM_REGN_PROFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTM_ROUTE_INFO {
     pub DestHandle: isize,
     pub RouteOwner: isize,
@@ -3997,13 +3109,8 @@ pub struct RTM_ROUTE_INFO {
     pub EntitySpecificInfo: *mut core::ffi::c_void,
     pub NextHopsList: RTM_NEXTHOP_LIST,
 }
-impl Copy for RTM_ROUTE_INFO {}
-impl Clone for RTM_ROUTE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SECURITY_MESSAGE {
     pub dwMsgId: SECURITY_MESSAGE_MSG_ID,
     pub hPort: isize,
@@ -4011,41 +3118,24 @@ pub struct SECURITY_MESSAGE {
     pub UserName: [i8; 257],
     pub Domain: [i8; 16],
 }
-impl Copy for SECURITY_MESSAGE {}
-impl Clone for SECURITY_MESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SOURCE_GROUP_ENTRY {
     pub dwSourceAddr: u32,
     pub dwSourceMask: u32,
     pub dwGroupAddr: u32,
     pub dwGroupMask: u32,
 }
-impl Copy for SOURCE_GROUP_ENTRY {}
-impl Clone for SOURCE_GROUP_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct SSTP_CERT_INFO {
     pub isDefault: super::super::Foundation::BOOL,
     pub certBlob: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for SSTP_CERT_INFO {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for SSTP_CERT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct SSTP_CONFIG_PARAMS {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
@@ -4053,41 +3143,19 @@ pub struct SSTP_CONFIG_PARAMS {
     pub certAlgorithm: u32,
     pub sstpCertDetails: SSTP_CERT_INFO,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for SSTP_CONFIG_PARAMS {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for SSTP_CONFIG_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct VPN_TS_IP_ADDRESS {
     pub Type: u16,
     pub Anonymous: VPN_TS_IP_ADDRESS_0,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for VPN_TS_IP_ADDRESS {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for VPN_TS_IP_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub union VPN_TS_IP_ADDRESS_0 {
     pub v4: super::super::Networking::WinSock::IN_ADDR,
     pub v6: super::super::Networking::WinSock::IN6_ADDR,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for VPN_TS_IP_ADDRESS_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for VPN_TS_IP_ADDRESS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type ORASADFUNC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: windows_sys::core::PCSTR, param2: u32, param3: *mut u32) -> super::super::Foundation::BOOL>;
 pub type PFNRASFREEBUFFER = Option<unsafe extern "system" fn(pbufer: *mut u8) -> u32>;

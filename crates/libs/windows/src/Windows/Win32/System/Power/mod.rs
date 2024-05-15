@@ -1516,6 +1516,7 @@ impl core::fmt::Debug for USER_ACTIVITY_PRESENCE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACPI_REAL_TIME {
     pub Year: u16,
     pub Month: u8,
@@ -1529,32 +1530,16 @@ pub struct ACPI_REAL_TIME {
     pub DayLight: u8,
     pub Reserved1: [u8; 3],
 }
-impl Copy for ACPI_REAL_TIME {}
-impl Clone for ACPI_REAL_TIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACPI_REAL_TIME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACPI_REAL_TIME").field("Year", &self.Year).field("Month", &self.Month).field("Day", &self.Day).field("Hour", &self.Hour).field("Minute", &self.Minute).field("Second", &self.Second).field("Valid", &self.Valid).field("Milliseconds", &self.Milliseconds).field("TimeZone", &self.TimeZone).field("DayLight", &self.DayLight).field("Reserved1", &self.Reserved1).finish()
-    }
-}
 impl windows_core::TypeKind for ACPI_REAL_TIME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACPI_REAL_TIME {
-    fn eq(&self, other: &Self) -> bool {
-        self.Year == other.Year && self.Month == other.Month && self.Day == other.Day && self.Hour == other.Hour && self.Minute == other.Minute && self.Second == other.Second && self.Valid == other.Valid && self.Milliseconds == other.Milliseconds && self.TimeZone == other.TimeZone && self.DayLight == other.DayLight && self.Reserved1 == other.Reserved1
-    }
-}
-impl Eq for ACPI_REAL_TIME {}
 impl Default for ACPI_REAL_TIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACPI_TIME_AND_ALARM_CAPABILITIES {
     pub AcWakeSupported: super::super::Foundation::BOOLEAN,
     pub DcWakeSupported: super::super::Foundation::BOOLEAN,
@@ -1567,43 +1552,16 @@ pub struct ACPI_TIME_AND_ALARM_CAPABILITIES {
     pub RealTimeFeaturesSupported: super::super::Foundation::BOOLEAN,
     pub RealTimeResolution: ACPI_TIME_RESOLUTION,
 }
-impl Copy for ACPI_TIME_AND_ALARM_CAPABILITIES {}
-impl Clone for ACPI_TIME_AND_ALARM_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACPI_TIME_AND_ALARM_CAPABILITIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACPI_TIME_AND_ALARM_CAPABILITIES")
-            .field("AcWakeSupported", &self.AcWakeSupported)
-            .field("DcWakeSupported", &self.DcWakeSupported)
-            .field("S4AcWakeSupported", &self.S4AcWakeSupported)
-            .field("S4DcWakeSupported", &self.S4DcWakeSupported)
-            .field("S5AcWakeSupported", &self.S5AcWakeSupported)
-            .field("S5DcWakeSupported", &self.S5DcWakeSupported)
-            .field("S4S5WakeStatusSupported", &self.S4S5WakeStatusSupported)
-            .field("DeepestWakeSystemState", &self.DeepestWakeSystemState)
-            .field("RealTimeFeaturesSupported", &self.RealTimeFeaturesSupported)
-            .field("RealTimeResolution", &self.RealTimeResolution)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for ACPI_TIME_AND_ALARM_CAPABILITIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACPI_TIME_AND_ALARM_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.AcWakeSupported == other.AcWakeSupported && self.DcWakeSupported == other.DcWakeSupported && self.S4AcWakeSupported == other.S4AcWakeSupported && self.S4DcWakeSupported == other.S4DcWakeSupported && self.S5AcWakeSupported == other.S5AcWakeSupported && self.S5DcWakeSupported == other.S5DcWakeSupported && self.S4S5WakeStatusSupported == other.S4S5WakeStatusSupported && self.DeepestWakeSystemState == other.DeepestWakeSystemState && self.RealTimeFeaturesSupported == other.RealTimeFeaturesSupported && self.RealTimeResolution == other.RealTimeResolution
-    }
-}
-impl Eq for ACPI_TIME_AND_ALARM_CAPABILITIES {}
 impl Default for ACPI_TIME_AND_ALARM_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADMINISTRATOR_POWER_POLICY {
     pub MinSleep: SYSTEM_POWER_STATE,
     pub MaxSleep: SYSTEM_POWER_STATE,
@@ -1612,122 +1570,58 @@ pub struct ADMINISTRATOR_POWER_POLICY {
     pub MinSpindownTimeout: u32,
     pub MaxSpindownTimeout: u32,
 }
-impl Copy for ADMINISTRATOR_POWER_POLICY {}
-impl Clone for ADMINISTRATOR_POWER_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ADMINISTRATOR_POWER_POLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ADMINISTRATOR_POWER_POLICY").field("MinSleep", &self.MinSleep).field("MaxSleep", &self.MaxSleep).field("MinVideoTimeout", &self.MinVideoTimeout).field("MaxVideoTimeout", &self.MaxVideoTimeout).field("MinSpindownTimeout", &self.MinSpindownTimeout).field("MaxSpindownTimeout", &self.MaxSpindownTimeout).finish()
-    }
-}
 impl windows_core::TypeKind for ADMINISTRATOR_POWER_POLICY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ADMINISTRATOR_POWER_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.MinSleep == other.MinSleep && self.MaxSleep == other.MaxSleep && self.MinVideoTimeout == other.MinVideoTimeout && self.MaxVideoTimeout == other.MaxVideoTimeout && self.MinSpindownTimeout == other.MinSpindownTimeout && self.MaxSpindownTimeout == other.MaxSpindownTimeout
-    }
-}
-impl Eq for ADMINISTRATOR_POWER_POLICY {}
 impl Default for ADMINISTRATOR_POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_CHARGER_STATUS {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
     pub VaData: [u32; 1],
 }
-impl Copy for BATTERY_CHARGER_STATUS {}
-impl Clone for BATTERY_CHARGER_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BATTERY_CHARGER_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BATTERY_CHARGER_STATUS").field("Type", &self.Type).field("VaData", &self.VaData).finish()
-    }
-}
 impl windows_core::TypeKind for BATTERY_CHARGER_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BATTERY_CHARGER_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.VaData == other.VaData
-    }
-}
-impl Eq for BATTERY_CHARGER_STATUS {}
 impl Default for BATTERY_CHARGER_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_CHARGING_SOURCE {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
     pub MaxCurrent: u32,
 }
-impl Copy for BATTERY_CHARGING_SOURCE {}
-impl Clone for BATTERY_CHARGING_SOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BATTERY_CHARGING_SOURCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BATTERY_CHARGING_SOURCE").field("Type", &self.Type).field("MaxCurrent", &self.MaxCurrent).finish()
-    }
-}
 impl windows_core::TypeKind for BATTERY_CHARGING_SOURCE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BATTERY_CHARGING_SOURCE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.MaxCurrent == other.MaxCurrent
-    }
-}
-impl Eq for BATTERY_CHARGING_SOURCE {}
 impl Default for BATTERY_CHARGING_SOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_CHARGING_SOURCE_INFORMATION {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
     pub SourceOnline: super::super::Foundation::BOOLEAN,
 }
-impl Copy for BATTERY_CHARGING_SOURCE_INFORMATION {}
-impl Clone for BATTERY_CHARGING_SOURCE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BATTERY_CHARGING_SOURCE_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BATTERY_CHARGING_SOURCE_INFORMATION").field("Type", &self.Type).field("SourceOnline", &self.SourceOnline).finish()
-    }
-}
 impl windows_core::TypeKind for BATTERY_CHARGING_SOURCE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BATTERY_CHARGING_SOURCE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.SourceOnline == other.SourceOnline
-    }
-}
-impl Eq for BATTERY_CHARGING_SOURCE_INFORMATION {}
 impl Default for BATTERY_CHARGING_SOURCE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_INFORMATION {
     pub Capabilities: u32,
     pub Technology: u8,
@@ -1740,187 +1634,91 @@ pub struct BATTERY_INFORMATION {
     pub CriticalBias: u32,
     pub CycleCount: u32,
 }
-impl Copy for BATTERY_INFORMATION {}
-impl Clone for BATTERY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BATTERY_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BATTERY_INFORMATION").field("Capabilities", &self.Capabilities).field("Technology", &self.Technology).field("Reserved", &self.Reserved).field("Chemistry", &self.Chemistry).field("DesignedCapacity", &self.DesignedCapacity).field("FullChargedCapacity", &self.FullChargedCapacity).field("DefaultAlert1", &self.DefaultAlert1).field("DefaultAlert2", &self.DefaultAlert2).field("CriticalBias", &self.CriticalBias).field("CycleCount", &self.CycleCount).finish()
-    }
-}
 impl windows_core::TypeKind for BATTERY_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BATTERY_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Capabilities == other.Capabilities && self.Technology == other.Technology && self.Reserved == other.Reserved && self.Chemistry == other.Chemistry && self.DesignedCapacity == other.DesignedCapacity && self.FullChargedCapacity == other.FullChargedCapacity && self.DefaultAlert1 == other.DefaultAlert1 && self.DefaultAlert2 == other.DefaultAlert2 && self.CriticalBias == other.CriticalBias && self.CycleCount == other.CycleCount
-    }
-}
-impl Eq for BATTERY_INFORMATION {}
 impl Default for BATTERY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_MANUFACTURE_DATE {
     pub Day: u8,
     pub Month: u8,
     pub Year: u16,
 }
-impl Copy for BATTERY_MANUFACTURE_DATE {}
-impl Clone for BATTERY_MANUFACTURE_DATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BATTERY_MANUFACTURE_DATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BATTERY_MANUFACTURE_DATE").field("Day", &self.Day).field("Month", &self.Month).field("Year", &self.Year).finish()
-    }
-}
 impl windows_core::TypeKind for BATTERY_MANUFACTURE_DATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BATTERY_MANUFACTURE_DATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Day == other.Day && self.Month == other.Month && self.Year == other.Year
-    }
-}
-impl Eq for BATTERY_MANUFACTURE_DATE {}
 impl Default for BATTERY_MANUFACTURE_DATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_QUERY_INFORMATION {
     pub BatteryTag: u32,
     pub InformationLevel: BATTERY_QUERY_INFORMATION_LEVEL,
     pub AtRate: u32,
 }
-impl Copy for BATTERY_QUERY_INFORMATION {}
-impl Clone for BATTERY_QUERY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BATTERY_QUERY_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BATTERY_QUERY_INFORMATION").field("BatteryTag", &self.BatteryTag).field("InformationLevel", &self.InformationLevel).field("AtRate", &self.AtRate).finish()
-    }
-}
 impl windows_core::TypeKind for BATTERY_QUERY_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BATTERY_QUERY_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.BatteryTag == other.BatteryTag && self.InformationLevel == other.InformationLevel && self.AtRate == other.AtRate
-    }
-}
-impl Eq for BATTERY_QUERY_INFORMATION {}
 impl Default for BATTERY_QUERY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_REPORTING_SCALE {
     pub Granularity: u32,
     pub Capacity: u32,
 }
-impl Copy for BATTERY_REPORTING_SCALE {}
-impl Clone for BATTERY_REPORTING_SCALE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BATTERY_REPORTING_SCALE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BATTERY_REPORTING_SCALE").field("Granularity", &self.Granularity).field("Capacity", &self.Capacity).finish()
-    }
-}
 impl windows_core::TypeKind for BATTERY_REPORTING_SCALE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BATTERY_REPORTING_SCALE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Granularity == other.Granularity && self.Capacity == other.Capacity
-    }
-}
-impl Eq for BATTERY_REPORTING_SCALE {}
 impl Default for BATTERY_REPORTING_SCALE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_SET_INFORMATION {
     pub BatteryTag: u32,
     pub InformationLevel: BATTERY_SET_INFORMATION_LEVEL,
     pub Buffer: [u8; 1],
 }
-impl Copy for BATTERY_SET_INFORMATION {}
-impl Clone for BATTERY_SET_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BATTERY_SET_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BATTERY_SET_INFORMATION").field("BatteryTag", &self.BatteryTag).field("InformationLevel", &self.InformationLevel).field("Buffer", &self.Buffer).finish()
-    }
-}
 impl windows_core::TypeKind for BATTERY_SET_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BATTERY_SET_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.BatteryTag == other.BatteryTag && self.InformationLevel == other.InformationLevel && self.Buffer == other.Buffer
-    }
-}
-impl Eq for BATTERY_SET_INFORMATION {}
 impl Default for BATTERY_SET_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_STATUS {
     pub PowerState: u32,
     pub Capacity: u32,
     pub Voltage: u32,
     pub Rate: i32,
 }
-impl Copy for BATTERY_STATUS {}
-impl Clone for BATTERY_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BATTERY_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BATTERY_STATUS").field("PowerState", &self.PowerState).field("Capacity", &self.Capacity).field("Voltage", &self.Voltage).field("Rate", &self.Rate).finish()
-    }
-}
 impl windows_core::TypeKind for BATTERY_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BATTERY_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.PowerState == other.PowerState && self.Capacity == other.Capacity && self.Voltage == other.Voltage && self.Rate == other.Rate
-    }
-}
-impl Eq for BATTERY_STATUS {}
 impl Default for BATTERY_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_USB_CHARGER_STATUS {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
     pub Reserved: u32,
@@ -1932,32 +1730,16 @@ pub struct BATTERY_USB_CHARGER_STATUS {
     pub PowerSourceInformation: *mut core::ffi::c_void,
     pub OemCharger: windows_core::GUID,
 }
-impl Copy for BATTERY_USB_CHARGER_STATUS {}
-impl Clone for BATTERY_USB_CHARGER_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BATTERY_USB_CHARGER_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BATTERY_USB_CHARGER_STATUS").field("Type", &self.Type).field("Reserved", &self.Reserved).field("Flags", &self.Flags).field("MaxCurrent", &self.MaxCurrent).field("Voltage", &self.Voltage).field("PortType", &self.PortType).field("PortId", &self.PortId).field("PowerSourceInformation", &self.PowerSourceInformation).field("OemCharger", &self.OemCharger).finish()
-    }
-}
 impl windows_core::TypeKind for BATTERY_USB_CHARGER_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BATTERY_USB_CHARGER_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Reserved == other.Reserved && self.Flags == other.Flags && self.MaxCurrent == other.MaxCurrent && self.Voltage == other.Voltage && self.PortType == other.PortType && self.PortId == other.PortId && self.PowerSourceInformation == other.PowerSourceInformation && self.OemCharger == other.OemCharger
-    }
-}
-impl Eq for BATTERY_USB_CHARGER_STATUS {}
 impl Default for BATTERY_USB_CHARGER_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_WAIT_STATUS {
     pub BatteryTag: u32,
     pub Timeout: u32,
@@ -1965,32 +1747,16 @@ pub struct BATTERY_WAIT_STATUS {
     pub LowCapacity: u32,
     pub HighCapacity: u32,
 }
-impl Copy for BATTERY_WAIT_STATUS {}
-impl Clone for BATTERY_WAIT_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BATTERY_WAIT_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BATTERY_WAIT_STATUS").field("BatteryTag", &self.BatteryTag).field("Timeout", &self.Timeout).field("PowerState", &self.PowerState).field("LowCapacity", &self.LowCapacity).field("HighCapacity", &self.HighCapacity).finish()
-    }
-}
 impl windows_core::TypeKind for BATTERY_WAIT_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BATTERY_WAIT_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.BatteryTag == other.BatteryTag && self.Timeout == other.Timeout && self.PowerState == other.PowerState && self.LowCapacity == other.LowCapacity && self.HighCapacity == other.HighCapacity
-    }
-}
-impl Eq for BATTERY_WAIT_STATUS {}
 impl Default for BATTERY_WAIT_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_POWER_DATA {
     pub PD_Size: u32,
     pub PD_MostRecentPowerState: DEVICE_POWER_STATE,
@@ -2001,46 +1767,19 @@ pub struct CM_POWER_DATA {
     pub PD_PowerStateMapping: [DEVICE_POWER_STATE; 7],
     pub PD_DeepestSystemWake: SYSTEM_POWER_STATE,
 }
-impl Copy for CM_POWER_DATA {}
-impl Clone for CM_POWER_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CM_POWER_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CM_POWER_DATA").field("PD_Size", &self.PD_Size).field("PD_MostRecentPowerState", &self.PD_MostRecentPowerState).field("PD_Capabilities", &self.PD_Capabilities).field("PD_D1Latency", &self.PD_D1Latency).field("PD_D2Latency", &self.PD_D2Latency).field("PD_D3Latency", &self.PD_D3Latency).field("PD_PowerStateMapping", &self.PD_PowerStateMapping).field("PD_DeepestSystemWake", &self.PD_DeepestSystemWake).finish()
-    }
-}
 impl windows_core::TypeKind for CM_POWER_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CM_POWER_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.PD_Size == other.PD_Size && self.PD_MostRecentPowerState == other.PD_MostRecentPowerState && self.PD_Capabilities == other.PD_Capabilities && self.PD_D1Latency == other.PD_D1Latency && self.PD_D2Latency == other.PD_D2Latency && self.PD_D3Latency == other.PD_D3Latency && self.PD_PowerStateMapping == other.PD_PowerStateMapping && self.PD_DeepestSystemWake == other.PD_DeepestSystemWake
-    }
-}
-impl Eq for CM_POWER_DATA {}
 impl Default for CM_POWER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
     pub Callback: PDEVICE_NOTIFY_CALLBACK_ROUTINE,
     pub Context: *mut core::ffi::c_void,
-}
-impl Copy for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {}
-impl Clone for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS").field("Context", &self.Context).finish()
-    }
 }
 impl windows_core::TypeKind for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -2051,125 +1790,62 @@ impl Default for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMI_CHANNEL_MEASUREMENT_DATA {
     pub AbsoluteEnergy: u64,
     pub AbsoluteTime: u64,
 }
-impl Copy for EMI_CHANNEL_MEASUREMENT_DATA {}
-impl Clone for EMI_CHANNEL_MEASUREMENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EMI_CHANNEL_MEASUREMENT_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EMI_CHANNEL_MEASUREMENT_DATA").field("AbsoluteEnergy", &self.AbsoluteEnergy).field("AbsoluteTime", &self.AbsoluteTime).finish()
-    }
-}
 impl windows_core::TypeKind for EMI_CHANNEL_MEASUREMENT_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EMI_CHANNEL_MEASUREMENT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.AbsoluteEnergy == other.AbsoluteEnergy && self.AbsoluteTime == other.AbsoluteTime
-    }
-}
-impl Eq for EMI_CHANNEL_MEASUREMENT_DATA {}
 impl Default for EMI_CHANNEL_MEASUREMENT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMI_CHANNEL_V2 {
     pub MeasurementUnit: EMI_MEASUREMENT_UNIT,
     pub ChannelNameSize: u16,
     pub ChannelName: [u16; 1],
 }
-impl Copy for EMI_CHANNEL_V2 {}
-impl Clone for EMI_CHANNEL_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EMI_CHANNEL_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EMI_CHANNEL_V2").field("MeasurementUnit", &self.MeasurementUnit).field("ChannelNameSize", &self.ChannelNameSize).field("ChannelName", &self.ChannelName).finish()
-    }
-}
 impl windows_core::TypeKind for EMI_CHANNEL_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EMI_CHANNEL_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.MeasurementUnit == other.MeasurementUnit && self.ChannelNameSize == other.ChannelNameSize && self.ChannelName == other.ChannelName
-    }
-}
-impl Eq for EMI_CHANNEL_V2 {}
 impl Default for EMI_CHANNEL_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMI_MEASUREMENT_DATA_V2 {
     pub ChannelData: [EMI_CHANNEL_MEASUREMENT_DATA; 1],
-}
-impl Copy for EMI_MEASUREMENT_DATA_V2 {}
-impl Clone for EMI_MEASUREMENT_DATA_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EMI_MEASUREMENT_DATA_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EMI_MEASUREMENT_DATA_V2").field("ChannelData", &self.ChannelData).finish()
-    }
 }
 impl windows_core::TypeKind for EMI_MEASUREMENT_DATA_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EMI_MEASUREMENT_DATA_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ChannelData == other.ChannelData
-    }
-}
-impl Eq for EMI_MEASUREMENT_DATA_V2 {}
 impl Default for EMI_MEASUREMENT_DATA_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMI_METADATA_SIZE {
     pub MetadataSize: u32,
-}
-impl Copy for EMI_METADATA_SIZE {}
-impl Clone for EMI_METADATA_SIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EMI_METADATA_SIZE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EMI_METADATA_SIZE").field("MetadataSize", &self.MetadataSize).finish()
-    }
 }
 impl windows_core::TypeKind for EMI_METADATA_SIZE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EMI_METADATA_SIZE {
-    fn eq(&self, other: &Self) -> bool {
-        self.MetadataSize == other.MetadataSize
-    }
-}
-impl Eq for EMI_METADATA_SIZE {}
 impl Default for EMI_METADATA_SIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMI_METADATA_V1 {
     pub MeasurementUnit: EMI_MEASUREMENT_UNIT,
     pub HardwareOEM: [u16; 16],
@@ -2178,32 +1854,16 @@ pub struct EMI_METADATA_V1 {
     pub MeteredHardwareNameSize: u16,
     pub MeteredHardwareName: [u16; 1],
 }
-impl Copy for EMI_METADATA_V1 {}
-impl Clone for EMI_METADATA_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EMI_METADATA_V1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EMI_METADATA_V1").field("MeasurementUnit", &self.MeasurementUnit).field("HardwareOEM", &self.HardwareOEM).field("HardwareModel", &self.HardwareModel).field("HardwareRevision", &self.HardwareRevision).field("MeteredHardwareNameSize", &self.MeteredHardwareNameSize).field("MeteredHardwareName", &self.MeteredHardwareName).finish()
-    }
-}
 impl windows_core::TypeKind for EMI_METADATA_V1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EMI_METADATA_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.MeasurementUnit == other.MeasurementUnit && self.HardwareOEM == other.HardwareOEM && self.HardwareModel == other.HardwareModel && self.HardwareRevision == other.HardwareRevision && self.MeteredHardwareNameSize == other.MeteredHardwareNameSize && self.MeteredHardwareName == other.MeteredHardwareName
-    }
-}
-impl Eq for EMI_METADATA_V1 {}
 impl Default for EMI_METADATA_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMI_METADATA_V2 {
     pub HardwareOEM: [u16; 16],
     pub HardwareModel: [u16; 16],
@@ -2211,123 +1871,59 @@ pub struct EMI_METADATA_V2 {
     pub ChannelCount: u16,
     pub Channels: [EMI_CHANNEL_V2; 1],
 }
-impl Copy for EMI_METADATA_V2 {}
-impl Clone for EMI_METADATA_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EMI_METADATA_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EMI_METADATA_V2").field("HardwareOEM", &self.HardwareOEM).field("HardwareModel", &self.HardwareModel).field("HardwareRevision", &self.HardwareRevision).field("ChannelCount", &self.ChannelCount).field("Channels", &self.Channels).finish()
-    }
-}
 impl windows_core::TypeKind for EMI_METADATA_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EMI_METADATA_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.HardwareOEM == other.HardwareOEM && self.HardwareModel == other.HardwareModel && self.HardwareRevision == other.HardwareRevision && self.ChannelCount == other.ChannelCount && self.Channels == other.Channels
-    }
-}
-impl Eq for EMI_METADATA_V2 {}
 impl Default for EMI_METADATA_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMI_VERSION {
     pub EmiVersion: u16,
-}
-impl Copy for EMI_VERSION {}
-impl Clone for EMI_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EMI_VERSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EMI_VERSION").field("EmiVersion", &self.EmiVersion).finish()
-    }
 }
 impl windows_core::TypeKind for EMI_VERSION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EMI_VERSION {
-    fn eq(&self, other: &Self) -> bool {
-        self.EmiVersion == other.EmiVersion
-    }
-}
-impl Eq for EMI_VERSION {}
 impl Default for EMI_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GLOBAL_MACHINE_POWER_POLICY {
     pub Revision: u32,
     pub LidOpenWakeAc: SYSTEM_POWER_STATE,
     pub LidOpenWakeDc: SYSTEM_POWER_STATE,
     pub BroadcastCapacityResolution: u32,
 }
-impl Copy for GLOBAL_MACHINE_POWER_POLICY {}
-impl Clone for GLOBAL_MACHINE_POWER_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GLOBAL_MACHINE_POWER_POLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GLOBAL_MACHINE_POWER_POLICY").field("Revision", &self.Revision).field("LidOpenWakeAc", &self.LidOpenWakeAc).field("LidOpenWakeDc", &self.LidOpenWakeDc).field("BroadcastCapacityResolution", &self.BroadcastCapacityResolution).finish()
-    }
-}
 impl windows_core::TypeKind for GLOBAL_MACHINE_POWER_POLICY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GLOBAL_MACHINE_POWER_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Revision == other.Revision && self.LidOpenWakeAc == other.LidOpenWakeAc && self.LidOpenWakeDc == other.LidOpenWakeDc && self.BroadcastCapacityResolution == other.BroadcastCapacityResolution
-    }
-}
-impl Eq for GLOBAL_MACHINE_POWER_POLICY {}
 impl Default for GLOBAL_MACHINE_POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GLOBAL_POWER_POLICY {
     pub user: GLOBAL_USER_POWER_POLICY,
     pub mach: GLOBAL_MACHINE_POWER_POLICY,
 }
-impl Copy for GLOBAL_POWER_POLICY {}
-impl Clone for GLOBAL_POWER_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GLOBAL_POWER_POLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GLOBAL_POWER_POLICY").field("user", &self.user).field("mach", &self.mach).finish()
-    }
-}
 impl windows_core::TypeKind for GLOBAL_POWER_POLICY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GLOBAL_POWER_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.user == other.user && self.mach == other.mach
-    }
-}
-impl Eq for GLOBAL_POWER_POLICY {}
 impl Default for GLOBAL_POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GLOBAL_USER_POWER_POLICY {
     pub Revision: u32,
     pub PowerButtonAc: POWER_ACTION_POLICY,
@@ -2339,26 +1935,9 @@ pub struct GLOBAL_USER_POWER_POLICY {
     pub DischargePolicy: [SYSTEM_POWER_LEVEL; 4],
     pub GlobalFlags: u32,
 }
-impl Copy for GLOBAL_USER_POWER_POLICY {}
-impl Clone for GLOBAL_USER_POWER_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GLOBAL_USER_POWER_POLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GLOBAL_USER_POWER_POLICY").field("Revision", &self.Revision).field("PowerButtonAc", &self.PowerButtonAc).field("PowerButtonDc", &self.PowerButtonDc).field("SleepButtonAc", &self.SleepButtonAc).field("SleepButtonDc", &self.SleepButtonDc).field("LidCloseAc", &self.LidCloseAc).field("LidCloseDc", &self.LidCloseDc).field("DischargePolicy", &self.DischargePolicy).field("GlobalFlags", &self.GlobalFlags).finish()
-    }
-}
 impl windows_core::TypeKind for GLOBAL_USER_POWER_POLICY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GLOBAL_USER_POWER_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Revision == other.Revision && self.PowerButtonAc == other.PowerButtonAc && self.PowerButtonDc == other.PowerButtonDc && self.SleepButtonAc == other.SleepButtonAc && self.SleepButtonDc == other.SleepButtonDc && self.LidCloseAc == other.LidCloseAc && self.LidCloseDc == other.LidCloseDc && self.DischargePolicy == other.DischargePolicy && self.GlobalFlags == other.GlobalFlags
-    }
-}
-impl Eq for GLOBAL_USER_POWER_POLICY {}
 impl Default for GLOBAL_USER_POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2388,6 +1967,7 @@ impl windows_core::TypeKind for HPOWERNOTIFY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MACHINE_POWER_POLICY {
     pub Revision: u32,
     pub MinSleepAc: SYSTEM_POWER_STATE,
@@ -2404,469 +1984,214 @@ pub struct MACHINE_POWER_POLICY {
     pub OverThrottledAc: POWER_ACTION_POLICY,
     pub OverThrottledDc: POWER_ACTION_POLICY,
 }
-impl Copy for MACHINE_POWER_POLICY {}
-impl Clone for MACHINE_POWER_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MACHINE_POWER_POLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MACHINE_POWER_POLICY")
-            .field("Revision", &self.Revision)
-            .field("MinSleepAc", &self.MinSleepAc)
-            .field("MinSleepDc", &self.MinSleepDc)
-            .field("ReducedLatencySleepAc", &self.ReducedLatencySleepAc)
-            .field("ReducedLatencySleepDc", &self.ReducedLatencySleepDc)
-            .field("DozeTimeoutAc", &self.DozeTimeoutAc)
-            .field("DozeTimeoutDc", &self.DozeTimeoutDc)
-            .field("DozeS4TimeoutAc", &self.DozeS4TimeoutAc)
-            .field("DozeS4TimeoutDc", &self.DozeS4TimeoutDc)
-            .field("MinThrottleAc", &self.MinThrottleAc)
-            .field("MinThrottleDc", &self.MinThrottleDc)
-            .field("pad1", &self.pad1)
-            .field("OverThrottledAc", &self.OverThrottledAc)
-            .field("OverThrottledDc", &self.OverThrottledDc)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MACHINE_POWER_POLICY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MACHINE_POWER_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Revision == other.Revision && self.MinSleepAc == other.MinSleepAc && self.MinSleepDc == other.MinSleepDc && self.ReducedLatencySleepAc == other.ReducedLatencySleepAc && self.ReducedLatencySleepDc == other.ReducedLatencySleepDc && self.DozeTimeoutAc == other.DozeTimeoutAc && self.DozeTimeoutDc == other.DozeTimeoutDc && self.DozeS4TimeoutAc == other.DozeS4TimeoutAc && self.DozeS4TimeoutDc == other.DozeS4TimeoutDc && self.MinThrottleAc == other.MinThrottleAc && self.MinThrottleDc == other.MinThrottleDc && self.pad1 == other.pad1 && self.OverThrottledAc == other.OverThrottledAc && self.OverThrottledDc == other.OverThrottledDc
-    }
-}
-impl Eq for MACHINE_POWER_POLICY {}
 impl Default for MACHINE_POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MACHINE_PROCESSOR_POWER_POLICY {
     pub Revision: u32,
     pub ProcessorPolicyAc: PROCESSOR_POWER_POLICY,
     pub ProcessorPolicyDc: PROCESSOR_POWER_POLICY,
 }
-impl Copy for MACHINE_PROCESSOR_POWER_POLICY {}
-impl Clone for MACHINE_PROCESSOR_POWER_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MACHINE_PROCESSOR_POWER_POLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MACHINE_PROCESSOR_POWER_POLICY").field("Revision", &self.Revision).field("ProcessorPolicyAc", &self.ProcessorPolicyAc).field("ProcessorPolicyDc", &self.ProcessorPolicyDc).finish()
-    }
-}
 impl windows_core::TypeKind for MACHINE_PROCESSOR_POWER_POLICY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MACHINE_PROCESSOR_POWER_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Revision == other.Revision && self.ProcessorPolicyAc == other.ProcessorPolicyAc && self.ProcessorPolicyDc == other.ProcessorPolicyDc
-    }
-}
-impl Eq for MACHINE_PROCESSOR_POWER_POLICY {}
 impl Default for MACHINE_PROCESSOR_POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWERBROADCAST_SETTING {
     pub PowerSetting: windows_core::GUID,
     pub DataLength: u32,
     pub Data: [u8; 1],
 }
-impl Copy for POWERBROADCAST_SETTING {}
-impl Clone for POWERBROADCAST_SETTING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for POWERBROADCAST_SETTING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("POWERBROADCAST_SETTING").field("PowerSetting", &self.PowerSetting).field("DataLength", &self.DataLength).field("Data", &self.Data).finish()
-    }
-}
 impl windows_core::TypeKind for POWERBROADCAST_SETTING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for POWERBROADCAST_SETTING {
-    fn eq(&self, other: &Self) -> bool {
-        self.PowerSetting == other.PowerSetting && self.DataLength == other.DataLength && self.Data == other.Data
-    }
-}
-impl Eq for POWERBROADCAST_SETTING {}
 impl Default for POWERBROADCAST_SETTING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_ACTION_POLICY {
     pub Action: POWER_ACTION,
     pub Flags: u32,
     pub EventCode: POWER_ACTION_POLICY_EVENT_CODE,
 }
-impl Copy for POWER_ACTION_POLICY {}
-impl Clone for POWER_ACTION_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for POWER_ACTION_POLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("POWER_ACTION_POLICY").field("Action", &self.Action).field("Flags", &self.Flags).field("EventCode", &self.EventCode).finish()
-    }
-}
 impl windows_core::TypeKind for POWER_ACTION_POLICY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for POWER_ACTION_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Action == other.Action && self.Flags == other.Flags && self.EventCode == other.EventCode
-    }
-}
-impl Eq for POWER_ACTION_POLICY {}
 impl Default for POWER_ACTION_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_IDLE_RESILIENCY {
     pub CoalescingTimeout: u32,
     pub IdleResiliencyPeriod: u32,
 }
-impl Copy for POWER_IDLE_RESILIENCY {}
-impl Clone for POWER_IDLE_RESILIENCY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for POWER_IDLE_RESILIENCY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("POWER_IDLE_RESILIENCY").field("CoalescingTimeout", &self.CoalescingTimeout).field("IdleResiliencyPeriod", &self.IdleResiliencyPeriod).finish()
-    }
-}
 impl windows_core::TypeKind for POWER_IDLE_RESILIENCY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for POWER_IDLE_RESILIENCY {
-    fn eq(&self, other: &Self) -> bool {
-        self.CoalescingTimeout == other.CoalescingTimeout && self.IdleResiliencyPeriod == other.IdleResiliencyPeriod
-    }
-}
-impl Eq for POWER_IDLE_RESILIENCY {}
 impl Default for POWER_IDLE_RESILIENCY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_MONITOR_INVOCATION {
     pub Console: super::super::Foundation::BOOLEAN,
     pub RequestReason: POWER_MONITOR_REQUEST_REASON,
 }
-impl Copy for POWER_MONITOR_INVOCATION {}
-impl Clone for POWER_MONITOR_INVOCATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for POWER_MONITOR_INVOCATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("POWER_MONITOR_INVOCATION").field("Console", &self.Console).field("RequestReason", &self.RequestReason).finish()
-    }
-}
 impl windows_core::TypeKind for POWER_MONITOR_INVOCATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for POWER_MONITOR_INVOCATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Console == other.Console && self.RequestReason == other.RequestReason
-    }
-}
-impl Eq for POWER_MONITOR_INVOCATION {}
 impl Default for POWER_MONITOR_INVOCATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_PLATFORM_INFORMATION {
     pub AoAc: super::super::Foundation::BOOLEAN,
-}
-impl Copy for POWER_PLATFORM_INFORMATION {}
-impl Clone for POWER_PLATFORM_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for POWER_PLATFORM_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("POWER_PLATFORM_INFORMATION").field("AoAc", &self.AoAc).finish()
-    }
 }
 impl windows_core::TypeKind for POWER_PLATFORM_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for POWER_PLATFORM_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.AoAc == other.AoAc
-    }
-}
-impl Eq for POWER_PLATFORM_INFORMATION {}
 impl Default for POWER_PLATFORM_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_POLICY {
     pub user: USER_POWER_POLICY,
     pub mach: MACHINE_POWER_POLICY,
 }
-impl Copy for POWER_POLICY {}
-impl Clone for POWER_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for POWER_POLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("POWER_POLICY").field("user", &self.user).field("mach", &self.mach).finish()
-    }
-}
 impl windows_core::TypeKind for POWER_POLICY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for POWER_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.user == other.user && self.mach == other.mach
-    }
-}
-impl Eq for POWER_POLICY {}
 impl Default for POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
     pub IsAllowed: super::super::Foundation::BOOLEAN,
-}
-impl Copy for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {}
-impl Clone for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES").field("IsAllowed", &self.IsAllowed).finish()
-    }
 }
 impl windows_core::TypeKind for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
-    fn eq(&self, other: &Self) -> bool {
-        self.IsAllowed == other.IsAllowed
-    }
-}
-impl Eq for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {}
 impl Default for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_SESSION_CONNECT {
     pub Connected: super::super::Foundation::BOOLEAN,
     pub Console: super::super::Foundation::BOOLEAN,
 }
-impl Copy for POWER_SESSION_CONNECT {}
-impl Clone for POWER_SESSION_CONNECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for POWER_SESSION_CONNECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("POWER_SESSION_CONNECT").field("Connected", &self.Connected).field("Console", &self.Console).finish()
-    }
-}
 impl windows_core::TypeKind for POWER_SESSION_CONNECT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for POWER_SESSION_CONNECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Connected == other.Connected && self.Console == other.Console
-    }
-}
-impl Eq for POWER_SESSION_CONNECT {}
 impl Default for POWER_SESSION_CONNECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_SESSION_RIT_STATE {
     pub Active: super::super::Foundation::BOOLEAN,
     pub LastInputTime: u64,
 }
-impl Copy for POWER_SESSION_RIT_STATE {}
-impl Clone for POWER_SESSION_RIT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for POWER_SESSION_RIT_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("POWER_SESSION_RIT_STATE").field("Active", &self.Active).field("LastInputTime", &self.LastInputTime).finish()
-    }
-}
 impl windows_core::TypeKind for POWER_SESSION_RIT_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for POWER_SESSION_RIT_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Active == other.Active && self.LastInputTime == other.LastInputTime
-    }
-}
-impl Eq for POWER_SESSION_RIT_STATE {}
 impl Default for POWER_SESSION_RIT_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_SESSION_TIMEOUTS {
     pub InputTimeout: u32,
     pub DisplayTimeout: u32,
 }
-impl Copy for POWER_SESSION_TIMEOUTS {}
-impl Clone for POWER_SESSION_TIMEOUTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for POWER_SESSION_TIMEOUTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("POWER_SESSION_TIMEOUTS").field("InputTimeout", &self.InputTimeout).field("DisplayTimeout", &self.DisplayTimeout).finish()
-    }
-}
 impl windows_core::TypeKind for POWER_SESSION_TIMEOUTS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for POWER_SESSION_TIMEOUTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputTimeout == other.InputTimeout && self.DisplayTimeout == other.DisplayTimeout
-    }
-}
-impl Eq for POWER_SESSION_TIMEOUTS {}
 impl Default for POWER_SESSION_TIMEOUTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_SESSION_WINLOGON {
     pub SessionId: u32,
     pub Console: super::super::Foundation::BOOLEAN,
     pub Locked: super::super::Foundation::BOOLEAN,
 }
-impl Copy for POWER_SESSION_WINLOGON {}
-impl Clone for POWER_SESSION_WINLOGON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for POWER_SESSION_WINLOGON {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("POWER_SESSION_WINLOGON").field("SessionId", &self.SessionId).field("Console", &self.Console).field("Locked", &self.Locked).finish()
-    }
-}
 impl windows_core::TypeKind for POWER_SESSION_WINLOGON {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for POWER_SESSION_WINLOGON {
-    fn eq(&self, other: &Self) -> bool {
-        self.SessionId == other.SessionId && self.Console == other.Console && self.Locked == other.Locked
-    }
-}
-impl Eq for POWER_SESSION_WINLOGON {}
 impl Default for POWER_SESSION_WINLOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_USER_PRESENCE {
     pub UserPresence: POWER_USER_PRESENCE_TYPE,
-}
-impl Copy for POWER_USER_PRESENCE {}
-impl Clone for POWER_USER_PRESENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for POWER_USER_PRESENCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("POWER_USER_PRESENCE").field("UserPresence", &self.UserPresence).finish()
-    }
 }
 impl windows_core::TypeKind for POWER_USER_PRESENCE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for POWER_USER_PRESENCE {
-    fn eq(&self, other: &Self) -> bool {
-        self.UserPresence == other.UserPresence
-    }
-}
-impl Eq for POWER_USER_PRESENCE {}
 impl Default for POWER_USER_PRESENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_IDLESTATE_EVENT {
     pub NewState: u32,
     pub OldState: u32,
     pub Processors: u64,
 }
-impl Copy for PPM_IDLESTATE_EVENT {}
-impl Clone for PPM_IDLESTATE_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPM_IDLESTATE_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPM_IDLESTATE_EVENT").field("NewState", &self.NewState).field("OldState", &self.OldState).field("Processors", &self.Processors).finish()
-    }
-}
 impl windows_core::TypeKind for PPM_IDLESTATE_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPM_IDLESTATE_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.NewState == other.NewState && self.OldState == other.OldState && self.Processors == other.Processors
-    }
-}
-impl Eq for PPM_IDLESTATE_EVENT {}
 impl Default for PPM_IDLESTATE_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_IDLE_ACCOUNTING {
     pub StateCount: u32,
     pub TotalTransitions: u32,
@@ -2874,32 +2199,16 @@ pub struct PPM_IDLE_ACCOUNTING {
     pub StartTime: u64,
     pub State: [PPM_IDLE_STATE_ACCOUNTING; 1],
 }
-impl Copy for PPM_IDLE_ACCOUNTING {}
-impl Clone for PPM_IDLE_ACCOUNTING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPM_IDLE_ACCOUNTING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPM_IDLE_ACCOUNTING").field("StateCount", &self.StateCount).field("TotalTransitions", &self.TotalTransitions).field("ResetCount", &self.ResetCount).field("StartTime", &self.StartTime).field("State", &self.State).finish()
-    }
-}
 impl windows_core::TypeKind for PPM_IDLE_ACCOUNTING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPM_IDLE_ACCOUNTING {
-    fn eq(&self, other: &Self) -> bool {
-        self.StateCount == other.StateCount && self.TotalTransitions == other.TotalTransitions && self.ResetCount == other.ResetCount && self.StartTime == other.StartTime && self.State == other.State
-    }
-}
-impl Eq for PPM_IDLE_ACCOUNTING {}
 impl Default for PPM_IDLE_ACCOUNTING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_IDLE_ACCOUNTING_EX {
     pub StateCount: u32,
     pub TotalTransitions: u32,
@@ -2908,32 +2217,16 @@ pub struct PPM_IDLE_ACCOUNTING_EX {
     pub StartTime: u64,
     pub State: [PPM_IDLE_STATE_ACCOUNTING_EX; 1],
 }
-impl Copy for PPM_IDLE_ACCOUNTING_EX {}
-impl Clone for PPM_IDLE_ACCOUNTING_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPM_IDLE_ACCOUNTING_EX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPM_IDLE_ACCOUNTING_EX").field("StateCount", &self.StateCount).field("TotalTransitions", &self.TotalTransitions).field("ResetCount", &self.ResetCount).field("AbortCount", &self.AbortCount).field("StartTime", &self.StartTime).field("State", &self.State).finish()
-    }
-}
 impl windows_core::TypeKind for PPM_IDLE_ACCOUNTING_EX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPM_IDLE_ACCOUNTING_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.StateCount == other.StateCount && self.TotalTransitions == other.TotalTransitions && self.ResetCount == other.ResetCount && self.AbortCount == other.AbortCount && self.StartTime == other.StartTime && self.State == other.State
-    }
-}
-impl Eq for PPM_IDLE_ACCOUNTING_EX {}
 impl Default for PPM_IDLE_ACCOUNTING_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_IDLE_STATE_ACCOUNTING {
     pub IdleTransitions: u32,
     pub FailedTransitions: u32,
@@ -2941,32 +2234,16 @@ pub struct PPM_IDLE_STATE_ACCOUNTING {
     pub TotalTime: u64,
     pub IdleTimeBuckets: [u32; 6],
 }
-impl Copy for PPM_IDLE_STATE_ACCOUNTING {}
-impl Clone for PPM_IDLE_STATE_ACCOUNTING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPM_IDLE_STATE_ACCOUNTING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPM_IDLE_STATE_ACCOUNTING").field("IdleTransitions", &self.IdleTransitions).field("FailedTransitions", &self.FailedTransitions).field("InvalidBucketIndex", &self.InvalidBucketIndex).field("TotalTime", &self.TotalTime).field("IdleTimeBuckets", &self.IdleTimeBuckets).finish()
-    }
-}
 impl windows_core::TypeKind for PPM_IDLE_STATE_ACCOUNTING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPM_IDLE_STATE_ACCOUNTING {
-    fn eq(&self, other: &Self) -> bool {
-        self.IdleTransitions == other.IdleTransitions && self.FailedTransitions == other.FailedTransitions && self.InvalidBucketIndex == other.InvalidBucketIndex && self.TotalTime == other.TotalTime && self.IdleTimeBuckets == other.IdleTimeBuckets
-    }
-}
-impl Eq for PPM_IDLE_STATE_ACCOUNTING {}
 impl Default for PPM_IDLE_STATE_ACCOUNTING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_IDLE_STATE_ACCOUNTING_EX {
     pub TotalTime: u64,
     pub IdleTransitions: u32,
@@ -2977,96 +2254,48 @@ pub struct PPM_IDLE_STATE_ACCOUNTING_EX {
     pub CancelledTransitions: u32,
     pub IdleTimeBuckets: [PPM_IDLE_STATE_BUCKET_EX; 16],
 }
-impl Copy for PPM_IDLE_STATE_ACCOUNTING_EX {}
-impl Clone for PPM_IDLE_STATE_ACCOUNTING_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPM_IDLE_STATE_ACCOUNTING_EX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPM_IDLE_STATE_ACCOUNTING_EX").field("TotalTime", &self.TotalTime).field("IdleTransitions", &self.IdleTransitions).field("FailedTransitions", &self.FailedTransitions).field("InvalidBucketIndex", &self.InvalidBucketIndex).field("MinTimeUs", &self.MinTimeUs).field("MaxTimeUs", &self.MaxTimeUs).field("CancelledTransitions", &self.CancelledTransitions).field("IdleTimeBuckets", &self.IdleTimeBuckets).finish()
-    }
-}
 impl windows_core::TypeKind for PPM_IDLE_STATE_ACCOUNTING_EX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPM_IDLE_STATE_ACCOUNTING_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.TotalTime == other.TotalTime && self.IdleTransitions == other.IdleTransitions && self.FailedTransitions == other.FailedTransitions && self.InvalidBucketIndex == other.InvalidBucketIndex && self.MinTimeUs == other.MinTimeUs && self.MaxTimeUs == other.MaxTimeUs && self.CancelledTransitions == other.CancelledTransitions && self.IdleTimeBuckets == other.IdleTimeBuckets
-    }
-}
-impl Eq for PPM_IDLE_STATE_ACCOUNTING_EX {}
 impl Default for PPM_IDLE_STATE_ACCOUNTING_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_IDLE_STATE_BUCKET_EX {
     pub TotalTimeUs: u64,
     pub MinTimeUs: u32,
     pub MaxTimeUs: u32,
     pub Count: u32,
 }
-impl Copy for PPM_IDLE_STATE_BUCKET_EX {}
-impl Clone for PPM_IDLE_STATE_BUCKET_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPM_IDLE_STATE_BUCKET_EX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPM_IDLE_STATE_BUCKET_EX").field("TotalTimeUs", &self.TotalTimeUs).field("MinTimeUs", &self.MinTimeUs).field("MaxTimeUs", &self.MaxTimeUs).field("Count", &self.Count).finish()
-    }
-}
 impl windows_core::TypeKind for PPM_IDLE_STATE_BUCKET_EX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPM_IDLE_STATE_BUCKET_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.TotalTimeUs == other.TotalTimeUs && self.MinTimeUs == other.MinTimeUs && self.MaxTimeUs == other.MaxTimeUs && self.Count == other.Count
-    }
-}
-impl Eq for PPM_IDLE_STATE_BUCKET_EX {}
 impl Default for PPM_IDLE_STATE_BUCKET_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_PERFSTATE_DOMAIN_EVENT {
     pub State: u32,
     pub Latency: u32,
     pub Speed: u32,
     pub Processors: u64,
 }
-impl Copy for PPM_PERFSTATE_DOMAIN_EVENT {}
-impl Clone for PPM_PERFSTATE_DOMAIN_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPM_PERFSTATE_DOMAIN_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPM_PERFSTATE_DOMAIN_EVENT").field("State", &self.State).field("Latency", &self.Latency).field("Speed", &self.Speed).field("Processors", &self.Processors).finish()
-    }
-}
 impl windows_core::TypeKind for PPM_PERFSTATE_DOMAIN_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPM_PERFSTATE_DOMAIN_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.State == other.State && self.Latency == other.Latency && self.Speed == other.Speed && self.Processors == other.Processors
-    }
-}
-impl Eq for PPM_PERFSTATE_DOMAIN_EVENT {}
 impl Default for PPM_PERFSTATE_DOMAIN_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_PERFSTATE_EVENT {
     pub State: u32,
     pub Status: u32,
@@ -3074,92 +2303,44 @@ pub struct PPM_PERFSTATE_EVENT {
     pub Speed: u32,
     pub Processor: u32,
 }
-impl Copy for PPM_PERFSTATE_EVENT {}
-impl Clone for PPM_PERFSTATE_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPM_PERFSTATE_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPM_PERFSTATE_EVENT").field("State", &self.State).field("Status", &self.Status).field("Latency", &self.Latency).field("Speed", &self.Speed).field("Processor", &self.Processor).finish()
-    }
-}
 impl windows_core::TypeKind for PPM_PERFSTATE_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPM_PERFSTATE_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.State == other.State && self.Status == other.Status && self.Latency == other.Latency && self.Speed == other.Speed && self.Processor == other.Processor
-    }
-}
-impl Eq for PPM_PERFSTATE_EVENT {}
 impl Default for PPM_PERFSTATE_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_THERMALCHANGE_EVENT {
     pub ThermalConstraint: u32,
     pub Processors: u64,
 }
-impl Copy for PPM_THERMALCHANGE_EVENT {}
-impl Clone for PPM_THERMALCHANGE_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPM_THERMALCHANGE_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPM_THERMALCHANGE_EVENT").field("ThermalConstraint", &self.ThermalConstraint).field("Processors", &self.Processors).finish()
-    }
-}
 impl windows_core::TypeKind for PPM_THERMALCHANGE_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPM_THERMALCHANGE_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.ThermalConstraint == other.ThermalConstraint && self.Processors == other.Processors
-    }
-}
-impl Eq for PPM_THERMALCHANGE_EVENT {}
 impl Default for PPM_THERMALCHANGE_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_THERMAL_POLICY_EVENT {
     pub Mode: u8,
     pub Processors: u64,
 }
-impl Copy for PPM_THERMAL_POLICY_EVENT {}
-impl Clone for PPM_THERMAL_POLICY_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPM_THERMAL_POLICY_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPM_THERMAL_POLICY_EVENT").field("Mode", &self.Mode).field("Processors", &self.Processors).finish()
-    }
-}
 impl windows_core::TypeKind for PPM_THERMAL_POLICY_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPM_THERMAL_POLICY_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Mode == other.Mode && self.Processors == other.Processors
-    }
-}
-impl Eq for PPM_THERMAL_POLICY_EVENT {}
 impl Default for PPM_THERMAL_POLICY_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_WMI_IDLE_STATE {
     pub Latency: u32,
     pub Power: u32,
@@ -3173,32 +2354,16 @@ pub struct PPM_WMI_IDLE_STATE {
     pub IdleHandler: u32,
     pub Reserved1: u32,
 }
-impl Copy for PPM_WMI_IDLE_STATE {}
-impl Clone for PPM_WMI_IDLE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPM_WMI_IDLE_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPM_WMI_IDLE_STATE").field("Latency", &self.Latency).field("Power", &self.Power).field("TimeCheck", &self.TimeCheck).field("PromotePercent", &self.PromotePercent).field("DemotePercent", &self.DemotePercent).field("StateType", &self.StateType).field("Reserved", &self.Reserved).field("StateFlags", &self.StateFlags).field("Context", &self.Context).field("IdleHandler", &self.IdleHandler).field("Reserved1", &self.Reserved1).finish()
-    }
-}
 impl windows_core::TypeKind for PPM_WMI_IDLE_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPM_WMI_IDLE_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Latency == other.Latency && self.Power == other.Power && self.TimeCheck == other.TimeCheck && self.PromotePercent == other.PromotePercent && self.DemotePercent == other.DemotePercent && self.StateType == other.StateType && self.Reserved == other.Reserved && self.StateFlags == other.StateFlags && self.Context == other.Context && self.IdleHandler == other.IdleHandler && self.Reserved1 == other.Reserved1
-    }
-}
-impl Eq for PPM_WMI_IDLE_STATE {}
 impl Default for PPM_WMI_IDLE_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_WMI_IDLE_STATES {
     pub Type: u32,
     pub Count: u32,
@@ -3207,32 +2372,16 @@ pub struct PPM_WMI_IDLE_STATES {
     pub TargetProcessors: u64,
     pub State: [PPM_WMI_IDLE_STATE; 1],
 }
-impl Copy for PPM_WMI_IDLE_STATES {}
-impl Clone for PPM_WMI_IDLE_STATES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPM_WMI_IDLE_STATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPM_WMI_IDLE_STATES").field("Type", &self.Type).field("Count", &self.Count).field("TargetState", &self.TargetState).field("OldState", &self.OldState).field("TargetProcessors", &self.TargetProcessors).field("State", &self.State).finish()
-    }
-}
 impl windows_core::TypeKind for PPM_WMI_IDLE_STATES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPM_WMI_IDLE_STATES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Count == other.Count && self.TargetState == other.TargetState && self.OldState == other.OldState && self.TargetProcessors == other.TargetProcessors && self.State == other.State
-    }
-}
-impl Eq for PPM_WMI_IDLE_STATES {}
 impl Default for PPM_WMI_IDLE_STATES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_WMI_IDLE_STATES_EX {
     pub Type: u32,
     pub Count: u32,
@@ -3241,63 +2390,31 @@ pub struct PPM_WMI_IDLE_STATES_EX {
     pub TargetProcessors: *mut core::ffi::c_void,
     pub State: [PPM_WMI_IDLE_STATE; 1],
 }
-impl Copy for PPM_WMI_IDLE_STATES_EX {}
-impl Clone for PPM_WMI_IDLE_STATES_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPM_WMI_IDLE_STATES_EX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPM_WMI_IDLE_STATES_EX").field("Type", &self.Type).field("Count", &self.Count).field("TargetState", &self.TargetState).field("OldState", &self.OldState).field("TargetProcessors", &self.TargetProcessors).field("State", &self.State).finish()
-    }
-}
 impl windows_core::TypeKind for PPM_WMI_IDLE_STATES_EX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPM_WMI_IDLE_STATES_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Count == other.Count && self.TargetState == other.TargetState && self.OldState == other.OldState && self.TargetProcessors == other.TargetProcessors && self.State == other.State
-    }
-}
-impl Eq for PPM_WMI_IDLE_STATES_EX {}
 impl Default for PPM_WMI_IDLE_STATES_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_WMI_LEGACY_PERFSTATE {
     pub Frequency: u32,
     pub Flags: u32,
     pub PercentFrequency: u32,
 }
-impl Copy for PPM_WMI_LEGACY_PERFSTATE {}
-impl Clone for PPM_WMI_LEGACY_PERFSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPM_WMI_LEGACY_PERFSTATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPM_WMI_LEGACY_PERFSTATE").field("Frequency", &self.Frequency).field("Flags", &self.Flags).field("PercentFrequency", &self.PercentFrequency).finish()
-    }
-}
 impl windows_core::TypeKind for PPM_WMI_LEGACY_PERFSTATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPM_WMI_LEGACY_PERFSTATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Frequency == other.Frequency && self.Flags == other.Flags && self.PercentFrequency == other.PercentFrequency
-    }
-}
-impl Eq for PPM_WMI_LEGACY_PERFSTATE {}
 impl Default for PPM_WMI_LEGACY_PERFSTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_WMI_PERF_STATE {
     pub Frequency: u32,
     pub Power: u32,
@@ -3314,47 +2431,16 @@ pub struct PPM_WMI_PERF_STATE {
     pub Reserved2: u64,
     pub Reserved3: u64,
 }
-impl Copy for PPM_WMI_PERF_STATE {}
-impl Clone for PPM_WMI_PERF_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPM_WMI_PERF_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPM_WMI_PERF_STATE")
-            .field("Frequency", &self.Frequency)
-            .field("Power", &self.Power)
-            .field("PercentFrequency", &self.PercentFrequency)
-            .field("IncreaseLevel", &self.IncreaseLevel)
-            .field("DecreaseLevel", &self.DecreaseLevel)
-            .field("Type", &self.Type)
-            .field("IncreaseTime", &self.IncreaseTime)
-            .field("DecreaseTime", &self.DecreaseTime)
-            .field("Control", &self.Control)
-            .field("Status", &self.Status)
-            .field("HitCount", &self.HitCount)
-            .field("Reserved1", &self.Reserved1)
-            .field("Reserved2", &self.Reserved2)
-            .field("Reserved3", &self.Reserved3)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PPM_WMI_PERF_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPM_WMI_PERF_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Frequency == other.Frequency && self.Power == other.Power && self.PercentFrequency == other.PercentFrequency && self.IncreaseLevel == other.IncreaseLevel && self.DecreaseLevel == other.DecreaseLevel && self.Type == other.Type && self.IncreaseTime == other.IncreaseTime && self.DecreaseTime == other.DecreaseTime && self.Control == other.Control && self.Status == other.Status && self.HitCount == other.HitCount && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3
-    }
-}
-impl Eq for PPM_WMI_PERF_STATE {}
 impl Default for PPM_WMI_PERF_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_WMI_PERF_STATES {
     pub Count: u32,
     pub MaxFrequency: u32,
@@ -3378,74 +2464,16 @@ pub struct PPM_WMI_PERF_STATES {
     pub Reserved2: u64,
     pub State: [PPM_WMI_PERF_STATE; 1],
 }
-impl Copy for PPM_WMI_PERF_STATES {}
-impl Clone for PPM_WMI_PERF_STATES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPM_WMI_PERF_STATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPM_WMI_PERF_STATES")
-            .field("Count", &self.Count)
-            .field("MaxFrequency", &self.MaxFrequency)
-            .field("CurrentState", &self.CurrentState)
-            .field("MaxPerfState", &self.MaxPerfState)
-            .field("MinPerfState", &self.MinPerfState)
-            .field("LowestPerfState", &self.LowestPerfState)
-            .field("ThermalConstraint", &self.ThermalConstraint)
-            .field("BusyAdjThreshold", &self.BusyAdjThreshold)
-            .field("PolicyType", &self.PolicyType)
-            .field("Type", &self.Type)
-            .field("Reserved", &self.Reserved)
-            .field("TimerInterval", &self.TimerInterval)
-            .field("TargetProcessors", &self.TargetProcessors)
-            .field("PStateHandler", &self.PStateHandler)
-            .field("PStateContext", &self.PStateContext)
-            .field("TStateHandler", &self.TStateHandler)
-            .field("TStateContext", &self.TStateContext)
-            .field("FeedbackHandler", &self.FeedbackHandler)
-            .field("Reserved1", &self.Reserved1)
-            .field("Reserved2", &self.Reserved2)
-            .field("State", &self.State)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PPM_WMI_PERF_STATES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPM_WMI_PERF_STATES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count
-            && self.MaxFrequency == other.MaxFrequency
-            && self.CurrentState == other.CurrentState
-            && self.MaxPerfState == other.MaxPerfState
-            && self.MinPerfState == other.MinPerfState
-            && self.LowestPerfState == other.LowestPerfState
-            && self.ThermalConstraint == other.ThermalConstraint
-            && self.BusyAdjThreshold == other.BusyAdjThreshold
-            && self.PolicyType == other.PolicyType
-            && self.Type == other.Type
-            && self.Reserved == other.Reserved
-            && self.TimerInterval == other.TimerInterval
-            && self.TargetProcessors == other.TargetProcessors
-            && self.PStateHandler == other.PStateHandler
-            && self.PStateContext == other.PStateContext
-            && self.TStateHandler == other.TStateHandler
-            && self.TStateContext == other.TStateContext
-            && self.FeedbackHandler == other.FeedbackHandler
-            && self.Reserved1 == other.Reserved1
-            && self.Reserved2 == other.Reserved2
-            && self.State == other.State
-    }
-}
-impl Eq for PPM_WMI_PERF_STATES {}
 impl Default for PPM_WMI_PERF_STATES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_WMI_PERF_STATES_EX {
     pub Count: u32,
     pub MaxFrequency: u32,
@@ -3469,137 +2497,47 @@ pub struct PPM_WMI_PERF_STATES_EX {
     pub Reserved2: u64,
     pub State: [PPM_WMI_PERF_STATE; 1],
 }
-impl Copy for PPM_WMI_PERF_STATES_EX {}
-impl Clone for PPM_WMI_PERF_STATES_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPM_WMI_PERF_STATES_EX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPM_WMI_PERF_STATES_EX")
-            .field("Count", &self.Count)
-            .field("MaxFrequency", &self.MaxFrequency)
-            .field("CurrentState", &self.CurrentState)
-            .field("MaxPerfState", &self.MaxPerfState)
-            .field("MinPerfState", &self.MinPerfState)
-            .field("LowestPerfState", &self.LowestPerfState)
-            .field("ThermalConstraint", &self.ThermalConstraint)
-            .field("BusyAdjThreshold", &self.BusyAdjThreshold)
-            .field("PolicyType", &self.PolicyType)
-            .field("Type", &self.Type)
-            .field("Reserved", &self.Reserved)
-            .field("TimerInterval", &self.TimerInterval)
-            .field("TargetProcessors", &self.TargetProcessors)
-            .field("PStateHandler", &self.PStateHandler)
-            .field("PStateContext", &self.PStateContext)
-            .field("TStateHandler", &self.TStateHandler)
-            .field("TStateContext", &self.TStateContext)
-            .field("FeedbackHandler", &self.FeedbackHandler)
-            .field("Reserved1", &self.Reserved1)
-            .field("Reserved2", &self.Reserved2)
-            .field("State", &self.State)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PPM_WMI_PERF_STATES_EX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPM_WMI_PERF_STATES_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count
-            && self.MaxFrequency == other.MaxFrequency
-            && self.CurrentState == other.CurrentState
-            && self.MaxPerfState == other.MaxPerfState
-            && self.MinPerfState == other.MinPerfState
-            && self.LowestPerfState == other.LowestPerfState
-            && self.ThermalConstraint == other.ThermalConstraint
-            && self.BusyAdjThreshold == other.BusyAdjThreshold
-            && self.PolicyType == other.PolicyType
-            && self.Type == other.Type
-            && self.Reserved == other.Reserved
-            && self.TimerInterval == other.TimerInterval
-            && self.TargetProcessors == other.TargetProcessors
-            && self.PStateHandler == other.PStateHandler
-            && self.PStateContext == other.PStateContext
-            && self.TStateHandler == other.TStateHandler
-            && self.TStateContext == other.TStateContext
-            && self.FeedbackHandler == other.FeedbackHandler
-            && self.Reserved1 == other.Reserved1
-            && self.Reserved2 == other.Reserved2
-            && self.State == other.State
-    }
-}
-impl Eq for PPM_WMI_PERF_STATES_EX {}
 impl Default for PPM_WMI_PERF_STATES_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSOR_OBJECT_INFO {
     pub PhysicalID: u32,
     pub PBlkAddress: u32,
     pub PBlkLength: u8,
 }
-impl Copy for PROCESSOR_OBJECT_INFO {}
-impl Clone for PROCESSOR_OBJECT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESSOR_OBJECT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESSOR_OBJECT_INFO").field("PhysicalID", &self.PhysicalID).field("PBlkAddress", &self.PBlkAddress).field("PBlkLength", &self.PBlkLength).finish()
-    }
-}
 impl windows_core::TypeKind for PROCESSOR_OBJECT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESSOR_OBJECT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.PhysicalID == other.PhysicalID && self.PBlkAddress == other.PBlkAddress && self.PBlkLength == other.PBlkLength
-    }
-}
-impl Eq for PROCESSOR_OBJECT_INFO {}
 impl Default for PROCESSOR_OBJECT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSOR_OBJECT_INFO_EX {
     pub PhysicalID: u32,
     pub PBlkAddress: u32,
     pub PBlkLength: u8,
     pub InitialApicId: u32,
 }
-impl Copy for PROCESSOR_OBJECT_INFO_EX {}
-impl Clone for PROCESSOR_OBJECT_INFO_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESSOR_OBJECT_INFO_EX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESSOR_OBJECT_INFO_EX").field("PhysicalID", &self.PhysicalID).field("PBlkAddress", &self.PBlkAddress).field("PBlkLength", &self.PBlkLength).field("InitialApicId", &self.InitialApicId).finish()
-    }
-}
 impl windows_core::TypeKind for PROCESSOR_OBJECT_INFO_EX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESSOR_OBJECT_INFO_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.PhysicalID == other.PhysicalID && self.PBlkAddress == other.PBlkAddress && self.PBlkLength == other.PBlkLength && self.InitialApicId == other.InitialApicId
-    }
-}
-impl Eq for PROCESSOR_OBJECT_INFO_EX {}
 impl Default for PROCESSOR_OBJECT_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSOR_POWER_INFORMATION {
     pub Number: u32,
     pub MaxMhz: u32,
@@ -3608,32 +2546,16 @@ pub struct PROCESSOR_POWER_INFORMATION {
     pub MaxIdleState: u32,
     pub CurrentIdleState: u32,
 }
-impl Copy for PROCESSOR_POWER_INFORMATION {}
-impl Clone for PROCESSOR_POWER_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESSOR_POWER_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESSOR_POWER_INFORMATION").field("Number", &self.Number).field("MaxMhz", &self.MaxMhz).field("CurrentMhz", &self.CurrentMhz).field("MhzLimit", &self.MhzLimit).field("MaxIdleState", &self.MaxIdleState).field("CurrentIdleState", &self.CurrentIdleState).finish()
-    }
-}
 impl windows_core::TypeKind for PROCESSOR_POWER_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESSOR_POWER_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Number == other.Number && self.MaxMhz == other.MaxMhz && self.CurrentMhz == other.CurrentMhz && self.MhzLimit == other.MhzLimit && self.MaxIdleState == other.MaxIdleState && self.CurrentIdleState == other.CurrentIdleState
-    }
-}
-impl Eq for PROCESSOR_POWER_INFORMATION {}
 impl Default for PROCESSOR_POWER_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSOR_POWER_POLICY {
     pub Revision: u32,
     pub DynamicThrottle: u8,
@@ -3642,32 +2564,16 @@ pub struct PROCESSOR_POWER_POLICY {
     pub PolicyCount: u32,
     pub Policy: [PROCESSOR_POWER_POLICY_INFO; 3],
 }
-impl Copy for PROCESSOR_POWER_POLICY {}
-impl Clone for PROCESSOR_POWER_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESSOR_POWER_POLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESSOR_POWER_POLICY").field("Revision", &self.Revision).field("DynamicThrottle", &self.DynamicThrottle).field("Spare", &self.Spare).field("_bitfield", &self._bitfield).field("PolicyCount", &self.PolicyCount).field("Policy", &self.Policy).finish()
-    }
-}
 impl windows_core::TypeKind for PROCESSOR_POWER_POLICY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESSOR_POWER_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Revision == other.Revision && self.DynamicThrottle == other.DynamicThrottle && self.Spare == other.Spare && self._bitfield == other._bitfield && self.PolicyCount == other.PolicyCount && self.Policy == other.Policy
-    }
-}
-impl Eq for PROCESSOR_POWER_POLICY {}
 impl Default for PROCESSOR_POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSOR_POWER_POLICY_INFO {
     pub TimeCheck: u32,
     pub DemoteLimit: u32,
@@ -3677,63 +2583,31 @@ pub struct PROCESSOR_POWER_POLICY_INFO {
     pub Spare: [u8; 2],
     pub _bitfield: u32,
 }
-impl Copy for PROCESSOR_POWER_POLICY_INFO {}
-impl Clone for PROCESSOR_POWER_POLICY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESSOR_POWER_POLICY_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESSOR_POWER_POLICY_INFO").field("TimeCheck", &self.TimeCheck).field("DemoteLimit", &self.DemoteLimit).field("PromoteLimit", &self.PromoteLimit).field("DemotePercent", &self.DemotePercent).field("PromotePercent", &self.PromotePercent).field("Spare", &self.Spare).field("_bitfield", &self._bitfield).finish()
-    }
-}
 impl windows_core::TypeKind for PROCESSOR_POWER_POLICY_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESSOR_POWER_POLICY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.TimeCheck == other.TimeCheck && self.DemoteLimit == other.DemoteLimit && self.PromoteLimit == other.PromoteLimit && self.DemotePercent == other.DemotePercent && self.PromotePercent == other.PromotePercent && self.Spare == other.Spare && self._bitfield == other._bitfield
-    }
-}
-impl Eq for PROCESSOR_POWER_POLICY_INFO {}
 impl Default for PROCESSOR_POWER_POLICY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESUME_PERFORMANCE {
     pub PostTimeMs: u32,
     pub TotalResumeTimeMs: u64,
     pub ResumeCompleteTimestamp: u64,
 }
-impl Copy for RESUME_PERFORMANCE {}
-impl Clone for RESUME_PERFORMANCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RESUME_PERFORMANCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RESUME_PERFORMANCE").field("PostTimeMs", &self.PostTimeMs).field("TotalResumeTimeMs", &self.TotalResumeTimeMs).field("ResumeCompleteTimestamp", &self.ResumeCompleteTimestamp).finish()
-    }
-}
 impl windows_core::TypeKind for RESUME_PERFORMANCE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RESUME_PERFORMANCE {
-    fn eq(&self, other: &Self) -> bool {
-        self.PostTimeMs == other.PostTimeMs && self.TotalResumeTimeMs == other.TotalResumeTimeMs && self.ResumeCompleteTimestamp == other.ResumeCompleteTimestamp
-    }
-}
-impl Eq for RESUME_PERFORMANCE {}
 impl Default for RESUME_PERFORMANCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SET_POWER_SETTING_VALUE {
     pub Version: u32,
     pub Guid: windows_core::GUID,
@@ -3741,32 +2615,16 @@ pub struct SET_POWER_SETTING_VALUE {
     pub DataLength: u32,
     pub Data: [u8; 1],
 }
-impl Copy for SET_POWER_SETTING_VALUE {}
-impl Clone for SET_POWER_SETTING_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SET_POWER_SETTING_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SET_POWER_SETTING_VALUE").field("Version", &self.Version).field("Guid", &self.Guid).field("PowerCondition", &self.PowerCondition).field("DataLength", &self.DataLength).field("Data", &self.Data).finish()
-    }
-}
 impl windows_core::TypeKind for SET_POWER_SETTING_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SET_POWER_SETTING_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Guid == other.Guid && self.PowerCondition == other.PowerCondition && self.DataLength == other.DataLength && self.Data == other.Data
-    }
-}
-impl Eq for SET_POWER_SETTING_VALUE {}
 impl Default for SET_POWER_SETTING_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_BATTERY_STATE {
     pub AcOnLine: super::super::Foundation::BOOLEAN,
     pub BatteryPresent: super::super::Foundation::BOOLEAN,
@@ -3781,45 +2639,16 @@ pub struct SYSTEM_BATTERY_STATE {
     pub DefaultAlert1: u32,
     pub DefaultAlert2: u32,
 }
-impl Copy for SYSTEM_BATTERY_STATE {}
-impl Clone for SYSTEM_BATTERY_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYSTEM_BATTERY_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYSTEM_BATTERY_STATE")
-            .field("AcOnLine", &self.AcOnLine)
-            .field("BatteryPresent", &self.BatteryPresent)
-            .field("Charging", &self.Charging)
-            .field("Discharging", &self.Discharging)
-            .field("Spare1", &self.Spare1)
-            .field("Tag", &self.Tag)
-            .field("MaxCapacity", &self.MaxCapacity)
-            .field("RemainingCapacity", &self.RemainingCapacity)
-            .field("Rate", &self.Rate)
-            .field("EstimatedTime", &self.EstimatedTime)
-            .field("DefaultAlert1", &self.DefaultAlert1)
-            .field("DefaultAlert2", &self.DefaultAlert2)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for SYSTEM_BATTERY_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYSTEM_BATTERY_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.AcOnLine == other.AcOnLine && self.BatteryPresent == other.BatteryPresent && self.Charging == other.Charging && self.Discharging == other.Discharging && self.Spare1 == other.Spare1 && self.Tag == other.Tag && self.MaxCapacity == other.MaxCapacity && self.RemainingCapacity == other.RemainingCapacity && self.Rate == other.Rate && self.EstimatedTime == other.EstimatedTime && self.DefaultAlert1 == other.DefaultAlert1 && self.DefaultAlert2 == other.DefaultAlert2
-    }
-}
-impl Eq for SYSTEM_BATTERY_STATE {}
 impl Default for SYSTEM_BATTERY_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_POWER_CAPABILITIES {
     pub PowerButtonPresent: super::super::Foundation::BOOLEAN,
     pub SleepButtonPresent: super::super::Foundation::BOOLEAN,
@@ -3855,130 +2684,32 @@ pub struct SYSTEM_POWER_CAPABILITIES {
     pub MinDeviceWakeState: SYSTEM_POWER_STATE,
     pub DefaultLowLatencyWake: SYSTEM_POWER_STATE,
 }
-impl Copy for SYSTEM_POWER_CAPABILITIES {}
-impl Clone for SYSTEM_POWER_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYSTEM_POWER_CAPABILITIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYSTEM_POWER_CAPABILITIES")
-            .field("PowerButtonPresent", &self.PowerButtonPresent)
-            .field("SleepButtonPresent", &self.SleepButtonPresent)
-            .field("LidPresent", &self.LidPresent)
-            .field("SystemS1", &self.SystemS1)
-            .field("SystemS2", &self.SystemS2)
-            .field("SystemS3", &self.SystemS3)
-            .field("SystemS4", &self.SystemS4)
-            .field("SystemS5", &self.SystemS5)
-            .field("HiberFilePresent", &self.HiberFilePresent)
-            .field("FullWake", &self.FullWake)
-            .field("VideoDimPresent", &self.VideoDimPresent)
-            .field("ApmPresent", &self.ApmPresent)
-            .field("UpsPresent", &self.UpsPresent)
-            .field("ThermalControl", &self.ThermalControl)
-            .field("ProcessorThrottle", &self.ProcessorThrottle)
-            .field("ProcessorMinThrottle", &self.ProcessorMinThrottle)
-            .field("ProcessorMaxThrottle", &self.ProcessorMaxThrottle)
-            .field("FastSystemS4", &self.FastSystemS4)
-            .field("Hiberboot", &self.Hiberboot)
-            .field("WakeAlarmPresent", &self.WakeAlarmPresent)
-            .field("AoAc", &self.AoAc)
-            .field("DiskSpinDown", &self.DiskSpinDown)
-            .field("HiberFileType", &self.HiberFileType)
-            .field("AoAcConnectivitySupported", &self.AoAcConnectivitySupported)
-            .field("spare3", &self.spare3)
-            .field("SystemBatteriesPresent", &self.SystemBatteriesPresent)
-            .field("BatteriesAreShortTerm", &self.BatteriesAreShortTerm)
-            .field("BatteryScale", &self.BatteryScale)
-            .field("AcOnLineWake", &self.AcOnLineWake)
-            .field("SoftLidWake", &self.SoftLidWake)
-            .field("RtcWake", &self.RtcWake)
-            .field("MinDeviceWakeState", &self.MinDeviceWakeState)
-            .field("DefaultLowLatencyWake", &self.DefaultLowLatencyWake)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for SYSTEM_POWER_CAPABILITIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYSTEM_POWER_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.PowerButtonPresent == other.PowerButtonPresent
-            && self.SleepButtonPresent == other.SleepButtonPresent
-            && self.LidPresent == other.LidPresent
-            && self.SystemS1 == other.SystemS1
-            && self.SystemS2 == other.SystemS2
-            && self.SystemS3 == other.SystemS3
-            && self.SystemS4 == other.SystemS4
-            && self.SystemS5 == other.SystemS5
-            && self.HiberFilePresent == other.HiberFilePresent
-            && self.FullWake == other.FullWake
-            && self.VideoDimPresent == other.VideoDimPresent
-            && self.ApmPresent == other.ApmPresent
-            && self.UpsPresent == other.UpsPresent
-            && self.ThermalControl == other.ThermalControl
-            && self.ProcessorThrottle == other.ProcessorThrottle
-            && self.ProcessorMinThrottle == other.ProcessorMinThrottle
-            && self.ProcessorMaxThrottle == other.ProcessorMaxThrottle
-            && self.FastSystemS4 == other.FastSystemS4
-            && self.Hiberboot == other.Hiberboot
-            && self.WakeAlarmPresent == other.WakeAlarmPresent
-            && self.AoAc == other.AoAc
-            && self.DiskSpinDown == other.DiskSpinDown
-            && self.HiberFileType == other.HiberFileType
-            && self.AoAcConnectivitySupported == other.AoAcConnectivitySupported
-            && self.spare3 == other.spare3
-            && self.SystemBatteriesPresent == other.SystemBatteriesPresent
-            && self.BatteriesAreShortTerm == other.BatteriesAreShortTerm
-            && self.BatteryScale == other.BatteryScale
-            && self.AcOnLineWake == other.AcOnLineWake
-            && self.SoftLidWake == other.SoftLidWake
-            && self.RtcWake == other.RtcWake
-            && self.MinDeviceWakeState == other.MinDeviceWakeState
-            && self.DefaultLowLatencyWake == other.DefaultLowLatencyWake
-    }
-}
-impl Eq for SYSTEM_POWER_CAPABILITIES {}
 impl Default for SYSTEM_POWER_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_POWER_INFORMATION {
     pub MaxIdlenessAllowed: u32,
     pub Idleness: u32,
     pub TimeRemaining: u32,
     pub CoolingMode: POWER_COOLING_MODE,
 }
-impl Copy for SYSTEM_POWER_INFORMATION {}
-impl Clone for SYSTEM_POWER_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYSTEM_POWER_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYSTEM_POWER_INFORMATION").field("MaxIdlenessAllowed", &self.MaxIdlenessAllowed).field("Idleness", &self.Idleness).field("TimeRemaining", &self.TimeRemaining).field("CoolingMode", &self.CoolingMode).finish()
-    }
-}
 impl windows_core::TypeKind for SYSTEM_POWER_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYSTEM_POWER_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.MaxIdlenessAllowed == other.MaxIdlenessAllowed && self.Idleness == other.Idleness && self.TimeRemaining == other.TimeRemaining && self.CoolingMode == other.CoolingMode
-    }
-}
-impl Eq for SYSTEM_POWER_INFORMATION {}
 impl Default for SYSTEM_POWER_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_POWER_LEVEL {
     pub Enable: super::super::Foundation::BOOLEAN,
     pub Spare: [u8; 3],
@@ -3986,32 +2717,16 @@ pub struct SYSTEM_POWER_LEVEL {
     pub PowerPolicy: POWER_ACTION_POLICY,
     pub MinSystemState: SYSTEM_POWER_STATE,
 }
-impl Copy for SYSTEM_POWER_LEVEL {}
-impl Clone for SYSTEM_POWER_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYSTEM_POWER_LEVEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYSTEM_POWER_LEVEL").field("Enable", &self.Enable).field("Spare", &self.Spare).field("BatteryLevel", &self.BatteryLevel).field("PowerPolicy", &self.PowerPolicy).field("MinSystemState", &self.MinSystemState).finish()
-    }
-}
 impl windows_core::TypeKind for SYSTEM_POWER_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYSTEM_POWER_LEVEL {
-    fn eq(&self, other: &Self) -> bool {
-        self.Enable == other.Enable && self.Spare == other.Spare && self.BatteryLevel == other.BatteryLevel && self.PowerPolicy == other.PowerPolicy && self.MinSystemState == other.MinSystemState
-    }
-}
-impl Eq for SYSTEM_POWER_LEVEL {}
 impl Default for SYSTEM_POWER_LEVEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_POWER_POLICY {
     pub Revision: u32,
     pub PowerButton: POWER_ACTION_POLICY,
@@ -4042,88 +2757,16 @@ pub struct SYSTEM_POWER_POLICY {
     pub MinThrottle: u8,
     pub OverThrottled: POWER_ACTION_POLICY,
 }
-impl Copy for SYSTEM_POWER_POLICY {}
-impl Clone for SYSTEM_POWER_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYSTEM_POWER_POLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYSTEM_POWER_POLICY")
-            .field("Revision", &self.Revision)
-            .field("PowerButton", &self.PowerButton)
-            .field("SleepButton", &self.SleepButton)
-            .field("LidClose", &self.LidClose)
-            .field("LidOpenWake", &self.LidOpenWake)
-            .field("Reserved", &self.Reserved)
-            .field("Idle", &self.Idle)
-            .field("IdleTimeout", &self.IdleTimeout)
-            .field("IdleSensitivity", &self.IdleSensitivity)
-            .field("DynamicThrottle", &self.DynamicThrottle)
-            .field("Spare2", &self.Spare2)
-            .field("MinSleep", &self.MinSleep)
-            .field("MaxSleep", &self.MaxSleep)
-            .field("ReducedLatencySleep", &self.ReducedLatencySleep)
-            .field("WinLogonFlags", &self.WinLogonFlags)
-            .field("Spare3", &self.Spare3)
-            .field("DozeS4Timeout", &self.DozeS4Timeout)
-            .field("BroadcastCapacityResolution", &self.BroadcastCapacityResolution)
-            .field("DischargePolicy", &self.DischargePolicy)
-            .field("VideoTimeout", &self.VideoTimeout)
-            .field("VideoDimDisplay", &self.VideoDimDisplay)
-            .field("VideoReserved", &self.VideoReserved)
-            .field("SpindownTimeout", &self.SpindownTimeout)
-            .field("OptimizeForPower", &self.OptimizeForPower)
-            .field("FanThrottleTolerance", &self.FanThrottleTolerance)
-            .field("ForcedThrottle", &self.ForcedThrottle)
-            .field("MinThrottle", &self.MinThrottle)
-            .field("OverThrottled", &self.OverThrottled)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for SYSTEM_POWER_POLICY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYSTEM_POWER_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Revision == other.Revision
-            && self.PowerButton == other.PowerButton
-            && self.SleepButton == other.SleepButton
-            && self.LidClose == other.LidClose
-            && self.LidOpenWake == other.LidOpenWake
-            && self.Reserved == other.Reserved
-            && self.Idle == other.Idle
-            && self.IdleTimeout == other.IdleTimeout
-            && self.IdleSensitivity == other.IdleSensitivity
-            && self.DynamicThrottle == other.DynamicThrottle
-            && self.Spare2 == other.Spare2
-            && self.MinSleep == other.MinSleep
-            && self.MaxSleep == other.MaxSleep
-            && self.ReducedLatencySleep == other.ReducedLatencySleep
-            && self.WinLogonFlags == other.WinLogonFlags
-            && self.Spare3 == other.Spare3
-            && self.DozeS4Timeout == other.DozeS4Timeout
-            && self.BroadcastCapacityResolution == other.BroadcastCapacityResolution
-            && self.DischargePolicy == other.DischargePolicy
-            && self.VideoTimeout == other.VideoTimeout
-            && self.VideoDimDisplay == other.VideoDimDisplay
-            && self.VideoReserved == other.VideoReserved
-            && self.SpindownTimeout == other.SpindownTimeout
-            && self.OptimizeForPower == other.OptimizeForPower
-            && self.FanThrottleTolerance == other.FanThrottleTolerance
-            && self.ForcedThrottle == other.ForcedThrottle
-            && self.MinThrottle == other.MinThrottle
-            && self.OverThrottled == other.OverThrottled
-    }
-}
-impl Eq for SYSTEM_POWER_POLICY {}
 impl Default for SYSTEM_POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_POWER_STATUS {
     pub ACLineStatus: u8,
     pub BatteryFlag: u8,
@@ -4132,32 +2775,16 @@ pub struct SYSTEM_POWER_STATUS {
     pub BatteryLifeTime: u32,
     pub BatteryFullLifeTime: u32,
 }
-impl Copy for SYSTEM_POWER_STATUS {}
-impl Clone for SYSTEM_POWER_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYSTEM_POWER_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYSTEM_POWER_STATUS").field("ACLineStatus", &self.ACLineStatus).field("BatteryFlag", &self.BatteryFlag).field("BatteryLifePercent", &self.BatteryLifePercent).field("SystemStatusFlag", &self.SystemStatusFlag).field("BatteryLifeTime", &self.BatteryLifeTime).field("BatteryFullLifeTime", &self.BatteryFullLifeTime).finish()
-    }
-}
 impl windows_core::TypeKind for SYSTEM_POWER_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYSTEM_POWER_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ACLineStatus == other.ACLineStatus && self.BatteryFlag == other.BatteryFlag && self.BatteryLifePercent == other.BatteryLifePercent && self.SystemStatusFlag == other.SystemStatusFlag && self.BatteryLifeTime == other.BatteryLifeTime && self.BatteryFullLifeTime == other.BatteryFullLifeTime
-    }
-}
-impl Eq for SYSTEM_POWER_STATUS {}
 impl Default for SYSTEM_POWER_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct THERMAL_EVENT {
     pub Version: u32,
     pub Size: u32,
@@ -4166,32 +2793,16 @@ pub struct THERMAL_EVENT {
     pub TripPointTemperature: u32,
     pub Initiator: windows_core::PWSTR,
 }
-impl Copy for THERMAL_EVENT {}
-impl Clone for THERMAL_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for THERMAL_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("THERMAL_EVENT").field("Version", &self.Version).field("Size", &self.Size).field("Type", &self.Type).field("Temperature", &self.Temperature).field("TripPointTemperature", &self.TripPointTemperature).field("Initiator", &self.Initiator).finish()
-    }
-}
 impl windows_core::TypeKind for THERMAL_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for THERMAL_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Size == other.Size && self.Type == other.Type && self.Temperature == other.Temperature && self.TripPointTemperature == other.TripPointTemperature && self.Initiator == other.Initiator
-    }
-}
-impl Eq for THERMAL_EVENT {}
 impl Default for THERMAL_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct THERMAL_INFORMATION {
     pub ThermalStamp: u32,
     pub ThermalConstant1: u32,
@@ -4204,43 +2815,16 @@ pub struct THERMAL_INFORMATION {
     pub ActiveTripPointCount: u8,
     pub ActiveTripPoint: [u32; 10],
 }
-impl Copy for THERMAL_INFORMATION {}
-impl Clone for THERMAL_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for THERMAL_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("THERMAL_INFORMATION")
-            .field("ThermalStamp", &self.ThermalStamp)
-            .field("ThermalConstant1", &self.ThermalConstant1)
-            .field("ThermalConstant2", &self.ThermalConstant2)
-            .field("Processors", &self.Processors)
-            .field("SamplingPeriod", &self.SamplingPeriod)
-            .field("CurrentTemperature", &self.CurrentTemperature)
-            .field("PassiveTripPoint", &self.PassiveTripPoint)
-            .field("CriticalTripPoint", &self.CriticalTripPoint)
-            .field("ActiveTripPointCount", &self.ActiveTripPointCount)
-            .field("ActiveTripPoint", &self.ActiveTripPoint)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for THERMAL_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for THERMAL_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ThermalStamp == other.ThermalStamp && self.ThermalConstant1 == other.ThermalConstant1 && self.ThermalConstant2 == other.ThermalConstant2 && self.Processors == other.Processors && self.SamplingPeriod == other.SamplingPeriod && self.CurrentTemperature == other.CurrentTemperature && self.PassiveTripPoint == other.PassiveTripPoint && self.CriticalTripPoint == other.CriticalTripPoint && self.ActiveTripPointCount == other.ActiveTripPointCount && self.ActiveTripPoint == other.ActiveTripPoint
-    }
-}
-impl Eq for THERMAL_INFORMATION {}
 impl Default for THERMAL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct THERMAL_POLICY {
     pub Version: u32,
     pub WaitForUpdate: super::super::Foundation::BOOLEAN,
@@ -4252,63 +2836,31 @@ pub struct THERMAL_POLICY {
     pub ActiveLevel: u32,
     pub OverThrottled: super::super::Foundation::BOOLEAN,
 }
-impl Copy for THERMAL_POLICY {}
-impl Clone for THERMAL_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for THERMAL_POLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("THERMAL_POLICY").field("Version", &self.Version).field("WaitForUpdate", &self.WaitForUpdate).field("Hibernate", &self.Hibernate).field("Critical", &self.Critical).field("ThermalStandby", &self.ThermalStandby).field("ActivationReasons", &self.ActivationReasons).field("PassiveLimit", &self.PassiveLimit).field("ActiveLevel", &self.ActiveLevel).field("OverThrottled", &self.OverThrottled).finish()
-    }
-}
 impl windows_core::TypeKind for THERMAL_POLICY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for THERMAL_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.WaitForUpdate == other.WaitForUpdate && self.Hibernate == other.Hibernate && self.Critical == other.Critical && self.ThermalStandby == other.ThermalStandby && self.ActivationReasons == other.ActivationReasons && self.PassiveLimit == other.PassiveLimit && self.ActiveLevel == other.ActiveLevel && self.OverThrottled == other.OverThrottled
-    }
-}
-impl Eq for THERMAL_POLICY {}
 impl Default for THERMAL_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct THERMAL_WAIT_READ {
     pub Timeout: u32,
     pub LowTemperature: u32,
     pub HighTemperature: u32,
 }
-impl Copy for THERMAL_WAIT_READ {}
-impl Clone for THERMAL_WAIT_READ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for THERMAL_WAIT_READ {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("THERMAL_WAIT_READ").field("Timeout", &self.Timeout).field("LowTemperature", &self.LowTemperature).field("HighTemperature", &self.HighTemperature).finish()
-    }
-}
 impl windows_core::TypeKind for THERMAL_WAIT_READ {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for THERMAL_WAIT_READ {
-    fn eq(&self, other: &Self) -> bool {
-        self.Timeout == other.Timeout && self.LowTemperature == other.LowTemperature && self.HighTemperature == other.HighTemperature
-    }
-}
-impl Eq for THERMAL_WAIT_READ {}
 impl Default for THERMAL_WAIT_READ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USER_POWER_POLICY {
     pub Revision: u32,
     pub IdleAc: POWER_ACTION_POLICY,
@@ -4333,100 +2885,23 @@ pub struct USER_POWER_POLICY {
     pub ForcedThrottleAc: u8,
     pub ForcedThrottleDc: u8,
 }
-impl Copy for USER_POWER_POLICY {}
-impl Clone for USER_POWER_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for USER_POWER_POLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("USER_POWER_POLICY")
-            .field("Revision", &self.Revision)
-            .field("IdleAc", &self.IdleAc)
-            .field("IdleDc", &self.IdleDc)
-            .field("IdleTimeoutAc", &self.IdleTimeoutAc)
-            .field("IdleTimeoutDc", &self.IdleTimeoutDc)
-            .field("IdleSensitivityAc", &self.IdleSensitivityAc)
-            .field("IdleSensitivityDc", &self.IdleSensitivityDc)
-            .field("ThrottlePolicyAc", &self.ThrottlePolicyAc)
-            .field("ThrottlePolicyDc", &self.ThrottlePolicyDc)
-            .field("MaxSleepAc", &self.MaxSleepAc)
-            .field("MaxSleepDc", &self.MaxSleepDc)
-            .field("Reserved", &self.Reserved)
-            .field("VideoTimeoutAc", &self.VideoTimeoutAc)
-            .field("VideoTimeoutDc", &self.VideoTimeoutDc)
-            .field("SpindownTimeoutAc", &self.SpindownTimeoutAc)
-            .field("SpindownTimeoutDc", &self.SpindownTimeoutDc)
-            .field("OptimizeForPowerAc", &self.OptimizeForPowerAc)
-            .field("OptimizeForPowerDc", &self.OptimizeForPowerDc)
-            .field("FanThrottleToleranceAc", &self.FanThrottleToleranceAc)
-            .field("FanThrottleToleranceDc", &self.FanThrottleToleranceDc)
-            .field("ForcedThrottleAc", &self.ForcedThrottleAc)
-            .field("ForcedThrottleDc", &self.ForcedThrottleDc)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for USER_POWER_POLICY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for USER_POWER_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Revision == other.Revision
-            && self.IdleAc == other.IdleAc
-            && self.IdleDc == other.IdleDc
-            && self.IdleTimeoutAc == other.IdleTimeoutAc
-            && self.IdleTimeoutDc == other.IdleTimeoutDc
-            && self.IdleSensitivityAc == other.IdleSensitivityAc
-            && self.IdleSensitivityDc == other.IdleSensitivityDc
-            && self.ThrottlePolicyAc == other.ThrottlePolicyAc
-            && self.ThrottlePolicyDc == other.ThrottlePolicyDc
-            && self.MaxSleepAc == other.MaxSleepAc
-            && self.MaxSleepDc == other.MaxSleepDc
-            && self.Reserved == other.Reserved
-            && self.VideoTimeoutAc == other.VideoTimeoutAc
-            && self.VideoTimeoutDc == other.VideoTimeoutDc
-            && self.SpindownTimeoutAc == other.SpindownTimeoutAc
-            && self.SpindownTimeoutDc == other.SpindownTimeoutDc
-            && self.OptimizeForPowerAc == other.OptimizeForPowerAc
-            && self.OptimizeForPowerDc == other.OptimizeForPowerDc
-            && self.FanThrottleToleranceAc == other.FanThrottleToleranceAc
-            && self.FanThrottleToleranceDc == other.FanThrottleToleranceDc
-            && self.ForcedThrottleAc == other.ForcedThrottleAc
-            && self.ForcedThrottleDc == other.ForcedThrottleDc
-    }
-}
-impl Eq for USER_POWER_POLICY {}
 impl Default for USER_POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WAKE_ALARM_INFORMATION {
     pub TimerIdentifier: u32,
     pub Timeout: u32,
 }
-impl Copy for WAKE_ALARM_INFORMATION {}
-impl Clone for WAKE_ALARM_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WAKE_ALARM_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WAKE_ALARM_INFORMATION").field("TimerIdentifier", &self.TimerIdentifier).field("Timeout", &self.Timeout).finish()
-    }
-}
 impl windows_core::TypeKind for WAKE_ALARM_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WAKE_ALARM_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.TimerIdentifier == other.TimerIdentifier && self.Timeout == other.Timeout
-    }
-}
-impl Eq for WAKE_ALARM_INFORMATION {}
 impl Default for WAKE_ALARM_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

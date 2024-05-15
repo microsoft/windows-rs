@@ -71,6 +71,7 @@ pub type SW_DEVICE_LIFETIME = i32;
 pub type HSWDEVICE = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct SW_DEVICE_CREATE_INFO {
     pub cbSize: u32,
     pub pszInstanceId: windows_sys::core::PCWSTR,
@@ -81,14 +82,6 @@ pub struct SW_DEVICE_CREATE_INFO {
     pub pszDeviceDescription: windows_sys::core::PCWSTR,
     pub pszDeviceLocation: windows_sys::core::PCWSTR,
     pub pSecurityDescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR,
-}
-#[cfg(feature = "Win32_Security")]
-impl Copy for SW_DEVICE_CREATE_INFO {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for SW_DEVICE_CREATE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const UPnPDescriptionDocument: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1d8a9b47_3a28_4ce2_8a4b_bd34e45bceeb);
 pub const UPnPDescriptionDocumentEx: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x33fd0563_d81a_4393_83cc_0195b1da2f91);

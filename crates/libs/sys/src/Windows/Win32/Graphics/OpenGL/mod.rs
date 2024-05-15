@@ -1161,22 +1161,16 @@ pub type PFD_LAYER_TYPE = i8;
 pub type PFD_PIXEL_TYPE = u8;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct EMRPIXELFORMAT {
     pub emr: super::Gdi::EMR,
     pub pfd: PIXELFORMATDESCRIPTOR,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for EMRPIXELFORMAT {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for EMRPIXELFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type GLUnurbs = isize;
 pub type GLUquadric = isize;
 pub type GLUtesselator = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GLYPHMETRICSFLOAT {
     pub gmfBlackBoxX: f32,
     pub gmfBlackBoxY: f32,
@@ -1184,14 +1178,9 @@ pub struct GLYPHMETRICSFLOAT {
     pub gmfCellIncX: f32,
     pub gmfCellIncY: f32,
 }
-impl Copy for GLYPHMETRICSFLOAT {}
-impl Clone for GLYPHMETRICSFLOAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type HGLRC = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LAYERPLANEDESCRIPTOR {
     pub nSize: u16,
     pub nVersion: u16,
@@ -1218,13 +1207,8 @@ pub struct LAYERPLANEDESCRIPTOR {
     pub bReserved: u8,
     pub crTransparent: super::super::Foundation::COLORREF,
 }
-impl Copy for LAYERPLANEDESCRIPTOR {}
-impl Clone for LAYERPLANEDESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PIXELFORMATDESCRIPTOR {
     pub nSize: u16,
     pub nVersion: u16,
@@ -1253,22 +1237,11 @@ pub struct PIXELFORMATDESCRIPTOR {
     pub dwVisibleMask: u32,
     pub dwDamageMask: u32,
 }
-impl Copy for PIXELFORMATDESCRIPTOR {}
-impl Clone for PIXELFORMATDESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POINTFLOAT {
     pub x: f32,
     pub y: f32,
-}
-impl Copy for POINTFLOAT {}
-impl Clone for POINTFLOAT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type GLUnurbsErrorProc = Option<unsafe extern "system" fn(param0: u32)>;
 pub type GLUquadricErrorProc = Option<unsafe extern "system" fn(param0: u32)>;

@@ -143,17 +143,13 @@ pub type JOB_OBJECT_SECURITY = u32;
 pub type JOB_OBJECT_TERMINATE_AT_END_ACTION = u32;
 pub type JOB_OBJECT_UILIMIT = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
     pub CompletionKey: *mut core::ffi::c_void,
     pub CompletionPort: super::super::Foundation::HANDLE,
 }
-impl Copy for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {}
-impl Clone for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
     pub TotalUserTime: i64,
     pub TotalKernelTime: i64,
@@ -164,27 +160,15 @@ pub struct JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
     pub ActiveProcesses: u32,
     pub TotalTerminatedProcesses: u32,
 }
-impl Copy for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {}
-impl Clone for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Threading")]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
     pub BasicInfo: JOBOBJECT_BASIC_ACCOUNTING_INFORMATION,
     pub IoInfo: super::Threading::IO_COUNTERS,
 }
-#[cfg(feature = "Win32_System_Threading")]
-impl Copy for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {}
-#[cfg(feature = "Win32_System_Threading")]
-impl Clone for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_BASIC_LIMIT_INFORMATION {
     pub PerProcessUserTimeLimit: i64,
     pub PerJobUserTimeLimit: i64,
@@ -196,80 +180,45 @@ pub struct JOBOBJECT_BASIC_LIMIT_INFORMATION {
     pub PriorityClass: u32,
     pub SchedulingClass: u32,
 }
-impl Copy for JOBOBJECT_BASIC_LIMIT_INFORMATION {}
-impl Clone for JOBOBJECT_BASIC_LIMIT_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_BASIC_PROCESS_ID_LIST {
     pub NumberOfAssignedProcesses: u32,
     pub NumberOfProcessIdsInList: u32,
     pub ProcessIdList: [usize; 1],
 }
-impl Copy for JOBOBJECT_BASIC_PROCESS_ID_LIST {}
-impl Clone for JOBOBJECT_BASIC_PROCESS_ID_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_BASIC_UI_RESTRICTIONS {
     pub UIRestrictionsClass: JOB_OBJECT_UILIMIT,
 }
-impl Copy for JOBOBJECT_BASIC_UI_RESTRICTIONS {}
-impl Clone for JOBOBJECT_BASIC_UI_RESTRICTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
     pub ControlFlags: JOB_OBJECT_CPU_RATE_CONTROL,
     pub Anonymous: JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0,
 }
-impl Copy for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {}
-impl Clone for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0 {
     pub CpuRate: u32,
     pub Weight: u32,
     pub Anonymous: JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0,
 }
-impl Copy for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0 {}
-impl Clone for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
     pub MinRate: u16,
     pub MaxRate: u16,
 }
-impl Copy for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {}
-impl Clone for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
     pub EndOfJobTimeAction: JOB_OBJECT_TERMINATE_AT_END_ACTION,
 }
-impl Copy for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {}
-impl Clone for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Threading")]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
     pub BasicLimitInformation: JOBOBJECT_BASIC_LIMIT_INFORMATION,
     pub IoInfo: super::Threading::IO_COUNTERS,
@@ -278,40 +227,23 @@ pub struct JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
     pub PeakProcessMemoryUsed: usize,
     pub PeakJobMemoryUsed: usize,
 }
-#[cfg(feature = "Win32_System_Threading")]
-impl Copy for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {}
-#[cfg(feature = "Win32_System_Threading")]
-impl Clone for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
     pub ControlFlags: u32,
     pub ReadStats: JOBOBJECT_IO_ATTRIBUTION_STATS,
     pub WriteStats: JOBOBJECT_IO_ATTRIBUTION_STATS,
 }
-impl Copy for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {}
-impl Clone for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_IO_ATTRIBUTION_STATS {
     pub IoCount: usize,
     pub TotalNonOverlappedQueueTime: u64,
     pub TotalNonOverlappedServiceTime: u64,
     pub TotalSize: u64,
 }
-impl Copy for JOBOBJECT_IO_ATTRIBUTION_STATS {}
-impl Clone for JOBOBJECT_IO_ATTRIBUTION_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
     pub MaxIops: i64,
     pub MaxBandwidth: i64,
@@ -320,13 +252,8 @@ pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
     pub BaseIoSize: u32,
     pub ControlFlags: u32,
 }
-impl Copy for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {}
-impl Clone for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
     pub MaxIops: i64,
     pub MaxBandwidth: i64,
@@ -336,13 +263,8 @@ pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
     pub ControlFlags: JOB_OBJECT_IO_RATE_CONTROL_FLAGS,
     pub VolumeNameLength: u16,
 }
-impl Copy for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {}
-impl Clone for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
     pub MaxIops: i64,
     pub MaxBandwidth: i64,
@@ -358,13 +280,8 @@ pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
     pub ReservationTimePercent: i64,
     pub CriticalReservationTimePercent: i64,
 }
-impl Copy for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {}
-impl Clone for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
     pub MaxIops: i64,
     pub MaxBandwidth: i64,
@@ -386,23 +303,13 @@ pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
     pub LimitExcessNotifyBandwidth: i64,
     pub LimitExcessNotifyTimePercent: i64,
 }
-impl Copy for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {}
-impl Clone for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_JOBSET_INFORMATION {
     pub MemberLevel: u32,
 }
-impl Copy for JOBOBJECT_JOBSET_INFORMATION {}
-impl Clone for JOBOBJECT_JOBSET_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
     pub LimitFlags: JOB_OBJECT_LIMIT,
     pub ViolationLimitFlags: JOB_OBJECT_LIMIT,
@@ -417,13 +324,8 @@ pub struct JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
     pub RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub RateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE,
 }
-impl Copy for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {}
-impl Clone for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
     pub LimitFlags: JOB_OBJECT_LIMIT,
     pub ViolationLimitFlags: JOB_OBJECT_LIMIT,
@@ -443,58 +345,33 @@ pub struct JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
     pub NetRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub NetRateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE,
 }
-impl Copy for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {}
-impl Clone for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {
     pub JobHighMemoryLimit: u64,
     pub JobMemoryLimit: u64,
 }
-impl Copy for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {}
-impl Clone for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 {
     pub RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub CpuRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
 }
-impl Copy for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 {}
-impl Clone for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {
     pub RateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub CpuRateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE,
 }
-impl Copy for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {}
-impl Clone for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
     pub MaxBandwidth: u64,
     pub ControlFlags: JOB_OBJECT_NET_RATE_CONTROL_FLAGS,
     pub DscpTag: u8,
 }
-impl Copy for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {}
-impl Clone for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
     pub IoReadBytesLimit: u64,
     pub IoWriteBytesLimit: u64,
@@ -504,13 +381,8 @@ pub struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
     pub RateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL,
     pub LimitFlags: JOB_OBJECT_LIMIT,
 }
-impl Copy for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {}
-impl Clone for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
     pub IoReadBytesLimit: u64,
     pub IoWriteBytesLimit: u64,
@@ -525,47 +397,27 @@ pub struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
     pub NetRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub NetRateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL,
 }
-impl Copy for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {}
-impl Clone for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 {
     pub JobHighMemoryLimit: u64,
     pub JobMemoryLimit: u64,
 }
-impl Copy for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 {}
-impl Clone for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1 {
     pub RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub CpuRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
 }
-impl Copy for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1 {}
-impl Clone for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
     pub RateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL,
     pub CpuRateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL,
 }
-impl Copy for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {}
-impl Clone for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct JOBOBJECT_SECURITY_LIMIT_INFORMATION {
     pub SecurityLimitFlags: JOB_OBJECT_SECURITY,
     pub JobToken: super::super::Foundation::HANDLE,
@@ -573,23 +425,10 @@ pub struct JOBOBJECT_SECURITY_LIMIT_INFORMATION {
     pub PrivilegesToDelete: *mut super::super::Security::TOKEN_PRIVILEGES,
     pub RestrictedSids: *mut super::super::Security::TOKEN_GROUPS,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for JOBOBJECT_SECURITY_LIMIT_INFORMATION {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for JOBOBJECT_SECURITY_LIMIT_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOB_SET_ARRAY {
     pub JobHandle: super::super::Foundation::HANDLE,
     pub MemberLevel: u32,
     pub Flags: u32,
-}
-impl Copy for JOB_SET_ARRAY {}
-impl Clone for JOB_SET_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

@@ -419,38 +419,23 @@ impl core::fmt::Debug for SI_PAGE_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EFFPERM_RESULT_LIST {
     pub fEvaluated: super::super::super::Foundation::BOOLEAN,
     pub cObjectTypeListLength: u32,
     pub pObjectTypeList: *mut super::super::OBJECT_TYPE_LIST,
     pub pGrantedAccessList: *mut u32,
 }
-impl Copy for EFFPERM_RESULT_LIST {}
-impl Clone for EFFPERM_RESULT_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EFFPERM_RESULT_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EFFPERM_RESULT_LIST").field("fEvaluated", &self.fEvaluated).field("cObjectTypeListLength", &self.cObjectTypeListLength).field("pObjectTypeList", &self.pObjectTypeList).field("pGrantedAccessList", &self.pGrantedAccessList).finish()
-    }
-}
 impl windows_core::TypeKind for EFFPERM_RESULT_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EFFPERM_RESULT_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.fEvaluated == other.fEvaluated && self.cObjectTypeListLength == other.cObjectTypeListLength && self.pObjectTypeList == other.pObjectTypeList && self.pGrantedAccessList == other.pGrantedAccessList
-    }
-}
-impl Eq for EFFPERM_RESULT_LIST {}
 impl Default for EFFPERM_RESULT_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECURITY_OBJECT {
     pub pwszName: windows_core::PWSTR,
     pub pData: *mut core::ffi::c_void,
@@ -460,157 +445,77 @@ pub struct SECURITY_OBJECT {
     pub Id: u32,
     pub fWellKnown: super::super::super::Foundation::BOOLEAN,
 }
-impl Copy for SECURITY_OBJECT {}
-impl Clone for SECURITY_OBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SECURITY_OBJECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SECURITY_OBJECT").field("pwszName", &self.pwszName).field("pData", &self.pData).field("cbData", &self.cbData).field("pData2", &self.pData2).field("cbData2", &self.cbData2).field("Id", &self.Id).field("fWellKnown", &self.fWellKnown).finish()
-    }
-}
 impl windows_core::TypeKind for SECURITY_OBJECT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SECURITY_OBJECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszName == other.pwszName && self.pData == other.pData && self.cbData == other.cbData && self.pData2 == other.pData2 && self.cbData2 == other.cbData2 && self.Id == other.Id && self.fWellKnown == other.fWellKnown
-    }
-}
-impl Eq for SECURITY_OBJECT {}
 impl Default for SECURITY_OBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SID_INFO {
     pub pSid: super::super::super::Foundation::PSID,
     pub pwzCommonName: windows_core::PWSTR,
     pub pwzClass: windows_core::PWSTR,
     pub pwzUPN: windows_core::PWSTR,
 }
-impl Copy for SID_INFO {}
-impl Clone for SID_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SID_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SID_INFO").field("pSid", &self.pSid).field("pwzCommonName", &self.pwzCommonName).field("pwzClass", &self.pwzClass).field("pwzUPN", &self.pwzUPN).finish()
-    }
-}
 impl windows_core::TypeKind for SID_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SID_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pSid == other.pSid && self.pwzCommonName == other.pwzCommonName && self.pwzClass == other.pwzClass && self.pwzUPN == other.pwzUPN
-    }
-}
-impl Eq for SID_INFO {}
 impl Default for SID_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SID_INFO_LIST {
     pub cItems: u32,
     pub aSidInfo: [SID_INFO; 1],
 }
-impl Copy for SID_INFO_LIST {}
-impl Clone for SID_INFO_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SID_INFO_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SID_INFO_LIST").field("cItems", &self.cItems).field("aSidInfo", &self.aSidInfo).finish()
-    }
-}
 impl windows_core::TypeKind for SID_INFO_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SID_INFO_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.cItems == other.cItems && self.aSidInfo == other.aSidInfo
-    }
-}
-impl Eq for SID_INFO_LIST {}
 impl Default for SID_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SI_ACCESS {
     pub pguid: *const windows_core::GUID,
     pub mask: u32,
     pub pszName: windows_core::PCWSTR,
     pub dwFlags: u32,
 }
-impl Copy for SI_ACCESS {}
-impl Clone for SI_ACCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SI_ACCESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SI_ACCESS").field("pguid", &self.pguid).field("mask", &self.mask).field("pszName", &self.pszName).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for SI_ACCESS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SI_ACCESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.pguid == other.pguid && self.mask == other.mask && self.pszName == other.pszName && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for SI_ACCESS {}
 impl Default for SI_ACCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SI_INHERIT_TYPE {
     pub pguid: *const windows_core::GUID,
     pub dwFlags: super::super::ACE_FLAGS,
     pub pszName: windows_core::PCWSTR,
 }
-impl Copy for SI_INHERIT_TYPE {}
-impl Clone for SI_INHERIT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SI_INHERIT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SI_INHERIT_TYPE").field("pguid", &self.pguid).field("dwFlags", &self.dwFlags).field("pszName", &self.pszName).finish()
-    }
-}
 impl windows_core::TypeKind for SI_INHERIT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SI_INHERIT_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pguid == other.pguid && self.dwFlags == other.dwFlags && self.pszName == other.pszName
-    }
-}
-impl Eq for SI_INHERIT_TYPE {}
 impl Default for SI_INHERIT_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SI_OBJECT_INFO {
     pub dwFlags: SI_OBJECT_INFO_FLAGS,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
@@ -619,26 +524,9 @@ pub struct SI_OBJECT_INFO {
     pub pszPageTitle: windows_core::PWSTR,
     pub guidObjectType: windows_core::GUID,
 }
-impl Copy for SI_OBJECT_INFO {}
-impl Clone for SI_OBJECT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SI_OBJECT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SI_OBJECT_INFO").field("dwFlags", &self.dwFlags).field("hInstance", &self.hInstance).field("pszServerName", &self.pszServerName).field("pszObjectName", &self.pszObjectName).field("pszPageTitle", &self.pszPageTitle).field("guidObjectType", &self.guidObjectType).finish()
-    }
-}
 impl windows_core::TypeKind for SI_OBJECT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SI_OBJECT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.hInstance == other.hInstance && self.pszServerName == other.pszServerName && self.pszObjectName == other.pszObjectName && self.pszPageTitle == other.pszPageTitle && self.guidObjectType == other.guidObjectType
-    }
-}
-impl Eq for SI_OBJECT_INFO {}
 impl Default for SI_OBJECT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

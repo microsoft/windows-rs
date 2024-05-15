@@ -6,6 +6,7 @@
     clippy::all
 )]
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AE_RESACCESS {
     pub ae_ra_compname: u32,
     pub ae_ra_username: u32,
@@ -14,11 +15,5 @@ pub struct AE_RESACCESS {
     pub ae_ra_returncode: u32,
     pub ae_ra_restype: u32,
     pub ae_ra_fileid: u32,
-}
-impl Copy for AE_RESACCESS {}
-impl Clone for AE_RESACCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const AE_RESACCESS: u32 = 7u32;

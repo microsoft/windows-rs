@@ -942,6 +942,7 @@ impl core::fmt::Debug for WNPERM_DLG {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONNECTDLGSTRUCTA {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -949,32 +950,16 @@ pub struct CONNECTDLGSTRUCTA {
     pub dwFlags: CONNECTDLGSTRUCT_FLAGS,
     pub dwDevNum: u32,
 }
-impl Copy for CONNECTDLGSTRUCTA {}
-impl Clone for CONNECTDLGSTRUCTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CONNECTDLGSTRUCTA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CONNECTDLGSTRUCTA").field("cbStructure", &self.cbStructure).field("hwndOwner", &self.hwndOwner).field("lpConnRes", &self.lpConnRes).field("dwFlags", &self.dwFlags).field("dwDevNum", &self.dwDevNum).finish()
-    }
-}
 impl windows_core::TypeKind for CONNECTDLGSTRUCTA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CONNECTDLGSTRUCTA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStructure == other.cbStructure && self.hwndOwner == other.hwndOwner && self.lpConnRes == other.lpConnRes && self.dwFlags == other.dwFlags && self.dwDevNum == other.dwDevNum
-    }
-}
-impl Eq for CONNECTDLGSTRUCTA {}
 impl Default for CONNECTDLGSTRUCTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONNECTDLGSTRUCTW {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -982,32 +967,16 @@ pub struct CONNECTDLGSTRUCTW {
     pub dwFlags: CONNECTDLGSTRUCT_FLAGS,
     pub dwDevNum: u32,
 }
-impl Copy for CONNECTDLGSTRUCTW {}
-impl Clone for CONNECTDLGSTRUCTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CONNECTDLGSTRUCTW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CONNECTDLGSTRUCTW").field("cbStructure", &self.cbStructure).field("hwndOwner", &self.hwndOwner).field("lpConnRes", &self.lpConnRes).field("dwFlags", &self.dwFlags).field("dwDevNum", &self.dwDevNum).finish()
-    }
-}
 impl windows_core::TypeKind for CONNECTDLGSTRUCTW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CONNECTDLGSTRUCTW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStructure == other.cbStructure && self.hwndOwner == other.hwndOwner && self.lpConnRes == other.lpConnRes && self.dwFlags == other.dwFlags && self.dwDevNum == other.dwDevNum
-    }
-}
-impl Eq for CONNECTDLGSTRUCTW {}
 impl Default for CONNECTDLGSTRUCTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DISCDLGSTRUCTA {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -1015,32 +984,16 @@ pub struct DISCDLGSTRUCTA {
     pub lpRemoteName: windows_core::PSTR,
     pub dwFlags: DISCDLGSTRUCT_FLAGS,
 }
-impl Copy for DISCDLGSTRUCTA {}
-impl Clone for DISCDLGSTRUCTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DISCDLGSTRUCTA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DISCDLGSTRUCTA").field("cbStructure", &self.cbStructure).field("hwndOwner", &self.hwndOwner).field("lpLocalName", &self.lpLocalName).field("lpRemoteName", &self.lpRemoteName).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for DISCDLGSTRUCTA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DISCDLGSTRUCTA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStructure == other.cbStructure && self.hwndOwner == other.hwndOwner && self.lpLocalName == other.lpLocalName && self.lpRemoteName == other.lpRemoteName && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for DISCDLGSTRUCTA {}
 impl Default for DISCDLGSTRUCTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DISCDLGSTRUCTW {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -1048,32 +1001,16 @@ pub struct DISCDLGSTRUCTW {
     pub lpRemoteName: windows_core::PWSTR,
     pub dwFlags: DISCDLGSTRUCT_FLAGS,
 }
-impl Copy for DISCDLGSTRUCTW {}
-impl Clone for DISCDLGSTRUCTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DISCDLGSTRUCTW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DISCDLGSTRUCTW").field("cbStructure", &self.cbStructure).field("hwndOwner", &self.hwndOwner).field("lpLocalName", &self.lpLocalName).field("lpRemoteName", &self.lpRemoteName).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for DISCDLGSTRUCTW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DISCDLGSTRUCTW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStructure == other.cbStructure && self.hwndOwner == other.hwndOwner && self.lpLocalName == other.lpLocalName && self.lpRemoteName == other.lpRemoteName && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for DISCDLGSTRUCTW {}
 impl Default for DISCDLGSTRUCTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETCONNECTINFOSTRUCT {
     pub cbStructure: u32,
     pub dwFlags: u32,
@@ -1081,32 +1018,16 @@ pub struct NETCONNECTINFOSTRUCT {
     pub dwDelay: u32,
     pub dwOptDataSize: u32,
 }
-impl Copy for NETCONNECTINFOSTRUCT {}
-impl Clone for NETCONNECTINFOSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NETCONNECTINFOSTRUCT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NETCONNECTINFOSTRUCT").field("cbStructure", &self.cbStructure).field("dwFlags", &self.dwFlags).field("dwSpeed", &self.dwSpeed).field("dwDelay", &self.dwDelay).field("dwOptDataSize", &self.dwOptDataSize).finish()
-    }
-}
 impl windows_core::TypeKind for NETCONNECTINFOSTRUCT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NETCONNECTINFOSTRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStructure == other.cbStructure && self.dwFlags == other.dwFlags && self.dwSpeed == other.dwSpeed && self.dwDelay == other.dwDelay && self.dwOptDataSize == other.dwOptDataSize
-    }
-}
-impl Eq for NETCONNECTINFOSTRUCT {}
 impl Default for NETCONNECTINFOSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETINFOSTRUCT {
     pub cbStructure: u32,
     pub dwProviderVersion: u32,
@@ -1117,32 +1038,16 @@ pub struct NETINFOSTRUCT {
     pub dwPrinters: u32,
     pub dwDrives: u32,
 }
-impl Copy for NETINFOSTRUCT {}
-impl Clone for NETINFOSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NETINFOSTRUCT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NETINFOSTRUCT").field("cbStructure", &self.cbStructure).field("dwProviderVersion", &self.dwProviderVersion).field("dwStatus", &self.dwStatus).field("dwCharacteristics", &self.dwCharacteristics).field("dwHandle", &self.dwHandle).field("wNetType", &self.wNetType).field("dwPrinters", &self.dwPrinters).field("dwDrives", &self.dwDrives).finish()
-    }
-}
 impl windows_core::TypeKind for NETINFOSTRUCT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NETINFOSTRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStructure == other.cbStructure && self.dwProviderVersion == other.dwProviderVersion && self.dwStatus == other.dwStatus && self.dwCharacteristics == other.dwCharacteristics && self.dwHandle == other.dwHandle && self.wNetType == other.wNetType && self.dwPrinters == other.dwPrinters && self.dwDrives == other.dwDrives
-    }
-}
-impl Eq for NETINFOSTRUCT {}
 impl Default for NETINFOSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETRESOURCEA {
     pub dwScope: NET_RESOURCE_SCOPE,
     pub dwType: NET_RESOURCE_TYPE,
@@ -1153,32 +1058,16 @@ pub struct NETRESOURCEA {
     pub lpComment: windows_core::PSTR,
     pub lpProvider: windows_core::PSTR,
 }
-impl Copy for NETRESOURCEA {}
-impl Clone for NETRESOURCEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NETRESOURCEA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NETRESOURCEA").field("dwScope", &self.dwScope).field("dwType", &self.dwType).field("dwDisplayType", &self.dwDisplayType).field("dwUsage", &self.dwUsage).field("lpLocalName", &self.lpLocalName).field("lpRemoteName", &self.lpRemoteName).field("lpComment", &self.lpComment).field("lpProvider", &self.lpProvider).finish()
-    }
-}
 impl windows_core::TypeKind for NETRESOURCEA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NETRESOURCEA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwScope == other.dwScope && self.dwType == other.dwType && self.dwDisplayType == other.dwDisplayType && self.dwUsage == other.dwUsage && self.lpLocalName == other.lpLocalName && self.lpRemoteName == other.lpRemoteName && self.lpComment == other.lpComment && self.lpProvider == other.lpProvider
-    }
-}
-impl Eq for NETRESOURCEA {}
 impl Default for NETRESOURCEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETRESOURCEW {
     pub dwScope: NET_RESOURCE_SCOPE,
     pub dwType: NET_RESOURCE_TYPE,
@@ -1189,240 +1078,111 @@ pub struct NETRESOURCEW {
     pub lpComment: windows_core::PWSTR,
     pub lpProvider: windows_core::PWSTR,
 }
-impl Copy for NETRESOURCEW {}
-impl Clone for NETRESOURCEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NETRESOURCEW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NETRESOURCEW").field("dwScope", &self.dwScope).field("dwType", &self.dwType).field("dwDisplayType", &self.dwDisplayType).field("dwUsage", &self.dwUsage).field("lpLocalName", &self.lpLocalName).field("lpRemoteName", &self.lpRemoteName).field("lpComment", &self.lpComment).field("lpProvider", &self.lpProvider).finish()
-    }
-}
 impl windows_core::TypeKind for NETRESOURCEW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NETRESOURCEW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwScope == other.dwScope && self.dwType == other.dwType && self.dwDisplayType == other.dwDisplayType && self.dwUsage == other.dwUsage && self.lpLocalName == other.lpLocalName && self.lpRemoteName == other.lpRemoteName && self.lpComment == other.lpComment && self.lpProvider == other.lpProvider
-    }
-}
-impl Eq for NETRESOURCEW {}
 impl Default for NETRESOURCEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NOTIFYADD {
     pub hwndOwner: super::super::Foundation::HWND,
     pub NetResource: NETRESOURCEA,
     pub dwAddFlags: NET_USE_CONNECT_FLAGS,
 }
-impl Copy for NOTIFYADD {}
-impl Clone for NOTIFYADD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NOTIFYADD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NOTIFYADD").field("hwndOwner", &self.hwndOwner).field("NetResource", &self.NetResource).field("dwAddFlags", &self.dwAddFlags).finish()
-    }
-}
 impl windows_core::TypeKind for NOTIFYADD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NOTIFYADD {
-    fn eq(&self, other: &Self) -> bool {
-        self.hwndOwner == other.hwndOwner && self.NetResource == other.NetResource && self.dwAddFlags == other.dwAddFlags
-    }
-}
-impl Eq for NOTIFYADD {}
 impl Default for NOTIFYADD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NOTIFYCANCEL {
     pub lpName: windows_core::PWSTR,
     pub lpProvider: windows_core::PWSTR,
     pub dwFlags: u32,
     pub fForce: super::super::Foundation::BOOL,
 }
-impl Copy for NOTIFYCANCEL {}
-impl Clone for NOTIFYCANCEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NOTIFYCANCEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NOTIFYCANCEL").field("lpName", &self.lpName).field("lpProvider", &self.lpProvider).field("dwFlags", &self.dwFlags).field("fForce", &self.fForce).finish()
-    }
-}
 impl windows_core::TypeKind for NOTIFYCANCEL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NOTIFYCANCEL {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpName == other.lpName && self.lpProvider == other.lpProvider && self.dwFlags == other.dwFlags && self.fForce == other.fForce
-    }
-}
-impl Eq for NOTIFYCANCEL {}
 impl Default for NOTIFYCANCEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NOTIFYINFO {
     pub dwNotifyStatus: u32,
     pub dwOperationStatus: u32,
     pub lpContext: *mut core::ffi::c_void,
 }
-impl Copy for NOTIFYINFO {}
-impl Clone for NOTIFYINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NOTIFYINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NOTIFYINFO").field("dwNotifyStatus", &self.dwNotifyStatus).field("dwOperationStatus", &self.dwOperationStatus).field("lpContext", &self.lpContext).finish()
-    }
-}
 impl windows_core::TypeKind for NOTIFYINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NOTIFYINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNotifyStatus == other.dwNotifyStatus && self.dwOperationStatus == other.dwOperationStatus && self.lpContext == other.lpContext
-    }
-}
-impl Eq for NOTIFYINFO {}
 impl Default for NOTIFYINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REMOTE_NAME_INFOA {
     pub lpUniversalName: windows_core::PSTR,
     pub lpConnectionName: windows_core::PSTR,
     pub lpRemainingPath: windows_core::PSTR,
 }
-impl Copy for REMOTE_NAME_INFOA {}
-impl Clone for REMOTE_NAME_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for REMOTE_NAME_INFOA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REMOTE_NAME_INFOA").field("lpUniversalName", &self.lpUniversalName).field("lpConnectionName", &self.lpConnectionName).field("lpRemainingPath", &self.lpRemainingPath).finish()
-    }
-}
 impl windows_core::TypeKind for REMOTE_NAME_INFOA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for REMOTE_NAME_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpUniversalName == other.lpUniversalName && self.lpConnectionName == other.lpConnectionName && self.lpRemainingPath == other.lpRemainingPath
-    }
-}
-impl Eq for REMOTE_NAME_INFOA {}
 impl Default for REMOTE_NAME_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REMOTE_NAME_INFOW {
     pub lpUniversalName: windows_core::PWSTR,
     pub lpConnectionName: windows_core::PWSTR,
     pub lpRemainingPath: windows_core::PWSTR,
 }
-impl Copy for REMOTE_NAME_INFOW {}
-impl Clone for REMOTE_NAME_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for REMOTE_NAME_INFOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REMOTE_NAME_INFOW").field("lpUniversalName", &self.lpUniversalName).field("lpConnectionName", &self.lpConnectionName).field("lpRemainingPath", &self.lpRemainingPath).finish()
-    }
-}
 impl windows_core::TypeKind for REMOTE_NAME_INFOW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for REMOTE_NAME_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpUniversalName == other.lpUniversalName && self.lpConnectionName == other.lpConnectionName && self.lpRemainingPath == other.lpRemainingPath
-    }
-}
-impl Eq for REMOTE_NAME_INFOW {}
 impl Default for REMOTE_NAME_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UNIVERSAL_NAME_INFOA {
     pub lpUniversalName: windows_core::PSTR,
-}
-impl Copy for UNIVERSAL_NAME_INFOA {}
-impl Clone for UNIVERSAL_NAME_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UNIVERSAL_NAME_INFOA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UNIVERSAL_NAME_INFOA").field("lpUniversalName", &self.lpUniversalName).finish()
-    }
 }
 impl windows_core::TypeKind for UNIVERSAL_NAME_INFOA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UNIVERSAL_NAME_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpUniversalName == other.lpUniversalName
-    }
-}
-impl Eq for UNIVERSAL_NAME_INFOA {}
 impl Default for UNIVERSAL_NAME_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UNIVERSAL_NAME_INFOW {
     pub lpUniversalName: windows_core::PWSTR,
-}
-impl Copy for UNIVERSAL_NAME_INFOW {}
-impl Clone for UNIVERSAL_NAME_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UNIVERSAL_NAME_INFOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UNIVERSAL_NAME_INFOW").field("lpUniversalName", &self.lpUniversalName).finish()
-    }
 }
 impl windows_core::TypeKind for UNIVERSAL_NAME_INFOW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UNIVERSAL_NAME_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpUniversalName == other.lpUniversalName
-    }
-}
-impl Eq for UNIVERSAL_NAME_INFOW {}
 impl Default for UNIVERSAL_NAME_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

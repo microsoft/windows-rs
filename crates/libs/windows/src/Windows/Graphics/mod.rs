@@ -31,20 +31,10 @@ pub struct IGeometrySource2D_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DisplayAdapterId {
     pub LowPart: u32,
     pub HighPart: i32,
-}
-impl Copy for DisplayAdapterId {}
-impl Clone for DisplayAdapterId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DisplayAdapterId {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DisplayAdapterId").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
-    }
 }
 impl windows_core::TypeKind for DisplayAdapterId {
     type TypeKind = windows_core::CopyType;
@@ -52,31 +42,15 @@ impl windows_core::TypeKind for DisplayAdapterId {
 impl windows_core::RuntimeType for DisplayAdapterId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.DisplayAdapterId;u4;i4)");
 }
-impl PartialEq for DisplayAdapterId {
-    fn eq(&self, other: &Self) -> bool {
-        self.LowPart == other.LowPart && self.HighPart == other.HighPart
-    }
-}
-impl Eq for DisplayAdapterId {}
 impl Default for DisplayAdapterId {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DisplayId {
     pub Value: u64,
-}
-impl Copy for DisplayId {}
-impl Clone for DisplayId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DisplayId {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DisplayId").field("Value", &self.Value).finish()
-    }
 }
 impl windows_core::TypeKind for DisplayId {
     type TypeKind = windows_core::CopyType;
@@ -84,32 +58,16 @@ impl windows_core::TypeKind for DisplayId {
 impl windows_core::RuntimeType for DisplayId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.DisplayId;u8)");
 }
-impl PartialEq for DisplayId {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
-    }
-}
-impl Eq for DisplayId {}
 impl Default for DisplayId {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PointInt32 {
     pub X: i32,
     pub Y: i32,
-}
-impl Copy for PointInt32 {}
-impl Clone for PointInt32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PointInt32 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PointInt32").field("X", &self.X).field("Y", &self.Y).finish()
-    }
 }
 impl windows_core::TypeKind for PointInt32 {
     type TypeKind = windows_core::CopyType;
@@ -117,34 +75,18 @@ impl windows_core::TypeKind for PointInt32 {
 impl windows_core::RuntimeType for PointInt32 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.PointInt32;i4;i4)");
 }
-impl PartialEq for PointInt32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y
-    }
-}
-impl Eq for PointInt32 {}
 impl Default for PointInt32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RectInt32 {
     pub X: i32,
     pub Y: i32,
     pub Width: i32,
     pub Height: i32,
-}
-impl Copy for RectInt32 {}
-impl Clone for RectInt32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RectInt32 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RectInt32").field("X", &self.X).field("Y", &self.Y).field("Width", &self.Width).field("Height", &self.Height).finish()
-    }
 }
 impl windows_core::TypeKind for RectInt32 {
     type TypeKind = windows_core::CopyType;
@@ -152,32 +94,16 @@ impl windows_core::TypeKind for RectInt32 {
 impl windows_core::RuntimeType for RectInt32 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.RectInt32;i4;i4;i4;i4)");
 }
-impl PartialEq for RectInt32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y && self.Width == other.Width && self.Height == other.Height
-    }
-}
-impl Eq for RectInt32 {}
 impl Default for RectInt32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SizeInt32 {
     pub Width: i32,
     pub Height: i32,
-}
-impl Copy for SizeInt32 {}
-impl Clone for SizeInt32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SizeInt32 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SizeInt32").field("Width", &self.Width).field("Height", &self.Height).finish()
-    }
 }
 impl windows_core::TypeKind for SizeInt32 {
     type TypeKind = windows_core::CopyType;
@@ -185,12 +111,6 @@ impl windows_core::TypeKind for SizeInt32 {
 impl windows_core::RuntimeType for SizeInt32 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.SizeInt32;i4;i4)");
 }
-impl PartialEq for SizeInt32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height
-    }
-}
-impl Eq for SizeInt32 {}
 impl Default for SizeInt32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

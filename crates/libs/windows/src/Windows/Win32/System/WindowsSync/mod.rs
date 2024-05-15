@@ -2940,218 +2940,107 @@ impl core::fmt::Debug for SYNC_STATISTICS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ID_PARAMETERS {
     pub dwSize: u32,
     pub replicaId: ID_PARAMETER_PAIR,
     pub itemId: ID_PARAMETER_PAIR,
     pub changeUnitId: ID_PARAMETER_PAIR,
 }
-impl Copy for ID_PARAMETERS {}
-impl Clone for ID_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ID_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ID_PARAMETERS").field("dwSize", &self.dwSize).field("replicaId", &self.replicaId).field("itemId", &self.itemId).field("changeUnitId", &self.changeUnitId).finish()
-    }
-}
 impl windows_core::TypeKind for ID_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ID_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.replicaId == other.replicaId && self.itemId == other.itemId && self.changeUnitId == other.changeUnitId
-    }
-}
-impl Eq for ID_PARAMETERS {}
 impl Default for ID_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ID_PARAMETER_PAIR {
     pub fIsVariable: super::super::Foundation::BOOL,
     pub cbIdSize: u16,
 }
-impl Copy for ID_PARAMETER_PAIR {}
-impl Clone for ID_PARAMETER_PAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ID_PARAMETER_PAIR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ID_PARAMETER_PAIR").field("fIsVariable", &self.fIsVariable).field("cbIdSize", &self.cbIdSize).finish()
-    }
-}
 impl windows_core::TypeKind for ID_PARAMETER_PAIR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ID_PARAMETER_PAIR {
-    fn eq(&self, other: &Self) -> bool {
-        self.fIsVariable == other.fIsVariable && self.cbIdSize == other.cbIdSize
-    }
-}
-impl Eq for ID_PARAMETER_PAIR {}
 impl Default for ID_PARAMETER_PAIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYNC_FILTER_CHANGE {
     pub fMoveIn: super::super::Foundation::BOOL,
     pub moveVersion: SYNC_VERSION,
 }
-impl Copy for SYNC_FILTER_CHANGE {}
-impl Clone for SYNC_FILTER_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYNC_FILTER_CHANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYNC_FILTER_CHANGE").field("fMoveIn", &self.fMoveIn).field("moveVersion", &self.moveVersion).finish()
-    }
-}
 impl windows_core::TypeKind for SYNC_FILTER_CHANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYNC_FILTER_CHANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.fMoveIn == other.fMoveIn && self.moveVersion == other.moveVersion
-    }
-}
-impl Eq for SYNC_FILTER_CHANGE {}
 impl Default for SYNC_FILTER_CHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYNC_RANGE {
     pub pbClosedLowerBound: *mut u8,
     pub pbClosedUpperBound: *mut u8,
 }
-impl Copy for SYNC_RANGE {}
-impl Clone for SYNC_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYNC_RANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYNC_RANGE").field("pbClosedLowerBound", &self.pbClosedLowerBound).field("pbClosedUpperBound", &self.pbClosedUpperBound).finish()
-    }
-}
 impl windows_core::TypeKind for SYNC_RANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYNC_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pbClosedLowerBound == other.pbClosedLowerBound && self.pbClosedUpperBound == other.pbClosedUpperBound
-    }
-}
-impl Eq for SYNC_RANGE {}
 impl Default for SYNC_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYNC_SESSION_STATISTICS {
     pub dwChangesApplied: u32,
     pub dwChangesFailed: u32,
 }
-impl Copy for SYNC_SESSION_STATISTICS {}
-impl Clone for SYNC_SESSION_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYNC_SESSION_STATISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYNC_SESSION_STATISTICS").field("dwChangesApplied", &self.dwChangesApplied).field("dwChangesFailed", &self.dwChangesFailed).finish()
-    }
-}
 impl windows_core::TypeKind for SYNC_SESSION_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYNC_SESSION_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwChangesApplied == other.dwChangesApplied && self.dwChangesFailed == other.dwChangesFailed
-    }
-}
-impl Eq for SYNC_SESSION_STATISTICS {}
 impl Default for SYNC_SESSION_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYNC_TIME {
     pub dwDate: u32,
     pub dwTime: u32,
 }
-impl Copy for SYNC_TIME {}
-impl Clone for SYNC_TIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYNC_TIME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYNC_TIME").field("dwDate", &self.dwDate).field("dwTime", &self.dwTime).finish()
-    }
-}
 impl windows_core::TypeKind for SYNC_TIME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYNC_TIME {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwDate == other.dwDate && self.dwTime == other.dwTime
-    }
-}
-impl Eq for SYNC_TIME {}
 impl Default for SYNC_TIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYNC_VERSION {
     pub dwLastUpdatingReplicaKey: u32,
     pub ullTickCount: u64,
 }
-impl Copy for SYNC_VERSION {}
-impl Clone for SYNC_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SYNC_VERSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SYNC_VERSION").field("dwLastUpdatingReplicaKey", &self.dwLastUpdatingReplicaKey).field("ullTickCount", &self.ullTickCount).finish()
-    }
-}
 impl windows_core::TypeKind for SYNC_VERSION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SYNC_VERSION {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwLastUpdatingReplicaKey == other.dwLastUpdatingReplicaKey && self.ullTickCount == other.ullTickCount
-    }
-}
-impl Eq for SYNC_VERSION {}
 impl Default for SYNC_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SyncProviderConfigUIConfiguration {
     pub dwVersion: u32,
     pub guidInstanceId: windows_core::GUID,
@@ -3161,32 +3050,16 @@ pub struct SyncProviderConfigUIConfiguration {
     pub dwSupportedArchitecture: u32,
     pub fIsGlobal: super::super::Foundation::BOOL,
 }
-impl Copy for SyncProviderConfigUIConfiguration {}
-impl Clone for SyncProviderConfigUIConfiguration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SyncProviderConfigUIConfiguration {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SyncProviderConfigUIConfiguration").field("dwVersion", &self.dwVersion).field("guidInstanceId", &self.guidInstanceId).field("clsidConfigUI", &self.clsidConfigUI).field("guidContentType", &self.guidContentType).field("dwCapabilities", &self.dwCapabilities).field("dwSupportedArchitecture", &self.dwSupportedArchitecture).field("fIsGlobal", &self.fIsGlobal).finish()
-    }
-}
 impl windows_core::TypeKind for SyncProviderConfigUIConfiguration {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SyncProviderConfigUIConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.guidInstanceId == other.guidInstanceId && self.clsidConfigUI == other.clsidConfigUI && self.guidContentType == other.guidContentType && self.dwCapabilities == other.dwCapabilities && self.dwSupportedArchitecture == other.dwSupportedArchitecture && self.fIsGlobal == other.fIsGlobal
-    }
-}
-impl Eq for SyncProviderConfigUIConfiguration {}
 impl Default for SyncProviderConfigUIConfiguration {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SyncProviderConfiguration {
     pub dwVersion: u32,
     pub guidInstanceId: windows_core::GUID,
@@ -3196,26 +3069,9 @@ pub struct SyncProviderConfiguration {
     pub dwCapabilities: u32,
     pub dwSupportedArchitecture: u32,
 }
-impl Copy for SyncProviderConfiguration {}
-impl Clone for SyncProviderConfiguration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SyncProviderConfiguration {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SyncProviderConfiguration").field("dwVersion", &self.dwVersion).field("guidInstanceId", &self.guidInstanceId).field("clsidProvider", &self.clsidProvider).field("guidConfigUIInstanceId", &self.guidConfigUIInstanceId).field("guidContentType", &self.guidContentType).field("dwCapabilities", &self.dwCapabilities).field("dwSupportedArchitecture", &self.dwSupportedArchitecture).finish()
-    }
-}
 impl windows_core::TypeKind for SyncProviderConfiguration {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SyncProviderConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.guidInstanceId == other.guidInstanceId && self.clsidProvider == other.clsidProvider && self.guidConfigUIInstanceId == other.guidConfigUIInstanceId && self.guidContentType == other.guidContentType && self.dwCapabilities == other.dwCapabilities && self.dwSupportedArchitecture == other.dwSupportedArchitecture
-    }
-}
-impl Eq for SyncProviderConfiguration {}
 impl Default for SyncProviderConfiguration {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

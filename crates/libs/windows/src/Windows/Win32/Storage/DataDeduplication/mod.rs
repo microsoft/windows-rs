@@ -365,93 +365,45 @@ impl core::fmt::Debug for DedupHashingAlgorithm {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDP_FILE_EXTENT {
     pub Length: i64,
     pub Offset: i64,
 }
-impl Copy for DDP_FILE_EXTENT {}
-impl Clone for DDP_FILE_EXTENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DDP_FILE_EXTENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DDP_FILE_EXTENT").field("Length", &self.Length).field("Offset", &self.Offset).finish()
-    }
-}
 impl windows_core::TypeKind for DDP_FILE_EXTENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DDP_FILE_EXTENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.Offset == other.Offset
-    }
-}
-impl Eq for DDP_FILE_EXTENT {}
 impl Default for DDP_FILE_EXTENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEDUP_CHUNK_INFO_HASH32 {
     pub ChunkFlags: u32,
     pub ChunkOffsetInStream: u64,
     pub ChunkSize: u64,
     pub HashVal: [u8; 32],
 }
-impl Copy for DEDUP_CHUNK_INFO_HASH32 {}
-impl Clone for DEDUP_CHUNK_INFO_HASH32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DEDUP_CHUNK_INFO_HASH32 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DEDUP_CHUNK_INFO_HASH32").field("ChunkFlags", &self.ChunkFlags).field("ChunkOffsetInStream", &self.ChunkOffsetInStream).field("ChunkSize", &self.ChunkSize).field("HashVal", &self.HashVal).finish()
-    }
-}
 impl windows_core::TypeKind for DEDUP_CHUNK_INFO_HASH32 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DEDUP_CHUNK_INFO_HASH32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ChunkFlags == other.ChunkFlags && self.ChunkOffsetInStream == other.ChunkOffsetInStream && self.ChunkSize == other.ChunkSize && self.HashVal == other.HashVal
-    }
-}
-impl Eq for DEDUP_CHUNK_INFO_HASH32 {}
 impl Default for DEDUP_CHUNK_INFO_HASH32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEDUP_CONTAINER_EXTENT {
     pub ContainerIndex: u32,
     pub StartOffset: i64,
     pub Length: i64,
 }
-impl Copy for DEDUP_CONTAINER_EXTENT {}
-impl Clone for DEDUP_CONTAINER_EXTENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DEDUP_CONTAINER_EXTENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DEDUP_CONTAINER_EXTENT").field("ContainerIndex", &self.ContainerIndex).field("StartOffset", &self.StartOffset).field("Length", &self.Length).finish()
-    }
-}
 impl windows_core::TypeKind for DEDUP_CONTAINER_EXTENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DEDUP_CONTAINER_EXTENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.ContainerIndex == other.ContainerIndex && self.StartOffset == other.StartOffset && self.Length == other.Length
-    }
-}
-impl Eq for DEDUP_CONTAINER_EXTENT {}
 impl Default for DEDUP_CONTAINER_EXTENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -459,32 +411,16 @@ impl Default for DEDUP_CONTAINER_EXTENT {
 }
 pub const DedupBackupSupport: windows_core::GUID = windows_core::GUID::from_u128(0x73d6b2ad_2984_4715_b2e3_924c149744dd);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DedupChunk {
     pub Hash: DedupHash,
     pub Flags: DedupChunkFlags,
     pub LogicalSize: u32,
     pub DataSize: u32,
 }
-impl Copy for DedupChunk {}
-impl Clone for DedupChunk {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DedupChunk {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DedupChunk").field("Hash", &self.Hash).field("Flags", &self.Flags).field("LogicalSize", &self.LogicalSize).field("DataSize", &self.DataSize).finish()
-    }
-}
 impl windows_core::TypeKind for DedupChunk {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DedupChunk {
-    fn eq(&self, other: &Self) -> bool {
-        self.Hash == other.Hash && self.Flags == other.Flags && self.LogicalSize == other.LogicalSize && self.DataSize == other.DataSize
-    }
-}
-impl Eq for DedupChunk {}
 impl Default for DedupChunk {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -492,35 +428,20 @@ impl Default for DedupChunk {
 }
 pub const DedupDataPort: windows_core::GUID = windows_core::GUID::from_u128(0x8f107207_1829_48b2_a64b_e61f8e0d9acb);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DedupHash {
     pub Hash: [u8; 32],
-}
-impl Copy for DedupHash {}
-impl Clone for DedupHash {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DedupHash {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DedupHash").field("Hash", &self.Hash).finish()
-    }
 }
 impl windows_core::TypeKind for DedupHash {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DedupHash {
-    fn eq(&self, other: &Self) -> bool {
-        self.Hash == other.Hash
-    }
-}
-impl Eq for DedupHash {}
 impl Default for DedupHash {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct DedupStream {
     pub Path: std::mem::ManuallyDrop<windows_core::BSTR>,
     pub Offset: u64,
@@ -532,51 +453,24 @@ impl Clone for DedupStream {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for DedupStream {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DedupStream").field("Path", &self.Path).field("Offset", &self.Offset).field("Length", &self.Length).field("ChunkCount", &self.ChunkCount).finish()
-    }
-}
 impl windows_core::TypeKind for DedupStream {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DedupStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.Path == other.Path && self.Offset == other.Offset && self.Length == other.Length && self.ChunkCount == other.ChunkCount
-    }
-}
-impl Eq for DedupStream {}
 impl Default for DedupStream {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DedupStreamEntry {
     pub Hash: DedupHash,
     pub LogicalSize: u32,
     pub Offset: u64,
 }
-impl Copy for DedupStreamEntry {}
-impl Clone for DedupStreamEntry {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DedupStreamEntry {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DedupStreamEntry").field("Hash", &self.Hash).field("LogicalSize", &self.LogicalSize).field("Offset", &self.Offset).finish()
-    }
-}
 impl windows_core::TypeKind for DedupStreamEntry {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DedupStreamEntry {
-    fn eq(&self, other: &Self) -> bool {
-        self.Hash == other.Hash && self.LogicalSize == other.LogicalSize && self.Offset == other.Offset
-    }
-}
-impl Eq for DedupStreamEntry {}
 impl Default for DedupStreamEntry {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

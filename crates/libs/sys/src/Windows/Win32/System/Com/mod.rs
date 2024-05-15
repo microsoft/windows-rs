@@ -637,18 +637,14 @@ pub type Uri_PROPERTY = i32;
 pub type VARFLAGS = u16;
 pub type VARKIND = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUTHENTICATEINFO {
     pub dwFlags: u32,
     pub dwReserved: u32,
 }
-impl Copy for AUTHENTICATEINFO {}
-impl Clone for AUTHENTICATEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[derive(Clone, Copy)]
 pub struct BINDINFO {
     pub cbSize: u32,
     pub szExtraInfo: windows_sys::core::PWSTR,
@@ -665,43 +661,24 @@ pub struct BINDINFO {
     pub pUnk: *mut core::ffi::c_void,
     pub dwReserved: u32,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Copy for BINDINFO {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Clone for BINDINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
 pub union BINDPTR {
     pub lpfuncdesc: *mut FUNCDESC,
     pub lpvardesc: *mut VARDESC,
     pub lptcomp: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Copy for BINDPTR {}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Clone for BINDPTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BIND_OPTS {
     pub cbStruct: u32,
     pub grfFlags: u32,
     pub grfMode: u32,
     pub dwTickCountDeadline: u32,
 }
-impl Copy for BIND_OPTS {}
-impl Clone for BIND_OPTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BIND_OPTS2 {
     pub Base: BIND_OPTS,
     pub dwTrackFlags: u32,
@@ -709,69 +686,39 @@ pub struct BIND_OPTS2 {
     pub locale: u32,
     pub pServerInfo: *mut COSERVERINFO,
 }
-impl Copy for BIND_OPTS2 {}
-impl Clone for BIND_OPTS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BIND_OPTS3 {
     pub Base: BIND_OPTS2,
     pub hwnd: super::super::Foundation::HWND,
 }
-impl Copy for BIND_OPTS3 {}
-impl Clone for BIND_OPTS3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BLOB {
     pub cbSize: u32,
     pub pBlobData: *mut u8,
 }
-impl Copy for BLOB {}
-impl Clone for BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BYTE_BLOB {
     pub clSize: u32,
     pub abData: [u8; 1],
 }
-impl Copy for BYTE_BLOB {}
-impl Clone for BYTE_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BYTE_SIZEDARR {
     pub clSize: u32,
     pub pData: *mut u8,
 }
-impl Copy for BYTE_SIZEDARR {}
-impl Clone for BYTE_SIZEDARR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CATEGORYINFO {
     pub catid: windows_sys::core::GUID,
     pub lcid: u32,
     pub szDescription: [u16; 128],
 }
-impl Copy for CATEGORYINFO {}
-impl Clone for CATEGORYINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COAUTHIDENTITY {
     pub User: *mut u16,
     pub UserLength: u32,
@@ -781,13 +728,8 @@ pub struct COAUTHIDENTITY {
     pub PasswordLength: u32,
     pub Flags: u32,
 }
-impl Copy for COAUTHIDENTITY {}
-impl Clone for COAUTHIDENTITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COAUTHINFO {
     pub dwAuthnSvc: u32,
     pub dwAuthzSvc: u32,
@@ -797,142 +739,81 @@ pub struct COAUTHINFO {
     pub pAuthIdentityData: *mut COAUTHIDENTITY,
     pub dwCapabilities: u32,
 }
-impl Copy for COAUTHINFO {}
-impl Clone for COAUTHINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CONNECTDATA {
     pub pUnk: *mut core::ffi::c_void,
     pub dwCookie: u32,
 }
-impl Copy for CONNECTDATA {}
-impl Clone for CONNECTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COSERVERINFO {
     pub dwReserved1: u32,
     pub pwszName: windows_sys::core::PWSTR,
     pub pAuthInfo: *mut COAUTHINFO,
     pub dwReserved2: u32,
 }
-impl Copy for COSERVERINFO {}
-impl Clone for COSERVERINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type CO_DEVICE_CATALOG_COOKIE = isize;
 pub type CO_MTA_USAGE_COOKIE = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CSPLATFORM {
     pub dwPlatformId: u32,
     pub dwVersionHi: u32,
     pub dwVersionLo: u32,
     pub dwProcessorArch: u32,
 }
-impl Copy for CSPLATFORM {}
-impl Clone for CSPLATFORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy)]
 pub struct CUSTDATA {
     pub cCustData: u32,
     pub prgCustData: *mut CUSTDATAITEM,
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl Copy for CUSTDATA {}
-#[cfg(feature = "Win32_System_Variant")]
-impl Clone for CUSTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy)]
 pub struct CUSTDATAITEM {
     pub guid: windows_sys::core::GUID,
     pub varValue: super::Variant::VARIANT,
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl Copy for CUSTDATAITEM {}
-#[cfg(feature = "Win32_System_Variant")]
-impl Clone for CUSTDATAITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CY {
     pub Anonymous: CY_0,
     pub int64: i64,
 }
-impl Copy for CY {}
-impl Clone for CY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CY_0 {
     pub Lo: u32,
     pub Hi: i32,
 }
-impl Copy for CY_0 {}
-impl Clone for CY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ComCallData {
     pub dwDispid: u32,
     pub dwReserved: u32,
     pub pUserDefined: *mut core::ffi::c_void,
 }
-impl Copy for ComCallData {}
-impl Clone for ComCallData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ContextProperty {
     pub policyId: windows_sys::core::GUID,
     pub flags: u32,
     pub pUnk: *mut core::ffi::c_void,
 }
-impl Copy for ContextProperty {}
-impl Clone for ContextProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy)]
 pub struct DISPPARAMS {
     pub rgvarg: *mut super::Variant::VARIANT,
     pub rgdispidNamedArgs: *mut i32,
     pub cArgs: u32,
     pub cNamedArgs: u32,
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl Copy for DISPPARAMS {}
-#[cfg(feature = "Win32_System_Variant")]
-impl Clone for DISPPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DVTARGETDEVICE {
     pub tdSize: u32,
     pub tdDriverNameOffset: u16,
@@ -941,63 +822,34 @@ pub struct DVTARGETDEVICE {
     pub tdExtDevmodeOffset: u16,
     pub tdData: [u8; 1],
 }
-impl Copy for DVTARGETDEVICE {}
-impl Clone for DVTARGETDEVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DWORD_BLOB {
     pub clSize: u32,
     pub alData: [u32; 1],
 }
-impl Copy for DWORD_BLOB {}
-impl Clone for DWORD_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DWORD_SIZEDARR {
     pub clSize: u32,
     pub pData: *mut u32,
 }
-impl Copy for DWORD_SIZEDARR {}
-impl Clone for DWORD_SIZEDARR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
 pub struct ELEMDESC {
     pub tdesc: TYPEDESC,
     pub Anonymous: ELEMDESC_0,
 }
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Copy for ELEMDESC {}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Clone for ELEMDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
 pub union ELEMDESC_0 {
     pub idldesc: IDLDESC,
     pub paramdesc: super::Ole::PARAMDESC,
 }
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Copy for ELEMDESC_0 {}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Clone for ELEMDESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXCEPINFO {
     pub wCode: u16,
     pub wReserved: u16,
@@ -1009,52 +861,30 @@ pub struct EXCEPINFO {
     pub pfnDeferredFillIn: LPEXCEPFINO_DEFERRED_FILLIN,
     pub scode: i32,
 }
-impl Copy for EXCEPINFO {}
-impl Clone for EXCEPINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FLAGGED_BYTE_BLOB {
     pub fFlags: u32,
     pub clSize: u32,
     pub abData: [u8; 1],
 }
-impl Copy for FLAGGED_BYTE_BLOB {}
-impl Clone for FLAGGED_BYTE_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FLAGGED_WORD_BLOB {
     pub fFlags: u32,
     pub clSize: u32,
     pub asData: [u16; 1],
 }
-impl Copy for FLAGGED_WORD_BLOB {}
-impl Clone for FLAGGED_WORD_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct FLAG_STGMEDIUM {
     pub ContextFlags: i32,
     pub fPassOwnership: i32,
     pub Stgmed: STGMEDIUM,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for FLAG_STGMEDIUM {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for FLAG_STGMEDIUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FORMATETC {
     pub cfFormat: u16,
     pub ptd: *mut DVTARGETDEVICE,
@@ -1062,14 +892,9 @@ pub struct FORMATETC {
     pub lindex: i32,
     pub tymed: u32,
 }
-impl Copy for FORMATETC {}
-impl Clone for FORMATETC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
 pub struct FUNCDESC {
     pub memid: i32,
     pub lprgscode: *mut i32,
@@ -1084,91 +909,50 @@ pub struct FUNCDESC {
     pub elemdescFunc: ELEMDESC,
     pub wFuncFlags: FUNCFLAGS,
 }
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Copy for FUNCDESC {}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Clone for FUNCDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+#[derive(Clone, Copy)]
 pub struct GDI_OBJECT {
     pub ObjectType: u32,
     pub u: GDI_OBJECT_0,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl Copy for GDI_OBJECT {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl Clone for GDI_OBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+#[derive(Clone, Copy)]
 pub union GDI_OBJECT_0 {
     pub hBitmap: *mut super::SystemServices::userHBITMAP,
     pub hPalette: *mut super::SystemServices::userHPALETTE,
     pub hGeneric: *mut super::SystemServices::userHGLOBAL,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl Copy for GDI_OBJECT_0 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl Clone for GDI_OBJECT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HYPER_SIZEDARR {
     pub clSize: u32,
     pub pData: *mut i64,
 }
-impl Copy for HYPER_SIZEDARR {}
-impl Clone for HYPER_SIZEDARR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IDLDESC {
     pub dwReserved: usize,
     pub wIDLFlags: IDLFLAGS,
 }
-impl Copy for IDLDESC {}
-impl Clone for IDLDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERFACEINFO {
     pub pUnk: *mut core::ffi::c_void,
     pub iid: windows_sys::core::GUID,
     pub wMethod: u16,
 }
-impl Copy for INTERFACEINFO {}
-impl Clone for INTERFACEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MULTI_QI {
     pub pIID: *const windows_sys::core::GUID,
     pub pItf: *mut core::ffi::c_void,
     pub hr: windows_sys::core::HRESULT,
 }
-impl Copy for MULTI_QI {}
-impl Clone for MULTI_QI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type MachineGlobalObjectTableRegistrationToken = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct QUERYCONTEXT {
     pub dwContext: u32,
     pub Platform: CSPLATFORM,
@@ -1176,13 +960,8 @@ pub struct QUERYCONTEXT {
     pub dwVersionHi: u32,
     pub dwVersionLo: u32,
 }
-impl Copy for QUERYCONTEXT {}
-impl Clone for QUERYCONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RPCOLEMESSAGE {
     pub reserved1: *mut core::ffi::c_void,
     pub dataRepresentation: u32,
@@ -1192,13 +971,8 @@ pub struct RPCOLEMESSAGE {
     pub reserved2: [*mut core::ffi::c_void; 5],
     pub rpcFlags: u32,
 }
-impl Copy for RPCOLEMESSAGE {}
-impl Clone for RPCOLEMESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RemSTGMEDIUM {
     pub tymed: u32,
     pub dwHandleType: u32,
@@ -1207,13 +981,8 @@ pub struct RemSTGMEDIUM {
     pub cbData: u32,
     pub data: [u8; 1],
 }
-impl Copy for RemSTGMEDIUM {}
-impl Clone for RemSTGMEDIUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SAFEARRAY {
     pub cDims: u16,
     pub fFeatures: ADVANCED_FEATURE_FLAGS,
@@ -1222,24 +991,14 @@ pub struct SAFEARRAY {
     pub pvData: *mut core::ffi::c_void,
     pub rgsabound: [SAFEARRAYBOUND; 1],
 }
-impl Copy for SAFEARRAY {}
-impl Clone for SAFEARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SAFEARRAYBOUND {
     pub cElements: u32,
     pub lLbound: i32,
 }
-impl Copy for SAFEARRAYBOUND {}
-impl Clone for SAFEARRAYBOUND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SChannelHookCallInfo {
     pub iid: windows_sys::core::GUID,
     pub cbSize: u32,
@@ -1248,62 +1007,37 @@ pub struct SChannelHookCallInfo {
     pub iMethod: u32,
     pub pObject: *mut core::ffi::c_void,
 }
-impl Copy for SChannelHookCallInfo {}
-impl Clone for SChannelHookCallInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SOLE_AUTHENTICATION_INFO {
     pub dwAuthnSvc: u32,
     pub dwAuthzSvc: u32,
     pub pAuthInfo: *mut core::ffi::c_void,
 }
-impl Copy for SOLE_AUTHENTICATION_INFO {}
-impl Clone for SOLE_AUTHENTICATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SOLE_AUTHENTICATION_LIST {
     pub cAuthInfo: u32,
     pub aAuthInfo: *mut SOLE_AUTHENTICATION_INFO,
 }
-impl Copy for SOLE_AUTHENTICATION_LIST {}
-impl Clone for SOLE_AUTHENTICATION_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SOLE_AUTHENTICATION_SERVICE {
     pub dwAuthnSvc: u32,
     pub dwAuthzSvc: u32,
     pub pPrincipalName: windows_sys::core::PWSTR,
     pub hr: windows_sys::core::HRESULT,
 }
-impl Copy for SOLE_AUTHENTICATION_SERVICE {}
-impl Clone for SOLE_AUTHENTICATION_SERVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STATDATA {
     pub formatetc: FORMATETC,
     pub advf: u32,
     pub pAdvSink: *mut core::ffi::c_void,
     pub dwConnection: u32,
 }
-impl Copy for STATDATA {}
-impl Clone for STATDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STATSTG {
     pub pwcsName: windows_sys::core::PWSTR,
     pub r#type: u32,
@@ -1317,29 +1051,17 @@ pub struct STATSTG {
     pub grfStateBits: u32,
     pub reserved: u32,
 }
-impl Copy for STATSTG {}
-impl Clone for STATSTG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct STGMEDIUM {
     pub tymed: u32,
     pub u: STGMEDIUM_0,
     pub pUnkForRelease: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for STGMEDIUM {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for STGMEDIUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub union STGMEDIUM_0 {
     pub hBitmap: super::super::Graphics::Gdi::HBITMAP,
     pub hMetaFilePict: *mut core::ffi::c_void,
@@ -1349,28 +1071,16 @@ pub union STGMEDIUM_0 {
     pub pstm: *mut core::ffi::c_void,
     pub pstg: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for STGMEDIUM_0 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for STGMEDIUM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct StorageLayout {
     pub LayoutType: u32,
     pub pwcsElementName: windows_sys::core::PWSTR,
     pub cOffset: i64,
     pub cBytes: i64,
 }
-impl Copy for StorageLayout {}
-impl Clone for StorageLayout {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TLIBATTR {
     pub guid: windows_sys::core::GUID,
     pub lcid: u32,
@@ -1379,14 +1089,9 @@ pub struct TLIBATTR {
     pub wMinorVerNum: u16,
     pub wLibFlags: u16,
 }
-impl Copy for TLIBATTR {}
-impl Clone for TLIBATTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
 pub struct TYPEATTR {
     pub guid: windows_sys::core::GUID,
     pub lcid: u32,
@@ -1407,45 +1112,24 @@ pub struct TYPEATTR {
     pub tdescAlias: TYPEDESC,
     pub idldescType: IDLDESC,
 }
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Copy for TYPEATTR {}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Clone for TYPEATTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
 pub struct TYPEDESC {
     pub Anonymous: TYPEDESC_0,
     pub vt: super::Variant::VARENUM,
 }
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Copy for TYPEDESC {}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Clone for TYPEDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
 pub union TYPEDESC_0 {
     pub lptdesc: *mut TYPEDESC,
     pub lpadesc: *mut super::Ole::ARRAYDESC,
     pub hreftype: u32,
 }
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Copy for TYPEDESC_0 {}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Clone for TYPEDESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
 pub struct VARDESC {
     pub memid: i32,
     pub lpstrSchema: windows_sys::core::PWSTR,
@@ -1454,62 +1138,33 @@ pub struct VARDESC {
     pub wVarFlags: VARFLAGS,
     pub varkind: VARKIND,
 }
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Copy for VARDESC {}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Clone for VARDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
 pub union VARDESC_0 {
     pub oInst: u32,
     pub lpvarValue: *mut super::Variant::VARIANT,
 }
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Copy for VARDESC_0 {}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Clone for VARDESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WORD_BLOB {
     pub clSize: u32,
     pub asData: [u16; 1],
 }
-impl Copy for WORD_BLOB {}
-impl Clone for WORD_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WORD_SIZEDARR {
     pub clSize: u32,
     pub pData: *mut u16,
 }
-impl Copy for WORD_SIZEDARR {}
-impl Clone for WORD_SIZEDARR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct uCLSSPEC {
     pub tyspec: u32,
     pub tagged_union: uCLSSPEC_0,
 }
-impl Copy for uCLSSPEC {}
-impl Clone for uCLSSPEC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union uCLSSPEC_0 {
     pub clsid: windows_sys::core::GUID,
     pub pFileExt: windows_sys::core::PWSTR,
@@ -1519,79 +1174,43 @@ pub union uCLSSPEC_0 {
     pub ByName: uCLSSPEC_0_0,
     pub ByObjectId: uCLSSPEC_0_1,
 }
-impl Copy for uCLSSPEC_0 {}
-impl Clone for uCLSSPEC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct uCLSSPEC_0_0 {
     pub pPackageName: windows_sys::core::PWSTR,
     pub PolicyId: windows_sys::core::GUID,
 }
-impl Copy for uCLSSPEC_0_0 {}
-impl Clone for uCLSSPEC_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct uCLSSPEC_0_1 {
     pub ObjectId: windows_sys::core::GUID,
     pub PolicyId: windows_sys::core::GUID,
 }
-impl Copy for uCLSSPEC_0_1 {}
-impl Clone for uCLSSPEC_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+#[derive(Clone, Copy)]
 pub struct userFLAG_STGMEDIUM {
     pub ContextFlags: i32,
     pub fPassOwnership: i32,
     pub Stgmed: userSTGMEDIUM,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl Copy for userFLAG_STGMEDIUM {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl Clone for userFLAG_STGMEDIUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+#[derive(Clone, Copy)]
 pub struct userSTGMEDIUM {
     pub u: userSTGMEDIUM_0,
     pub pUnkForRelease: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl Copy for userSTGMEDIUM {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl Clone for userSTGMEDIUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+#[derive(Clone, Copy)]
 pub struct userSTGMEDIUM_0 {
     pub tymed: u32,
     pub u: userSTGMEDIUM_0_0,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl Copy for userSTGMEDIUM_0 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl Clone for userSTGMEDIUM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+#[derive(Clone, Copy)]
 pub union userSTGMEDIUM_0_0 {
     pub hMetaFilePict: *mut super::SystemServices::userHMETAFILEPICT,
     pub hHEnhMetaFile: *mut super::SystemServices::userHENHMETAFILE,
@@ -1600,14 +1219,6 @@ pub union userSTGMEDIUM_0_0 {
     pub lpszFileName: windows_sys::core::PWSTR,
     pub pstm: *mut BYTE_BLOB,
     pub pstg: *mut BYTE_BLOB,
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl Copy for userSTGMEDIUM_0_0 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl Clone for userSTGMEDIUM_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type LPEXCEPFINO_DEFERRED_FILLIN = Option<unsafe extern "system" fn(pexcepinfo: *mut EXCEPINFO) -> windows_sys::core::HRESULT>;
 pub type LPFNCANUNLOADNOW = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;

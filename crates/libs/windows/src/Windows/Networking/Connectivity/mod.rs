@@ -2333,20 +2333,10 @@ impl windows_core::RuntimeType for WwanNetworkRegistrationState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanNetworkRegistrationState;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NetworkUsageStates {
     pub Roaming: TriStates,
     pub Shared: TriStates,
-}
-impl Copy for NetworkUsageStates {}
-impl Clone for NetworkUsageStates {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NetworkUsageStates {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NetworkUsageStates").field("Roaming", &self.Roaming).field("Shared", &self.Shared).finish()
-    }
 }
 impl windows_core::TypeKind for NetworkUsageStates {
     type TypeKind = windows_core::CopyType;
@@ -2354,12 +2344,6 @@ impl windows_core::TypeKind for NetworkUsageStates {
 impl windows_core::RuntimeType for NetworkUsageStates {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.Connectivity.NetworkUsageStates;enum(Windows.Networking.Connectivity.TriStates;i4);enum(Windows.Networking.Connectivity.TriStates;i4))");
 }
-impl PartialEq for NetworkUsageStates {
-    fn eq(&self, other: &Self) -> bool {
-        self.Roaming == other.Roaming && self.Shared == other.Shared
-    }
-}
-impl Eq for NetworkUsageStates {}
 impl Default for NetworkUsageStates {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

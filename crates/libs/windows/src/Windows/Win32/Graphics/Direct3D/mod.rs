@@ -994,61 +994,29 @@ impl core::fmt::Debug for D3D_TESSELLATOR_PARTITIONING {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DVECTOR {
     pub x: f32,
     pub y: f32,
     pub z: f32,
 }
-impl Copy for D3DVECTOR {}
-impl Clone for D3DVECTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3DVECTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3DVECTOR").field("x", &self.x).field("y", &self.y).field("z", &self.z).finish()
-    }
-}
 impl windows_core::TypeKind for D3DVECTOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3DVECTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y && self.z == other.z
-    }
-}
-impl Eq for D3DVECTOR {}
 impl Default for D3DVECTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D_SHADER_MACRO {
     pub Name: windows_core::PCSTR,
     pub Definition: windows_core::PCSTR,
 }
-impl Copy for D3D_SHADER_MACRO {}
-impl Clone for D3D_SHADER_MACRO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D_SHADER_MACRO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D_SHADER_MACRO").field("Name", &self.Name).field("Definition", &self.Definition).finish()
-    }
-}
 impl windows_core::TypeKind for D3D_SHADER_MACRO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D_SHADER_MACRO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Name == other.Name && self.Definition == other.Definition
-    }
-}
-impl Eq for D3D_SHADER_MACRO {}
 impl Default for D3D_SHADER_MACRO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

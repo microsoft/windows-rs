@@ -99,77 +99,42 @@ pub type DEV_QUERY_RESULT_ACTION = i32;
 pub type DEV_QUERY_STATE = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
+#[derive(Clone, Copy)]
 pub struct DEVPROP_FILTER_EXPRESSION {
     pub Operator: DEVPROP_OPERATOR,
     pub Property: super::Properties::DEVPROPERTY,
 }
-#[cfg(feature = "Win32_Devices_Properties")]
-impl Copy for DEVPROP_FILTER_EXPRESSION {}
-#[cfg(feature = "Win32_Devices_Properties")]
-impl Clone for DEVPROP_FILTER_EXPRESSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
+#[derive(Clone, Copy)]
 pub struct DEV_OBJECT {
     pub ObjectType: DEV_OBJECT_TYPE,
     pub pszObjectId: windows_sys::core::PCWSTR,
     pub cPropertyCount: u32,
     pub pProperties: *const super::Properties::DEVPROPERTY,
 }
-#[cfg(feature = "Win32_Devices_Properties")]
-impl Copy for DEV_OBJECT {}
-#[cfg(feature = "Win32_Devices_Properties")]
-impl Clone for DEV_OBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
+#[derive(Clone, Copy)]
 pub struct DEV_QUERY_PARAMETER {
     pub Key: super::Properties::DEVPROPKEY,
     pub Type: super::Properties::DEVPROPTYPE,
     pub BufferSize: u32,
     pub Buffer: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Devices_Properties")]
-impl Copy for DEV_QUERY_PARAMETER {}
-#[cfg(feature = "Win32_Devices_Properties")]
-impl Clone for DEV_QUERY_PARAMETER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
+#[derive(Clone, Copy)]
 pub struct DEV_QUERY_RESULT_ACTION_DATA {
     pub Action: DEV_QUERY_RESULT_ACTION,
     pub Data: DEV_QUERY_RESULT_ACTION_DATA_0,
 }
-#[cfg(feature = "Win32_Devices_Properties")]
-impl Copy for DEV_QUERY_RESULT_ACTION_DATA {}
-#[cfg(feature = "Win32_Devices_Properties")]
-impl Clone for DEV_QUERY_RESULT_ACTION_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
+#[derive(Clone, Copy)]
 pub union DEV_QUERY_RESULT_ACTION_DATA_0 {
     pub State: DEV_QUERY_STATE,
     pub DeviceObject: DEV_OBJECT,
-}
-#[cfg(feature = "Win32_Devices_Properties")]
-impl Copy for DEV_QUERY_RESULT_ACTION_DATA_0 {}
-#[cfg(feature = "Win32_Devices_Properties")]
-impl Clone for DEV_QUERY_RESULT_ACTION_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type HDEVQUERY = isize;
 #[cfg(feature = "Win32_Devices_Properties")]

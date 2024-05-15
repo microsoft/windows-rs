@@ -2281,6 +2281,7 @@ impl core::ops::Not for CF_UPDATE_FLAGS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_CorrelationVector")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_CALLBACK_INFO {
     pub StructSize: u32,
     pub ConnectionKey: CF_CONNECTION_KEY,
@@ -2303,69 +2304,9 @@ pub struct CF_CALLBACK_INFO {
     pub RequestKey: i64,
 }
 #[cfg(feature = "Win32_System_CorrelationVector")]
-impl Copy for CF_CALLBACK_INFO {}
-#[cfg(feature = "Win32_System_CorrelationVector")]
-impl Clone for CF_CALLBACK_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_CorrelationVector")]
-impl core::fmt::Debug for CF_CALLBACK_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_INFO")
-            .field("StructSize", &self.StructSize)
-            .field("ConnectionKey", &self.ConnectionKey)
-            .field("CallbackContext", &self.CallbackContext)
-            .field("VolumeGuidName", &self.VolumeGuidName)
-            .field("VolumeDosName", &self.VolumeDosName)
-            .field("VolumeSerialNumber", &self.VolumeSerialNumber)
-            .field("SyncRootFileId", &self.SyncRootFileId)
-            .field("SyncRootIdentity", &self.SyncRootIdentity)
-            .field("SyncRootIdentityLength", &self.SyncRootIdentityLength)
-            .field("FileId", &self.FileId)
-            .field("FileSize", &self.FileSize)
-            .field("FileIdentity", &self.FileIdentity)
-            .field("FileIdentityLength", &self.FileIdentityLength)
-            .field("NormalizedPath", &self.NormalizedPath)
-            .field("TransferKey", &self.TransferKey)
-            .field("PriorityHint", &self.PriorityHint)
-            .field("CorrelationVector", &self.CorrelationVector)
-            .field("ProcessInfo", &self.ProcessInfo)
-            .field("RequestKey", &self.RequestKey)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_System_CorrelationVector")]
 impl windows_core::TypeKind for CF_CALLBACK_INFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_CorrelationVector")]
-impl PartialEq for CF_CALLBACK_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.StructSize == other.StructSize
-            && self.ConnectionKey == other.ConnectionKey
-            && self.CallbackContext == other.CallbackContext
-            && self.VolumeGuidName == other.VolumeGuidName
-            && self.VolumeDosName == other.VolumeDosName
-            && self.VolumeSerialNumber == other.VolumeSerialNumber
-            && self.SyncRootFileId == other.SyncRootFileId
-            && self.SyncRootIdentity == other.SyncRootIdentity
-            && self.SyncRootIdentityLength == other.SyncRootIdentityLength
-            && self.FileId == other.FileId
-            && self.FileSize == other.FileSize
-            && self.FileIdentity == other.FileIdentity
-            && self.FileIdentityLength == other.FileIdentityLength
-            && self.NormalizedPath == other.NormalizedPath
-            && self.TransferKey == other.TransferKey
-            && self.PriorityHint == other.PriorityHint
-            && self.CorrelationVector == other.CorrelationVector
-            && self.ProcessInfo == other.ProcessInfo
-            && self.RequestKey == other.RequestKey
-    }
-}
-#[cfg(feature = "Win32_System_CorrelationVector")]
-impl Eq for CF_CALLBACK_INFO {}
 #[cfg(feature = "Win32_System_CorrelationVector")]
 impl Default for CF_CALLBACK_INFO {
     fn default() -> Self {
@@ -2373,15 +2314,10 @@ impl Default for CF_CALLBACK_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CF_CALLBACK_PARAMETERS {
     pub ParamSize: u32,
     pub Anonymous: CF_CALLBACK_PARAMETERS_0,
-}
-impl Copy for CF_CALLBACK_PARAMETERS {}
-impl Clone for CF_CALLBACK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -2392,6 +2328,7 @@ impl Default for CF_CALLBACK_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CF_CALLBACK_PARAMETERS_0 {
     pub Cancel: CF_CALLBACK_PARAMETERS_0_0,
     pub FetchData: CF_CALLBACK_PARAMETERS_0_6,
@@ -2406,12 +2343,6 @@ pub union CF_CALLBACK_PARAMETERS_0 {
     pub Rename: CF_CALLBACK_PARAMETERS_0_10,
     pub RenameCompletion: CF_CALLBACK_PARAMETERS_0_9,
 }
-impl Copy for CF_CALLBACK_PARAMETERS_0 {}
-impl Clone for CF_CALLBACK_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
 }
@@ -2421,15 +2352,10 @@ impl Default for CF_CALLBACK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CF_CALLBACK_PARAMETERS_0_0 {
     pub Flags: CF_CALLBACK_CANCEL_FLAGS,
     pub Anonymous: CF_CALLBACK_PARAMETERS_0_0_0,
-}
-impl Copy for CF_CALLBACK_PARAMETERS_0_0 {}
-impl Clone for CF_CALLBACK_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
@@ -2440,14 +2366,9 @@ impl Default for CF_CALLBACK_PARAMETERS_0_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CF_CALLBACK_PARAMETERS_0_0_0 {
     pub FetchData: CF_CALLBACK_PARAMETERS_0_0_0_0,
-}
-impl Copy for CF_CALLBACK_PARAMETERS_0_0_0 {}
-impl Clone for CF_CALLBACK_PARAMETERS_0_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_0_0 {
     type TypeKind = windows_core::CopyType;
@@ -2458,183 +2379,88 @@ impl Default for CF_CALLBACK_PARAMETERS_0_0_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_0_0_0 {
     pub FileOffset: i64,
     pub Length: i64,
 }
-impl Copy for CF_CALLBACK_PARAMETERS_0_0_0_0 {}
-impl Clone for CF_CALLBACK_PARAMETERS_0_0_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_0_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS_0_0_0_0").field("FileOffset", &self.FileOffset).field("Length", &self.Length).finish()
-    }
-}
 impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_0_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CF_CALLBACK_PARAMETERS_0_0_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.FileOffset == other.FileOffset && self.Length == other.Length
-    }
-}
-impl Eq for CF_CALLBACK_PARAMETERS_0_0_0_0 {}
 impl Default for CF_CALLBACK_PARAMETERS_0_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_1 {
     pub Flags: CF_CALLBACK_CLOSE_COMPLETION_FLAGS,
-}
-impl Copy for CF_CALLBACK_PARAMETERS_0_1 {}
-impl Clone for CF_CALLBACK_PARAMETERS_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS_0_1").field("Flags", &self.Flags).finish()
-    }
 }
 impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CF_CALLBACK_PARAMETERS_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-    }
-}
-impl Eq for CF_CALLBACK_PARAMETERS_0_1 {}
 impl Default for CF_CALLBACK_PARAMETERS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_2 {
     pub Flags: CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS,
     pub Reason: CF_CALLBACK_DEHYDRATION_REASON,
 }
-impl Copy for CF_CALLBACK_PARAMETERS_0_2 {}
-impl Clone for CF_CALLBACK_PARAMETERS_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS_0_2").field("Flags", &self.Flags).field("Reason", &self.Reason).finish()
-    }
-}
 impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CF_CALLBACK_PARAMETERS_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.Reason == other.Reason
-    }
-}
-impl Eq for CF_CALLBACK_PARAMETERS_0_2 {}
 impl Default for CF_CALLBACK_PARAMETERS_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_3 {
     pub Flags: CF_CALLBACK_DEHYDRATE_FLAGS,
     pub Reason: CF_CALLBACK_DEHYDRATION_REASON,
 }
-impl Copy for CF_CALLBACK_PARAMETERS_0_3 {}
-impl Clone for CF_CALLBACK_PARAMETERS_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS_0_3").field("Flags", &self.Flags).field("Reason", &self.Reason).finish()
-    }
-}
 impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CF_CALLBACK_PARAMETERS_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.Reason == other.Reason
-    }
-}
-impl Eq for CF_CALLBACK_PARAMETERS_0_3 {}
 impl Default for CF_CALLBACK_PARAMETERS_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_4 {
     pub Flags: CF_CALLBACK_DELETE_COMPLETION_FLAGS,
-}
-impl Copy for CF_CALLBACK_PARAMETERS_0_4 {}
-impl Clone for CF_CALLBACK_PARAMETERS_0_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_4 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS_0_4").field("Flags", &self.Flags).finish()
-    }
 }
 impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_4 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CF_CALLBACK_PARAMETERS_0_4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-    }
-}
-impl Eq for CF_CALLBACK_PARAMETERS_0_4 {}
 impl Default for CF_CALLBACK_PARAMETERS_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_5 {
     pub Flags: CF_CALLBACK_DELETE_FLAGS,
-}
-impl Copy for CF_CALLBACK_PARAMETERS_0_5 {}
-impl Clone for CF_CALLBACK_PARAMETERS_0_5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_5 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS_0_5").field("Flags", &self.Flags).finish()
-    }
 }
 impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_5 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CF_CALLBACK_PARAMETERS_0_5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-    }
-}
-impl Eq for CF_CALLBACK_PARAMETERS_0_5 {}
 impl Default for CF_CALLBACK_PARAMETERS_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_6 {
     pub Flags: CF_CALLBACK_FETCH_DATA_FLAGS,
     pub RequiredFileOffset: i64,
@@ -2644,176 +2470,79 @@ pub struct CF_CALLBACK_PARAMETERS_0_6 {
     pub LastDehydrationTime: i64,
     pub LastDehydrationReason: CF_CALLBACK_DEHYDRATION_REASON,
 }
-impl Copy for CF_CALLBACK_PARAMETERS_0_6 {}
-impl Clone for CF_CALLBACK_PARAMETERS_0_6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_6 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS_0_6").field("Flags", &self.Flags).field("RequiredFileOffset", &self.RequiredFileOffset).field("RequiredLength", &self.RequiredLength).field("OptionalFileOffset", &self.OptionalFileOffset).field("OptionalLength", &self.OptionalLength).field("LastDehydrationTime", &self.LastDehydrationTime).field("LastDehydrationReason", &self.LastDehydrationReason).finish()
-    }
-}
 impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_6 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CF_CALLBACK_PARAMETERS_0_6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.RequiredFileOffset == other.RequiredFileOffset && self.RequiredLength == other.RequiredLength && self.OptionalFileOffset == other.OptionalFileOffset && self.OptionalLength == other.OptionalLength && self.LastDehydrationTime == other.LastDehydrationTime && self.LastDehydrationReason == other.LastDehydrationReason
-    }
-}
-impl Eq for CF_CALLBACK_PARAMETERS_0_6 {}
 impl Default for CF_CALLBACK_PARAMETERS_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_7 {
     pub Flags: CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS,
     pub Pattern: windows_core::PCWSTR,
 }
-impl Copy for CF_CALLBACK_PARAMETERS_0_7 {}
-impl Clone for CF_CALLBACK_PARAMETERS_0_7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_7 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS_0_7").field("Flags", &self.Flags).field("Pattern", &self.Pattern).finish()
-    }
-}
 impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_7 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CF_CALLBACK_PARAMETERS_0_7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.Pattern == other.Pattern
-    }
-}
-impl Eq for CF_CALLBACK_PARAMETERS_0_7 {}
 impl Default for CF_CALLBACK_PARAMETERS_0_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_8 {
     pub Flags: CF_CALLBACK_OPEN_COMPLETION_FLAGS,
-}
-impl Copy for CF_CALLBACK_PARAMETERS_0_8 {}
-impl Clone for CF_CALLBACK_PARAMETERS_0_8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_8 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS_0_8").field("Flags", &self.Flags).finish()
-    }
 }
 impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_8 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CF_CALLBACK_PARAMETERS_0_8 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-    }
-}
-impl Eq for CF_CALLBACK_PARAMETERS_0_8 {}
 impl Default for CF_CALLBACK_PARAMETERS_0_8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_9 {
     pub Flags: CF_CALLBACK_RENAME_COMPLETION_FLAGS,
     pub SourcePath: windows_core::PCWSTR,
 }
-impl Copy for CF_CALLBACK_PARAMETERS_0_9 {}
-impl Clone for CF_CALLBACK_PARAMETERS_0_9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_9 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS_0_9").field("Flags", &self.Flags).field("SourcePath", &self.SourcePath).finish()
-    }
-}
 impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_9 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CF_CALLBACK_PARAMETERS_0_9 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.SourcePath == other.SourcePath
-    }
-}
-impl Eq for CF_CALLBACK_PARAMETERS_0_9 {}
 impl Default for CF_CALLBACK_PARAMETERS_0_9 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_10 {
     pub Flags: CF_CALLBACK_RENAME_FLAGS,
     pub TargetPath: windows_core::PCWSTR,
 }
-impl Copy for CF_CALLBACK_PARAMETERS_0_10 {}
-impl Clone for CF_CALLBACK_PARAMETERS_0_10 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_10 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS_0_10").field("Flags", &self.Flags).field("TargetPath", &self.TargetPath).finish()
-    }
-}
 impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_10 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CF_CALLBACK_PARAMETERS_0_10 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.TargetPath == other.TargetPath
-    }
-}
-impl Eq for CF_CALLBACK_PARAMETERS_0_10 {}
 impl Default for CF_CALLBACK_PARAMETERS_0_10 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_11 {
     pub Flags: CF_CALLBACK_VALIDATE_DATA_FLAGS,
     pub RequiredFileOffset: i64,
     pub RequiredLength: i64,
 }
-impl Copy for CF_CALLBACK_PARAMETERS_0_11 {}
-impl Clone for CF_CALLBACK_PARAMETERS_0_11 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_11 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS_0_11").field("Flags", &self.Flags).field("RequiredFileOffset", &self.RequiredFileOffset).field("RequiredLength", &self.RequiredLength).finish()
-    }
-}
 impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_11 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CF_CALLBACK_PARAMETERS_0_11 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.RequiredFileOffset == other.RequiredFileOffset && self.RequiredLength == other.RequiredLength
-    }
-}
-impl Eq for CF_CALLBACK_PARAMETERS_0_11 {}
 impl Default for CF_CALLBACK_PARAMETERS_0_11 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2821,23 +2550,10 @@ impl Default for CF_CALLBACK_PARAMETERS_0_11 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_CorrelationVector")]
+#[derive(Clone, Copy, Debug)]
 pub struct CF_CALLBACK_REGISTRATION {
     pub Type: CF_CALLBACK_TYPE,
     pub Callback: CF_CALLBACK,
-}
-#[cfg(feature = "Win32_System_CorrelationVector")]
-impl Copy for CF_CALLBACK_REGISTRATION {}
-#[cfg(feature = "Win32_System_CorrelationVector")]
-impl Clone for CF_CALLBACK_REGISTRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_CorrelationVector")]
-impl core::fmt::Debug for CF_CALLBACK_REGISTRATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_REGISTRATION").field("Type", &self.Type).finish()
-    }
 }
 #[cfg(feature = "Win32_System_CorrelationVector")]
 impl windows_core::TypeKind for CF_CALLBACK_REGISTRATION {
@@ -2866,30 +2582,14 @@ impl windows_core::TypeKind for CF_CONNECTION_KEY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_FILE_RANGE {
     pub StartingOffset: i64,
     pub Length: i64,
 }
-impl Copy for CF_FILE_RANGE {}
-impl Clone for CF_FILE_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CF_FILE_RANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_FILE_RANGE").field("StartingOffset", &self.StartingOffset).field("Length", &self.Length).finish()
-    }
-}
 impl windows_core::TypeKind for CF_FILE_RANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CF_FILE_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartingOffset == other.StartingOffset && self.Length == other.Length
-    }
-}
-impl Eq for CF_FILE_RANGE {}
 impl Default for CF_FILE_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2897,36 +2597,15 @@ impl Default for CF_FILE_RANGE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_FS_METADATA {
     pub BasicInfo: super::FileSystem::FILE_BASIC_INFO,
     pub FileSize: i64,
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
-impl Copy for CF_FS_METADATA {}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Clone for CF_FS_METADATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl core::fmt::Debug for CF_FS_METADATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_FS_METADATA").field("BasicInfo", &self.BasicInfo).field("FileSize", &self.FileSize).finish()
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
 impl windows_core::TypeKind for CF_FS_METADATA {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl PartialEq for CF_FS_METADATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.BasicInfo == other.BasicInfo && self.FileSize == other.FileSize
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Eq for CF_FS_METADATA {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for CF_FS_METADATA {
     fn default() -> Self {
@@ -2934,30 +2613,14 @@ impl Default for CF_FS_METADATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_HYDRATION_POLICY {
     pub Primary: CF_HYDRATION_POLICY_PRIMARY,
     pub Modifier: CF_HYDRATION_POLICY_MODIFIER,
 }
-impl Copy for CF_HYDRATION_POLICY {}
-impl Clone for CF_HYDRATION_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CF_HYDRATION_POLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_HYDRATION_POLICY").field("Primary", &self.Primary).field("Modifier", &self.Modifier).finish()
-    }
-}
 impl windows_core::TypeKind for CF_HYDRATION_POLICY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CF_HYDRATION_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Primary == other.Primary && self.Modifier == other.Modifier
-    }
-}
-impl Eq for CF_HYDRATION_POLICY {}
 impl Default for CF_HYDRATION_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2965,6 +2628,7 @@ impl Default for CF_HYDRATION_POLICY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_CorrelationVector")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_OPERATION_INFO {
     pub StructSize: u32,
     pub Type: CF_OPERATION_TYPE,
@@ -2975,31 +2639,9 @@ pub struct CF_OPERATION_INFO {
     pub RequestKey: i64,
 }
 #[cfg(feature = "Win32_System_CorrelationVector")]
-impl Copy for CF_OPERATION_INFO {}
-#[cfg(feature = "Win32_System_CorrelationVector")]
-impl Clone for CF_OPERATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_CorrelationVector")]
-impl core::fmt::Debug for CF_OPERATION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_OPERATION_INFO").field("StructSize", &self.StructSize).field("Type", &self.Type).field("ConnectionKey", &self.ConnectionKey).field("TransferKey", &self.TransferKey).field("CorrelationVector", &self.CorrelationVector).field("SyncStatus", &self.SyncStatus).field("RequestKey", &self.RequestKey).finish()
-    }
-}
-#[cfg(feature = "Win32_System_CorrelationVector")]
 impl windows_core::TypeKind for CF_OPERATION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_CorrelationVector")]
-impl PartialEq for CF_OPERATION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.StructSize == other.StructSize && self.Type == other.Type && self.ConnectionKey == other.ConnectionKey && self.TransferKey == other.TransferKey && self.CorrelationVector == other.CorrelationVector && self.SyncStatus == other.SyncStatus && self.RequestKey == other.RequestKey
-    }
-}
-#[cfg(feature = "Win32_System_CorrelationVector")]
-impl Eq for CF_OPERATION_INFO {}
 #[cfg(feature = "Win32_System_CorrelationVector")]
 impl Default for CF_OPERATION_INFO {
     fn default() -> Self {
@@ -3008,17 +2650,10 @@ impl Default for CF_OPERATION_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy)]
 pub struct CF_OPERATION_PARAMETERS {
     pub ParamSize: u32,
     pub Anonymous: CF_OPERATION_PARAMETERS_0,
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Copy for CF_OPERATION_PARAMETERS {}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Clone for CF_OPERATION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl windows_core::TypeKind for CF_OPERATION_PARAMETERS {
@@ -3032,6 +2667,7 @@ impl Default for CF_OPERATION_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy)]
 pub union CF_OPERATION_PARAMETERS_0 {
     pub TransferData: CF_OPERATION_PARAMETERS_0_6,
     pub RetrieveData: CF_OPERATION_PARAMETERS_0_5,
@@ -3041,14 +2677,6 @@ pub union CF_OPERATION_PARAMETERS_0 {
     pub AckDehydrate: CF_OPERATION_PARAMETERS_0_1,
     pub AckRename: CF_OPERATION_PARAMETERS_0_3,
     pub AckDelete: CF_OPERATION_PARAMETERS_0_2,
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Copy for CF_OPERATION_PARAMETERS_0 {}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Clone for CF_OPERATION_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0 {
@@ -3062,6 +2690,7 @@ impl Default for CF_OPERATION_PARAMETERS_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_0 {
     pub Flags: CF_OPERATION_ACK_DATA_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
@@ -3069,31 +2698,9 @@ pub struct CF_OPERATION_PARAMETERS_0_0 {
     pub Length: i64,
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
-impl Copy for CF_OPERATION_PARAMETERS_0_0 {}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Clone for CF_OPERATION_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl core::fmt::Debug for CF_OPERATION_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_OPERATION_PARAMETERS_0_0").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).field("Offset", &self.Offset).field("Length", &self.Length).finish()
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
 impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl PartialEq for CF_OPERATION_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus && self.Offset == other.Offset && self.Length == other.Length
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Eq for CF_OPERATION_PARAMETERS_0_0 {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for CF_OPERATION_PARAMETERS_0_0 {
     fn default() -> Self {
@@ -3102,6 +2709,7 @@ impl Default for CF_OPERATION_PARAMETERS_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_1 {
     pub Flags: CF_OPERATION_ACK_DEHYDRATE_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
@@ -3109,31 +2717,9 @@ pub struct CF_OPERATION_PARAMETERS_0_1 {
     pub FileIdentityLength: u32,
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
-impl Copy for CF_OPERATION_PARAMETERS_0_1 {}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Clone for CF_OPERATION_PARAMETERS_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl core::fmt::Debug for CF_OPERATION_PARAMETERS_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_OPERATION_PARAMETERS_0_1").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).field("FileIdentity", &self.FileIdentity).field("FileIdentityLength", &self.FileIdentityLength).finish()
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
 impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl PartialEq for CF_OPERATION_PARAMETERS_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus && self.FileIdentity == other.FileIdentity && self.FileIdentityLength == other.FileIdentityLength
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Eq for CF_OPERATION_PARAMETERS_0_1 {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for CF_OPERATION_PARAMETERS_0_1 {
     fn default() -> Self {
@@ -3142,36 +2728,15 @@ impl Default for CF_OPERATION_PARAMETERS_0_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_2 {
     pub Flags: CF_OPERATION_ACK_DELETE_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
-impl Copy for CF_OPERATION_PARAMETERS_0_2 {}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Clone for CF_OPERATION_PARAMETERS_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl core::fmt::Debug for CF_OPERATION_PARAMETERS_0_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_OPERATION_PARAMETERS_0_2").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).finish()
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
 impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl PartialEq for CF_OPERATION_PARAMETERS_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Eq for CF_OPERATION_PARAMETERS_0_2 {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for CF_OPERATION_PARAMETERS_0_2 {
     fn default() -> Self {
@@ -3180,36 +2745,15 @@ impl Default for CF_OPERATION_PARAMETERS_0_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_3 {
     pub Flags: CF_OPERATION_ACK_RENAME_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
-impl Copy for CF_OPERATION_PARAMETERS_0_3 {}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Clone for CF_OPERATION_PARAMETERS_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl core::fmt::Debug for CF_OPERATION_PARAMETERS_0_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_OPERATION_PARAMETERS_0_3").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).finish()
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
 impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_3 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl PartialEq for CF_OPERATION_PARAMETERS_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Eq for CF_OPERATION_PARAMETERS_0_3 {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for CF_OPERATION_PARAMETERS_0_3 {
     fn default() -> Self {
@@ -3218,6 +2762,7 @@ impl Default for CF_OPERATION_PARAMETERS_0_3 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_4 {
     pub Flags: CF_OPERATION_RESTART_HYDRATION_FLAGS,
     pub FsMetadata: *const CF_FS_METADATA,
@@ -3225,31 +2770,9 @@ pub struct CF_OPERATION_PARAMETERS_0_4 {
     pub FileIdentityLength: u32,
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
-impl Copy for CF_OPERATION_PARAMETERS_0_4 {}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Clone for CF_OPERATION_PARAMETERS_0_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl core::fmt::Debug for CF_OPERATION_PARAMETERS_0_4 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_OPERATION_PARAMETERS_0_4").field("Flags", &self.Flags).field("FsMetadata", &self.FsMetadata).field("FileIdentity", &self.FileIdentity).field("FileIdentityLength", &self.FileIdentityLength).finish()
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
 impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_4 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl PartialEq for CF_OPERATION_PARAMETERS_0_4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.FsMetadata == other.FsMetadata && self.FileIdentity == other.FileIdentity && self.FileIdentityLength == other.FileIdentityLength
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Eq for CF_OPERATION_PARAMETERS_0_4 {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for CF_OPERATION_PARAMETERS_0_4 {
     fn default() -> Self {
@@ -3258,6 +2781,7 @@ impl Default for CF_OPERATION_PARAMETERS_0_4 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_5 {
     pub Flags: CF_OPERATION_RETRIEVE_DATA_FLAGS,
     pub Buffer: *mut core::ffi::c_void,
@@ -3266,31 +2790,9 @@ pub struct CF_OPERATION_PARAMETERS_0_5 {
     pub ReturnedLength: i64,
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
-impl Copy for CF_OPERATION_PARAMETERS_0_5 {}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Clone for CF_OPERATION_PARAMETERS_0_5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl core::fmt::Debug for CF_OPERATION_PARAMETERS_0_5 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_OPERATION_PARAMETERS_0_5").field("Flags", &self.Flags).field("Buffer", &self.Buffer).field("Offset", &self.Offset).field("Length", &self.Length).field("ReturnedLength", &self.ReturnedLength).finish()
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
 impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_5 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl PartialEq for CF_OPERATION_PARAMETERS_0_5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.Buffer == other.Buffer && self.Offset == other.Offset && self.Length == other.Length && self.ReturnedLength == other.ReturnedLength
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Eq for CF_OPERATION_PARAMETERS_0_5 {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for CF_OPERATION_PARAMETERS_0_5 {
     fn default() -> Self {
@@ -3299,6 +2801,7 @@ impl Default for CF_OPERATION_PARAMETERS_0_5 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_6 {
     pub Flags: CF_OPERATION_TRANSFER_DATA_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
@@ -3307,31 +2810,9 @@ pub struct CF_OPERATION_PARAMETERS_0_6 {
     pub Length: i64,
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
-impl Copy for CF_OPERATION_PARAMETERS_0_6 {}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Clone for CF_OPERATION_PARAMETERS_0_6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl core::fmt::Debug for CF_OPERATION_PARAMETERS_0_6 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_OPERATION_PARAMETERS_0_6").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).field("Buffer", &self.Buffer).field("Offset", &self.Offset).field("Length", &self.Length).finish()
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
 impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_6 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl PartialEq for CF_OPERATION_PARAMETERS_0_6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus && self.Buffer == other.Buffer && self.Offset == other.Offset && self.Length == other.Length
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Eq for CF_OPERATION_PARAMETERS_0_6 {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for CF_OPERATION_PARAMETERS_0_6 {
     fn default() -> Self {
@@ -3340,6 +2821,7 @@ impl Default for CF_OPERATION_PARAMETERS_0_6 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_7 {
     pub Flags: CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
@@ -3349,31 +2831,9 @@ pub struct CF_OPERATION_PARAMETERS_0_7 {
     pub EntriesProcessed: u32,
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
-impl Copy for CF_OPERATION_PARAMETERS_0_7 {}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Clone for CF_OPERATION_PARAMETERS_0_7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl core::fmt::Debug for CF_OPERATION_PARAMETERS_0_7 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_OPERATION_PARAMETERS_0_7").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).field("PlaceholderTotalCount", &self.PlaceholderTotalCount).field("PlaceholderArray", &self.PlaceholderArray).field("PlaceholderCount", &self.PlaceholderCount).field("EntriesProcessed", &self.EntriesProcessed).finish()
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
 impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_7 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl PartialEq for CF_OPERATION_PARAMETERS_0_7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus && self.PlaceholderTotalCount == other.PlaceholderTotalCount && self.PlaceholderArray == other.PlaceholderArray && self.PlaceholderCount == other.PlaceholderCount && self.EntriesProcessed == other.EntriesProcessed
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Eq for CF_OPERATION_PARAMETERS_0_7 {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for CF_OPERATION_PARAMETERS_0_7 {
     fn default() -> Self {
@@ -3381,6 +2841,7 @@ impl Default for CF_OPERATION_PARAMETERS_0_7 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_PLACEHOLDER_BASIC_INFO {
     pub PinState: CF_PIN_STATE,
     pub InSyncState: CF_IN_SYNC_STATE,
@@ -3389,26 +2850,9 @@ pub struct CF_PLACEHOLDER_BASIC_INFO {
     pub FileIdentityLength: u32,
     pub FileIdentity: [u8; 1],
 }
-impl Copy for CF_PLACEHOLDER_BASIC_INFO {}
-impl Clone for CF_PLACEHOLDER_BASIC_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CF_PLACEHOLDER_BASIC_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_PLACEHOLDER_BASIC_INFO").field("PinState", &self.PinState).field("InSyncState", &self.InSyncState).field("FileId", &self.FileId).field("SyncRootFileId", &self.SyncRootFileId).field("FileIdentityLength", &self.FileIdentityLength).field("FileIdentity", &self.FileIdentity).finish()
-    }
-}
 impl windows_core::TypeKind for CF_PLACEHOLDER_BASIC_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CF_PLACEHOLDER_BASIC_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.PinState == other.PinState && self.InSyncState == other.InSyncState && self.FileId == other.FileId && self.SyncRootFileId == other.SyncRootFileId && self.FileIdentityLength == other.FileIdentityLength && self.FileIdentity == other.FileIdentity
-    }
-}
-impl Eq for CF_PLACEHOLDER_BASIC_INFO {}
 impl Default for CF_PLACEHOLDER_BASIC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3416,6 +2860,7 @@ impl Default for CF_PLACEHOLDER_BASIC_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_PLACEHOLDER_CREATE_INFO {
     pub RelativeFileName: windows_core::PCWSTR,
     pub FsMetadata: CF_FS_METADATA,
@@ -3426,31 +2871,9 @@ pub struct CF_PLACEHOLDER_CREATE_INFO {
     pub CreateUsn: i64,
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
-impl Copy for CF_PLACEHOLDER_CREATE_INFO {}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Clone for CF_PLACEHOLDER_CREATE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl core::fmt::Debug for CF_PLACEHOLDER_CREATE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_PLACEHOLDER_CREATE_INFO").field("RelativeFileName", &self.RelativeFileName).field("FsMetadata", &self.FsMetadata).field("FileIdentity", &self.FileIdentity).field("FileIdentityLength", &self.FileIdentityLength).field("Flags", &self.Flags).field("Result", &self.Result).field("CreateUsn", &self.CreateUsn).finish()
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
 impl windows_core::TypeKind for CF_PLACEHOLDER_CREATE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl PartialEq for CF_PLACEHOLDER_CREATE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.RelativeFileName == other.RelativeFileName && self.FsMetadata == other.FsMetadata && self.FileIdentity == other.FileIdentity && self.FileIdentityLength == other.FileIdentityLength && self.Flags == other.Flags && self.Result == other.Result && self.CreateUsn == other.CreateUsn
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Eq for CF_PLACEHOLDER_CREATE_INFO {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for CF_PLACEHOLDER_CREATE_INFO {
     fn default() -> Self {
@@ -3458,6 +2881,7 @@ impl Default for CF_PLACEHOLDER_CREATE_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_PLACEHOLDER_STANDARD_INFO {
     pub OnDiskDataSize: i64,
     pub ValidatedDataSize: i64,
@@ -3470,104 +2894,45 @@ pub struct CF_PLACEHOLDER_STANDARD_INFO {
     pub FileIdentityLength: u32,
     pub FileIdentity: [u8; 1],
 }
-impl Copy for CF_PLACEHOLDER_STANDARD_INFO {}
-impl Clone for CF_PLACEHOLDER_STANDARD_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CF_PLACEHOLDER_STANDARD_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_PLACEHOLDER_STANDARD_INFO")
-            .field("OnDiskDataSize", &self.OnDiskDataSize)
-            .field("ValidatedDataSize", &self.ValidatedDataSize)
-            .field("ModifiedDataSize", &self.ModifiedDataSize)
-            .field("PropertiesSize", &self.PropertiesSize)
-            .field("PinState", &self.PinState)
-            .field("InSyncState", &self.InSyncState)
-            .field("FileId", &self.FileId)
-            .field("SyncRootFileId", &self.SyncRootFileId)
-            .field("FileIdentityLength", &self.FileIdentityLength)
-            .field("FileIdentity", &self.FileIdentity)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for CF_PLACEHOLDER_STANDARD_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CF_PLACEHOLDER_STANDARD_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.OnDiskDataSize == other.OnDiskDataSize && self.ValidatedDataSize == other.ValidatedDataSize && self.ModifiedDataSize == other.ModifiedDataSize && self.PropertiesSize == other.PropertiesSize && self.PinState == other.PinState && self.InSyncState == other.InSyncState && self.FileId == other.FileId && self.SyncRootFileId == other.SyncRootFileId && self.FileIdentityLength == other.FileIdentityLength && self.FileIdentity == other.FileIdentity
-    }
-}
-impl Eq for CF_PLACEHOLDER_STANDARD_INFO {}
 impl Default for CF_PLACEHOLDER_STANDARD_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_PLATFORM_INFO {
     pub BuildNumber: u32,
     pub RevisionNumber: u32,
     pub IntegrationNumber: u32,
 }
-impl Copy for CF_PLATFORM_INFO {}
-impl Clone for CF_PLATFORM_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CF_PLATFORM_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_PLATFORM_INFO").field("BuildNumber", &self.BuildNumber).field("RevisionNumber", &self.RevisionNumber).field("IntegrationNumber", &self.IntegrationNumber).finish()
-    }
-}
 impl windows_core::TypeKind for CF_PLATFORM_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CF_PLATFORM_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.BuildNumber == other.BuildNumber && self.RevisionNumber == other.RevisionNumber && self.IntegrationNumber == other.IntegrationNumber
-    }
-}
-impl Eq for CF_PLATFORM_INFO {}
 impl Default for CF_PLATFORM_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_POPULATION_POLICY {
     pub Primary: CF_POPULATION_POLICY_PRIMARY,
     pub Modifier: CF_POPULATION_POLICY_MODIFIER,
 }
-impl Copy for CF_POPULATION_POLICY {}
-impl Clone for CF_POPULATION_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CF_POPULATION_POLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_POPULATION_POLICY").field("Primary", &self.Primary).field("Modifier", &self.Modifier).finish()
-    }
-}
 impl windows_core::TypeKind for CF_POPULATION_POLICY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CF_POPULATION_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Primary == other.Primary && self.Modifier == other.Modifier
-    }
-}
-impl Eq for CF_POPULATION_POLICY {}
 impl Default for CF_POPULATION_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_PROCESS_INFO {
     pub StructSize: u32,
     pub ProcessId: u32,
@@ -3577,32 +2942,16 @@ pub struct CF_PROCESS_INFO {
     pub CommandLine: windows_core::PCWSTR,
     pub SessionId: u32,
 }
-impl Copy for CF_PROCESS_INFO {}
-impl Clone for CF_PROCESS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CF_PROCESS_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_PROCESS_INFO").field("StructSize", &self.StructSize).field("ProcessId", &self.ProcessId).field("ImagePath", &self.ImagePath).field("PackageName", &self.PackageName).field("ApplicationId", &self.ApplicationId).field("CommandLine", &self.CommandLine).field("SessionId", &self.SessionId).finish()
-    }
-}
 impl windows_core::TypeKind for CF_PROCESS_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CF_PROCESS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.StructSize == other.StructSize && self.ProcessId == other.ProcessId && self.ImagePath == other.ImagePath && self.PackageName == other.PackageName && self.ApplicationId == other.ApplicationId && self.CommandLine == other.CommandLine && self.SessionId == other.SessionId
-    }
-}
-impl Eq for CF_PROCESS_INFO {}
 impl Default for CF_PROCESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_SYNC_POLICIES {
     pub StructSize: u32,
     pub Hydration: CF_HYDRATION_POLICY,
@@ -3611,32 +2960,16 @@ pub struct CF_SYNC_POLICIES {
     pub HardLink: CF_HARDLINK_POLICY,
     pub PlaceholderManagement: CF_PLACEHOLDER_MANAGEMENT_POLICY,
 }
-impl Copy for CF_SYNC_POLICIES {}
-impl Clone for CF_SYNC_POLICIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CF_SYNC_POLICIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_SYNC_POLICIES").field("StructSize", &self.StructSize).field("Hydration", &self.Hydration).field("Population", &self.Population).field("InSync", &self.InSync).field("HardLink", &self.HardLink).field("PlaceholderManagement", &self.PlaceholderManagement).finish()
-    }
-}
 impl windows_core::TypeKind for CF_SYNC_POLICIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CF_SYNC_POLICIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.StructSize == other.StructSize && self.Hydration == other.Hydration && self.Population == other.Population && self.InSync == other.InSync && self.HardLink == other.HardLink && self.PlaceholderManagement == other.PlaceholderManagement
-    }
-}
-impl Eq for CF_SYNC_POLICIES {}
 impl Default for CF_SYNC_POLICIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_SYNC_REGISTRATION {
     pub StructSize: u32,
     pub ProviderName: windows_core::PCWSTR,
@@ -3647,92 +2980,44 @@ pub struct CF_SYNC_REGISTRATION {
     pub FileIdentityLength: u32,
     pub ProviderId: windows_core::GUID,
 }
-impl Copy for CF_SYNC_REGISTRATION {}
-impl Clone for CF_SYNC_REGISTRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CF_SYNC_REGISTRATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_SYNC_REGISTRATION").field("StructSize", &self.StructSize).field("ProviderName", &self.ProviderName).field("ProviderVersion", &self.ProviderVersion).field("SyncRootIdentity", &self.SyncRootIdentity).field("SyncRootIdentityLength", &self.SyncRootIdentityLength).field("FileIdentity", &self.FileIdentity).field("FileIdentityLength", &self.FileIdentityLength).field("ProviderId", &self.ProviderId).finish()
-    }
-}
 impl windows_core::TypeKind for CF_SYNC_REGISTRATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CF_SYNC_REGISTRATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.StructSize == other.StructSize && self.ProviderName == other.ProviderName && self.ProviderVersion == other.ProviderVersion && self.SyncRootIdentity == other.SyncRootIdentity && self.SyncRootIdentityLength == other.SyncRootIdentityLength && self.FileIdentity == other.FileIdentity && self.FileIdentityLength == other.FileIdentityLength && self.ProviderId == other.ProviderId
-    }
-}
-impl Eq for CF_SYNC_REGISTRATION {}
 impl Default for CF_SYNC_REGISTRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_SYNC_ROOT_BASIC_INFO {
     pub SyncRootFileId: i64,
-}
-impl Copy for CF_SYNC_ROOT_BASIC_INFO {}
-impl Clone for CF_SYNC_ROOT_BASIC_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CF_SYNC_ROOT_BASIC_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_SYNC_ROOT_BASIC_INFO").field("SyncRootFileId", &self.SyncRootFileId).finish()
-    }
 }
 impl windows_core::TypeKind for CF_SYNC_ROOT_BASIC_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CF_SYNC_ROOT_BASIC_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.SyncRootFileId == other.SyncRootFileId
-    }
-}
-impl Eq for CF_SYNC_ROOT_BASIC_INFO {}
 impl Default for CF_SYNC_ROOT_BASIC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_SYNC_ROOT_PROVIDER_INFO {
     pub ProviderStatus: CF_SYNC_PROVIDER_STATUS,
     pub ProviderName: [u16; 256],
     pub ProviderVersion: [u16; 256],
 }
-impl Copy for CF_SYNC_ROOT_PROVIDER_INFO {}
-impl Clone for CF_SYNC_ROOT_PROVIDER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CF_SYNC_ROOT_PROVIDER_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_SYNC_ROOT_PROVIDER_INFO").field("ProviderStatus", &self.ProviderStatus).field("ProviderName", &self.ProviderName).field("ProviderVersion", &self.ProviderVersion).finish()
-    }
-}
 impl windows_core::TypeKind for CF_SYNC_ROOT_PROVIDER_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CF_SYNC_ROOT_PROVIDER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ProviderStatus == other.ProviderStatus && self.ProviderName == other.ProviderName && self.ProviderVersion == other.ProviderVersion
-    }
-}
-impl Eq for CF_SYNC_ROOT_PROVIDER_INFO {}
 impl Default for CF_SYNC_ROOT_PROVIDER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_SYNC_ROOT_STANDARD_INFO {
     pub SyncRootFileId: i64,
     pub HydrationPolicy: CF_HYDRATION_POLICY,
@@ -3745,43 +3030,16 @@ pub struct CF_SYNC_ROOT_STANDARD_INFO {
     pub SyncRootIdentityLength: u32,
     pub SyncRootIdentity: [u8; 1],
 }
-impl Copy for CF_SYNC_ROOT_STANDARD_INFO {}
-impl Clone for CF_SYNC_ROOT_STANDARD_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CF_SYNC_ROOT_STANDARD_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_SYNC_ROOT_STANDARD_INFO")
-            .field("SyncRootFileId", &self.SyncRootFileId)
-            .field("HydrationPolicy", &self.HydrationPolicy)
-            .field("PopulationPolicy", &self.PopulationPolicy)
-            .field("InSyncPolicy", &self.InSyncPolicy)
-            .field("HardLinkPolicy", &self.HardLinkPolicy)
-            .field("ProviderStatus", &self.ProviderStatus)
-            .field("ProviderName", &self.ProviderName)
-            .field("ProviderVersion", &self.ProviderVersion)
-            .field("SyncRootIdentityLength", &self.SyncRootIdentityLength)
-            .field("SyncRootIdentity", &self.SyncRootIdentity)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for CF_SYNC_ROOT_STANDARD_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CF_SYNC_ROOT_STANDARD_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.SyncRootFileId == other.SyncRootFileId && self.HydrationPolicy == other.HydrationPolicy && self.PopulationPolicy == other.PopulationPolicy && self.InSyncPolicy == other.InSyncPolicy && self.HardLinkPolicy == other.HardLinkPolicy && self.ProviderStatus == other.ProviderStatus && self.ProviderName == other.ProviderName && self.ProviderVersion == other.ProviderVersion && self.SyncRootIdentityLength == other.SyncRootIdentityLength && self.SyncRootIdentity == other.SyncRootIdentity
-    }
-}
-impl Eq for CF_SYNC_ROOT_STANDARD_INFO {}
 impl Default for CF_SYNC_ROOT_STANDARD_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_SYNC_STATUS {
     pub StructSize: u32,
     pub Code: u32,
@@ -3790,26 +3048,9 @@ pub struct CF_SYNC_STATUS {
     pub DeviceIdOffset: u32,
     pub DeviceIdLength: u32,
 }
-impl Copy for CF_SYNC_STATUS {}
-impl Clone for CF_SYNC_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CF_SYNC_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CF_SYNC_STATUS").field("StructSize", &self.StructSize).field("Code", &self.Code).field("DescriptionOffset", &self.DescriptionOffset).field("DescriptionLength", &self.DescriptionLength).field("DeviceIdOffset", &self.DeviceIdOffset).field("DeviceIdLength", &self.DeviceIdLength).finish()
-    }
-}
 impl windows_core::TypeKind for CF_SYNC_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CF_SYNC_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.StructSize == other.StructSize && self.Code == other.Code && self.DescriptionOffset == other.DescriptionOffset && self.DescriptionLength == other.DescriptionLength && self.DeviceIdOffset == other.DeviceIdOffset && self.DeviceIdLength == other.DeviceIdLength
-    }
-}
-impl Eq for CF_SYNC_STATUS {}
 impl Default for CF_SYNC_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

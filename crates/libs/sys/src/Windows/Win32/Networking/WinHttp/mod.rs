@@ -771,17 +771,13 @@ pub type WinHttpRequestOption = i32;
 pub type WinHttpRequestSecureProtocols = i32;
 pub type WinHttpRequestSslErrorFlags = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_VERSION_INFO {
     pub dwMajorVersion: u32,
     pub dwMinorVersion: u32,
 }
-impl Copy for HTTP_VERSION_INFO {}
-impl Clone for HTTP_VERSION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct URL_COMPONENTS {
     pub dwStructSize: u32,
     pub lpszScheme: windows_sys::core::PWSTR,
@@ -799,24 +795,14 @@ pub struct URL_COMPONENTS {
     pub lpszExtraInfo: windows_sys::core::PWSTR,
     pub dwExtraInfoLength: u32,
 }
-impl Copy for URL_COMPONENTS {}
-impl Clone for URL_COMPONENTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_ASYNC_RESULT {
     pub dwResult: usize,
     pub dwError: u32,
 }
-impl Copy for WINHTTP_ASYNC_RESULT {}
-impl Clone for WINHTTP_ASYNC_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_AUTOPROXY_OPTIONS {
     pub dwFlags: u32,
     pub dwAutoDetectFlags: u32,
@@ -825,13 +811,8 @@ pub struct WINHTTP_AUTOPROXY_OPTIONS {
     pub dwReserved: u32,
     pub fAutoLogonIfChallenged: super::super::Foundation::BOOL,
 }
-impl Copy for WINHTTP_AUTOPROXY_OPTIONS {}
-impl Clone for WINHTTP_AUTOPROXY_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CERTIFICATE_INFO {
     pub ftExpiry: super::super::Foundation::FILETIME,
     pub ftStart: super::super::Foundation::FILETIME,
@@ -842,60 +823,32 @@ pub struct WINHTTP_CERTIFICATE_INFO {
     pub lpszEncryptionAlgName: windows_sys::core::PWSTR,
     pub dwKeySize: u32,
 }
-impl Copy for WINHTTP_CERTIFICATE_INFO {}
-impl Clone for WINHTTP_CERTIFICATE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CONNECTION_GROUP {
     pub cConnections: u32,
     pub guidGroup: windows_sys::core::GUID,
 }
-impl Copy for WINHTTP_CONNECTION_GROUP {}
-impl Clone for WINHTTP_CONNECTION_GROUP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CONNECTION_INFO {
     pub cbSize: u32,
     pub LocalAddress: super::WinSock::SOCKADDR_STORAGE,
     pub RemoteAddress: super::WinSock::SOCKADDR_STORAGE,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for WINHTTP_CONNECTION_INFO {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for WINHTTP_CONNECTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CONNECTION_INFO {
     pub cbSize: u32,
     pub LocalAddress: super::WinSock::SOCKADDR_STORAGE,
     pub RemoteAddress: super::WinSock::SOCKADDR_STORAGE,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for WINHTTP_CONNECTION_INFO {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for WINHTTP_CONNECTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CREDS {
     pub lpszUserName: windows_sys::core::PSTR,
     pub lpszPassword: windows_sys::core::PSTR,
@@ -904,13 +857,8 @@ pub struct WINHTTP_CREDS {
     pub lpszHostName: windows_sys::core::PSTR,
     pub dwPort: u32,
 }
-impl Copy for WINHTTP_CREDS {}
-impl Clone for WINHTTP_CREDS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CREDS_EX {
     pub lpszUserName: windows_sys::core::PSTR,
     pub lpszPassword: windows_sys::core::PSTR,
@@ -920,165 +868,91 @@ pub struct WINHTTP_CREDS_EX {
     pub dwPort: u32,
     pub lpszUrl: windows_sys::core::PSTR,
 }
-impl Copy for WINHTTP_CREDS_EX {}
-impl Clone for WINHTTP_CREDS_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
     pub fAutoDetect: super::super::Foundation::BOOL,
     pub lpszAutoConfigUrl: windows_sys::core::PWSTR,
     pub lpszProxy: windows_sys::core::PWSTR,
     pub lpszProxyBypass: windows_sys::core::PWSTR,
 }
-impl Copy for WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {}
-impl Clone for WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_EXTENDED_HEADER {
     pub Anonymous1: WINHTTP_EXTENDED_HEADER_0,
     pub Anonymous2: WINHTTP_EXTENDED_HEADER_1,
 }
-impl Copy for WINHTTP_EXTENDED_HEADER {}
-impl Clone for WINHTTP_EXTENDED_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WINHTTP_EXTENDED_HEADER_0 {
     pub pwszName: windows_sys::core::PCWSTR,
     pub pszName: windows_sys::core::PCSTR,
 }
-impl Copy for WINHTTP_EXTENDED_HEADER_0 {}
-impl Clone for WINHTTP_EXTENDED_HEADER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WINHTTP_EXTENDED_HEADER_1 {
     pub pwszValue: windows_sys::core::PCWSTR,
     pub pszValue: windows_sys::core::PCSTR,
 }
-impl Copy for WINHTTP_EXTENDED_HEADER_1 {}
-impl Clone for WINHTTP_EXTENDED_HEADER_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_FAILED_CONNECTION_RETRIES {
     pub dwMaxRetries: u32,
     pub dwAllowedRetryConditions: u32,
 }
-impl Copy for WINHTTP_FAILED_CONNECTION_RETRIES {}
-impl Clone for WINHTTP_FAILED_CONNECTION_RETRIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WINHTTP_HEADER_NAME {
     pub pwszName: windows_sys::core::PCWSTR,
     pub pszName: windows_sys::core::PCSTR,
 }
-impl Copy for WINHTTP_HEADER_NAME {}
-impl Clone for WINHTTP_HEADER_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_HOST_CONNECTION_GROUP {
     pub pwszHost: windows_sys::core::PCWSTR,
     pub cConnectionGroups: u32,
     pub pConnectionGroups: *mut WINHTTP_CONNECTION_GROUP,
 }
-impl Copy for WINHTTP_HOST_CONNECTION_GROUP {}
-impl Clone for WINHTTP_HOST_CONNECTION_GROUP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_HTTP2_RECEIVE_WINDOW {
     pub ulStreamWindow: u32,
     pub ulStreamWindowUpdateDelta: u32,
 }
-impl Copy for WINHTTP_HTTP2_RECEIVE_WINDOW {}
-impl Clone for WINHTTP_HTTP2_RECEIVE_WINDOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_MATCH_CONNECTION_GUID {
     pub ConnectionGuid: windows_sys::core::GUID,
     pub ullFlags: u64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for WINHTTP_MATCH_CONNECTION_GUID {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for WINHTTP_MATCH_CONNECTION_GUID {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_MATCH_CONNECTION_GUID {
     pub ConnectionGuid: windows_sys::core::GUID,
     pub ullFlags: u64,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for WINHTTP_MATCH_CONNECTION_GUID {}
-#[cfg(target_arch = "x86")]
-impl Clone for WINHTTP_MATCH_CONNECTION_GUID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_INFO {
     pub dwAccessType: WINHTTP_ACCESS_TYPE,
     pub lpszProxy: windows_sys::core::PWSTR,
     pub lpszProxyBypass: windows_sys::core::PWSTR,
 }
-impl Copy for WINHTTP_PROXY_INFO {}
-impl Clone for WINHTTP_PROXY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_NETWORKING_KEY {
     pub pbBuffer: [u8; 128],
 }
-impl Copy for WINHTTP_PROXY_NETWORKING_KEY {}
-impl Clone for WINHTTP_PROXY_NETWORKING_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_RESULT {
     pub cEntries: u32,
     pub pEntries: *mut WINHTTP_PROXY_RESULT_ENTRY,
 }
-impl Copy for WINHTTP_PROXY_RESULT {}
-impl Clone for WINHTTP_PROXY_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_RESULT_ENTRY {
     pub fProxy: super::super::Foundation::BOOL,
     pub fBypass: super::super::Foundation::BOOL,
@@ -1086,26 +960,16 @@ pub struct WINHTTP_PROXY_RESULT_ENTRY {
     pub pwszProxy: windows_sys::core::PWSTR,
     pub ProxyPort: u16,
 }
-impl Copy for WINHTTP_PROXY_RESULT_ENTRY {}
-impl Clone for WINHTTP_PROXY_RESULT_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_RESULT_EX {
     pub cEntries: u32,
     pub pEntries: *mut WINHTTP_PROXY_RESULT_ENTRY,
     pub hProxyDetectionHandle: super::super::Foundation::HANDLE,
     pub dwProxyInterfaceAffinity: u32,
 }
-impl Copy for WINHTTP_PROXY_RESULT_EX {}
-impl Clone for WINHTTP_PROXY_RESULT_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_SETTINGS {
     pub dwStructSize: u32,
     pub dwFlags: u32,
@@ -1124,14 +988,9 @@ pub struct WINHTTP_PROXY_SETTINGS {
     pub cNetworkKeys: u32,
     pub pNetworkKeys: *mut WINHTTP_PROXY_NETWORKING_KEY,
 }
-impl Copy for WINHTTP_PROXY_SETTINGS {}
-impl Clone for WINHTTP_PROXY_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_SETTINGS_EX {
     pub ullGenerationId: u64,
     pub ullFlags: u64,
@@ -1143,16 +1002,9 @@ pub struct WINHTTP_PROXY_SETTINGS_EX {
     pub dwInterfaceIndex: u32,
     pub pcwszConnectionName: windows_sys::core::PCWSTR,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for WINHTTP_PROXY_SETTINGS_EX {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for WINHTTP_PROXY_SETTINGS_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_SETTINGS_EX {
     pub ullGenerationId: u64,
     pub ullFlags: u64,
@@ -1164,117 +1016,63 @@ pub struct WINHTTP_PROXY_SETTINGS_EX {
     pub dwInterfaceIndex: u32,
     pub pcwszConnectionName: windows_sys::core::PCWSTR,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for WINHTTP_PROXY_SETTINGS_EX {}
-#[cfg(target_arch = "x86")]
-impl Clone for WINHTTP_PROXY_SETTINGS_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_SETTINGS_PARAM {
     pub ullFlags: u64,
     pub pcwszConnectionName: windows_sys::core::PCWSTR,
     pub pcwszProbeHost: windows_sys::core::PCWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for WINHTTP_PROXY_SETTINGS_PARAM {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for WINHTTP_PROXY_SETTINGS_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_PROXY_SETTINGS_PARAM {
     pub ullFlags: u64,
     pub pcwszConnectionName: windows_sys::core::PCWSTR,
     pub pcwszProbeHost: windows_sys::core::PCWSTR,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for WINHTTP_PROXY_SETTINGS_PARAM {}
-#[cfg(target_arch = "x86")]
-impl Clone for WINHTTP_PROXY_SETTINGS_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
     pub cHosts: u32,
     pub pHostConnectionGroups: *mut WINHTTP_HOST_CONNECTION_GROUP,
 }
-impl Copy for WINHTTP_QUERY_CONNECTION_GROUP_RESULT {}
-impl Clone for WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_REQUEST_STATS {
     pub ullFlags: u64,
     pub ulIndex: u32,
     pub cStats: u32,
     pub rgullStats: [u64; 32],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for WINHTTP_REQUEST_STATS {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for WINHTTP_REQUEST_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_REQUEST_STATS {
     pub ullFlags: u64,
     pub ulIndex: u32,
     pub cStats: u32,
     pub rgullStats: [u64; 32],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for WINHTTP_REQUEST_STATS {}
-#[cfg(target_arch = "x86")]
-impl Clone for WINHTTP_REQUEST_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_REQUEST_TIMES {
     pub cTimes: u32,
     pub rgullTimes: [u64; 64],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for WINHTTP_REQUEST_TIMES {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for WINHTTP_REQUEST_TIMES {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_REQUEST_TIMES {
     pub cTimes: u32,
     pub rgullTimes: [u64; 64],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for WINHTTP_REQUEST_TIMES {}
-#[cfg(target_arch = "x86")]
-impl Clone for WINHTTP_REQUEST_TIMES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_RESOLVER_CACHE_CONFIG {
     pub ulMaxResolverCacheEntries: u32,
     pub ulMaxCacheEntryAge: u32,
@@ -1283,16 +1081,9 @@ pub struct WINHTTP_RESOLVER_CACHE_CONFIG {
     pub ullConnResolutionWaitTime: u64,
     pub ullFlags: u64,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for WINHTTP_RESOLVER_CACHE_CONFIG {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for WINHTTP_RESOLVER_CACHE_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_RESOLVER_CACHE_CONFIG {
     pub ulMaxResolverCacheEntries: u32,
     pub ulMaxCacheEntryAge: u32,
@@ -1301,35 +1092,17 @@ pub struct WINHTTP_RESOLVER_CACHE_CONFIG {
     pub ullConnResolutionWaitTime: u64,
     pub ullFlags: u64,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for WINHTTP_RESOLVER_CACHE_CONFIG {}
-#[cfg(target_arch = "x86")]
-impl Clone for WINHTTP_RESOLVER_CACHE_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_WEB_SOCKET_ASYNC_RESULT {
     pub AsyncResult: WINHTTP_ASYNC_RESULT,
     pub Operation: WINHTTP_WEB_SOCKET_OPERATION,
 }
-impl Copy for WINHTTP_WEB_SOCKET_ASYNC_RESULT {}
-impl Clone for WINHTTP_WEB_SOCKET_ASYNC_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINHTTP_WEB_SOCKET_STATUS {
     pub dwBytesTransferred: u32,
     pub eBufferType: WINHTTP_WEB_SOCKET_BUFFER_TYPE,
-}
-impl Copy for WINHTTP_WEB_SOCKET_STATUS {}
-impl Clone for WINHTTP_WEB_SOCKET_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const WinHttpRequest: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2087c2f4_2cef_4953_a8ab_66779b670495);
 pub type WINHTTP_PROXY_CHANGE_CALLBACK = Option<unsafe extern "system" fn(ullflags: u64, pvcontext: *const core::ffi::c_void)>;

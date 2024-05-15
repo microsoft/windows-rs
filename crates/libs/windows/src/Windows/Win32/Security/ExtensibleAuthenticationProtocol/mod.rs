@@ -1148,37 +1148,22 @@ impl core::fmt::Debug for RAS_AUTH_ATTRIBUTE_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAPHOST_AUTH_INFO {
     pub status: EAPHOST_AUTH_STATUS,
     pub dwErrorCode: u32,
     pub dwReasonCode: u32,
 }
-impl Copy for EAPHOST_AUTH_INFO {}
-impl Clone for EAPHOST_AUTH_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EAPHOST_AUTH_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EAPHOST_AUTH_INFO").field("status", &self.status).field("dwErrorCode", &self.dwErrorCode).field("dwReasonCode", &self.dwReasonCode).finish()
-    }
-}
 impl windows_core::TypeKind for EAPHOST_AUTH_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EAPHOST_AUTH_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.status == other.status && self.dwErrorCode == other.dwErrorCode && self.dwReasonCode == other.dwReasonCode
-    }
-}
-impl Eq for EAPHOST_AUTH_INFO {}
 impl Default for EAPHOST_AUTH_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAPHOST_IDENTITY_UI_PARAMS {
     pub eapMethodType: EAP_METHOD_TYPE,
     pub dwFlags: u32,
@@ -1192,44 +1177,16 @@ pub struct EAPHOST_IDENTITY_UI_PARAMS {
     pub dwError: u32,
     pub pEapError: *mut EAP_ERROR,
 }
-impl Copy for EAPHOST_IDENTITY_UI_PARAMS {}
-impl Clone for EAPHOST_IDENTITY_UI_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EAPHOST_IDENTITY_UI_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EAPHOST_IDENTITY_UI_PARAMS")
-            .field("eapMethodType", &self.eapMethodType)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwSizeofConnectionData", &self.dwSizeofConnectionData)
-            .field("pConnectionData", &self.pConnectionData)
-            .field("dwSizeofUserData", &self.dwSizeofUserData)
-            .field("pUserData", &self.pUserData)
-            .field("dwSizeofUserDataOut", &self.dwSizeofUserDataOut)
-            .field("pUserDataOut", &self.pUserDataOut)
-            .field("pwszIdentity", &self.pwszIdentity)
-            .field("dwError", &self.dwError)
-            .field("pEapError", &self.pEapError)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for EAPHOST_IDENTITY_UI_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EAPHOST_IDENTITY_UI_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.eapMethodType == other.eapMethodType && self.dwFlags == other.dwFlags && self.dwSizeofConnectionData == other.dwSizeofConnectionData && self.pConnectionData == other.pConnectionData && self.dwSizeofUserData == other.dwSizeofUserData && self.pUserData == other.pUserData && self.dwSizeofUserDataOut == other.dwSizeofUserDataOut && self.pUserDataOut == other.pUserDataOut && self.pwszIdentity == other.pwszIdentity && self.dwError == other.dwError && self.pEapError == other.pEapError
-    }
-}
-impl Eq for EAPHOST_IDENTITY_UI_PARAMS {}
 impl Default for EAPHOST_IDENTITY_UI_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAPHOST_INTERACTIVE_UI_PARAMS {
     pub dwSizeofContextData: u32,
     pub pContextData: *mut u8,
@@ -1238,93 +1195,45 @@ pub struct EAPHOST_INTERACTIVE_UI_PARAMS {
     pub dwError: u32,
     pub pEapError: *mut EAP_ERROR,
 }
-impl Copy for EAPHOST_INTERACTIVE_UI_PARAMS {}
-impl Clone for EAPHOST_INTERACTIVE_UI_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EAPHOST_INTERACTIVE_UI_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EAPHOST_INTERACTIVE_UI_PARAMS").field("dwSizeofContextData", &self.dwSizeofContextData).field("pContextData", &self.pContextData).field("dwSizeofInteractiveUIData", &self.dwSizeofInteractiveUIData).field("pInteractiveUIData", &self.pInteractiveUIData).field("dwError", &self.dwError).field("pEapError", &self.pEapError).finish()
-    }
-}
 impl windows_core::TypeKind for EAPHOST_INTERACTIVE_UI_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EAPHOST_INTERACTIVE_UI_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSizeofContextData == other.dwSizeofContextData && self.pContextData == other.pContextData && self.dwSizeofInteractiveUIData == other.dwSizeofInteractiveUIData && self.pInteractiveUIData == other.pInteractiveUIData && self.dwError == other.dwError && self.pEapError == other.pEapError
-    }
-}
-impl Eq for EAPHOST_INTERACTIVE_UI_PARAMS {}
 impl Default for EAPHOST_INTERACTIVE_UI_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_ATTRIBUTE {
     pub eaType: EAP_ATTRIBUTE_TYPE,
     pub dwLength: u32,
     pub pValue: *mut u8,
 }
-impl Copy for EAP_ATTRIBUTE {}
-impl Clone for EAP_ATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EAP_ATTRIBUTE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EAP_ATTRIBUTE").field("eaType", &self.eaType).field("dwLength", &self.dwLength).field("pValue", &self.pValue).finish()
-    }
-}
 impl windows_core::TypeKind for EAP_ATTRIBUTE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EAP_ATTRIBUTE {
-    fn eq(&self, other: &Self) -> bool {
-        self.eaType == other.eaType && self.dwLength == other.dwLength && self.pValue == other.pValue
-    }
-}
-impl Eq for EAP_ATTRIBUTE {}
 impl Default for EAP_ATTRIBUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_ATTRIBUTES {
     pub dwNumberOfAttributes: u32,
     pub pAttribs: *mut EAP_ATTRIBUTE,
 }
-impl Copy for EAP_ATTRIBUTES {}
-impl Clone for EAP_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EAP_ATTRIBUTES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EAP_ATTRIBUTES").field("dwNumberOfAttributes", &self.dwNumberOfAttributes).field("pAttribs", &self.pAttribs).finish()
-    }
-}
 impl windows_core::TypeKind for EAP_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EAP_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumberOfAttributes == other.dwNumberOfAttributes && self.pAttribs == other.pAttribs
-    }
-}
-impl Eq for EAP_ATTRIBUTES {}
 impl Default for EAP_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_AUTHENTICATOR_METHOD_ROUTINES {
     pub dwSizeInBytes: u32,
     pub pEapType: *mut EAP_METHOD_TYPE,
@@ -1339,87 +1248,31 @@ pub struct EAP_AUTHENTICATOR_METHOD_ROUTINES {
     pub EapMethodAuthenticatorEndSession: isize,
     pub EapMethodAuthenticatorShutdown: isize,
 }
-impl Copy for EAP_AUTHENTICATOR_METHOD_ROUTINES {}
-impl Clone for EAP_AUTHENTICATOR_METHOD_ROUTINES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EAP_AUTHENTICATOR_METHOD_ROUTINES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EAP_AUTHENTICATOR_METHOD_ROUTINES")
-            .field("dwSizeInBytes", &self.dwSizeInBytes)
-            .field("pEapType", &self.pEapType)
-            .field("EapMethodAuthenticatorInitialize", &self.EapMethodAuthenticatorInitialize)
-            .field("EapMethodAuthenticatorBeginSession", &self.EapMethodAuthenticatorBeginSession)
-            .field("EapMethodAuthenticatorUpdateInnerMethodParams", &self.EapMethodAuthenticatorUpdateInnerMethodParams)
-            .field("EapMethodAuthenticatorReceivePacket", &self.EapMethodAuthenticatorReceivePacket)
-            .field("EapMethodAuthenticatorSendPacket", &self.EapMethodAuthenticatorSendPacket)
-            .field("EapMethodAuthenticatorGetAttributes", &self.EapMethodAuthenticatorGetAttributes)
-            .field("EapMethodAuthenticatorSetAttributes", &self.EapMethodAuthenticatorSetAttributes)
-            .field("EapMethodAuthenticatorGetResult", &self.EapMethodAuthenticatorGetResult)
-            .field("EapMethodAuthenticatorEndSession", &self.EapMethodAuthenticatorEndSession)
-            .field("EapMethodAuthenticatorShutdown", &self.EapMethodAuthenticatorShutdown)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for EAP_AUTHENTICATOR_METHOD_ROUTINES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EAP_AUTHENTICATOR_METHOD_ROUTINES {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSizeInBytes == other.dwSizeInBytes
-            && self.pEapType == other.pEapType
-            && self.EapMethodAuthenticatorInitialize == other.EapMethodAuthenticatorInitialize
-            && self.EapMethodAuthenticatorBeginSession == other.EapMethodAuthenticatorBeginSession
-            && self.EapMethodAuthenticatorUpdateInnerMethodParams == other.EapMethodAuthenticatorUpdateInnerMethodParams
-            && self.EapMethodAuthenticatorReceivePacket == other.EapMethodAuthenticatorReceivePacket
-            && self.EapMethodAuthenticatorSendPacket == other.EapMethodAuthenticatorSendPacket
-            && self.EapMethodAuthenticatorGetAttributes == other.EapMethodAuthenticatorGetAttributes
-            && self.EapMethodAuthenticatorSetAttributes == other.EapMethodAuthenticatorSetAttributes
-            && self.EapMethodAuthenticatorGetResult == other.EapMethodAuthenticatorGetResult
-            && self.EapMethodAuthenticatorEndSession == other.EapMethodAuthenticatorEndSession
-            && self.EapMethodAuthenticatorShutdown == other.EapMethodAuthenticatorShutdown
-    }
-}
-impl Eq for EAP_AUTHENTICATOR_METHOD_ROUTINES {}
 impl Default for EAP_AUTHENTICATOR_METHOD_ROUTINES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_CONFIG_INPUT_FIELD_ARRAY {
     pub dwVersion: u32,
     pub dwNumberOfFields: u32,
     pub pFields: *mut EAP_CONFIG_INPUT_FIELD_DATA,
 }
-impl Copy for EAP_CONFIG_INPUT_FIELD_ARRAY {}
-impl Clone for EAP_CONFIG_INPUT_FIELD_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EAP_CONFIG_INPUT_FIELD_ARRAY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EAP_CONFIG_INPUT_FIELD_ARRAY").field("dwVersion", &self.dwVersion).field("dwNumberOfFields", &self.dwNumberOfFields).field("pFields", &self.pFields).finish()
-    }
-}
 impl windows_core::TypeKind for EAP_CONFIG_INPUT_FIELD_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EAP_CONFIG_INPUT_FIELD_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.dwNumberOfFields == other.dwNumberOfFields && self.pFields == other.pFields
-    }
-}
-impl Eq for EAP_CONFIG_INPUT_FIELD_ARRAY {}
 impl Default for EAP_CONFIG_INPUT_FIELD_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_CONFIG_INPUT_FIELD_DATA {
     pub dwSize: u32,
     pub Type: EAP_CONFIG_INPUT_FIELD_TYPE,
@@ -1429,62 +1282,30 @@ pub struct EAP_CONFIG_INPUT_FIELD_DATA {
     pub dwMinDataLength: u32,
     pub dwMaxDataLength: u32,
 }
-impl Copy for EAP_CONFIG_INPUT_FIELD_DATA {}
-impl Clone for EAP_CONFIG_INPUT_FIELD_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EAP_CONFIG_INPUT_FIELD_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EAP_CONFIG_INPUT_FIELD_DATA").field("dwSize", &self.dwSize).field("Type", &self.Type).field("dwFlagProps", &self.dwFlagProps).field("pwszLabel", &self.pwszLabel).field("pwszData", &self.pwszData).field("dwMinDataLength", &self.dwMinDataLength).field("dwMaxDataLength", &self.dwMaxDataLength).finish()
-    }
-}
 impl windows_core::TypeKind for EAP_CONFIG_INPUT_FIELD_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EAP_CONFIG_INPUT_FIELD_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.Type == other.Type && self.dwFlagProps == other.dwFlagProps && self.pwszLabel == other.pwszLabel && self.pwszData == other.pwszData && self.dwMinDataLength == other.dwMinDataLength && self.dwMaxDataLength == other.dwMaxDataLength
-    }
-}
-impl Eq for EAP_CONFIG_INPUT_FIELD_DATA {}
 impl Default for EAP_CONFIG_INPUT_FIELD_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_CRED_EXPIRY_REQ {
     pub curCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
     pub newCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
 }
-impl Copy for EAP_CRED_EXPIRY_REQ {}
-impl Clone for EAP_CRED_EXPIRY_REQ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EAP_CRED_EXPIRY_REQ {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EAP_CRED_EXPIRY_REQ").field("curCreds", &self.curCreds).field("newCreds", &self.newCreds).finish()
-    }
-}
 impl windows_core::TypeKind for EAP_CRED_EXPIRY_REQ {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EAP_CRED_EXPIRY_REQ {
-    fn eq(&self, other: &Self) -> bool {
-        self.curCreds == other.curCreds && self.newCreds == other.newCreds
-    }
-}
-impl Eq for EAP_CRED_EXPIRY_REQ {}
 impl Default for EAP_CRED_EXPIRY_REQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_ERROR {
     pub dwWinError: u32,
     pub r#type: EAP_METHOD_TYPE,
@@ -1495,44 +1316,22 @@ pub struct EAP_ERROR {
     pub pRootCauseString: windows_core::PWSTR,
     pub pRepairString: windows_core::PWSTR,
 }
-impl Copy for EAP_ERROR {}
-impl Clone for EAP_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EAP_ERROR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EAP_ERROR").field("dwWinError", &self.dwWinError).field("type", &self.r#type).field("dwReasonCode", &self.dwReasonCode).field("rootCauseGuid", &self.rootCauseGuid).field("repairGuid", &self.repairGuid).field("helpLinkGuid", &self.helpLinkGuid).field("pRootCauseString", &self.pRootCauseString).field("pRepairString", &self.pRepairString).finish()
-    }
-}
 impl windows_core::TypeKind for EAP_ERROR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EAP_ERROR {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwWinError == other.dwWinError && self.r#type == other.r#type && self.dwReasonCode == other.dwReasonCode && self.rootCauseGuid == other.rootCauseGuid && self.repairGuid == other.repairGuid && self.helpLinkGuid == other.helpLinkGuid && self.pRootCauseString == other.pRootCauseString && self.pRepairString == other.pRepairString
-    }
-}
-impl Eq for EAP_ERROR {}
 impl Default for EAP_ERROR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAP_INTERACTIVE_UI_DATA {
     pub dwVersion: u32,
     pub dwSize: u32,
     pub dwDataType: EAP_INTERACTIVE_UI_DATA_TYPE,
     pub cbUiData: u32,
     pub pbUiData: EAP_UI_DATA_FORMAT,
-}
-impl Copy for EAP_INTERACTIVE_UI_DATA {}
-impl Clone for EAP_INTERACTIVE_UI_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for EAP_INTERACTIVE_UI_DATA {
     type TypeKind = windows_core::CopyType;
@@ -1543,37 +1342,22 @@ impl Default for EAP_INTERACTIVE_UI_DATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_AUTHENTICATOR_RESULT {
     pub fIsSuccess: super::super::Foundation::BOOL,
     pub dwFailureReason: u32,
     pub pAuthAttribs: *mut EAP_ATTRIBUTES,
 }
-impl Copy for EAP_METHOD_AUTHENTICATOR_RESULT {}
-impl Clone for EAP_METHOD_AUTHENTICATOR_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EAP_METHOD_AUTHENTICATOR_RESULT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EAP_METHOD_AUTHENTICATOR_RESULT").field("fIsSuccess", &self.fIsSuccess).field("dwFailureReason", &self.dwFailureReason).field("pAuthAttribs", &self.pAuthAttribs).finish()
-    }
-}
 impl windows_core::TypeKind for EAP_METHOD_AUTHENTICATOR_RESULT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EAP_METHOD_AUTHENTICATOR_RESULT {
-    fn eq(&self, other: &Self) -> bool {
-        self.fIsSuccess == other.fIsSuccess && self.dwFailureReason == other.dwFailureReason && self.pAuthAttribs == other.pAuthAttribs
-    }
-}
-impl Eq for EAP_METHOD_AUTHENTICATOR_RESULT {}
 impl Default for EAP_METHOD_AUTHENTICATOR_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_INFO {
     pub eaptype: EAP_METHOD_TYPE,
     pub pwszAuthorName: windows_core::PWSTR,
@@ -1581,92 +1365,44 @@ pub struct EAP_METHOD_INFO {
     pub eapProperties: u32,
     pub pInnerMethodInfo: *mut EAP_METHOD_INFO,
 }
-impl Copy for EAP_METHOD_INFO {}
-impl Clone for EAP_METHOD_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EAP_METHOD_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EAP_METHOD_INFO").field("eaptype", &self.eaptype).field("pwszAuthorName", &self.pwszAuthorName).field("pwszFriendlyName", &self.pwszFriendlyName).field("eapProperties", &self.eapProperties).field("pInnerMethodInfo", &self.pInnerMethodInfo).finish()
-    }
-}
 impl windows_core::TypeKind for EAP_METHOD_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EAP_METHOD_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.eaptype == other.eaptype && self.pwszAuthorName == other.pwszAuthorName && self.pwszFriendlyName == other.pwszFriendlyName && self.eapProperties == other.eapProperties && self.pInnerMethodInfo == other.pInnerMethodInfo
-    }
-}
-impl Eq for EAP_METHOD_INFO {}
 impl Default for EAP_METHOD_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_INFO_ARRAY {
     pub dwNumberOfMethods: u32,
     pub pEapMethods: *mut EAP_METHOD_INFO,
 }
-impl Copy for EAP_METHOD_INFO_ARRAY {}
-impl Clone for EAP_METHOD_INFO_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EAP_METHOD_INFO_ARRAY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EAP_METHOD_INFO_ARRAY").field("dwNumberOfMethods", &self.dwNumberOfMethods).field("pEapMethods", &self.pEapMethods).finish()
-    }
-}
 impl windows_core::TypeKind for EAP_METHOD_INFO_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EAP_METHOD_INFO_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumberOfMethods == other.dwNumberOfMethods && self.pEapMethods == other.pEapMethods
-    }
-}
-impl Eq for EAP_METHOD_INFO_ARRAY {}
 impl Default for EAP_METHOD_INFO_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_INFO_ARRAY_EX {
     pub dwNumberOfMethods: u32,
     pub pEapMethods: *mut EAP_METHOD_INFO_EX,
 }
-impl Copy for EAP_METHOD_INFO_ARRAY_EX {}
-impl Clone for EAP_METHOD_INFO_ARRAY_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EAP_METHOD_INFO_ARRAY_EX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EAP_METHOD_INFO_ARRAY_EX").field("dwNumberOfMethods", &self.dwNumberOfMethods).field("pEapMethods", &self.pEapMethods).finish()
-    }
-}
 impl windows_core::TypeKind for EAP_METHOD_INFO_ARRAY_EX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EAP_METHOD_INFO_ARRAY_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumberOfMethods == other.dwNumberOfMethods && self.pEapMethods == other.pEapMethods
-    }
-}
-impl Eq for EAP_METHOD_INFO_ARRAY_EX {}
 impl Default for EAP_METHOD_INFO_ARRAY_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_INFO_EX {
     pub eaptype: EAP_METHOD_TYPE,
     pub pwszAuthorName: windows_core::PWSTR,
@@ -1674,42 +1410,20 @@ pub struct EAP_METHOD_INFO_EX {
     pub eapProperties: u32,
     pub pInnerMethodInfoArray: *mut EAP_METHOD_INFO_ARRAY_EX,
 }
-impl Copy for EAP_METHOD_INFO_EX {}
-impl Clone for EAP_METHOD_INFO_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EAP_METHOD_INFO_EX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EAP_METHOD_INFO_EX").field("eaptype", &self.eaptype).field("pwszAuthorName", &self.pwszAuthorName).field("pwszFriendlyName", &self.pwszFriendlyName).field("eapProperties", &self.eapProperties).field("pInnerMethodInfoArray", &self.pInnerMethodInfoArray).finish()
-    }
-}
 impl windows_core::TypeKind for EAP_METHOD_INFO_EX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EAP_METHOD_INFO_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.eaptype == other.eaptype && self.pwszAuthorName == other.pwszAuthorName && self.pwszFriendlyName == other.pwszFriendlyName && self.eapProperties == other.eapProperties && self.pInnerMethodInfoArray == other.pInnerMethodInfoArray
-    }
-}
-impl Eq for EAP_METHOD_INFO_EX {}
 impl Default for EAP_METHOD_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EAP_METHOD_PROPERTY {
     pub eapMethodPropertyType: EAP_METHOD_PROPERTY_TYPE,
     pub eapMethodPropertyValueType: EAP_METHOD_PROPERTY_VALUE_TYPE,
     pub eapMethodPropertyValue: EAP_METHOD_PROPERTY_VALUE,
-}
-impl Copy for EAP_METHOD_PROPERTY {}
-impl Clone for EAP_METHOD_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for EAP_METHOD_PROPERTY {
     type TypeKind = windows_core::CopyType;
@@ -1720,46 +1434,25 @@ impl Default for EAP_METHOD_PROPERTY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_ARRAY {
     pub dwNumberOfProperties: u32,
     pub pMethodProperty: *mut EAP_METHOD_PROPERTY,
 }
-impl Copy for EAP_METHOD_PROPERTY_ARRAY {}
-impl Clone for EAP_METHOD_PROPERTY_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EAP_METHOD_PROPERTY_ARRAY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EAP_METHOD_PROPERTY_ARRAY").field("dwNumberOfProperties", &self.dwNumberOfProperties).field("pMethodProperty", &self.pMethodProperty).finish()
-    }
-}
 impl windows_core::TypeKind for EAP_METHOD_PROPERTY_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EAP_METHOD_PROPERTY_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumberOfProperties == other.dwNumberOfProperties && self.pMethodProperty == other.pMethodProperty
-    }
-}
-impl Eq for EAP_METHOD_PROPERTY_ARRAY {}
 impl Default for EAP_METHOD_PROPERTY_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union EAP_METHOD_PROPERTY_VALUE {
     pub empvBool: EAP_METHOD_PROPERTY_VALUE_BOOL,
     pub empvDword: EAP_METHOD_PROPERTY_VALUE_DWORD,
     pub empvString: EAP_METHOD_PROPERTY_VALUE_STRING,
-}
-impl Copy for EAP_METHOD_PROPERTY_VALUE {}
-impl Clone for EAP_METHOD_PROPERTY_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for EAP_METHOD_PROPERTY_VALUE {
     type TypeKind = windows_core::CopyType;
@@ -1770,126 +1463,63 @@ impl Default for EAP_METHOD_PROPERTY_VALUE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_VALUE_BOOL {
     pub length: u32,
     pub value: super::super::Foundation::BOOL,
 }
-impl Copy for EAP_METHOD_PROPERTY_VALUE_BOOL {}
-impl Clone for EAP_METHOD_PROPERTY_VALUE_BOOL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EAP_METHOD_PROPERTY_VALUE_BOOL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EAP_METHOD_PROPERTY_VALUE_BOOL").field("length", &self.length).field("value", &self.value).finish()
-    }
-}
 impl windows_core::TypeKind for EAP_METHOD_PROPERTY_VALUE_BOOL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EAP_METHOD_PROPERTY_VALUE_BOOL {
-    fn eq(&self, other: &Self) -> bool {
-        self.length == other.length && self.value == other.value
-    }
-}
-impl Eq for EAP_METHOD_PROPERTY_VALUE_BOOL {}
 impl Default for EAP_METHOD_PROPERTY_VALUE_BOOL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_VALUE_DWORD {
     pub length: u32,
     pub value: u32,
 }
-impl Copy for EAP_METHOD_PROPERTY_VALUE_DWORD {}
-impl Clone for EAP_METHOD_PROPERTY_VALUE_DWORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EAP_METHOD_PROPERTY_VALUE_DWORD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EAP_METHOD_PROPERTY_VALUE_DWORD").field("length", &self.length).field("value", &self.value).finish()
-    }
-}
 impl windows_core::TypeKind for EAP_METHOD_PROPERTY_VALUE_DWORD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EAP_METHOD_PROPERTY_VALUE_DWORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.length == other.length && self.value == other.value
-    }
-}
-impl Eq for EAP_METHOD_PROPERTY_VALUE_DWORD {}
 impl Default for EAP_METHOD_PROPERTY_VALUE_DWORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_VALUE_STRING {
     pub length: u32,
     pub value: *mut u8,
 }
-impl Copy for EAP_METHOD_PROPERTY_VALUE_STRING {}
-impl Clone for EAP_METHOD_PROPERTY_VALUE_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EAP_METHOD_PROPERTY_VALUE_STRING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EAP_METHOD_PROPERTY_VALUE_STRING").field("length", &self.length).field("value", &self.value).finish()
-    }
-}
 impl windows_core::TypeKind for EAP_METHOD_PROPERTY_VALUE_STRING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EAP_METHOD_PROPERTY_VALUE_STRING {
-    fn eq(&self, other: &Self) -> bool {
-        self.length == other.length && self.value == other.value
-    }
-}
-impl Eq for EAP_METHOD_PROPERTY_VALUE_STRING {}
 impl Default for EAP_METHOD_PROPERTY_VALUE_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_TYPE {
     pub eapType: EAP_TYPE,
     pub dwAuthorId: u32,
 }
-impl Copy for EAP_METHOD_TYPE {}
-impl Clone for EAP_METHOD_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EAP_METHOD_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EAP_METHOD_TYPE").field("eapType", &self.eapType).field("dwAuthorId", &self.dwAuthorId).finish()
-    }
-}
 impl windows_core::TypeKind for EAP_METHOD_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EAP_METHOD_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.eapType == other.eapType && self.dwAuthorId == other.dwAuthorId
-    }
-}
-impl Eq for EAP_METHOD_TYPE {}
 impl Default for EAP_METHOD_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_PEER_METHOD_ROUTINES {
     pub dwVersion: u32,
     pub pEapType: *mut EAP_TYPE,
@@ -1907,103 +1537,35 @@ pub struct EAP_PEER_METHOD_ROUTINES {
     pub EapPeerEndSession: isize,
     pub EapPeerShutdown: isize,
 }
-impl Copy for EAP_PEER_METHOD_ROUTINES {}
-impl Clone for EAP_PEER_METHOD_ROUTINES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EAP_PEER_METHOD_ROUTINES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EAP_PEER_METHOD_ROUTINES")
-            .field("dwVersion", &self.dwVersion)
-            .field("pEapType", &self.pEapType)
-            .field("EapPeerInitialize", &self.EapPeerInitialize)
-            .field("EapPeerGetIdentity", &self.EapPeerGetIdentity)
-            .field("EapPeerBeginSession", &self.EapPeerBeginSession)
-            .field("EapPeerSetCredentials", &self.EapPeerSetCredentials)
-            .field("EapPeerProcessRequestPacket", &self.EapPeerProcessRequestPacket)
-            .field("EapPeerGetResponsePacket", &self.EapPeerGetResponsePacket)
-            .field("EapPeerGetResult", &self.EapPeerGetResult)
-            .field("EapPeerGetUIContext", &self.EapPeerGetUIContext)
-            .field("EapPeerSetUIContext", &self.EapPeerSetUIContext)
-            .field("EapPeerGetResponseAttributes", &self.EapPeerGetResponseAttributes)
-            .field("EapPeerSetResponseAttributes", &self.EapPeerSetResponseAttributes)
-            .field("EapPeerEndSession", &self.EapPeerEndSession)
-            .field("EapPeerShutdown", &self.EapPeerShutdown)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for EAP_PEER_METHOD_ROUTINES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EAP_PEER_METHOD_ROUTINES {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion
-            && self.pEapType == other.pEapType
-            && self.EapPeerInitialize == other.EapPeerInitialize
-            && self.EapPeerGetIdentity == other.EapPeerGetIdentity
-            && self.EapPeerBeginSession == other.EapPeerBeginSession
-            && self.EapPeerSetCredentials == other.EapPeerSetCredentials
-            && self.EapPeerProcessRequestPacket == other.EapPeerProcessRequestPacket
-            && self.EapPeerGetResponsePacket == other.EapPeerGetResponsePacket
-            && self.EapPeerGetResult == other.EapPeerGetResult
-            && self.EapPeerGetUIContext == other.EapPeerGetUIContext
-            && self.EapPeerSetUIContext == other.EapPeerSetUIContext
-            && self.EapPeerGetResponseAttributes == other.EapPeerGetResponseAttributes
-            && self.EapPeerSetResponseAttributes == other.EapPeerSetResponseAttributes
-            && self.EapPeerEndSession == other.EapPeerEndSession
-            && self.EapPeerShutdown == other.EapPeerShutdown
-    }
-}
-impl Eq for EAP_PEER_METHOD_ROUTINES {}
 impl Default for EAP_PEER_METHOD_ROUTINES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_TYPE {
     pub r#type: u8,
     pub dwVendorId: u32,
     pub dwVendorType: u32,
 }
-impl Copy for EAP_TYPE {}
-impl Clone for EAP_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EAP_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EAP_TYPE").field("type", &self.r#type).field("dwVendorId", &self.dwVendorId).field("dwVendorType", &self.dwVendorType).finish()
-    }
-}
 impl windows_core::TypeKind for EAP_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EAP_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.r#type == other.r#type && self.dwVendorId == other.dwVendorId && self.dwVendorType == other.dwVendorType
-    }
-}
-impl Eq for EAP_TYPE {}
 impl Default for EAP_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union EAP_UI_DATA_FORMAT {
     pub credData: *mut EAP_CONFIG_INPUT_FIELD_ARRAY,
     pub credExpiryData: *mut EAP_CRED_EXPIRY_REQ,
     pub credLogonData: *mut EAP_CONFIG_INPUT_FIELD_ARRAY,
-}
-impl Copy for EAP_UI_DATA_FORMAT {}
-impl Clone for EAP_UI_DATA_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for EAP_UI_DATA_FORMAT {
     type TypeKind = windows_core::CopyType;
@@ -2014,45 +1576,24 @@ impl Default for EAP_UI_DATA_FORMAT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EapCertificateCredential {
     pub certHash: [u8; 20],
     pub password: windows_core::PWSTR,
 }
-impl Copy for EapCertificateCredential {}
-impl Clone for EapCertificateCredential {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EapCertificateCredential {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EapCertificateCredential").field("certHash", &self.certHash).field("password", &self.password).finish()
-    }
-}
 impl windows_core::TypeKind for EapCertificateCredential {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EapCertificateCredential {
-    fn eq(&self, other: &Self) -> bool {
-        self.certHash == other.certHash && self.password == other.password
-    }
-}
-impl Eq for EapCertificateCredential {}
 impl Default for EapCertificateCredential {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EapCredential {
     pub credType: EapCredentialType,
     pub credData: EapCredentialTypeData,
-}
-impl Copy for EapCredential {}
-impl Clone for EapCredential {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for EapCredential {
     type TypeKind = windows_core::CopyType;
@@ -2063,16 +1604,11 @@ impl Default for EapCredential {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union EapCredentialTypeData {
     pub username_password: EapUsernamePasswordCredential,
     pub certificate: EapCertificateCredential,
     pub sim: EapSimCredential,
-}
-impl Copy for EapCredentialTypeData {}
-impl Clone for EapCredentialTypeData {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for EapCredentialTypeData {
     type TypeKind = windows_core::CopyType;
@@ -2083,6 +1619,7 @@ impl Default for EapCredentialTypeData {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EapHostPeerMethodResult {
     pub fIsSuccess: super::super::Foundation::BOOL,
     pub dwFailureReasonCode: u32,
@@ -2097,101 +1634,39 @@ pub struct EapHostPeerMethodResult {
     pub pEapMethodInfo: *mut EAP_METHOD_INFO,
     pub pEapError: *mut EAP_ERROR,
 }
-impl Copy for EapHostPeerMethodResult {}
-impl Clone for EapHostPeerMethodResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EapHostPeerMethodResult {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EapHostPeerMethodResult")
-            .field("fIsSuccess", &self.fIsSuccess)
-            .field("dwFailureReasonCode", &self.dwFailureReasonCode)
-            .field("fSaveConnectionData", &self.fSaveConnectionData)
-            .field("dwSizeofConnectionData", &self.dwSizeofConnectionData)
-            .field("pConnectionData", &self.pConnectionData)
-            .field("fSaveUserData", &self.fSaveUserData)
-            .field("dwSizeofUserData", &self.dwSizeofUserData)
-            .field("pUserData", &self.pUserData)
-            .field("pAttribArray", &self.pAttribArray)
-            .field("isolationState", &self.isolationState)
-            .field("pEapMethodInfo", &self.pEapMethodInfo)
-            .field("pEapError", &self.pEapError)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for EapHostPeerMethodResult {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EapHostPeerMethodResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.fIsSuccess == other.fIsSuccess && self.dwFailureReasonCode == other.dwFailureReasonCode && self.fSaveConnectionData == other.fSaveConnectionData && self.dwSizeofConnectionData == other.dwSizeofConnectionData && self.pConnectionData == other.pConnectionData && self.fSaveUserData == other.fSaveUserData && self.dwSizeofUserData == other.dwSizeofUserData && self.pUserData == other.pUserData && self.pAttribArray == other.pAttribArray && self.isolationState == other.isolationState && self.pEapMethodInfo == other.pEapMethodInfo && self.pEapError == other.pEapError
-    }
-}
-impl Eq for EapHostPeerMethodResult {}
 impl Default for EapHostPeerMethodResult {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EapPacket {
     pub Code: u8,
     pub Id: u8,
     pub Length: [u8; 2],
     pub Data: [u8; 1],
 }
-impl Copy for EapPacket {}
-impl Clone for EapPacket {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EapPacket {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EapPacket").field("Code", &self.Code).field("Id", &self.Id).field("Length", &self.Length).field("Data", &self.Data).finish()
-    }
-}
 impl windows_core::TypeKind for EapPacket {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EapPacket {
-    fn eq(&self, other: &Self) -> bool {
-        self.Code == other.Code && self.Id == other.Id && self.Length == other.Length && self.Data == other.Data
-    }
-}
-impl Eq for EapPacket {}
 impl Default for EapPacket {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EapPeerMethodOutput {
     pub action: EapPeerMethodResponseAction,
     pub fAllowNotifications: super::super::Foundation::BOOL,
 }
-impl Copy for EapPeerMethodOutput {}
-impl Clone for EapPeerMethodOutput {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EapPeerMethodOutput {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EapPeerMethodOutput").field("action", &self.action).field("fAllowNotifications", &self.fAllowNotifications).finish()
-    }
-}
 impl windows_core::TypeKind for EapPeerMethodOutput {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EapPeerMethodOutput {
-    fn eq(&self, other: &Self) -> bool {
-        self.action == other.action && self.fAllowNotifications == other.fAllowNotifications
-    }
-}
-impl Eq for EapPeerMethodOutput {}
 impl Default for EapPeerMethodOutput {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2199,6 +1674,7 @@ impl Default for EapPeerMethodOutput {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EapPeerMethodResult {
     pub fIsSuccess: super::super::Foundation::BOOL,
     pub dwFailureReasonCode: u32,
@@ -2214,44 +1690,9 @@ pub struct EapPeerMethodResult {
     pub fSaveToCredMan: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for EapPeerMethodResult {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for EapPeerMethodResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for EapPeerMethodResult {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EapPeerMethodResult")
-            .field("fIsSuccess", &self.fIsSuccess)
-            .field("dwFailureReasonCode", &self.dwFailureReasonCode)
-            .field("fSaveConnectionData", &self.fSaveConnectionData)
-            .field("dwSizeofConnectionData", &self.dwSizeofConnectionData)
-            .field("pConnectionData", &self.pConnectionData)
-            .field("fSaveUserData", &self.fSaveUserData)
-            .field("dwSizeofUserData", &self.dwSizeofUserData)
-            .field("pUserData", &self.pUserData)
-            .field("pAttribArray", &self.pAttribArray)
-            .field("pEapError", &self.pEapError)
-            .field("pNgcKerbTicket", &self.pNgcKerbTicket)
-            .field("fSaveToCredMan", &self.fSaveToCredMan)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for EapPeerMethodResult {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for EapPeerMethodResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.fIsSuccess == other.fIsSuccess && self.dwFailureReasonCode == other.dwFailureReasonCode && self.fSaveConnectionData == other.fSaveConnectionData && self.dwSizeofConnectionData == other.dwSizeofConnectionData && self.pConnectionData == other.pConnectionData && self.fSaveUserData == other.fSaveUserData && self.dwSizeofUserData == other.dwSizeofUserData && self.pUserData == other.pUserData && self.pAttribArray == other.pAttribArray && self.pEapError == other.pEapError && self.pNgcKerbTicket == other.pNgcKerbTicket && self.fSaveToCredMan == other.fSaveToCredMan
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for EapPeerMethodResult {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for EapPeerMethodResult {
     fn default() -> Self {
@@ -2259,65 +1700,34 @@ impl Default for EapPeerMethodResult {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EapSimCredential {
     pub iccID: windows_core::PWSTR,
-}
-impl Copy for EapSimCredential {}
-impl Clone for EapSimCredential {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EapSimCredential {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EapSimCredential").field("iccID", &self.iccID).finish()
-    }
 }
 impl windows_core::TypeKind for EapSimCredential {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EapSimCredential {
-    fn eq(&self, other: &Self) -> bool {
-        self.iccID == other.iccID
-    }
-}
-impl Eq for EapSimCredential {}
 impl Default for EapSimCredential {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EapUsernamePasswordCredential {
     pub username: windows_core::PWSTR,
     pub password: windows_core::PWSTR,
 }
-impl Copy for EapUsernamePasswordCredential {}
-impl Clone for EapUsernamePasswordCredential {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EapUsernamePasswordCredential {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EapUsernamePasswordCredential").field("username", &self.username).field("password", &self.password).finish()
-    }
-}
 impl windows_core::TypeKind for EapUsernamePasswordCredential {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EapUsernamePasswordCredential {
-    fn eq(&self, other: &Self) -> bool {
-        self.username == other.username && self.password == other.password
-    }
-}
-impl Eq for EapUsernamePasswordCredential {}
 impl Default for EapUsernamePasswordCredential {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LEGACY_IDENTITY_UI_PARAMS {
     pub eapType: u32,
     pub dwFlags: u32,
@@ -2330,43 +1740,16 @@ pub struct LEGACY_IDENTITY_UI_PARAMS {
     pub pwszIdentity: windows_core::PWSTR,
     pub dwError: u32,
 }
-impl Copy for LEGACY_IDENTITY_UI_PARAMS {}
-impl Clone for LEGACY_IDENTITY_UI_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LEGACY_IDENTITY_UI_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LEGACY_IDENTITY_UI_PARAMS")
-            .field("eapType", &self.eapType)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwSizeofConnectionData", &self.dwSizeofConnectionData)
-            .field("pConnectionData", &self.pConnectionData)
-            .field("dwSizeofUserData", &self.dwSizeofUserData)
-            .field("pUserData", &self.pUserData)
-            .field("dwSizeofUserDataOut", &self.dwSizeofUserDataOut)
-            .field("pUserDataOut", &self.pUserDataOut)
-            .field("pwszIdentity", &self.pwszIdentity)
-            .field("dwError", &self.dwError)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for LEGACY_IDENTITY_UI_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LEGACY_IDENTITY_UI_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.eapType == other.eapType && self.dwFlags == other.dwFlags && self.dwSizeofConnectionData == other.dwSizeofConnectionData && self.pConnectionData == other.pConnectionData && self.dwSizeofUserData == other.dwSizeofUserData && self.pUserData == other.pUserData && self.dwSizeofUserDataOut == other.dwSizeofUserDataOut && self.pUserDataOut == other.pUserDataOut && self.pwszIdentity == other.pwszIdentity && self.dwError == other.dwError
-    }
-}
-impl Eq for LEGACY_IDENTITY_UI_PARAMS {}
 impl Default for LEGACY_IDENTITY_UI_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LEGACY_INTERACTIVE_UI_PARAMS {
     pub eapType: u32,
     pub dwSizeofContextData: u32,
@@ -2375,26 +1758,9 @@ pub struct LEGACY_INTERACTIVE_UI_PARAMS {
     pub pInteractiveUIData: *mut u8,
     pub dwError: u32,
 }
-impl Copy for LEGACY_INTERACTIVE_UI_PARAMS {}
-impl Clone for LEGACY_INTERACTIVE_UI_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LEGACY_INTERACTIVE_UI_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LEGACY_INTERACTIVE_UI_PARAMS").field("eapType", &self.eapType).field("dwSizeofContextData", &self.dwSizeofContextData).field("pContextData", &self.pContextData).field("dwSizeofInteractiveUIData", &self.dwSizeofInteractiveUIData).field("pInteractiveUIData", &self.pInteractiveUIData).field("dwError", &self.dwError).finish()
-    }
-}
 impl windows_core::TypeKind for LEGACY_INTERACTIVE_UI_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LEGACY_INTERACTIVE_UI_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.eapType == other.eapType && self.dwSizeofContextData == other.dwSizeofContextData && self.pContextData == other.pContextData && self.dwSizeofInteractiveUIData == other.dwSizeofInteractiveUIData && self.pInteractiveUIData == other.pInteractiveUIData && self.dwError == other.dwError
-    }
-}
-impl Eq for LEGACY_INTERACTIVE_UI_PARAMS {}
 impl Default for LEGACY_INTERACTIVE_UI_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2402,37 +1768,16 @@ impl Default for LEGACY_INTERACTIVE_UI_PARAMS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NgcTicketContext {
     pub wszTicket: [u16; 45],
     pub hKey: super::Cryptography::NCRYPT_KEY_HANDLE,
     pub hImpersonateToken: super::super::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for NgcTicketContext {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for NgcTicketContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for NgcTicketContext {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NgcTicketContext").field("wszTicket", &self.wszTicket).field("hKey", &self.hKey).field("hImpersonateToken", &self.hImpersonateToken).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for NgcTicketContext {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for NgcTicketContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.wszTicket == other.wszTicket && self.hKey == other.hKey && self.hImpersonateToken == other.hImpersonateToken
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for NgcTicketContext {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for NgcTicketContext {
     fn default() -> Self {
@@ -2440,6 +1785,7 @@ impl Default for NgcTicketContext {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_EAP_INFO {
     pub dwSizeInBytes: u32,
     pub dwEapTypeId: u32,
@@ -2448,32 +1794,16 @@ pub struct PPP_EAP_INFO {
     pub RasEapEnd: isize,
     pub RasEapMakeMessage: isize,
 }
-impl Copy for PPP_EAP_INFO {}
-impl Clone for PPP_EAP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPP_EAP_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPP_EAP_INFO").field("dwSizeInBytes", &self.dwSizeInBytes).field("dwEapTypeId", &self.dwEapTypeId).field("RasEapInitialize", &self.RasEapInitialize).field("RasEapBegin", &self.RasEapBegin).field("RasEapEnd", &self.RasEapEnd).field("RasEapMakeMessage", &self.RasEapMakeMessage).finish()
-    }
-}
 impl windows_core::TypeKind for PPP_EAP_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPP_EAP_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSizeInBytes == other.dwSizeInBytes && self.dwEapTypeId == other.dwEapTypeId && self.RasEapInitialize == other.RasEapInitialize && self.RasEapBegin == other.RasEapBegin && self.RasEapEnd == other.RasEapEnd && self.RasEapMakeMessage == other.RasEapMakeMessage
-    }
-}
-impl Eq for PPP_EAP_INFO {}
 impl Default for PPP_EAP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_EAP_INPUT {
     pub dwSizeInBytes: u32,
     pub fFlags: u32,
@@ -2497,68 +1827,9 @@ pub struct PPP_EAP_INPUT {
     pub guidConnectionId: windows_core::GUID,
     pub isVpn: super::super::Foundation::BOOL,
 }
-impl Copy for PPP_EAP_INPUT {}
-impl Clone for PPP_EAP_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPP_EAP_INPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPP_EAP_INPUT")
-            .field("dwSizeInBytes", &self.dwSizeInBytes)
-            .field("fFlags", &self.fFlags)
-            .field("fAuthenticator", &self.fAuthenticator)
-            .field("pwszIdentity", &self.pwszIdentity)
-            .field("pwszPassword", &self.pwszPassword)
-            .field("bInitialId", &self.bInitialId)
-            .field("pUserAttributes", &self.pUserAttributes)
-            .field("fAuthenticationComplete", &self.fAuthenticationComplete)
-            .field("dwAuthResultCode", &self.dwAuthResultCode)
-            .field("hTokenImpersonateUser", &self.hTokenImpersonateUser)
-            .field("fSuccessPacketReceived", &self.fSuccessPacketReceived)
-            .field("fDataReceivedFromInteractiveUI", &self.fDataReceivedFromInteractiveUI)
-            .field("pDataFromInteractiveUI", &self.pDataFromInteractiveUI)
-            .field("dwSizeOfDataFromInteractiveUI", &self.dwSizeOfDataFromInteractiveUI)
-            .field("pConnectionData", &self.pConnectionData)
-            .field("dwSizeOfConnectionData", &self.dwSizeOfConnectionData)
-            .field("pUserData", &self.pUserData)
-            .field("dwSizeOfUserData", &self.dwSizeOfUserData)
-            .field("hReserved", &self.hReserved)
-            .field("guidConnectionId", &self.guidConnectionId)
-            .field("isVpn", &self.isVpn)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PPP_EAP_INPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPP_EAP_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSizeInBytes == other.dwSizeInBytes
-            && self.fFlags == other.fFlags
-            && self.fAuthenticator == other.fAuthenticator
-            && self.pwszIdentity == other.pwszIdentity
-            && self.pwszPassword == other.pwszPassword
-            && self.bInitialId == other.bInitialId
-            && self.pUserAttributes == other.pUserAttributes
-            && self.fAuthenticationComplete == other.fAuthenticationComplete
-            && self.dwAuthResultCode == other.dwAuthResultCode
-            && self.hTokenImpersonateUser == other.hTokenImpersonateUser
-            && self.fSuccessPacketReceived == other.fSuccessPacketReceived
-            && self.fDataReceivedFromInteractiveUI == other.fDataReceivedFromInteractiveUI
-            && self.pDataFromInteractiveUI == other.pDataFromInteractiveUI
-            && self.dwSizeOfDataFromInteractiveUI == other.dwSizeOfDataFromInteractiveUI
-            && self.pConnectionData == other.pConnectionData
-            && self.dwSizeOfConnectionData == other.dwSizeOfConnectionData
-            && self.pUserData == other.pUserData
-            && self.dwSizeOfUserData == other.dwSizeOfUserData
-            && self.hReserved == other.hReserved
-            && self.guidConnectionId == other.guidConnectionId
-            && self.isVpn == other.isVpn
-    }
-}
-impl Eq for PPP_EAP_INPUT {}
 impl Default for PPP_EAP_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2566,6 +1837,7 @@ impl Default for PPP_EAP_INPUT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_EAP_OUTPUT {
     pub dwSizeInBytes: u32,
     pub Action: PPP_EAP_ACTION,
@@ -2584,47 +1856,9 @@ pub struct PPP_EAP_OUTPUT {
     pub fSaveToCredMan: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for PPP_EAP_OUTPUT {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for PPP_EAP_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for PPP_EAP_OUTPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPP_EAP_OUTPUT")
-            .field("dwSizeInBytes", &self.dwSizeInBytes)
-            .field("Action", &self.Action)
-            .field("dwAuthResultCode", &self.dwAuthResultCode)
-            .field("pUserAttributes", &self.pUserAttributes)
-            .field("fInvokeInteractiveUI", &self.fInvokeInteractiveUI)
-            .field("pUIContextData", &self.pUIContextData)
-            .field("dwSizeOfUIContextData", &self.dwSizeOfUIContextData)
-            .field("fSaveConnectionData", &self.fSaveConnectionData)
-            .field("pConnectionData", &self.pConnectionData)
-            .field("dwSizeOfConnectionData", &self.dwSizeOfConnectionData)
-            .field("fSaveUserData", &self.fSaveUserData)
-            .field("pUserData", &self.pUserData)
-            .field("dwSizeOfUserData", &self.dwSizeOfUserData)
-            .field("pNgcKerbTicket", &self.pNgcKerbTicket)
-            .field("fSaveToCredMan", &self.fSaveToCredMan)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for PPP_EAP_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for PPP_EAP_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSizeInBytes == other.dwSizeInBytes && self.Action == other.Action && self.dwAuthResultCode == other.dwAuthResultCode && self.pUserAttributes == other.pUserAttributes && self.fInvokeInteractiveUI == other.fInvokeInteractiveUI && self.pUIContextData == other.pUIContextData && self.dwSizeOfUIContextData == other.dwSizeOfUIContextData && self.fSaveConnectionData == other.fSaveConnectionData && self.pConnectionData == other.pConnectionData && self.dwSizeOfConnectionData == other.dwSizeOfConnectionData && self.fSaveUserData == other.fSaveUserData && self.pUserData == other.pUserData && self.dwSizeOfUserData == other.dwSizeOfUserData && self.pNgcKerbTicket == other.pNgcKerbTicket && self.fSaveToCredMan == other.fSaveToCredMan
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for PPP_EAP_OUTPUT {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for PPP_EAP_OUTPUT {
     fn default() -> Self {
@@ -2632,63 +1866,31 @@ impl Default for PPP_EAP_OUTPUT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_EAP_PACKET {
     pub Code: u8,
     pub Id: u8,
     pub Length: [u8; 2],
     pub Data: [u8; 1],
 }
-impl Copy for PPP_EAP_PACKET {}
-impl Clone for PPP_EAP_PACKET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PPP_EAP_PACKET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PPP_EAP_PACKET").field("Code", &self.Code).field("Id", &self.Id).field("Length", &self.Length).field("Data", &self.Data).finish()
-    }
-}
 impl windows_core::TypeKind for PPP_EAP_PACKET {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PPP_EAP_PACKET {
-    fn eq(&self, other: &Self) -> bool {
-        self.Code == other.Code && self.Id == other.Id && self.Length == other.Length && self.Data == other.Data
-    }
-}
-impl Eq for PPP_EAP_PACKET {}
 impl Default for PPP_EAP_PACKET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAS_AUTH_ATTRIBUTE {
     pub raaType: RAS_AUTH_ATTRIBUTE_TYPE,
     pub dwLength: u32,
     pub Value: *mut core::ffi::c_void,
 }
-impl Copy for RAS_AUTH_ATTRIBUTE {}
-impl Clone for RAS_AUTH_ATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RAS_AUTH_ATTRIBUTE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RAS_AUTH_ATTRIBUTE").field("raaType", &self.raaType).field("dwLength", &self.dwLength).field("Value", &self.Value).finish()
-    }
-}
 impl windows_core::TypeKind for RAS_AUTH_ATTRIBUTE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RAS_AUTH_ATTRIBUTE {
-    fn eq(&self, other: &Self) -> bool {
-        self.raaType == other.raaType && self.dwLength == other.dwLength && self.Value == other.Value
-    }
-}
-impl Eq for RAS_AUTH_ATTRIBUTE {}
 impl Default for RAS_AUTH_ATTRIBUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

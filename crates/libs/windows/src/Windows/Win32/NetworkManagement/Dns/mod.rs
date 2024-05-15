@@ -970,14 +970,9 @@ impl core::fmt::Debug for DNS_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_AAAA_DATA {
     pub Ip6Address: IP6_ADDRESS,
-}
-impl Copy for DNS_AAAA_DATA {}
-impl Clone for DNS_AAAA_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_AAAA_DATA {
     type TypeKind = windows_core::CopyType;
@@ -988,15 +983,10 @@ impl Default for DNS_AAAA_DATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_ADDR {
     pub MaxSa: [i8; 32],
     pub Data: DNS_ADDR_0,
-}
-impl Copy for DNS_ADDR {}
-impl Clone for DNS_ADDR {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_ADDR {
     type TypeKind = windows_core::CopyType;
@@ -1007,14 +997,9 @@ impl Default for DNS_ADDR {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union DNS_ADDR_0 {
     pub DnsAddrUserDword: [u32; 8],
-}
-impl Copy for DNS_ADDR_0 {}
-impl Clone for DNS_ADDR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_ADDR_0 {
     type TypeKind = windows_core::CopyType;
@@ -1025,6 +1010,7 @@ impl Default for DNS_ADDR_0 {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DNS_ADDR_ARRAY {
     pub MaxCount: u32,
     pub AddrCount: u32,
@@ -1037,12 +1023,6 @@ pub struct DNS_ADDR_ARRAY {
     pub Reserved2: u32,
     pub AddrArray: [DNS_ADDR; 1],
 }
-impl Copy for DNS_ADDR_ARRAY {}
-impl Clone for DNS_ADDR_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DNS_ADDR_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
@@ -1052,214 +1032,103 @@ impl Default for DNS_ADDR_ARRAY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_APPLICATION_SETTINGS {
     pub Version: u32,
     pub Flags: u64,
 }
-impl Copy for DNS_APPLICATION_SETTINGS {}
-impl Clone for DNS_APPLICATION_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_APPLICATION_SETTINGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_APPLICATION_SETTINGS").field("Version", &self.Version).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_APPLICATION_SETTINGS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_APPLICATION_SETTINGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Flags == other.Flags
-    }
-}
-impl Eq for DNS_APPLICATION_SETTINGS {}
 impl Default for DNS_APPLICATION_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_ATMA_DATA {
     pub AddressType: u8,
     pub Address: [u8; 20],
 }
-impl Copy for DNS_ATMA_DATA {}
-impl Clone for DNS_ATMA_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_ATMA_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_ATMA_DATA").field("AddressType", &self.AddressType).field("Address", &self.Address).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_ATMA_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_ATMA_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.AddressType == other.AddressType && self.Address == other.Address
-    }
-}
-impl Eq for DNS_ATMA_DATA {}
 impl Default for DNS_ATMA_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_A_DATA {
     pub IpAddress: u32,
-}
-impl Copy for DNS_A_DATA {}
-impl Clone for DNS_A_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_A_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_A_DATA").field("IpAddress", &self.IpAddress).finish()
-    }
 }
 impl windows_core::TypeKind for DNS_A_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_A_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.IpAddress == other.IpAddress
-    }
-}
-impl Eq for DNS_A_DATA {}
 impl Default for DNS_A_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_CONNECTION_IFINDEX_ENTRY {
     pub pwszConnectionName: windows_core::PCWSTR,
     pub dwIfIndex: u32,
 }
-impl Copy for DNS_CONNECTION_IFINDEX_ENTRY {}
-impl Clone for DNS_CONNECTION_IFINDEX_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_CONNECTION_IFINDEX_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_CONNECTION_IFINDEX_ENTRY").field("pwszConnectionName", &self.pwszConnectionName).field("dwIfIndex", &self.dwIfIndex).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_CONNECTION_IFINDEX_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_CONNECTION_IFINDEX_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszConnectionName == other.pwszConnectionName && self.dwIfIndex == other.dwIfIndex
-    }
-}
-impl Eq for DNS_CONNECTION_IFINDEX_ENTRY {}
 impl Default for DNS_CONNECTION_IFINDEX_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_CONNECTION_IFINDEX_LIST {
     pub pConnectionIfIndexEntries: *mut DNS_CONNECTION_IFINDEX_ENTRY,
     pub nEntries: u32,
 }
-impl Copy for DNS_CONNECTION_IFINDEX_LIST {}
-impl Clone for DNS_CONNECTION_IFINDEX_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_CONNECTION_IFINDEX_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_CONNECTION_IFINDEX_LIST").field("pConnectionIfIndexEntries", &self.pConnectionIfIndexEntries).field("nEntries", &self.nEntries).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_CONNECTION_IFINDEX_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_CONNECTION_IFINDEX_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.pConnectionIfIndexEntries == other.pConnectionIfIndexEntries && self.nEntries == other.nEntries
-    }
-}
-impl Eq for DNS_CONNECTION_IFINDEX_LIST {}
 impl Default for DNS_CONNECTION_IFINDEX_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_CONNECTION_NAME {
     pub wszName: [u16; 65],
-}
-impl Copy for DNS_CONNECTION_NAME {}
-impl Clone for DNS_CONNECTION_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_CONNECTION_NAME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_CONNECTION_NAME").field("wszName", &self.wszName).finish()
-    }
 }
 impl windows_core::TypeKind for DNS_CONNECTION_NAME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_CONNECTION_NAME {
-    fn eq(&self, other: &Self) -> bool {
-        self.wszName == other.wszName
-    }
-}
-impl Eq for DNS_CONNECTION_NAME {}
 impl Default for DNS_CONNECTION_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_CONNECTION_NAME_LIST {
     pub cNames: u32,
     pub pNames: *mut DNS_CONNECTION_NAME,
 }
-impl Copy for DNS_CONNECTION_NAME_LIST {}
-impl Clone for DNS_CONNECTION_NAME_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_CONNECTION_NAME_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_CONNECTION_NAME_LIST").field("cNames", &self.cNames).field("pNames", &self.pNames).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_CONNECTION_NAME_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_CONNECTION_NAME_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.cNames == other.cNames && self.pNames == other.pNames
-    }
-}
-impl Eq for DNS_CONNECTION_NAME_LIST {}
 impl Default for DNS_CONNECTION_NAME_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_CONNECTION_POLICY_ENTRY {
     pub pwszHost: windows_core::PCWSTR,
     pub pwszAppId: windows_core::PCWSTR,
@@ -1269,71 +1138,33 @@ pub struct DNS_CONNECTION_POLICY_ENTRY {
     pub ppwszConnections: *const windows_core::PCWSTR,
     pub dwPolicyEntryFlags: u32,
 }
-impl Copy for DNS_CONNECTION_POLICY_ENTRY {}
-impl Clone for DNS_CONNECTION_POLICY_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_CONNECTION_POLICY_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_CONNECTION_POLICY_ENTRY").field("pwszHost", &self.pwszHost).field("pwszAppId", &self.pwszAppId).field("cbAppSid", &self.cbAppSid).field("pbAppSid", &self.pbAppSid).field("nConnections", &self.nConnections).field("ppwszConnections", &self.ppwszConnections).field("dwPolicyEntryFlags", &self.dwPolicyEntryFlags).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_CONNECTION_POLICY_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_CONNECTION_POLICY_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszHost == other.pwszHost && self.pwszAppId == other.pwszAppId && self.cbAppSid == other.cbAppSid && self.pbAppSid == other.pbAppSid && self.nConnections == other.nConnections && self.ppwszConnections == other.ppwszConnections && self.dwPolicyEntryFlags == other.dwPolicyEntryFlags
-    }
-}
-impl Eq for DNS_CONNECTION_POLICY_ENTRY {}
 impl Default for DNS_CONNECTION_POLICY_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_CONNECTION_POLICY_ENTRY_LIST {
     pub pPolicyEntries: *mut DNS_CONNECTION_POLICY_ENTRY,
     pub nEntries: u32,
 }
-impl Copy for DNS_CONNECTION_POLICY_ENTRY_LIST {}
-impl Clone for DNS_CONNECTION_POLICY_ENTRY_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_CONNECTION_POLICY_ENTRY_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_CONNECTION_POLICY_ENTRY_LIST").field("pPolicyEntries", &self.pPolicyEntries).field("nEntries", &self.nEntries).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_CONNECTION_POLICY_ENTRY_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_CONNECTION_POLICY_ENTRY_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.pPolicyEntries == other.pPolicyEntries && self.nEntries == other.nEntries
-    }
-}
-impl Eq for DNS_CONNECTION_POLICY_ENTRY_LIST {}
 impl Default for DNS_CONNECTION_POLICY_ENTRY_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_PROXY_ELEMENT {
     pub Type: DNS_CONNECTION_PROXY_TYPE,
     pub Info: DNS_CONNECTION_PROXY_INFO,
-}
-impl Copy for DNS_CONNECTION_PROXY_ELEMENT {}
-impl Clone for DNS_CONNECTION_PROXY_ELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_CONNECTION_PROXY_ELEMENT {
     type TypeKind = windows_core::CopyType;
@@ -1344,18 +1175,13 @@ impl Default for DNS_CONNECTION_PROXY_ELEMENT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_PROXY_INFO {
     pub Version: u32,
     pub pwszFriendlyName: windows_core::PWSTR,
     pub Flags: u32,
     pub Switch: DNS_CONNECTION_PROXY_INFO_SWITCH,
     pub Anonymous: DNS_CONNECTION_PROXY_INFO_0,
-}
-impl Copy for DNS_CONNECTION_PROXY_INFO {}
-impl Clone for DNS_CONNECTION_PROXY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_CONNECTION_PROXY_INFO {
     type TypeKind = windows_core::CopyType;
@@ -1366,15 +1192,10 @@ impl Default for DNS_CONNECTION_PROXY_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_CONNECTION_PROXY_INFO_0 {
     pub Config: DNS_CONNECTION_PROXY_INFO_0_0,
     pub Script: DNS_CONNECTION_PROXY_INFO_0_1,
-}
-impl Copy for DNS_CONNECTION_PROXY_INFO_0 {}
-impl Clone for DNS_CONNECTION_PROXY_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_CONNECTION_PROXY_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -1385,6 +1206,7 @@ impl Default for DNS_CONNECTION_PROXY_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_CONNECTION_PROXY_INFO_0_0 {
     pub pwszServer: windows_core::PWSTR,
     pub pwszUsername: windows_core::PWSTR,
@@ -1393,75 +1215,37 @@ pub struct DNS_CONNECTION_PROXY_INFO_0_0 {
     pub pwszExtraInfo: windows_core::PWSTR,
     pub Port: u16,
 }
-impl Copy for DNS_CONNECTION_PROXY_INFO_0_0 {}
-impl Clone for DNS_CONNECTION_PROXY_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_CONNECTION_PROXY_INFO_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_CONNECTION_PROXY_INFO_0_0").field("pwszServer", &self.pwszServer).field("pwszUsername", &self.pwszUsername).field("pwszPassword", &self.pwszPassword).field("pwszException", &self.pwszException).field("pwszExtraInfo", &self.pwszExtraInfo).field("Port", &self.Port).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_CONNECTION_PROXY_INFO_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_CONNECTION_PROXY_INFO_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszServer == other.pwszServer && self.pwszUsername == other.pwszUsername && self.pwszPassword == other.pwszPassword && self.pwszException == other.pwszException && self.pwszExtraInfo == other.pwszExtraInfo && self.Port == other.Port
-    }
-}
-impl Eq for DNS_CONNECTION_PROXY_INFO_0_0 {}
 impl Default for DNS_CONNECTION_PROXY_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_CONNECTION_PROXY_INFO_0_1 {
     pub pwszScript: windows_core::PWSTR,
     pub pwszUsername: windows_core::PWSTR,
     pub pwszPassword: windows_core::PWSTR,
 }
-impl Copy for DNS_CONNECTION_PROXY_INFO_0_1 {}
-impl Clone for DNS_CONNECTION_PROXY_INFO_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_CONNECTION_PROXY_INFO_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_CONNECTION_PROXY_INFO_0_1").field("pwszScript", &self.pwszScript).field("pwszUsername", &self.pwszUsername).field("pwszPassword", &self.pwszPassword).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_CONNECTION_PROXY_INFO_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_CONNECTION_PROXY_INFO_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszScript == other.pwszScript && self.pwszUsername == other.pwszUsername && self.pwszPassword == other.pwszPassword
-    }
-}
-impl Eq for DNS_CONNECTION_PROXY_INFO_0_1 {}
 impl Default for DNS_CONNECTION_PROXY_INFO_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_PROXY_INFO_EX {
     pub ProxyInfo: DNS_CONNECTION_PROXY_INFO,
     pub dwInterfaceIndex: u32,
     pub pwszConnectionName: windows_core::PWSTR,
     pub fDirectConfiguration: super::super::Foundation::BOOL,
     pub hConnection: super::super::Foundation::HANDLE,
-}
-impl Copy for DNS_CONNECTION_PROXY_INFO_EX {}
-impl Clone for DNS_CONNECTION_PROXY_INFO_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_CONNECTION_PROXY_INFO_EX {
     type TypeKind = windows_core::CopyType;
@@ -1472,47 +1256,26 @@ impl Default for DNS_CONNECTION_PROXY_INFO_EX {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_CONNECTION_PROXY_LIST {
     pub cProxies: u32,
     pub pProxies: *mut DNS_CONNECTION_PROXY_ELEMENT,
 }
-impl Copy for DNS_CONNECTION_PROXY_LIST {}
-impl Clone for DNS_CONNECTION_PROXY_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_CONNECTION_PROXY_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_CONNECTION_PROXY_LIST").field("cProxies", &self.cProxies).field("pProxies", &self.pProxies).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_CONNECTION_PROXY_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_CONNECTION_PROXY_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.cProxies == other.cProxies && self.pProxies == other.pProxies
-    }
-}
-impl Eq for DNS_CONNECTION_PROXY_LIST {}
 impl Default for DNS_CONNECTION_PROXY_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_CUSTOM_SERVER {
     pub dwServerType: u32,
     pub ullFlags: u64,
     pub Anonymous1: DNS_CUSTOM_SERVER_0,
     pub Anonymous2: DNS_CUSTOM_SERVER_1,
-}
-impl Copy for DNS_CUSTOM_SERVER {}
-impl Clone for DNS_CUSTOM_SERVER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_CUSTOM_SERVER {
     type TypeKind = windows_core::CopyType;
@@ -1523,14 +1286,9 @@ impl Default for DNS_CUSTOM_SERVER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_CUSTOM_SERVER_0 {
     pub pwszTemplate: windows_core::PWSTR,
-}
-impl Copy for DNS_CUSTOM_SERVER_0 {}
-impl Clone for DNS_CUSTOM_SERVER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_CUSTOM_SERVER_0 {
     type TypeKind = windows_core::CopyType;
@@ -1541,14 +1299,9 @@ impl Default for DNS_CUSTOM_SERVER_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_CUSTOM_SERVER_1 {
     pub MaxSa: [i8; 32],
-}
-impl Copy for DNS_CUSTOM_SERVER_1 {}
-impl Clone for DNS_CUSTOM_SERVER_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_CUSTOM_SERVER_1 {
     type TypeKind = windows_core::CopyType;
@@ -1559,36 +1312,21 @@ impl Default for DNS_CUSTOM_SERVER_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_DHCID_DATA {
     pub dwByteCount: u32,
     pub DHCID: [u8; 1],
 }
-impl Copy for DNS_DHCID_DATA {}
-impl Clone for DNS_DHCID_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_DHCID_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_DHCID_DATA").field("dwByteCount", &self.dwByteCount).field("DHCID", &self.DHCID).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_DHCID_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_DHCID_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwByteCount == other.dwByteCount && self.DHCID == other.DHCID
-    }
-}
-impl Eq for DNS_DHCID_DATA {}
 impl Default for DNS_DHCID_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_DS_DATA {
     pub wKeyTag: u16,
     pub chAlgorithm: u8,
@@ -1597,32 +1335,16 @@ pub struct DNS_DS_DATA {
     pub wPad: u16,
     pub Digest: [u8; 1],
 }
-impl Copy for DNS_DS_DATA {}
-impl Clone for DNS_DS_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_DS_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_DS_DATA").field("wKeyTag", &self.wKeyTag).field("chAlgorithm", &self.chAlgorithm).field("chDigestType", &self.chDigestType).field("wDigestLength", &self.wDigestLength).field("wPad", &self.wPad).field("Digest", &self.Digest).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_DS_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_DS_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.wKeyTag == other.wKeyTag && self.chAlgorithm == other.chAlgorithm && self.chDigestType == other.chDigestType && self.wDigestLength == other.wDigestLength && self.wPad == other.wPad && self.Digest == other.Digest
-    }
-}
-impl Eq for DNS_DS_DATA {}
 impl Default for DNS_DS_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DNS_HEADER {
     pub Xid: u16,
     pub _bitfield1: u8,
@@ -1631,12 +1353,6 @@ pub struct DNS_HEADER {
     pub AnswerCount: u16,
     pub NameServerCount: u16,
     pub AdditionalCount: u16,
-}
-impl Copy for DNS_HEADER {}
-impl Clone for DNS_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_HEADER {
     type TypeKind = windows_core::CopyType;
@@ -1647,16 +1363,11 @@ impl Default for DNS_HEADER {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DNS_HEADER_EXT {
     pub _bitfield: u16,
     pub chRcode: u8,
     pub chVersion: u8,
-}
-impl Copy for DNS_HEADER_EXT {}
-impl Clone for DNS_HEADER_EXT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_HEADER_EXT {
     type TypeKind = windows_core::CopyType;
@@ -1667,6 +1378,7 @@ impl Default for DNS_HEADER_EXT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_KEY_DATA {
     pub wFlags: u16,
     pub chProtocol: u8,
@@ -1675,32 +1387,16 @@ pub struct DNS_KEY_DATA {
     pub wPad: u16,
     pub Key: [u8; 1],
 }
-impl Copy for DNS_KEY_DATA {}
-impl Clone for DNS_KEY_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_KEY_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_KEY_DATA").field("wFlags", &self.wFlags).field("chProtocol", &self.chProtocol).field("chAlgorithm", &self.chAlgorithm).field("wKeyLength", &self.wKeyLength).field("wPad", &self.wPad).field("Key", &self.Key).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_KEY_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_KEY_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.wFlags == other.wFlags && self.chProtocol == other.chProtocol && self.chAlgorithm == other.chAlgorithm && self.wKeyLength == other.wKeyLength && self.wPad == other.wPad && self.Key == other.Key
-    }
-}
-impl Eq for DNS_KEY_DATA {}
 impl Default for DNS_KEY_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_LOC_DATA {
     pub wVersion: u16,
     pub wSize: u16,
@@ -1710,41 +1406,19 @@ pub struct DNS_LOC_DATA {
     pub dwLongitude: u32,
     pub dwAltitude: u32,
 }
-impl Copy for DNS_LOC_DATA {}
-impl Clone for DNS_LOC_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_LOC_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_LOC_DATA").field("wVersion", &self.wVersion).field("wSize", &self.wSize).field("wHorPrec", &self.wHorPrec).field("wVerPrec", &self.wVerPrec).field("dwLatitude", &self.dwLatitude).field("dwLongitude", &self.dwLongitude).field("dwAltitude", &self.dwAltitude).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_LOC_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_LOC_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.wVersion == other.wVersion && self.wSize == other.wSize && self.wHorPrec == other.wHorPrec && self.wVerPrec == other.wVerPrec && self.dwLatitude == other.dwLatitude && self.dwLongitude == other.dwLongitude && self.dwAltitude == other.dwAltitude
-    }
-}
-impl Eq for DNS_LOC_DATA {}
 impl Default for DNS_LOC_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_MESSAGE_BUFFER {
     pub MessageHead: DNS_HEADER,
     pub MessageBody: [i8; 1],
-}
-impl Copy for DNS_MESSAGE_BUFFER {}
-impl Clone for DNS_MESSAGE_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_MESSAGE_BUFFER {
     type TypeKind = windows_core::CopyType;
@@ -1755,128 +1429,65 @@ impl Default for DNS_MESSAGE_BUFFER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_MINFO_DATAA {
     pub pNameMailbox: windows_core::PSTR,
     pub pNameErrorsMailbox: windows_core::PSTR,
 }
-impl Copy for DNS_MINFO_DATAA {}
-impl Clone for DNS_MINFO_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_MINFO_DATAA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_MINFO_DATAA").field("pNameMailbox", &self.pNameMailbox).field("pNameErrorsMailbox", &self.pNameErrorsMailbox).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_MINFO_DATAA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_MINFO_DATAA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pNameMailbox == other.pNameMailbox && self.pNameErrorsMailbox == other.pNameErrorsMailbox
-    }
-}
-impl Eq for DNS_MINFO_DATAA {}
 impl Default for DNS_MINFO_DATAA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_MINFO_DATAW {
     pub pNameMailbox: windows_core::PWSTR,
     pub pNameErrorsMailbox: windows_core::PWSTR,
 }
-impl Copy for DNS_MINFO_DATAW {}
-impl Clone for DNS_MINFO_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_MINFO_DATAW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_MINFO_DATAW").field("pNameMailbox", &self.pNameMailbox).field("pNameErrorsMailbox", &self.pNameErrorsMailbox).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_MINFO_DATAW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_MINFO_DATAW {
-    fn eq(&self, other: &Self) -> bool {
-        self.pNameMailbox == other.pNameMailbox && self.pNameErrorsMailbox == other.pNameErrorsMailbox
-    }
-}
-impl Eq for DNS_MINFO_DATAW {}
 impl Default for DNS_MINFO_DATAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_MX_DATAA {
     pub pNameExchange: windows_core::PSTR,
     pub wPreference: u16,
     pub Pad: u16,
 }
-impl Copy for DNS_MX_DATAA {}
-impl Clone for DNS_MX_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_MX_DATAA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_MX_DATAA").field("pNameExchange", &self.pNameExchange).field("wPreference", &self.wPreference).field("Pad", &self.Pad).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_MX_DATAA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_MX_DATAA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pNameExchange == other.pNameExchange && self.wPreference == other.wPreference && self.Pad == other.Pad
-    }
-}
-impl Eq for DNS_MX_DATAA {}
 impl Default for DNS_MX_DATAA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_MX_DATAW {
     pub pNameExchange: windows_core::PWSTR,
     pub wPreference: u16,
     pub Pad: u16,
 }
-impl Copy for DNS_MX_DATAW {}
-impl Clone for DNS_MX_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_MX_DATAW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_MX_DATAW").field("pNameExchange", &self.pNameExchange).field("wPreference", &self.wPreference).field("Pad", &self.Pad).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_MX_DATAW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_MX_DATAW {
-    fn eq(&self, other: &Self) -> bool {
-        self.pNameExchange == other.pNameExchange && self.wPreference == other.wPreference && self.Pad == other.Pad
-    }
-}
-impl Eq for DNS_MX_DATAW {}
 impl Default for DNS_MX_DATAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_NAPTR_DATAA {
     pub wOrder: u16,
     pub wPreference: u16,
@@ -1885,32 +1496,16 @@ pub struct DNS_NAPTR_DATAA {
     pub pRegularExpression: windows_core::PSTR,
     pub pReplacement: windows_core::PSTR,
 }
-impl Copy for DNS_NAPTR_DATAA {}
-impl Clone for DNS_NAPTR_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_NAPTR_DATAA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_NAPTR_DATAA").field("wOrder", &self.wOrder).field("wPreference", &self.wPreference).field("pFlags", &self.pFlags).field("pService", &self.pService).field("pRegularExpression", &self.pRegularExpression).field("pReplacement", &self.pReplacement).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_NAPTR_DATAA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_NAPTR_DATAA {
-    fn eq(&self, other: &Self) -> bool {
-        self.wOrder == other.wOrder && self.wPreference == other.wPreference && self.pFlags == other.pFlags && self.pService == other.pService && self.pRegularExpression == other.pRegularExpression && self.pReplacement == other.pReplacement
-    }
-}
-impl Eq for DNS_NAPTR_DATAA {}
 impl Default for DNS_NAPTR_DATAA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_NAPTR_DATAW {
     pub wOrder: u16,
     pub wPreference: u16,
@@ -1919,32 +1514,16 @@ pub struct DNS_NAPTR_DATAW {
     pub pRegularExpression: windows_core::PWSTR,
     pub pReplacement: windows_core::PWSTR,
 }
-impl Copy for DNS_NAPTR_DATAW {}
-impl Clone for DNS_NAPTR_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_NAPTR_DATAW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_NAPTR_DATAW").field("wOrder", &self.wOrder).field("wPreference", &self.wPreference).field("pFlags", &self.pFlags).field("pService", &self.pService).field("pRegularExpression", &self.pRegularExpression).field("pReplacement", &self.pReplacement).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_NAPTR_DATAW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_NAPTR_DATAW {
-    fn eq(&self, other: &Self) -> bool {
-        self.wOrder == other.wOrder && self.wPreference == other.wPreference && self.pFlags == other.pFlags && self.pService == other.pService && self.pRegularExpression == other.pRegularExpression && self.pReplacement == other.pReplacement
-    }
-}
-impl Eq for DNS_NAPTR_DATAW {}
 impl Default for DNS_NAPTR_DATAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_NSEC3PARAM_DATA {
     pub chAlgorithm: u8,
     pub bFlags: u8,
@@ -1953,32 +1532,16 @@ pub struct DNS_NSEC3PARAM_DATA {
     pub bPad: [u8; 3],
     pub pbSalt: [u8; 1],
 }
-impl Copy for DNS_NSEC3PARAM_DATA {}
-impl Clone for DNS_NSEC3PARAM_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_NSEC3PARAM_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_NSEC3PARAM_DATA").field("chAlgorithm", &self.chAlgorithm).field("bFlags", &self.bFlags).field("wIterations", &self.wIterations).field("bSaltLength", &self.bSaltLength).field("bPad", &self.bPad).field("pbSalt", &self.pbSalt).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_NSEC3PARAM_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_NSEC3PARAM_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.chAlgorithm == other.chAlgorithm && self.bFlags == other.bFlags && self.wIterations == other.wIterations && self.bSaltLength == other.bSaltLength && self.bPad == other.bPad && self.pbSalt == other.pbSalt
-    }
-}
-impl Eq for DNS_NSEC3PARAM_DATA {}
 impl Default for DNS_NSEC3PARAM_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_NSEC3_DATA {
     pub chAlgorithm: u8,
     pub bFlags: u8,
@@ -1988,366 +1551,174 @@ pub struct DNS_NSEC3_DATA {
     pub wTypeBitMapsLength: u16,
     pub chData: [u8; 1],
 }
-impl Copy for DNS_NSEC3_DATA {}
-impl Clone for DNS_NSEC3_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_NSEC3_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_NSEC3_DATA").field("chAlgorithm", &self.chAlgorithm).field("bFlags", &self.bFlags).field("wIterations", &self.wIterations).field("bSaltLength", &self.bSaltLength).field("bHashLength", &self.bHashLength).field("wTypeBitMapsLength", &self.wTypeBitMapsLength).field("chData", &self.chData).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_NSEC3_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_NSEC3_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.chAlgorithm == other.chAlgorithm && self.bFlags == other.bFlags && self.wIterations == other.wIterations && self.bSaltLength == other.bSaltLength && self.bHashLength == other.bHashLength && self.wTypeBitMapsLength == other.wTypeBitMapsLength && self.chData == other.chData
-    }
-}
-impl Eq for DNS_NSEC3_DATA {}
 impl Default for DNS_NSEC3_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_NSEC_DATAA {
     pub pNextDomainName: windows_core::PSTR,
     pub wTypeBitMapsLength: u16,
     pub wPad: u16,
     pub TypeBitMaps: [u8; 1],
 }
-impl Copy for DNS_NSEC_DATAA {}
-impl Clone for DNS_NSEC_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_NSEC_DATAA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_NSEC_DATAA").field("pNextDomainName", &self.pNextDomainName).field("wTypeBitMapsLength", &self.wTypeBitMapsLength).field("wPad", &self.wPad).field("TypeBitMaps", &self.TypeBitMaps).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_NSEC_DATAA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_NSEC_DATAA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pNextDomainName == other.pNextDomainName && self.wTypeBitMapsLength == other.wTypeBitMapsLength && self.wPad == other.wPad && self.TypeBitMaps == other.TypeBitMaps
-    }
-}
-impl Eq for DNS_NSEC_DATAA {}
 impl Default for DNS_NSEC_DATAA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_NSEC_DATAW {
     pub pNextDomainName: windows_core::PWSTR,
     pub wTypeBitMapsLength: u16,
     pub wPad: u16,
     pub TypeBitMaps: [u8; 1],
 }
-impl Copy for DNS_NSEC_DATAW {}
-impl Clone for DNS_NSEC_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_NSEC_DATAW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_NSEC_DATAW").field("pNextDomainName", &self.pNextDomainName).field("wTypeBitMapsLength", &self.wTypeBitMapsLength).field("wPad", &self.wPad).field("TypeBitMaps", &self.TypeBitMaps).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_NSEC_DATAW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_NSEC_DATAW {
-    fn eq(&self, other: &Self) -> bool {
-        self.pNextDomainName == other.pNextDomainName && self.wTypeBitMapsLength == other.wTypeBitMapsLength && self.wPad == other.wPad && self.TypeBitMaps == other.TypeBitMaps
-    }
-}
-impl Eq for DNS_NSEC_DATAW {}
 impl Default for DNS_NSEC_DATAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_NULL_DATA {
     pub dwByteCount: u32,
     pub Data: [u8; 1],
 }
-impl Copy for DNS_NULL_DATA {}
-impl Clone for DNS_NULL_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_NULL_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_NULL_DATA").field("dwByteCount", &self.dwByteCount).field("Data", &self.Data).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_NULL_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_NULL_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwByteCount == other.dwByteCount && self.Data == other.Data
-    }
-}
-impl Eq for DNS_NULL_DATA {}
 impl Default for DNS_NULL_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_NXT_DATAA {
     pub pNameNext: windows_core::PSTR,
     pub wNumTypes: u16,
     pub wTypes: [u16; 1],
 }
-impl Copy for DNS_NXT_DATAA {}
-impl Clone for DNS_NXT_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_NXT_DATAA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_NXT_DATAA").field("pNameNext", &self.pNameNext).field("wNumTypes", &self.wNumTypes).field("wTypes", &self.wTypes).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_NXT_DATAA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_NXT_DATAA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pNameNext == other.pNameNext && self.wNumTypes == other.wNumTypes && self.wTypes == other.wTypes
-    }
-}
-impl Eq for DNS_NXT_DATAA {}
 impl Default for DNS_NXT_DATAA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_NXT_DATAW {
     pub pNameNext: windows_core::PWSTR,
     pub wNumTypes: u16,
     pub wTypes: [u16; 1],
 }
-impl Copy for DNS_NXT_DATAW {}
-impl Clone for DNS_NXT_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_NXT_DATAW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_NXT_DATAW").field("pNameNext", &self.pNameNext).field("wNumTypes", &self.wNumTypes).field("wTypes", &self.wTypes).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_NXT_DATAW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_NXT_DATAW {
-    fn eq(&self, other: &Self) -> bool {
-        self.pNameNext == other.pNameNext && self.wNumTypes == other.wNumTypes && self.wTypes == other.wTypes
-    }
-}
-impl Eq for DNS_NXT_DATAW {}
 impl Default for DNS_NXT_DATAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_OPT_DATA {
     pub wDataLength: u16,
     pub wPad: u16,
     pub Data: [u8; 1],
 }
-impl Copy for DNS_OPT_DATA {}
-impl Clone for DNS_OPT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_OPT_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_OPT_DATA").field("wDataLength", &self.wDataLength).field("wPad", &self.wPad).field("Data", &self.Data).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_OPT_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_OPT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.wDataLength == other.wDataLength && self.wPad == other.wPad && self.Data == other.Data
-    }
-}
-impl Eq for DNS_OPT_DATA {}
 impl Default for DNS_OPT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_PROXY_INFORMATION {
     pub version: u32,
     pub proxyInformationType: DNS_PROXY_INFORMATION_TYPE,
     pub proxyName: windows_core::PWSTR,
 }
-impl Copy for DNS_PROXY_INFORMATION {}
-impl Clone for DNS_PROXY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_PROXY_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_PROXY_INFORMATION").field("version", &self.version).field("proxyInformationType", &self.proxyInformationType).field("proxyName", &self.proxyName).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_PROXY_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_PROXY_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.version == other.version && self.proxyInformationType == other.proxyInformationType && self.proxyName == other.proxyName
-    }
-}
-impl Eq for DNS_PROXY_INFORMATION {}
 impl Default for DNS_PROXY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_PTR_DATAA {
     pub pNameHost: windows_core::PSTR,
-}
-impl Copy for DNS_PTR_DATAA {}
-impl Clone for DNS_PTR_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_PTR_DATAA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_PTR_DATAA").field("pNameHost", &self.pNameHost).finish()
-    }
 }
 impl windows_core::TypeKind for DNS_PTR_DATAA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_PTR_DATAA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pNameHost == other.pNameHost
-    }
-}
-impl Eq for DNS_PTR_DATAA {}
 impl Default for DNS_PTR_DATAA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_PTR_DATAW {
     pub pNameHost: windows_core::PWSTR,
-}
-impl Copy for DNS_PTR_DATAW {}
-impl Clone for DNS_PTR_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_PTR_DATAW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_PTR_DATAW").field("pNameHost", &self.pNameHost).finish()
-    }
 }
 impl windows_core::TypeKind for DNS_PTR_DATAW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_PTR_DATAW {
-    fn eq(&self, other: &Self) -> bool {
-        self.pNameHost == other.pNameHost
-    }
-}
-impl Eq for DNS_PTR_DATAW {}
 impl Default for DNS_PTR_DATAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_QUERY_CANCEL {
     pub Reserved: [i8; 32],
-}
-impl Copy for DNS_QUERY_CANCEL {}
-impl Clone for DNS_QUERY_CANCEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_QUERY_CANCEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_QUERY_CANCEL").field("Reserved", &self.Reserved).finish()
-    }
 }
 impl windows_core::TypeKind for DNS_QUERY_CANCEL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_QUERY_CANCEL {
-    fn eq(&self, other: &Self) -> bool {
-        self.Reserved == other.Reserved
-    }
-}
-impl Eq for DNS_QUERY_CANCEL {}
 impl Default for DNS_QUERY_CANCEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_QUERY_RAW_CANCEL {
     pub reserved: [i8; 32],
-}
-impl Copy for DNS_QUERY_RAW_CANCEL {}
-impl Clone for DNS_QUERY_RAW_CANCEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_QUERY_RAW_CANCEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_QUERY_RAW_CANCEL").field("reserved", &self.reserved).finish()
-    }
 }
 impl windows_core::TypeKind for DNS_QUERY_RAW_CANCEL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_QUERY_RAW_CANCEL {
-    fn eq(&self, other: &Self) -> bool {
-        self.reserved == other.reserved
-    }
-}
-impl Eq for DNS_QUERY_RAW_CANCEL {}
 impl Default for DNS_QUERY_RAW_CANCEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_QUERY_RAW_REQUEST {
     pub version: u32,
     pub resultsVersion: u32,
@@ -2365,12 +1736,6 @@ pub struct DNS_QUERY_RAW_REQUEST {
     pub protocol: u32,
     pub Anonymous: DNS_QUERY_RAW_REQUEST_0,
 }
-impl Copy for DNS_QUERY_RAW_REQUEST {}
-impl Clone for DNS_QUERY_RAW_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DNS_QUERY_RAW_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
@@ -2380,14 +1745,9 @@ impl Default for DNS_QUERY_RAW_REQUEST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_QUERY_RAW_REQUEST_0 {
     pub maxSa: [i8; 32],
-}
-impl Copy for DNS_QUERY_RAW_REQUEST_0 {}
-impl Clone for DNS_QUERY_RAW_REQUEST_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_QUERY_RAW_REQUEST_0 {
     type TypeKind = windows_core::CopyType;
@@ -2398,6 +1758,7 @@ impl Default for DNS_QUERY_RAW_REQUEST_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_QUERY_RAW_RESULT {
     pub version: u32,
     pub queryStatus: i32,
@@ -2410,12 +1771,6 @@ pub struct DNS_QUERY_RAW_RESULT {
     pub protocol: u32,
     pub Anonymous: DNS_QUERY_RAW_RESULT_0,
 }
-impl Copy for DNS_QUERY_RAW_RESULT {}
-impl Clone for DNS_QUERY_RAW_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DNS_QUERY_RAW_RESULT {
     type TypeKind = windows_core::CopyType;
 }
@@ -2425,14 +1780,9 @@ impl Default for DNS_QUERY_RAW_RESULT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_QUERY_RAW_RESULT_0 {
     pub maxSa: [i8; 32],
-}
-impl Copy for DNS_QUERY_RAW_RESULT_0 {}
-impl Clone for DNS_QUERY_RAW_RESULT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_QUERY_RAW_RESULT_0 {
     type TypeKind = windows_core::CopyType;
@@ -2443,6 +1793,7 @@ impl Default for DNS_QUERY_RAW_RESULT_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct DNS_QUERY_REQUEST {
     pub Version: u32,
     pub QueryName: windows_core::PCWSTR,
@@ -2453,17 +1804,6 @@ pub struct DNS_QUERY_REQUEST {
     pub pQueryCompletionCallback: PDNS_QUERY_COMPLETION_ROUTINE,
     pub pQueryContext: *mut core::ffi::c_void,
 }
-impl Copy for DNS_QUERY_REQUEST {}
-impl Clone for DNS_QUERY_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_QUERY_REQUEST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_QUERY_REQUEST").field("Version", &self.Version).field("QueryName", &self.QueryName).field("QueryType", &self.QueryType).field("QueryOptions", &self.QueryOptions).field("pDnsServerList", &self.pDnsServerList).field("InterfaceIndex", &self.InterfaceIndex).field("pQueryContext", &self.pQueryContext).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_QUERY_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
@@ -2473,6 +1813,7 @@ impl Default for DNS_QUERY_REQUEST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct DNS_QUERY_REQUEST3 {
     pub Version: u32,
     pub QueryName: windows_core::PCWSTR,
@@ -2487,29 +1828,6 @@ pub struct DNS_QUERY_REQUEST3 {
     pub cCustomServers: u32,
     pub pCustomServers: *mut DNS_CUSTOM_SERVER,
 }
-impl Copy for DNS_QUERY_REQUEST3 {}
-impl Clone for DNS_QUERY_REQUEST3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_QUERY_REQUEST3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_QUERY_REQUEST3")
-            .field("Version", &self.Version)
-            .field("QueryName", &self.QueryName)
-            .field("QueryType", &self.QueryType)
-            .field("QueryOptions", &self.QueryOptions)
-            .field("pDnsServerList", &self.pDnsServerList)
-            .field("InterfaceIndex", &self.InterfaceIndex)
-            .field("pQueryContext", &self.pQueryContext)
-            .field("IsNetworkQueryRequired", &self.IsNetworkQueryRequired)
-            .field("RequiredNetworkIndex", &self.RequiredNetworkIndex)
-            .field("cCustomServers", &self.cCustomServers)
-            .field("pCustomServers", &self.pCustomServers)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DNS_QUERY_REQUEST3 {
     type TypeKind = windows_core::CopyType;
 }
@@ -2519,6 +1837,7 @@ impl Default for DNS_QUERY_REQUEST3 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_QUERY_RESULT {
     pub Version: u32,
     pub QueryStatus: i32,
@@ -2526,32 +1845,16 @@ pub struct DNS_QUERY_RESULT {
     pub pQueryRecords: *mut DNS_RECORDA,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl Copy for DNS_QUERY_RESULT {}
-impl Clone for DNS_QUERY_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_QUERY_RESULT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_QUERY_RESULT").field("Version", &self.Version).field("QueryStatus", &self.QueryStatus).field("QueryOptions", &self.QueryOptions).field("pQueryRecords", &self.pQueryRecords).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_QUERY_RESULT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_QUERY_RESULT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.QueryStatus == other.QueryStatus && self.QueryOptions == other.QueryOptions && self.pQueryRecords == other.pQueryRecords && self.Reserved == other.Reserved
-    }
-}
-impl Eq for DNS_QUERY_RESULT {}
 impl Default for DNS_QUERY_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_RECORDA {
     pub pNext: *mut DNS_RECORDA,
     pub pName: windows_core::PSTR,
@@ -2562,12 +1865,6 @@ pub struct DNS_RECORDA {
     pub dwReserved: u32,
     pub Data: DNS_RECORDA_0,
 }
-impl Copy for DNS_RECORDA {}
-impl Clone for DNS_RECORDA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DNS_RECORDA {
     type TypeKind = windows_core::CopyType;
 }
@@ -2577,6 +1874,7 @@ impl Default for DNS_RECORDA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_RECORDA_0 {
     pub A: DNS_A_DATA,
     pub SOA: DNS_SOA_DATAA,
@@ -2665,12 +1963,6 @@ pub union DNS_RECORDA_0 {
     pub Unknown: DNS_UNKNOWN_DATA,
     pub pDataPtr: *mut u8,
 }
-impl Copy for DNS_RECORDA_0 {}
-impl Clone for DNS_RECORDA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DNS_RECORDA_0 {
     type TypeKind = windows_core::CopyType;
 }
@@ -2680,15 +1972,10 @@ impl Default for DNS_RECORDA_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_RECORDA_1 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
-}
-impl Copy for DNS_RECORDA_1 {}
-impl Clone for DNS_RECORDA_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_RECORDA_1 {
     type TypeKind = windows_core::CopyType;
@@ -2699,6 +1986,7 @@ impl Default for DNS_RECORDA_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_RECORDW {
     pub pNext: *mut DNS_RECORDW,
     pub pName: windows_core::PWSTR,
@@ -2709,12 +1997,6 @@ pub struct DNS_RECORDW {
     pub dwReserved: u32,
     pub Data: DNS_RECORDW_0,
 }
-impl Copy for DNS_RECORDW {}
-impl Clone for DNS_RECORDW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DNS_RECORDW {
     type TypeKind = windows_core::CopyType;
 }
@@ -2724,6 +2006,7 @@ impl Default for DNS_RECORDW {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_RECORDW_0 {
     pub A: DNS_A_DATA,
     pub SOA: DNS_SOA_DATAW,
@@ -2812,12 +2095,6 @@ pub union DNS_RECORDW_0 {
     pub Unknown: DNS_UNKNOWN_DATA,
     pub pDataPtr: *mut u8,
 }
-impl Copy for DNS_RECORDW_0 {}
-impl Clone for DNS_RECORDW_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DNS_RECORDW_0 {
     type TypeKind = windows_core::CopyType;
 }
@@ -2827,15 +2104,10 @@ impl Default for DNS_RECORDW_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_RECORDW_1 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
-}
-impl Copy for DNS_RECORDW_1 {}
-impl Clone for DNS_RECORDW_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_RECORDW_1 {
     type TypeKind = windows_core::CopyType;
@@ -2846,35 +2118,20 @@ impl Default for DNS_RECORDW_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_RECORD_FLAGS {
     pub _bitfield: u32,
-}
-impl Copy for DNS_RECORD_FLAGS {}
-impl Clone for DNS_RECORD_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_RECORD_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_RECORD_FLAGS").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for DNS_RECORD_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_RECORD_FLAGS {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for DNS_RECORD_FLAGS {}
 impl Default for DNS_RECORD_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_RECORD_OPTW {
     pub pNext: *mut DNS_RECORDW,
     pub pName: windows_core::PWSTR,
@@ -2886,12 +2143,6 @@ pub struct DNS_RECORD_OPTW {
     pub wReserved: u16,
     pub Data: DNS_RECORD_OPTW_0,
 }
-impl Copy for DNS_RECORD_OPTW {}
-impl Clone for DNS_RECORD_OPTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DNS_RECORD_OPTW {
     type TypeKind = windows_core::CopyType;
 }
@@ -2901,15 +2152,10 @@ impl Default for DNS_RECORD_OPTW {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_RECORD_OPTW_0 {
     pub OPT: DNS_OPT_DATA,
     pub Opt: DNS_OPT_DATA,
-}
-impl Copy for DNS_RECORD_OPTW_0 {}
-impl Clone for DNS_RECORD_OPTW_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_RECORD_OPTW_0 {
     type TypeKind = windows_core::CopyType;
@@ -2920,15 +2166,10 @@ impl Default for DNS_RECORD_OPTW_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_RECORD_OPTW_1 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
-}
-impl Copy for DNS_RECORD_OPTW_1 {}
-impl Clone for DNS_RECORD_OPTW_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_RECORD_OPTW_1 {
     type TypeKind = windows_core::CopyType;
@@ -2939,48 +2180,27 @@ impl Default for DNS_RECORD_OPTW_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_RRSET {
     pub pFirstRR: *mut DNS_RECORDA,
     pub pLastRR: *mut DNS_RECORDA,
 }
-impl Copy for DNS_RRSET {}
-impl Clone for DNS_RRSET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_RRSET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_RRSET").field("pFirstRR", &self.pFirstRR).field("pLastRR", &self.pLastRR).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_RRSET {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_RRSET {
-    fn eq(&self, other: &Self) -> bool {
-        self.pFirstRR == other.pFirstRR && self.pLastRR == other.pLastRR
-    }
-}
-impl Eq for DNS_RRSET {}
 impl Default for DNS_RRSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_SERVICE_BROWSE_REQUEST {
     pub Version: u32,
     pub InterfaceIndex: u32,
     pub QueryName: windows_core::PCWSTR,
     pub Anonymous: DNS_SERVICE_BROWSE_REQUEST_0,
     pub pQueryContext: *mut core::ffi::c_void,
-}
-impl Copy for DNS_SERVICE_BROWSE_REQUEST {}
-impl Clone for DNS_SERVICE_BROWSE_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_SERVICE_BROWSE_REQUEST {
     type TypeKind = windows_core::CopyType;
@@ -2991,15 +2211,10 @@ impl Default for DNS_SERVICE_BROWSE_REQUEST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_SERVICE_BROWSE_REQUEST_0 {
     pub pBrowseCallback: PDNS_SERVICE_BROWSE_CALLBACK,
     pub pBrowseCallbackV2: PDNS_QUERY_COMPLETION_ROUTINE,
-}
-impl Copy for DNS_SERVICE_BROWSE_REQUEST_0 {}
-impl Clone for DNS_SERVICE_BROWSE_REQUEST_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_SERVICE_BROWSE_REQUEST_0 {
     type TypeKind = windows_core::CopyType;
@@ -3010,35 +2225,20 @@ impl Default for DNS_SERVICE_BROWSE_REQUEST_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_SERVICE_CANCEL {
     pub reserved: *mut core::ffi::c_void,
-}
-impl Copy for DNS_SERVICE_CANCEL {}
-impl Clone for DNS_SERVICE_CANCEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_SERVICE_CANCEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_SERVICE_CANCEL").field("reserved", &self.reserved).finish()
-    }
 }
 impl windows_core::TypeKind for DNS_SERVICE_CANCEL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_SERVICE_CANCEL {
-    fn eq(&self, other: &Self) -> bool {
-        self.reserved == other.reserved
-    }
-}
-impl Eq for DNS_SERVICE_CANCEL {}
 impl Default for DNS_SERVICE_CANCEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_SERVICE_INSTANCE {
     pub pszInstanceName: windows_core::PWSTR,
     pub pszHostName: windows_core::PWSTR,
@@ -3052,32 +2252,16 @@ pub struct DNS_SERVICE_INSTANCE {
     pub values: *mut windows_core::PWSTR,
     pub dwInterfaceIndex: u32,
 }
-impl Copy for DNS_SERVICE_INSTANCE {}
-impl Clone for DNS_SERVICE_INSTANCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_SERVICE_INSTANCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_SERVICE_INSTANCE").field("pszInstanceName", &self.pszInstanceName).field("pszHostName", &self.pszHostName).field("ip4Address", &self.ip4Address).field("ip6Address", &self.ip6Address).field("wPort", &self.wPort).field("wPriority", &self.wPriority).field("wWeight", &self.wWeight).field("dwPropertyCount", &self.dwPropertyCount).field("keys", &self.keys).field("values", &self.values).field("dwInterfaceIndex", &self.dwInterfaceIndex).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_SERVICE_INSTANCE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_SERVICE_INSTANCE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszInstanceName == other.pszInstanceName && self.pszHostName == other.pszHostName && self.ip4Address == other.ip4Address && self.ip6Address == other.ip6Address && self.wPort == other.wPort && self.wPriority == other.wPriority && self.wWeight == other.wWeight && self.dwPropertyCount == other.dwPropertyCount && self.keys == other.keys && self.values == other.values && self.dwInterfaceIndex == other.dwInterfaceIndex
-    }
-}
-impl Eq for DNS_SERVICE_INSTANCE {}
 impl Default for DNS_SERVICE_INSTANCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct DNS_SERVICE_REGISTER_REQUEST {
     pub Version: u32,
     pub InterfaceIndex: u32,
@@ -3086,17 +2270,6 @@ pub struct DNS_SERVICE_REGISTER_REQUEST {
     pub pQueryContext: *mut core::ffi::c_void,
     pub hCredentials: super::super::Foundation::HANDLE,
     pub unicastEnabled: super::super::Foundation::BOOL,
-}
-impl Copy for DNS_SERVICE_REGISTER_REQUEST {}
-impl Clone for DNS_SERVICE_REGISTER_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_SERVICE_REGISTER_REQUEST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_SERVICE_REGISTER_REQUEST").field("Version", &self.Version).field("InterfaceIndex", &self.InterfaceIndex).field("pServiceInstance", &self.pServiceInstance).field("pQueryContext", &self.pQueryContext).field("hCredentials", &self.hCredentials).field("unicastEnabled", &self.unicastEnabled).finish()
-    }
 }
 impl windows_core::TypeKind for DNS_SERVICE_REGISTER_REQUEST {
     type TypeKind = windows_core::CopyType;
@@ -3107,23 +2280,13 @@ impl Default for DNS_SERVICE_REGISTER_REQUEST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct DNS_SERVICE_RESOLVE_REQUEST {
     pub Version: u32,
     pub InterfaceIndex: u32,
     pub QueryName: windows_core::PWSTR,
     pub pResolveCompletionCallback: PDNS_SERVICE_RESOLVE_COMPLETE,
     pub pQueryContext: *mut core::ffi::c_void,
-}
-impl Copy for DNS_SERVICE_RESOLVE_REQUEST {}
-impl Clone for DNS_SERVICE_RESOLVE_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_SERVICE_RESOLVE_REQUEST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_SERVICE_RESOLVE_REQUEST").field("Version", &self.Version).field("InterfaceIndex", &self.InterfaceIndex).field("QueryName", &self.QueryName).field("pQueryContext", &self.pQueryContext).finish()
-    }
 }
 impl windows_core::TypeKind for DNS_SERVICE_RESOLVE_REQUEST {
     type TypeKind = windows_core::CopyType;
@@ -3134,6 +2297,7 @@ impl Default for DNS_SERVICE_RESOLVE_REQUEST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_SIG_DATAA {
     pub wTypeCovered: u16,
     pub chAlgorithm: u8,
@@ -3146,32 +2310,16 @@ pub struct DNS_SIG_DATAA {
     pub pNameSigner: windows_core::PSTR,
     pub Signature: [u8; 1],
 }
-impl Copy for DNS_SIG_DATAA {}
-impl Clone for DNS_SIG_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_SIG_DATAA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_SIG_DATAA").field("wTypeCovered", &self.wTypeCovered).field("chAlgorithm", &self.chAlgorithm).field("chLabelCount", &self.chLabelCount).field("dwOriginalTtl", &self.dwOriginalTtl).field("dwExpiration", &self.dwExpiration).field("dwTimeSigned", &self.dwTimeSigned).field("wKeyTag", &self.wKeyTag).field("wSignatureLength", &self.wSignatureLength).field("pNameSigner", &self.pNameSigner).field("Signature", &self.Signature).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_SIG_DATAA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_SIG_DATAA {
-    fn eq(&self, other: &Self) -> bool {
-        self.wTypeCovered == other.wTypeCovered && self.chAlgorithm == other.chAlgorithm && self.chLabelCount == other.chLabelCount && self.dwOriginalTtl == other.dwOriginalTtl && self.dwExpiration == other.dwExpiration && self.dwTimeSigned == other.dwTimeSigned && self.wKeyTag == other.wKeyTag && self.wSignatureLength == other.wSignatureLength && self.pNameSigner == other.pNameSigner && self.Signature == other.Signature
-    }
-}
-impl Eq for DNS_SIG_DATAA {}
 impl Default for DNS_SIG_DATAA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_SIG_DATAW {
     pub wTypeCovered: u16,
     pub chAlgorithm: u8,
@@ -3184,32 +2332,16 @@ pub struct DNS_SIG_DATAW {
     pub pNameSigner: windows_core::PWSTR,
     pub Signature: [u8; 1],
 }
-impl Copy for DNS_SIG_DATAW {}
-impl Clone for DNS_SIG_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_SIG_DATAW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_SIG_DATAW").field("wTypeCovered", &self.wTypeCovered).field("chAlgorithm", &self.chAlgorithm).field("chLabelCount", &self.chLabelCount).field("dwOriginalTtl", &self.dwOriginalTtl).field("dwExpiration", &self.dwExpiration).field("dwTimeSigned", &self.dwTimeSigned).field("wKeyTag", &self.wKeyTag).field("wSignatureLength", &self.wSignatureLength).field("pNameSigner", &self.pNameSigner).field("Signature", &self.Signature).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_SIG_DATAW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_SIG_DATAW {
-    fn eq(&self, other: &Self) -> bool {
-        self.wTypeCovered == other.wTypeCovered && self.chAlgorithm == other.chAlgorithm && self.chLabelCount == other.chLabelCount && self.dwOriginalTtl == other.dwOriginalTtl && self.dwExpiration == other.dwExpiration && self.dwTimeSigned == other.dwTimeSigned && self.wKeyTag == other.wKeyTag && self.wSignatureLength == other.wSignatureLength && self.pNameSigner == other.pNameSigner && self.Signature == other.Signature
-    }
-}
-impl Eq for DNS_SIG_DATAW {}
 impl Default for DNS_SIG_DATAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_SOA_DATAA {
     pub pNamePrimaryServer: windows_core::PSTR,
     pub pNameAdministrator: windows_core::PSTR,
@@ -3219,32 +2351,16 @@ pub struct DNS_SOA_DATAA {
     pub dwExpire: u32,
     pub dwDefaultTtl: u32,
 }
-impl Copy for DNS_SOA_DATAA {}
-impl Clone for DNS_SOA_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_SOA_DATAA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_SOA_DATAA").field("pNamePrimaryServer", &self.pNamePrimaryServer).field("pNameAdministrator", &self.pNameAdministrator).field("dwSerialNo", &self.dwSerialNo).field("dwRefresh", &self.dwRefresh).field("dwRetry", &self.dwRetry).field("dwExpire", &self.dwExpire).field("dwDefaultTtl", &self.dwDefaultTtl).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_SOA_DATAA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_SOA_DATAA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pNamePrimaryServer == other.pNamePrimaryServer && self.pNameAdministrator == other.pNameAdministrator && self.dwSerialNo == other.dwSerialNo && self.dwRefresh == other.dwRefresh && self.dwRetry == other.dwRetry && self.dwExpire == other.dwExpire && self.dwDefaultTtl == other.dwDefaultTtl
-    }
-}
-impl Eq for DNS_SOA_DATAA {}
 impl Default for DNS_SOA_DATAA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_SOA_DATAW {
     pub pNamePrimaryServer: windows_core::PWSTR,
     pub pNameAdministrator: windows_core::PWSTR,
@@ -3254,32 +2370,16 @@ pub struct DNS_SOA_DATAW {
     pub dwExpire: u32,
     pub dwDefaultTtl: u32,
 }
-impl Copy for DNS_SOA_DATAW {}
-impl Clone for DNS_SOA_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_SOA_DATAW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_SOA_DATAW").field("pNamePrimaryServer", &self.pNamePrimaryServer).field("pNameAdministrator", &self.pNameAdministrator).field("dwSerialNo", &self.dwSerialNo).field("dwRefresh", &self.dwRefresh).field("dwRetry", &self.dwRetry).field("dwExpire", &self.dwExpire).field("dwDefaultTtl", &self.dwDefaultTtl).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_SOA_DATAW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_SOA_DATAW {
-    fn eq(&self, other: &Self) -> bool {
-        self.pNamePrimaryServer == other.pNamePrimaryServer && self.pNameAdministrator == other.pNameAdministrator && self.dwSerialNo == other.dwSerialNo && self.dwRefresh == other.dwRefresh && self.dwRetry == other.dwRetry && self.dwExpire == other.dwExpire && self.dwDefaultTtl == other.dwDefaultTtl
-    }
-}
-impl Eq for DNS_SOA_DATAW {}
 impl Default for DNS_SOA_DATAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_SRV_DATAA {
     pub pNameTarget: windows_core::PSTR,
     pub wPriority: u16,
@@ -3287,32 +2387,16 @@ pub struct DNS_SRV_DATAA {
     pub wPort: u16,
     pub Pad: u16,
 }
-impl Copy for DNS_SRV_DATAA {}
-impl Clone for DNS_SRV_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_SRV_DATAA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_SRV_DATAA").field("pNameTarget", &self.pNameTarget).field("wPriority", &self.wPriority).field("wWeight", &self.wWeight).field("wPort", &self.wPort).field("Pad", &self.Pad).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_SRV_DATAA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_SRV_DATAA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pNameTarget == other.pNameTarget && self.wPriority == other.wPriority && self.wWeight == other.wWeight && self.wPort == other.wPort && self.Pad == other.Pad
-    }
-}
-impl Eq for DNS_SRV_DATAA {}
 impl Default for DNS_SRV_DATAA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_SRV_DATAW {
     pub pNameTarget: windows_core::PWSTR,
     pub wPriority: u16,
@@ -3320,73 +2404,35 @@ pub struct DNS_SRV_DATAW {
     pub wPort: u16,
     pub Pad: u16,
 }
-impl Copy for DNS_SRV_DATAW {}
-impl Clone for DNS_SRV_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_SRV_DATAW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_SRV_DATAW").field("pNameTarget", &self.pNameTarget).field("wPriority", &self.wPriority).field("wWeight", &self.wWeight).field("wPort", &self.wPort).field("Pad", &self.Pad).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_SRV_DATAW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_SRV_DATAW {
-    fn eq(&self, other: &Self) -> bool {
-        self.pNameTarget == other.pNameTarget && self.wPriority == other.wPriority && self.wWeight == other.wWeight && self.wPort == other.wPort && self.Pad == other.Pad
-    }
-}
-impl Eq for DNS_SRV_DATAW {}
 impl Default for DNS_SRV_DATAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_SVCB_DATA {
     pub wSvcPriority: u16,
     pub pszTargetName: windows_core::PSTR,
     pub cSvcParams: u16,
     pub pSvcParams: *mut DNS_SVCB_PARAM,
 }
-impl Copy for DNS_SVCB_DATA {}
-impl Clone for DNS_SVCB_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_SVCB_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_SVCB_DATA").field("wSvcPriority", &self.wSvcPriority).field("pszTargetName", &self.pszTargetName).field("cSvcParams", &self.cSvcParams).field("pSvcParams", &self.pSvcParams).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_SVCB_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_SVCB_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.wSvcPriority == other.wSvcPriority && self.pszTargetName == other.pszTargetName && self.cSvcParams == other.cSvcParams && self.pSvcParams == other.pSvcParams
-    }
-}
-impl Eq for DNS_SVCB_DATA {}
 impl Default for DNS_SVCB_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_SVCB_PARAM {
     pub wSvcParamKey: u16,
     pub Anonymous: DNS_SVCB_PARAM_0,
-}
-impl Copy for DNS_SVCB_PARAM {}
-impl Clone for DNS_SVCB_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_SVCB_PARAM {
     type TypeKind = windows_core::CopyType;
@@ -3397,6 +2443,7 @@ impl Default for DNS_SVCB_PARAM {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_SVCB_PARAM_0 {
     pub pIpv4Hints: *mut DNS_SVCB_PARAM_IPV4,
     pub pIpv6Hints: *mut DNS_SVCB_PARAM_IPV6,
@@ -3407,12 +2454,6 @@ pub union DNS_SVCB_PARAM_0 {
     pub pszDohPath: windows_core::PSTR,
     pub pReserved: *mut core::ffi::c_void,
 }
-impl Copy for DNS_SVCB_PARAM_0 {}
-impl Clone for DNS_SVCB_PARAM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DNS_SVCB_PARAM_0 {
     type TypeKind = windows_core::CopyType;
 }
@@ -3422,105 +2463,52 @@ impl Default for DNS_SVCB_PARAM_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_SVCB_PARAM_ALPN {
     pub cIds: u16,
     pub rgIds: [DNS_SVCB_PARAM_ALPN_ID; 1],
 }
-impl Copy for DNS_SVCB_PARAM_ALPN {}
-impl Clone for DNS_SVCB_PARAM_ALPN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_SVCB_PARAM_ALPN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_SVCB_PARAM_ALPN").field("cIds", &self.cIds).field("rgIds", &self.rgIds).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_SVCB_PARAM_ALPN {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_SVCB_PARAM_ALPN {
-    fn eq(&self, other: &Self) -> bool {
-        self.cIds == other.cIds && self.rgIds == other.rgIds
-    }
-}
-impl Eq for DNS_SVCB_PARAM_ALPN {}
 impl Default for DNS_SVCB_PARAM_ALPN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_SVCB_PARAM_ALPN_ID {
     pub cBytes: u8,
     pub pbId: *mut u8,
 }
-impl Copy for DNS_SVCB_PARAM_ALPN_ID {}
-impl Clone for DNS_SVCB_PARAM_ALPN_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_SVCB_PARAM_ALPN_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_SVCB_PARAM_ALPN_ID").field("cBytes", &self.cBytes).field("pbId", &self.pbId).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_SVCB_PARAM_ALPN_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_SVCB_PARAM_ALPN_ID {
-    fn eq(&self, other: &Self) -> bool {
-        self.cBytes == other.cBytes && self.pbId == other.pbId
-    }
-}
-impl Eq for DNS_SVCB_PARAM_ALPN_ID {}
 impl Default for DNS_SVCB_PARAM_ALPN_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_SVCB_PARAM_IPV4 {
     pub cIps: u16,
     pub rgIps: [u32; 1],
 }
-impl Copy for DNS_SVCB_PARAM_IPV4 {}
-impl Clone for DNS_SVCB_PARAM_IPV4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_SVCB_PARAM_IPV4 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_SVCB_PARAM_IPV4").field("cIps", &self.cIps).field("rgIps", &self.rgIps).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_SVCB_PARAM_IPV4 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_SVCB_PARAM_IPV4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.cIps == other.cIps && self.rgIps == other.rgIps
-    }
-}
-impl Eq for DNS_SVCB_PARAM_IPV4 {}
 impl Default for DNS_SVCB_PARAM_IPV4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_SVCB_PARAM_IPV6 {
     pub cIps: u16,
     pub rgIps: [IP6_ADDRESS; 1],
-}
-impl Copy for DNS_SVCB_PARAM_IPV6 {}
-impl Clone for DNS_SVCB_PARAM_IPV6 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_SVCB_PARAM_IPV6 {
     type TypeKind = windows_core::CopyType;
@@ -3531,66 +2519,35 @@ impl Default for DNS_SVCB_PARAM_IPV6 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_SVCB_PARAM_MANDATORY {
     pub cMandatoryKeys: u16,
     pub rgwMandatoryKeys: [u16; 1],
 }
-impl Copy for DNS_SVCB_PARAM_MANDATORY {}
-impl Clone for DNS_SVCB_PARAM_MANDATORY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_SVCB_PARAM_MANDATORY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_SVCB_PARAM_MANDATORY").field("cMandatoryKeys", &self.cMandatoryKeys).field("rgwMandatoryKeys", &self.rgwMandatoryKeys).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_SVCB_PARAM_MANDATORY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_SVCB_PARAM_MANDATORY {
-    fn eq(&self, other: &Self) -> bool {
-        self.cMandatoryKeys == other.cMandatoryKeys && self.rgwMandatoryKeys == other.rgwMandatoryKeys
-    }
-}
-impl Eq for DNS_SVCB_PARAM_MANDATORY {}
 impl Default for DNS_SVCB_PARAM_MANDATORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_SVCB_PARAM_UNKNOWN {
     pub cBytes: u16,
     pub pbSvcParamValue: [u8; 1],
 }
-impl Copy for DNS_SVCB_PARAM_UNKNOWN {}
-impl Clone for DNS_SVCB_PARAM_UNKNOWN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_SVCB_PARAM_UNKNOWN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_SVCB_PARAM_UNKNOWN").field("cBytes", &self.cBytes).field("pbSvcParamValue", &self.pbSvcParamValue).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_SVCB_PARAM_UNKNOWN {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_SVCB_PARAM_UNKNOWN {
-    fn eq(&self, other: &Self) -> bool {
-        self.cBytes == other.cBytes && self.pbSvcParamValue == other.pbSvcParamValue
-    }
-}
-impl Eq for DNS_SVCB_PARAM_UNKNOWN {}
 impl Default for DNS_SVCB_PARAM_UNKNOWN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_TKEY_DATAA {
     pub pNameAlgorithm: windows_core::PSTR,
     pub pAlgorithmPacket: *mut u8,
@@ -3605,45 +2562,16 @@ pub struct DNS_TKEY_DATAA {
     pub cAlgNameLength: u8,
     pub bPacketPointers: super::super::Foundation::BOOL,
 }
-impl Copy for DNS_TKEY_DATAA {}
-impl Clone for DNS_TKEY_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_TKEY_DATAA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_TKEY_DATAA")
-            .field("pNameAlgorithm", &self.pNameAlgorithm)
-            .field("pAlgorithmPacket", &self.pAlgorithmPacket)
-            .field("pKey", &self.pKey)
-            .field("pOtherData", &self.pOtherData)
-            .field("dwCreateTime", &self.dwCreateTime)
-            .field("dwExpireTime", &self.dwExpireTime)
-            .field("wMode", &self.wMode)
-            .field("wError", &self.wError)
-            .field("wKeyLength", &self.wKeyLength)
-            .field("wOtherLength", &self.wOtherLength)
-            .field("cAlgNameLength", &self.cAlgNameLength)
-            .field("bPacketPointers", &self.bPacketPointers)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DNS_TKEY_DATAA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_TKEY_DATAA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pNameAlgorithm == other.pNameAlgorithm && self.pAlgorithmPacket == other.pAlgorithmPacket && self.pKey == other.pKey && self.pOtherData == other.pOtherData && self.dwCreateTime == other.dwCreateTime && self.dwExpireTime == other.dwExpireTime && self.wMode == other.wMode && self.wError == other.wError && self.wKeyLength == other.wKeyLength && self.wOtherLength == other.wOtherLength && self.cAlgNameLength == other.cAlgNameLength && self.bPacketPointers == other.bPacketPointers
-    }
-}
-impl Eq for DNS_TKEY_DATAA {}
 impl Default for DNS_TKEY_DATAA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_TKEY_DATAW {
     pub pNameAlgorithm: windows_core::PWSTR,
     pub pAlgorithmPacket: *mut u8,
@@ -3658,45 +2586,16 @@ pub struct DNS_TKEY_DATAW {
     pub cAlgNameLength: u8,
     pub bPacketPointers: super::super::Foundation::BOOL,
 }
-impl Copy for DNS_TKEY_DATAW {}
-impl Clone for DNS_TKEY_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_TKEY_DATAW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_TKEY_DATAW")
-            .field("pNameAlgorithm", &self.pNameAlgorithm)
-            .field("pAlgorithmPacket", &self.pAlgorithmPacket)
-            .field("pKey", &self.pKey)
-            .field("pOtherData", &self.pOtherData)
-            .field("dwCreateTime", &self.dwCreateTime)
-            .field("dwExpireTime", &self.dwExpireTime)
-            .field("wMode", &self.wMode)
-            .field("wError", &self.wError)
-            .field("wKeyLength", &self.wKeyLength)
-            .field("wOtherLength", &self.wOtherLength)
-            .field("cAlgNameLength", &self.cAlgNameLength)
-            .field("bPacketPointers", &self.bPacketPointers)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DNS_TKEY_DATAW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_TKEY_DATAW {
-    fn eq(&self, other: &Self) -> bool {
-        self.pNameAlgorithm == other.pNameAlgorithm && self.pAlgorithmPacket == other.pAlgorithmPacket && self.pKey == other.pKey && self.pOtherData == other.pOtherData && self.dwCreateTime == other.dwCreateTime && self.dwExpireTime == other.dwExpireTime && self.wMode == other.wMode && self.wError == other.wError && self.wKeyLength == other.wKeyLength && self.wOtherLength == other.wOtherLength && self.cAlgNameLength == other.cAlgNameLength && self.bPacketPointers == other.bPacketPointers
-    }
-}
-impl Eq for DNS_TKEY_DATAW {}
 impl Default for DNS_TKEY_DATAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_TLSA_DATA {
     pub bCertUsage: u8,
     pub bSelector: u8,
@@ -3705,32 +2604,16 @@ pub struct DNS_TLSA_DATA {
     pub bPad: [u8; 3],
     pub bCertificateAssociationData: [u8; 1],
 }
-impl Copy for DNS_TLSA_DATA {}
-impl Clone for DNS_TLSA_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_TLSA_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_TLSA_DATA").field("bCertUsage", &self.bCertUsage).field("bSelector", &self.bSelector).field("bMatchingType", &self.bMatchingType).field("bCertificateAssociationDataLength", &self.bCertificateAssociationDataLength).field("bPad", &self.bPad).field("bCertificateAssociationData", &self.bCertificateAssociationData).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_TLSA_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_TLSA_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.bCertUsage == other.bCertUsage && self.bSelector == other.bSelector && self.bMatchingType == other.bMatchingType && self.bCertificateAssociationDataLength == other.bCertificateAssociationDataLength && self.bPad == other.bPad && self.bCertificateAssociationData == other.bCertificateAssociationData
-    }
-}
-impl Eq for DNS_TLSA_DATA {}
 impl Default for DNS_TLSA_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_TSIG_DATAA {
     pub pNameAlgorithm: windows_core::PSTR,
     pub pAlgorithmPacket: *mut u8,
@@ -3745,45 +2628,16 @@ pub struct DNS_TSIG_DATAA {
     pub cAlgNameLength: u8,
     pub bPacketPointers: super::super::Foundation::BOOL,
 }
-impl Copy for DNS_TSIG_DATAA {}
-impl Clone for DNS_TSIG_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_TSIG_DATAA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_TSIG_DATAA")
-            .field("pNameAlgorithm", &self.pNameAlgorithm)
-            .field("pAlgorithmPacket", &self.pAlgorithmPacket)
-            .field("pSignature", &self.pSignature)
-            .field("pOtherData", &self.pOtherData)
-            .field("i64CreateTime", &self.i64CreateTime)
-            .field("wFudgeTime", &self.wFudgeTime)
-            .field("wOriginalXid", &self.wOriginalXid)
-            .field("wError", &self.wError)
-            .field("wSigLength", &self.wSigLength)
-            .field("wOtherLength", &self.wOtherLength)
-            .field("cAlgNameLength", &self.cAlgNameLength)
-            .field("bPacketPointers", &self.bPacketPointers)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DNS_TSIG_DATAA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_TSIG_DATAA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pNameAlgorithm == other.pNameAlgorithm && self.pAlgorithmPacket == other.pAlgorithmPacket && self.pSignature == other.pSignature && self.pOtherData == other.pOtherData && self.i64CreateTime == other.i64CreateTime && self.wFudgeTime == other.wFudgeTime && self.wOriginalXid == other.wOriginalXid && self.wError == other.wError && self.wSigLength == other.wSigLength && self.wOtherLength == other.wOtherLength && self.cAlgNameLength == other.cAlgNameLength && self.bPacketPointers == other.bPacketPointers
-    }
-}
-impl Eq for DNS_TSIG_DATAA {}
 impl Default for DNS_TSIG_DATAA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_TSIG_DATAW {
     pub pNameAlgorithm: windows_core::PWSTR,
     pub pAlgorithmPacket: *mut u8,
@@ -3798,199 +2652,90 @@ pub struct DNS_TSIG_DATAW {
     pub cAlgNameLength: u8,
     pub bPacketPointers: super::super::Foundation::BOOL,
 }
-impl Copy for DNS_TSIG_DATAW {}
-impl Clone for DNS_TSIG_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_TSIG_DATAW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_TSIG_DATAW")
-            .field("pNameAlgorithm", &self.pNameAlgorithm)
-            .field("pAlgorithmPacket", &self.pAlgorithmPacket)
-            .field("pSignature", &self.pSignature)
-            .field("pOtherData", &self.pOtherData)
-            .field("i64CreateTime", &self.i64CreateTime)
-            .field("wFudgeTime", &self.wFudgeTime)
-            .field("wOriginalXid", &self.wOriginalXid)
-            .field("wError", &self.wError)
-            .field("wSigLength", &self.wSigLength)
-            .field("wOtherLength", &self.wOtherLength)
-            .field("cAlgNameLength", &self.cAlgNameLength)
-            .field("bPacketPointers", &self.bPacketPointers)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DNS_TSIG_DATAW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_TSIG_DATAW {
-    fn eq(&self, other: &Self) -> bool {
-        self.pNameAlgorithm == other.pNameAlgorithm && self.pAlgorithmPacket == other.pAlgorithmPacket && self.pSignature == other.pSignature && self.pOtherData == other.pOtherData && self.i64CreateTime == other.i64CreateTime && self.wFudgeTime == other.wFudgeTime && self.wOriginalXid == other.wOriginalXid && self.wError == other.wError && self.wSigLength == other.wSigLength && self.wOtherLength == other.wOtherLength && self.cAlgNameLength == other.cAlgNameLength && self.bPacketPointers == other.bPacketPointers
-    }
-}
-impl Eq for DNS_TSIG_DATAW {}
 impl Default for DNS_TSIG_DATAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_TXT_DATAA {
     pub dwStringCount: u32,
     pub pStringArray: [windows_core::PSTR; 1],
 }
-impl Copy for DNS_TXT_DATAA {}
-impl Clone for DNS_TXT_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_TXT_DATAA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_TXT_DATAA").field("dwStringCount", &self.dwStringCount).field("pStringArray", &self.pStringArray).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_TXT_DATAA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_TXT_DATAA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwStringCount == other.dwStringCount && self.pStringArray == other.pStringArray
-    }
-}
-impl Eq for DNS_TXT_DATAA {}
 impl Default for DNS_TXT_DATAA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_TXT_DATAW {
     pub dwStringCount: u32,
     pub pStringArray: [windows_core::PWSTR; 1],
 }
-impl Copy for DNS_TXT_DATAW {}
-impl Clone for DNS_TXT_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_TXT_DATAW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_TXT_DATAW").field("dwStringCount", &self.dwStringCount).field("pStringArray", &self.pStringArray).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_TXT_DATAW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_TXT_DATAW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwStringCount == other.dwStringCount && self.pStringArray == other.pStringArray
-    }
-}
-impl Eq for DNS_TXT_DATAW {}
 impl Default for DNS_TXT_DATAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_UNKNOWN_DATA {
     pub dwByteCount: u32,
     pub bData: [u8; 1],
 }
-impl Copy for DNS_UNKNOWN_DATA {}
-impl Clone for DNS_UNKNOWN_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_UNKNOWN_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_UNKNOWN_DATA").field("dwByteCount", &self.dwByteCount).field("bData", &self.bData).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_UNKNOWN_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_UNKNOWN_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwByteCount == other.dwByteCount && self.bData == other.bData
-    }
-}
-impl Eq for DNS_UNKNOWN_DATA {}
 impl Default for DNS_UNKNOWN_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_WINSR_DATAA {
     pub dwMappingFlag: u32,
     pub dwLookupTimeout: u32,
     pub dwCacheTimeout: u32,
     pub pNameResultDomain: windows_core::PSTR,
 }
-impl Copy for DNS_WINSR_DATAA {}
-impl Clone for DNS_WINSR_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_WINSR_DATAA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_WINSR_DATAA").field("dwMappingFlag", &self.dwMappingFlag).field("dwLookupTimeout", &self.dwLookupTimeout).field("dwCacheTimeout", &self.dwCacheTimeout).field("pNameResultDomain", &self.pNameResultDomain).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_WINSR_DATAA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_WINSR_DATAA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMappingFlag == other.dwMappingFlag && self.dwLookupTimeout == other.dwLookupTimeout && self.dwCacheTimeout == other.dwCacheTimeout && self.pNameResultDomain == other.pNameResultDomain
-    }
-}
-impl Eq for DNS_WINSR_DATAA {}
 impl Default for DNS_WINSR_DATAA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_WINSR_DATAW {
     pub dwMappingFlag: u32,
     pub dwLookupTimeout: u32,
     pub dwCacheTimeout: u32,
     pub pNameResultDomain: windows_core::PWSTR,
 }
-impl Copy for DNS_WINSR_DATAW {}
-impl Clone for DNS_WINSR_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_WINSR_DATAW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_WINSR_DATAW").field("dwMappingFlag", &self.dwMappingFlag).field("dwLookupTimeout", &self.dwLookupTimeout).field("dwCacheTimeout", &self.dwCacheTimeout).field("pNameResultDomain", &self.pNameResultDomain).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_WINSR_DATAW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_WINSR_DATAW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMappingFlag == other.dwMappingFlag && self.dwLookupTimeout == other.dwLookupTimeout && self.dwCacheTimeout == other.dwCacheTimeout && self.pNameResultDomain == other.pNameResultDomain
-    }
-}
-impl Eq for DNS_WINSR_DATAW {}
 impl Default for DNS_WINSR_DATAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_WINS_DATA {
     pub dwMappingFlag: u32,
     pub dwLookupTimeout: u32,
@@ -3998,41 +2743,19 @@ pub struct DNS_WINS_DATA {
     pub cWinsServerCount: u32,
     pub WinsServers: [u32; 1],
 }
-impl Copy for DNS_WINS_DATA {}
-impl Clone for DNS_WINS_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_WINS_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_WINS_DATA").field("dwMappingFlag", &self.dwMappingFlag).field("dwLookupTimeout", &self.dwLookupTimeout).field("dwCacheTimeout", &self.dwCacheTimeout).field("cWinsServerCount", &self.cWinsServerCount).field("WinsServers", &self.WinsServers).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_WINS_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_WINS_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMappingFlag == other.dwMappingFlag && self.dwLookupTimeout == other.dwLookupTimeout && self.dwCacheTimeout == other.dwCacheTimeout && self.cWinsServerCount == other.cWinsServerCount && self.WinsServers == other.WinsServers
-    }
-}
-impl Eq for DNS_WINS_DATA {}
 impl Default for DNS_WINS_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DNS_WIRE_QUESTION {
     pub QuestionType: u16,
     pub QuestionClass: u16,
-}
-impl Copy for DNS_WIRE_QUESTION {}
-impl Clone for DNS_WIRE_QUESTION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_WIRE_QUESTION {
     type TypeKind = windows_core::CopyType;
@@ -4043,17 +2766,12 @@ impl Default for DNS_WIRE_QUESTION {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DNS_WIRE_RECORD {
     pub RecordType: u16,
     pub RecordClass: u16,
     pub TimeToLive: u32,
     pub DataLength: u16,
-}
-impl Copy for DNS_WIRE_RECORD {}
-impl Clone for DNS_WIRE_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_WIRE_RECORD {
     type TypeKind = windows_core::CopyType;
@@ -4064,61 +2782,29 @@ impl Default for DNS_WIRE_RECORD {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_WKS_DATA {
     pub IpAddress: u32,
     pub chProtocol: u8,
     pub BitMask: [u8; 1],
 }
-impl Copy for DNS_WKS_DATA {}
-impl Clone for DNS_WKS_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_WKS_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_WKS_DATA").field("IpAddress", &self.IpAddress).field("chProtocol", &self.chProtocol).field("BitMask", &self.BitMask).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_WKS_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_WKS_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.IpAddress == other.IpAddress && self.chProtocol == other.chProtocol && self.BitMask == other.BitMask
-    }
-}
-impl Eq for DNS_WKS_DATA {}
 impl Default for DNS_WKS_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP4_ARRAY {
     pub AddrCount: u32,
     pub AddrArray: [u32; 1],
 }
-impl Copy for IP4_ARRAY {}
-impl Clone for IP4_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IP4_ARRAY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IP4_ARRAY").field("AddrCount", &self.AddrCount).field("AddrArray", &self.AddrArray).finish()
-    }
-}
 impl windows_core::TypeKind for IP4_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IP4_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.AddrCount == other.AddrCount && self.AddrArray == other.AddrArray
-    }
-}
-impl Eq for IP4_ARRAY {}
 impl Default for IP4_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4126,6 +2812,7 @@ impl Default for IP4_ARRAY {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub union IP6_ADDRESS {
     pub IP6Qword: [u64; 2],
     pub IP6Dword: [u32; 4],
@@ -4133,14 +2820,6 @@ pub union IP6_ADDRESS {
     pub IP6Byte: [u8; 16],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for IP6_ADDRESS {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for IP6_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for IP6_ADDRESS {
     type TypeKind = windows_core::CopyType;
 }
@@ -4152,20 +2831,13 @@ impl Default for IP6_ADDRESS {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub union IP6_ADDRESS {
     pub IP6Dword: [u32; 4],
     pub IP6Word: [u16; 8],
     pub IP6Byte: [u8; 16],
 }
 #[cfg(target_arch = "x86")]
-impl Copy for IP6_ADDRESS {}
-#[cfg(target_arch = "x86")]
-impl Clone for IP6_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for IP6_ADDRESS {
     type TypeKind = windows_core::CopyType;
 }
@@ -4176,6 +2848,7 @@ impl Default for IP6_ADDRESS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MDNS_QUERY_HANDLE {
     pub nameBuf: [u16; 256],
     pub wType: u16,
@@ -4183,32 +2856,16 @@ pub struct MDNS_QUERY_HANDLE {
     pub pWnfCallbackParams: *mut core::ffi::c_void,
     pub stateNameData: [u32; 2],
 }
-impl Copy for MDNS_QUERY_HANDLE {}
-impl Clone for MDNS_QUERY_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MDNS_QUERY_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MDNS_QUERY_HANDLE").field("nameBuf", &self.nameBuf).field("wType", &self.wType).field("pSubscription", &self.pSubscription).field("pWnfCallbackParams", &self.pWnfCallbackParams).field("stateNameData", &self.stateNameData).finish()
-    }
-}
 impl windows_core::TypeKind for MDNS_QUERY_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MDNS_QUERY_HANDLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.nameBuf == other.nameBuf && self.wType == other.wType && self.pSubscription == other.pSubscription && self.pWnfCallbackParams == other.pWnfCallbackParams && self.stateNameData == other.stateNameData
-    }
-}
-impl Eq for MDNS_QUERY_HANDLE {}
 impl Default for MDNS_QUERY_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct MDNS_QUERY_REQUEST {
     pub Version: u32,
     pub ulRefCount: u32,
@@ -4221,17 +2878,6 @@ pub struct MDNS_QUERY_REQUEST {
     pub fAnswerReceived: super::super::Foundation::BOOL,
     pub ulResendCount: u32,
 }
-impl Copy for MDNS_QUERY_REQUEST {}
-impl Clone for MDNS_QUERY_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MDNS_QUERY_REQUEST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MDNS_QUERY_REQUEST").field("Version", &self.Version).field("ulRefCount", &self.ulRefCount).field("Query", &self.Query).field("QueryType", &self.QueryType).field("QueryOptions", &self.QueryOptions).field("InterfaceIndex", &self.InterfaceIndex).field("pQueryContext", &self.pQueryContext).field("fAnswerReceived", &self.fAnswerReceived).field("ulResendCount", &self.ulResendCount).finish()
-    }
-}
 impl windows_core::TypeKind for MDNS_QUERY_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
@@ -4241,6 +2887,7 @@ impl Default for MDNS_QUERY_REQUEST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _DnsRecordOptA {
     pub pNext: *mut DNS_RECORDA,
     pub pName: windows_core::PSTR,
@@ -4252,12 +2899,6 @@ pub struct _DnsRecordOptA {
     pub wReserved: u16,
     pub Data: _DnsRecordOptA_0,
 }
-impl Copy for _DnsRecordOptA {}
-impl Clone for _DnsRecordOptA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for _DnsRecordOptA {
     type TypeKind = windows_core::CopyType;
 }
@@ -4267,15 +2908,10 @@ impl Default for _DnsRecordOptA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union _DnsRecordOptA_0 {
     pub OPT: DNS_OPT_DATA,
     pub Opt: DNS_OPT_DATA,
-}
-impl Copy for _DnsRecordOptA_0 {}
-impl Clone for _DnsRecordOptA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for _DnsRecordOptA_0 {
     type TypeKind = windows_core::CopyType;
@@ -4286,15 +2922,10 @@ impl Default for _DnsRecordOptA_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union _DnsRecordOptA_1 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
-}
-impl Copy for _DnsRecordOptA_1 {}
-impl Clone for _DnsRecordOptA_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for _DnsRecordOptA_1 {
     type TypeKind = windows_core::CopyType;

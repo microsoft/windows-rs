@@ -76,29 +76,20 @@ pub type PSS_WALK_INFORMATION_CLASS = i32;
 pub type HPSS = isize;
 pub type HPSSWALK = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSS_ALLOCATOR {
     pub Context: *mut core::ffi::c_void,
     pub AllocRoutine: isize,
     pub FreeRoutine: isize,
 }
-impl Copy for PSS_ALLOCATOR {}
-impl Clone for PSS_ALLOCATOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSS_AUXILIARY_PAGES_INFORMATION {
     pub AuxPagesCaptured: u32,
 }
-impl Copy for PSS_AUXILIARY_PAGES_INFORMATION {}
-impl Clone for PSS_AUXILIARY_PAGES_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
+#[derive(Clone, Copy)]
 pub struct PSS_AUXILIARY_PAGE_ENTRY {
     pub Address: *mut core::ffi::c_void,
     pub BasicInformation: super::super::Memory::MEMORY_BASIC_INFORMATION,
@@ -106,15 +97,8 @@ pub struct PSS_AUXILIARY_PAGE_ENTRY {
     pub PageContents: *mut core::ffi::c_void,
     pub PageSize: u32,
 }
-#[cfg(feature = "Win32_System_Memory")]
-impl Copy for PSS_AUXILIARY_PAGE_ENTRY {}
-#[cfg(feature = "Win32_System_Memory")]
-impl Clone for PSS_AUXILIARY_PAGE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSS_HANDLE_ENTRY {
     pub Handle: super::super::super::Foundation::HANDLE,
     pub Flags: PSS_HANDLE_FLAGS,
@@ -133,13 +117,8 @@ pub struct PSS_HANDLE_ENTRY {
     pub ObjectName: windows_sys::core::PCWSTR,
     pub TypeSpecificInformation: PSS_HANDLE_ENTRY_0,
 }
-impl Copy for PSS_HANDLE_ENTRY {}
-impl Clone for PSS_HANDLE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PSS_HANDLE_ENTRY_0 {
     pub Process: PSS_HANDLE_ENTRY_0_2,
     pub Thread: PSS_HANDLE_ENTRY_0_5,
@@ -148,37 +127,22 @@ pub union PSS_HANDLE_ENTRY_0 {
     pub Section: PSS_HANDLE_ENTRY_0_3,
     pub Semaphore: PSS_HANDLE_ENTRY_0_4,
 }
-impl Copy for PSS_HANDLE_ENTRY_0 {}
-impl Clone for PSS_HANDLE_ENTRY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSS_HANDLE_ENTRY_0_0 {
     pub ManualReset: super::super::super::Foundation::BOOL,
     pub Signaled: super::super::super::Foundation::BOOL,
 }
-impl Copy for PSS_HANDLE_ENTRY_0_0 {}
-impl Clone for PSS_HANDLE_ENTRY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSS_HANDLE_ENTRY_0_1 {
     pub CurrentCount: i32,
     pub Abandoned: super::super::super::Foundation::BOOL,
     pub OwnerProcessId: u32,
     pub OwnerThreadId: u32,
 }
-impl Copy for PSS_HANDLE_ENTRY_0_1 {}
-impl Clone for PSS_HANDLE_ENTRY_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSS_HANDLE_ENTRY_0_2 {
     pub ExitStatus: u32,
     pub PebBaseAddress: *mut core::ffi::c_void,
@@ -188,36 +152,21 @@ pub struct PSS_HANDLE_ENTRY_0_2 {
     pub ParentProcessId: u32,
     pub Flags: u32,
 }
-impl Copy for PSS_HANDLE_ENTRY_0_2 {}
-impl Clone for PSS_HANDLE_ENTRY_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSS_HANDLE_ENTRY_0_3 {
     pub BaseAddress: *mut core::ffi::c_void,
     pub AllocationAttributes: u32,
     pub MaximumSize: i64,
 }
-impl Copy for PSS_HANDLE_ENTRY_0_3 {}
-impl Clone for PSS_HANDLE_ENTRY_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSS_HANDLE_ENTRY_0_4 {
     pub CurrentCount: i32,
     pub MaximumCount: i32,
 }
-impl Copy for PSS_HANDLE_ENTRY_0_4 {}
-impl Clone for PSS_HANDLE_ENTRY_0_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSS_HANDLE_ENTRY_0_5 {
     pub ExitStatus: u32,
     pub TebBaseAddress: *mut core::ffi::c_void,
@@ -228,34 +177,19 @@ pub struct PSS_HANDLE_ENTRY_0_5 {
     pub BasePriority: i32,
     pub Win32StartAddress: *mut core::ffi::c_void,
 }
-impl Copy for PSS_HANDLE_ENTRY_0_5 {}
-impl Clone for PSS_HANDLE_ENTRY_0_5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSS_HANDLE_INFORMATION {
     pub HandlesCaptured: u32,
 }
-impl Copy for PSS_HANDLE_INFORMATION {}
-impl Clone for PSS_HANDLE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSS_HANDLE_TRACE_INFORMATION {
     pub SectionHandle: super::super::super::Foundation::HANDLE,
     pub Size: u32,
 }
-impl Copy for PSS_HANDLE_TRACE_INFORMATION {}
-impl Clone for PSS_HANDLE_TRACE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSS_PERFORMANCE_COUNTERS {
     pub TotalCycleCount: u64,
     pub TotalWallClockPeriod: u64,
@@ -270,13 +204,8 @@ pub struct PSS_PERFORMANCE_COUNTERS {
     pub ThreadsCycleCount: u64,
     pub ThreadsWallClockPeriod: u64,
 }
-impl Copy for PSS_PERFORMANCE_COUNTERS {}
-impl Clone for PSS_PERFORMANCE_COUNTERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSS_PROCESS_INFORMATION {
     pub ExitStatus: u32,
     pub PebBaseAddress: *mut core::ffi::c_void,
@@ -305,14 +234,9 @@ pub struct PSS_PROCESS_INFORMATION {
     pub ExecuteFlags: u32,
     pub ImageFileName: [u16; 260],
 }
-impl Copy for PSS_PROCESS_INFORMATION {}
-impl Clone for PSS_PROCESS_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub struct PSS_THREAD_ENTRY {
     pub ExitStatus: u32,
     pub TebBaseAddress: *mut core::ffi::c_void,
@@ -334,36 +258,19 @@ pub struct PSS_THREAD_ENTRY {
     pub SizeOfContextRecord: u16,
     pub ContextRecord: *mut super::Debug::CONTEXT,
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Copy for PSS_THREAD_ENTRY {}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Clone for PSS_THREAD_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSS_THREAD_INFORMATION {
     pub ThreadsCaptured: u32,
     pub ContextLength: u32,
 }
-impl Copy for PSS_THREAD_INFORMATION {}
-impl Clone for PSS_THREAD_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSS_VA_CLONE_INFORMATION {
     pub VaCloneHandle: super::super::super::Foundation::HANDLE,
 }
-impl Copy for PSS_VA_CLONE_INFORMATION {}
-impl Clone for PSS_VA_CLONE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSS_VA_SPACE_ENTRY {
     pub BaseAddress: *mut core::ffi::c_void,
     pub AllocationBase: *mut core::ffi::c_void,
@@ -379,19 +286,8 @@ pub struct PSS_VA_SPACE_ENTRY {
     pub MappedFileNameLength: u16,
     pub MappedFileName: windows_sys::core::PCWSTR,
 }
-impl Copy for PSS_VA_SPACE_ENTRY {}
-impl Clone for PSS_VA_SPACE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSS_VA_SPACE_INFORMATION {
     pub RegionCount: u32,
-}
-impl Copy for PSS_VA_SPACE_INFORMATION {}
-impl Clone for PSS_VA_SPACE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

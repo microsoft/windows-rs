@@ -4102,37 +4102,16 @@ pub const PortableDeviceValuesCollection: windows_core::GUID = windows_core::GUI
 pub const PortableDeviceWebControl: windows_core::GUID = windows_core::GUID::from_u128(0x186dd02c_2dec_41b5_a7d4_b59056fade51);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
     pub Command: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
     pub AccessType: u32,
     pub AccessProperty: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Copy for WPD_COMMAND_ACCESS_LOOKUP_ENTRY {}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Clone for WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl core::fmt::Debug for WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WPD_COMMAND_ACCESS_LOOKUP_ENTRY").field("Command", &self.Command).field("AccessType", &self.AccessType).field("AccessProperty", &self.AccessProperty).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::TypeKind for WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl PartialEq for WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Command == other.Command && self.AccessType == other.AccessType && self.AccessProperty == other.AccessProperty
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Eq for WPD_COMMAND_ACCESS_LOOKUP_ENTRY {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Default for WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
     fn default() -> Self {

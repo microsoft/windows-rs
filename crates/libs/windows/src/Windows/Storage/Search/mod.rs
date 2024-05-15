@@ -1700,19 +1700,10 @@ impl windows_core::RuntimeType for IndexerOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.IndexerOption;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SortEntry {
     pub PropertyName: windows_core::HSTRING,
     pub AscendingOrder: bool,
-}
-impl Clone for SortEntry {
-    fn clone(&self) -> Self {
-        Self { PropertyName: self.PropertyName.clone(), AscendingOrder: self.AscendingOrder }
-    }
-}
-impl core::fmt::Debug for SortEntry {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SortEntry").field("PropertyName", &self.PropertyName).field("AscendingOrder", &self.AscendingOrder).finish()
-    }
 }
 impl windows_core::TypeKind for SortEntry {
     type TypeKind = windows_core::CloneType;
@@ -1720,12 +1711,6 @@ impl windows_core::TypeKind for SortEntry {
 impl windows_core::RuntimeType for SortEntry {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Storage.Search.SortEntry;string;b1)");
 }
-impl PartialEq for SortEntry {
-    fn eq(&self, other: &Self) -> bool {
-        self.PropertyName == other.PropertyName && self.AscendingOrder == other.AscendingOrder
-    }
-}
-impl Eq for SortEntry {}
 impl Default for SortEntry {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

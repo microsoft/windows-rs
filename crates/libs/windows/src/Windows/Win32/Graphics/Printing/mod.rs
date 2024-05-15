@@ -7410,66 +7410,35 @@ impl core::fmt::Debug for XPSRAS_RENDERING_MODE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDJOB_INFO_1A {
     pub Path: windows_core::PSTR,
     pub JobId: u32,
 }
-impl Copy for ADDJOB_INFO_1A {}
-impl Clone for ADDJOB_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ADDJOB_INFO_1A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ADDJOB_INFO_1A").field("Path", &self.Path).field("JobId", &self.JobId).finish()
-    }
-}
 impl windows_core::TypeKind for ADDJOB_INFO_1A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ADDJOB_INFO_1A {
-    fn eq(&self, other: &Self) -> bool {
-        self.Path == other.Path && self.JobId == other.JobId
-    }
-}
-impl Eq for ADDJOB_INFO_1A {}
 impl Default for ADDJOB_INFO_1A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDJOB_INFO_1W {
     pub Path: windows_core::PWSTR,
     pub JobId: u32,
 }
-impl Copy for ADDJOB_INFO_1W {}
-impl Clone for ADDJOB_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ADDJOB_INFO_1W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ADDJOB_INFO_1W").field("Path", &self.Path).field("JobId", &self.JobId).finish()
-    }
-}
 impl windows_core::TypeKind for ADDJOB_INFO_1W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ADDJOB_INFO_1W {
-    fn eq(&self, other: &Self) -> bool {
-        self.Path == other.Path && self.JobId == other.JobId
-    }
-}
-impl Eq for ADDJOB_INFO_1W {}
 impl Default for ADDJOB_INFO_1W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ATTRIBUTE_INFO_1 {
     pub dwJobNumberOfPagesPerSide: u32,
     pub dwDrvNumberOfPagesPerSide: u32,
@@ -7479,32 +7448,16 @@ pub struct ATTRIBUTE_INFO_1 {
     pub dwJobNumberOfCopies: u32,
     pub dwDrvNumberOfCopies: u32,
 }
-impl Copy for ATTRIBUTE_INFO_1 {}
-impl Clone for ATTRIBUTE_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ATTRIBUTE_INFO_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ATTRIBUTE_INFO_1").field("dwJobNumberOfPagesPerSide", &self.dwJobNumberOfPagesPerSide).field("dwDrvNumberOfPagesPerSide", &self.dwDrvNumberOfPagesPerSide).field("dwNupBorderFlags", &self.dwNupBorderFlags).field("dwJobPageOrderFlags", &self.dwJobPageOrderFlags).field("dwDrvPageOrderFlags", &self.dwDrvPageOrderFlags).field("dwJobNumberOfCopies", &self.dwJobNumberOfCopies).field("dwDrvNumberOfCopies", &self.dwDrvNumberOfCopies).finish()
-    }
-}
 impl windows_core::TypeKind for ATTRIBUTE_INFO_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ATTRIBUTE_INFO_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwJobNumberOfPagesPerSide == other.dwJobNumberOfPagesPerSide && self.dwDrvNumberOfPagesPerSide == other.dwDrvNumberOfPagesPerSide && self.dwNupBorderFlags == other.dwNupBorderFlags && self.dwJobPageOrderFlags == other.dwJobPageOrderFlags && self.dwDrvPageOrderFlags == other.dwDrvPageOrderFlags && self.dwJobNumberOfCopies == other.dwJobNumberOfCopies && self.dwDrvNumberOfCopies == other.dwDrvNumberOfCopies
-    }
-}
-impl Eq for ATTRIBUTE_INFO_1 {}
 impl Default for ATTRIBUTE_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ATTRIBUTE_INFO_2 {
     pub dwJobNumberOfPagesPerSide: u32,
     pub dwDrvNumberOfPagesPerSide: u32,
@@ -7515,41 +7468,16 @@ pub struct ATTRIBUTE_INFO_2 {
     pub dwDrvNumberOfCopies: u32,
     pub dwColorOptimization: u32,
 }
-impl Copy for ATTRIBUTE_INFO_2 {}
-impl Clone for ATTRIBUTE_INFO_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ATTRIBUTE_INFO_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ATTRIBUTE_INFO_2")
-            .field("dwJobNumberOfPagesPerSide", &self.dwJobNumberOfPagesPerSide)
-            .field("dwDrvNumberOfPagesPerSide", &self.dwDrvNumberOfPagesPerSide)
-            .field("dwNupBorderFlags", &self.dwNupBorderFlags)
-            .field("dwJobPageOrderFlags", &self.dwJobPageOrderFlags)
-            .field("dwDrvPageOrderFlags", &self.dwDrvPageOrderFlags)
-            .field("dwJobNumberOfCopies", &self.dwJobNumberOfCopies)
-            .field("dwDrvNumberOfCopies", &self.dwDrvNumberOfCopies)
-            .field("dwColorOptimization", &self.dwColorOptimization)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for ATTRIBUTE_INFO_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ATTRIBUTE_INFO_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwJobNumberOfPagesPerSide == other.dwJobNumberOfPagesPerSide && self.dwDrvNumberOfPagesPerSide == other.dwDrvNumberOfPagesPerSide && self.dwNupBorderFlags == other.dwNupBorderFlags && self.dwJobPageOrderFlags == other.dwJobPageOrderFlags && self.dwDrvPageOrderFlags == other.dwDrvPageOrderFlags && self.dwJobNumberOfCopies == other.dwJobNumberOfCopies && self.dwDrvNumberOfCopies == other.dwDrvNumberOfCopies && self.dwColorOptimization == other.dwColorOptimization
-    }
-}
-impl Eq for ATTRIBUTE_INFO_2 {}
 impl Default for ATTRIBUTE_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ATTRIBUTE_INFO_3 {
     pub dwJobNumberOfPagesPerSide: u32,
     pub dwDrvNumberOfPagesPerSide: u32,
@@ -7562,43 +7490,16 @@ pub struct ATTRIBUTE_INFO_3 {
     pub dmPrintQuality: i16,
     pub dmYResolution: i16,
 }
-impl Copy for ATTRIBUTE_INFO_3 {}
-impl Clone for ATTRIBUTE_INFO_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ATTRIBUTE_INFO_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ATTRIBUTE_INFO_3")
-            .field("dwJobNumberOfPagesPerSide", &self.dwJobNumberOfPagesPerSide)
-            .field("dwDrvNumberOfPagesPerSide", &self.dwDrvNumberOfPagesPerSide)
-            .field("dwNupBorderFlags", &self.dwNupBorderFlags)
-            .field("dwJobPageOrderFlags", &self.dwJobPageOrderFlags)
-            .field("dwDrvPageOrderFlags", &self.dwDrvPageOrderFlags)
-            .field("dwJobNumberOfCopies", &self.dwJobNumberOfCopies)
-            .field("dwDrvNumberOfCopies", &self.dwDrvNumberOfCopies)
-            .field("dwColorOptimization", &self.dwColorOptimization)
-            .field("dmPrintQuality", &self.dmPrintQuality)
-            .field("dmYResolution", &self.dmYResolution)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for ATTRIBUTE_INFO_3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ATTRIBUTE_INFO_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwJobNumberOfPagesPerSide == other.dwJobNumberOfPagesPerSide && self.dwDrvNumberOfPagesPerSide == other.dwDrvNumberOfPagesPerSide && self.dwNupBorderFlags == other.dwNupBorderFlags && self.dwJobPageOrderFlags == other.dwJobPageOrderFlags && self.dwDrvPageOrderFlags == other.dwDrvPageOrderFlags && self.dwJobNumberOfCopies == other.dwJobNumberOfCopies && self.dwDrvNumberOfCopies == other.dwDrvNumberOfCopies && self.dwColorOptimization == other.dwColorOptimization && self.dmPrintQuality == other.dmPrintQuality && self.dmYResolution == other.dmYResolution
-    }
-}
-impl Eq for ATTRIBUTE_INFO_3 {}
 impl Default for ATTRIBUTE_INFO_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ATTRIBUTE_INFO_4 {
     pub dwJobNumberOfPagesPerSide: u32,
     pub dwDrvNumberOfPagesPerSide: u32,
@@ -7616,71 +7517,19 @@ pub struct ATTRIBUTE_INFO_4 {
     pub dwScalingPercentX: u32,
     pub dwScalingPercentY: u32,
 }
-impl Copy for ATTRIBUTE_INFO_4 {}
-impl Clone for ATTRIBUTE_INFO_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ATTRIBUTE_INFO_4 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ATTRIBUTE_INFO_4")
-            .field("dwJobNumberOfPagesPerSide", &self.dwJobNumberOfPagesPerSide)
-            .field("dwDrvNumberOfPagesPerSide", &self.dwDrvNumberOfPagesPerSide)
-            .field("dwNupBorderFlags", &self.dwNupBorderFlags)
-            .field("dwJobPageOrderFlags", &self.dwJobPageOrderFlags)
-            .field("dwDrvPageOrderFlags", &self.dwDrvPageOrderFlags)
-            .field("dwJobNumberOfCopies", &self.dwJobNumberOfCopies)
-            .field("dwDrvNumberOfCopies", &self.dwDrvNumberOfCopies)
-            .field("dwColorOptimization", &self.dwColorOptimization)
-            .field("dmPrintQuality", &self.dmPrintQuality)
-            .field("dmYResolution", &self.dmYResolution)
-            .field("dwDuplexFlags", &self.dwDuplexFlags)
-            .field("dwNupDirection", &self.dwNupDirection)
-            .field("dwBookletFlags", &self.dwBookletFlags)
-            .field("dwScalingPercentX", &self.dwScalingPercentX)
-            .field("dwScalingPercentY", &self.dwScalingPercentY)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for ATTRIBUTE_INFO_4 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ATTRIBUTE_INFO_4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwJobNumberOfPagesPerSide == other.dwJobNumberOfPagesPerSide
-            && self.dwDrvNumberOfPagesPerSide == other.dwDrvNumberOfPagesPerSide
-            && self.dwNupBorderFlags == other.dwNupBorderFlags
-            && self.dwJobPageOrderFlags == other.dwJobPageOrderFlags
-            && self.dwDrvPageOrderFlags == other.dwDrvPageOrderFlags
-            && self.dwJobNumberOfCopies == other.dwJobNumberOfCopies
-            && self.dwDrvNumberOfCopies == other.dwDrvNumberOfCopies
-            && self.dwColorOptimization == other.dwColorOptimization
-            && self.dmPrintQuality == other.dmPrintQuality
-            && self.dmYResolution == other.dmYResolution
-            && self.dwDuplexFlags == other.dwDuplexFlags
-            && self.dwNupDirection == other.dwNupDirection
-            && self.dwBookletFlags == other.dwBookletFlags
-            && self.dwScalingPercentX == other.dwScalingPercentX
-            && self.dwScalingPercentY == other.dwScalingPercentY
-    }
-}
-impl Eq for ATTRIBUTE_INFO_4 {}
 impl Default for ATTRIBUTE_INFO_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BIDI_DATA {
     pub dwBidiType: u32,
     pub u: BIDI_DATA_0,
-}
-impl Copy for BIDI_DATA {}
-impl Clone for BIDI_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BIDI_DATA {
     type TypeKind = windows_core::CopyType;
@@ -7691,18 +7540,13 @@ impl Default for BIDI_DATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union BIDI_DATA_0 {
     pub bData: super::super::Foundation::BOOL,
     pub iData: i32,
     pub sData: windows_core::PWSTR,
     pub fData: f32,
     pub biData: BINARY_CONTAINER,
-}
-impl Copy for BIDI_DATA_0 {}
-impl Clone for BIDI_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BIDI_DATA_0 {
     type TypeKind = windows_core::CopyType;
@@ -7713,17 +7557,12 @@ impl Default for BIDI_DATA_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BIDI_REQUEST_CONTAINER {
     pub Version: u32,
     pub Flags: u32,
     pub Count: u32,
     pub aData: [BIDI_REQUEST_DATA; 1],
-}
-impl Copy for BIDI_REQUEST_CONTAINER {}
-impl Clone for BIDI_REQUEST_CONTAINER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BIDI_REQUEST_CONTAINER {
     type TypeKind = windows_core::CopyType;
@@ -7734,16 +7573,11 @@ impl Default for BIDI_REQUEST_CONTAINER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BIDI_REQUEST_DATA {
     pub dwReqNumber: u32,
     pub pSchema: windows_core::PWSTR,
     pub data: BIDI_DATA,
-}
-impl Copy for BIDI_REQUEST_DATA {}
-impl Clone for BIDI_REQUEST_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BIDI_REQUEST_DATA {
     type TypeKind = windows_core::CopyType;
@@ -7754,17 +7588,12 @@ impl Default for BIDI_REQUEST_DATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BIDI_RESPONSE_CONTAINER {
     pub Version: u32,
     pub Flags: u32,
     pub Count: u32,
     pub aData: [BIDI_RESPONSE_DATA; 1],
-}
-impl Copy for BIDI_RESPONSE_CONTAINER {}
-impl Clone for BIDI_RESPONSE_CONTAINER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BIDI_RESPONSE_CONTAINER {
     type TypeKind = windows_core::CopyType;
@@ -7775,17 +7604,12 @@ impl Default for BIDI_RESPONSE_CONTAINER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BIDI_RESPONSE_DATA {
     pub dwResult: u32,
     pub dwReqNumber: u32,
     pub pSchema: windows_core::PWSTR,
     pub data: BIDI_DATA,
-}
-impl Copy for BIDI_RESPONSE_DATA {}
-impl Clone for BIDI_RESPONSE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BIDI_RESPONSE_DATA {
     type TypeKind = windows_core::CopyType;
@@ -7796,30 +7620,14 @@ impl Default for BIDI_RESPONSE_DATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BINARY_CONTAINER {
     pub cbBuf: u32,
     pub pData: *mut u8,
 }
-impl Copy for BINARY_CONTAINER {}
-impl Clone for BINARY_CONTAINER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BINARY_CONTAINER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BINARY_CONTAINER").field("cbBuf", &self.cbBuf).field("pData", &self.pData).finish()
-    }
-}
 impl windows_core::TypeKind for BINARY_CONTAINER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BINARY_CONTAINER {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbBuf == other.cbBuf && self.pData == other.pData
-    }
-}
-impl Eq for BINARY_CONTAINER {}
 impl Default for BINARY_CONTAINER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7829,16 +7637,11 @@ pub const BidiRequest: windows_core::GUID = windows_core::GUID::from_u128(0xb916
 pub const BidiRequestContainer: windows_core::GUID = windows_core::GUID::from_u128(0xfc5b8a24_db05_4a01_8388_22edf6c2bbba);
 pub const BidiSpl: windows_core::GUID = windows_core::GUID::from_u128(0x2a614240_a4c5_4c33_bd87_1bc709331639);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BranchOfficeJobData {
     pub eEventType: EBranchOfficeJobEventType,
     pub JobId: u32,
     pub JobInfo: BranchOfficeJobData_0,
-}
-impl Copy for BranchOfficeJobData {}
-impl Clone for BranchOfficeJobData {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BranchOfficeJobData {
     type TypeKind = windows_core::CopyType;
@@ -7849,18 +7652,13 @@ impl Default for BranchOfficeJobData {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union BranchOfficeJobData_0 {
     pub LogJobPrinted: BranchOfficeJobDataPrinted,
     pub LogJobRendered: BranchOfficeJobDataRendered,
     pub LogJobError: BranchOfficeJobDataError,
     pub LogPipelineFailed: BranchOfficeJobDataPipelineFailed,
     pub LogOfflineFileFull: BranchOfficeLogOfflineFileFull,
-}
-impl Copy for BranchOfficeJobData_0 {}
-impl Clone for BranchOfficeJobData_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BranchOfficeJobData_0 {
     type TypeKind = windows_core::CopyType;
@@ -7871,15 +7669,10 @@ impl Default for BranchOfficeJobData_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BranchOfficeJobDataContainer {
     pub cJobDataEntries: u32,
     pub JobData: [BranchOfficeJobData; 1],
-}
-impl Copy for BranchOfficeJobDataContainer {}
-impl Clone for BranchOfficeJobDataContainer {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BranchOfficeJobDataContainer {
     type TypeKind = windows_core::CopyType;
@@ -7890,6 +7683,7 @@ impl Default for BranchOfficeJobDataContainer {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BranchOfficeJobDataError {
     pub LastError: u32,
     pub pDocumentName: windows_core::PWSTR,
@@ -7904,76 +7698,31 @@ pub struct BranchOfficeJobDataError {
     pub pJobError: windows_core::PWSTR,
     pub pErrorDescription: windows_core::PWSTR,
 }
-impl Copy for BranchOfficeJobDataError {}
-impl Clone for BranchOfficeJobDataError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BranchOfficeJobDataError {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BranchOfficeJobDataError")
-            .field("LastError", &self.LastError)
-            .field("pDocumentName", &self.pDocumentName)
-            .field("pUserName", &self.pUserName)
-            .field("pPrinterName", &self.pPrinterName)
-            .field("pDataType", &self.pDataType)
-            .field("TotalSize", &self.TotalSize)
-            .field("PrintedSize", &self.PrintedSize)
-            .field("TotalPages", &self.TotalPages)
-            .field("PrintedPages", &self.PrintedPages)
-            .field("pMachineName", &self.pMachineName)
-            .field("pJobError", &self.pJobError)
-            .field("pErrorDescription", &self.pErrorDescription)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for BranchOfficeJobDataError {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BranchOfficeJobDataError {
-    fn eq(&self, other: &Self) -> bool {
-        self.LastError == other.LastError && self.pDocumentName == other.pDocumentName && self.pUserName == other.pUserName && self.pPrinterName == other.pPrinterName && self.pDataType == other.pDataType && self.TotalSize == other.TotalSize && self.PrintedSize == other.PrintedSize && self.TotalPages == other.TotalPages && self.PrintedPages == other.PrintedPages && self.pMachineName == other.pMachineName && self.pJobError == other.pJobError && self.pErrorDescription == other.pErrorDescription
-    }
-}
-impl Eq for BranchOfficeJobDataError {}
 impl Default for BranchOfficeJobDataError {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BranchOfficeJobDataPipelineFailed {
     pub pDocumentName: windows_core::PWSTR,
     pub pPrinterName: windows_core::PWSTR,
     pub pExtraErrorInfo: windows_core::PWSTR,
 }
-impl Copy for BranchOfficeJobDataPipelineFailed {}
-impl Clone for BranchOfficeJobDataPipelineFailed {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BranchOfficeJobDataPipelineFailed {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BranchOfficeJobDataPipelineFailed").field("pDocumentName", &self.pDocumentName).field("pPrinterName", &self.pPrinterName).field("pExtraErrorInfo", &self.pExtraErrorInfo).finish()
-    }
-}
 impl windows_core::TypeKind for BranchOfficeJobDataPipelineFailed {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BranchOfficeJobDataPipelineFailed {
-    fn eq(&self, other: &Self) -> bool {
-        self.pDocumentName == other.pDocumentName && self.pPrinterName == other.pPrinterName && self.pExtraErrorInfo == other.pExtraErrorInfo
-    }
-}
-impl Eq for BranchOfficeJobDataPipelineFailed {}
 impl Default for BranchOfficeJobDataPipelineFailed {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BranchOfficeJobDataPrinted {
     pub Status: u32,
     pub pDocumentName: windows_core::PWSTR,
@@ -7984,32 +7733,16 @@ pub struct BranchOfficeJobDataPrinted {
     pub Size: i64,
     pub TotalPages: u32,
 }
-impl Copy for BranchOfficeJobDataPrinted {}
-impl Clone for BranchOfficeJobDataPrinted {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BranchOfficeJobDataPrinted {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BranchOfficeJobDataPrinted").field("Status", &self.Status).field("pDocumentName", &self.pDocumentName).field("pUserName", &self.pUserName).field("pMachineName", &self.pMachineName).field("pPrinterName", &self.pPrinterName).field("pPortName", &self.pPortName).field("Size", &self.Size).field("TotalPages", &self.TotalPages).finish()
-    }
-}
 impl windows_core::TypeKind for BranchOfficeJobDataPrinted {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BranchOfficeJobDataPrinted {
-    fn eq(&self, other: &Self) -> bool {
-        self.Status == other.Status && self.pDocumentName == other.pDocumentName && self.pUserName == other.pUserName && self.pMachineName == other.pMachineName && self.pPrinterName == other.pPrinterName && self.pPortName == other.pPortName && self.Size == other.Size && self.TotalPages == other.TotalPages
-    }
-}
-impl Eq for BranchOfficeJobDataPrinted {}
 impl Default for BranchOfficeJobDataPrinted {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BranchOfficeJobDataRendered {
     pub Size: i64,
     pub ICMMethod: u32,
@@ -8019,55 +7752,22 @@ pub struct BranchOfficeJobDataRendered {
     pub Copies: i16,
     pub TTOption: i16,
 }
-impl Copy for BranchOfficeJobDataRendered {}
-impl Clone for BranchOfficeJobDataRendered {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BranchOfficeJobDataRendered {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BranchOfficeJobDataRendered").field("Size", &self.Size).field("ICMMethod", &self.ICMMethod).field("Color", &self.Color).field("PrintQuality", &self.PrintQuality).field("YResolution", &self.YResolution).field("Copies", &self.Copies).field("TTOption", &self.TTOption).finish()
-    }
-}
 impl windows_core::TypeKind for BranchOfficeJobDataRendered {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BranchOfficeJobDataRendered {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.ICMMethod == other.ICMMethod && self.Color == other.Color && self.PrintQuality == other.PrintQuality && self.YResolution == other.YResolution && self.Copies == other.Copies && self.TTOption == other.TTOption
-    }
-}
-impl Eq for BranchOfficeJobDataRendered {}
 impl Default for BranchOfficeJobDataRendered {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BranchOfficeLogOfflineFileFull {
     pub pMachineName: windows_core::PWSTR,
-}
-impl Copy for BranchOfficeLogOfflineFileFull {}
-impl Clone for BranchOfficeLogOfflineFileFull {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BranchOfficeLogOfflineFileFull {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BranchOfficeLogOfflineFileFull").field("pMachineName", &self.pMachineName).finish()
-    }
 }
 impl windows_core::TypeKind for BranchOfficeLogOfflineFileFull {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BranchOfficeLogOfflineFileFull {
-    fn eq(&self, other: &Self) -> bool {
-        self.pMachineName == other.pMachineName
-    }
-}
-impl Eq for BranchOfficeLogOfflineFileFull {}
 impl Default for BranchOfficeLogOfflineFileFull {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8075,6 +7775,7 @@ impl Default for BranchOfficeLogOfflineFileFull {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy, Debug)]
 pub struct COMPROPSHEETUI {
     pub cbSize: u16,
     pub Flags: u16,
@@ -8094,36 +7795,6 @@ pub struct COMPROPSHEETUI {
     pub dwReserved: [usize; 4],
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for COMPROPSHEETUI {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for COMPROPSHEETUI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl core::fmt::Debug for COMPROPSHEETUI {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COMPROPSHEETUI")
-            .field("cbSize", &self.cbSize)
-            .field("Flags", &self.Flags)
-            .field("hInstCaller", &self.hInstCaller)
-            .field("pCallerName", &self.pCallerName)
-            .field("UserData", &self.UserData)
-            .field("pHelpFile", &self.pHelpFile)
-            .field("pOptItem", &self.pOptItem)
-            .field("pDlgPage", &self.pDlgPage)
-            .field("cOptItem", &self.cOptItem)
-            .field("cDlgPage", &self.cDlgPage)
-            .field("IconID", &self.IconID)
-            .field("pOptItemName", &self.pOptItemName)
-            .field("CallerVersion", &self.CallerVersion)
-            .field("OptItemVersion", &self.OptItemVersion)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::TypeKind for COMPROPSHEETUI {
     type TypeKind = windows_core::CopyType;
 }
@@ -8134,94 +7805,46 @@ impl Default for COMPROPSHEETUI {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONFIG_INFO_DATA_1 {
     pub Reserved: [u8; 128],
     pub dwVersion: u32,
 }
-impl Copy for CONFIG_INFO_DATA_1 {}
-impl Clone for CONFIG_INFO_DATA_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CONFIG_INFO_DATA_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CONFIG_INFO_DATA_1").field("Reserved", &self.Reserved).field("dwVersion", &self.dwVersion).finish()
-    }
-}
 impl windows_core::TypeKind for CONFIG_INFO_DATA_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CONFIG_INFO_DATA_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Reserved == other.Reserved && self.dwVersion == other.dwVersion
-    }
-}
-impl Eq for CONFIG_INFO_DATA_1 {}
 impl Default for CONFIG_INFO_DATA_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CORE_PRINTER_DRIVERA {
     pub CoreDriverGUID: windows_core::GUID,
     pub ftDriverDate: super::super::Foundation::FILETIME,
     pub dwlDriverVersion: u64,
     pub szPackageID: [i8; 260],
 }
-impl Copy for CORE_PRINTER_DRIVERA {}
-impl Clone for CORE_PRINTER_DRIVERA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CORE_PRINTER_DRIVERA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CORE_PRINTER_DRIVERA").field("CoreDriverGUID", &self.CoreDriverGUID).field("ftDriverDate", &self.ftDriverDate).field("dwlDriverVersion", &self.dwlDriverVersion).field("szPackageID", &self.szPackageID).finish()
-    }
-}
 impl windows_core::TypeKind for CORE_PRINTER_DRIVERA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CORE_PRINTER_DRIVERA {
-    fn eq(&self, other: &Self) -> bool {
-        self.CoreDriverGUID == other.CoreDriverGUID && self.ftDriverDate == other.ftDriverDate && self.dwlDriverVersion == other.dwlDriverVersion && self.szPackageID == other.szPackageID
-    }
-}
-impl Eq for CORE_PRINTER_DRIVERA {}
 impl Default for CORE_PRINTER_DRIVERA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CORE_PRINTER_DRIVERW {
     pub CoreDriverGUID: windows_core::GUID,
     pub ftDriverDate: super::super::Foundation::FILETIME,
     pub dwlDriverVersion: u64,
     pub szPackageID: [u16; 260],
 }
-impl Copy for CORE_PRINTER_DRIVERW {}
-impl Clone for CORE_PRINTER_DRIVERW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CORE_PRINTER_DRIVERW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CORE_PRINTER_DRIVERW").field("CoreDriverGUID", &self.CoreDriverGUID).field("ftDriverDate", &self.ftDriverDate).field("dwlDriverVersion", &self.dwlDriverVersion).field("szPackageID", &self.szPackageID).finish()
-    }
-}
 impl windows_core::TypeKind for CORE_PRINTER_DRIVERW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CORE_PRINTER_DRIVERW {
-    fn eq(&self, other: &Self) -> bool {
-        self.CoreDriverGUID == other.CoreDriverGUID && self.ftDriverDate == other.ftDriverDate && self.dwlDriverVersion == other.dwlDriverVersion && self.szPackageID == other.szPackageID
-    }
-}
-impl Eq for CORE_PRINTER_DRIVERW {}
 impl Default for CORE_PRINTER_DRIVERW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8229,6 +7852,7 @@ impl Default for CORE_PRINTER_DRIVERW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct CPSUICBPARAM {
     pub cbSize: u16,
     pub Reason: u16,
@@ -8242,14 +7866,6 @@ pub struct CPSUICBPARAM {
     pub Result: usize,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for CPSUICBPARAM {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for CPSUICBPARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::TypeKind for CPSUICBPARAM {
     type TypeKind = windows_core::CopyType;
 }
@@ -8261,17 +7877,10 @@ impl Default for CPSUICBPARAM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub union CPSUICBPARAM_0 {
     pub OldSel: i32,
     pub pOldSel: *mut i8,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for CPSUICBPARAM_0 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for CPSUICBPARAM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::TypeKind for CPSUICBPARAM_0 {
@@ -8284,125 +7893,62 @@ impl Default for CPSUICBPARAM_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CPSUIDATABLOCK {
     pub cbData: u32,
     pub pbData: *mut u8,
 }
-impl Copy for CPSUIDATABLOCK {}
-impl Clone for CPSUIDATABLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CPSUIDATABLOCK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CPSUIDATABLOCK").field("cbData", &self.cbData).field("pbData", &self.pbData).finish()
-    }
-}
 impl windows_core::TypeKind for CPSUIDATABLOCK {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CPSUIDATABLOCK {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbData == other.cbData && self.pbData == other.pbData
-    }
-}
-impl Eq for CPSUIDATABLOCK {}
 impl Default for CPSUIDATABLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CUSTOMSIZEPARAM {
     pub dwOrder: i32,
     pub lMinVal: i32,
     pub lMaxVal: i32,
 }
-impl Copy for CUSTOMSIZEPARAM {}
-impl Clone for CUSTOMSIZEPARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CUSTOMSIZEPARAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CUSTOMSIZEPARAM").field("dwOrder", &self.dwOrder).field("lMinVal", &self.lMinVal).field("lMaxVal", &self.lMaxVal).finish()
-    }
-}
 impl windows_core::TypeKind for CUSTOMSIZEPARAM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CUSTOMSIZEPARAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwOrder == other.dwOrder && self.lMinVal == other.lMinVal && self.lMaxVal == other.lMaxVal
-    }
-}
-impl Eq for CUSTOMSIZEPARAM {}
 impl Default for CUSTOMSIZEPARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DATATYPES_INFO_1A {
     pub pName: windows_core::PSTR,
-}
-impl Copy for DATATYPES_INFO_1A {}
-impl Clone for DATATYPES_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DATATYPES_INFO_1A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DATATYPES_INFO_1A").field("pName", &self.pName).finish()
-    }
 }
 impl windows_core::TypeKind for DATATYPES_INFO_1A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DATATYPES_INFO_1A {
-    fn eq(&self, other: &Self) -> bool {
-        self.pName == other.pName
-    }
-}
-impl Eq for DATATYPES_INFO_1A {}
 impl Default for DATATYPES_INFO_1A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DATATYPES_INFO_1W {
     pub pName: windows_core::PWSTR,
-}
-impl Copy for DATATYPES_INFO_1W {}
-impl Clone for DATATYPES_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DATATYPES_INFO_1W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DATATYPES_INFO_1W").field("pName", &self.pName).finish()
-    }
 }
 impl windows_core::TypeKind for DATATYPES_INFO_1W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DATATYPES_INFO_1W {
-    fn eq(&self, other: &Self) -> bool {
-        self.pName == other.pName
-    }
-}
-impl Eq for DATATYPES_INFO_1W {}
 impl Default for DATATYPES_INFO_1W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DATA_HEADER {
     pub dwSignature: u32,
     pub wSize: u16,
@@ -8410,90 +7956,41 @@ pub struct DATA_HEADER {
     pub dwDataSize: u32,
     pub dwReserved: u32,
 }
-impl Copy for DATA_HEADER {}
-impl Clone for DATA_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DATA_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DATA_HEADER").field("dwSignature", &self.dwSignature).field("wSize", &self.wSize).field("wDataID", &self.wDataID).field("dwDataSize", &self.dwDataSize).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 impl windows_core::TypeKind for DATA_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DATA_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSignature == other.dwSignature && self.wSize == other.wSize && self.wDataID == other.wDataID && self.dwDataSize == other.dwDataSize && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for DATA_HEADER {}
 impl Default for DATA_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DELETE_PORT_DATA_1 {
     pub psztPortName: [u16; 64],
     pub Reserved: [u8; 98],
     pub dwVersion: u32,
     pub dwReserved: u32,
 }
-impl Copy for DELETE_PORT_DATA_1 {}
-impl Clone for DELETE_PORT_DATA_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DELETE_PORT_DATA_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DELETE_PORT_DATA_1").field("psztPortName", &self.psztPortName).field("Reserved", &self.Reserved).field("dwVersion", &self.dwVersion).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 impl windows_core::TypeKind for DELETE_PORT_DATA_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DELETE_PORT_DATA_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.psztPortName == other.psztPortName && self.Reserved == other.Reserved && self.dwVersion == other.dwVersion && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for DELETE_PORT_DATA_1 {}
 impl Default for DELETE_PORT_DATA_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICEPROPERTYHEADER {
     pub cbSize: u16,
     pub Flags: u16,
     pub hPrinter: super::super::Foundation::HANDLE,
     pub pszPrinterName: *mut i8,
 }
-impl Copy for DEVICEPROPERTYHEADER {}
-impl Clone for DEVICEPROPERTYHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DEVICEPROPERTYHEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DEVICEPROPERTYHEADER").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("hPrinter", &self.hPrinter).field("pszPrinterName", &self.pszPrinterName).finish()
-    }
-}
 impl windows_core::TypeKind for DEVICEPROPERTYHEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DEVICEPROPERTYHEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.Flags == other.Flags && self.hPrinter == other.hPrinter && self.pszPrinterName == other.pszPrinterName
-    }
-}
-impl Eq for DEVICEPROPERTYHEADER {}
 impl Default for DEVICEPROPERTYHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8501,6 +7998,7 @@ impl Default for DEVICEPROPERTYHEADER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVQUERYPRINT_INFO {
     pub cbSize: u16,
     pub Level: u16,
@@ -8511,31 +8009,9 @@ pub struct DEVQUERYPRINT_INFO {
     pub cchNeeded: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DEVQUERYPRINT_INFO {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DEVQUERYPRINT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DEVQUERYPRINT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DEVQUERYPRINT_INFO").field("cbSize", &self.cbSize).field("Level", &self.Level).field("hPrinter", &self.hPrinter).field("pDevMode", &self.pDevMode).field("pszErrorStr", &self.pszErrorStr).field("cchErrorStr", &self.cchErrorStr).field("cchNeeded", &self.cchNeeded).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DEVQUERYPRINT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for DEVQUERYPRINT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.Level == other.Level && self.hPrinter == other.hPrinter && self.pDevMode == other.pDevMode && self.pszErrorStr == other.pszErrorStr && self.cchErrorStr == other.cchErrorStr && self.cchNeeded == other.cchNeeded
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for DEVQUERYPRINT_INFO {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DEVQUERYPRINT_INFO {
     fn default() -> Self {
@@ -8544,6 +8020,7 @@ impl Default for DEVQUERYPRINT_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct DLGPAGE {
     pub cbSize: u16,
     pub Flags: u16,
@@ -8551,14 +8028,6 @@ pub struct DLGPAGE {
     pub pTabName: *mut i8,
     pub IconID: usize,
     pub Anonymous: DLGPAGE_0,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for DLGPAGE {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for DLGPAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::TypeKind for DLGPAGE {
@@ -8572,17 +8041,10 @@ impl Default for DLGPAGE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub union DLGPAGE_0 {
     pub DlgTemplateID: u16,
     pub hDlgTemplate: super::super::Foundation::HANDLE,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for DLGPAGE_0 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for DLGPAGE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::TypeKind for DLGPAGE_0 {
@@ -8596,6 +8058,7 @@ impl Default for DLGPAGE_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOCEVENT_CREATEDCPRE {
     pub pszDriver: windows_core::PWSTR,
     pub pszDevice: windows_core::PWSTR,
@@ -8603,31 +8066,9 @@ pub struct DOCEVENT_CREATEDCPRE {
     pub bIC: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DOCEVENT_CREATEDCPRE {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DOCEVENT_CREATEDCPRE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DOCEVENT_CREATEDCPRE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOCEVENT_CREATEDCPRE").field("pszDriver", &self.pszDriver).field("pszDevice", &self.pszDevice).field("pdm", &self.pdm).field("bIC", &self.bIC).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DOCEVENT_CREATEDCPRE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for DOCEVENT_CREATEDCPRE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszDriver == other.pszDriver && self.pszDevice == other.pszDevice && self.pdm == other.pdm && self.bIC == other.bIC
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for DOCEVENT_CREATEDCPRE {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DOCEVENT_CREATEDCPRE {
     fn default() -> Self {
@@ -8635,37 +8076,22 @@ impl Default for DOCEVENT_CREATEDCPRE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOCEVENT_ESCAPE {
     pub iEscape: i32,
     pub cjInput: i32,
     pub pvInData: *mut core::ffi::c_void,
 }
-impl Copy for DOCEVENT_ESCAPE {}
-impl Clone for DOCEVENT_ESCAPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOCEVENT_ESCAPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOCEVENT_ESCAPE").field("iEscape", &self.iEscape).field("cjInput", &self.cjInput).field("pvInData", &self.pvInData).finish()
-    }
-}
 impl windows_core::TypeKind for DOCEVENT_ESCAPE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOCEVENT_ESCAPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.iEscape == other.iEscape && self.cjInput == other.cjInput && self.pvInData == other.pvInData
-    }
-}
-impl Eq for DOCEVENT_ESCAPE {}
 impl Default for DOCEVENT_ESCAPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOCEVENT_FILTER {
     pub cbSize: u32,
     pub cElementsAllocated: u32,
@@ -8673,26 +8099,9 @@ pub struct DOCEVENT_FILTER {
     pub cElementsReturned: u32,
     pub aDocEventCall: [u32; 1],
 }
-impl Copy for DOCEVENT_FILTER {}
-impl Clone for DOCEVENT_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOCEVENT_FILTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOCEVENT_FILTER").field("cbSize", &self.cbSize).field("cElementsAllocated", &self.cElementsAllocated).field("cElementsNeeded", &self.cElementsNeeded).field("cElementsReturned", &self.cElementsReturned).field("aDocEventCall", &self.aDocEventCall).finish()
-    }
-}
 impl windows_core::TypeKind for DOCEVENT_FILTER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOCEVENT_FILTER {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.cElementsAllocated == other.cElementsAllocated && self.cElementsNeeded == other.cElementsNeeded && self.cElementsReturned == other.cElementsReturned && self.aDocEventCall == other.aDocEventCall
-    }
-}
-impl Eq for DOCEVENT_FILTER {}
 impl Default for DOCEVENT_FILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8700,6 +8109,7 @@ impl Default for DOCEVENT_FILTER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOCUMENTPROPERTYHEADER {
     pub cbSize: u16,
     pub Reserved: u16,
@@ -8711,31 +8121,9 @@ pub struct DOCUMENTPROPERTYHEADER {
     pub fMode: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DOCUMENTPROPERTYHEADER {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DOCUMENTPROPERTYHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for DOCUMENTPROPERTYHEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOCUMENTPROPERTYHEADER").field("cbSize", &self.cbSize).field("Reserved", &self.Reserved).field("hPrinter", &self.hPrinter).field("pszPrinterName", &self.pszPrinterName).field("pdmIn", &self.pdmIn).field("pdmOut", &self.pdmOut).field("cbOut", &self.cbOut).field("fMode", &self.fMode).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DOCUMENTPROPERTYHEADER {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for DOCUMENTPROPERTYHEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.Reserved == other.Reserved && self.hPrinter == other.hPrinter && self.pszPrinterName == other.pszPrinterName && self.pdmIn == other.pdmIn && self.pdmOut == other.pdmOut && self.cbOut == other.cbOut && self.fMode == other.fMode
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for DOCUMENTPROPERTYHEADER {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DOCUMENTPROPERTYHEADER {
     fn default() -> Self {
@@ -8743,68 +8131,37 @@ impl Default for DOCUMENTPROPERTYHEADER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOC_INFO_1A {
     pub pDocName: windows_core::PSTR,
     pub pOutputFile: windows_core::PSTR,
     pub pDatatype: windows_core::PSTR,
 }
-impl Copy for DOC_INFO_1A {}
-impl Clone for DOC_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOC_INFO_1A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOC_INFO_1A").field("pDocName", &self.pDocName).field("pOutputFile", &self.pOutputFile).field("pDatatype", &self.pDatatype).finish()
-    }
-}
 impl windows_core::TypeKind for DOC_INFO_1A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOC_INFO_1A {
-    fn eq(&self, other: &Self) -> bool {
-        self.pDocName == other.pDocName && self.pOutputFile == other.pOutputFile && self.pDatatype == other.pDatatype
-    }
-}
-impl Eq for DOC_INFO_1A {}
 impl Default for DOC_INFO_1A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOC_INFO_1W {
     pub pDocName: windows_core::PWSTR,
     pub pOutputFile: windows_core::PWSTR,
     pub pDatatype: windows_core::PWSTR,
 }
-impl Copy for DOC_INFO_1W {}
-impl Clone for DOC_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOC_INFO_1W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOC_INFO_1W").field("pDocName", &self.pDocName).field("pOutputFile", &self.pOutputFile).field("pDatatype", &self.pDatatype).finish()
-    }
-}
 impl windows_core::TypeKind for DOC_INFO_1W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOC_INFO_1W {
-    fn eq(&self, other: &Self) -> bool {
-        self.pDocName == other.pDocName && self.pOutputFile == other.pOutputFile && self.pDatatype == other.pDatatype
-    }
-}
-impl Eq for DOC_INFO_1W {}
 impl Default for DOC_INFO_1W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOC_INFO_2A {
     pub pDocName: windows_core::PSTR,
     pub pOutputFile: windows_core::PSTR,
@@ -8812,32 +8169,16 @@ pub struct DOC_INFO_2A {
     pub dwMode: u32,
     pub JobId: u32,
 }
-impl Copy for DOC_INFO_2A {}
-impl Clone for DOC_INFO_2A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOC_INFO_2A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOC_INFO_2A").field("pDocName", &self.pDocName).field("pOutputFile", &self.pOutputFile).field("pDatatype", &self.pDatatype).field("dwMode", &self.dwMode).field("JobId", &self.JobId).finish()
-    }
-}
 impl windows_core::TypeKind for DOC_INFO_2A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOC_INFO_2A {
-    fn eq(&self, other: &Self) -> bool {
-        self.pDocName == other.pDocName && self.pOutputFile == other.pOutputFile && self.pDatatype == other.pDatatype && self.dwMode == other.dwMode && self.JobId == other.JobId
-    }
-}
-impl Eq for DOC_INFO_2A {}
 impl Default for DOC_INFO_2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOC_INFO_2W {
     pub pDocName: windows_core::PWSTR,
     pub pOutputFile: windows_core::PWSTR,
@@ -8845,96 +8186,48 @@ pub struct DOC_INFO_2W {
     pub dwMode: u32,
     pub JobId: u32,
 }
-impl Copy for DOC_INFO_2W {}
-impl Clone for DOC_INFO_2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOC_INFO_2W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOC_INFO_2W").field("pDocName", &self.pDocName).field("pOutputFile", &self.pOutputFile).field("pDatatype", &self.pDatatype).field("dwMode", &self.dwMode).field("JobId", &self.JobId).finish()
-    }
-}
 impl windows_core::TypeKind for DOC_INFO_2W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOC_INFO_2W {
-    fn eq(&self, other: &Self) -> bool {
-        self.pDocName == other.pDocName && self.pOutputFile == other.pOutputFile && self.pDatatype == other.pDatatype && self.dwMode == other.dwMode && self.JobId == other.JobId
-    }
-}
-impl Eq for DOC_INFO_2W {}
 impl Default for DOC_INFO_2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOC_INFO_3A {
     pub pDocName: windows_core::PSTR,
     pub pOutputFile: windows_core::PSTR,
     pub pDatatype: windows_core::PSTR,
     pub dwFlags: u32,
 }
-impl Copy for DOC_INFO_3A {}
-impl Clone for DOC_INFO_3A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOC_INFO_3A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOC_INFO_3A").field("pDocName", &self.pDocName).field("pOutputFile", &self.pOutputFile).field("pDatatype", &self.pDatatype).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for DOC_INFO_3A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOC_INFO_3A {
-    fn eq(&self, other: &Self) -> bool {
-        self.pDocName == other.pDocName && self.pOutputFile == other.pOutputFile && self.pDatatype == other.pDatatype && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for DOC_INFO_3A {}
 impl Default for DOC_INFO_3A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOC_INFO_3W {
     pub pDocName: windows_core::PWSTR,
     pub pOutputFile: windows_core::PWSTR,
     pub pDatatype: windows_core::PWSTR,
     pub dwFlags: u32,
 }
-impl Copy for DOC_INFO_3W {}
-impl Clone for DOC_INFO_3W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOC_INFO_3W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOC_INFO_3W").field("pDocName", &self.pDocName).field("pOutputFile", &self.pOutputFile).field("pDatatype", &self.pDatatype).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for DOC_INFO_3W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOC_INFO_3W {
-    fn eq(&self, other: &Self) -> bool {
-        self.pDocName == other.pDocName && self.pOutputFile == other.pOutputFile && self.pDatatype == other.pDatatype && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for DOC_INFO_3W {}
 impl Default for DOC_INFO_3W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOC_INFO_INTERNAL {
     pub pDocName: *mut i8,
     pub pOutputFile: *mut i8,
@@ -8942,90 +8235,42 @@ pub struct DOC_INFO_INTERNAL {
     pub bLowILJob: super::super::Foundation::BOOL,
     pub hTokenLowIL: super::super::Foundation::HANDLE,
 }
-impl Copy for DOC_INFO_INTERNAL {}
-impl Clone for DOC_INFO_INTERNAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOC_INFO_INTERNAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOC_INFO_INTERNAL").field("pDocName", &self.pDocName).field("pOutputFile", &self.pOutputFile).field("pDatatype", &self.pDatatype).field("bLowILJob", &self.bLowILJob).field("hTokenLowIL", &self.hTokenLowIL).finish()
-    }
-}
 impl windows_core::TypeKind for DOC_INFO_INTERNAL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOC_INFO_INTERNAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.pDocName == other.pDocName && self.pOutputFile == other.pOutputFile && self.pDatatype == other.pDatatype && self.bLowILJob == other.bLowILJob && self.hTokenLowIL == other.hTokenLowIL
-    }
-}
-impl Eq for DOC_INFO_INTERNAL {}
 impl Default for DOC_INFO_INTERNAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRIVER_INFO_1A {
     pub pName: windows_core::PSTR,
-}
-impl Copy for DRIVER_INFO_1A {}
-impl Clone for DRIVER_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DRIVER_INFO_1A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DRIVER_INFO_1A").field("pName", &self.pName).finish()
-    }
 }
 impl windows_core::TypeKind for DRIVER_INFO_1A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DRIVER_INFO_1A {
-    fn eq(&self, other: &Self) -> bool {
-        self.pName == other.pName
-    }
-}
-impl Eq for DRIVER_INFO_1A {}
 impl Default for DRIVER_INFO_1A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRIVER_INFO_1W {
     pub pName: windows_core::PWSTR,
-}
-impl Copy for DRIVER_INFO_1W {}
-impl Clone for DRIVER_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DRIVER_INFO_1W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DRIVER_INFO_1W").field("pName", &self.pName).finish()
-    }
 }
 impl windows_core::TypeKind for DRIVER_INFO_1W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DRIVER_INFO_1W {
-    fn eq(&self, other: &Self) -> bool {
-        self.pName == other.pName
-    }
-}
-impl Eq for DRIVER_INFO_1W {}
 impl Default for DRIVER_INFO_1W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRIVER_INFO_2A {
     pub cVersion: u32,
     pub pName: windows_core::PSTR,
@@ -9034,32 +8279,16 @@ pub struct DRIVER_INFO_2A {
     pub pDataFile: windows_core::PSTR,
     pub pConfigFile: windows_core::PSTR,
 }
-impl Copy for DRIVER_INFO_2A {}
-impl Clone for DRIVER_INFO_2A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DRIVER_INFO_2A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DRIVER_INFO_2A").field("cVersion", &self.cVersion).field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDriverPath", &self.pDriverPath).field("pDataFile", &self.pDataFile).field("pConfigFile", &self.pConfigFile).finish()
-    }
-}
 impl windows_core::TypeKind for DRIVER_INFO_2A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DRIVER_INFO_2A {
-    fn eq(&self, other: &Self) -> bool {
-        self.cVersion == other.cVersion && self.pName == other.pName && self.pEnvironment == other.pEnvironment && self.pDriverPath == other.pDriverPath && self.pDataFile == other.pDataFile && self.pConfigFile == other.pConfigFile
-    }
-}
-impl Eq for DRIVER_INFO_2A {}
 impl Default for DRIVER_INFO_2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRIVER_INFO_2W {
     pub cVersion: u32,
     pub pName: windows_core::PWSTR,
@@ -9068,32 +8297,16 @@ pub struct DRIVER_INFO_2W {
     pub pDataFile: windows_core::PWSTR,
     pub pConfigFile: windows_core::PWSTR,
 }
-impl Copy for DRIVER_INFO_2W {}
-impl Clone for DRIVER_INFO_2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DRIVER_INFO_2W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DRIVER_INFO_2W").field("cVersion", &self.cVersion).field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDriverPath", &self.pDriverPath).field("pDataFile", &self.pDataFile).field("pConfigFile", &self.pConfigFile).finish()
-    }
-}
 impl windows_core::TypeKind for DRIVER_INFO_2W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DRIVER_INFO_2W {
-    fn eq(&self, other: &Self) -> bool {
-        self.cVersion == other.cVersion && self.pName == other.pName && self.pEnvironment == other.pEnvironment && self.pDriverPath == other.pDriverPath && self.pDataFile == other.pDataFile && self.pConfigFile == other.pConfigFile
-    }
-}
-impl Eq for DRIVER_INFO_2W {}
 impl Default for DRIVER_INFO_2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRIVER_INFO_3A {
     pub cVersion: u32,
     pub pName: windows_core::PSTR,
@@ -9106,32 +8319,16 @@ pub struct DRIVER_INFO_3A {
     pub pMonitorName: windows_core::PSTR,
     pub pDefaultDataType: windows_core::PSTR,
 }
-impl Copy for DRIVER_INFO_3A {}
-impl Clone for DRIVER_INFO_3A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DRIVER_INFO_3A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DRIVER_INFO_3A").field("cVersion", &self.cVersion).field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDriverPath", &self.pDriverPath).field("pDataFile", &self.pDataFile).field("pConfigFile", &self.pConfigFile).field("pHelpFile", &self.pHelpFile).field("pDependentFiles", &self.pDependentFiles).field("pMonitorName", &self.pMonitorName).field("pDefaultDataType", &self.pDefaultDataType).finish()
-    }
-}
 impl windows_core::TypeKind for DRIVER_INFO_3A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DRIVER_INFO_3A {
-    fn eq(&self, other: &Self) -> bool {
-        self.cVersion == other.cVersion && self.pName == other.pName && self.pEnvironment == other.pEnvironment && self.pDriverPath == other.pDriverPath && self.pDataFile == other.pDataFile && self.pConfigFile == other.pConfigFile && self.pHelpFile == other.pHelpFile && self.pDependentFiles == other.pDependentFiles && self.pMonitorName == other.pMonitorName && self.pDefaultDataType == other.pDefaultDataType
-    }
-}
-impl Eq for DRIVER_INFO_3A {}
 impl Default for DRIVER_INFO_3A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRIVER_INFO_3W {
     pub cVersion: u32,
     pub pName: windows_core::PWSTR,
@@ -9144,32 +8341,16 @@ pub struct DRIVER_INFO_3W {
     pub pMonitorName: windows_core::PWSTR,
     pub pDefaultDataType: windows_core::PWSTR,
 }
-impl Copy for DRIVER_INFO_3W {}
-impl Clone for DRIVER_INFO_3W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DRIVER_INFO_3W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DRIVER_INFO_3W").field("cVersion", &self.cVersion).field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDriverPath", &self.pDriverPath).field("pDataFile", &self.pDataFile).field("pConfigFile", &self.pConfigFile).field("pHelpFile", &self.pHelpFile).field("pDependentFiles", &self.pDependentFiles).field("pMonitorName", &self.pMonitorName).field("pDefaultDataType", &self.pDefaultDataType).finish()
-    }
-}
 impl windows_core::TypeKind for DRIVER_INFO_3W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DRIVER_INFO_3W {
-    fn eq(&self, other: &Self) -> bool {
-        self.cVersion == other.cVersion && self.pName == other.pName && self.pEnvironment == other.pEnvironment && self.pDriverPath == other.pDriverPath && self.pDataFile == other.pDataFile && self.pConfigFile == other.pConfigFile && self.pHelpFile == other.pHelpFile && self.pDependentFiles == other.pDependentFiles && self.pMonitorName == other.pMonitorName && self.pDefaultDataType == other.pDefaultDataType
-    }
-}
-impl Eq for DRIVER_INFO_3W {}
 impl Default for DRIVER_INFO_3W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRIVER_INFO_4A {
     pub cVersion: u32,
     pub pName: windows_core::PSTR,
@@ -9183,44 +8364,16 @@ pub struct DRIVER_INFO_4A {
     pub pDefaultDataType: windows_core::PSTR,
     pub pszzPreviousNames: windows_core::PSTR,
 }
-impl Copy for DRIVER_INFO_4A {}
-impl Clone for DRIVER_INFO_4A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DRIVER_INFO_4A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DRIVER_INFO_4A")
-            .field("cVersion", &self.cVersion)
-            .field("pName", &self.pName)
-            .field("pEnvironment", &self.pEnvironment)
-            .field("pDriverPath", &self.pDriverPath)
-            .field("pDataFile", &self.pDataFile)
-            .field("pConfigFile", &self.pConfigFile)
-            .field("pHelpFile", &self.pHelpFile)
-            .field("pDependentFiles", &self.pDependentFiles)
-            .field("pMonitorName", &self.pMonitorName)
-            .field("pDefaultDataType", &self.pDefaultDataType)
-            .field("pszzPreviousNames", &self.pszzPreviousNames)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DRIVER_INFO_4A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DRIVER_INFO_4A {
-    fn eq(&self, other: &Self) -> bool {
-        self.cVersion == other.cVersion && self.pName == other.pName && self.pEnvironment == other.pEnvironment && self.pDriverPath == other.pDriverPath && self.pDataFile == other.pDataFile && self.pConfigFile == other.pConfigFile && self.pHelpFile == other.pHelpFile && self.pDependentFiles == other.pDependentFiles && self.pMonitorName == other.pMonitorName && self.pDefaultDataType == other.pDefaultDataType && self.pszzPreviousNames == other.pszzPreviousNames
-    }
-}
-impl Eq for DRIVER_INFO_4A {}
 impl Default for DRIVER_INFO_4A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRIVER_INFO_4W {
     pub cVersion: u32,
     pub pName: windows_core::PWSTR,
@@ -9234,44 +8387,16 @@ pub struct DRIVER_INFO_4W {
     pub pDefaultDataType: windows_core::PWSTR,
     pub pszzPreviousNames: windows_core::PWSTR,
 }
-impl Copy for DRIVER_INFO_4W {}
-impl Clone for DRIVER_INFO_4W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DRIVER_INFO_4W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DRIVER_INFO_4W")
-            .field("cVersion", &self.cVersion)
-            .field("pName", &self.pName)
-            .field("pEnvironment", &self.pEnvironment)
-            .field("pDriverPath", &self.pDriverPath)
-            .field("pDataFile", &self.pDataFile)
-            .field("pConfigFile", &self.pConfigFile)
-            .field("pHelpFile", &self.pHelpFile)
-            .field("pDependentFiles", &self.pDependentFiles)
-            .field("pMonitorName", &self.pMonitorName)
-            .field("pDefaultDataType", &self.pDefaultDataType)
-            .field("pszzPreviousNames", &self.pszzPreviousNames)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DRIVER_INFO_4W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DRIVER_INFO_4W {
-    fn eq(&self, other: &Self) -> bool {
-        self.cVersion == other.cVersion && self.pName == other.pName && self.pEnvironment == other.pEnvironment && self.pDriverPath == other.pDriverPath && self.pDataFile == other.pDataFile && self.pConfigFile == other.pConfigFile && self.pHelpFile == other.pHelpFile && self.pDependentFiles == other.pDependentFiles && self.pMonitorName == other.pMonitorName && self.pDefaultDataType == other.pDefaultDataType && self.pszzPreviousNames == other.pszzPreviousNames
-    }
-}
-impl Eq for DRIVER_INFO_4W {}
 impl Default for DRIVER_INFO_4W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRIVER_INFO_5A {
     pub cVersion: u32,
     pub pName: windows_core::PSTR,
@@ -9283,32 +8408,16 @@ pub struct DRIVER_INFO_5A {
     pub dwConfigVersion: u32,
     pub dwDriverVersion: u32,
 }
-impl Copy for DRIVER_INFO_5A {}
-impl Clone for DRIVER_INFO_5A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DRIVER_INFO_5A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DRIVER_INFO_5A").field("cVersion", &self.cVersion).field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDriverPath", &self.pDriverPath).field("pDataFile", &self.pDataFile).field("pConfigFile", &self.pConfigFile).field("dwDriverAttributes", &self.dwDriverAttributes).field("dwConfigVersion", &self.dwConfigVersion).field("dwDriverVersion", &self.dwDriverVersion).finish()
-    }
-}
 impl windows_core::TypeKind for DRIVER_INFO_5A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DRIVER_INFO_5A {
-    fn eq(&self, other: &Self) -> bool {
-        self.cVersion == other.cVersion && self.pName == other.pName && self.pEnvironment == other.pEnvironment && self.pDriverPath == other.pDriverPath && self.pDataFile == other.pDataFile && self.pConfigFile == other.pConfigFile && self.dwDriverAttributes == other.dwDriverAttributes && self.dwConfigVersion == other.dwConfigVersion && self.dwDriverVersion == other.dwDriverVersion
-    }
-}
-impl Eq for DRIVER_INFO_5A {}
 impl Default for DRIVER_INFO_5A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRIVER_INFO_5W {
     pub cVersion: u32,
     pub pName: windows_core::PWSTR,
@@ -9320,32 +8429,16 @@ pub struct DRIVER_INFO_5W {
     pub dwConfigVersion: u32,
     pub dwDriverVersion: u32,
 }
-impl Copy for DRIVER_INFO_5W {}
-impl Clone for DRIVER_INFO_5W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DRIVER_INFO_5W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DRIVER_INFO_5W").field("cVersion", &self.cVersion).field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDriverPath", &self.pDriverPath).field("pDataFile", &self.pDataFile).field("pConfigFile", &self.pConfigFile).field("dwDriverAttributes", &self.dwDriverAttributes).field("dwConfigVersion", &self.dwConfigVersion).field("dwDriverVersion", &self.dwDriverVersion).finish()
-    }
-}
 impl windows_core::TypeKind for DRIVER_INFO_5W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DRIVER_INFO_5W {
-    fn eq(&self, other: &Self) -> bool {
-        self.cVersion == other.cVersion && self.pName == other.pName && self.pEnvironment == other.pEnvironment && self.pDriverPath == other.pDriverPath && self.pDataFile == other.pDataFile && self.pConfigFile == other.pConfigFile && self.dwDriverAttributes == other.dwDriverAttributes && self.dwConfigVersion == other.dwConfigVersion && self.dwDriverVersion == other.dwDriverVersion
-    }
-}
-impl Eq for DRIVER_INFO_5W {}
 impl Default for DRIVER_INFO_5W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRIVER_INFO_6A {
     pub cVersion: u32,
     pub pName: windows_core::PSTR,
@@ -9365,50 +8458,16 @@ pub struct DRIVER_INFO_6A {
     pub pszHardwareID: windows_core::PSTR,
     pub pszProvider: windows_core::PSTR,
 }
-impl Copy for DRIVER_INFO_6A {}
-impl Clone for DRIVER_INFO_6A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DRIVER_INFO_6A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DRIVER_INFO_6A")
-            .field("cVersion", &self.cVersion)
-            .field("pName", &self.pName)
-            .field("pEnvironment", &self.pEnvironment)
-            .field("pDriverPath", &self.pDriverPath)
-            .field("pDataFile", &self.pDataFile)
-            .field("pConfigFile", &self.pConfigFile)
-            .field("pHelpFile", &self.pHelpFile)
-            .field("pDependentFiles", &self.pDependentFiles)
-            .field("pMonitorName", &self.pMonitorName)
-            .field("pDefaultDataType", &self.pDefaultDataType)
-            .field("pszzPreviousNames", &self.pszzPreviousNames)
-            .field("ftDriverDate", &self.ftDriverDate)
-            .field("dwlDriverVersion", &self.dwlDriverVersion)
-            .field("pszMfgName", &self.pszMfgName)
-            .field("pszOEMUrl", &self.pszOEMUrl)
-            .field("pszHardwareID", &self.pszHardwareID)
-            .field("pszProvider", &self.pszProvider)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DRIVER_INFO_6A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DRIVER_INFO_6A {
-    fn eq(&self, other: &Self) -> bool {
-        self.cVersion == other.cVersion && self.pName == other.pName && self.pEnvironment == other.pEnvironment && self.pDriverPath == other.pDriverPath && self.pDataFile == other.pDataFile && self.pConfigFile == other.pConfigFile && self.pHelpFile == other.pHelpFile && self.pDependentFiles == other.pDependentFiles && self.pMonitorName == other.pMonitorName && self.pDefaultDataType == other.pDefaultDataType && self.pszzPreviousNames == other.pszzPreviousNames && self.ftDriverDate == other.ftDriverDate && self.dwlDriverVersion == other.dwlDriverVersion && self.pszMfgName == other.pszMfgName && self.pszOEMUrl == other.pszOEMUrl && self.pszHardwareID == other.pszHardwareID && self.pszProvider == other.pszProvider
-    }
-}
-impl Eq for DRIVER_INFO_6A {}
 impl Default for DRIVER_INFO_6A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRIVER_INFO_6W {
     pub cVersion: u32,
     pub pName: windows_core::PWSTR,
@@ -9428,50 +8487,16 @@ pub struct DRIVER_INFO_6W {
     pub pszHardwareID: windows_core::PWSTR,
     pub pszProvider: windows_core::PWSTR,
 }
-impl Copy for DRIVER_INFO_6W {}
-impl Clone for DRIVER_INFO_6W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DRIVER_INFO_6W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DRIVER_INFO_6W")
-            .field("cVersion", &self.cVersion)
-            .field("pName", &self.pName)
-            .field("pEnvironment", &self.pEnvironment)
-            .field("pDriverPath", &self.pDriverPath)
-            .field("pDataFile", &self.pDataFile)
-            .field("pConfigFile", &self.pConfigFile)
-            .field("pHelpFile", &self.pHelpFile)
-            .field("pDependentFiles", &self.pDependentFiles)
-            .field("pMonitorName", &self.pMonitorName)
-            .field("pDefaultDataType", &self.pDefaultDataType)
-            .field("pszzPreviousNames", &self.pszzPreviousNames)
-            .field("ftDriverDate", &self.ftDriverDate)
-            .field("dwlDriverVersion", &self.dwlDriverVersion)
-            .field("pszMfgName", &self.pszMfgName)
-            .field("pszOEMUrl", &self.pszOEMUrl)
-            .field("pszHardwareID", &self.pszHardwareID)
-            .field("pszProvider", &self.pszProvider)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DRIVER_INFO_6W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DRIVER_INFO_6W {
-    fn eq(&self, other: &Self) -> bool {
-        self.cVersion == other.cVersion && self.pName == other.pName && self.pEnvironment == other.pEnvironment && self.pDriverPath == other.pDriverPath && self.pDataFile == other.pDataFile && self.pConfigFile == other.pConfigFile && self.pHelpFile == other.pHelpFile && self.pDependentFiles == other.pDependentFiles && self.pMonitorName == other.pMonitorName && self.pDefaultDataType == other.pDefaultDataType && self.pszzPreviousNames == other.pszzPreviousNames && self.ftDriverDate == other.ftDriverDate && self.dwlDriverVersion == other.dwlDriverVersion && self.pszMfgName == other.pszMfgName && self.pszOEMUrl == other.pszOEMUrl && self.pszHardwareID == other.pszHardwareID && self.pszProvider == other.pszProvider
-    }
-}
-impl Eq for DRIVER_INFO_6W {}
 impl Default for DRIVER_INFO_6W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRIVER_INFO_8A {
     pub cVersion: u32,
     pub pName: windows_core::PSTR,
@@ -9499,82 +8524,16 @@ pub struct DRIVER_INFO_8A {
     pub ftMinInboxDriverVerDate: super::super::Foundation::FILETIME,
     pub dwlMinInboxDriverVerVersion: u64,
 }
-impl Copy for DRIVER_INFO_8A {}
-impl Clone for DRIVER_INFO_8A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DRIVER_INFO_8A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DRIVER_INFO_8A")
-            .field("cVersion", &self.cVersion)
-            .field("pName", &self.pName)
-            .field("pEnvironment", &self.pEnvironment)
-            .field("pDriverPath", &self.pDriverPath)
-            .field("pDataFile", &self.pDataFile)
-            .field("pConfigFile", &self.pConfigFile)
-            .field("pHelpFile", &self.pHelpFile)
-            .field("pDependentFiles", &self.pDependentFiles)
-            .field("pMonitorName", &self.pMonitorName)
-            .field("pDefaultDataType", &self.pDefaultDataType)
-            .field("pszzPreviousNames", &self.pszzPreviousNames)
-            .field("ftDriverDate", &self.ftDriverDate)
-            .field("dwlDriverVersion", &self.dwlDriverVersion)
-            .field("pszMfgName", &self.pszMfgName)
-            .field("pszOEMUrl", &self.pszOEMUrl)
-            .field("pszHardwareID", &self.pszHardwareID)
-            .field("pszProvider", &self.pszProvider)
-            .field("pszPrintProcessor", &self.pszPrintProcessor)
-            .field("pszVendorSetup", &self.pszVendorSetup)
-            .field("pszzColorProfiles", &self.pszzColorProfiles)
-            .field("pszInfPath", &self.pszInfPath)
-            .field("dwPrinterDriverAttributes", &self.dwPrinterDriverAttributes)
-            .field("pszzCoreDriverDependencies", &self.pszzCoreDriverDependencies)
-            .field("ftMinInboxDriverVerDate", &self.ftMinInboxDriverVerDate)
-            .field("dwlMinInboxDriverVerVersion", &self.dwlMinInboxDriverVerVersion)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DRIVER_INFO_8A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DRIVER_INFO_8A {
-    fn eq(&self, other: &Self) -> bool {
-        self.cVersion == other.cVersion
-            && self.pName == other.pName
-            && self.pEnvironment == other.pEnvironment
-            && self.pDriverPath == other.pDriverPath
-            && self.pDataFile == other.pDataFile
-            && self.pConfigFile == other.pConfigFile
-            && self.pHelpFile == other.pHelpFile
-            && self.pDependentFiles == other.pDependentFiles
-            && self.pMonitorName == other.pMonitorName
-            && self.pDefaultDataType == other.pDefaultDataType
-            && self.pszzPreviousNames == other.pszzPreviousNames
-            && self.ftDriverDate == other.ftDriverDate
-            && self.dwlDriverVersion == other.dwlDriverVersion
-            && self.pszMfgName == other.pszMfgName
-            && self.pszOEMUrl == other.pszOEMUrl
-            && self.pszHardwareID == other.pszHardwareID
-            && self.pszProvider == other.pszProvider
-            && self.pszPrintProcessor == other.pszPrintProcessor
-            && self.pszVendorSetup == other.pszVendorSetup
-            && self.pszzColorProfiles == other.pszzColorProfiles
-            && self.pszInfPath == other.pszInfPath
-            && self.dwPrinterDriverAttributes == other.dwPrinterDriverAttributes
-            && self.pszzCoreDriverDependencies == other.pszzCoreDriverDependencies
-            && self.ftMinInboxDriverVerDate == other.ftMinInboxDriverVerDate
-            && self.dwlMinInboxDriverVerVersion == other.dwlMinInboxDriverVerVersion
-    }
-}
-impl Eq for DRIVER_INFO_8A {}
 impl Default for DRIVER_INFO_8A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRIVER_INFO_8W {
     pub cVersion: u32,
     pub pName: windows_core::PWSTR,
@@ -9602,112 +8561,30 @@ pub struct DRIVER_INFO_8W {
     pub ftMinInboxDriverVerDate: super::super::Foundation::FILETIME,
     pub dwlMinInboxDriverVerVersion: u64,
 }
-impl Copy for DRIVER_INFO_8W {}
-impl Clone for DRIVER_INFO_8W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DRIVER_INFO_8W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DRIVER_INFO_8W")
-            .field("cVersion", &self.cVersion)
-            .field("pName", &self.pName)
-            .field("pEnvironment", &self.pEnvironment)
-            .field("pDriverPath", &self.pDriverPath)
-            .field("pDataFile", &self.pDataFile)
-            .field("pConfigFile", &self.pConfigFile)
-            .field("pHelpFile", &self.pHelpFile)
-            .field("pDependentFiles", &self.pDependentFiles)
-            .field("pMonitorName", &self.pMonitorName)
-            .field("pDefaultDataType", &self.pDefaultDataType)
-            .field("pszzPreviousNames", &self.pszzPreviousNames)
-            .field("ftDriverDate", &self.ftDriverDate)
-            .field("dwlDriverVersion", &self.dwlDriverVersion)
-            .field("pszMfgName", &self.pszMfgName)
-            .field("pszOEMUrl", &self.pszOEMUrl)
-            .field("pszHardwareID", &self.pszHardwareID)
-            .field("pszProvider", &self.pszProvider)
-            .field("pszPrintProcessor", &self.pszPrintProcessor)
-            .field("pszVendorSetup", &self.pszVendorSetup)
-            .field("pszzColorProfiles", &self.pszzColorProfiles)
-            .field("pszInfPath", &self.pszInfPath)
-            .field("dwPrinterDriverAttributes", &self.dwPrinterDriverAttributes)
-            .field("pszzCoreDriverDependencies", &self.pszzCoreDriverDependencies)
-            .field("ftMinInboxDriverVerDate", &self.ftMinInboxDriverVerDate)
-            .field("dwlMinInboxDriverVerVersion", &self.dwlMinInboxDriverVerVersion)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DRIVER_INFO_8W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DRIVER_INFO_8W {
-    fn eq(&self, other: &Self) -> bool {
-        self.cVersion == other.cVersion
-            && self.pName == other.pName
-            && self.pEnvironment == other.pEnvironment
-            && self.pDriverPath == other.pDriverPath
-            && self.pDataFile == other.pDataFile
-            && self.pConfigFile == other.pConfigFile
-            && self.pHelpFile == other.pHelpFile
-            && self.pDependentFiles == other.pDependentFiles
-            && self.pMonitorName == other.pMonitorName
-            && self.pDefaultDataType == other.pDefaultDataType
-            && self.pszzPreviousNames == other.pszzPreviousNames
-            && self.ftDriverDate == other.ftDriverDate
-            && self.dwlDriverVersion == other.dwlDriverVersion
-            && self.pszMfgName == other.pszMfgName
-            && self.pszOEMUrl == other.pszOEMUrl
-            && self.pszHardwareID == other.pszHardwareID
-            && self.pszProvider == other.pszProvider
-            && self.pszPrintProcessor == other.pszPrintProcessor
-            && self.pszVendorSetup == other.pszVendorSetup
-            && self.pszzColorProfiles == other.pszzColorProfiles
-            && self.pszInfPath == other.pszInfPath
-            && self.dwPrinterDriverAttributes == other.dwPrinterDriverAttributes
-            && self.pszzCoreDriverDependencies == other.pszzCoreDriverDependencies
-            && self.ftMinInboxDriverVerDate == other.ftMinInboxDriverVerDate
-            && self.dwlMinInboxDriverVerVersion == other.dwlMinInboxDriverVerVersion
-    }
-}
-impl Eq for DRIVER_INFO_8W {}
 impl Default for DRIVER_INFO_8W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRIVER_UPGRADE_INFO_1 {
     pub pPrinterName: *mut i8,
     pub pOldDriverDirectory: *mut i8,
 }
-impl Copy for DRIVER_UPGRADE_INFO_1 {}
-impl Clone for DRIVER_UPGRADE_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DRIVER_UPGRADE_INFO_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DRIVER_UPGRADE_INFO_1").field("pPrinterName", &self.pPrinterName).field("pOldDriverDirectory", &self.pOldDriverDirectory).finish()
-    }
-}
 impl windows_core::TypeKind for DRIVER_UPGRADE_INFO_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DRIVER_UPGRADE_INFO_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pPrinterName == other.pPrinterName && self.pOldDriverDirectory == other.pOldDriverDirectory
-    }
-}
-impl Eq for DRIVER_UPGRADE_INFO_1 {}
 impl Default for DRIVER_UPGRADE_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRIVER_UPGRADE_INFO_2 {
     pub pPrinterName: *mut i8,
     pub pOldDriverDirectory: *mut i8,
@@ -9723,46 +8600,16 @@ pub struct DRIVER_UPGRADE_INFO_2 {
     pub pDefaultDataType: *mut i8,
     pub pszzPreviousNames: *mut i8,
 }
-impl Copy for DRIVER_UPGRADE_INFO_2 {}
-impl Clone for DRIVER_UPGRADE_INFO_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DRIVER_UPGRADE_INFO_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DRIVER_UPGRADE_INFO_2")
-            .field("pPrinterName", &self.pPrinterName)
-            .field("pOldDriverDirectory", &self.pOldDriverDirectory)
-            .field("cVersion", &self.cVersion)
-            .field("pName", &self.pName)
-            .field("pEnvironment", &self.pEnvironment)
-            .field("pDriverPath", &self.pDriverPath)
-            .field("pDataFile", &self.pDataFile)
-            .field("pConfigFile", &self.pConfigFile)
-            .field("pHelpFile", &self.pHelpFile)
-            .field("pDependentFiles", &self.pDependentFiles)
-            .field("pMonitorName", &self.pMonitorName)
-            .field("pDefaultDataType", &self.pDefaultDataType)
-            .field("pszzPreviousNames", &self.pszzPreviousNames)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DRIVER_UPGRADE_INFO_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DRIVER_UPGRADE_INFO_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pPrinterName == other.pPrinterName && self.pOldDriverDirectory == other.pOldDriverDirectory && self.cVersion == other.cVersion && self.pName == other.pName && self.pEnvironment == other.pEnvironment && self.pDriverPath == other.pDriverPath && self.pDataFile == other.pDataFile && self.pConfigFile == other.pConfigFile && self.pHelpFile == other.pHelpFile && self.pDependentFiles == other.pDependentFiles && self.pMonitorName == other.pMonitorName && self.pDefaultDataType == other.pDefaultDataType && self.pszzPreviousNames == other.pszzPreviousNames
-    }
-}
-impl Eq for DRIVER_UPGRADE_INFO_2 {}
 impl Default for DRIVER_UPGRADE_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXTCHKBOX {
     pub cbSize: u16,
     pub Flags: u16,
@@ -9773,26 +8620,9 @@ pub struct EXTCHKBOX {
     pub wReserved: [u16; 4],
     pub dwReserved: [usize; 2],
 }
-impl Copy for EXTCHKBOX {}
-impl Clone for EXTCHKBOX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EXTCHKBOX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EXTCHKBOX").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("pTitle", &self.pTitle).field("pSeparator", &self.pSeparator).field("pCheckedName", &self.pCheckedName).field("IconID", &self.IconID).field("wReserved", &self.wReserved).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 impl windows_core::TypeKind for EXTCHKBOX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EXTCHKBOX {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.Flags == other.Flags && self.pTitle == other.pTitle && self.pSeparator == other.pSeparator && self.pCheckedName == other.pCheckedName && self.IconID == other.IconID && self.wReserved == other.wReserved && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for EXTCHKBOX {}
 impl Default for EXTCHKBOX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9800,6 +8630,7 @@ impl Default for EXTCHKBOX {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct EXTPUSH {
     pub cbSize: u16,
     pub Flags: u16,
@@ -9808,14 +8639,6 @@ pub struct EXTPUSH {
     pub IconID: usize,
     pub Anonymous2: EXTPUSH_1,
     pub dwReserved: [usize; 3],
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for EXTPUSH {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for EXTPUSH {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::TypeKind for EXTPUSH {
@@ -9829,17 +8652,10 @@ impl Default for EXTPUSH {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub union EXTPUSH_0 {
     pub DlgProc: super::super::UI::WindowsAndMessaging::DLGPROC,
     pub pfnCallBack: super::super::Foundation::FARPROC,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for EXTPUSH_0 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for EXTPUSH_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::TypeKind for EXTPUSH_0 {
@@ -9853,17 +8669,10 @@ impl Default for EXTPUSH_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub union EXTPUSH_1 {
     pub DlgTemplateID: u16,
     pub hDlgTemplate: super::super::Foundation::HANDLE,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for EXTPUSH_1 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for EXTPUSH_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::TypeKind for EXTPUSH_1 {
@@ -9876,6 +8685,7 @@ impl Default for EXTPUSH_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXTTEXTMETRIC {
     pub emSize: i16,
     pub emPointSize: i16,
@@ -9904,148 +8714,48 @@ pub struct EXTTEXTMETRIC {
     pub emKernPairs: u16,
     pub emKernTracks: u16,
 }
-impl Copy for EXTTEXTMETRIC {}
-impl Clone for EXTTEXTMETRIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EXTTEXTMETRIC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EXTTEXTMETRIC")
-            .field("emSize", &self.emSize)
-            .field("emPointSize", &self.emPointSize)
-            .field("emOrientation", &self.emOrientation)
-            .field("emMasterHeight", &self.emMasterHeight)
-            .field("emMinScale", &self.emMinScale)
-            .field("emMaxScale", &self.emMaxScale)
-            .field("emMasterUnits", &self.emMasterUnits)
-            .field("emCapHeight", &self.emCapHeight)
-            .field("emXHeight", &self.emXHeight)
-            .field("emLowerCaseAscent", &self.emLowerCaseAscent)
-            .field("emLowerCaseDescent", &self.emLowerCaseDescent)
-            .field("emSlant", &self.emSlant)
-            .field("emSuperScript", &self.emSuperScript)
-            .field("emSubScript", &self.emSubScript)
-            .field("emSuperScriptSize", &self.emSuperScriptSize)
-            .field("emSubScriptSize", &self.emSubScriptSize)
-            .field("emUnderlineOffset", &self.emUnderlineOffset)
-            .field("emUnderlineWidth", &self.emUnderlineWidth)
-            .field("emDoubleUpperUnderlineOffset", &self.emDoubleUpperUnderlineOffset)
-            .field("emDoubleLowerUnderlineOffset", &self.emDoubleLowerUnderlineOffset)
-            .field("emDoubleUpperUnderlineWidth", &self.emDoubleUpperUnderlineWidth)
-            .field("emDoubleLowerUnderlineWidth", &self.emDoubleLowerUnderlineWidth)
-            .field("emStrikeOutOffset", &self.emStrikeOutOffset)
-            .field("emStrikeOutWidth", &self.emStrikeOutWidth)
-            .field("emKernPairs", &self.emKernPairs)
-            .field("emKernTracks", &self.emKernTracks)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for EXTTEXTMETRIC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EXTTEXTMETRIC {
-    fn eq(&self, other: &Self) -> bool {
-        self.emSize == other.emSize
-            && self.emPointSize == other.emPointSize
-            && self.emOrientation == other.emOrientation
-            && self.emMasterHeight == other.emMasterHeight
-            && self.emMinScale == other.emMinScale
-            && self.emMaxScale == other.emMaxScale
-            && self.emMasterUnits == other.emMasterUnits
-            && self.emCapHeight == other.emCapHeight
-            && self.emXHeight == other.emXHeight
-            && self.emLowerCaseAscent == other.emLowerCaseAscent
-            && self.emLowerCaseDescent == other.emLowerCaseDescent
-            && self.emSlant == other.emSlant
-            && self.emSuperScript == other.emSuperScript
-            && self.emSubScript == other.emSubScript
-            && self.emSuperScriptSize == other.emSuperScriptSize
-            && self.emSubScriptSize == other.emSubScriptSize
-            && self.emUnderlineOffset == other.emUnderlineOffset
-            && self.emUnderlineWidth == other.emUnderlineWidth
-            && self.emDoubleUpperUnderlineOffset == other.emDoubleUpperUnderlineOffset
-            && self.emDoubleLowerUnderlineOffset == other.emDoubleLowerUnderlineOffset
-            && self.emDoubleUpperUnderlineWidth == other.emDoubleUpperUnderlineWidth
-            && self.emDoubleLowerUnderlineWidth == other.emDoubleLowerUnderlineWidth
-            && self.emStrikeOutOffset == other.emStrikeOutOffset
-            && self.emStrikeOutWidth == other.emStrikeOutWidth
-            && self.emKernPairs == other.emKernPairs
-            && self.emKernTracks == other.emKernTracks
-    }
-}
-impl Eq for EXTTEXTMETRIC {}
 impl Default for EXTTEXTMETRIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FORM_INFO_1A {
     pub Flags: u32,
     pub pName: windows_core::PSTR,
     pub Size: super::super::Foundation::SIZE,
     pub ImageableArea: super::super::Foundation::RECTL,
 }
-impl Copy for FORM_INFO_1A {}
-impl Clone for FORM_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FORM_INFO_1A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FORM_INFO_1A").field("Flags", &self.Flags).field("pName", &self.pName).field("Size", &self.Size).field("ImageableArea", &self.ImageableArea).finish()
-    }
-}
 impl windows_core::TypeKind for FORM_INFO_1A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FORM_INFO_1A {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.pName == other.pName && self.Size == other.Size && self.ImageableArea == other.ImageableArea
-    }
-}
-impl Eq for FORM_INFO_1A {}
 impl Default for FORM_INFO_1A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FORM_INFO_1W {
     pub Flags: u32,
     pub pName: windows_core::PWSTR,
     pub Size: super::super::Foundation::SIZE,
     pub ImageableArea: super::super::Foundation::RECTL,
 }
-impl Copy for FORM_INFO_1W {}
-impl Clone for FORM_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FORM_INFO_1W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FORM_INFO_1W").field("Flags", &self.Flags).field("pName", &self.pName).field("Size", &self.Size).field("ImageableArea", &self.ImageableArea).finish()
-    }
-}
 impl windows_core::TypeKind for FORM_INFO_1W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FORM_INFO_1W {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.pName == other.pName && self.Size == other.Size && self.ImageableArea == other.ImageableArea
-    }
-}
-impl Eq for FORM_INFO_1W {}
 impl Default for FORM_INFO_1W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FORM_INFO_2A {
     pub Flags: u32,
     pub pName: windows_core::PCSTR,
@@ -10058,32 +8768,16 @@ pub struct FORM_INFO_2A {
     pub pDisplayName: windows_core::PCSTR,
     pub wLangId: u16,
 }
-impl Copy for FORM_INFO_2A {}
-impl Clone for FORM_INFO_2A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FORM_INFO_2A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FORM_INFO_2A").field("Flags", &self.Flags).field("pName", &self.pName).field("Size", &self.Size).field("ImageableArea", &self.ImageableArea).field("pKeyword", &self.pKeyword).field("StringType", &self.StringType).field("pMuiDll", &self.pMuiDll).field("dwResourceId", &self.dwResourceId).field("pDisplayName", &self.pDisplayName).field("wLangId", &self.wLangId).finish()
-    }
-}
 impl windows_core::TypeKind for FORM_INFO_2A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FORM_INFO_2A {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.pName == other.pName && self.Size == other.Size && self.ImageableArea == other.ImageableArea && self.pKeyword == other.pKeyword && self.StringType == other.StringType && self.pMuiDll == other.pMuiDll && self.dwResourceId == other.dwResourceId && self.pDisplayName == other.pDisplayName && self.wLangId == other.wLangId
-    }
-}
-impl Eq for FORM_INFO_2A {}
 impl Default for FORM_INFO_2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FORM_INFO_2W {
     pub Flags: u32,
     pub pName: windows_core::PCWSTR,
@@ -10096,62 +8790,30 @@ pub struct FORM_INFO_2W {
     pub pDisplayName: windows_core::PCWSTR,
     pub wLangId: u16,
 }
-impl Copy for FORM_INFO_2W {}
-impl Clone for FORM_INFO_2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FORM_INFO_2W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FORM_INFO_2W").field("Flags", &self.Flags).field("pName", &self.pName).field("Size", &self.Size).field("ImageableArea", &self.ImageableArea).field("pKeyword", &self.pKeyword).field("StringType", &self.StringType).field("pMuiDll", &self.pMuiDll).field("dwResourceId", &self.dwResourceId).field("pDisplayName", &self.pDisplayName).field("wLangId", &self.wLangId).finish()
-    }
-}
 impl windows_core::TypeKind for FORM_INFO_2W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FORM_INFO_2W {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.pName == other.pName && self.Size == other.Size && self.ImageableArea == other.ImageableArea && self.pKeyword == other.pKeyword && self.StringType == other.StringType && self.pMuiDll == other.pMuiDll && self.dwResourceId == other.dwResourceId && self.pDisplayName == other.pDisplayName && self.wLangId == other.wLangId
-    }
-}
-impl Eq for FORM_INFO_2W {}
 impl Default for FORM_INFO_2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GLYPHRUN {
     pub wcLow: u16,
     pub wGlyphCount: u16,
 }
-impl Copy for GLYPHRUN {}
-impl Clone for GLYPHRUN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GLYPHRUN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GLYPHRUN").field("wcLow", &self.wcLow).field("wGlyphCount", &self.wGlyphCount).finish()
-    }
-}
 impl windows_core::TypeKind for GLYPHRUN {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GLYPHRUN {
-    fn eq(&self, other: &Self) -> bool {
-        self.wcLow == other.wcLow && self.wGlyphCount == other.wGlyphCount
-    }
-}
-impl Eq for GLYPHRUN {}
 impl Default for GLYPHRUN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INSERTPSUIPAGE_INFO {
     pub cbSize: u16,
     pub Type: u8,
@@ -10160,62 +8822,30 @@ pub struct INSERTPSUIPAGE_INFO {
     pub dwData2: usize,
     pub dwData3: usize,
 }
-impl Copy for INSERTPSUIPAGE_INFO {}
-impl Clone for INSERTPSUIPAGE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INSERTPSUIPAGE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INSERTPSUIPAGE_INFO").field("cbSize", &self.cbSize).field("Type", &self.Type).field("Mode", &self.Mode).field("dwData1", &self.dwData1).field("dwData2", &self.dwData2).field("dwData3", &self.dwData3).finish()
-    }
-}
 impl windows_core::TypeKind for INSERTPSUIPAGE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INSERTPSUIPAGE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.Type == other.Type && self.Mode == other.Mode && self.dwData1 == other.dwData1 && self.dwData2 == other.dwData2 && self.dwData3 == other.dwData3
-    }
-}
-impl Eq for INSERTPSUIPAGE_INFO {}
 impl Default for INSERTPSUIPAGE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INVOC {
     pub dwCount: u32,
     pub loOffset: u32,
 }
-impl Copy for INVOC {}
-impl Clone for INVOC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INVOC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INVOC").field("dwCount", &self.dwCount).field("loOffset", &self.loOffset).finish()
-    }
-}
 impl windows_core::TypeKind for INVOC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INVOC {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwCount == other.dwCount && self.loOffset == other.loOffset
-    }
-}
-impl Eq for INVOC {}
 impl Default for INVOC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct ImgErrorInfo {
     pub description: std::mem::ManuallyDrop<windows_core::BSTR>,
     pub guid: windows_core::GUID,
@@ -10234,26 +8864,16 @@ impl Clone for ImgErrorInfo {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for ImgErrorInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ImgErrorInfo").field("description", &self.description).field("guid", &self.guid).field("helpContext", &self.helpContext).field("helpFile", &self.helpFile).field("source", &self.source).field("devDescription", &self.devDescription).field("errorID", &self.errorID).field("cUserParameters", &self.cUserParameters).field("aUserParameters", &self.aUserParameters).field("userFallback", &self.userFallback).field("exceptionID", &self.exceptionID).finish()
-    }
-}
 impl windows_core::TypeKind for ImgErrorInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ImgErrorInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.description == other.description && self.guid == other.guid && self.helpContext == other.helpContext && self.helpFile == other.helpFile && self.source == other.source && self.devDescription == other.devDescription && self.errorID == other.errorID && self.cUserParameters == other.cUserParameters && self.aUserParameters == other.aUserParameters && self.userFallback == other.userFallback && self.exceptionID == other.exceptionID
-    }
-}
-impl Eq for ImgErrorInfo {}
 impl Default for ImgErrorInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JOB_INFO_1A {
     pub JobId: u32,
     pub pPrinterName: windows_core::PSTR,
@@ -10269,46 +8889,16 @@ pub struct JOB_INFO_1A {
     pub PagesPrinted: u32,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
 }
-impl Copy for JOB_INFO_1A {}
-impl Clone for JOB_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for JOB_INFO_1A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("JOB_INFO_1A")
-            .field("JobId", &self.JobId)
-            .field("pPrinterName", &self.pPrinterName)
-            .field("pMachineName", &self.pMachineName)
-            .field("pUserName", &self.pUserName)
-            .field("pDocument", &self.pDocument)
-            .field("pDatatype", &self.pDatatype)
-            .field("pStatus", &self.pStatus)
-            .field("Status", &self.Status)
-            .field("Priority", &self.Priority)
-            .field("Position", &self.Position)
-            .field("TotalPages", &self.TotalPages)
-            .field("PagesPrinted", &self.PagesPrinted)
-            .field("Submitted", &self.Submitted)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for JOB_INFO_1A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for JOB_INFO_1A {
-    fn eq(&self, other: &Self) -> bool {
-        self.JobId == other.JobId && self.pPrinterName == other.pPrinterName && self.pMachineName == other.pMachineName && self.pUserName == other.pUserName && self.pDocument == other.pDocument && self.pDatatype == other.pDatatype && self.pStatus == other.pStatus && self.Status == other.Status && self.Priority == other.Priority && self.Position == other.Position && self.TotalPages == other.TotalPages && self.PagesPrinted == other.PagesPrinted && self.Submitted == other.Submitted
-    }
-}
-impl Eq for JOB_INFO_1A {}
 impl Default for JOB_INFO_1A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JOB_INFO_1W {
     pub JobId: u32,
     pub pPrinterName: windows_core::PWSTR,
@@ -10324,40 +8914,9 @@ pub struct JOB_INFO_1W {
     pub PagesPrinted: u32,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
 }
-impl Copy for JOB_INFO_1W {}
-impl Clone for JOB_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for JOB_INFO_1W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("JOB_INFO_1W")
-            .field("JobId", &self.JobId)
-            .field("pPrinterName", &self.pPrinterName)
-            .field("pMachineName", &self.pMachineName)
-            .field("pUserName", &self.pUserName)
-            .field("pDocument", &self.pDocument)
-            .field("pDatatype", &self.pDatatype)
-            .field("pStatus", &self.pStatus)
-            .field("Status", &self.Status)
-            .field("Priority", &self.Priority)
-            .field("Position", &self.Position)
-            .field("TotalPages", &self.TotalPages)
-            .field("PagesPrinted", &self.PagesPrinted)
-            .field("Submitted", &self.Submitted)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for JOB_INFO_1W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for JOB_INFO_1W {
-    fn eq(&self, other: &Self) -> bool {
-        self.JobId == other.JobId && self.pPrinterName == other.pPrinterName && self.pMachineName == other.pMachineName && self.pUserName == other.pUserName && self.pDocument == other.pDocument && self.pDatatype == other.pDatatype && self.pStatus == other.pStatus && self.Status == other.Status && self.Priority == other.Priority && self.Position == other.Position && self.TotalPages == other.TotalPages && self.PagesPrinted == other.PagesPrinted && self.Submitted == other.Submitted
-    }
-}
-impl Eq for JOB_INFO_1W {}
 impl Default for JOB_INFO_1W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10365,6 +8924,7 @@ impl Default for JOB_INFO_1W {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JOB_INFO_2A {
     pub JobId: u32,
     pub pPrinterName: windows_core::PSTR,
@@ -10391,77 +8951,9 @@ pub struct JOB_INFO_2A {
     pub PagesPrinted: u32,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Copy for JOB_INFO_2A {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Clone for JOB_INFO_2A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl core::fmt::Debug for JOB_INFO_2A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("JOB_INFO_2A")
-            .field("JobId", &self.JobId)
-            .field("pPrinterName", &self.pPrinterName)
-            .field("pMachineName", &self.pMachineName)
-            .field("pUserName", &self.pUserName)
-            .field("pDocument", &self.pDocument)
-            .field("pNotifyName", &self.pNotifyName)
-            .field("pDatatype", &self.pDatatype)
-            .field("pPrintProcessor", &self.pPrintProcessor)
-            .field("pParameters", &self.pParameters)
-            .field("pDriverName", &self.pDriverName)
-            .field("pDevMode", &self.pDevMode)
-            .field("pStatus", &self.pStatus)
-            .field("pSecurityDescriptor", &self.pSecurityDescriptor)
-            .field("Status", &self.Status)
-            .field("Priority", &self.Priority)
-            .field("Position", &self.Position)
-            .field("StartTime", &self.StartTime)
-            .field("UntilTime", &self.UntilTime)
-            .field("TotalPages", &self.TotalPages)
-            .field("Size", &self.Size)
-            .field("Submitted", &self.Submitted)
-            .field("Time", &self.Time)
-            .field("PagesPrinted", &self.PagesPrinted)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 impl windows_core::TypeKind for JOB_INFO_2A {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl PartialEq for JOB_INFO_2A {
-    fn eq(&self, other: &Self) -> bool {
-        self.JobId == other.JobId
-            && self.pPrinterName == other.pPrinterName
-            && self.pMachineName == other.pMachineName
-            && self.pUserName == other.pUserName
-            && self.pDocument == other.pDocument
-            && self.pNotifyName == other.pNotifyName
-            && self.pDatatype == other.pDatatype
-            && self.pPrintProcessor == other.pPrintProcessor
-            && self.pParameters == other.pParameters
-            && self.pDriverName == other.pDriverName
-            && self.pDevMode == other.pDevMode
-            && self.pStatus == other.pStatus
-            && self.pSecurityDescriptor == other.pSecurityDescriptor
-            && self.Status == other.Status
-            && self.Priority == other.Priority
-            && self.Position == other.Position
-            && self.StartTime == other.StartTime
-            && self.UntilTime == other.UntilTime
-            && self.TotalPages == other.TotalPages
-            && self.Size == other.Size
-            && self.Submitted == other.Submitted
-            && self.Time == other.Time
-            && self.PagesPrinted == other.PagesPrinted
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Eq for JOB_INFO_2A {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 impl Default for JOB_INFO_2A {
     fn default() -> Self {
@@ -10470,6 +8962,7 @@ impl Default for JOB_INFO_2A {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JOB_INFO_2W {
     pub JobId: u32,
     pub pPrinterName: windows_core::PWSTR,
@@ -10496,77 +8989,9 @@ pub struct JOB_INFO_2W {
     pub PagesPrinted: u32,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Copy for JOB_INFO_2W {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Clone for JOB_INFO_2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl core::fmt::Debug for JOB_INFO_2W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("JOB_INFO_2W")
-            .field("JobId", &self.JobId)
-            .field("pPrinterName", &self.pPrinterName)
-            .field("pMachineName", &self.pMachineName)
-            .field("pUserName", &self.pUserName)
-            .field("pDocument", &self.pDocument)
-            .field("pNotifyName", &self.pNotifyName)
-            .field("pDatatype", &self.pDatatype)
-            .field("pPrintProcessor", &self.pPrintProcessor)
-            .field("pParameters", &self.pParameters)
-            .field("pDriverName", &self.pDriverName)
-            .field("pDevMode", &self.pDevMode)
-            .field("pStatus", &self.pStatus)
-            .field("pSecurityDescriptor", &self.pSecurityDescriptor)
-            .field("Status", &self.Status)
-            .field("Priority", &self.Priority)
-            .field("Position", &self.Position)
-            .field("StartTime", &self.StartTime)
-            .field("UntilTime", &self.UntilTime)
-            .field("TotalPages", &self.TotalPages)
-            .field("Size", &self.Size)
-            .field("Submitted", &self.Submitted)
-            .field("Time", &self.Time)
-            .field("PagesPrinted", &self.PagesPrinted)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 impl windows_core::TypeKind for JOB_INFO_2W {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl PartialEq for JOB_INFO_2W {
-    fn eq(&self, other: &Self) -> bool {
-        self.JobId == other.JobId
-            && self.pPrinterName == other.pPrinterName
-            && self.pMachineName == other.pMachineName
-            && self.pUserName == other.pUserName
-            && self.pDocument == other.pDocument
-            && self.pNotifyName == other.pNotifyName
-            && self.pDatatype == other.pDatatype
-            && self.pPrintProcessor == other.pPrintProcessor
-            && self.pParameters == other.pParameters
-            && self.pDriverName == other.pDriverName
-            && self.pDevMode == other.pDevMode
-            && self.pStatus == other.pStatus
-            && self.pSecurityDescriptor == other.pSecurityDescriptor
-            && self.Status == other.Status
-            && self.Priority == other.Priority
-            && self.Position == other.Position
-            && self.StartTime == other.StartTime
-            && self.UntilTime == other.UntilTime
-            && self.TotalPages == other.TotalPages
-            && self.Size == other.Size
-            && self.Submitted == other.Submitted
-            && self.Time == other.Time
-            && self.PagesPrinted == other.PagesPrinted
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Eq for JOB_INFO_2W {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 impl Default for JOB_INFO_2W {
     fn default() -> Self {
@@ -10574,31 +8999,15 @@ impl Default for JOB_INFO_2W {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JOB_INFO_3 {
     pub JobId: u32,
     pub NextJobId: u32,
     pub Reserved: u32,
 }
-impl Copy for JOB_INFO_3 {}
-impl Clone for JOB_INFO_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for JOB_INFO_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("JOB_INFO_3").field("JobId", &self.JobId).field("NextJobId", &self.NextJobId).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for JOB_INFO_3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for JOB_INFO_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.JobId == other.JobId && self.NextJobId == other.NextJobId && self.Reserved == other.Reserved
-    }
-}
-impl Eq for JOB_INFO_3 {}
 impl Default for JOB_INFO_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10606,6 +9015,7 @@ impl Default for JOB_INFO_3 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JOB_INFO_4A {
     pub JobId: u32,
     pub pPrinterName: windows_core::PSTR,
@@ -10633,79 +9043,9 @@ pub struct JOB_INFO_4A {
     pub SizeHigh: i32,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Copy for JOB_INFO_4A {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Clone for JOB_INFO_4A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl core::fmt::Debug for JOB_INFO_4A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("JOB_INFO_4A")
-            .field("JobId", &self.JobId)
-            .field("pPrinterName", &self.pPrinterName)
-            .field("pMachineName", &self.pMachineName)
-            .field("pUserName", &self.pUserName)
-            .field("pDocument", &self.pDocument)
-            .field("pNotifyName", &self.pNotifyName)
-            .field("pDatatype", &self.pDatatype)
-            .field("pPrintProcessor", &self.pPrintProcessor)
-            .field("pParameters", &self.pParameters)
-            .field("pDriverName", &self.pDriverName)
-            .field("pDevMode", &self.pDevMode)
-            .field("pStatus", &self.pStatus)
-            .field("pSecurityDescriptor", &self.pSecurityDescriptor)
-            .field("Status", &self.Status)
-            .field("Priority", &self.Priority)
-            .field("Position", &self.Position)
-            .field("StartTime", &self.StartTime)
-            .field("UntilTime", &self.UntilTime)
-            .field("TotalPages", &self.TotalPages)
-            .field("Size", &self.Size)
-            .field("Submitted", &self.Submitted)
-            .field("Time", &self.Time)
-            .field("PagesPrinted", &self.PagesPrinted)
-            .field("SizeHigh", &self.SizeHigh)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 impl windows_core::TypeKind for JOB_INFO_4A {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl PartialEq for JOB_INFO_4A {
-    fn eq(&self, other: &Self) -> bool {
-        self.JobId == other.JobId
-            && self.pPrinterName == other.pPrinterName
-            && self.pMachineName == other.pMachineName
-            && self.pUserName == other.pUserName
-            && self.pDocument == other.pDocument
-            && self.pNotifyName == other.pNotifyName
-            && self.pDatatype == other.pDatatype
-            && self.pPrintProcessor == other.pPrintProcessor
-            && self.pParameters == other.pParameters
-            && self.pDriverName == other.pDriverName
-            && self.pDevMode == other.pDevMode
-            && self.pStatus == other.pStatus
-            && self.pSecurityDescriptor == other.pSecurityDescriptor
-            && self.Status == other.Status
-            && self.Priority == other.Priority
-            && self.Position == other.Position
-            && self.StartTime == other.StartTime
-            && self.UntilTime == other.UntilTime
-            && self.TotalPages == other.TotalPages
-            && self.Size == other.Size
-            && self.Submitted == other.Submitted
-            && self.Time == other.Time
-            && self.PagesPrinted == other.PagesPrinted
-            && self.SizeHigh == other.SizeHigh
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Eq for JOB_INFO_4A {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 impl Default for JOB_INFO_4A {
     fn default() -> Self {
@@ -10714,6 +9054,7 @@ impl Default for JOB_INFO_4A {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JOB_INFO_4W {
     pub JobId: u32,
     pub pPrinterName: windows_core::PWSTR,
@@ -10741,79 +9082,9 @@ pub struct JOB_INFO_4W {
     pub SizeHigh: i32,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Copy for JOB_INFO_4W {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Clone for JOB_INFO_4W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl core::fmt::Debug for JOB_INFO_4W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("JOB_INFO_4W")
-            .field("JobId", &self.JobId)
-            .field("pPrinterName", &self.pPrinterName)
-            .field("pMachineName", &self.pMachineName)
-            .field("pUserName", &self.pUserName)
-            .field("pDocument", &self.pDocument)
-            .field("pNotifyName", &self.pNotifyName)
-            .field("pDatatype", &self.pDatatype)
-            .field("pPrintProcessor", &self.pPrintProcessor)
-            .field("pParameters", &self.pParameters)
-            .field("pDriverName", &self.pDriverName)
-            .field("pDevMode", &self.pDevMode)
-            .field("pStatus", &self.pStatus)
-            .field("pSecurityDescriptor", &self.pSecurityDescriptor)
-            .field("Status", &self.Status)
-            .field("Priority", &self.Priority)
-            .field("Position", &self.Position)
-            .field("StartTime", &self.StartTime)
-            .field("UntilTime", &self.UntilTime)
-            .field("TotalPages", &self.TotalPages)
-            .field("Size", &self.Size)
-            .field("Submitted", &self.Submitted)
-            .field("Time", &self.Time)
-            .field("PagesPrinted", &self.PagesPrinted)
-            .field("SizeHigh", &self.SizeHigh)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 impl windows_core::TypeKind for JOB_INFO_4W {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl PartialEq for JOB_INFO_4W {
-    fn eq(&self, other: &Self) -> bool {
-        self.JobId == other.JobId
-            && self.pPrinterName == other.pPrinterName
-            && self.pMachineName == other.pMachineName
-            && self.pUserName == other.pUserName
-            && self.pDocument == other.pDocument
-            && self.pNotifyName == other.pNotifyName
-            && self.pDatatype == other.pDatatype
-            && self.pPrintProcessor == other.pPrintProcessor
-            && self.pParameters == other.pParameters
-            && self.pDriverName == other.pDriverName
-            && self.pDevMode == other.pDevMode
-            && self.pStatus == other.pStatus
-            && self.pSecurityDescriptor == other.pSecurityDescriptor
-            && self.Status == other.Status
-            && self.Priority == other.Priority
-            && self.Position == other.Position
-            && self.StartTime == other.StartTime
-            && self.UntilTime == other.UntilTime
-            && self.TotalPages == other.TotalPages
-            && self.Size == other.Size
-            && self.Submitted == other.Submitted
-            && self.Time == other.Time
-            && self.PagesPrinted == other.PagesPrinted
-            && self.SizeHigh == other.SizeHigh
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Eq for JOB_INFO_4W {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 impl Default for JOB_INFO_4W {
     fn default() -> Self {
@@ -10822,37 +9093,16 @@ impl Default for JOB_INFO_4W {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Display")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KERNDATA {
     pub dwSize: u32,
     pub dwKernPairNum: u32,
     pub KernPair: [super::super::Devices::Display::FD_KERNINGPAIR; 1],
 }
 #[cfg(feature = "Win32_Devices_Display")]
-impl Copy for KERNDATA {}
-#[cfg(feature = "Win32_Devices_Display")]
-impl Clone for KERNDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Devices_Display")]
-impl core::fmt::Debug for KERNDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("KERNDATA").field("dwSize", &self.dwSize).field("dwKernPairNum", &self.dwKernPairNum).field("KernPair", &self.KernPair).finish()
-    }
-}
-#[cfg(feature = "Win32_Devices_Display")]
 impl windows_core::TypeKind for KERNDATA {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Devices_Display")]
-impl PartialEq for KERNDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwKernPairNum == other.dwKernPairNum && self.KernPair == other.KernPair
-    }
-}
-#[cfg(feature = "Win32_Devices_Display")]
-impl Eq for KERNDATA {}
 #[cfg(feature = "Win32_Devices_Display")]
 impl Default for KERNDATA {
     fn default() -> Self {
@@ -10860,16 +9110,11 @@ impl Default for KERNDATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MAPTABLE {
     pub dwSize: u32,
     pub dwGlyphNum: u32,
     pub Trans: [TRANSDATA; 1],
-}
-impl Copy for MAPTABLE {}
-impl Clone for MAPTABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MAPTABLE {
     type TypeKind = windows_core::CopyType;
@@ -10880,6 +9125,7 @@ impl Default for MAPTABLE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MESSAGEBOX_PARAMS {
     pub cbSize: u32,
     pub pTitle: windows_core::PWSTR,
@@ -10888,26 +9134,9 @@ pub struct MESSAGEBOX_PARAMS {
     pub dwTimeout: u32,
     pub bWait: super::super::Foundation::BOOL,
 }
-impl Copy for MESSAGEBOX_PARAMS {}
-impl Clone for MESSAGEBOX_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MESSAGEBOX_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MESSAGEBOX_PARAMS").field("cbSize", &self.cbSize).field("pTitle", &self.pTitle).field("pMessage", &self.pMessage).field("Style", &self.Style).field("dwTimeout", &self.dwTimeout).field("bWait", &self.bWait).finish()
-    }
-}
 impl windows_core::TypeKind for MESSAGEBOX_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MESSAGEBOX_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pTitle == other.pTitle && self.pMessage == other.pMessage && self.Style == other.Style && self.dwTimeout == other.dwTimeout && self.bWait == other.bWait
-    }
-}
-impl Eq for MESSAGEBOX_PARAMS {}
 impl Default for MESSAGEBOX_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10915,6 +9144,7 @@ impl Default for MESSAGEBOX_PARAMS {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy, Debug)]
 pub struct MONITOR {
     pub pfnEnumPorts: PFN_PRINTING_ENUMPORTS,
     pub pfnOpenPort: PFN_PRINTING_OPENPORT,
@@ -10935,20 +9165,6 @@ pub struct MONITOR {
     pub pfnXcvClosePort: PFN_PRINTING_XCVCLOSEPORT,
 }
 #[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-impl Copy for MONITOR {}
-#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-impl Clone for MONITOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-impl core::fmt::Debug for MONITOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MONITOR").finish()
-    }
-}
-#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
 impl windows_core::TypeKind for MONITOR {
     type TypeKind = windows_core::CopyType;
 }
@@ -10960,6 +9176,7 @@ impl Default for MONITOR {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy, Debug)]
 pub struct MONITOR2 {
     pub cbSize: u32,
     pub pfnEnumPorts: PFN_PRINTING_ENUMPORTS2,
@@ -10986,20 +9203,6 @@ pub struct MONITOR2 {
     pub pfnPowerEvent: PFN_PRINTING_POWEREVENT2,
 }
 #[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-impl Copy for MONITOR2 {}
-#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-impl Clone for MONITOR2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-impl core::fmt::Debug for MONITOR2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MONITOR2").field("cbSize", &self.cbSize).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
 impl windows_core::TypeKind for MONITOR2 {
     type TypeKind = windows_core::CopyType;
 }
@@ -11011,23 +9214,10 @@ impl Default for MONITOR2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy, Debug)]
 pub struct MONITOREX {
     pub dwMonitorSize: u32,
     pub Monitor: MONITOR,
-}
-#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-impl Copy for MONITOREX {}
-#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-impl Clone for MONITOREX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-impl core::fmt::Debug for MONITOREX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MONITOREX").field("dwMonitorSize", &self.dwMonitorSize).finish()
-    }
 }
 #[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
 impl windows_core::TypeKind for MONITOREX {
@@ -11041,6 +9231,7 @@ impl Default for MONITOREX {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONITORINIT {
     pub cbSize: u32,
     pub hSpooler: super::super::Foundation::HANDLE,
@@ -11050,31 +9241,9 @@ pub struct MONITORINIT {
     pub pszServerName: windows_core::PCWSTR,
 }
 #[cfg(feature = "Win32_System_Registry")]
-impl Copy for MONITORINIT {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for MONITORINIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl core::fmt::Debug for MONITORINIT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MONITORINIT").field("cbSize", &self.cbSize).field("hSpooler", &self.hSpooler).field("hckRegistryRoot", &self.hckRegistryRoot).field("pMonitorReg", &self.pMonitorReg).field("bLocal", &self.bLocal).field("pszServerName", &self.pszServerName).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Registry")]
 impl windows_core::TypeKind for MONITORINIT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl PartialEq for MONITORINIT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.hSpooler == other.hSpooler && self.hckRegistryRoot == other.hckRegistryRoot && self.pMonitorReg == other.pMonitorReg && self.bLocal == other.bLocal && self.pszServerName == other.pszServerName
-    }
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl Eq for MONITORINIT {}
 #[cfg(feature = "Win32_System_Registry")]
 impl Default for MONITORINIT {
     fn default() -> Self {
@@ -11082,6 +9251,7 @@ impl Default for MONITORINIT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONITORREG {
     pub cbSize: u32,
     pub fpCreateKey: isize,
@@ -11095,194 +9265,92 @@ pub struct MONITORREG {
     pub fpEnumValue: isize,
     pub fpQueryValue: isize,
 }
-impl Copy for MONITORREG {}
-impl Clone for MONITORREG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MONITORREG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MONITORREG").field("cbSize", &self.cbSize).field("fpCreateKey", &self.fpCreateKey).field("fpOpenKey", &self.fpOpenKey).field("fpCloseKey", &self.fpCloseKey).field("fpDeleteKey", &self.fpDeleteKey).field("fpEnumKey", &self.fpEnumKey).field("fpQueryInfoKey", &self.fpQueryInfoKey).field("fpSetValue", &self.fpSetValue).field("fpDeleteValue", &self.fpDeleteValue).field("fpEnumValue", &self.fpEnumValue).field("fpQueryValue", &self.fpQueryValue).finish()
-    }
-}
 impl windows_core::TypeKind for MONITORREG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MONITORREG {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.fpCreateKey == other.fpCreateKey && self.fpOpenKey == other.fpOpenKey && self.fpCloseKey == other.fpCloseKey && self.fpDeleteKey == other.fpDeleteKey && self.fpEnumKey == other.fpEnumKey && self.fpQueryInfoKey == other.fpQueryInfoKey && self.fpSetValue == other.fpSetValue && self.fpDeleteValue == other.fpDeleteValue && self.fpEnumValue == other.fpEnumValue && self.fpQueryValue == other.fpQueryValue
-    }
-}
-impl Eq for MONITORREG {}
 impl Default for MONITORREG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONITORUI {
     pub dwMonitorUISize: u32,
     pub pfnAddPortUI: isize,
     pub pfnConfigurePortUI: isize,
     pub pfnDeletePortUI: isize,
 }
-impl Copy for MONITORUI {}
-impl Clone for MONITORUI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MONITORUI {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MONITORUI").field("dwMonitorUISize", &self.dwMonitorUISize).field("pfnAddPortUI", &self.pfnAddPortUI).field("pfnConfigurePortUI", &self.pfnConfigurePortUI).field("pfnDeletePortUI", &self.pfnDeletePortUI).finish()
-    }
-}
 impl windows_core::TypeKind for MONITORUI {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MONITORUI {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMonitorUISize == other.dwMonitorUISize && self.pfnAddPortUI == other.pfnAddPortUI && self.pfnConfigurePortUI == other.pfnConfigurePortUI && self.pfnDeletePortUI == other.pfnDeletePortUI
-    }
-}
-impl Eq for MONITORUI {}
 impl Default for MONITORUI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONITOR_INFO_1A {
     pub pName: windows_core::PSTR,
-}
-impl Copy for MONITOR_INFO_1A {}
-impl Clone for MONITOR_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MONITOR_INFO_1A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MONITOR_INFO_1A").field("pName", &self.pName).finish()
-    }
 }
 impl windows_core::TypeKind for MONITOR_INFO_1A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MONITOR_INFO_1A {
-    fn eq(&self, other: &Self) -> bool {
-        self.pName == other.pName
-    }
-}
-impl Eq for MONITOR_INFO_1A {}
 impl Default for MONITOR_INFO_1A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONITOR_INFO_1W {
     pub pName: windows_core::PWSTR,
-}
-impl Copy for MONITOR_INFO_1W {}
-impl Clone for MONITOR_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MONITOR_INFO_1W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MONITOR_INFO_1W").field("pName", &self.pName).finish()
-    }
 }
 impl windows_core::TypeKind for MONITOR_INFO_1W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MONITOR_INFO_1W {
-    fn eq(&self, other: &Self) -> bool {
-        self.pName == other.pName
-    }
-}
-impl Eq for MONITOR_INFO_1W {}
 impl Default for MONITOR_INFO_1W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONITOR_INFO_2A {
     pub pName: windows_core::PSTR,
     pub pEnvironment: windows_core::PSTR,
     pub pDLLName: windows_core::PSTR,
 }
-impl Copy for MONITOR_INFO_2A {}
-impl Clone for MONITOR_INFO_2A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MONITOR_INFO_2A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MONITOR_INFO_2A").field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDLLName", &self.pDLLName).finish()
-    }
-}
 impl windows_core::TypeKind for MONITOR_INFO_2A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MONITOR_INFO_2A {
-    fn eq(&self, other: &Self) -> bool {
-        self.pName == other.pName && self.pEnvironment == other.pEnvironment && self.pDLLName == other.pDLLName
-    }
-}
-impl Eq for MONITOR_INFO_2A {}
 impl Default for MONITOR_INFO_2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONITOR_INFO_2W {
     pub pName: windows_core::PWSTR,
     pub pEnvironment: windows_core::PWSTR,
     pub pDLLName: windows_core::PWSTR,
 }
-impl Copy for MONITOR_INFO_2W {}
-impl Clone for MONITOR_INFO_2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MONITOR_INFO_2W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MONITOR_INFO_2W").field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDLLName", &self.pDLLName).finish()
-    }
-}
 impl windows_core::TypeKind for MONITOR_INFO_2W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MONITOR_INFO_2W {
-    fn eq(&self, other: &Self) -> bool {
-        self.pName == other.pName && self.pEnvironment == other.pEnvironment && self.pDLLName == other.pDLLName
-    }
-}
-impl Eq for MONITOR_INFO_2W {}
 impl Default for MONITOR_INFO_2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MXDC_ESCAPE_HEADER_T {
     pub cbInput: u32,
     pub cbOutput: u32,
     pub opCode: u32,
-}
-impl Copy for MXDC_ESCAPE_HEADER_T {}
-impl Clone for MXDC_ESCAPE_HEADER_T {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MXDC_ESCAPE_HEADER_T {
     type TypeKind = windows_core::CopyType;
@@ -11293,15 +9361,10 @@ impl Default for MXDC_ESCAPE_HEADER_T {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MXDC_GET_FILENAME_DATA_T {
     pub cbOutput: u32,
     pub wszData: [u16; 1],
-}
-impl Copy for MXDC_GET_FILENAME_DATA_T {}
-impl Clone for MXDC_GET_FILENAME_DATA_T {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MXDC_GET_FILENAME_DATA_T {
     type TypeKind = windows_core::CopyType;
@@ -11312,15 +9375,10 @@ impl Default for MXDC_GET_FILENAME_DATA_T {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MXDC_PRINTTICKET_DATA_T {
     pub dwDataSize: u32,
     pub bData: [u8; 1],
-}
-impl Copy for MXDC_PRINTTICKET_DATA_T {}
-impl Clone for MXDC_PRINTTICKET_DATA_T {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MXDC_PRINTTICKET_DATA_T {
     type TypeKind = windows_core::CopyType;
@@ -11331,15 +9389,10 @@ impl Default for MXDC_PRINTTICKET_DATA_T {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MXDC_PRINTTICKET_ESCAPE_T {
     pub mxdcEscape: MXDC_ESCAPE_HEADER_T,
     pub printTicketData: MXDC_PRINTTICKET_DATA_T,
-}
-impl Copy for MXDC_PRINTTICKET_ESCAPE_T {}
-impl Clone for MXDC_PRINTTICKET_ESCAPE_T {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MXDC_PRINTTICKET_ESCAPE_T {
     type TypeKind = windows_core::CopyType;
@@ -11350,15 +9403,10 @@ impl Default for MXDC_PRINTTICKET_ESCAPE_T {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MXDC_S0PAGE_DATA_T {
     pub dwSize: u32,
     pub bData: [u8; 1],
-}
-impl Copy for MXDC_S0PAGE_DATA_T {}
-impl Clone for MXDC_S0PAGE_DATA_T {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MXDC_S0PAGE_DATA_T {
     type TypeKind = windows_core::CopyType;
@@ -11369,15 +9417,10 @@ impl Default for MXDC_S0PAGE_DATA_T {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T {
     pub mxdcEscape: MXDC_ESCAPE_HEADER_T,
     pub xpsS0PageData: MXDC_S0PAGE_DATA_T,
-}
-impl Copy for MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T {}
-impl Clone for MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T {
     type TypeKind = windows_core::CopyType;
@@ -11388,15 +9431,10 @@ impl Default for MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MXDC_S0PAGE_RESOURCE_ESCAPE_T {
     pub mxdcEscape: MXDC_ESCAPE_HEADER_T,
     pub xpsS0PageResourcePassthrough: MXDC_XPS_S0PAGE_RESOURCE_T,
-}
-impl Copy for MXDC_S0PAGE_RESOURCE_ESCAPE_T {}
-impl Clone for MXDC_S0PAGE_RESOURCE_ESCAPE_T {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MXDC_S0PAGE_RESOURCE_ESCAPE_T {
     type TypeKind = windows_core::CopyType;
@@ -11407,18 +9445,13 @@ impl Default for MXDC_S0PAGE_RESOURCE_ESCAPE_T {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MXDC_XPS_S0PAGE_RESOURCE_T {
     pub dwSize: u32,
     pub dwResourceType: u32,
     pub szUri: [u8; 260],
     pub dwDataSize: u32,
     pub bData: [u8; 1],
-}
-impl Copy for MXDC_XPS_S0PAGE_RESOURCE_T {}
-impl Clone for MXDC_XPS_S0PAGE_RESOURCE_T {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MXDC_XPS_S0PAGE_RESOURCE_T {
     type TypeKind = windows_core::CopyType;
@@ -11429,22 +9462,12 @@ impl Default for MXDC_XPS_S0PAGE_RESOURCE_T {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct NOTIFICATION_CONFIG_1 {
     pub cbSize: u32,
     pub fdwFlags: u32,
     pub pfnNotifyCallback: ROUTER_NOTIFY_CALLBACK,
     pub pContext: *mut core::ffi::c_void,
-}
-impl Copy for NOTIFICATION_CONFIG_1 {}
-impl Clone for NOTIFICATION_CONFIG_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NOTIFICATION_CONFIG_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NOTIFICATION_CONFIG_1").field("cbSize", &self.cbSize).field("fdwFlags", &self.fdwFlags).field("pContext", &self.pContext).finish()
-    }
 }
 impl windows_core::TypeKind for NOTIFICATION_CONFIG_1 {
     type TypeKind = windows_core::CopyType;
@@ -11456,6 +9479,7 @@ impl Default for NOTIFICATION_CONFIG_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy, Debug)]
 pub struct OEMCUIPPARAM {
     pub cbSize: u32,
     pub poemuiobj: *mut OEMUIOBJ,
@@ -11474,35 +9498,6 @@ pub struct OEMCUIPPARAM {
     pub OEMCUIPCallback: OEMCUIPCALLBACK,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for OEMCUIPPARAM {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for OEMCUIPPARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl core::fmt::Debug for OEMCUIPPARAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OEMCUIPPARAM")
-            .field("cbSize", &self.cbSize)
-            .field("poemuiobj", &self.poemuiobj)
-            .field("hPrinter", &self.hPrinter)
-            .field("pPrinterName", &self.pPrinterName)
-            .field("hModule", &self.hModule)
-            .field("hOEMHeap", &self.hOEMHeap)
-            .field("pPublicDM", &self.pPublicDM)
-            .field("pOEMDM", &self.pOEMDM)
-            .field("dwFlags", &self.dwFlags)
-            .field("pDrvOptItems", &self.pDrvOptItems)
-            .field("cDrvOptItems", &self.cDrvOptItems)
-            .field("pOEMOptItems", &self.pOEMOptItems)
-            .field("cOEMOptItems", &self.cOEMOptItems)
-            .field("pOEMUserData", &self.pOEMUserData)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl windows_core::TypeKind for OEMCUIPPARAM {
     type TypeKind = windows_core::CopyType;
 }
@@ -11514,6 +9509,7 @@ impl Default for OEMCUIPPARAM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OEMDMPARAM {
     pub cbSize: u32,
     pub pdriverobj: *mut core::ffi::c_void,
@@ -11526,31 +9522,9 @@ pub struct OEMDMPARAM {
     pub cbBufSize: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for OEMDMPARAM {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for OEMDMPARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for OEMDMPARAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OEMDMPARAM").field("cbSize", &self.cbSize).field("pdriverobj", &self.pdriverobj).field("hPrinter", &self.hPrinter).field("hModule", &self.hModule).field("pPublicDMIn", &self.pPublicDMIn).field("pPublicDMOut", &self.pPublicDMOut).field("pOEMDMIn", &self.pOEMDMIn).field("pOEMDMOut", &self.pOEMDMOut).field("cbBufSize", &self.cbBufSize).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for OEMDMPARAM {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for OEMDMPARAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pdriverobj == other.pdriverobj && self.hPrinter == other.hPrinter && self.hModule == other.hModule && self.pPublicDMIn == other.pPublicDMIn && self.pPublicDMOut == other.pPublicDMOut && self.pOEMDMIn == other.pOEMDMIn && self.pOEMDMOut == other.pOEMDMOut && self.cbBufSize == other.cbBufSize
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for OEMDMPARAM {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for OEMDMPARAM {
     fn default() -> Self {
@@ -11558,6 +9532,7 @@ impl Default for OEMDMPARAM {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OEMFONTINSTPARAM {
     pub cbSize: u32,
     pub hPrinter: super::super::Foundation::HANDLE,
@@ -11566,76 +9541,33 @@ pub struct OEMFONTINSTPARAM {
     pub dwFlags: u32,
     pub pFontInstallerName: windows_core::PWSTR,
 }
-impl Copy for OEMFONTINSTPARAM {}
-impl Clone for OEMFONTINSTPARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OEMFONTINSTPARAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OEMFONTINSTPARAM").field("cbSize", &self.cbSize).field("hPrinter", &self.hPrinter).field("hModule", &self.hModule).field("hHeap", &self.hHeap).field("dwFlags", &self.dwFlags).field("pFontInstallerName", &self.pFontInstallerName).finish()
-    }
-}
 impl windows_core::TypeKind for OEMFONTINSTPARAM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OEMFONTINSTPARAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.hPrinter == other.hPrinter && self.hModule == other.hModule && self.hHeap == other.hHeap && self.dwFlags == other.dwFlags && self.pFontInstallerName == other.pFontInstallerName
-    }
-}
-impl Eq for OEMFONTINSTPARAM {}
 impl Default for OEMFONTINSTPARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OEMUIOBJ {
     pub cbSize: u32,
     pub pOemUIProcs: *mut OEMUIPROCS,
 }
-impl Copy for OEMUIOBJ {}
-impl Clone for OEMUIOBJ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OEMUIOBJ {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OEMUIOBJ").field("cbSize", &self.cbSize).field("pOemUIProcs", &self.pOemUIProcs).finish()
-    }
-}
 impl windows_core::TypeKind for OEMUIOBJ {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OEMUIOBJ {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pOemUIProcs == other.pOemUIProcs
-    }
-}
-impl Eq for OEMUIOBJ {}
 impl Default for OEMUIOBJ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct OEMUIPROCS {
     pub DrvGetDriverSetting: PFN_DrvGetDriverSetting,
     pub DrvUpdateUISetting: PFN_DrvUpdateUISetting,
-}
-impl Copy for OEMUIPROCS {}
-impl Clone for OEMUIPROCS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OEMUIPROCS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OEMUIPROCS").finish()
-    }
 }
 impl windows_core::TypeKind for OEMUIPROCS {
     type TypeKind = windows_core::CopyType;
@@ -11647,6 +9579,7 @@ impl Default for OEMUIPROCS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OEMUIPSPARAM {
     pub cbSize: u32,
     pub poemuiobj: *mut OEMUIOBJ,
@@ -11661,31 +9594,9 @@ pub struct OEMUIPSPARAM {
     pub pOemEntry: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for OEMUIPSPARAM {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for OEMUIPSPARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for OEMUIPSPARAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OEMUIPSPARAM").field("cbSize", &self.cbSize).field("poemuiobj", &self.poemuiobj).field("hPrinter", &self.hPrinter).field("pPrinterName", &self.pPrinterName).field("hModule", &self.hModule).field("hOEMHeap", &self.hOEMHeap).field("pPublicDM", &self.pPublicDM).field("pOEMDM", &self.pOEMDM).field("pOEMUserData", &self.pOEMUserData).field("dwFlags", &self.dwFlags).field("pOemEntry", &self.pOemEntry).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for OEMUIPSPARAM {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for OEMUIPSPARAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.poemuiobj == other.poemuiobj && self.hPrinter == other.hPrinter && self.pPrinterName == other.pPrinterName && self.hModule == other.hModule && self.hOEMHeap == other.hOEMHeap && self.pPublicDM == other.pPublicDM && self.pOEMDM == other.pOEMDM && self.pOEMUserData == other.pOEMUserData && self.dwFlags == other.dwFlags && self.pOemEntry == other.pOemEntry
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for OEMUIPSPARAM {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for OEMUIPSPARAM {
     fn default() -> Self {
@@ -11693,37 +9604,22 @@ impl Default for OEMUIPSPARAM {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OEM_DMEXTRAHEADER {
     pub dwSize: u32,
     pub dwSignature: u32,
     pub dwVersion: u32,
 }
-impl Copy for OEM_DMEXTRAHEADER {}
-impl Clone for OEM_DMEXTRAHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OEM_DMEXTRAHEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OEM_DMEXTRAHEADER").field("dwSize", &self.dwSize).field("dwSignature", &self.dwSignature).field("dwVersion", &self.dwVersion).finish()
-    }
-}
 impl windows_core::TypeKind for OEM_DMEXTRAHEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OEM_DMEXTRAHEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwSignature == other.dwSignature && self.dwVersion == other.dwVersion
-    }
-}
-impl Eq for OEM_DMEXTRAHEADER {}
 impl Default for OEM_DMEXTRAHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OIEXT {
     pub cbSize: u16,
     pub Flags: u16,
@@ -11731,32 +9627,16 @@ pub struct OIEXT {
     pub pHelpFile: *mut i8,
     pub dwReserved: [usize; 4],
 }
-impl Copy for OIEXT {}
-impl Clone for OIEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OIEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OIEXT").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("hInstCaller", &self.hInstCaller).field("pHelpFile", &self.pHelpFile).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 impl windows_core::TypeKind for OIEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OIEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.Flags == other.Flags && self.hInstCaller == other.hInstCaller && self.pHelpFile == other.pHelpFile && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for OIEXT {}
 impl Default for OIEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OPTCOMBO {
     pub cbSize: u16,
     pub Flags: u8,
@@ -11765,26 +9645,9 @@ pub struct OPTCOMBO {
     pub Sel: i32,
     pub dwReserved: [u32; 3],
 }
-impl Copy for OPTCOMBO {}
-impl Clone for OPTCOMBO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OPTCOMBO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OPTCOMBO").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("cListItem", &self.cListItem).field("pListItem", &self.pListItem).field("Sel", &self.Sel).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 impl windows_core::TypeKind for OPTCOMBO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OPTCOMBO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.Flags == other.Flags && self.cListItem == other.cListItem && self.pListItem == other.pListItem && self.Sel == other.Sel && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for OPTCOMBO {}
 impl Default for OPTCOMBO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11792,6 +9655,7 @@ impl Default for OPTCOMBO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct OPTITEM {
     pub cbSize: u16,
     pub Level: u8,
@@ -11810,14 +9674,6 @@ pub struct OPTITEM {
     pub dwReserved: [usize; 3],
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for OPTITEM {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for OPTITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::TypeKind for OPTITEM {
     type TypeKind = windows_core::CopyType;
 }
@@ -11829,17 +9685,10 @@ impl Default for OPTITEM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub union OPTITEM_0 {
     pub Sel: i32,
     pub pSel: *mut i8,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for OPTITEM_0 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for OPTITEM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::TypeKind for OPTITEM_0 {
@@ -11853,17 +9702,10 @@ impl Default for OPTITEM_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub union OPTITEM_1 {
     pub pExtChkBox: *mut EXTCHKBOX,
     pub pExtPush: *mut EXTPUSH,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for OPTITEM_1 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for OPTITEM_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::TypeKind for OPTITEM_1 {
@@ -11876,6 +9718,7 @@ impl Default for OPTITEM_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OPTPARAM {
     pub cbSize: u16,
     pub Flags: u8,
@@ -11885,32 +9728,16 @@ pub struct OPTPARAM {
     pub lParam: super::super::Foundation::LPARAM,
     pub dwReserved: [usize; 2],
 }
-impl Copy for OPTPARAM {}
-impl Clone for OPTPARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OPTPARAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OPTPARAM").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("Style", &self.Style).field("pData", &self.pData).field("IconID", &self.IconID).field("lParam", &self.lParam).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 impl windows_core::TypeKind for OPTPARAM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OPTPARAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.Flags == other.Flags && self.Style == other.Style && self.pData == other.pData && self.IconID == other.IconID && self.lParam == other.lParam && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for OPTPARAM {}
 impl Default for OPTPARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OPTTYPE {
     pub cbSize: u16,
     pub Type: u8,
@@ -11922,32 +9749,16 @@ pub struct OPTTYPE {
     pub wReserved: [u16; 3],
     pub dwReserved: [usize; 3],
 }
-impl Copy for OPTTYPE {}
-impl Clone for OPTTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OPTTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OPTTYPE").field("cbSize", &self.cbSize).field("Type", &self.Type).field("Flags", &self.Flags).field("Count", &self.Count).field("BegCtrlID", &self.BegCtrlID).field("pOptParam", &self.pOptParam).field("Style", &self.Style).field("wReserved", &self.wReserved).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 impl windows_core::TypeKind for OPTTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OPTTYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.Type == other.Type && self.Flags == other.Flags && self.Count == other.Count && self.BegCtrlID == other.BegCtrlID && self.pOptParam == other.pOptParam && self.Style == other.Style && self.wReserved == other.wReserved && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for OPTTYPE {}
 impl Default for OPTTYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PORT_DATA_1 {
     pub sztPortName: [u16; 64],
     pub dwVersion: u32,
@@ -11964,47 +9775,16 @@ pub struct PORT_DATA_1 {
     pub dwSNMPEnabled: u32,
     pub dwSNMPDevIndex: u32,
 }
-impl Copy for PORT_DATA_1 {}
-impl Clone for PORT_DATA_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PORT_DATA_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PORT_DATA_1")
-            .field("sztPortName", &self.sztPortName)
-            .field("dwVersion", &self.dwVersion)
-            .field("dwProtocol", &self.dwProtocol)
-            .field("cbSize", &self.cbSize)
-            .field("dwReserved", &self.dwReserved)
-            .field("sztHostAddress", &self.sztHostAddress)
-            .field("sztSNMPCommunity", &self.sztSNMPCommunity)
-            .field("dwDoubleSpool", &self.dwDoubleSpool)
-            .field("sztQueue", &self.sztQueue)
-            .field("sztIPAddress", &self.sztIPAddress)
-            .field("Reserved", &self.Reserved)
-            .field("dwPortNumber", &self.dwPortNumber)
-            .field("dwSNMPEnabled", &self.dwSNMPEnabled)
-            .field("dwSNMPDevIndex", &self.dwSNMPDevIndex)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PORT_DATA_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PORT_DATA_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.sztPortName == other.sztPortName && self.dwVersion == other.dwVersion && self.dwProtocol == other.dwProtocol && self.cbSize == other.cbSize && self.dwReserved == other.dwReserved && self.sztHostAddress == other.sztHostAddress && self.sztSNMPCommunity == other.sztSNMPCommunity && self.dwDoubleSpool == other.dwDoubleSpool && self.sztQueue == other.sztQueue && self.sztIPAddress == other.sztIPAddress && self.Reserved == other.Reserved && self.dwPortNumber == other.dwPortNumber && self.dwSNMPEnabled == other.dwSNMPEnabled && self.dwSNMPDevIndex == other.dwSNMPDevIndex
-    }
-}
-impl Eq for PORT_DATA_1 {}
 impl Default for PORT_DATA_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PORT_DATA_2 {
     pub sztPortName: [u16; 64],
     pub dwVersion: u32,
@@ -12021,136 +9801,57 @@ pub struct PORT_DATA_2 {
     pub dwSNMPDevIndex: u32,
     pub dwPortMonitorMibIndex: u32,
 }
-impl Copy for PORT_DATA_2 {}
-impl Clone for PORT_DATA_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PORT_DATA_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PORT_DATA_2")
-            .field("sztPortName", &self.sztPortName)
-            .field("dwVersion", &self.dwVersion)
-            .field("dwProtocol", &self.dwProtocol)
-            .field("cbSize", &self.cbSize)
-            .field("dwReserved", &self.dwReserved)
-            .field("sztHostAddress", &self.sztHostAddress)
-            .field("sztSNMPCommunity", &self.sztSNMPCommunity)
-            .field("dwDoubleSpool", &self.dwDoubleSpool)
-            .field("sztQueue", &self.sztQueue)
-            .field("Reserved", &self.Reserved)
-            .field("dwPortNumber", &self.dwPortNumber)
-            .field("dwSNMPEnabled", &self.dwSNMPEnabled)
-            .field("dwSNMPDevIndex", &self.dwSNMPDevIndex)
-            .field("dwPortMonitorMibIndex", &self.dwPortMonitorMibIndex)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PORT_DATA_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PORT_DATA_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.sztPortName == other.sztPortName && self.dwVersion == other.dwVersion && self.dwProtocol == other.dwProtocol && self.cbSize == other.cbSize && self.dwReserved == other.dwReserved && self.sztHostAddress == other.sztHostAddress && self.sztSNMPCommunity == other.sztSNMPCommunity && self.dwDoubleSpool == other.dwDoubleSpool && self.sztQueue == other.sztQueue && self.Reserved == other.Reserved && self.dwPortNumber == other.dwPortNumber && self.dwSNMPEnabled == other.dwSNMPEnabled && self.dwSNMPDevIndex == other.dwSNMPDevIndex && self.dwPortMonitorMibIndex == other.dwPortMonitorMibIndex
-    }
-}
-impl Eq for PORT_DATA_2 {}
 impl Default for PORT_DATA_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PORT_DATA_LIST_1 {
     pub dwVersion: u32,
     pub cPortData: u32,
     pub pPortData: [PORT_DATA_2; 1],
 }
-impl Copy for PORT_DATA_LIST_1 {}
-impl Clone for PORT_DATA_LIST_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PORT_DATA_LIST_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PORT_DATA_LIST_1").field("dwVersion", &self.dwVersion).field("cPortData", &self.cPortData).field("pPortData", &self.pPortData).finish()
-    }
-}
 impl windows_core::TypeKind for PORT_DATA_LIST_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PORT_DATA_LIST_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.cPortData == other.cPortData && self.pPortData == other.pPortData
-    }
-}
-impl Eq for PORT_DATA_LIST_1 {}
 impl Default for PORT_DATA_LIST_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PORT_INFO_1A {
     pub pName: windows_core::PSTR,
-}
-impl Copy for PORT_INFO_1A {}
-impl Clone for PORT_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PORT_INFO_1A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PORT_INFO_1A").field("pName", &self.pName).finish()
-    }
 }
 impl windows_core::TypeKind for PORT_INFO_1A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PORT_INFO_1A {
-    fn eq(&self, other: &Self) -> bool {
-        self.pName == other.pName
-    }
-}
-impl Eq for PORT_INFO_1A {}
 impl Default for PORT_INFO_1A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PORT_INFO_1W {
     pub pName: windows_core::PWSTR,
-}
-impl Copy for PORT_INFO_1W {}
-impl Clone for PORT_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PORT_INFO_1W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PORT_INFO_1W").field("pName", &self.pName).finish()
-    }
 }
 impl windows_core::TypeKind for PORT_INFO_1W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PORT_INFO_1W {
-    fn eq(&self, other: &Self) -> bool {
-        self.pName == other.pName
-    }
-}
-impl Eq for PORT_INFO_1W {}
 impl Default for PORT_INFO_1W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PORT_INFO_2A {
     pub pPortName: windows_core::PSTR,
     pub pMonitorName: windows_core::PSTR,
@@ -12158,32 +9859,16 @@ pub struct PORT_INFO_2A {
     pub fPortType: u32,
     pub Reserved: u32,
 }
-impl Copy for PORT_INFO_2A {}
-impl Clone for PORT_INFO_2A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PORT_INFO_2A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PORT_INFO_2A").field("pPortName", &self.pPortName).field("pMonitorName", &self.pMonitorName).field("pDescription", &self.pDescription).field("fPortType", &self.fPortType).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for PORT_INFO_2A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PORT_INFO_2A {
-    fn eq(&self, other: &Self) -> bool {
-        self.pPortName == other.pPortName && self.pMonitorName == other.pMonitorName && self.pDescription == other.pDescription && self.fPortType == other.fPortType && self.Reserved == other.Reserved
-    }
-}
-impl Eq for PORT_INFO_2A {}
 impl Default for PORT_INFO_2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PORT_INFO_2W {
     pub pPortName: windows_core::PWSTR,
     pub pMonitorName: windows_core::PWSTR,
@@ -12191,148 +9876,67 @@ pub struct PORT_INFO_2W {
     pub fPortType: u32,
     pub Reserved: u32,
 }
-impl Copy for PORT_INFO_2W {}
-impl Clone for PORT_INFO_2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PORT_INFO_2W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PORT_INFO_2W").field("pPortName", &self.pPortName).field("pMonitorName", &self.pMonitorName).field("pDescription", &self.pDescription).field("fPortType", &self.fPortType).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for PORT_INFO_2W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PORT_INFO_2W {
-    fn eq(&self, other: &Self) -> bool {
-        self.pPortName == other.pPortName && self.pMonitorName == other.pMonitorName && self.pDescription == other.pDescription && self.fPortType == other.fPortType && self.Reserved == other.Reserved
-    }
-}
-impl Eq for PORT_INFO_2W {}
 impl Default for PORT_INFO_2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PORT_INFO_3A {
     pub dwStatus: u32,
     pub pszStatus: windows_core::PSTR,
     pub dwSeverity: u32,
 }
-impl Copy for PORT_INFO_3A {}
-impl Clone for PORT_INFO_3A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PORT_INFO_3A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PORT_INFO_3A").field("dwStatus", &self.dwStatus).field("pszStatus", &self.pszStatus).field("dwSeverity", &self.dwSeverity).finish()
-    }
-}
 impl windows_core::TypeKind for PORT_INFO_3A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PORT_INFO_3A {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwStatus == other.dwStatus && self.pszStatus == other.pszStatus && self.dwSeverity == other.dwSeverity
-    }
-}
-impl Eq for PORT_INFO_3A {}
 impl Default for PORT_INFO_3A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PORT_INFO_3W {
     pub dwStatus: u32,
     pub pszStatus: windows_core::PWSTR,
     pub dwSeverity: u32,
 }
-impl Copy for PORT_INFO_3W {}
-impl Clone for PORT_INFO_3W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PORT_INFO_3W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PORT_INFO_3W").field("dwStatus", &self.dwStatus).field("pszStatus", &self.pszStatus).field("dwSeverity", &self.dwSeverity).finish()
-    }
-}
 impl windows_core::TypeKind for PORT_INFO_3W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PORT_INFO_3W {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwStatus == other.dwStatus && self.pszStatus == other.pszStatus && self.dwSeverity == other.dwSeverity
-    }
-}
-impl Eq for PORT_INFO_3W {}
 impl Default for PORT_INFO_3W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_CONNECTION_INFO_1A {
     pub dwFlags: u32,
     pub pszDriverName: windows_core::PSTR,
 }
-impl Copy for PRINTER_CONNECTION_INFO_1A {}
-impl Clone for PRINTER_CONNECTION_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINTER_CONNECTION_INFO_1A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_CONNECTION_INFO_1A").field("dwFlags", &self.dwFlags).field("pszDriverName", &self.pszDriverName).finish()
-    }
-}
 impl windows_core::TypeKind for PRINTER_CONNECTION_INFO_1A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINTER_CONNECTION_INFO_1A {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.pszDriverName == other.pszDriverName
-    }
-}
-impl Eq for PRINTER_CONNECTION_INFO_1A {}
 impl Default for PRINTER_CONNECTION_INFO_1A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_CONNECTION_INFO_1W {
     pub dwFlags: u32,
     pub pszDriverName: windows_core::PWSTR,
 }
-impl Copy for PRINTER_CONNECTION_INFO_1W {}
-impl Clone for PRINTER_CONNECTION_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINTER_CONNECTION_INFO_1W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_CONNECTION_INFO_1W").field("dwFlags", &self.dwFlags).field("pszDriverName", &self.pszDriverName).finish()
-    }
-}
 impl windows_core::TypeKind for PRINTER_CONNECTION_INFO_1W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINTER_CONNECTION_INFO_1W {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.pszDriverName == other.pszDriverName
-    }
-}
-impl Eq for PRINTER_CONNECTION_INFO_1W {}
 impl Default for PRINTER_CONNECTION_INFO_1W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -12340,37 +9944,16 @@ impl Default for PRINTER_CONNECTION_INFO_1W {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_DEFAULTSA {
     pub pDatatype: windows_core::PSTR,
     pub pDevMode: *mut super::Gdi::DEVMODEA,
     pub DesiredAccess: PRINTER_ACCESS_RIGHTS,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for PRINTER_DEFAULTSA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for PRINTER_DEFAULTSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for PRINTER_DEFAULTSA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_DEFAULTSA").field("pDatatype", &self.pDatatype).field("pDevMode", &self.pDevMode).field("DesiredAccess", &self.DesiredAccess).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for PRINTER_DEFAULTSA {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for PRINTER_DEFAULTSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pDatatype == other.pDatatype && self.pDevMode == other.pDevMode && self.DesiredAccess == other.DesiredAccess
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for PRINTER_DEFAULTSA {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for PRINTER_DEFAULTSA {
     fn default() -> Self {
@@ -12379,37 +9962,16 @@ impl Default for PRINTER_DEFAULTSA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_DEFAULTSW {
     pub pDatatype: windows_core::PWSTR,
     pub pDevMode: *mut super::Gdi::DEVMODEW,
     pub DesiredAccess: PRINTER_ACCESS_RIGHTS,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for PRINTER_DEFAULTSW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for PRINTER_DEFAULTSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for PRINTER_DEFAULTSW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_DEFAULTSW").field("pDatatype", &self.pDatatype).field("pDevMode", &self.pDevMode).field("DesiredAccess", &self.DesiredAccess).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for PRINTER_DEFAULTSW {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for PRINTER_DEFAULTSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.pDatatype == other.pDatatype && self.pDevMode == other.pDevMode && self.DesiredAccess == other.DesiredAccess
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for PRINTER_DEFAULTSW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for PRINTER_DEFAULTSW {
     fn default() -> Self {
@@ -12417,6 +9979,7 @@ impl Default for PRINTER_DEFAULTSW {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_ENUM_VALUESA {
     pub pValueName: windows_core::PSTR,
     pub cbValueName: u32,
@@ -12424,32 +9987,16 @@ pub struct PRINTER_ENUM_VALUESA {
     pub pData: *mut u8,
     pub cbData: u32,
 }
-impl Copy for PRINTER_ENUM_VALUESA {}
-impl Clone for PRINTER_ENUM_VALUESA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINTER_ENUM_VALUESA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_ENUM_VALUESA").field("pValueName", &self.pValueName).field("cbValueName", &self.cbValueName).field("dwType", &self.dwType).field("pData", &self.pData).field("cbData", &self.cbData).finish()
-    }
-}
 impl windows_core::TypeKind for PRINTER_ENUM_VALUESA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINTER_ENUM_VALUESA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pValueName == other.pValueName && self.cbValueName == other.cbValueName && self.dwType == other.dwType && self.pData == other.pData && self.cbData == other.cbData
-    }
-}
-impl Eq for PRINTER_ENUM_VALUESA {}
 impl Default for PRINTER_ENUM_VALUESA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_ENUM_VALUESW {
     pub pValueName: windows_core::PWSTR,
     pub cbValueName: u32,
@@ -12457,121 +10004,56 @@ pub struct PRINTER_ENUM_VALUESW {
     pub pData: *mut u8,
     pub cbData: u32,
 }
-impl Copy for PRINTER_ENUM_VALUESW {}
-impl Clone for PRINTER_ENUM_VALUESW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINTER_ENUM_VALUESW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_ENUM_VALUESW").field("pValueName", &self.pValueName).field("cbValueName", &self.cbValueName).field("dwType", &self.dwType).field("pData", &self.pData).field("cbData", &self.cbData).finish()
-    }
-}
 impl windows_core::TypeKind for PRINTER_ENUM_VALUESW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINTER_ENUM_VALUESW {
-    fn eq(&self, other: &Self) -> bool {
-        self.pValueName == other.pValueName && self.cbValueName == other.cbValueName && self.dwType == other.dwType && self.pData == other.pData && self.cbData == other.cbData
-    }
-}
-impl Eq for PRINTER_ENUM_VALUESW {}
 impl Default for PRINTER_ENUM_VALUESW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_EVENT_ATTRIBUTES_INFO {
     pub cbSize: u32,
     pub dwOldAttributes: u32,
     pub dwNewAttributes: u32,
 }
-impl Copy for PRINTER_EVENT_ATTRIBUTES_INFO {}
-impl Clone for PRINTER_EVENT_ATTRIBUTES_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINTER_EVENT_ATTRIBUTES_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_EVENT_ATTRIBUTES_INFO").field("cbSize", &self.cbSize).field("dwOldAttributes", &self.dwOldAttributes).field("dwNewAttributes", &self.dwNewAttributes).finish()
-    }
-}
 impl windows_core::TypeKind for PRINTER_EVENT_ATTRIBUTES_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINTER_EVENT_ATTRIBUTES_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwOldAttributes == other.dwOldAttributes && self.dwNewAttributes == other.dwNewAttributes
-    }
-}
-impl Eq for PRINTER_EVENT_ATTRIBUTES_INFO {}
 impl Default for PRINTER_EVENT_ATTRIBUTES_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_INFO_1A {
     pub Flags: u32,
     pub pDescription: windows_core::PSTR,
     pub pName: windows_core::PSTR,
     pub pComment: windows_core::PSTR,
 }
-impl Copy for PRINTER_INFO_1A {}
-impl Clone for PRINTER_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINTER_INFO_1A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_INFO_1A").field("Flags", &self.Flags).field("pDescription", &self.pDescription).field("pName", &self.pName).field("pComment", &self.pComment).finish()
-    }
-}
 impl windows_core::TypeKind for PRINTER_INFO_1A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINTER_INFO_1A {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.pDescription == other.pDescription && self.pName == other.pName && self.pComment == other.pComment
-    }
-}
-impl Eq for PRINTER_INFO_1A {}
 impl Default for PRINTER_INFO_1A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_INFO_1W {
     pub Flags: u32,
     pub pDescription: windows_core::PWSTR,
     pub pName: windows_core::PWSTR,
     pub pComment: windows_core::PWSTR,
 }
-impl Copy for PRINTER_INFO_1W {}
-impl Clone for PRINTER_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINTER_INFO_1W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_INFO_1W").field("Flags", &self.Flags).field("pDescription", &self.pDescription).field("pName", &self.pName).field("pComment", &self.pComment).finish()
-    }
-}
 impl windows_core::TypeKind for PRINTER_INFO_1W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINTER_INFO_1W {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.pDescription == other.pDescription && self.pName == other.pName && self.pComment == other.pComment
-    }
-}
-impl Eq for PRINTER_INFO_1W {}
 impl Default for PRINTER_INFO_1W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -12579,6 +10061,7 @@ impl Default for PRINTER_INFO_1W {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_INFO_2A {
     pub pServerName: windows_core::PSTR,
     pub pPrinterName: windows_core::PSTR,
@@ -12603,73 +10086,9 @@ pub struct PRINTER_INFO_2A {
     pub AveragePPM: u32,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Copy for PRINTER_INFO_2A {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Clone for PRINTER_INFO_2A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl core::fmt::Debug for PRINTER_INFO_2A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_INFO_2A")
-            .field("pServerName", &self.pServerName)
-            .field("pPrinterName", &self.pPrinterName)
-            .field("pShareName", &self.pShareName)
-            .field("pPortName", &self.pPortName)
-            .field("pDriverName", &self.pDriverName)
-            .field("pComment", &self.pComment)
-            .field("pLocation", &self.pLocation)
-            .field("pDevMode", &self.pDevMode)
-            .field("pSepFile", &self.pSepFile)
-            .field("pPrintProcessor", &self.pPrintProcessor)
-            .field("pDatatype", &self.pDatatype)
-            .field("pParameters", &self.pParameters)
-            .field("pSecurityDescriptor", &self.pSecurityDescriptor)
-            .field("Attributes", &self.Attributes)
-            .field("Priority", &self.Priority)
-            .field("DefaultPriority", &self.DefaultPriority)
-            .field("StartTime", &self.StartTime)
-            .field("UntilTime", &self.UntilTime)
-            .field("Status", &self.Status)
-            .field("cJobs", &self.cJobs)
-            .field("AveragePPM", &self.AveragePPM)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 impl windows_core::TypeKind for PRINTER_INFO_2A {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl PartialEq for PRINTER_INFO_2A {
-    fn eq(&self, other: &Self) -> bool {
-        self.pServerName == other.pServerName
-            && self.pPrinterName == other.pPrinterName
-            && self.pShareName == other.pShareName
-            && self.pPortName == other.pPortName
-            && self.pDriverName == other.pDriverName
-            && self.pComment == other.pComment
-            && self.pLocation == other.pLocation
-            && self.pDevMode == other.pDevMode
-            && self.pSepFile == other.pSepFile
-            && self.pPrintProcessor == other.pPrintProcessor
-            && self.pDatatype == other.pDatatype
-            && self.pParameters == other.pParameters
-            && self.pSecurityDescriptor == other.pSecurityDescriptor
-            && self.Attributes == other.Attributes
-            && self.Priority == other.Priority
-            && self.DefaultPriority == other.DefaultPriority
-            && self.StartTime == other.StartTime
-            && self.UntilTime == other.UntilTime
-            && self.Status == other.Status
-            && self.cJobs == other.cJobs
-            && self.AveragePPM == other.AveragePPM
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Eq for PRINTER_INFO_2A {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 impl Default for PRINTER_INFO_2A {
     fn default() -> Self {
@@ -12678,6 +10097,7 @@ impl Default for PRINTER_INFO_2A {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_INFO_2W {
     pub pServerName: windows_core::PWSTR,
     pub pPrinterName: windows_core::PWSTR,
@@ -12702,73 +10122,9 @@ pub struct PRINTER_INFO_2W {
     pub AveragePPM: u32,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Copy for PRINTER_INFO_2W {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Clone for PRINTER_INFO_2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl core::fmt::Debug for PRINTER_INFO_2W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_INFO_2W")
-            .field("pServerName", &self.pServerName)
-            .field("pPrinterName", &self.pPrinterName)
-            .field("pShareName", &self.pShareName)
-            .field("pPortName", &self.pPortName)
-            .field("pDriverName", &self.pDriverName)
-            .field("pComment", &self.pComment)
-            .field("pLocation", &self.pLocation)
-            .field("pDevMode", &self.pDevMode)
-            .field("pSepFile", &self.pSepFile)
-            .field("pPrintProcessor", &self.pPrintProcessor)
-            .field("pDatatype", &self.pDatatype)
-            .field("pParameters", &self.pParameters)
-            .field("pSecurityDescriptor", &self.pSecurityDescriptor)
-            .field("Attributes", &self.Attributes)
-            .field("Priority", &self.Priority)
-            .field("DefaultPriority", &self.DefaultPriority)
-            .field("StartTime", &self.StartTime)
-            .field("UntilTime", &self.UntilTime)
-            .field("Status", &self.Status)
-            .field("cJobs", &self.cJobs)
-            .field("AveragePPM", &self.AveragePPM)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 impl windows_core::TypeKind for PRINTER_INFO_2W {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl PartialEq for PRINTER_INFO_2W {
-    fn eq(&self, other: &Self) -> bool {
-        self.pServerName == other.pServerName
-            && self.pPrinterName == other.pPrinterName
-            && self.pShareName == other.pShareName
-            && self.pPortName == other.pPortName
-            && self.pDriverName == other.pDriverName
-            && self.pComment == other.pComment
-            && self.pLocation == other.pLocation
-            && self.pDevMode == other.pDevMode
-            && self.pSepFile == other.pSepFile
-            && self.pPrintProcessor == other.pPrintProcessor
-            && self.pDatatype == other.pDatatype
-            && self.pParameters == other.pParameters
-            && self.pSecurityDescriptor == other.pSecurityDescriptor
-            && self.Attributes == other.Attributes
-            && self.Priority == other.Priority
-            && self.DefaultPriority == other.DefaultPriority
-            && self.StartTime == other.StartTime
-            && self.UntilTime == other.UntilTime
-            && self.Status == other.Status
-            && self.cJobs == other.cJobs
-            && self.AveragePPM == other.AveragePPM
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Eq for PRINTER_INFO_2W {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 impl Default for PRINTER_INFO_2W {
     fn default() -> Self {
@@ -12777,35 +10133,14 @@ impl Default for PRINTER_INFO_2W {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_INFO_3 {
     pub pSecurityDescriptor: super::super::Security::PSECURITY_DESCRIPTOR,
-}
-#[cfg(feature = "Win32_Security")]
-impl Copy for PRINTER_INFO_3 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for PRINTER_INFO_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl core::fmt::Debug for PRINTER_INFO_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_INFO_3").field("pSecurityDescriptor", &self.pSecurityDescriptor).finish()
-    }
 }
 #[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for PRINTER_INFO_3 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security")]
-impl PartialEq for PRINTER_INFO_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pSecurityDescriptor == other.pSecurityDescriptor
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl Eq for PRINTER_INFO_3 {}
 #[cfg(feature = "Win32_Security")]
 impl Default for PRINTER_INFO_3 {
     fn default() -> Self {
@@ -12813,68 +10148,37 @@ impl Default for PRINTER_INFO_3 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_INFO_4A {
     pub pPrinterName: windows_core::PSTR,
     pub pServerName: windows_core::PSTR,
     pub Attributes: u32,
 }
-impl Copy for PRINTER_INFO_4A {}
-impl Clone for PRINTER_INFO_4A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINTER_INFO_4A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_INFO_4A").field("pPrinterName", &self.pPrinterName).field("pServerName", &self.pServerName).field("Attributes", &self.Attributes).finish()
-    }
-}
 impl windows_core::TypeKind for PRINTER_INFO_4A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINTER_INFO_4A {
-    fn eq(&self, other: &Self) -> bool {
-        self.pPrinterName == other.pPrinterName && self.pServerName == other.pServerName && self.Attributes == other.Attributes
-    }
-}
-impl Eq for PRINTER_INFO_4A {}
 impl Default for PRINTER_INFO_4A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_INFO_4W {
     pub pPrinterName: windows_core::PWSTR,
     pub pServerName: windows_core::PWSTR,
     pub Attributes: u32,
 }
-impl Copy for PRINTER_INFO_4W {}
-impl Clone for PRINTER_INFO_4W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINTER_INFO_4W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_INFO_4W").field("pPrinterName", &self.pPrinterName).field("pServerName", &self.pServerName).field("Attributes", &self.Attributes).finish()
-    }
-}
 impl windows_core::TypeKind for PRINTER_INFO_4W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINTER_INFO_4W {
-    fn eq(&self, other: &Self) -> bool {
-        self.pPrinterName == other.pPrinterName && self.pServerName == other.pServerName && self.Attributes == other.Attributes
-    }
-}
-impl Eq for PRINTER_INFO_4W {}
 impl Default for PRINTER_INFO_4W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_INFO_5A {
     pub pPrinterName: windows_core::PSTR,
     pub pPortName: windows_core::PSTR,
@@ -12882,32 +10186,16 @@ pub struct PRINTER_INFO_5A {
     pub DeviceNotSelectedTimeout: u32,
     pub TransmissionRetryTimeout: u32,
 }
-impl Copy for PRINTER_INFO_5A {}
-impl Clone for PRINTER_INFO_5A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINTER_INFO_5A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_INFO_5A").field("pPrinterName", &self.pPrinterName).field("pPortName", &self.pPortName).field("Attributes", &self.Attributes).field("DeviceNotSelectedTimeout", &self.DeviceNotSelectedTimeout).field("TransmissionRetryTimeout", &self.TransmissionRetryTimeout).finish()
-    }
-}
 impl windows_core::TypeKind for PRINTER_INFO_5A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINTER_INFO_5A {
-    fn eq(&self, other: &Self) -> bool {
-        self.pPrinterName == other.pPrinterName && self.pPortName == other.pPortName && self.Attributes == other.Attributes && self.DeviceNotSelectedTimeout == other.DeviceNotSelectedTimeout && self.TransmissionRetryTimeout == other.TransmissionRetryTimeout
-    }
-}
-impl Eq for PRINTER_INFO_5A {}
 impl Default for PRINTER_INFO_5A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_INFO_5W {
     pub pPrinterName: windows_core::PWSTR,
     pub pPortName: windows_core::PWSTR,
@@ -12915,115 +10203,50 @@ pub struct PRINTER_INFO_5W {
     pub DeviceNotSelectedTimeout: u32,
     pub TransmissionRetryTimeout: u32,
 }
-impl Copy for PRINTER_INFO_5W {}
-impl Clone for PRINTER_INFO_5W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINTER_INFO_5W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_INFO_5W").field("pPrinterName", &self.pPrinterName).field("pPortName", &self.pPortName).field("Attributes", &self.Attributes).field("DeviceNotSelectedTimeout", &self.DeviceNotSelectedTimeout).field("TransmissionRetryTimeout", &self.TransmissionRetryTimeout).finish()
-    }
-}
 impl windows_core::TypeKind for PRINTER_INFO_5W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINTER_INFO_5W {
-    fn eq(&self, other: &Self) -> bool {
-        self.pPrinterName == other.pPrinterName && self.pPortName == other.pPortName && self.Attributes == other.Attributes && self.DeviceNotSelectedTimeout == other.DeviceNotSelectedTimeout && self.TransmissionRetryTimeout == other.TransmissionRetryTimeout
-    }
-}
-impl Eq for PRINTER_INFO_5W {}
 impl Default for PRINTER_INFO_5W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_INFO_6 {
     pub dwStatus: u32,
-}
-impl Copy for PRINTER_INFO_6 {}
-impl Clone for PRINTER_INFO_6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINTER_INFO_6 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_INFO_6").field("dwStatus", &self.dwStatus).finish()
-    }
 }
 impl windows_core::TypeKind for PRINTER_INFO_6 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINTER_INFO_6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwStatus == other.dwStatus
-    }
-}
-impl Eq for PRINTER_INFO_6 {}
 impl Default for PRINTER_INFO_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_INFO_7A {
     pub pszObjectGUID: windows_core::PSTR,
     pub dwAction: u32,
 }
-impl Copy for PRINTER_INFO_7A {}
-impl Clone for PRINTER_INFO_7A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINTER_INFO_7A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_INFO_7A").field("pszObjectGUID", &self.pszObjectGUID).field("dwAction", &self.dwAction).finish()
-    }
-}
 impl windows_core::TypeKind for PRINTER_INFO_7A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINTER_INFO_7A {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszObjectGUID == other.pszObjectGUID && self.dwAction == other.dwAction
-    }
-}
-impl Eq for PRINTER_INFO_7A {}
 impl Default for PRINTER_INFO_7A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_INFO_7W {
     pub pszObjectGUID: windows_core::PWSTR,
     pub dwAction: u32,
 }
-impl Copy for PRINTER_INFO_7W {}
-impl Clone for PRINTER_INFO_7W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINTER_INFO_7W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_INFO_7W").field("pszObjectGUID", &self.pszObjectGUID).field("dwAction", &self.dwAction).finish()
-    }
-}
 impl windows_core::TypeKind for PRINTER_INFO_7W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINTER_INFO_7W {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszObjectGUID == other.pszObjectGUID && self.dwAction == other.dwAction
-    }
-}
-impl Eq for PRINTER_INFO_7W {}
 impl Default for PRINTER_INFO_7W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13031,35 +10254,14 @@ impl Default for PRINTER_INFO_7W {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_INFO_8A {
     pub pDevMode: *mut super::Gdi::DEVMODEA,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for PRINTER_INFO_8A {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for PRINTER_INFO_8A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for PRINTER_INFO_8A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_INFO_8A").field("pDevMode", &self.pDevMode).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for PRINTER_INFO_8A {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for PRINTER_INFO_8A {
-    fn eq(&self, other: &Self) -> bool {
-        self.pDevMode == other.pDevMode
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for PRINTER_INFO_8A {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for PRINTER_INFO_8A {
     fn default() -> Self {
@@ -13068,35 +10270,14 @@ impl Default for PRINTER_INFO_8A {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_INFO_8W {
     pub pDevMode: *mut super::Gdi::DEVMODEW,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for PRINTER_INFO_8W {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for PRINTER_INFO_8W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for PRINTER_INFO_8W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_INFO_8W").field("pDevMode", &self.pDevMode).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for PRINTER_INFO_8W {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for PRINTER_INFO_8W {
-    fn eq(&self, other: &Self) -> bool {
-        self.pDevMode == other.pDevMode
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for PRINTER_INFO_8W {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for PRINTER_INFO_8W {
     fn default() -> Self {
@@ -13105,35 +10286,14 @@ impl Default for PRINTER_INFO_8W {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_INFO_9A {
     pub pDevMode: *mut super::Gdi::DEVMODEA,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for PRINTER_INFO_9A {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for PRINTER_INFO_9A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for PRINTER_INFO_9A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_INFO_9A").field("pDevMode", &self.pDevMode).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for PRINTER_INFO_9A {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for PRINTER_INFO_9A {
-    fn eq(&self, other: &Self) -> bool {
-        self.pDevMode == other.pDevMode
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for PRINTER_INFO_9A {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for PRINTER_INFO_9A {
     fn default() -> Self {
@@ -13142,35 +10302,14 @@ impl Default for PRINTER_INFO_9A {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_INFO_9W {
     pub pDevMode: *mut super::Gdi::DEVMODEW,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for PRINTER_INFO_9W {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for PRINTER_INFO_9W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for PRINTER_INFO_9W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_INFO_9W").field("pDevMode", &self.pDevMode).finish()
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for PRINTER_INFO_9W {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for PRINTER_INFO_9W {
-    fn eq(&self, other: &Self) -> bool {
-        self.pDevMode == other.pDevMode
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for PRINTER_INFO_9W {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for PRINTER_INFO_9W {
     fn default() -> Self {
@@ -13178,17 +10317,12 @@ impl Default for PRINTER_INFO_9W {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_NOTIFY_INFO {
     pub Version: u32,
     pub Flags: u32,
     pub Count: u32,
     pub aData: [PRINTER_NOTIFY_INFO_DATA; 1],
-}
-impl Copy for PRINTER_NOTIFY_INFO {}
-impl Clone for PRINTER_NOTIFY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PRINTER_NOTIFY_INFO {
     type TypeKind = windows_core::CopyType;
@@ -13199,18 +10333,13 @@ impl Default for PRINTER_NOTIFY_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_NOTIFY_INFO_DATA {
     pub Type: u16,
     pub Field: u16,
     pub Reserved: u32,
     pub Id: u32,
     pub NotifyData: PRINTER_NOTIFY_INFO_DATA_0,
-}
-impl Copy for PRINTER_NOTIFY_INFO_DATA {}
-impl Clone for PRINTER_NOTIFY_INFO_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PRINTER_NOTIFY_INFO_DATA {
     type TypeKind = windows_core::CopyType;
@@ -13221,15 +10350,10 @@ impl Default for PRINTER_NOTIFY_INFO_DATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PRINTER_NOTIFY_INFO_DATA_0 {
     pub adwData: [u32; 2],
     pub Data: PRINTER_NOTIFY_INFO_DATA_0_0,
-}
-impl Copy for PRINTER_NOTIFY_INFO_DATA_0 {}
-impl Clone for PRINTER_NOTIFY_INFO_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PRINTER_NOTIFY_INFO_DATA_0 {
     type TypeKind = windows_core::CopyType;
@@ -13240,99 +10364,52 @@ impl Default for PRINTER_NOTIFY_INFO_DATA_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_NOTIFY_INFO_DATA_0_0 {
     pub cbBuf: u32,
     pub pBuf: *mut core::ffi::c_void,
 }
-impl Copy for PRINTER_NOTIFY_INFO_DATA_0_0 {}
-impl Clone for PRINTER_NOTIFY_INFO_DATA_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINTER_NOTIFY_INFO_DATA_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_NOTIFY_INFO_DATA_0_0").field("cbBuf", &self.cbBuf).field("pBuf", &self.pBuf).finish()
-    }
-}
 impl windows_core::TypeKind for PRINTER_NOTIFY_INFO_DATA_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINTER_NOTIFY_INFO_DATA_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbBuf == other.cbBuf && self.pBuf == other.pBuf
-    }
-}
-impl Eq for PRINTER_NOTIFY_INFO_DATA_0_0 {}
 impl Default for PRINTER_NOTIFY_INFO_DATA_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_NOTIFY_INIT {
     pub Size: u32,
     pub Reserved: u32,
     pub PollTime: u32,
 }
-impl Copy for PRINTER_NOTIFY_INIT {}
-impl Clone for PRINTER_NOTIFY_INIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINTER_NOTIFY_INIT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_NOTIFY_INIT").field("Size", &self.Size).field("Reserved", &self.Reserved).field("PollTime", &self.PollTime).finish()
-    }
-}
 impl windows_core::TypeKind for PRINTER_NOTIFY_INIT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINTER_NOTIFY_INIT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Reserved == other.Reserved && self.PollTime == other.PollTime
-    }
-}
-impl Eq for PRINTER_NOTIFY_INIT {}
 impl Default for PRINTER_NOTIFY_INIT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_NOTIFY_OPTIONS {
     pub Version: u32,
     pub Flags: u32,
     pub Count: u32,
     pub pTypes: *mut PRINTER_NOTIFY_OPTIONS_TYPE,
 }
-impl Copy for PRINTER_NOTIFY_OPTIONS {}
-impl Clone for PRINTER_NOTIFY_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINTER_NOTIFY_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_NOTIFY_OPTIONS").field("Version", &self.Version).field("Flags", &self.Flags).field("Count", &self.Count).field("pTypes", &self.pTypes).finish()
-    }
-}
 impl windows_core::TypeKind for PRINTER_NOTIFY_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINTER_NOTIFY_OPTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Flags == other.Flags && self.Count == other.Count && self.pTypes == other.pTypes
-    }
-}
-impl Eq for PRINTER_NOTIFY_OPTIONS {}
 impl Default for PRINTER_NOTIFY_OPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_NOTIFY_OPTIONS_TYPE {
     pub Type: u16,
     pub Reserved0: u16,
@@ -13341,86 +10418,37 @@ pub struct PRINTER_NOTIFY_OPTIONS_TYPE {
     pub Count: u32,
     pub pFields: *mut u16,
 }
-impl Copy for PRINTER_NOTIFY_OPTIONS_TYPE {}
-impl Clone for PRINTER_NOTIFY_OPTIONS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINTER_NOTIFY_OPTIONS_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_NOTIFY_OPTIONS_TYPE").field("Type", &self.Type).field("Reserved0", &self.Reserved0).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Count", &self.Count).field("pFields", &self.pFields).finish()
-    }
-}
 impl windows_core::TypeKind for PRINTER_NOTIFY_OPTIONS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINTER_NOTIFY_OPTIONS_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Reserved0 == other.Reserved0 && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.Count == other.Count && self.pFields == other.pFields
-    }
-}
-impl Eq for PRINTER_NOTIFY_OPTIONS_TYPE {}
 impl Default for PRINTER_NOTIFY_OPTIONS_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_OPTIONSA {
     pub cbSize: u32,
     pub dwFlags: u32,
 }
-impl Copy for PRINTER_OPTIONSA {}
-impl Clone for PRINTER_OPTIONSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINTER_OPTIONSA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_OPTIONSA").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for PRINTER_OPTIONSA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINTER_OPTIONSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for PRINTER_OPTIONSA {}
 impl Default for PRINTER_OPTIONSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_OPTIONSW {
     pub cbSize: u32,
     pub dwFlags: u32,
 }
-impl Copy for PRINTER_OPTIONSW {}
-impl Clone for PRINTER_OPTIONSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINTER_OPTIONSW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTER_OPTIONSW").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for PRINTER_OPTIONSW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINTER_OPTIONSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for PRINTER_OPTIONSW {}
 impl Default for PRINTER_OPTIONSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13428,6 +10456,7 @@ impl Default for PRINTER_OPTIONSW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTIFI32 {
     pub cjThis: u32,
     pub cjIfiExtra: u32,
@@ -13490,149 +10519,9 @@ pub struct PRINTIFI32 {
     pub panose: super::Gdi::PANOSE,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for PRINTIFI32 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for PRINTIFI32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for PRINTIFI32 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTIFI32")
-            .field("cjThis", &self.cjThis)
-            .field("cjIfiExtra", &self.cjIfiExtra)
-            .field("dpwszFamilyName", &self.dpwszFamilyName)
-            .field("dpwszStyleName", &self.dpwszStyleName)
-            .field("dpwszFaceName", &self.dpwszFaceName)
-            .field("dpwszUniqueName", &self.dpwszUniqueName)
-            .field("dpFontSim", &self.dpFontSim)
-            .field("lEmbedId", &self.lEmbedId)
-            .field("lItalicAngle", &self.lItalicAngle)
-            .field("lCharBias", &self.lCharBias)
-            .field("dpCharSets", &self.dpCharSets)
-            .field("jWinCharSet", &self.jWinCharSet)
-            .field("jWinPitchAndFamily", &self.jWinPitchAndFamily)
-            .field("usWinWeight", &self.usWinWeight)
-            .field("flInfo", &self.flInfo)
-            .field("fsSelection", &self.fsSelection)
-            .field("fsType", &self.fsType)
-            .field("fwdUnitsPerEm", &self.fwdUnitsPerEm)
-            .field("fwdLowestPPEm", &self.fwdLowestPPEm)
-            .field("fwdWinAscender", &self.fwdWinAscender)
-            .field("fwdWinDescender", &self.fwdWinDescender)
-            .field("fwdMacAscender", &self.fwdMacAscender)
-            .field("fwdMacDescender", &self.fwdMacDescender)
-            .field("fwdMacLineGap", &self.fwdMacLineGap)
-            .field("fwdTypoAscender", &self.fwdTypoAscender)
-            .field("fwdTypoDescender", &self.fwdTypoDescender)
-            .field("fwdTypoLineGap", &self.fwdTypoLineGap)
-            .field("fwdAveCharWidth", &self.fwdAveCharWidth)
-            .field("fwdMaxCharInc", &self.fwdMaxCharInc)
-            .field("fwdCapHeight", &self.fwdCapHeight)
-            .field("fwdXHeight", &self.fwdXHeight)
-            .field("fwdSubscriptXSize", &self.fwdSubscriptXSize)
-            .field("fwdSubscriptYSize", &self.fwdSubscriptYSize)
-            .field("fwdSubscriptXOffset", &self.fwdSubscriptXOffset)
-            .field("fwdSubscriptYOffset", &self.fwdSubscriptYOffset)
-            .field("fwdSuperscriptXSize", &self.fwdSuperscriptXSize)
-            .field("fwdSuperscriptYSize", &self.fwdSuperscriptYSize)
-            .field("fwdSuperscriptXOffset", &self.fwdSuperscriptXOffset)
-            .field("fwdSuperscriptYOffset", &self.fwdSuperscriptYOffset)
-            .field("fwdUnderscoreSize", &self.fwdUnderscoreSize)
-            .field("fwdUnderscorePosition", &self.fwdUnderscorePosition)
-            .field("fwdStrikeoutSize", &self.fwdStrikeoutSize)
-            .field("fwdStrikeoutPosition", &self.fwdStrikeoutPosition)
-            .field("chFirstChar", &self.chFirstChar)
-            .field("chLastChar", &self.chLastChar)
-            .field("chDefaultChar", &self.chDefaultChar)
-            .field("chBreakChar", &self.chBreakChar)
-            .field("wcFirstChar", &self.wcFirstChar)
-            .field("wcLastChar", &self.wcLastChar)
-            .field("wcDefaultChar", &self.wcDefaultChar)
-            .field("wcBreakChar", &self.wcBreakChar)
-            .field("ptlBaseline", &self.ptlBaseline)
-            .field("ptlAspect", &self.ptlAspect)
-            .field("ptlCaret", &self.ptlCaret)
-            .field("rclFontBox", &self.rclFontBox)
-            .field("achVendId", &self.achVendId)
-            .field("cKerningPairs", &self.cKerningPairs)
-            .field("ulPanoseCulture", &self.ulPanoseCulture)
-            .field("panose", &self.panose)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for PRINTIFI32 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for PRINTIFI32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.cjThis == other.cjThis
-            && self.cjIfiExtra == other.cjIfiExtra
-            && self.dpwszFamilyName == other.dpwszFamilyName
-            && self.dpwszStyleName == other.dpwszStyleName
-            && self.dpwszFaceName == other.dpwszFaceName
-            && self.dpwszUniqueName == other.dpwszUniqueName
-            && self.dpFontSim == other.dpFontSim
-            && self.lEmbedId == other.lEmbedId
-            && self.lItalicAngle == other.lItalicAngle
-            && self.lCharBias == other.lCharBias
-            && self.dpCharSets == other.dpCharSets
-            && self.jWinCharSet == other.jWinCharSet
-            && self.jWinPitchAndFamily == other.jWinPitchAndFamily
-            && self.usWinWeight == other.usWinWeight
-            && self.flInfo == other.flInfo
-            && self.fsSelection == other.fsSelection
-            && self.fsType == other.fsType
-            && self.fwdUnitsPerEm == other.fwdUnitsPerEm
-            && self.fwdLowestPPEm == other.fwdLowestPPEm
-            && self.fwdWinAscender == other.fwdWinAscender
-            && self.fwdWinDescender == other.fwdWinDescender
-            && self.fwdMacAscender == other.fwdMacAscender
-            && self.fwdMacDescender == other.fwdMacDescender
-            && self.fwdMacLineGap == other.fwdMacLineGap
-            && self.fwdTypoAscender == other.fwdTypoAscender
-            && self.fwdTypoDescender == other.fwdTypoDescender
-            && self.fwdTypoLineGap == other.fwdTypoLineGap
-            && self.fwdAveCharWidth == other.fwdAveCharWidth
-            && self.fwdMaxCharInc == other.fwdMaxCharInc
-            && self.fwdCapHeight == other.fwdCapHeight
-            && self.fwdXHeight == other.fwdXHeight
-            && self.fwdSubscriptXSize == other.fwdSubscriptXSize
-            && self.fwdSubscriptYSize == other.fwdSubscriptYSize
-            && self.fwdSubscriptXOffset == other.fwdSubscriptXOffset
-            && self.fwdSubscriptYOffset == other.fwdSubscriptYOffset
-            && self.fwdSuperscriptXSize == other.fwdSuperscriptXSize
-            && self.fwdSuperscriptYSize == other.fwdSuperscriptYSize
-            && self.fwdSuperscriptXOffset == other.fwdSuperscriptXOffset
-            && self.fwdSuperscriptYOffset == other.fwdSuperscriptYOffset
-            && self.fwdUnderscoreSize == other.fwdUnderscoreSize
-            && self.fwdUnderscorePosition == other.fwdUnderscorePosition
-            && self.fwdStrikeoutSize == other.fwdStrikeoutSize
-            && self.fwdStrikeoutPosition == other.fwdStrikeoutPosition
-            && self.chFirstChar == other.chFirstChar
-            && self.chLastChar == other.chLastChar
-            && self.chDefaultChar == other.chDefaultChar
-            && self.chBreakChar == other.chBreakChar
-            && self.wcFirstChar == other.wcFirstChar
-            && self.wcLastChar == other.wcLastChar
-            && self.wcDefaultChar == other.wcDefaultChar
-            && self.wcBreakChar == other.wcBreakChar
-            && self.ptlBaseline == other.ptlBaseline
-            && self.ptlAspect == other.ptlAspect
-            && self.ptlCaret == other.ptlCaret
-            && self.rclFontBox == other.rclFontBox
-            && self.achVendId == other.achVendId
-            && self.cKerningPairs == other.cKerningPairs
-            && self.ulPanoseCulture == other.ulPanoseCulture
-            && self.panose == other.panose
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for PRINTIFI32 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for PRINTIFI32 {
     fn default() -> Self {
@@ -13641,6 +10530,7 @@ impl Default for PRINTIFI32 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTPROCESSOROPENDATA {
     pub pDevMode: *mut super::Gdi::DEVMODEA,
     pub pDatatype: windows_core::PWSTR,
@@ -13651,31 +10541,9 @@ pub struct PRINTPROCESSOROPENDATA {
     pub pPrinterName: windows_core::PWSTR,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for PRINTPROCESSOROPENDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for PRINTPROCESSOROPENDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for PRINTPROCESSOROPENDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTPROCESSOROPENDATA").field("pDevMode", &self.pDevMode).field("pDatatype", &self.pDatatype).field("pParameters", &self.pParameters).field("pDocumentName", &self.pDocumentName).field("JobId", &self.JobId).field("pOutputFile", &self.pOutputFile).field("pPrinterName", &self.pPrinterName).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for PRINTPROCESSOROPENDATA {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for PRINTPROCESSOROPENDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pDevMode == other.pDevMode && self.pDatatype == other.pDatatype && self.pParameters == other.pParameters && self.pDocumentName == other.pDocumentName && self.JobId == other.JobId && self.pOutputFile == other.pOutputFile && self.pPrinterName == other.pPrinterName
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for PRINTPROCESSOROPENDATA {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for PRINTPROCESSOROPENDATA {
     fn default() -> Self {
@@ -13683,38 +10551,23 @@ impl Default for PRINTPROCESSOROPENDATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTPROCESSOR_CAPS_1 {
     pub dwLevel: u32,
     pub dwNupOptions: u32,
     pub dwPageOrderFlags: u32,
     pub dwNumberOfCopies: u32,
 }
-impl Copy for PRINTPROCESSOR_CAPS_1 {}
-impl Clone for PRINTPROCESSOR_CAPS_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINTPROCESSOR_CAPS_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTPROCESSOR_CAPS_1").field("dwLevel", &self.dwLevel).field("dwNupOptions", &self.dwNupOptions).field("dwPageOrderFlags", &self.dwPageOrderFlags).field("dwNumberOfCopies", &self.dwNumberOfCopies).finish()
-    }
-}
 impl windows_core::TypeKind for PRINTPROCESSOR_CAPS_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINTPROCESSOR_CAPS_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwLevel == other.dwLevel && self.dwNupOptions == other.dwNupOptions && self.dwPageOrderFlags == other.dwPageOrderFlags && self.dwNumberOfCopies == other.dwNumberOfCopies
-    }
-}
-impl Eq for PRINTPROCESSOR_CAPS_1 {}
 impl Default for PRINTPROCESSOR_CAPS_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTPROCESSOR_CAPS_2 {
     pub dwLevel: u32,
     pub dwNupOptions: u32,
@@ -13726,100 +10579,42 @@ pub struct PRINTPROCESSOR_CAPS_2 {
     pub dwBookletHandlingCaps: u32,
     pub dwScalingCaps: u32,
 }
-impl Copy for PRINTPROCESSOR_CAPS_2 {}
-impl Clone for PRINTPROCESSOR_CAPS_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINTPROCESSOR_CAPS_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTPROCESSOR_CAPS_2")
-            .field("dwLevel", &self.dwLevel)
-            .field("dwNupOptions", &self.dwNupOptions)
-            .field("dwPageOrderFlags", &self.dwPageOrderFlags)
-            .field("dwNumberOfCopies", &self.dwNumberOfCopies)
-            .field("dwDuplexHandlingCaps", &self.dwDuplexHandlingCaps)
-            .field("dwNupDirectionCaps", &self.dwNupDirectionCaps)
-            .field("dwNupBorderCaps", &self.dwNupBorderCaps)
-            .field("dwBookletHandlingCaps", &self.dwBookletHandlingCaps)
-            .field("dwScalingCaps", &self.dwScalingCaps)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PRINTPROCESSOR_CAPS_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINTPROCESSOR_CAPS_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwLevel == other.dwLevel && self.dwNupOptions == other.dwNupOptions && self.dwPageOrderFlags == other.dwPageOrderFlags && self.dwNumberOfCopies == other.dwNumberOfCopies && self.dwDuplexHandlingCaps == other.dwDuplexHandlingCaps && self.dwNupDirectionCaps == other.dwNupDirectionCaps && self.dwNupBorderCaps == other.dwNupBorderCaps && self.dwBookletHandlingCaps == other.dwBookletHandlingCaps && self.dwScalingCaps == other.dwScalingCaps
-    }
-}
-impl Eq for PRINTPROCESSOR_CAPS_2 {}
 impl Default for PRINTPROCESSOR_CAPS_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTPROCESSOR_INFO_1A {
     pub pName: windows_core::PSTR,
-}
-impl Copy for PRINTPROCESSOR_INFO_1A {}
-impl Clone for PRINTPROCESSOR_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINTPROCESSOR_INFO_1A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTPROCESSOR_INFO_1A").field("pName", &self.pName).finish()
-    }
 }
 impl windows_core::TypeKind for PRINTPROCESSOR_INFO_1A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINTPROCESSOR_INFO_1A {
-    fn eq(&self, other: &Self) -> bool {
-        self.pName == other.pName
-    }
-}
-impl Eq for PRINTPROCESSOR_INFO_1A {}
 impl Default for PRINTPROCESSOR_INFO_1A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTPROCESSOR_INFO_1W {
     pub pName: windows_core::PWSTR,
-}
-impl Copy for PRINTPROCESSOR_INFO_1W {}
-impl Clone for PRINTPROCESSOR_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINTPROCESSOR_INFO_1W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTPROCESSOR_INFO_1W").field("pName", &self.pName).finish()
-    }
 }
 impl windows_core::TypeKind for PRINTPROCESSOR_INFO_1W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINTPROCESSOR_INFO_1W {
-    fn eq(&self, other: &Self) -> bool {
-        self.pName == other.pName
-    }
-}
-impl Eq for PRINTPROCESSOR_INFO_1W {}
 impl Default for PRINTPROCESSOR_INFO_1W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTPROVIDOR {
     pub fpOpenPrinter: isize,
     pub fpSetJob: isize,
@@ -13930,302 +10725,37 @@ pub struct PRINTPROVIDOR {
     pub fpIppSetPrinterAttributes: isize,
     pub fpIppCreateJobOnPrinterWithAttributes: isize,
 }
-impl Copy for PRINTPROVIDOR {}
-impl Clone for PRINTPROVIDOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINTPROVIDOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINTPROVIDOR")
-            .field("fpOpenPrinter", &self.fpOpenPrinter)
-            .field("fpSetJob", &self.fpSetJob)
-            .field("fpGetJob", &self.fpGetJob)
-            .field("fpEnumJobs", &self.fpEnumJobs)
-            .field("fpAddPrinter", &self.fpAddPrinter)
-            .field("fpDeletePrinter", &self.fpDeletePrinter)
-            .field("fpSetPrinter", &self.fpSetPrinter)
-            .field("fpGetPrinter", &self.fpGetPrinter)
-            .field("fpEnumPrinters", &self.fpEnumPrinters)
-            .field("fpAddPrinterDriver", &self.fpAddPrinterDriver)
-            .field("fpEnumPrinterDrivers", &self.fpEnumPrinterDrivers)
-            .field("fpGetPrinterDriver", &self.fpGetPrinterDriver)
-            .field("fpGetPrinterDriverDirectory", &self.fpGetPrinterDriverDirectory)
-            .field("fpDeletePrinterDriver", &self.fpDeletePrinterDriver)
-            .field("fpAddPrintProcessor", &self.fpAddPrintProcessor)
-            .field("fpEnumPrintProcessors", &self.fpEnumPrintProcessors)
-            .field("fpGetPrintProcessorDirectory", &self.fpGetPrintProcessorDirectory)
-            .field("fpDeletePrintProcessor", &self.fpDeletePrintProcessor)
-            .field("fpEnumPrintProcessorDatatypes", &self.fpEnumPrintProcessorDatatypes)
-            .field("fpStartDocPrinter", &self.fpStartDocPrinter)
-            .field("fpStartPagePrinter", &self.fpStartPagePrinter)
-            .field("fpWritePrinter", &self.fpWritePrinter)
-            .field("fpEndPagePrinter", &self.fpEndPagePrinter)
-            .field("fpAbortPrinter", &self.fpAbortPrinter)
-            .field("fpReadPrinter", &self.fpReadPrinter)
-            .field("fpEndDocPrinter", &self.fpEndDocPrinter)
-            .field("fpAddJob", &self.fpAddJob)
-            .field("fpScheduleJob", &self.fpScheduleJob)
-            .field("fpGetPrinterData", &self.fpGetPrinterData)
-            .field("fpSetPrinterData", &self.fpSetPrinterData)
-            .field("fpWaitForPrinterChange", &self.fpWaitForPrinterChange)
-            .field("fpClosePrinter", &self.fpClosePrinter)
-            .field("fpAddForm", &self.fpAddForm)
-            .field("fpDeleteForm", &self.fpDeleteForm)
-            .field("fpGetForm", &self.fpGetForm)
-            .field("fpSetForm", &self.fpSetForm)
-            .field("fpEnumForms", &self.fpEnumForms)
-            .field("fpEnumMonitors", &self.fpEnumMonitors)
-            .field("fpEnumPorts", &self.fpEnumPorts)
-            .field("fpAddPort", &self.fpAddPort)
-            .field("fpConfigurePort", &self.fpConfigurePort)
-            .field("fpDeletePort", &self.fpDeletePort)
-            .field("fpCreatePrinterIC", &self.fpCreatePrinterIC)
-            .field("fpPlayGdiScriptOnPrinterIC", &self.fpPlayGdiScriptOnPrinterIC)
-            .field("fpDeletePrinterIC", &self.fpDeletePrinterIC)
-            .field("fpAddPrinterConnection", &self.fpAddPrinterConnection)
-            .field("fpDeletePrinterConnection", &self.fpDeletePrinterConnection)
-            .field("fpPrinterMessageBox", &self.fpPrinterMessageBox)
-            .field("fpAddMonitor", &self.fpAddMonitor)
-            .field("fpDeleteMonitor", &self.fpDeleteMonitor)
-            .field("fpResetPrinter", &self.fpResetPrinter)
-            .field("fpGetPrinterDriverEx", &self.fpGetPrinterDriverEx)
-            .field("fpFindFirstPrinterChangeNotification", &self.fpFindFirstPrinterChangeNotification)
-            .field("fpFindClosePrinterChangeNotification", &self.fpFindClosePrinterChangeNotification)
-            .field("fpAddPortEx", &self.fpAddPortEx)
-            .field("fpShutDown", &self.fpShutDown)
-            .field("fpRefreshPrinterChangeNotification", &self.fpRefreshPrinterChangeNotification)
-            .field("fpOpenPrinterEx", &self.fpOpenPrinterEx)
-            .field("fpAddPrinterEx", &self.fpAddPrinterEx)
-            .field("fpSetPort", &self.fpSetPort)
-            .field("fpEnumPrinterData", &self.fpEnumPrinterData)
-            .field("fpDeletePrinterData", &self.fpDeletePrinterData)
-            .field("fpClusterSplOpen", &self.fpClusterSplOpen)
-            .field("fpClusterSplClose", &self.fpClusterSplClose)
-            .field("fpClusterSplIsAlive", &self.fpClusterSplIsAlive)
-            .field("fpSetPrinterDataEx", &self.fpSetPrinterDataEx)
-            .field("fpGetPrinterDataEx", &self.fpGetPrinterDataEx)
-            .field("fpEnumPrinterDataEx", &self.fpEnumPrinterDataEx)
-            .field("fpEnumPrinterKey", &self.fpEnumPrinterKey)
-            .field("fpDeletePrinterDataEx", &self.fpDeletePrinterDataEx)
-            .field("fpDeletePrinterKey", &self.fpDeletePrinterKey)
-            .field("fpSeekPrinter", &self.fpSeekPrinter)
-            .field("fpDeletePrinterDriverEx", &self.fpDeletePrinterDriverEx)
-            .field("fpAddPerMachineConnection", &self.fpAddPerMachineConnection)
-            .field("fpDeletePerMachineConnection", &self.fpDeletePerMachineConnection)
-            .field("fpEnumPerMachineConnections", &self.fpEnumPerMachineConnections)
-            .field("fpXcvData", &self.fpXcvData)
-            .field("fpAddPrinterDriverEx", &self.fpAddPrinterDriverEx)
-            .field("fpSplReadPrinter", &self.fpSplReadPrinter)
-            .field("fpDriverUnloadComplete", &self.fpDriverUnloadComplete)
-            .field("fpGetSpoolFileInfo", &self.fpGetSpoolFileInfo)
-            .field("fpCommitSpoolData", &self.fpCommitSpoolData)
-            .field("fpCloseSpoolFileHandle", &self.fpCloseSpoolFileHandle)
-            .field("fpFlushPrinter", &self.fpFlushPrinter)
-            .field("fpSendRecvBidiData", &self.fpSendRecvBidiData)
-            .field("fpAddPrinterConnection2", &self.fpAddPrinterConnection2)
-            .field("fpGetPrintClassObject", &self.fpGetPrintClassObject)
-            .field("fpReportJobProcessingProgress", &self.fpReportJobProcessingProgress)
-            .field("fpEnumAndLogProvidorObjects", &self.fpEnumAndLogProvidorObjects)
-            .field("fpInternalGetPrinterDriver", &self.fpInternalGetPrinterDriver)
-            .field("fpFindCompatibleDriver", &self.fpFindCompatibleDriver)
-            .field("fpInstallPrinterDriverPackageFromConnection", &self.fpInstallPrinterDriverPackageFromConnection)
-            .field("fpGetJobNamedPropertyValue", &self.fpGetJobNamedPropertyValue)
-            .field("fpSetJobNamedProperty", &self.fpSetJobNamedProperty)
-            .field("fpDeleteJobNamedProperty", &self.fpDeleteJobNamedProperty)
-            .field("fpEnumJobNamedProperties", &self.fpEnumJobNamedProperties)
-            .field("fpPowerEvent", &self.fpPowerEvent)
-            .field("fpGetUserPropertyBag", &self.fpGetUserPropertyBag)
-            .field("fpCanShutdown", &self.fpCanShutdown)
-            .field("fpLogJobInfoForBranchOffice", &self.fpLogJobInfoForBranchOffice)
-            .field("fpRegeneratePrintDeviceCapabilities", &self.fpRegeneratePrintDeviceCapabilities)
-            .field("fpPrintSupportOperation", &self.fpPrintSupportOperation)
-            .field("fpIppCreateJobOnPrinter", &self.fpIppCreateJobOnPrinter)
-            .field("fpIppGetJobAttributes", &self.fpIppGetJobAttributes)
-            .field("fpIppSetJobAttributes", &self.fpIppSetJobAttributes)
-            .field("fpIppGetPrinterAttributes", &self.fpIppGetPrinterAttributes)
-            .field("fpIppSetPrinterAttributes", &self.fpIppSetPrinterAttributes)
-            .field("fpIppCreateJobOnPrinterWithAttributes", &self.fpIppCreateJobOnPrinterWithAttributes)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PRINTPROVIDOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINTPROVIDOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.fpOpenPrinter == other.fpOpenPrinter
-            && self.fpSetJob == other.fpSetJob
-            && self.fpGetJob == other.fpGetJob
-            && self.fpEnumJobs == other.fpEnumJobs
-            && self.fpAddPrinter == other.fpAddPrinter
-            && self.fpDeletePrinter == other.fpDeletePrinter
-            && self.fpSetPrinter == other.fpSetPrinter
-            && self.fpGetPrinter == other.fpGetPrinter
-            && self.fpEnumPrinters == other.fpEnumPrinters
-            && self.fpAddPrinterDriver == other.fpAddPrinterDriver
-            && self.fpEnumPrinterDrivers == other.fpEnumPrinterDrivers
-            && self.fpGetPrinterDriver == other.fpGetPrinterDriver
-            && self.fpGetPrinterDriverDirectory == other.fpGetPrinterDriverDirectory
-            && self.fpDeletePrinterDriver == other.fpDeletePrinterDriver
-            && self.fpAddPrintProcessor == other.fpAddPrintProcessor
-            && self.fpEnumPrintProcessors == other.fpEnumPrintProcessors
-            && self.fpGetPrintProcessorDirectory == other.fpGetPrintProcessorDirectory
-            && self.fpDeletePrintProcessor == other.fpDeletePrintProcessor
-            && self.fpEnumPrintProcessorDatatypes == other.fpEnumPrintProcessorDatatypes
-            && self.fpStartDocPrinter == other.fpStartDocPrinter
-            && self.fpStartPagePrinter == other.fpStartPagePrinter
-            && self.fpWritePrinter == other.fpWritePrinter
-            && self.fpEndPagePrinter == other.fpEndPagePrinter
-            && self.fpAbortPrinter == other.fpAbortPrinter
-            && self.fpReadPrinter == other.fpReadPrinter
-            && self.fpEndDocPrinter == other.fpEndDocPrinter
-            && self.fpAddJob == other.fpAddJob
-            && self.fpScheduleJob == other.fpScheduleJob
-            && self.fpGetPrinterData == other.fpGetPrinterData
-            && self.fpSetPrinterData == other.fpSetPrinterData
-            && self.fpWaitForPrinterChange == other.fpWaitForPrinterChange
-            && self.fpClosePrinter == other.fpClosePrinter
-            && self.fpAddForm == other.fpAddForm
-            && self.fpDeleteForm == other.fpDeleteForm
-            && self.fpGetForm == other.fpGetForm
-            && self.fpSetForm == other.fpSetForm
-            && self.fpEnumForms == other.fpEnumForms
-            && self.fpEnumMonitors == other.fpEnumMonitors
-            && self.fpEnumPorts == other.fpEnumPorts
-            && self.fpAddPort == other.fpAddPort
-            && self.fpConfigurePort == other.fpConfigurePort
-            && self.fpDeletePort == other.fpDeletePort
-            && self.fpCreatePrinterIC == other.fpCreatePrinterIC
-            && self.fpPlayGdiScriptOnPrinterIC == other.fpPlayGdiScriptOnPrinterIC
-            && self.fpDeletePrinterIC == other.fpDeletePrinterIC
-            && self.fpAddPrinterConnection == other.fpAddPrinterConnection
-            && self.fpDeletePrinterConnection == other.fpDeletePrinterConnection
-            && self.fpPrinterMessageBox == other.fpPrinterMessageBox
-            && self.fpAddMonitor == other.fpAddMonitor
-            && self.fpDeleteMonitor == other.fpDeleteMonitor
-            && self.fpResetPrinter == other.fpResetPrinter
-            && self.fpGetPrinterDriverEx == other.fpGetPrinterDriverEx
-            && self.fpFindFirstPrinterChangeNotification == other.fpFindFirstPrinterChangeNotification
-            && self.fpFindClosePrinterChangeNotification == other.fpFindClosePrinterChangeNotification
-            && self.fpAddPortEx == other.fpAddPortEx
-            && self.fpShutDown == other.fpShutDown
-            && self.fpRefreshPrinterChangeNotification == other.fpRefreshPrinterChangeNotification
-            && self.fpOpenPrinterEx == other.fpOpenPrinterEx
-            && self.fpAddPrinterEx == other.fpAddPrinterEx
-            && self.fpSetPort == other.fpSetPort
-            && self.fpEnumPrinterData == other.fpEnumPrinterData
-            && self.fpDeletePrinterData == other.fpDeletePrinterData
-            && self.fpClusterSplOpen == other.fpClusterSplOpen
-            && self.fpClusterSplClose == other.fpClusterSplClose
-            && self.fpClusterSplIsAlive == other.fpClusterSplIsAlive
-            && self.fpSetPrinterDataEx == other.fpSetPrinterDataEx
-            && self.fpGetPrinterDataEx == other.fpGetPrinterDataEx
-            && self.fpEnumPrinterDataEx == other.fpEnumPrinterDataEx
-            && self.fpEnumPrinterKey == other.fpEnumPrinterKey
-            && self.fpDeletePrinterDataEx == other.fpDeletePrinterDataEx
-            && self.fpDeletePrinterKey == other.fpDeletePrinterKey
-            && self.fpSeekPrinter == other.fpSeekPrinter
-            && self.fpDeletePrinterDriverEx == other.fpDeletePrinterDriverEx
-            && self.fpAddPerMachineConnection == other.fpAddPerMachineConnection
-            && self.fpDeletePerMachineConnection == other.fpDeletePerMachineConnection
-            && self.fpEnumPerMachineConnections == other.fpEnumPerMachineConnections
-            && self.fpXcvData == other.fpXcvData
-            && self.fpAddPrinterDriverEx == other.fpAddPrinterDriverEx
-            && self.fpSplReadPrinter == other.fpSplReadPrinter
-            && self.fpDriverUnloadComplete == other.fpDriverUnloadComplete
-            && self.fpGetSpoolFileInfo == other.fpGetSpoolFileInfo
-            && self.fpCommitSpoolData == other.fpCommitSpoolData
-            && self.fpCloseSpoolFileHandle == other.fpCloseSpoolFileHandle
-            && self.fpFlushPrinter == other.fpFlushPrinter
-            && self.fpSendRecvBidiData == other.fpSendRecvBidiData
-            && self.fpAddPrinterConnection2 == other.fpAddPrinterConnection2
-            && self.fpGetPrintClassObject == other.fpGetPrintClassObject
-            && self.fpReportJobProcessingProgress == other.fpReportJobProcessingProgress
-            && self.fpEnumAndLogProvidorObjects == other.fpEnumAndLogProvidorObjects
-            && self.fpInternalGetPrinterDriver == other.fpInternalGetPrinterDriver
-            && self.fpFindCompatibleDriver == other.fpFindCompatibleDriver
-            && self.fpInstallPrinterDriverPackageFromConnection == other.fpInstallPrinterDriverPackageFromConnection
-            && self.fpGetJobNamedPropertyValue == other.fpGetJobNamedPropertyValue
-            && self.fpSetJobNamedProperty == other.fpSetJobNamedProperty
-            && self.fpDeleteJobNamedProperty == other.fpDeleteJobNamedProperty
-            && self.fpEnumJobNamedProperties == other.fpEnumJobNamedProperties
-            && self.fpPowerEvent == other.fpPowerEvent
-            && self.fpGetUserPropertyBag == other.fpGetUserPropertyBag
-            && self.fpCanShutdown == other.fpCanShutdown
-            && self.fpLogJobInfoForBranchOffice == other.fpLogJobInfoForBranchOffice
-            && self.fpRegeneratePrintDeviceCapabilities == other.fpRegeneratePrintDeviceCapabilities
-            && self.fpPrintSupportOperation == other.fpPrintSupportOperation
-            && self.fpIppCreateJobOnPrinter == other.fpIppCreateJobOnPrinter
-            && self.fpIppGetJobAttributes == other.fpIppGetJobAttributes
-            && self.fpIppSetJobAttributes == other.fpIppSetJobAttributes
-            && self.fpIppGetPrinterAttributes == other.fpIppGetPrinterAttributes
-            && self.fpIppSetPrinterAttributes == other.fpIppSetPrinterAttributes
-            && self.fpIppCreateJobOnPrinterWithAttributes == other.fpIppCreateJobOnPrinterWithAttributes
-    }
-}
-impl Eq for PRINTPROVIDOR {}
 impl Default for PRINTPROVIDOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINT_EXECUTION_DATA {
     pub context: PRINT_EXECUTION_CONTEXT,
     pub clientAppPID: u32,
 }
-impl Copy for PRINT_EXECUTION_DATA {}
-impl Clone for PRINT_EXECUTION_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINT_EXECUTION_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINT_EXECUTION_DATA").field("context", &self.context).field("clientAppPID", &self.clientAppPID).finish()
-    }
-}
 impl windows_core::TypeKind for PRINT_EXECUTION_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINT_EXECUTION_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.context == other.context && self.clientAppPID == other.clientAppPID
-    }
-}
-impl Eq for PRINT_EXECUTION_DATA {}
 impl Default for PRINT_EXECUTION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINT_FEATURE_OPTION {
     pub pszFeature: windows_core::PCSTR,
     pub pszOption: windows_core::PCSTR,
 }
-impl Copy for PRINT_FEATURE_OPTION {}
-impl Clone for PRINT_FEATURE_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRINT_FEATURE_OPTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRINT_FEATURE_OPTION").field("pszFeature", &self.pszFeature).field("pszOption", &self.pszOption).finish()
-    }
-}
 impl windows_core::TypeKind for PRINT_FEATURE_OPTION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRINT_FEATURE_OPTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszFeature == other.pszFeature && self.pszOption == other.pszOption
-    }
-}
-impl Eq for PRINT_FEATURE_OPTION {}
 impl Default for PRINT_FEATURE_OPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -14233,6 +10763,7 @@ impl Default for PRINT_FEATURE_OPTION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROPSHEETUI_GETICON_INFO {
     pub cbSize: u16,
     pub Flags: u16,
@@ -14241,31 +10772,9 @@ pub struct PROPSHEETUI_GETICON_INFO {
     pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for PROPSHEETUI_GETICON_INFO {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for PROPSHEETUI_GETICON_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl core::fmt::Debug for PROPSHEETUI_GETICON_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROPSHEETUI_GETICON_INFO").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("cxIcon", &self.cxIcon).field("cyIcon", &self.cyIcon).field("hIcon", &self.hIcon).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::TypeKind for PROPSHEETUI_GETICON_INFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl PartialEq for PROPSHEETUI_GETICON_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.Flags == other.Flags && self.cxIcon == other.cxIcon && self.cyIcon == other.cyIcon && self.hIcon == other.hIcon
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Eq for PROPSHEETUI_GETICON_INFO {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for PROPSHEETUI_GETICON_INFO {
     fn default() -> Self {
@@ -14273,6 +10782,7 @@ impl Default for PROPSHEETUI_GETICON_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct PROPSHEETUI_INFO {
     pub cbSize: u16,
     pub Version: u16,
@@ -14284,17 +10794,6 @@ pub struct PROPSHEETUI_INFO {
     pub UserData: usize,
     pub Result: usize,
 }
-impl Copy for PROPSHEETUI_INFO {}
-impl Clone for PROPSHEETUI_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROPSHEETUI_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROPSHEETUI_INFO").field("cbSize", &self.cbSize).field("Version", &self.Version).field("Flags", &self.Flags).field("Reason", &self.Reason).field("hComPropSheet", &self.hComPropSheet).field("lParamInit", &self.lParamInit).field("UserData", &self.UserData).field("Result", &self.Result).finish()
-    }
-}
 impl windows_core::TypeKind for PROPSHEETUI_INFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -14305,6 +10804,7 @@ impl Default for PROPSHEETUI_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct PROPSHEETUI_INFO_HEADER {
     pub cbSize: u16,
     pub Flags: u16,
@@ -14312,14 +10812,6 @@ pub struct PROPSHEETUI_INFO_HEADER {
     pub hWndParent: super::super::Foundation::HWND,
     pub hInst: super::super::Foundation::HINSTANCE,
     pub Anonymous: PROPSHEETUI_INFO_HEADER_0,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for PROPSHEETUI_INFO_HEADER {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for PROPSHEETUI_INFO_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::TypeKind for PROPSHEETUI_INFO_HEADER {
@@ -14333,17 +10825,10 @@ impl Default for PROPSHEETUI_INFO_HEADER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub union PROPSHEETUI_INFO_HEADER_0 {
     pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
     pub IconID: usize,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for PROPSHEETUI_INFO_HEADER_0 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for PROPSHEETUI_INFO_HEADER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::TypeKind for PROPSHEETUI_INFO_HEADER_0 {
@@ -14356,173 +10841,83 @@ impl Default for PROPSHEETUI_INFO_HEADER_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROVIDOR_INFO_1A {
     pub pName: windows_core::PSTR,
     pub pEnvironment: windows_core::PSTR,
     pub pDLLName: windows_core::PSTR,
 }
-impl Copy for PROVIDOR_INFO_1A {}
-impl Clone for PROVIDOR_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROVIDOR_INFO_1A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROVIDOR_INFO_1A").field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDLLName", &self.pDLLName).finish()
-    }
-}
 impl windows_core::TypeKind for PROVIDOR_INFO_1A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROVIDOR_INFO_1A {
-    fn eq(&self, other: &Self) -> bool {
-        self.pName == other.pName && self.pEnvironment == other.pEnvironment && self.pDLLName == other.pDLLName
-    }
-}
-impl Eq for PROVIDOR_INFO_1A {}
 impl Default for PROVIDOR_INFO_1A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROVIDOR_INFO_1W {
     pub pName: windows_core::PWSTR,
     pub pEnvironment: windows_core::PWSTR,
     pub pDLLName: windows_core::PWSTR,
 }
-impl Copy for PROVIDOR_INFO_1W {}
-impl Clone for PROVIDOR_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROVIDOR_INFO_1W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROVIDOR_INFO_1W").field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDLLName", &self.pDLLName).finish()
-    }
-}
 impl windows_core::TypeKind for PROVIDOR_INFO_1W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROVIDOR_INFO_1W {
-    fn eq(&self, other: &Self) -> bool {
-        self.pName == other.pName && self.pEnvironment == other.pEnvironment && self.pDLLName == other.pDLLName
-    }
-}
-impl Eq for PROVIDOR_INFO_1W {}
 impl Default for PROVIDOR_INFO_1W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROVIDOR_INFO_2A {
     pub pOrder: windows_core::PSTR,
-}
-impl Copy for PROVIDOR_INFO_2A {}
-impl Clone for PROVIDOR_INFO_2A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROVIDOR_INFO_2A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROVIDOR_INFO_2A").field("pOrder", &self.pOrder).finish()
-    }
 }
 impl windows_core::TypeKind for PROVIDOR_INFO_2A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROVIDOR_INFO_2A {
-    fn eq(&self, other: &Self) -> bool {
-        self.pOrder == other.pOrder
-    }
-}
-impl Eq for PROVIDOR_INFO_2A {}
 impl Default for PROVIDOR_INFO_2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROVIDOR_INFO_2W {
     pub pOrder: windows_core::PWSTR,
-}
-impl Copy for PROVIDOR_INFO_2W {}
-impl Clone for PROVIDOR_INFO_2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROVIDOR_INFO_2W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROVIDOR_INFO_2W").field("pOrder", &self.pOrder).finish()
-    }
 }
 impl windows_core::TypeKind for PROVIDOR_INFO_2W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROVIDOR_INFO_2W {
-    fn eq(&self, other: &Self) -> bool {
-        self.pOrder == other.pOrder
-    }
-}
-impl Eq for PROVIDOR_INFO_2W {}
 impl Default for PROVIDOR_INFO_2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSCRIPT5_PRIVATE_DEVMODE {
     pub wReserved: [u16; 57],
     pub wSize: u16,
 }
-impl Copy for PSCRIPT5_PRIVATE_DEVMODE {}
-impl Clone for PSCRIPT5_PRIVATE_DEVMODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSCRIPT5_PRIVATE_DEVMODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSCRIPT5_PRIVATE_DEVMODE").field("wReserved", &self.wReserved).field("wSize", &self.wSize).finish()
-    }
-}
 impl windows_core::TypeKind for PSCRIPT5_PRIVATE_DEVMODE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PSCRIPT5_PRIVATE_DEVMODE {
-    fn eq(&self, other: &Self) -> bool {
-        self.wReserved == other.wReserved && self.wSize == other.wSize
-    }
-}
-impl Eq for PSCRIPT5_PRIVATE_DEVMODE {}
 impl Default for PSCRIPT5_PRIVATE_DEVMODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct PSPINFO {
     pub cbSize: u16,
     pub wReserved: u16,
     pub hComPropSheet: super::super::Foundation::HANDLE,
     pub hCPSUIPage: super::super::Foundation::HANDLE,
     pub pfnComPropSheet: PFNCOMPROPSHEET,
-}
-impl Copy for PSPINFO {}
-impl Clone for PSPINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSPINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSPINFO").field("cbSize", &self.cbSize).field("wReserved", &self.wReserved).field("hComPropSheet", &self.hComPropSheet).field("hCPSUIPage", &self.hCPSUIPage).finish()
-    }
 }
 impl windows_core::TypeKind for PSPINFO {
     type TypeKind = windows_core::CopyType;
@@ -14533,46 +10928,25 @@ impl Default for PSPINFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PUBLISHERINFO {
     pub dwMode: u32,
     pub wMinoutlinePPEM: u16,
     pub wMaxbitmapPPEM: u16,
 }
-impl Copy for PUBLISHERINFO {}
-impl Clone for PUBLISHERINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PUBLISHERINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PUBLISHERINFO").field("dwMode", &self.dwMode).field("wMinoutlinePPEM", &self.wMinoutlinePPEM).field("wMaxbitmapPPEM", &self.wMaxbitmapPPEM).finish()
-    }
-}
 impl windows_core::TypeKind for PUBLISHERINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PUBLISHERINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMode == other.dwMode && self.wMinoutlinePPEM == other.wMinoutlinePPEM && self.wMaxbitmapPPEM == other.wMaxbitmapPPEM
-    }
-}
-impl Eq for PUBLISHERINFO {}
 impl Default for PUBLISHERINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PrintNamedProperty {
     pub propertyName: windows_core::PWSTR,
     pub propertyValue: PrintPropertyValue,
-}
-impl Copy for PrintNamedProperty {}
-impl Clone for PrintNamedProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PrintNamedProperty {
     type TypeKind = windows_core::CopyType;
@@ -14583,45 +10957,24 @@ impl Default for PrintNamedProperty {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PrintPropertiesCollection {
     pub numberOfProperties: u32,
     pub propertiesCollection: *mut PrintNamedProperty,
 }
-impl Copy for PrintPropertiesCollection {}
-impl Clone for PrintPropertiesCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PrintPropertiesCollection {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PrintPropertiesCollection").field("numberOfProperties", &self.numberOfProperties).field("propertiesCollection", &self.propertiesCollection).finish()
-    }
-}
 impl windows_core::TypeKind for PrintPropertiesCollection {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PrintPropertiesCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.numberOfProperties == other.numberOfProperties && self.propertiesCollection == other.propertiesCollection
-    }
-}
-impl Eq for PrintPropertiesCollection {}
 impl Default for PrintPropertiesCollection {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PrintPropertyValue {
     pub ePropertyType: EPrintPropertyType,
     pub value: PrintPropertyValue_0,
-}
-impl Copy for PrintPropertyValue {}
-impl Clone for PrintPropertyValue {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PrintPropertyValue {
     type TypeKind = windows_core::CopyType;
@@ -14632,18 +10985,13 @@ impl Default for PrintPropertyValue {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PrintPropertyValue_0 {
     pub propertyByte: u8,
     pub propertyString: windows_core::PWSTR,
     pub propertyInt32: i32,
     pub propertyInt64: i64,
     pub propertyBlob: PrintPropertyValue_0_0,
-}
-impl Copy for PrintPropertyValue_0 {}
-impl Clone for PrintPropertyValue_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PrintPropertyValue_0 {
     type TypeKind = windows_core::CopyType;
@@ -14654,30 +11002,14 @@ impl Default for PrintPropertyValue_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PrintPropertyValue_0_0 {
     pub cbBuf: u32,
     pub pBuf: *mut core::ffi::c_void,
 }
-impl Copy for PrintPropertyValue_0_0 {}
-impl Clone for PrintPropertyValue_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PrintPropertyValue_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PrintPropertyValue_0_0").field("cbBuf", &self.cbBuf).field("pBuf", &self.pBuf).finish()
-    }
-}
 impl windows_core::TypeKind for PrintPropertyValue_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PrintPropertyValue_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbBuf == other.cbBuf && self.pBuf == other.pBuf
-    }
-}
-impl Eq for PrintPropertyValue_0_0 {}
 impl Default for PrintPropertyValue_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -14688,68 +11020,37 @@ pub const PrinterExtensionManager: windows_core::GUID = windows_core::GUID::from
 pub const PrinterQueue: windows_core::GUID = windows_core::GUID::from_u128(0xeb54c230_798c_4c9e_b461_29fad04039b1);
 pub const PrinterQueueView: windows_core::GUID = windows_core::GUID::from_u128(0xeb54c231_798c_4c9e_b461_29fad04039b1);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SETRESULT_INFO {
     pub cbSize: u16,
     pub wReserved: u16,
     pub hSetResult: super::super::Foundation::HANDLE,
     pub Result: super::super::Foundation::LRESULT,
 }
-impl Copy for SETRESULT_INFO {}
-impl Clone for SETRESULT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SETRESULT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SETRESULT_INFO").field("cbSize", &self.cbSize).field("wReserved", &self.wReserved).field("hSetResult", &self.hSetResult).field("Result", &self.Result).finish()
-    }
-}
 impl windows_core::TypeKind for SETRESULT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SETRESULT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.wReserved == other.wReserved && self.hSetResult == other.hSetResult && self.Result == other.Result
-    }
-}
-impl Eq for SETRESULT_INFO {}
 impl Default for SETRESULT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHOWUIPARAMS {
     pub UIType: UI_TYPE,
     pub MessageBoxParams: MESSAGEBOX_PARAMS,
 }
-impl Copy for SHOWUIPARAMS {}
-impl Clone for SHOWUIPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SHOWUIPARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SHOWUIPARAMS").field("UIType", &self.UIType).field("MessageBoxParams", &self.MessageBoxParams).finish()
-    }
-}
 impl windows_core::TypeKind for SHOWUIPARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SHOWUIPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.UIType == other.UIType && self.MessageBoxParams == other.MessageBoxParams
-    }
-}
-impl Eq for SHOWUIPARAMS {}
 impl Default for SHOWUIPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SIMULATE_CAPS_1 {
     pub dwLevel: u32,
     pub dwPageOrderFlags: u32,
@@ -14757,32 +11058,16 @@ pub struct SIMULATE_CAPS_1 {
     pub dwCollate: u32,
     pub dwNupOptions: u32,
 }
-impl Copy for SIMULATE_CAPS_1 {}
-impl Clone for SIMULATE_CAPS_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SIMULATE_CAPS_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SIMULATE_CAPS_1").field("dwLevel", &self.dwLevel).field("dwPageOrderFlags", &self.dwPageOrderFlags).field("dwNumberOfCopies", &self.dwNumberOfCopies).field("dwCollate", &self.dwCollate).field("dwNupOptions", &self.dwNupOptions).finish()
-    }
-}
 impl windows_core::TypeKind for SIMULATE_CAPS_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SIMULATE_CAPS_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwLevel == other.dwLevel && self.dwPageOrderFlags == other.dwPageOrderFlags && self.dwNumberOfCopies == other.dwNumberOfCopies && self.dwCollate == other.dwCollate && self.dwNupOptions == other.dwNupOptions
-    }
-}
-impl Eq for SIMULATE_CAPS_1 {}
 impl Default for SIMULATE_CAPS_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPLCLIENT_INFO_1 {
     pub dwSize: u32,
     pub pMachineName: windows_core::PWSTR,
@@ -14792,55 +11077,22 @@ pub struct SPLCLIENT_INFO_1 {
     pub dwMinorVersion: u32,
     pub wProcessorArchitecture: u16,
 }
-impl Copy for SPLCLIENT_INFO_1 {}
-impl Clone for SPLCLIENT_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPLCLIENT_INFO_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPLCLIENT_INFO_1").field("dwSize", &self.dwSize).field("pMachineName", &self.pMachineName).field("pUserName", &self.pUserName).field("dwBuildNum", &self.dwBuildNum).field("dwMajorVersion", &self.dwMajorVersion).field("dwMinorVersion", &self.dwMinorVersion).field("wProcessorArchitecture", &self.wProcessorArchitecture).finish()
-    }
-}
 impl windows_core::TypeKind for SPLCLIENT_INFO_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPLCLIENT_INFO_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.pMachineName == other.pMachineName && self.pUserName == other.pUserName && self.dwBuildNum == other.dwBuildNum && self.dwMajorVersion == other.dwMajorVersion && self.dwMinorVersion == other.dwMinorVersion && self.wProcessorArchitecture == other.wProcessorArchitecture
-    }
-}
-impl Eq for SPLCLIENT_INFO_1 {}
 impl Default for SPLCLIENT_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPLCLIENT_INFO_2_W2K {
     pub hSplPrinter: usize,
-}
-impl Copy for SPLCLIENT_INFO_2_W2K {}
-impl Clone for SPLCLIENT_INFO_2_W2K {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPLCLIENT_INFO_2_W2K {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPLCLIENT_INFO_2_W2K").field("hSplPrinter", &self.hSplPrinter).finish()
-    }
 }
 impl windows_core::TypeKind for SPLCLIENT_INFO_2_W2K {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPLCLIENT_INFO_2_W2K {
-    fn eq(&self, other: &Self) -> bool {
-        self.hSplPrinter == other.hSplPrinter
-    }
-}
-impl Eq for SPLCLIENT_INFO_2_W2K {}
 impl Default for SPLCLIENT_INFO_2_W2K {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -14848,35 +11100,14 @@ impl Default for SPLCLIENT_INFO_2_W2K {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPLCLIENT_INFO_2_WINXP {
     pub hSplPrinter: u64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SPLCLIENT_INFO_2_WINXP {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SPLCLIENT_INFO_2_WINXP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl core::fmt::Debug for SPLCLIENT_INFO_2_WINXP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPLCLIENT_INFO_2_WINXP").field("hSplPrinter", &self.hSplPrinter).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for SPLCLIENT_INFO_2_WINXP {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl PartialEq for SPLCLIENT_INFO_2_WINXP {
-    fn eq(&self, other: &Self) -> bool {
-        self.hSplPrinter == other.hSplPrinter
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Eq for SPLCLIENT_INFO_2_WINXP {}
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SPLCLIENT_INFO_2_WINXP {
     fn default() -> Self {
@@ -14885,35 +11116,14 @@ impl Default for SPLCLIENT_INFO_2_WINXP {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPLCLIENT_INFO_2_WINXP {
     pub hSplPrinter: u32,
 }
 #[cfg(target_arch = "x86")]
-impl Copy for SPLCLIENT_INFO_2_WINXP {}
-#[cfg(target_arch = "x86")]
-impl Clone for SPLCLIENT_INFO_2_WINXP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-impl core::fmt::Debug for SPLCLIENT_INFO_2_WINXP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPLCLIENT_INFO_2_WINXP").field("hSplPrinter", &self.hSplPrinter).finish()
-    }
-}
-#[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for SPLCLIENT_INFO_2_WINXP {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(target_arch = "x86")]
-impl PartialEq for SPLCLIENT_INFO_2_WINXP {
-    fn eq(&self, other: &Self) -> bool {
-        self.hSplPrinter == other.hSplPrinter
-    }
-}
-#[cfg(target_arch = "x86")]
-impl Eq for SPLCLIENT_INFO_2_WINXP {}
 #[cfg(target_arch = "x86")]
 impl Default for SPLCLIENT_INFO_2_WINXP {
     fn default() -> Self {
@@ -14921,6 +11131,7 @@ impl Default for SPLCLIENT_INFO_2_WINXP {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPLCLIENT_INFO_3_VISTA {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -14933,32 +11144,16 @@ pub struct SPLCLIENT_INFO_3_VISTA {
     pub wProcessorArchitecture: u16,
     pub hSplPrinter: u64,
 }
-impl Copy for SPLCLIENT_INFO_3_VISTA {}
-impl Clone for SPLCLIENT_INFO_3_VISTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPLCLIENT_INFO_3_VISTA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPLCLIENT_INFO_3_VISTA").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("dwSize", &self.dwSize).field("pMachineName", &self.pMachineName).field("pUserName", &self.pUserName).field("dwBuildNum", &self.dwBuildNum).field("dwMajorVersion", &self.dwMajorVersion).field("dwMinorVersion", &self.dwMinorVersion).field("wProcessorArchitecture", &self.wProcessorArchitecture).field("hSplPrinter", &self.hSplPrinter).finish()
-    }
-}
 impl windows_core::TypeKind for SPLCLIENT_INFO_3_VISTA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPLCLIENT_INFO_3_VISTA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.dwSize == other.dwSize && self.pMachineName == other.pMachineName && self.pUserName == other.pUserName && self.dwBuildNum == other.dwBuildNum && self.dwMajorVersion == other.dwMajorVersion && self.dwMinorVersion == other.dwMinorVersion && self.wProcessorArchitecture == other.wProcessorArchitecture && self.hSplPrinter == other.hSplPrinter
-    }
-}
-impl Eq for SPLCLIENT_INFO_3_VISTA {}
 impl Default for SPLCLIENT_INFO_3_VISTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPLCLIENT_INFO_INTERNAL {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -14973,55 +11168,20 @@ pub struct SPLCLIENT_INFO_INTERNAL {
     pub dwProcessId: u32,
     pub dwSessionId: u32,
 }
-impl Copy for SPLCLIENT_INFO_INTERNAL {}
-impl Clone for SPLCLIENT_INFO_INTERNAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPLCLIENT_INFO_INTERNAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPLCLIENT_INFO_INTERNAL")
-            .field("cbSize", &self.cbSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwSize", &self.dwSize)
-            .field("pMachineName", &self.pMachineName)
-            .field("pUserName", &self.pUserName)
-            .field("dwBuildNum", &self.dwBuildNum)
-            .field("dwMajorVersion", &self.dwMajorVersion)
-            .field("dwMinorVersion", &self.dwMinorVersion)
-            .field("wProcessorArchitecture", &self.wProcessorArchitecture)
-            .field("hSplPrinter", &self.hSplPrinter)
-            .field("dwProcessId", &self.dwProcessId)
-            .field("dwSessionId", &self.dwSessionId)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for SPLCLIENT_INFO_INTERNAL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPLCLIENT_INFO_INTERNAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.dwSize == other.dwSize && self.pMachineName == other.pMachineName && self.pUserName == other.pUserName && self.dwBuildNum == other.dwBuildNum && self.dwMajorVersion == other.dwMajorVersion && self.dwMinorVersion == other.dwMinorVersion && self.wProcessorArchitecture == other.wProcessorArchitecture && self.hSplPrinter == other.hSplPrinter && self.dwProcessId == other.dwProcessId && self.dwSessionId == other.dwSessionId
-    }
-}
-impl Eq for SPLCLIENT_INFO_INTERNAL {}
 impl Default for SPLCLIENT_INFO_INTERNAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRANSDATA {
     pub ubCodePageID: u8,
     pub ubType: u8,
     pub uCode: TRANSDATA_0,
-}
-impl Copy for TRANSDATA {}
-impl Clone for TRANSDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for TRANSDATA {
     type TypeKind = windows_core::CopyType;
@@ -15032,16 +11192,11 @@ impl Default for TRANSDATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union TRANSDATA_0 {
     pub sCode: i16,
     pub ubCode: u8,
     pub ubPairs: [u8; 2],
-}
-impl Copy for TRANSDATA_0 {}
-impl Clone for TRANSDATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for TRANSDATA_0 {
     type TypeKind = windows_core::CopyType;
@@ -15052,6 +11207,7 @@ impl Default for TRANSDATA_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UFF_FILEHEADER {
     pub dwSignature: u32,
     pub dwVersion: u32,
@@ -15063,32 +11219,16 @@ pub struct UFF_FILEHEADER {
     pub dwFlags: u32,
     pub dwReserved: [u32; 4],
 }
-impl Copy for UFF_FILEHEADER {}
-impl Clone for UFF_FILEHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UFF_FILEHEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UFF_FILEHEADER").field("dwSignature", &self.dwSignature).field("dwVersion", &self.dwVersion).field("dwSize", &self.dwSize).field("nFonts", &self.nFonts).field("nGlyphSets", &self.nGlyphSets).field("nVarData", &self.nVarData).field("offFontDir", &self.offFontDir).field("dwFlags", &self.dwFlags).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 impl windows_core::TypeKind for UFF_FILEHEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UFF_FILEHEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSignature == other.dwSignature && self.dwVersion == other.dwVersion && self.dwSize == other.dwSize && self.nFonts == other.nFonts && self.nGlyphSets == other.nGlyphSets && self.nVarData == other.nVarData && self.offFontDir == other.offFontDir && self.dwFlags == other.dwFlags && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for UFF_FILEHEADER {}
 impl Default for UFF_FILEHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UFF_FONTDIRECTORY {
     pub dwSignature: u32,
     pub wSize: u16,
@@ -15102,32 +11242,16 @@ pub struct UFF_FONTDIRECTORY {
     pub offGlyphData: u32,
     pub offVarData: u32,
 }
-impl Copy for UFF_FONTDIRECTORY {}
-impl Clone for UFF_FONTDIRECTORY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UFF_FONTDIRECTORY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UFF_FONTDIRECTORY").field("dwSignature", &self.dwSignature).field("wSize", &self.wSize).field("wFontID", &self.wFontID).field("sGlyphID", &self.sGlyphID).field("wFlags", &self.wFlags).field("dwInstallerSig", &self.dwInstallerSig).field("offFontName", &self.offFontName).field("offCartridgeName", &self.offCartridgeName).field("offFontData", &self.offFontData).field("offGlyphData", &self.offGlyphData).field("offVarData", &self.offVarData).finish()
-    }
-}
 impl windows_core::TypeKind for UFF_FONTDIRECTORY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UFF_FONTDIRECTORY {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSignature == other.dwSignature && self.wSize == other.wSize && self.wFontID == other.wFontID && self.sGlyphID == other.sGlyphID && self.wFlags == other.wFlags && self.dwInstallerSig == other.dwInstallerSig && self.offFontName == other.offFontName && self.offCartridgeName == other.offCartridgeName && self.offFontData == other.offFontData && self.offGlyphData == other.offGlyphData && self.offVarData == other.offVarData
-    }
-}
-impl Eq for UFF_FONTDIRECTORY {}
 impl Default for UFF_FONTDIRECTORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UNIDRVINFO {
     pub dwSize: u32,
     pub flGenFlags: u32,
@@ -15143,62 +11267,30 @@ pub struct UNIDRVINFO {
     pub UnSelectFont: INVOC,
     pub wReserved: [u16; 4],
 }
-impl Copy for UNIDRVINFO {}
-impl Clone for UNIDRVINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UNIDRVINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UNIDRVINFO").field("dwSize", &self.dwSize).field("flGenFlags", &self.flGenFlags).field("wType", &self.wType).field("fCaps", &self.fCaps).field("wXRes", &self.wXRes).field("wYRes", &self.wYRes).field("sYAdjust", &self.sYAdjust).field("sYMoved", &self.sYMoved).field("wPrivateData", &self.wPrivateData).field("sShift", &self.sShift).field("SelectFont", &self.SelectFont).field("UnSelectFont", &self.UnSelectFont).field("wReserved", &self.wReserved).finish()
-    }
-}
 impl windows_core::TypeKind for UNIDRVINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UNIDRVINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.flGenFlags == other.flGenFlags && self.wType == other.wType && self.fCaps == other.fCaps && self.wXRes == other.wXRes && self.wYRes == other.wYRes && self.sYAdjust == other.sYAdjust && self.sYMoved == other.sYMoved && self.wPrivateData == other.wPrivateData && self.sShift == other.sShift && self.SelectFont == other.SelectFont && self.UnSelectFont == other.UnSelectFont && self.wReserved == other.wReserved
-    }
-}
-impl Eq for UNIDRVINFO {}
 impl Default for UNIDRVINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UNIDRV_PRIVATE_DEVMODE {
     pub wReserved: [u16; 4],
     pub wSize: u16,
 }
-impl Copy for UNIDRV_PRIVATE_DEVMODE {}
-impl Clone for UNIDRV_PRIVATE_DEVMODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UNIDRV_PRIVATE_DEVMODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UNIDRV_PRIVATE_DEVMODE").field("wReserved", &self.wReserved).field("wSize", &self.wSize).finish()
-    }
-}
 impl windows_core::TypeKind for UNIDRV_PRIVATE_DEVMODE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UNIDRV_PRIVATE_DEVMODE {
-    fn eq(&self, other: &Self) -> bool {
-        self.wReserved == other.wReserved && self.wSize == other.wSize
-    }
-}
-impl Eq for UNIDRV_PRIVATE_DEVMODE {}
 impl Default for UNIDRV_PRIVATE_DEVMODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UNIFM_HDR {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -15211,63 +11303,31 @@ pub struct UNIFM_HDR {
     pub loKernPair: u32,
     pub dwReserved: [u32; 2],
 }
-impl Copy for UNIFM_HDR {}
-impl Clone for UNIFM_HDR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UNIFM_HDR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UNIFM_HDR").field("dwSize", &self.dwSize).field("dwVersion", &self.dwVersion).field("ulDefaultCodepage", &self.ulDefaultCodepage).field("lGlyphSetDataRCID", &self.lGlyphSetDataRCID).field("loUnidrvInfo", &self.loUnidrvInfo).field("loIFIMetrics", &self.loIFIMetrics).field("loExtTextMetric", &self.loExtTextMetric).field("loWidthTable", &self.loWidthTable).field("loKernPair", &self.loKernPair).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 impl windows_core::TypeKind for UNIFM_HDR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UNIFM_HDR {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwVersion == other.dwVersion && self.ulDefaultCodepage == other.ulDefaultCodepage && self.lGlyphSetDataRCID == other.lGlyphSetDataRCID && self.loUnidrvInfo == other.loUnidrvInfo && self.loIFIMetrics == other.loIFIMetrics && self.loExtTextMetric == other.loExtTextMetric && self.loWidthTable == other.loWidthTable && self.loKernPair == other.loKernPair && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for UNIFM_HDR {}
 impl Default for UNIFM_HDR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UNI_CODEPAGEINFO {
     pub dwCodePage: u32,
     pub SelectSymbolSet: INVOC,
     pub UnSelectSymbolSet: INVOC,
 }
-impl Copy for UNI_CODEPAGEINFO {}
-impl Clone for UNI_CODEPAGEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UNI_CODEPAGEINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UNI_CODEPAGEINFO").field("dwCodePage", &self.dwCodePage).field("SelectSymbolSet", &self.SelectSymbolSet).field("UnSelectSymbolSet", &self.UnSelectSymbolSet).finish()
-    }
-}
 impl windows_core::TypeKind for UNI_CODEPAGEINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UNI_CODEPAGEINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwCodePage == other.dwCodePage && self.SelectSymbolSet == other.SelectSymbolSet && self.UnSelectSymbolSet == other.UnSelectSymbolSet
-    }
-}
-impl Eq for UNI_CODEPAGEINFO {}
 impl Default for UNI_CODEPAGEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UNI_GLYPHSETDATA {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -15281,161 +11341,68 @@ pub struct UNI_GLYPHSETDATA {
     pub loMapTableOffset: u32,
     pub dwReserved: [u32; 2],
 }
-impl Copy for UNI_GLYPHSETDATA {}
-impl Clone for UNI_GLYPHSETDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UNI_GLYPHSETDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UNI_GLYPHSETDATA")
-            .field("dwSize", &self.dwSize)
-            .field("dwVersion", &self.dwVersion)
-            .field("dwFlags", &self.dwFlags)
-            .field("lPredefinedID", &self.lPredefinedID)
-            .field("dwGlyphCount", &self.dwGlyphCount)
-            .field("dwRunCount", &self.dwRunCount)
-            .field("loRunOffset", &self.loRunOffset)
-            .field("dwCodePageCount", &self.dwCodePageCount)
-            .field("loCodePageOffset", &self.loCodePageOffset)
-            .field("loMapTableOffset", &self.loMapTableOffset)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for UNI_GLYPHSETDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UNI_GLYPHSETDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwVersion == other.dwVersion && self.dwFlags == other.dwFlags && self.lPredefinedID == other.lPredefinedID && self.dwGlyphCount == other.dwGlyphCount && self.dwRunCount == other.dwRunCount && self.loRunOffset == other.loRunOffset && self.dwCodePageCount == other.dwCodePageCount && self.loCodePageOffset == other.loCodePageOffset && self.loMapTableOffset == other.loMapTableOffset && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for UNI_GLYPHSETDATA {}
 impl Default for UNI_GLYPHSETDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USERDATA {
     pub dwSize: u32,
     pub dwItemID: usize,
     pub pKeyWordName: windows_core::PSTR,
     pub dwReserved: [u32; 8],
 }
-impl Copy for USERDATA {}
-impl Clone for USERDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for USERDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("USERDATA").field("dwSize", &self.dwSize).field("dwItemID", &self.dwItemID).field("pKeyWordName", &self.pKeyWordName).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 impl windows_core::TypeKind for USERDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for USERDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwItemID == other.dwItemID && self.pKeyWordName == other.pKeyWordName && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for USERDATA {}
 impl Default for USERDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIDTHRUN {
     pub wStartGlyph: u16,
     pub wGlyphCount: u16,
     pub loCharWidthOffset: u32,
 }
-impl Copy for WIDTHRUN {}
-impl Clone for WIDTHRUN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WIDTHRUN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIDTHRUN").field("wStartGlyph", &self.wStartGlyph).field("wGlyphCount", &self.wGlyphCount).field("loCharWidthOffset", &self.loCharWidthOffset).finish()
-    }
-}
 impl windows_core::TypeKind for WIDTHRUN {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WIDTHRUN {
-    fn eq(&self, other: &Self) -> bool {
-        self.wStartGlyph == other.wStartGlyph && self.wGlyphCount == other.wGlyphCount && self.loCharWidthOffset == other.loCharWidthOffset
-    }
-}
-impl Eq for WIDTHRUN {}
 impl Default for WIDTHRUN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIDTHTABLE {
     pub dwSize: u32,
     pub dwRunNum: u32,
     pub WidthRun: [WIDTHRUN; 1],
 }
-impl Copy for WIDTHTABLE {}
-impl Clone for WIDTHTABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WIDTHTABLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIDTHTABLE").field("dwSize", &self.dwSize).field("dwRunNum", &self.dwRunNum).field("WidthRun", &self.WidthRun).finish()
-    }
-}
 impl windows_core::TypeKind for WIDTHTABLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WIDTHTABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwRunNum == other.dwRunNum && self.WidthRun == other.WidthRun
-    }
-}
-impl Eq for WIDTHTABLE {}
 impl Default for WIDTHTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _SPLCLIENT_INFO_2_V3 {
     pub hSplPrinter: u64,
-}
-impl Copy for _SPLCLIENT_INFO_2_V3 {}
-impl Clone for _SPLCLIENT_INFO_2_V3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for _SPLCLIENT_INFO_2_V3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("_SPLCLIENT_INFO_2_V3").field("hSplPrinter", &self.hSplPrinter).finish()
-    }
 }
 impl windows_core::TypeKind for _SPLCLIENT_INFO_2_V3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for _SPLCLIENT_INFO_2_V3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hSplPrinter == other.hSplPrinter
-    }
-}
-impl Eq for _SPLCLIENT_INFO_2_V3 {}
 impl Default for _SPLCLIENT_INFO_2_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

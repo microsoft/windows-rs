@@ -5,26 +5,16 @@ pub const OPERATION_START_TRACE_CURRENT_THREAD: OPERATION_START_FLAGS = 1u32;
 pub type OPERATION_END_PARAMETERS_FLAGS = u32;
 pub type OPERATION_START_FLAGS = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OPERATION_END_PARAMETERS {
     pub Version: u32,
     pub OperationId: u32,
     pub Flags: OPERATION_END_PARAMETERS_FLAGS,
 }
-impl Copy for OPERATION_END_PARAMETERS {}
-impl Clone for OPERATION_END_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OPERATION_START_PARAMETERS {
     pub Version: u32,
     pub OperationId: u32,
     pub Flags: OPERATION_START_FLAGS,
-}
-impl Copy for OPERATION_START_PARAMETERS {}
-impl Clone for OPERATION_START_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

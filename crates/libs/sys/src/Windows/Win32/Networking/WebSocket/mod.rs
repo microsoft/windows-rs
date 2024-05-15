@@ -52,62 +52,37 @@ pub type WEB_SOCKET_BUFFER_TYPE = i32;
 pub type WEB_SOCKET_CLOSE_STATUS = i32;
 pub type WEB_SOCKET_PROPERTY_TYPE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WEB_SOCKET_BUFFER {
     pub Data: WEB_SOCKET_BUFFER_1,
     pub CloseStatus: WEB_SOCKET_BUFFER_0,
 }
-impl Copy for WEB_SOCKET_BUFFER {}
-impl Clone for WEB_SOCKET_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WEB_SOCKET_BUFFER_0 {
     pub pbReason: *mut u8,
     pub ulReasonLength: u32,
     pub usStatus: u16,
 }
-impl Copy for WEB_SOCKET_BUFFER_0 {}
-impl Clone for WEB_SOCKET_BUFFER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WEB_SOCKET_BUFFER_1 {
     pub pbBuffer: *mut u8,
     pub ulBufferLength: u32,
 }
-impl Copy for WEB_SOCKET_BUFFER_1 {}
-impl Clone for WEB_SOCKET_BUFFER_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type WEB_SOCKET_HANDLE = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WEB_SOCKET_HTTP_HEADER {
     pub pcName: windows_sys::core::PSTR,
     pub ulNameLength: u32,
     pub pcValue: windows_sys::core::PSTR,
     pub ulValueLength: u32,
 }
-impl Copy for WEB_SOCKET_HTTP_HEADER {}
-impl Clone for WEB_SOCKET_HTTP_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WEB_SOCKET_PROPERTY {
     pub Type: WEB_SOCKET_PROPERTY_TYPE,
     pub pvValue: *mut core::ffi::c_void,
     pub ulValueSize: u32,
-}
-impl Copy for WEB_SOCKET_PROPERTY {}
-impl Clone for WEB_SOCKET_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

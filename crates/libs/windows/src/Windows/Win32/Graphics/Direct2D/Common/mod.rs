@@ -261,93 +261,45 @@ impl core::fmt::Debug for D2D1_TURBULENCE_NOISE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_BEZIER_SEGMENT {
     pub point1: D2D_POINT_2F,
     pub point2: D2D_POINT_2F,
     pub point3: D2D_POINT_2F,
 }
-impl Copy for D2D1_BEZIER_SEGMENT {}
-impl Clone for D2D1_BEZIER_SEGMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D1_BEZIER_SEGMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_BEZIER_SEGMENT").field("point1", &self.point1).field("point2", &self.point2).field("point3", &self.point3).finish()
-    }
-}
 impl windows_core::TypeKind for D2D1_BEZIER_SEGMENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D1_BEZIER_SEGMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.point1 == other.point1 && self.point2 == other.point2 && self.point3 == other.point3
-    }
-}
-impl Eq for D2D1_BEZIER_SEGMENT {}
 impl Default for D2D1_BEZIER_SEGMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_COLOR_F {
     pub r: f32,
     pub g: f32,
     pub b: f32,
     pub a: f32,
 }
-impl Copy for D2D1_COLOR_F {}
-impl Clone for D2D1_COLOR_F {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D1_COLOR_F {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_COLOR_F").field("r", &self.r).field("g", &self.g).field("b", &self.b).field("a", &self.a).finish()
-    }
-}
 impl windows_core::TypeKind for D2D1_COLOR_F {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D1_COLOR_F {
-    fn eq(&self, other: &Self) -> bool {
-        self.r == other.r && self.g == other.g && self.b == other.b && self.a == other.a
-    }
-}
-impl Eq for D2D1_COLOR_F {}
 impl Default for D2D1_COLOR_F {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D1_GRADIENT_STOP {
     pub position: f32,
     pub color: D2D1_COLOR_F,
 }
-impl Copy for D2D1_GRADIENT_STOP {}
-impl Clone for D2D1_GRADIENT_STOP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D1_GRADIENT_STOP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_GRADIENT_STOP").field("position", &self.position).field("color", &self.color).finish()
-    }
-}
 impl windows_core::TypeKind for D2D1_GRADIENT_STOP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D1_GRADIENT_STOP {
-    fn eq(&self, other: &Self) -> bool {
-        self.position == other.position && self.color == other.color
-    }
-}
-impl Eq for D2D1_GRADIENT_STOP {}
 impl Default for D2D1_GRADIENT_STOP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -355,36 +307,15 @@ impl Default for D2D1_GRADIENT_STOP {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D2D1_PIXEL_FORMAT {
     pub format: super::super::Dxgi::Common::DXGI_FORMAT,
     pub alphaMode: D2D1_ALPHA_MODE,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D2D1_PIXEL_FORMAT {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D2D1_PIXEL_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D2D1_PIXEL_FORMAT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D1_PIXEL_FORMAT").field("format", &self.format).field("alphaMode", &self.alphaMode).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D2D1_PIXEL_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D2D1_PIXEL_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.format == other.format && self.alphaMode == other.alphaMode
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D2D1_PIXEL_FORMAT {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D2D1_PIXEL_FORMAT {
     fn default() -> Self {
@@ -392,46 +323,25 @@ impl Default for D2D1_PIXEL_FORMAT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D_COLOR_F {
     pub r: f32,
     pub g: f32,
     pub b: f32,
     pub a: f32,
 }
-impl Copy for D2D_COLOR_F {}
-impl Clone for D2D_COLOR_F {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D_COLOR_F {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D_COLOR_F").field("r", &self.r).field("g", &self.g).field("b", &self.b).field("a", &self.a).finish()
-    }
-}
 impl windows_core::TypeKind for D2D_COLOR_F {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D_COLOR_F {
-    fn eq(&self, other: &Self) -> bool {
-        self.r == other.r && self.g == other.g && self.b == other.b && self.a == other.a
-    }
-}
-impl Eq for D2D_COLOR_F {}
 impl Default for D2D_COLOR_F {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D2D_MATRIX_4X3_F {
     pub Anonymous: D2D_MATRIX_4X3_F_0,
-}
-impl Copy for D2D_MATRIX_4X3_F {}
-impl Clone for D2D_MATRIX_4X3_F {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D2D_MATRIX_4X3_F {
     type TypeKind = windows_core::CopyType;
@@ -442,15 +352,10 @@ impl Default for D2D_MATRIX_4X3_F {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D2D_MATRIX_4X3_F_0 {
     pub Anonymous: D2D_MATRIX_4X3_F_0_0,
     pub m: [f32; 12],
-}
-impl Copy for D2D_MATRIX_4X3_F_0 {}
-impl Clone for D2D_MATRIX_4X3_F_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D2D_MATRIX_4X3_F_0 {
     type TypeKind = windows_core::CopyType;
@@ -461,6 +366,7 @@ impl Default for D2D_MATRIX_4X3_F_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D_MATRIX_4X3_F_0_0 {
     pub _11: f32,
     pub _12: f32,
@@ -475,40 +381,18 @@ pub struct D2D_MATRIX_4X3_F_0_0 {
     pub _42: f32,
     pub _43: f32,
 }
-impl Copy for D2D_MATRIX_4X3_F_0_0 {}
-impl Clone for D2D_MATRIX_4X3_F_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D_MATRIX_4X3_F_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D_MATRIX_4X3_F_0_0").field("_11", &self._11).field("_12", &self._12).field("_13", &self._13).field("_21", &self._21).field("_22", &self._22).field("_23", &self._23).field("_31", &self._31).field("_32", &self._32).field("_33", &self._33).field("_41", &self._41).field("_42", &self._42).field("_43", &self._43).finish()
-    }
-}
 impl windows_core::TypeKind for D2D_MATRIX_4X3_F_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D_MATRIX_4X3_F_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._11 == other._11 && self._12 == other._12 && self._13 == other._13 && self._21 == other._21 && self._22 == other._22 && self._23 == other._23 && self._31 == other._31 && self._32 == other._32 && self._33 == other._33 && self._41 == other._41 && self._42 == other._42 && self._43 == other._43
-    }
-}
-impl Eq for D2D_MATRIX_4X3_F_0_0 {}
 impl Default for D2D_MATRIX_4X3_F_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D2D_MATRIX_4X4_F {
     pub Anonymous: D2D_MATRIX_4X4_F_0,
-}
-impl Copy for D2D_MATRIX_4X4_F {}
-impl Clone for D2D_MATRIX_4X4_F {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D2D_MATRIX_4X4_F {
     type TypeKind = windows_core::CopyType;
@@ -519,15 +403,10 @@ impl Default for D2D_MATRIX_4X4_F {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D2D_MATRIX_4X4_F_0 {
     pub Anonymous: D2D_MATRIX_4X4_F_0_0,
     pub m: [f32; 16],
-}
-impl Copy for D2D_MATRIX_4X4_F_0 {}
-impl Clone for D2D_MATRIX_4X4_F_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D2D_MATRIX_4X4_F_0 {
     type TypeKind = windows_core::CopyType;
@@ -538,6 +417,7 @@ impl Default for D2D_MATRIX_4X4_F_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D_MATRIX_4X4_F_0_0 {
     pub _11: f32,
     pub _12: f32,
@@ -556,40 +436,18 @@ pub struct D2D_MATRIX_4X4_F_0_0 {
     pub _43: f32,
     pub _44: f32,
 }
-impl Copy for D2D_MATRIX_4X4_F_0_0 {}
-impl Clone for D2D_MATRIX_4X4_F_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D_MATRIX_4X4_F_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D_MATRIX_4X4_F_0_0").field("_11", &self._11).field("_12", &self._12).field("_13", &self._13).field("_14", &self._14).field("_21", &self._21).field("_22", &self._22).field("_23", &self._23).field("_24", &self._24).field("_31", &self._31).field("_32", &self._32).field("_33", &self._33).field("_34", &self._34).field("_41", &self._41).field("_42", &self._42).field("_43", &self._43).field("_44", &self._44).finish()
-    }
-}
 impl windows_core::TypeKind for D2D_MATRIX_4X4_F_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D_MATRIX_4X4_F_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._11 == other._11 && self._12 == other._12 && self._13 == other._13 && self._14 == other._14 && self._21 == other._21 && self._22 == other._22 && self._23 == other._23 && self._24 == other._24 && self._31 == other._31 && self._32 == other._32 && self._33 == other._33 && self._34 == other._34 && self._41 == other._41 && self._42 == other._42 && self._43 == other._43 && self._44 == other._44
-    }
-}
-impl Eq for D2D_MATRIX_4X4_F_0_0 {}
 impl Default for D2D_MATRIX_4X4_F_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D2D_MATRIX_5X4_F {
     pub Anonymous: D2D_MATRIX_5X4_F_0,
-}
-impl Copy for D2D_MATRIX_5X4_F {}
-impl Clone for D2D_MATRIX_5X4_F {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D2D_MATRIX_5X4_F {
     type TypeKind = windows_core::CopyType;
@@ -600,15 +458,10 @@ impl Default for D2D_MATRIX_5X4_F {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D2D_MATRIX_5X4_F_0 {
     pub Anonymous: D2D_MATRIX_5X4_F_0_0,
     pub m: [f32; 20],
-}
-impl Copy for D2D_MATRIX_5X4_F_0 {}
-impl Clone for D2D_MATRIX_5X4_F_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D2D_MATRIX_5X4_F_0 {
     type TypeKind = windows_core::CopyType;
@@ -619,6 +472,7 @@ impl Default for D2D_MATRIX_5X4_F_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D_MATRIX_5X4_F_0_0 {
     pub _11: f32,
     pub _12: f32,
@@ -641,324 +495,142 @@ pub struct D2D_MATRIX_5X4_F_0_0 {
     pub _53: f32,
     pub _54: f32,
 }
-impl Copy for D2D_MATRIX_5X4_F_0_0 {}
-impl Clone for D2D_MATRIX_5X4_F_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D_MATRIX_5X4_F_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D_MATRIX_5X4_F_0_0")
-            .field("_11", &self._11)
-            .field("_12", &self._12)
-            .field("_13", &self._13)
-            .field("_14", &self._14)
-            .field("_21", &self._21)
-            .field("_22", &self._22)
-            .field("_23", &self._23)
-            .field("_24", &self._24)
-            .field("_31", &self._31)
-            .field("_32", &self._32)
-            .field("_33", &self._33)
-            .field("_34", &self._34)
-            .field("_41", &self._41)
-            .field("_42", &self._42)
-            .field("_43", &self._43)
-            .field("_44", &self._44)
-            .field("_51", &self._51)
-            .field("_52", &self._52)
-            .field("_53", &self._53)
-            .field("_54", &self._54)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for D2D_MATRIX_5X4_F_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D_MATRIX_5X4_F_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._11 == other._11 && self._12 == other._12 && self._13 == other._13 && self._14 == other._14 && self._21 == other._21 && self._22 == other._22 && self._23 == other._23 && self._24 == other._24 && self._31 == other._31 && self._32 == other._32 && self._33 == other._33 && self._34 == other._34 && self._41 == other._41 && self._42 == other._42 && self._43 == other._43 && self._44 == other._44 && self._51 == other._51 && self._52 == other._52 && self._53 == other._53 && self._54 == other._54
-    }
-}
-impl Eq for D2D_MATRIX_5X4_F_0_0 {}
 impl Default for D2D_MATRIX_5X4_F_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D_POINT_2F {
     pub x: f32,
     pub y: f32,
 }
-impl Copy for D2D_POINT_2F {}
-impl Clone for D2D_POINT_2F {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D_POINT_2F {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D_POINT_2F").field("x", &self.x).field("y", &self.y).finish()
-    }
-}
 impl windows_core::TypeKind for D2D_POINT_2F {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D_POINT_2F {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y
-    }
-}
-impl Eq for D2D_POINT_2F {}
 impl Default for D2D_POINT_2F {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D2D_POINT_2U {
     pub x: u32,
     pub y: u32,
 }
-impl Copy for D2D_POINT_2U {}
-impl Clone for D2D_POINT_2U {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D_POINT_2U {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D_POINT_2U").field("x", &self.x).field("y", &self.y).finish()
-    }
-}
 impl windows_core::TypeKind for D2D_POINT_2U {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D_POINT_2U {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y
-    }
-}
-impl Eq for D2D_POINT_2U {}
 impl Default for D2D_POINT_2U {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D_RECT_F {
     pub left: f32,
     pub top: f32,
     pub right: f32,
     pub bottom: f32,
 }
-impl Copy for D2D_RECT_F {}
-impl Clone for D2D_RECT_F {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D_RECT_F {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D_RECT_F").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
-    }
-}
 impl windows_core::TypeKind for D2D_RECT_F {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D_RECT_F {
-    fn eq(&self, other: &Self) -> bool {
-        self.left == other.left && self.top == other.top && self.right == other.right && self.bottom == other.bottom
-    }
-}
-impl Eq for D2D_RECT_F {}
 impl Default for D2D_RECT_F {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D2D_RECT_U {
     pub left: u32,
     pub top: u32,
     pub right: u32,
     pub bottom: u32,
 }
-impl Copy for D2D_RECT_U {}
-impl Clone for D2D_RECT_U {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D_RECT_U {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D_RECT_U").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
-    }
-}
 impl windows_core::TypeKind for D2D_RECT_U {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D_RECT_U {
-    fn eq(&self, other: &Self) -> bool {
-        self.left == other.left && self.top == other.top && self.right == other.right && self.bottom == other.bottom
-    }
-}
-impl Eq for D2D_RECT_U {}
 impl Default for D2D_RECT_U {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D_SIZE_F {
     pub width: f32,
     pub height: f32,
 }
-impl Copy for D2D_SIZE_F {}
-impl Clone for D2D_SIZE_F {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D_SIZE_F {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D_SIZE_F").field("width", &self.width).field("height", &self.height).finish()
-    }
-}
 impl windows_core::TypeKind for D2D_SIZE_F {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D_SIZE_F {
-    fn eq(&self, other: &Self) -> bool {
-        self.width == other.width && self.height == other.height
-    }
-}
-impl Eq for D2D_SIZE_F {}
 impl Default for D2D_SIZE_F {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D2D_SIZE_U {
     pub width: u32,
     pub height: u32,
 }
-impl Copy for D2D_SIZE_U {}
-impl Clone for D2D_SIZE_U {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D_SIZE_U {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D_SIZE_U").field("width", &self.width).field("height", &self.height).finish()
-    }
-}
 impl windows_core::TypeKind for D2D_SIZE_U {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D_SIZE_U {
-    fn eq(&self, other: &Self) -> bool {
-        self.width == other.width && self.height == other.height
-    }
-}
-impl Eq for D2D_SIZE_U {}
 impl Default for D2D_SIZE_U {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D_VECTOR_2F {
     pub x: f32,
     pub y: f32,
 }
-impl Copy for D2D_VECTOR_2F {}
-impl Clone for D2D_VECTOR_2F {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D_VECTOR_2F {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D_VECTOR_2F").field("x", &self.x).field("y", &self.y).finish()
-    }
-}
 impl windows_core::TypeKind for D2D_VECTOR_2F {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D_VECTOR_2F {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y
-    }
-}
-impl Eq for D2D_VECTOR_2F {}
 impl Default for D2D_VECTOR_2F {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D_VECTOR_3F {
     pub x: f32,
     pub y: f32,
     pub z: f32,
 }
-impl Copy for D2D_VECTOR_3F {}
-impl Clone for D2D_VECTOR_3F {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D_VECTOR_3F {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D_VECTOR_3F").field("x", &self.x).field("y", &self.y).field("z", &self.z).finish()
-    }
-}
 impl windows_core::TypeKind for D2D_VECTOR_3F {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D_VECTOR_3F {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y && self.z == other.z
-    }
-}
-impl Eq for D2D_VECTOR_3F {}
 impl Default for D2D_VECTOR_3F {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D2D_VECTOR_4F {
     pub x: f32,
     pub y: f32,
     pub z: f32,
     pub w: f32,
 }
-impl Copy for D2D_VECTOR_4F {}
-impl Clone for D2D_VECTOR_4F {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D2D_VECTOR_4F {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D2D_VECTOR_4F").field("x", &self.x).field("y", &self.y).field("z", &self.z).field("w", &self.w).finish()
-    }
-}
 impl windows_core::TypeKind for D2D_VECTOR_4F {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D2D_VECTOR_4F {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y && self.z == other.z && self.w == other.w
-    }
-}
-impl Eq for D2D_VECTOR_4F {}
 impl Default for D2D_VECTOR_4F {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

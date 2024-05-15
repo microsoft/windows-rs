@@ -6,14 +6,9 @@
     clippy::all
 )]
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CALPOLESTR {
     pub cElems: u32,
     pub pElems: *mut PWSTR,
-}
-impl Copy for CALPOLESTR {}
-impl Clone for CALPOLESTR {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type PWSTR = *mut u16;

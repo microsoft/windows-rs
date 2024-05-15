@@ -1664,6 +1664,7 @@ pub type TELEPHONY_CALLTYPE = i32;
 pub type TELEPHONY_PROVIDERCHANGEOP = i32;
 pub type TunerLockType = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ALLOCATOR_PROPERTIES_EX {
     pub cBuffers: i32,
     pub cbBuffer: i32,
@@ -1687,24 +1688,13 @@ pub struct ALLOCATOR_PROPERTIES_EX {
     pub InsideFactors: u32,
     pub NumberPins: u32,
 }
-impl Copy for ALLOCATOR_PROPERTIES_EX {}
-impl Clone for ALLOCATOR_PROPERTIES_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const APO_CLASS_UUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5989fce8_9cd0_467d_8a6a_5419e31529d4);
 pub const AUDIOENDPOINT_CLASS_UUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc166523c_fe0c_4a94_a586_f1a80cfbbf3e);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
     pub ResourceGroupAcquired: super::super::Foundation::BOOL,
     pub ResourceGroupName: [u16; 256],
-}
-impl Copy for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {}
-impl Clone for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const AUDIO_EFFECT_TYPE_ACOUSTIC_ECHO_CANCELLATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f64adbe_8211_11e2_8c70_2c27d7f001fa);
 pub const AUDIO_EFFECT_TYPE_AUTOMATIC_GAIN_CONTROL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6f64adc0_8211_11e2_8c70_2c27d7f001fa);
@@ -1736,32 +1726,23 @@ pub const AUDIO_SIGNALPROCESSINGMODE_SPEECH: windows_sys::core::GUID = windows_s
 pub const BLUETOOTHLE_MIDI_SERVICE_UUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x03b80e5a_ede8_4b33_a751_6ce34ec4c700);
 pub const BLUETOOTH_MIDI_DATAIO_CHARACTERISTIC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7772e5db_3868_4112_a1a9_f2669d106bf3);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CC_BYTE_PAIR {
     pub Decoded: [u8; 2],
     pub Reserved: u16,
 }
-impl Copy for CC_BYTE_PAIR {}
-impl Clone for CC_BYTE_PAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CC_HW_FIELD {
     pub ScanlinesRequested: VBICODECFILTERING_SCANLINES,
     pub fieldFlags: u32,
     pub PictureNumber: i64,
     pub Lines: [CC_BYTE_PAIR; 12],
 }
-impl Copy for CC_HW_FIELD {}
-impl Clone for CC_HW_FIELD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const CLSID_KsIBasicAudioInterfaceHandler: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb9f8ac3e_0f71_11d2_b72c_00c04fb6bd3d);
 pub const CLSID_Proxy: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x17cca71b_ecd7_11d0_b908_00a0c9223196);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVCAPS {
     pub CanRecord: i32,
     pub CanRecordStrobe: i32,
@@ -1787,56 +1768,30 @@ pub struct DEVCAPS {
     pub SeekType: i32,
     pub SimulatedHardware: i32,
 }
-impl Copy for DEVCAPS {}
-impl Clone for DEVCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DS3DVECTOR {
     pub Anonymous1: DS3DVECTOR_0,
     pub Anonymous2: DS3DVECTOR_1,
     pub Anonymous3: DS3DVECTOR_2,
 }
-impl Copy for DS3DVECTOR {}
-impl Clone for DS3DVECTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DS3DVECTOR_0 {
     pub x: f32,
     pub dvX: f32,
 }
-impl Copy for DS3DVECTOR_0 {}
-impl Clone for DS3DVECTOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DS3DVECTOR_1 {
     pub y: f32,
     pub dvY: f32,
 }
-impl Copy for DS3DVECTOR_1 {}
-impl Clone for DS3DVECTOR_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DS3DVECTOR_2 {
     pub z: f32,
     pub dvZ: f32,
-}
-impl Copy for DS3DVECTOR_2 {}
-impl Clone for DS3DVECTOR_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const EVENTSETID_CROSSBAR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a2e0641_28e4_11d0_a18c_00a0c9118956);
 pub const EVENTSETID_TUNER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a2e0606_28e4_11d0_a18c_00a0c9118956);
@@ -1844,6 +1799,7 @@ pub const EVENTSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST: windows_sys::core:
 pub const EVENTSETID_VIDEODECODER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a2e0621_28e4_11d0_a18c_00a0c9118956);
 pub const GUID_NULL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERLEAVED_AUDIO_FORMAT_INFORMATION {
     pub Size: u32,
     pub PrimaryChannelCount: u32,
@@ -1853,80 +1809,45 @@ pub struct INTERLEAVED_AUDIO_FORMAT_INFORMATION {
     pub InterleavedChannelStartPosition: u32,
     pub InterleavedChannelMask: u32,
 }
-impl Copy for INTERLEAVED_AUDIO_FORMAT_INFORMATION {}
-impl Clone for INTERLEAVED_AUDIO_FORMAT_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAC3_ALTERNATE_AUDIO {
     pub fStereo: super::super::Foundation::BOOL,
     pub DualMode: u32,
 }
-impl Copy for KSAC3_ALTERNATE_AUDIO {}
-impl Clone for KSAC3_ALTERNATE_AUDIO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAC3_BIT_STREAM_MODE {
     pub BitStreamMode: i32,
 }
-impl Copy for KSAC3_BIT_STREAM_MODE {}
-impl Clone for KSAC3_BIT_STREAM_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAC3_DIALOGUE_LEVEL {
     pub DialogueLevel: u32,
 }
-impl Copy for KSAC3_DIALOGUE_LEVEL {}
-impl Clone for KSAC3_DIALOGUE_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAC3_DOWNMIX {
     pub fDownMix: super::super::Foundation::BOOL,
     pub fDolbySurround: super::super::Foundation::BOOL,
 }
-impl Copy for KSAC3_DOWNMIX {}
-impl Clone for KSAC3_DOWNMIX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAC3_ERROR_CONCEALMENT {
     pub fRepeatPreviousBlock: super::super::Foundation::BOOL,
     pub fErrorInCurrentBlock: super::super::Foundation::BOOL,
 }
-impl Copy for KSAC3_ERROR_CONCEALMENT {}
-impl Clone for KSAC3_ERROR_CONCEALMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAC3_ROOM_TYPE {
     pub fLargeRoom: super::super::Foundation::BOOL,
-}
-impl Copy for KSAC3_ROOM_TYPE {}
-impl Clone for KSAC3_ROOM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const KSALGORITHMINSTANCE_SYSTEM_ACOUSTIC_ECHO_CANCEL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1c22c56d_9879_4f5b_a389_27996ddc2810);
 pub const KSALGORITHMINSTANCE_SYSTEM_AGC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x950e55b9_877c_4c67_be08_e47b5611130a);
 pub const KSALGORITHMINSTANCE_SYSTEM_MICROPHONE_ARRAY_PROCESSOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb6f5a0a0_9e61_4f8c_91e3_76cf0f3c471f);
 pub const KSALGORITHMINSTANCE_SYSTEM_NOISE_SUPPRESS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5ab0882e_7274_4516_877d_4eee99ba4fd0);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSALLOCATOR_FRAMING {
     pub Anonymous1: KSALLOCATOR_FRAMING_0,
     pub PoolType: u32,
@@ -1935,35 +1856,20 @@ pub struct KSALLOCATOR_FRAMING {
     pub Anonymous2: KSALLOCATOR_FRAMING_1,
     pub Reserved: u32,
 }
-impl Copy for KSALLOCATOR_FRAMING {}
-impl Clone for KSALLOCATOR_FRAMING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KSALLOCATOR_FRAMING_0 {
     pub OptionsFlags: u32,
     pub RequirementsFlags: u32,
 }
-impl Copy for KSALLOCATOR_FRAMING_0 {}
-impl Clone for KSALLOCATOR_FRAMING_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KSALLOCATOR_FRAMING_1 {
     pub FileAlignment: u32,
     pub FramePitch: i32,
 }
-impl Copy for KSALLOCATOR_FRAMING_1 {}
-impl Clone for KSALLOCATOR_FRAMING_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSALLOCATOR_FRAMING_EX {
     pub CountItems: u32,
     pub PinFlags: u32,
@@ -1971,35 +1877,19 @@ pub struct KSALLOCATOR_FRAMING_EX {
     pub PinWeight: u32,
     pub FramingItem: [KS_FRAMING_ITEM; 1],
 }
-impl Copy for KSALLOCATOR_FRAMING_EX {}
-impl Clone for KSALLOCATOR_FRAMING_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSATTRIBUTE {
     pub Size: u32,
     pub Flags: u32,
     pub Attribute: windows_sys::core::GUID,
 }
-impl Copy for KSATTRIBUTE {}
-impl Clone for KSATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const KSATTRIBUTEID_AUDIOSIGNALPROCESSING_MODE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe1f89eb5_5f46_419b_967b_ff6770b98401);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {
     pub AttributeHeader: KSATTRIBUTE,
     pub SignalProcessingMode: windows_sys::core::GUID,
-}
-impl Copy for KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {}
-impl Clone for KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const KSAUDFNAME_3D_CENTER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9f0670b4_991f_11d2_ac4d_00c04f8efb68);
 pub const KSAUDFNAME_3D_DEPTH: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x63ff5747_991f_11d2_ac4d_00c04f8efb68);
@@ -2053,53 +1943,34 @@ pub const KSAUDFNAME_WAVE_MUTE: windows_sys::core::GUID = windows_sys::core::GUI
 pub const KSAUDFNAME_WAVE_OUT_MIX: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fee00_9905_11d1_95a9_00c04fb925d3);
 pub const KSAUDFNAME_WAVE_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x185fede5_9905_11d1_95a9_00c04fb925d3);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAUDIOENGINE_BUFFER_SIZE_RANGE {
     pub MinBufferBytes: u32,
     pub MaxBufferBytes: u32,
 }
-impl Copy for KSAUDIOENGINE_BUFFER_SIZE_RANGE {}
-impl Clone for KSAUDIOENGINE_BUFFER_SIZE_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAUDIOENGINE_DESCRIPTOR {
     pub nHostPinId: u32,
     pub nOffloadPinId: u32,
     pub nLoopbackPinId: u32,
 }
-impl Copy for KSAUDIOENGINE_DESCRIPTOR {}
-impl Clone for KSAUDIOENGINE_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAUDIOENGINE_DEVICECONTROLS {
     pub Volume: EDeviceControlUseType,
     pub Mute: EDeviceControlUseType,
     pub PeakMeter: EDeviceControlUseType,
 }
-impl Copy for KSAUDIOENGINE_DEVICECONTROLS {}
-impl Clone for KSAUDIOENGINE_DEVICECONTROLS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAUDIOENGINE_VOLUMELEVEL {
     pub TargetVolume: i32,
     pub CurveType: AUDIO_CURVE_TYPE,
     pub CurveDuration: u64,
 }
-impl Copy for KSAUDIOENGINE_VOLUMELEVEL {}
-impl Clone for KSAUDIOENGINE_VOLUMELEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAUDIOMODULE_DESCRIPTOR {
     pub ClassId: windows_sys::core::GUID,
     pub InstanceId: u32,
@@ -2107,91 +1978,51 @@ pub struct KSAUDIOMODULE_DESCRIPTOR {
     pub VersionMinor: u32,
     pub Name: [u16; 128],
 }
-impl Copy for KSAUDIOMODULE_DESCRIPTOR {}
-impl Clone for KSAUDIOMODULE_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAUDIOMODULE_NOTIFICATION {
     pub Anonymous: KSAUDIOMODULE_NOTIFICATION_0,
 }
-impl Copy for KSAUDIOMODULE_NOTIFICATION {}
-impl Clone for KSAUDIOMODULE_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KSAUDIOMODULE_NOTIFICATION_0 {
     pub ProviderId: KSAUDIOMODULE_NOTIFICATION_0_0,
     pub Alignment: i64,
 }
-impl Copy for KSAUDIOMODULE_NOTIFICATION_0 {}
-impl Clone for KSAUDIOMODULE_NOTIFICATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAUDIOMODULE_NOTIFICATION_0_0 {
     pub DeviceId: windows_sys::core::GUID,
     pub ClassId: windows_sys::core::GUID,
     pub InstanceId: u32,
     pub Reserved: u32,
 }
-impl Copy for KSAUDIOMODULE_NOTIFICATION_0_0 {}
-impl Clone for KSAUDIOMODULE_NOTIFICATION_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAUDIOMODULE_PROPERTY {
     pub Property: KSIDENTIFIER,
     pub ClassId: windows_sys::core::GUID,
     pub InstanceId: u32,
 }
-impl Copy for KSAUDIOMODULE_PROPERTY {}
-impl Clone for KSAUDIOMODULE_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAUDIO_CHANNEL_CONFIG {
     pub ActiveSpeakerPositions: i32,
 }
-impl Copy for KSAUDIO_CHANNEL_CONFIG {}
-impl Clone for KSAUDIO_CHANNEL_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAUDIO_COPY_PROTECTION {
     pub fCopyrighted: super::super::Foundation::BOOL,
     pub fOriginal: super::super::Foundation::BOOL,
 }
-impl Copy for KSAUDIO_COPY_PROTECTION {}
-impl Clone for KSAUDIO_COPY_PROTECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAUDIO_DYNAMIC_RANGE {
     pub QuietCompression: u32,
     pub LoudCompression: u32,
 }
-impl Copy for KSAUDIO_DYNAMIC_RANGE {}
-impl Clone for KSAUDIO_DYNAMIC_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAUDIO_MICROPHONE_COORDINATES {
     pub usType: u16,
     pub wXCoord: i16,
@@ -2200,13 +2031,8 @@ pub struct KSAUDIO_MICROPHONE_COORDINATES {
     pub wVerticalAngle: i16,
     pub wHorizontalAngle: i16,
 }
-impl Copy for KSAUDIO_MICROPHONE_COORDINATES {}
-impl Clone for KSAUDIO_MICROPHONE_COORDINATES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAUDIO_MIC_ARRAY_GEOMETRY {
     pub usVersion: u16,
     pub usMicArrayType: u16,
@@ -2219,60 +2045,35 @@ pub struct KSAUDIO_MIC_ARRAY_GEOMETRY {
     pub usNumberOfMicrophones: u16,
     pub KsMicCoord: [KSAUDIO_MICROPHONE_COORDINATES; 1],
 }
-impl Copy for KSAUDIO_MIC_ARRAY_GEOMETRY {}
-impl Clone for KSAUDIO_MIC_ARRAY_GEOMETRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAUDIO_MIXCAP_TABLE {
     pub InputChannels: u32,
     pub OutputChannels: u32,
     pub Capabilities: [KSAUDIO_MIX_CAPS; 1],
 }
-impl Copy for KSAUDIO_MIXCAP_TABLE {}
-impl Clone for KSAUDIO_MIXCAP_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAUDIO_MIXLEVEL {
     pub Mute: super::super::Foundation::BOOL,
     pub Level: i32,
 }
-impl Copy for KSAUDIO_MIXLEVEL {}
-impl Clone for KSAUDIO_MIXLEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAUDIO_MIX_CAPS {
     pub Mute: super::super::Foundation::BOOL,
     pub Minimum: i32,
     pub Maximum: i32,
     pub Anonymous: KSAUDIO_MIX_CAPS_0,
 }
-impl Copy for KSAUDIO_MIX_CAPS {}
-impl Clone for KSAUDIO_MIX_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KSAUDIO_MIX_CAPS_0 {
     pub Reset: i32,
     pub Resolution: i32,
 }
-impl Copy for KSAUDIO_MIX_CAPS_0 {}
-impl Clone for KSAUDIO_MIX_CAPS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAUDIO_PACKETSIZE_CONSTRAINTS {
     pub MinPacketPeriodInHns: u32,
     pub PacketSizeFileAlignment: u32,
@@ -2280,13 +2081,8 @@ pub struct KSAUDIO_PACKETSIZE_CONSTRAINTS {
     pub NumProcessingModeConstraints: u32,
     pub ProcessingModeConstraints: [KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT; 1],
 }
-impl Copy for KSAUDIO_PACKETSIZE_CONSTRAINTS {}
-impl Clone for KSAUDIO_PACKETSIZE_CONSTRAINTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
     pub MinPacketPeriodInHns: u32,
     pub PacketSizeFileAlignment: u32,
@@ -2294,58 +2090,32 @@ pub struct KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
     pub NumProcessingModeConstraints: u32,
     pub ProcessingModeConstraints: [KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT; 1],
 }
-impl Copy for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {}
-impl Clone for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
     pub ProcessingMode: windows_sys::core::GUID,
     pub SamplesPerProcessingPacket: u32,
     pub ProcessingPacketDurationInHns: u32,
 }
-impl Copy for KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {}
-impl Clone for KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAUDIO_POSITION {
     pub PlayOffset: u64,
     pub WriteOffset: u64,
 }
-impl Copy for KSAUDIO_POSITION {}
-impl Clone for KSAUDIO_POSITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAUDIO_POSITIONEX {
     pub TimerFrequency: i64,
     pub TimeStamp1: i64,
     pub Position: KSAUDIO_POSITION,
     pub TimeStamp2: i64,
 }
-impl Copy for KSAUDIO_POSITIONEX {}
-impl Clone for KSAUDIO_POSITIONEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSAUDIO_PRESENTATION_POSITION {
     pub u64PositionInBlocks: u64,
     pub u64QPCPosition: u64,
-}
-impl Copy for KSAUDIO_PRESENTATION_POSITION {}
-impl Clone for KSAUDIO_PRESENTATION_POSITION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const KSCAMERAPROFILE_BalancedVideoAndPhoto: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6b52b017_42c7_4a21_bfe3_23f009149887);
 pub const KSCAMERAPROFILE_CompressedCamera: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0e34cdc1_27ad_437f_abde_02b629f37b44);
@@ -2361,43 +2131,29 @@ pub const KSCAMERAPROFILE_VideoConferencing: windows_sys::core::GUID = windows_s
 pub const KSCAMERAPROFILE_VideoHDR8: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd4f3f4ec_bdff_4314_b1d4_008e281f74e7);
 pub const KSCAMERAPROFILE_VideoRecording: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa0e517e8_8f8c_4f6f_9a57_46fc2f647ec0);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS {
     pub Resolution: super::super::Foundation::SIZE,
     pub MaxFrameRate: KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0,
     pub MaskResolution: super::super::Foundation::SIZE,
     pub SubType: windows_sys::core::GUID,
 }
-impl Copy for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS {}
-impl Clone for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {
     pub Numerator: i32,
     pub Denominator: i32,
 }
-impl Copy for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {}
-impl Clone for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_CAMERAOFFSET {
     pub PitchAngle: i32,
     pub YawAngle: i32,
     pub Flag: u32,
     pub Reserved: u32,
 }
-impl Copy for KSCAMERA_EXTENDEDPROP_CAMERAOFFSET {}
-impl Clone for KSCAMERA_EXTENDEDPROP_CAMERAOFFSET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {
     pub ResolutionX: i32,
     pub ResolutionY: i32,
@@ -2410,37 +2166,22 @@ pub struct KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {
     pub MaxWindowSize: i32,
     pub Reserved: i32,
 }
-impl Copy for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {}
-impl Clone for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER {
     pub Size: u32,
     pub Count: u32,
 }
-impl Copy for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER {}
-impl Clone for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {
     pub OriginX: i32,
     pub OriginY: i32,
     pub WindowSize: i32,
     pub Reserved: u32,
 }
-impl Copy for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {}
-impl Clone for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_EVCOMPENSATION {
     pub Mode: u32,
     pub Min: i32,
@@ -2448,26 +2189,16 @@ pub struct KSCAMERA_EXTENDEDPROP_EVCOMPENSATION {
     pub Value: i32,
     pub Reserved: u64,
 }
-impl Copy for KSCAMERA_EXTENDEDPROP_EVCOMPENSATION {}
-impl Clone for KSCAMERA_EXTENDEDPROP_EVCOMPENSATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_FIELDOFVIEW {
     pub NormalizedFocalLengthX: u32,
     pub NormalizedFocalLengthY: u32,
     pub Flag: u32,
     pub Reserved: u32,
 }
-impl Copy for KSCAMERA_EXTENDEDPROP_FIELDOFVIEW {}
-impl Clone for KSCAMERA_EXTENDEDPROP_FIELDOFVIEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_HEADER {
     pub Version: u32,
     pub PinId: u32,
@@ -2476,154 +2207,89 @@ pub struct KSCAMERA_EXTENDEDPROP_HEADER {
     pub Flags: u64,
     pub Capability: u64,
 }
-impl Copy for KSCAMERA_EXTENDEDPROP_HEADER {}
-impl Clone for KSCAMERA_EXTENDEDPROP_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_METADATAINFO {
     pub BufferAlignment: i32,
     pub MaxMetadataBufferSize: u32,
 }
-impl Copy for KSCAMERA_EXTENDEDPROP_METADATAINFO {}
-impl Clone for KSCAMERA_EXTENDEDPROP_METADATAINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_PHOTOMODE {
     pub RequestedHistoryFrames: u32,
     pub MaxHistoryFrames: u32,
     pub SubMode: u32,
     pub Reserved: u32,
 }
-impl Copy for KSCAMERA_EXTENDEDPROP_PHOTOMODE {}
-impl Clone for KSCAMERA_EXTENDEDPROP_PHOTOMODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_PROFILE {
     pub ProfileId: windows_sys::core::GUID,
     pub Index: u32,
     pub Reserved: u32,
 }
-impl Copy for KSCAMERA_EXTENDEDPROP_PROFILE {}
-impl Clone for KSCAMERA_EXTENDEDPROP_PROFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS {
     pub ControlId: u32,
     pub MaxNumberOfROIs: u32,
     pub Capability: u64,
 }
-impl Copy for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS {}
-impl Clone for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {
     pub Size: u32,
     pub ConfigCapCount: u32,
     pub Reserved: u64,
 }
-impl Copy for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {}
-impl Clone for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE {
     pub ROIInfo: KSCAMERA_EXTENDEDPROP_ROI_INFO,
     pub Reserved: u64,
 }
-impl Copy for KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE {}
-impl Clone for KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_FOCUS {
     pub ROIInfo: KSCAMERA_EXTENDEDPROP_ROI_INFO,
     pub Reserved: u64,
 }
-impl Copy for KSCAMERA_EXTENDEDPROP_ROI_FOCUS {}
-impl Clone for KSCAMERA_EXTENDEDPROP_ROI_FOCUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_INFO {
     pub Region: super::super::Foundation::RECT,
     pub Flags: u64,
     pub Weight: i32,
     pub RegionOfInterestType: i32,
 }
-impl Copy for KSCAMERA_EXTENDEDPROP_ROI_INFO {}
-impl Clone for KSCAMERA_EXTENDEDPROP_ROI_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL {
     pub ControlId: u32,
     pub ROICount: u32,
     pub Result: u32,
     pub Reserved: u32,
 }
-impl Copy for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL {}
-impl Clone for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {
     pub Size: u32,
     pub ControlCount: u32,
     pub Reserved: u64,
 }
-impl Copy for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {}
-impl Clone for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {
     pub ROIInfo: KSCAMERA_EXTENDEDPROP_ROI_INFO,
     pub Reserved: u64,
 }
-impl Copy for KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {}
-impl Clone for KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_VALUE {
     pub Value: KSCAMERA_EXTENDEDPROP_VALUE_0,
 }
-impl Copy for KSCAMERA_EXTENDEDPROP_VALUE {}
-impl Clone for KSCAMERA_EXTENDEDPROP_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KSCAMERA_EXTENDEDPROP_VALUE_0 {
     pub dbl: f64,
     pub ull: u64,
@@ -2632,13 +2298,8 @@ pub union KSCAMERA_EXTENDEDPROP_VALUE_0 {
     pub l: i32,
     pub ll: i64,
 }
-impl Copy for KSCAMERA_EXTENDEDPROP_VALUE_0 {}
-impl Clone for KSCAMERA_EXTENDEDPROP_VALUE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
     pub Mode: u32,
     pub Min: i32,
@@ -2647,13 +2308,8 @@ pub struct KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
     pub VideoProc: KSCAMERA_EXTENDEDPROP_VALUE,
     pub Reserved: u64,
 }
-impl Copy for KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {}
-impl Clone for KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_MAXVIDEOFPS_FORPHOTORES {
     pub PhotoResWidth: u32,
     pub PhotoResHeight: u32,
@@ -2662,13 +2318,8 @@ pub struct KSCAMERA_MAXVIDEOFPS_FORPHOTORES {
     pub CaptureFPSNum: u32,
     pub CaptureFPSDenom: u32,
 }
-impl Copy for KSCAMERA_MAXVIDEOFPS_FORPHOTORES {}
-impl Clone for KSCAMERA_MAXVIDEOFPS_FORPHOTORES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {
     pub Header: KSCAMERA_METADATA_ITEMHEADER,
     pub MaskCoverageBoundingBox: super::super::Foundation::RECT,
@@ -2676,13 +2327,8 @@ pub struct KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {
     pub ForegroundBoundingBox: super::super::Foundation::RECT,
     pub MaskData: [u8; 1],
 }
-impl Copy for KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {}
-impl Clone for KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_METADATA_CAPTURESTATS {
     pub Header: KSCAMERA_METADATA_ITEMHEADER,
     pub Flags: u32,
@@ -2700,108 +2346,63 @@ pub struct KSCAMERA_METADATA_CAPTURESTATS {
     pub SceneMode: u64,
     pub SensorFramerate: u64,
 }
-impl Copy for KSCAMERA_METADATA_CAPTURESTATS {}
-impl Clone for KSCAMERA_METADATA_CAPTURESTATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_METADATA_DIGITALWINDOW {
     pub Header: KSCAMERA_METADATA_ITEMHEADER,
     pub Window: KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING,
 }
-impl Copy for KSCAMERA_METADATA_DIGITALWINDOW {}
-impl Clone for KSCAMERA_METADATA_DIGITALWINDOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_METADATA_FRAMEILLUMINATION {
     pub Header: KSCAMERA_METADATA_ITEMHEADER,
     pub Flags: u32,
     pub Reserved: u32,
 }
-impl Copy for KSCAMERA_METADATA_FRAMEILLUMINATION {}
-impl Clone for KSCAMERA_METADATA_FRAMEILLUMINATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_METADATA_ITEMHEADER {
     pub MetadataId: u32,
     pub Size: u32,
 }
-impl Copy for KSCAMERA_METADATA_ITEMHEADER {}
-impl Clone for KSCAMERA_METADATA_ITEMHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_METADATA_PHOTOCONFIRMATION {
     pub Header: KSCAMERA_METADATA_ITEMHEADER,
     pub PhotoConfirmationIndex: u32,
     pub Reserved: u32,
 }
-impl Copy for KSCAMERA_METADATA_PHOTOCONFIRMATION {}
-impl Clone for KSCAMERA_METADATA_PHOTOCONFIRMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_PERFRAMESETTING_CAP_HEADER {
     pub Size: u32,
     pub ItemCount: u32,
     pub Flags: u64,
 }
-impl Copy for KSCAMERA_PERFRAMESETTING_CAP_HEADER {}
-impl Clone for KSCAMERA_PERFRAMESETTING_CAP_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {
     pub Size: u32,
     pub Type: u32,
     pub Flags: u64,
 }
-impl Copy for KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {}
-impl Clone for KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {
     pub Size: u32,
     pub Reserved: u32,
     pub Id: windows_sys::core::GUID,
 }
-impl Copy for KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {}
-impl Clone for KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_PERFRAMESETTING_FRAME_HEADER {
     pub Size: u32,
     pub Id: u32,
     pub ItemCount: u32,
     pub Reserved: u32,
 }
-impl Copy for KSCAMERA_PERFRAMESETTING_FRAME_HEADER {}
-impl Clone for KSCAMERA_PERFRAMESETTING_FRAME_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_PERFRAMESETTING_HEADER {
     pub Size: u32,
     pub FrameCount: u32,
@@ -2810,51 +2411,31 @@ pub struct KSCAMERA_PERFRAMESETTING_HEADER {
     pub LoopCount: u32,
     pub Reserved: u32,
 }
-impl Copy for KSCAMERA_PERFRAMESETTING_HEADER {}
-impl Clone for KSCAMERA_PERFRAMESETTING_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_PERFRAMESETTING_ITEM_HEADER {
     pub Size: u32,
     pub Type: u32,
     pub Flags: u64,
 }
-impl Copy for KSCAMERA_PERFRAMESETTING_ITEM_HEADER {}
-impl Clone for KSCAMERA_PERFRAMESETTING_ITEM_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_PROFILE_CONCURRENCYINFO {
     pub ReferenceGuid: windows_sys::core::GUID,
     pub Reserved: u32,
     pub ProfileCount: u32,
     pub Profiles: *mut KSCAMERA_PROFILE_INFO,
 }
-impl Copy for KSCAMERA_PROFILE_CONCURRENCYINFO {}
-impl Clone for KSCAMERA_PROFILE_CONCURRENCYINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_PROFILE_INFO {
     pub ProfileId: windows_sys::core::GUID,
     pub Index: u32,
     pub PinCount: u32,
     pub Pins: *mut KSCAMERA_PROFILE_PININFO,
 }
-impl Copy for KSCAMERA_PROFILE_INFO {}
-impl Clone for KSCAMERA_PROFILE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_PROFILE_MEDIAINFO {
     pub Resolution: KSCAMERA_PROFILE_MEDIAINFO_1,
     pub MaxFrameRate: KSCAMERA_PROFILE_MEDIAINFO_0,
@@ -2864,68 +2445,37 @@ pub struct KSCAMERA_PROFILE_MEDIAINFO {
     pub Data2: u32,
     pub Data3: u32,
 }
-impl Copy for KSCAMERA_PROFILE_MEDIAINFO {}
-impl Clone for KSCAMERA_PROFILE_MEDIAINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_PROFILE_MEDIAINFO_0 {
     pub Numerator: u32,
     pub Denominator: u32,
 }
-impl Copy for KSCAMERA_PROFILE_MEDIAINFO_0 {}
-impl Clone for KSCAMERA_PROFILE_MEDIAINFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_PROFILE_MEDIAINFO_1 {
     pub X: u32,
     pub Y: u32,
 }
-impl Copy for KSCAMERA_PROFILE_MEDIAINFO_1 {}
-impl Clone for KSCAMERA_PROFILE_MEDIAINFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_PROFILE_PININFO {
     pub PinCategory: windows_sys::core::GUID,
     pub Anonymous: KSCAMERA_PROFILE_PININFO_0,
     pub MediaInfoCount: u32,
     pub MediaInfos: *mut KSCAMERA_PROFILE_MEDIAINFO,
 }
-impl Copy for KSCAMERA_PROFILE_PININFO {}
-impl Clone for KSCAMERA_PROFILE_PININFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KSCAMERA_PROFILE_PININFO_0 {
     pub Anonymous: KSCAMERA_PROFILE_PININFO_0_0,
     pub Reserved: u32,
 }
-impl Copy for KSCAMERA_PROFILE_PININFO_0 {}
-impl Clone for KSCAMERA_PROFILE_PININFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_PROFILE_PININFO_0_0 {
     pub PinIndex: u16,
     pub ProfileSensorType: u16,
-}
-impl Copy for KSCAMERA_PROFILE_PININFO_0_0 {}
-impl Clone for KSCAMERA_PROFILE_PININFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const KSCATEGORY_ACOUSTIC_ECHO_CANCEL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1);
 pub const KSCATEGORY_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6994ad04_93ef_11d0_a3cc_00a0c9223196);
@@ -2965,16 +2515,12 @@ pub const KSCATEGORY_VIRTUAL: windows_sys::core::GUID = windows_sys::core::GUID:
 pub const KSCATEGORY_VPMUX: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa799a803_a46d_11d0_a18c_00a02401dcd4);
 pub const KSCATEGORY_WDMAUD_USE_PIN_NAME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x47a4fa20_a251_11d1_a050_0000f8004788);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCLOCK_CREATE {
     pub CreateFlags: u32,
 }
-impl Copy for KSCLOCK_CREATE {}
-impl Clone for KSCLOCK_CREATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCOMPONENTID {
     pub Manufacturer: windows_sys::core::GUID,
     pub Product: windows_sys::core::GUID,
@@ -2983,36 +2529,21 @@ pub struct KSCOMPONENTID {
     pub Version: u32,
     pub Revision: u32,
 }
-impl Copy for KSCOMPONENTID {}
-impl Clone for KSCOMPONENTID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const KSCOMPONENTID_USBAUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8f1275f0_26e9_4264_ba4d_39fff01d94aa);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSCORRELATED_TIME {
     pub Time: i64,
     pub SystemTime: i64,
 }
-impl Copy for KSCORRELATED_TIME {}
-impl Clone for KSCORRELATED_TIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KSDATAFORMAT {
     pub Anonymous: KSDATAFORMAT_0,
     pub Alignment: i64,
 }
-impl Copy for KSDATAFORMAT {}
-impl Clone for KSDATAFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSDATAFORMAT_0 {
     pub FormatSize: u32,
     pub Flags: u32,
@@ -3021,12 +2552,6 @@ pub struct KSDATAFORMAT_0 {
     pub MajorFormat: windows_sys::core::GUID,
     pub SubFormat: windows_sys::core::GUID,
     pub Specifier: windows_sys::core::GUID,
-}
-impl Copy for KSDATAFORMAT_0 {}
-impl Clone for KSDATAFORMAT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const KSDATAFORMAT_SPECIFIER_AC3_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe06d80e4_db46_11cf_b4d1_00805f6cbbea);
 pub const KSDATAFORMAT_SPECIFIER_ANALOGVIDEO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0482dde0_7817_11cf_8a03_00aa006ecb65);
@@ -3142,6 +2667,7 @@ pub const KSDATAFORMAT_TYPE_TEXT: windows_sys::core::GUID = windows_sys::core::G
 pub const KSDATAFORMAT_TYPE_VBI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf72a76e1_eb0a_11d0_ace4_0000c0cc16ba);
 pub const KSDATAFORMAT_TYPE_VIDEO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x73646976_0000_0010_8000_00aa00389b71);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSDATARANGE_AUDIO {
     pub DataRange: KSDATAFORMAT,
     pub MaximumChannels: u32,
@@ -3150,13 +2676,8 @@ pub struct KSDATARANGE_AUDIO {
     pub MinimumSampleFrequency: u32,
     pub MaximumSampleFrequency: u32,
 }
-impl Copy for KSDATARANGE_AUDIO {}
-impl Clone for KSDATARANGE_AUDIO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSDATARANGE_MUSIC {
     pub DataRange: KSDATAFORMAT,
     pub Technology: windows_sys::core::GUID,
@@ -3164,62 +2685,37 @@ pub struct KSDATARANGE_MUSIC {
     pub Notes: u32,
     pub ChannelMask: u32,
 }
-impl Copy for KSDATARANGE_MUSIC {}
-impl Clone for KSDATARANGE_MUSIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const KSDEGRADESETID_Standard: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9f564180_704c_11d0_a5d6_28db04c10000);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSDEVICE_PROFILE_INFO {
     pub Type: u32,
     pub Size: u32,
     pub Anonymous: KSDEVICE_PROFILE_INFO_0,
 }
-impl Copy for KSDEVICE_PROFILE_INFO {}
-impl Clone for KSDEVICE_PROFILE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KSDEVICE_PROFILE_INFO_0 {
     pub Camera: KSDEVICE_PROFILE_INFO_0_0,
 }
-impl Copy for KSDEVICE_PROFILE_INFO_0 {}
-impl Clone for KSDEVICE_PROFILE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSDEVICE_PROFILE_INFO_0_0 {
     pub Info: KSCAMERA_PROFILE_INFO,
     pub Reserved: u32,
     pub ConcurrencyCount: u32,
     pub Concurrency: *mut KSCAMERA_PROFILE_CONCURRENCYINFO,
 }
-impl Copy for KSDEVICE_PROFILE_INFO_0_0 {}
-impl Clone for KSDEVICE_PROFILE_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSDISPLAYCHANGE {
     pub PelsWidth: u32,
     pub PelsHeight: u32,
     pub BitsPerPel: u32,
     pub DeviceID: [u16; 1],
 }
-impl Copy for KSDISPLAYCHANGE {}
-impl Clone for KSDISPLAYCHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSDS3D_BUFFER_ALL {
     pub Position: DS3DVECTOR,
     pub Velocity: DS3DVECTOR,
@@ -3231,37 +2727,22 @@ pub struct KSDS3D_BUFFER_ALL {
     pub MaxDistance: f32,
     pub Mode: u32,
 }
-impl Copy for KSDS3D_BUFFER_ALL {}
-impl Clone for KSDS3D_BUFFER_ALL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSDS3D_BUFFER_CONE_ANGLES {
     pub InsideConeAngle: u32,
     pub OutsideConeAngle: u32,
 }
-impl Copy for KSDS3D_BUFFER_CONE_ANGLES {}
-impl Clone for KSDS3D_BUFFER_CONE_ANGLES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSDS3D_HRTF_FILTER_FORMAT_MSG {
     pub FilterMethod: KSDS3D_HRTF_FILTER_METHOD,
     pub CoeffFormat: KSDS3D_HRTF_COEFF_FORMAT,
     pub Version: KSDS3D_HRTF_FILTER_VERSION,
     pub Reserved: u32,
 }
-impl Copy for KSDS3D_HRTF_FILTER_FORMAT_MSG {}
-impl Clone for KSDS3D_HRTF_FILTER_FORMAT_MSG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSDS3D_HRTF_INIT_MSG {
     pub Size: u32,
     pub Quality: KSDS3D_HRTF_FILTER_QUALITY,
@@ -3272,13 +2753,8 @@ pub struct KSDS3D_HRTF_INIT_MSG {
     pub OutputOverlapBufferLength: u32,
     pub Reserved: u32,
 }
-impl Copy for KSDS3D_HRTF_INIT_MSG {}
-impl Clone for KSDS3D_HRTF_INIT_MSG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSDS3D_HRTF_PARAMS_MSG {
     pub Size: u32,
     pub Enabled: u32,
@@ -3287,13 +2763,8 @@ pub struct KSDS3D_HRTF_PARAMS_MSG {
     pub CrossFadeOutput: super::super::Foundation::BOOL,
     pub FilterSize: u32,
 }
-impl Copy for KSDS3D_HRTF_PARAMS_MSG {}
-impl Clone for KSDS3D_HRTF_PARAMS_MSG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSDS3D_ITD_PARAMS {
     pub Channel: i32,
     pub VolSmoothScale: f32,
@@ -3302,26 +2773,16 @@ pub struct KSDS3D_ITD_PARAMS {
     pub SmoothFrequency: i32,
     pub Delay: i32,
 }
-impl Copy for KSDS3D_ITD_PARAMS {}
-impl Clone for KSDS3D_ITD_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSDS3D_ITD_PARAMS_MSG {
     pub Enabled: u32,
     pub LeftParams: KSDS3D_ITD_PARAMS,
     pub RightParams: KSDS3D_ITD_PARAMS,
     pub Reserved: u32,
 }
-impl Copy for KSDS3D_ITD_PARAMS_MSG {}
-impl Clone for KSDS3D_ITD_PARAMS_MSG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSDS3D_LISTENER_ALL {
     pub Position: DS3DVECTOR,
     pub Velocity: DS3DVECTOR,
@@ -3331,90 +2792,49 @@ pub struct KSDS3D_LISTENER_ALL {
     pub RolloffFactor: f32,
     pub DopplerFactor: f32,
 }
-impl Copy for KSDS3D_LISTENER_ALL {}
-impl Clone for KSDS3D_LISTENER_ALL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSDS3D_LISTENER_ORIENTATION {
     pub Front: DS3DVECTOR,
     pub Top: DS3DVECTOR,
 }
-impl Copy for KSDS3D_LISTENER_ORIENTATION {}
-impl Clone for KSDS3D_LISTENER_ORIENTATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSERROR {
     pub Context: *mut core::ffi::c_void,
     pub Status: u32,
 }
-impl Copy for KSERROR {}
-impl Clone for KSERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSEVENTDATA {
     pub NotificationType: u32,
     pub Anonymous: KSEVENTDATA_0,
 }
-impl Copy for KSEVENTDATA {}
-impl Clone for KSEVENTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KSEVENTDATA_0 {
     pub EventHandle: KSEVENTDATA_0_1,
     pub SemaphoreHandle: KSEVENTDATA_0_2,
     pub Alignment: KSEVENTDATA_0_0,
 }
-impl Copy for KSEVENTDATA_0 {}
-impl Clone for KSEVENTDATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSEVENTDATA_0_0 {
     pub Unused: *mut core::ffi::c_void,
     pub Alignment: [isize; 2],
 }
-impl Copy for KSEVENTDATA_0_0 {}
-impl Clone for KSEVENTDATA_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSEVENTDATA_0_1 {
     pub Event: super::super::Foundation::HANDLE,
     pub Reserved: [usize; 2],
 }
-impl Copy for KSEVENTDATA_0_1 {}
-impl Clone for KSEVENTDATA_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSEVENTDATA_0_2 {
     pub Semaphore: super::super::Foundation::HANDLE,
     pub Reserved: u32,
     pub Adjustment: i32,
-}
-impl Copy for KSEVENTDATA_0_2 {}
-impl Clone for KSEVENTDATA_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const KSEVENTSETID_AudioControlChange: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe85e9698_fa2f_11d1_95bd_00c04fb925d3);
 pub const KSEVENTSETID_CameraAsyncControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x22a11754_9701_4088_b33f_6b9cbc52df5e);
@@ -3436,137 +2856,83 @@ pub const KSEVENTSETID_VPNotify: windows_sys::core::GUID = windows_sys::core::GU
 pub const KSEVENTSETID_VPVBINotify: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xec529b01_1a1f_11d1_bad9_00609744111a);
 pub const KSEVENTSETID_VolumeLimit: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xda168465_3a7c_4858_9d4a_3e8e24701aef);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSEVENT_TIME_INTERVAL {
     pub EventData: KSEVENTDATA,
     pub TimeBase: i64,
     pub Interval: i64,
 }
-impl Copy for KSEVENT_TIME_INTERVAL {}
-impl Clone for KSEVENT_TIME_INTERVAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSEVENT_TIME_MARK {
     pub EventData: KSEVENTDATA,
     pub MarkTime: i64,
 }
-impl Copy for KSEVENT_TIME_MARK {}
-impl Clone for KSEVENT_TIME_MARK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSEVENT_TUNER_INITIATE_SCAN_S {
     pub EventData: KSEVENTDATA,
     pub StartFrequency: u32,
     pub EndFrequency: u32,
 }
-impl Copy for KSEVENT_TUNER_INITIATE_SCAN_S {}
-impl Clone for KSEVENT_TUNER_INITIATE_SCAN_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSE_NODE {
     pub Event: KSIDENTIFIER,
     pub NodeId: u32,
     pub Reserved: u32,
 }
-impl Copy for KSE_NODE {}
-impl Clone for KSE_NODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSE_PIN {
     pub Event: KSIDENTIFIER,
     pub PinId: u32,
     pub Reserved: u32,
 }
-impl Copy for KSE_PIN {}
-impl Clone for KSE_PIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSFRAMETIME {
     pub Duration: i64,
     pub FrameFlags: u32,
     pub Reserved: u32,
 }
-impl Copy for KSFRAMETIME {}
-impl Clone for KSFRAMETIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSGOP_USERDATA {
     pub sc: u32,
     pub reserved1: u32,
     pub cFields: u8,
     pub l21Data: [i8; 3],
 }
-impl Copy for KSGOP_USERDATA {}
-impl Clone for KSGOP_USERDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSIDENTIFIER {
     pub Anonymous: KSIDENTIFIER_0,
 }
-impl Copy for KSIDENTIFIER {}
-impl Clone for KSIDENTIFIER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KSIDENTIFIER_0 {
     pub Anonymous: KSIDENTIFIER_0_0,
     pub Alignment: i64,
 }
-impl Copy for KSIDENTIFIER_0 {}
-impl Clone for KSIDENTIFIER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSIDENTIFIER_0_0 {
     pub Set: windows_sys::core::GUID,
     pub Id: u32,
     pub Flags: u32,
 }
-impl Copy for KSIDENTIFIER_0_0 {}
-impl Clone for KSIDENTIFIER_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const KSINTERFACESETID_FileIo: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8c6f932c_e771_11d0_b8ff_00a0c9223196);
 pub const KSINTERFACESETID_Media: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3a13eb40_30a7_11d0_a5d6_28db04c10000);
 pub const KSINTERFACESETID_Standard: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1a8766a0_62ce_11cf_a5d6_28db04c10000);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSINTERVAL {
     pub TimeBase: i64,
     pub Interval: i64,
 }
-impl Copy for KSINTERVAL {}
-impl Clone for KSINTERVAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSJACK_DESCRIPTION {
     pub ChannelMapping: u32,
     pub Color: u32,
@@ -3576,34 +2942,19 @@ pub struct KSJACK_DESCRIPTION {
     pub PortConnection: EPxcPortConnection,
     pub IsConnected: super::super::Foundation::BOOL,
 }
-impl Copy for KSJACK_DESCRIPTION {}
-impl Clone for KSJACK_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSJACK_DESCRIPTION2 {
     pub DeviceStateInfo: u32,
     pub JackCapabilities: u32,
 }
-impl Copy for KSJACK_DESCRIPTION2 {}
-impl Clone for KSJACK_DESCRIPTION2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSJACK_DESCRIPTION3 {
     pub ConfigId: u32,
 }
-impl Copy for KSJACK_DESCRIPTION3 {}
-impl Clone for KSJACK_DESCRIPTION3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSJACK_SINK_INFORMATION {
     pub ConnType: KSJACK_SINK_CONNECTIONTYPE,
     pub ManufacturerId: u16,
@@ -3614,12 +2965,6 @@ pub struct KSJACK_SINK_INFORMATION {
     pub SinkDescriptionLength: u8,
     pub SinkDescription: [u16; 32],
     pub PortId: super::super::Foundation::LUID,
-}
-impl Copy for KSJACK_SINK_INFORMATION {}
-impl Clone for KSJACK_SINK_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const KSMEDIUMSETID_MidiBus: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x05908040_3246_11d0_a5d6_28db04c10000);
 pub const KSMEDIUMSETID_Standard: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4747b320_62ce_11cf_a5d6_28db04c10000);
@@ -3643,50 +2988,30 @@ pub const KSMFT_CATEGORY_VIDEO_EFFECT: windows_sys::core::GUID = windows_sys::co
 pub const KSMFT_CATEGORY_VIDEO_ENCODER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf79eac7d_e545_4387_bdee_d647d7bde42a);
 pub const KSMFT_CATEGORY_VIDEO_PROCESSOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x302ea3fc_aa5f_47f9_9f7a_c2188bb16302);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSMPEGVID_RECT {
     pub StartX: u32,
     pub StartY: u32,
     pub EndX: u32,
     pub EndY: u32,
 }
-impl Copy for KSMPEGVID_RECT {}
-impl Clone for KSMPEGVID_RECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSMULTIPLE_DATA_PROP {
     pub Property: KSIDENTIFIER,
     pub MultipleItem: KSMULTIPLE_ITEM,
 }
-impl Copy for KSMULTIPLE_DATA_PROP {}
-impl Clone for KSMULTIPLE_DATA_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSMULTIPLE_ITEM {
     pub Size: u32,
     pub Count: u32,
 }
-impl Copy for KSMULTIPLE_ITEM {}
-impl Clone for KSMULTIPLE_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSMUSICFORMAT {
     pub TimeDeltaMs: u32,
     pub ByteCount: u32,
-}
-impl Copy for KSMUSICFORMAT {}
-impl Clone for KSMUSICFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const KSMUSIC_TECHNOLOGY_FMSYNTH: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x252c5c80_62e9_11cf_a5d6_28db04c10000);
 pub const KSMUSIC_TECHNOLOGY_PORT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x86c92e60_62e8_11cf_a5d6_28db04c10000);
@@ -3694,16 +3019,11 @@ pub const KSMUSIC_TECHNOLOGY_SQSYNTH: windows_sys::core::GUID = windows_sys::cor
 pub const KSMUSIC_TECHNOLOGY_SWSYNTH: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x37407736_3620_11d1_85d3_0000f8754380);
 pub const KSMUSIC_TECHNOLOGY_WAVETABLE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x394ec7c0_62e9_11cf_a5d6_28db04c10000);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSM_NODE {
     pub Method: KSIDENTIFIER,
     pub NodeId: u32,
     pub Reserved: u32,
-}
-impl Copy for KSM_NODE {}
-impl Clone for KSM_NODE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const KSNAME_Allocator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x642f5d00_4791_11d0_a5d6_28db04c10000);
 pub const KSNAME_Clock: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x53172480_4791_11d0_a5d6_28db04c10000);
@@ -3711,101 +3031,58 @@ pub const KSNAME_Filter: windows_sys::core::GUID = windows_sys::core::GUID::from
 pub const KSNAME_Pin: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x146f1a80_4791_11d0_a5d6_28db04c10000);
 pub const KSNAME_TopologyNode: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0621061a_ee75_11d0_b915_00a0c9223196);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSNODEPROPERTY {
     pub Property: KSIDENTIFIER,
     pub NodeId: u32,
     pub Reserved: u32,
 }
-impl Copy for KSNODEPROPERTY {}
-impl Clone for KSNODEPROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct KSNODEPROPERTY_AUDIO_3D_LISTENER {
     pub NodeProperty: KSNODEPROPERTY,
     pub ListenerId: *mut core::ffi::c_void,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for KSNODEPROPERTY_AUDIO_3D_LISTENER {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for KSNODEPROPERTY_AUDIO_3D_LISTENER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct KSNODEPROPERTY_AUDIO_3D_LISTENER {
     pub NodeProperty: KSNODEPROPERTY,
     pub ListenerId: *mut core::ffi::c_void,
     pub Reserved: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for KSNODEPROPERTY_AUDIO_3D_LISTENER {}
-#[cfg(target_arch = "x86")]
-impl Clone for KSNODEPROPERTY_AUDIO_3D_LISTENER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSNODEPROPERTY_AUDIO_CHANNEL {
     pub NodeProperty: KSNODEPROPERTY,
     pub Channel: i32,
     pub Reserved: u32,
 }
-impl Copy for KSNODEPROPERTY_AUDIO_CHANNEL {}
-impl Clone for KSNODEPROPERTY_AUDIO_CHANNEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
     pub NodeProperty: KSNODEPROPERTY,
     pub DevSpecificId: u32,
     pub DeviceInfo: u32,
     pub Length: u32,
 }
-impl Copy for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {}
-impl Clone for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct KSNODEPROPERTY_AUDIO_PROPERTY {
     pub NodeProperty: KSNODEPROPERTY,
     pub AppContext: *mut core::ffi::c_void,
     pub Length: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for KSNODEPROPERTY_AUDIO_PROPERTY {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for KSNODEPROPERTY_AUDIO_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct KSNODEPROPERTY_AUDIO_PROPERTY {
     pub NodeProperty: KSNODEPROPERTY,
     pub AppContext: *mut core::ffi::c_void,
     pub Length: u32,
     pub Reserved: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for KSNODEPROPERTY_AUDIO_PROPERTY {}
-#[cfg(target_arch = "x86")]
-impl Clone for KSNODEPROPERTY_AUDIO_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const KSNODETYPE_1394_DA_STREAM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21fe6_f70f_11d0_b917_00a0c9223196);
 pub const KSNODETYPE_1394_DV_STREAM_SOUNDTRACK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff21fe7_f70f_11d0_b917_00a0c9223196);
@@ -3907,30 +3184,21 @@ pub const KSNODETYPE_VIDEO_SELECTOR: windows_sys::core::GUID = windows_sys::core
 pub const KSNODETYPE_VIDEO_STREAMING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdff229e1_f70f_11d0_b917_00a0c9223196);
 pub const KSNODETYPE_VOLUME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3a5acc00_c557_11d0_8a2b_00a0c9255ac1);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSNODE_CREATE {
     pub CreateFlags: u32,
     pub Node: u32,
 }
-impl Copy for KSNODE_CREATE {}
-impl Clone for KSNODE_CREATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const KSNOTIFICATIONID_AudioModule: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9c2220f0_d9a6_4d5c_a036_573857fd50d2);
 pub const KSNOTIFICATIONID_SoundDetector: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6389d844_bb32_4c4c_a802_f4b4b77afead);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPIN_CINSTANCES {
     pub PossibleCount: u32,
     pub CurrentCount: u32,
 }
-impl Copy for KSPIN_CINSTANCES {}
-impl Clone for KSPIN_CINSTANCES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPIN_CONNECT {
     pub Interface: KSIDENTIFIER,
     pub Medium: KSIDENTIFIER,
@@ -3938,219 +3206,124 @@ pub struct KSPIN_CONNECT {
     pub PinToHandle: super::super::Foundation::HANDLE,
     pub Priority: KSPRIORITY,
 }
-impl Copy for KSPIN_CONNECT {}
-impl Clone for KSPIN_CONNECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPIN_MDL_CACHING_NOTIFICATION {
     pub Event: KSPIN_MDL_CACHING_EVENT,
     pub Buffer: *mut core::ffi::c_void,
 }
-impl Copy for KSPIN_MDL_CACHING_NOTIFICATION {}
-impl Clone for KSPIN_MDL_CACHING_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPIN_MDL_CACHING_NOTIFICATION32 {
     pub Event: KSPIN_MDL_CACHING_EVENT,
     pub Buffer: u32,
 }
-impl Copy for KSPIN_MDL_CACHING_NOTIFICATION32 {}
-impl Clone for KSPIN_MDL_CACHING_NOTIFICATION32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPIN_PHYSICALCONNECTION {
     pub Size: u32,
     pub Pin: u32,
     pub SymbolicLinkName: [u16; 1],
 }
-impl Copy for KSPIN_PHYSICALCONNECTION {}
-impl Clone for KSPIN_PHYSICALCONNECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPRIORITY {
     pub PriorityClass: u32,
     pub PrioritySubClass: u32,
-}
-impl Copy for KSPRIORITY {}
-impl Clone for KSPRIORITY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const KSPROPERTYSETID_ExtendedCameraControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1cb79112_c0d2_4213_9ca6_cd4fdb927972);
 pub const KSPROPERTYSETID_NetworkCameraControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0e780f09_5745_4e3a_bc9f_f226ea43a6ec);
 pub const KSPROPERTYSETID_PerFrameSettingControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf1f3e261_dee6_4537_bff5_ee206db54aac);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S {
     pub InterleavedCapSupported: u32,
 }
-impl Copy for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S {}
-impl Clone for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S {
     pub InterleavedCapPossible: u32,
 }
-impl Copy for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S {}
-impl Clone for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {
     pub CX: u32,
     pub CY: u32,
 }
-impl Copy for KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {}
-impl Clone for KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KSPROPERTY_BOUNDS_LONG {
     pub Anonymous1: KSPROPERTY_BOUNDS_LONG_0,
     pub Anonymous2: KSPROPERTY_BOUNDS_LONG_1,
 }
-impl Copy for KSPROPERTY_BOUNDS_LONG {}
-impl Clone for KSPROPERTY_BOUNDS_LONG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_BOUNDS_LONG_0 {
     pub SignedMinimum: i32,
     pub SignedMaximum: i32,
 }
-impl Copy for KSPROPERTY_BOUNDS_LONG_0 {}
-impl Clone for KSPROPERTY_BOUNDS_LONG_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_BOUNDS_LONG_1 {
     pub UnsignedMinimum: u32,
     pub UnsignedMaximum: u32,
 }
-impl Copy for KSPROPERTY_BOUNDS_LONG_1 {}
-impl Clone for KSPROPERTY_BOUNDS_LONG_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KSPROPERTY_BOUNDS_LONGLONG {
     pub Anonymous1: KSPROPERTY_BOUNDS_LONGLONG_0,
     pub Anonymous2: KSPROPERTY_BOUNDS_LONGLONG_1,
 }
-impl Copy for KSPROPERTY_BOUNDS_LONGLONG {}
-impl Clone for KSPROPERTY_BOUNDS_LONGLONG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_BOUNDS_LONGLONG_0 {
     pub SignedMinimum: i64,
     pub SignedMaximum: i64,
 }
-impl Copy for KSPROPERTY_BOUNDS_LONGLONG_0 {}
-impl Clone for KSPROPERTY_BOUNDS_LONGLONG_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_BOUNDS_LONGLONG_1 {
     pub UnsignedMinimum: u64,
     pub UnsignedMaximum: u64,
 }
-impl Copy for KSPROPERTY_BOUNDS_LONGLONG_1 {}
-impl Clone for KSPROPERTY_BOUNDS_LONGLONG_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_CAMERACONTROL_FLASH_S {
     pub Flash: u32,
     pub Capabilities: u32,
 }
-impl Copy for KSPROPERTY_CAMERACONTROL_FLASH_S {}
-impl Clone for KSPROPERTY_CAMERACONTROL_FLASH_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {
     pub Property: KSIDENTIFIER,
     pub lOcularFocalLength: i32,
     pub lObjectiveFocalLengthMin: i32,
     pub lObjectiveFocalLengthMax: i32,
 }
-impl Copy for KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {}
-impl Clone for KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S {
     pub Capabilities: u32,
     pub Reserved0: u32,
 }
-impl Copy for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S {}
-impl Clone for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {
     pub NodeProperty: KSNODEPROPERTY,
     pub lOcularFocalLength: i32,
     pub lObjectiveFocalLengthMin: i32,
     pub lObjectiveFocalLengthMax: i32,
 }
-impl Copy for KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {}
-impl Clone for KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_CAMERACONTROL_NODE_S {
     pub NodeProperty: KSP_NODE,
     pub Value: i32,
     pub Flags: u32,
     pub Capabilities: u32,
 }
-impl Copy for KSPROPERTY_CAMERACONTROL_NODE_S {}
-impl Clone for KSPROPERTY_CAMERACONTROL_NODE_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_CAMERACONTROL_NODE_S2 {
     pub NodeProperty: KSP_NODE,
     pub Value1: i32,
@@ -4158,13 +3331,8 @@ pub struct KSPROPERTY_CAMERACONTROL_NODE_S2 {
     pub Capabilities: u32,
     pub Value2: i32,
 }
-impl Copy for KSPROPERTY_CAMERACONTROL_NODE_S2 {}
-impl Clone for KSPROPERTY_CAMERACONTROL_NODE_S2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
     pub FocusRect: super::super::Foundation::RECT,
     pub AutoFocusLock: super::super::Foundation::BOOL,
@@ -4172,37 +3340,22 @@ pub struct KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
     pub AutoWhitebalanceLock: super::super::Foundation::BOOL,
     pub Anonymous: KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0,
 }
-impl Copy for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {}
-impl Clone for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {
     pub Capabilities: u32,
     pub Configuration: u32,
 }
-impl Copy for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {}
-impl Clone for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_CAMERACONTROL_S {
     pub Property: KSIDENTIFIER,
     pub Value: i32,
     pub Flags: u32,
     pub Capabilities: u32,
 }
-impl Copy for KSPROPERTY_CAMERACONTROL_S {}
-impl Clone for KSPROPERTY_CAMERACONTROL_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_CAMERACONTROL_S2 {
     pub Property: KSIDENTIFIER,
     pub Value1: i32,
@@ -4210,13 +3363,8 @@ pub struct KSPROPERTY_CAMERACONTROL_S2 {
     pub Capabilities: u32,
     pub Value2: i32,
 }
-impl Copy for KSPROPERTY_CAMERACONTROL_S2 {}
-impl Clone for KSPROPERTY_CAMERACONTROL_S2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_CAMERACONTROL_S_EX {
     pub Property: KSIDENTIFIER,
     pub Value: i32,
@@ -4224,48 +3372,28 @@ pub struct KSPROPERTY_CAMERACONTROL_S_EX {
     pub Capabilities: u32,
     pub FocusRect: super::super::Foundation::RECT,
 }
-impl Copy for KSPROPERTY_CAMERACONTROL_S_EX {}
-impl Clone for KSPROPERTY_CAMERACONTROL_S_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S {
     pub VideoStabilizationMode: u32,
     pub Capabilities: u32,
 }
-impl Copy for KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S {}
-impl Clone for KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_CROSSBAR_ACTIVE_S {
     pub Property: KSIDENTIFIER,
     pub IndexInputPin: u32,
     pub Active: u32,
 }
-impl Copy for KSPROPERTY_CROSSBAR_ACTIVE_S {}
-impl Clone for KSPROPERTY_CROSSBAR_ACTIVE_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_CROSSBAR_CAPS_S {
     pub Property: KSIDENTIFIER,
     pub NumberOfInputs: u32,
     pub NumberOfOutputs: u32,
 }
-impl Copy for KSPROPERTY_CROSSBAR_CAPS_S {}
-impl Clone for KSPROPERTY_CROSSBAR_CAPS_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_CROSSBAR_PININFO_S {
     pub Property: KSIDENTIFIER,
     pub Direction: KSPIN_DATAFLOW,
@@ -4274,26 +3402,16 @@ pub struct KSPROPERTY_CROSSBAR_PININFO_S {
     pub RelatedPinIndex: u32,
     pub Medium: KSIDENTIFIER,
 }
-impl Copy for KSPROPERTY_CROSSBAR_PININFO_S {}
-impl Clone for KSPROPERTY_CROSSBAR_PININFO_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_CROSSBAR_ROUTE_S {
     pub Property: KSIDENTIFIER,
     pub IndexInputPin: u32,
     pub IndexOutputPin: u32,
     pub CanRoute: u32,
 }
-impl Copy for KSPROPERTY_CROSSBAR_ROUTE_S {}
-impl Clone for KSPROPERTY_CROSSBAR_ROUTE_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_DESCRIPTION {
     pub AccessFlags: u32,
     pub DescriptionSize: u32,
@@ -4301,37 +3419,22 @@ pub struct KSPROPERTY_DESCRIPTION {
     pub MembersListCount: u32,
     pub Reserved: u32,
 }
-impl Copy for KSPROPERTY_DESCRIPTION {}
-impl Clone for KSPROPERTY_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_DROPPEDFRAMES_CURRENT_S {
     pub Property: KSIDENTIFIER,
     pub PictureNumber: i64,
     pub DropCount: i64,
     pub AverageFrameSize: u32,
 }
-impl Copy for KSPROPERTY_DROPPEDFRAMES_CURRENT_S {}
-impl Clone for KSPROPERTY_DROPPEDFRAMES_CURRENT_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_EXTDEVICE_S {
     pub Property: KSIDENTIFIER,
     pub u: KSPROPERTY_EXTDEVICE_S_0,
 }
-impl Copy for KSPROPERTY_EXTDEVICE_S {}
-impl Clone for KSPROPERTY_EXTDEVICE_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KSPROPERTY_EXTDEVICE_S_0 {
     pub Capabilities: DEVCAPS,
     pub DevPort: u32,
@@ -4339,24 +3442,14 @@ pub union KSPROPERTY_EXTDEVICE_S_0 {
     pub pawchString: [u16; 260],
     pub NodeUniqueID: [u32; 2],
 }
-impl Copy for KSPROPERTY_EXTDEVICE_S_0 {}
-impl Clone for KSPROPERTY_EXTDEVICE_S_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_EXTXPORT_NODE_S {
     pub NodeProperty: KSP_NODE,
     pub u: KSPROPERTY_EXTXPORT_NODE_S_0,
 }
-impl Copy for KSPROPERTY_EXTXPORT_NODE_S {}
-impl Clone for KSPROPERTY_EXTXPORT_NODE_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KSPROPERTY_EXTXPORT_NODE_S_0 {
     pub Capabilities: u32,
     pub SignalMode: u32,
@@ -4368,48 +3461,28 @@ pub union KSPROPERTY_EXTXPORT_NODE_S_0 {
     pub dwAbsTrackNumber: u32,
     pub RawAVC: KSPROPERTY_EXTXPORT_NODE_S_0_0,
 }
-impl Copy for KSPROPERTY_EXTXPORT_NODE_S_0 {}
-impl Clone for KSPROPERTY_EXTXPORT_NODE_S_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_EXTXPORT_NODE_S_0_0 {
     pub PayloadSize: u32,
     pub Payload: [u8; 512],
 }
-impl Copy for KSPROPERTY_EXTXPORT_NODE_S_0_0 {}
-impl Clone for KSPROPERTY_EXTXPORT_NODE_S_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     pub frame: u8,
     pub second: u8,
     pub minute: u8,
     pub hour: u8,
 }
-impl Copy for KSPROPERTY_EXTXPORT_NODE_S_0_1 {}
-impl Clone for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_EXTXPORT_S {
     pub Property: KSIDENTIFIER,
     pub u: KSPROPERTY_EXTXPORT_S_0,
 }
-impl Copy for KSPROPERTY_EXTXPORT_S {}
-impl Clone for KSPROPERTY_EXTXPORT_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KSPROPERTY_EXTXPORT_S_0 {
     pub Capabilities: u32,
     pub SignalMode: u32,
@@ -4421,72 +3494,42 @@ pub union KSPROPERTY_EXTXPORT_S_0 {
     pub dwAbsTrackNumber: u32,
     pub RawAVC: KSPROPERTY_EXTXPORT_S_0_0,
 }
-impl Copy for KSPROPERTY_EXTXPORT_S_0 {}
-impl Clone for KSPROPERTY_EXTXPORT_S_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_EXTXPORT_S_0_0 {
     pub PayloadSize: u32,
     pub Payload: [u8; 512],
 }
-impl Copy for KSPROPERTY_EXTXPORT_S_0_0 {}
-impl Clone for KSPROPERTY_EXTXPORT_S_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_EXTXPORT_S_0_1 {
     pub frame: u8,
     pub second: u8,
     pub minute: u8,
     pub hour: u8,
 }
-impl Copy for KSPROPERTY_EXTXPORT_S_0_1 {}
-impl Clone for KSPROPERTY_EXTXPORT_S_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_MEDIAAVAILABLE {
     pub Earliest: i64,
     pub Latest: i64,
 }
-impl Copy for KSPROPERTY_MEDIAAVAILABLE {}
-impl Clone for KSPROPERTY_MEDIAAVAILABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_MEMBERSHEADER {
     pub MembersFlags: u32,
     pub MembersSize: u32,
     pub MembersCount: u32,
     pub Flags: u32,
 }
-impl Copy for KSPROPERTY_MEMBERSHEADER {}
-impl Clone for KSPROPERTY_MEMBERSHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {
     pub Header: KSCAMERA_METADATA_ITEMHEADER,
     pub EventFilter: [u16; 1],
 }
-impl Copy for KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {}
-impl Clone for KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {
     pub MetadataItems: u32,
     pub Size: u32,
@@ -4495,86 +3538,51 @@ pub struct KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {
     pub Analytics: super::super::Foundation::BOOL,
     pub Reserved: super::super::Foundation::BOOL,
 }
-impl Copy for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {}
-impl Clone for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER {
     pub Size: u32,
     pub Type: KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE,
 }
-impl Copy for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER {}
-impl Clone for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_POSITIONS {
     pub Current: i64,
     pub Stop: i64,
     pub CurrentFlags: KS_SEEKING_FLAGS,
     pub StopFlags: KS_SEEKING_FLAGS,
 }
-impl Copy for KSPROPERTY_POSITIONS {}
-impl Clone for KSPROPERTY_POSITIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_SELECTOR_NODE_S {
     pub NodeProperty: KSP_NODE,
     pub Value: i32,
     pub Flags: u32,
     pub Capabilities: u32,
 }
-impl Copy for KSPROPERTY_SELECTOR_NODE_S {}
-impl Clone for KSPROPERTY_SELECTOR_NODE_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_SELECTOR_S {
     pub Property: KSIDENTIFIER,
     pub Value: i32,
     pub Flags: u32,
     pub Capabilities: u32,
 }
-impl Copy for KSPROPERTY_SELECTOR_S {}
-impl Clone for KSPROPERTY_SELECTOR_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_SERIAL {
     pub PropTypeSet: KSIDENTIFIER,
     pub Id: u32,
     pub PropertyLength: u32,
 }
-impl Copy for KSPROPERTY_SERIAL {}
-impl Clone for KSPROPERTY_SERIAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_SERIALHDR {
     pub PropertySet: windows_sys::core::GUID,
     pub Count: u32,
 }
-impl Copy for KSPROPERTY_SERIALHDR {}
-impl Clone for KSPROPERTY_SERIALHDR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_SPHLI {
     pub HLISS: u16,
     pub Reserved: u16,
@@ -4586,68 +3594,38 @@ pub struct KSPROPERTY_SPHLI {
     pub StopY: u16,
     pub ColCon: KS_COLCON,
 }
-impl Copy for KSPROPERTY_SPHLI {}
-impl Clone for KSPROPERTY_SPHLI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_SPPAL {
     pub sppal: [KS_DVD_YUV; 16],
 }
-impl Copy for KSPROPERTY_SPPAL {}
-impl Clone for KSPROPERTY_SPPAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_STEPPING_LONG {
     pub SteppingDelta: u32,
     pub Reserved: u32,
     pub Bounds: KSPROPERTY_BOUNDS_LONG,
 }
-impl Copy for KSPROPERTY_STEPPING_LONG {}
-impl Clone for KSPROPERTY_STEPPING_LONG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_STEPPING_LONGLONG {
     pub SteppingDelta: u64,
     pub Bounds: KSPROPERTY_BOUNDS_LONGLONG,
 }
-impl Copy for KSPROPERTY_STEPPING_LONGLONG {}
-impl Clone for KSPROPERTY_STEPPING_LONGLONG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_TIMECODE_NODE_S {
     pub NodeProperty: KSP_NODE,
     pub TimecodeSamp: super::TIMECODE_SAMPLE,
 }
-impl Copy for KSPROPERTY_TIMECODE_NODE_S {}
-impl Clone for KSPROPERTY_TIMECODE_NODE_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_TIMECODE_S {
     pub Property: KSIDENTIFIER,
     pub TimecodeSamp: super::TIMECODE_SAMPLE,
 }
-impl Copy for KSPROPERTY_TIMECODE_S {}
-impl Clone for KSPROPERTY_TIMECODE_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_CAPS_S {
     pub Property: KSIDENTIFIER,
     pub ModesSupported: u32,
@@ -4655,13 +3633,8 @@ pub struct KSPROPERTY_TUNER_CAPS_S {
     pub TVAudioMedium: KSIDENTIFIER,
     pub RadioAudioMedium: KSIDENTIFIER,
 }
-impl Copy for KSPROPERTY_TUNER_CAPS_S {}
-impl Clone for KSPROPERTY_TUNER_CAPS_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_FREQUENCY_S {
     pub Property: KSIDENTIFIER,
     pub Frequency: u32,
@@ -4672,35 +3645,20 @@ pub struct KSPROPERTY_TUNER_FREQUENCY_S {
     pub Channel: u32,
     pub Country: u32,
 }
-impl Copy for KSPROPERTY_TUNER_FREQUENCY_S {}
-impl Clone for KSPROPERTY_TUNER_FREQUENCY_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_IF_MEDIUM_S {
     pub Property: KSIDENTIFIER,
     pub IFMedium: KSIDENTIFIER,
 }
-impl Copy for KSPROPERTY_TUNER_IF_MEDIUM_S {}
-impl Clone for KSPROPERTY_TUNER_IF_MEDIUM_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_INPUT_S {
     pub Property: KSIDENTIFIER,
     pub InputIndex: u32,
 }
-impl Copy for KSPROPERTY_TUNER_INPUT_S {}
-impl Clone for KSPROPERTY_TUNER_INPUT_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_MODE_CAPS_S {
     pub Property: KSIDENTIFIER,
     pub Mode: u32,
@@ -4712,37 +3670,22 @@ pub struct KSPROPERTY_TUNER_MODE_CAPS_S {
     pub SettlingTime: u32,
     pub Strategy: u32,
 }
-impl Copy for KSPROPERTY_TUNER_MODE_CAPS_S {}
-impl Clone for KSPROPERTY_TUNER_MODE_CAPS_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_MODE_S {
     pub Property: KSIDENTIFIER,
     pub Mode: u32,
 }
-impl Copy for KSPROPERTY_TUNER_MODE_S {}
-impl Clone for KSPROPERTY_TUNER_MODE_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {
     pub Property: KSIDENTIFIER,
     pub NetworkType: windows_sys::core::GUID,
     pub BufferSize: u32,
     pub NetworkTunerCapabilities: *mut core::ffi::c_void,
 }
-impl Copy for KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {}
-impl Clone for KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_SCAN_CAPS_S {
     pub Property: KSIDENTIFIER,
     pub fSupportsHardwareAssistedScanning: super::super::Foundation::BOOL,
@@ -4750,47 +3693,27 @@ pub struct KSPROPERTY_TUNER_SCAN_CAPS_S {
     pub GUIDBucket: *mut core::ffi::c_void,
     pub lengthofBucket: u32,
 }
-impl Copy for KSPROPERTY_TUNER_SCAN_CAPS_S {}
-impl Clone for KSPROPERTY_TUNER_SCAN_CAPS_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_SCAN_STATUS_S {
     pub Property: KSIDENTIFIER,
     pub LockStatus: TunerLockType,
     pub CurrentFrequency: u32,
 }
-impl Copy for KSPROPERTY_TUNER_SCAN_STATUS_S {}
-impl Clone for KSPROPERTY_TUNER_SCAN_STATUS_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_STANDARD_MODE_S {
     pub Property: KSIDENTIFIER,
     pub AutoDetect: super::super::Foundation::BOOL,
 }
-impl Copy for KSPROPERTY_TUNER_STANDARD_MODE_S {}
-impl Clone for KSPROPERTY_TUNER_STANDARD_MODE_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_STANDARD_S {
     pub Property: KSIDENTIFIER,
     pub Standard: u32,
 }
-impl Copy for KSPROPERTY_TUNER_STANDARD_S {}
-impl Clone for KSPROPERTY_TUNER_STANDARD_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_TUNER_STATUS_S {
     pub Property: KSIDENTIFIER,
     pub CurrentFrequency: u32,
@@ -4798,136 +3721,76 @@ pub struct KSPROPERTY_TUNER_STATUS_S {
     pub SignalStrength: u32,
     pub Busy: u32,
 }
-impl Copy for KSPROPERTY_TUNER_STATUS_S {}
-impl Clone for KSPROPERTY_TUNER_STATUS_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_TVAUDIO_CAPS_S {
     pub Property: KSIDENTIFIER,
     pub Capabilities: u32,
     pub InputMedium: KSIDENTIFIER,
     pub OutputMedium: KSIDENTIFIER,
 }
-impl Copy for KSPROPERTY_TVAUDIO_CAPS_S {}
-impl Clone for KSPROPERTY_TVAUDIO_CAPS_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_TVAUDIO_S {
     pub Property: KSIDENTIFIER,
     pub Mode: u32,
 }
-impl Copy for KSPROPERTY_TVAUDIO_S {}
-impl Clone for KSPROPERTY_TVAUDIO_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {
     pub Property: KSIDENTIFIER,
     pub Substreams: VBICODECFILTERING_CC_SUBSTREAMS,
 }
-impl Copy for KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {}
-impl Clone for KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {
     pub Property: KSIDENTIFIER,
     pub Substreams: VBICODECFILTERING_NABTS_SUBSTREAMS,
 }
-impl Copy for KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {}
-impl Clone for KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_VBICODECFILTERING_SCANLINES_S {
     pub Property: KSIDENTIFIER,
     pub Scanlines: VBICODECFILTERING_SCANLINES,
 }
-impl Copy for KSPROPERTY_VBICODECFILTERING_SCANLINES_S {}
-impl Clone for KSPROPERTY_VBICODECFILTERING_SCANLINES_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S {
     pub Property: KSIDENTIFIER,
     pub Statistics: VBICODECFILTERING_STATISTICS_CC_PIN,
 }
-impl Copy for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S {}
-impl Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {
     pub Property: KSIDENTIFIER,
     pub Statistics: VBICODECFILTERING_STATISTICS_CC,
 }
-impl Copy for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {}
-impl Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S {
     pub Property: KSIDENTIFIER,
     pub Statistics: VBICODECFILTERING_STATISTICS_COMMON_PIN,
 }
-impl Copy for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S {}
-impl Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S {
     pub Property: KSIDENTIFIER,
     pub Statistics: VBICODECFILTERING_STATISTICS_COMMON,
 }
-impl Copy for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S {}
-impl Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S {
     pub Property: KSIDENTIFIER,
     pub Statistics: VBICODECFILTERING_STATISTICS_NABTS_PIN,
 }
-impl Copy for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S {}
-impl Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {
     pub Property: KSIDENTIFIER,
     pub Statistics: VBICODECFILTERING_STATISTICS_NABTS,
 }
-impl Copy for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {}
-impl Clone for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {
     pub Property: KSIDENTIFIER,
     pub StreamIndex: u32,
@@ -4937,38 +3800,23 @@ pub struct KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {
     pub NumberOfQualitySettings: i32,
     pub Capabilities: i32,
 }
-impl Copy for KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {}
-impl Clone for KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOCOMPRESSION_S {
     pub Property: KSIDENTIFIER,
     pub StreamIndex: u32,
     pub Value: i32,
 }
-impl Copy for KSPROPERTY_VIDEOCOMPRESSION_S {}
-impl Clone for KSPROPERTY_VIDEOCOMPRESSION_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOCOMPRESSION_S1 {
     pub Property: KSIDENTIFIER,
     pub StreamIndex: u32,
     pub Value: i32,
     pub Flags: u32,
 }
-impl Copy for KSPROPERTY_VIDEOCOMPRESSION_S1 {}
-impl Clone for KSPROPERTY_VIDEOCOMPRESSION_S1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {
     pub Property: KSIDENTIFIER,
     pub StreamIndex: u32,
@@ -4977,50 +3825,30 @@ pub struct KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {
     pub CurrentActualFrameRate: i64,
     pub CurrentMaxAvailableFrameRate: i64,
 }
-impl Copy for KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {}
-impl Clone for KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOCONTROL_CAPS_S {
     pub Property: KSIDENTIFIER,
     pub StreamIndex: u32,
     pub VideoControlCaps: u32,
 }
-impl Copy for KSPROPERTY_VIDEOCONTROL_CAPS_S {}
-impl Clone for KSPROPERTY_VIDEOCONTROL_CAPS_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {
     pub Property: KSIDENTIFIER,
     pub StreamIndex: u32,
     pub RangeIndex: u32,
     pub Dimensions: super::super::Foundation::SIZE,
 }
-impl Copy for KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {}
-impl Clone for KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOCONTROL_MODE_S {
     pub Property: KSIDENTIFIER,
     pub StreamIndex: u32,
     pub Mode: i32,
 }
-impl Copy for KSPROPERTY_VIDEOCONTROL_MODE_S {}
-impl Clone for KSPROPERTY_VIDEOCONTROL_MODE_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEODECODER_CAPS_S {
     pub Property: KSIDENTIFIER,
     pub StandardsSupported: u32,
@@ -5028,75 +3856,45 @@ pub struct KSPROPERTY_VIDEODECODER_CAPS_S {
     pub SettlingTime: u32,
     pub HSyncPerVSync: u32,
 }
-impl Copy for KSPROPERTY_VIDEODECODER_CAPS_S {}
-impl Clone for KSPROPERTY_VIDEODECODER_CAPS_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEODECODER_S {
     pub Property: KSIDENTIFIER,
     pub Value: u32,
 }
-impl Copy for KSPROPERTY_VIDEODECODER_S {}
-impl Clone for KSPROPERTY_VIDEODECODER_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEODECODER_STATUS2_S {
     pub Property: KSIDENTIFIER,
     pub NumberOfLines: u32,
     pub SignalLocked: u32,
     pub ChromaLock: u32,
 }
-impl Copy for KSPROPERTY_VIDEODECODER_STATUS2_S {}
-impl Clone for KSPROPERTY_VIDEODECODER_STATUS2_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEODECODER_STATUS_S {
     pub Property: KSIDENTIFIER,
     pub NumberOfLines: u32,
     pub SignalLocked: u32,
 }
-impl Copy for KSPROPERTY_VIDEODECODER_STATUS_S {}
-impl Clone for KSPROPERTY_VIDEODECODER_STATUS_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOENCODER_S {
     pub Property: KSIDENTIFIER,
     pub Value: i32,
     pub Flags: u32,
     pub Capabilities: u32,
 }
-impl Copy for KSPROPERTY_VIDEOENCODER_S {}
-impl Clone for KSPROPERTY_VIDEOENCODER_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOPROCAMP_NODE_S {
     pub NodeProperty: KSP_NODE,
     pub Value: i32,
     pub Flags: u32,
     pub Capabilities: u32,
 }
-impl Copy for KSPROPERTY_VIDEOPROCAMP_NODE_S {}
-impl Clone for KSPROPERTY_VIDEOPROCAMP_NODE_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOPROCAMP_NODE_S2 {
     pub NodeProperty: KSP_NODE,
     pub Value1: i32,
@@ -5104,38 +3902,22 @@ pub struct KSPROPERTY_VIDEOPROCAMP_NODE_S2 {
     pub Capabilities: u32,
     pub Value2: i32,
 }
-impl Copy for KSPROPERTY_VIDEOPROCAMP_NODE_S2 {}
-impl Clone for KSPROPERTY_VIDEOPROCAMP_NODE_S2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOPROCAMP_S {
     pub Property: KSIDENTIFIER,
     pub Value: i32,
     pub Flags: u32,
     pub Capabilities: u32,
 }
-impl Copy for KSPROPERTY_VIDEOPROCAMP_S {}
-impl Clone for KSPROPERTY_VIDEOPROCAMP_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_VIDEOPROCAMP_S2 {
     pub Property: KSIDENTIFIER,
     pub Value1: i32,
     pub Flags: u32,
     pub Capabilities: u32,
     pub Value2: i32,
-}
-impl Copy for KSPROPERTY_VIDEOPROCAMP_S2 {}
-impl Clone for KSPROPERTY_VIDEOPROCAMP_S2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const KSPROPSETID_AC3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbfabe720_6e1f_11d0_bcf2_444553540000);
 pub const KSPROPSETID_Audio: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x45ffaaa0_6e1b_11d0_bcf2_444553540000);
@@ -5190,89 +3972,55 @@ pub const KSPROPSETID_VramCapture: windows_sys::core::GUID = windows_sys::core::
 pub const KSPROPSETID_Wave: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x924e54b0_630f_11cf_ada7_08003e30494a);
 pub const KSPROPTYPESETID_General: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x97e99ba0_bdea_11cf_a5d6_28db04c10000);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSP_NODE {
     pub Property: KSIDENTIFIER,
     pub NodeId: u32,
     pub Reserved: u32,
 }
-impl Copy for KSP_NODE {}
-impl Clone for KSP_NODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSP_PIN {
     pub Property: KSIDENTIFIER,
     pub PinId: u32,
     pub Anonymous: KSP_PIN_0,
 }
-impl Copy for KSP_PIN {}
-impl Clone for KSP_PIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KSP_PIN_0 {
     pub Reserved: u32,
     pub Flags: u32,
 }
-impl Copy for KSP_PIN_0 {}
-impl Clone for KSP_PIN_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSP_TIMEFORMAT {
     pub Property: KSIDENTIFIER,
     pub SourceFormat: windows_sys::core::GUID,
     pub TargetFormat: windows_sys::core::GUID,
     pub Time: i64,
 }
-impl Copy for KSP_TIMEFORMAT {}
-impl Clone for KSP_TIMEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSQUALITY {
     pub Context: *mut core::ffi::c_void,
     pub Proportion: u32,
     pub DeltaTime: i64,
 }
-impl Copy for KSQUALITY {}
-impl Clone for KSQUALITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSQUALITY_MANAGER {
     pub QualityManager: super::super::Foundation::HANDLE,
     pub Context: *mut core::ffi::c_void,
 }
-impl Copy for KSQUALITY_MANAGER {}
-impl Clone for KSQUALITY_MANAGER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSQUERYBUFFER {
     pub Event: KSIDENTIFIER,
     pub EventData: *mut KSEVENTDATA,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl Copy for KSQUERYBUFFER {}
-impl Clone for KSQUERYBUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSRATE {
     pub PresentationStart: i64,
     pub Duration: i64,
@@ -5280,24 +4028,14 @@ pub struct KSRATE {
     pub Rate: i32,
     pub Flags: u32,
 }
-impl Copy for KSRATE {}
-impl Clone for KSRATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSRATE_CAPABILITY {
     pub Property: KSIDENTIFIER,
     pub Rate: KSRATE,
 }
-impl Copy for KSRATE_CAPABILITY {}
-impl Clone for KSRATE_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSRELATIVEEVENT {
     pub Size: u32,
     pub Flags: u32,
@@ -5306,134 +4044,79 @@ pub struct KSRELATIVEEVENT {
     pub Event: KSIDENTIFIER,
     pub EventData: KSEVENTDATA,
 }
-impl Copy for KSRELATIVEEVENT {}
-impl Clone for KSRELATIVEEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KSRELATIVEEVENT_0 {
     pub ObjectHandle: super::super::Foundation::HANDLE,
     pub ObjectPointer: *mut core::ffi::c_void,
 }
-impl Copy for KSRELATIVEEVENT_0 {}
-impl Clone for KSRELATIVEEVENT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSRESOLUTION {
     pub Granularity: i64,
     pub Error: i64,
 }
-impl Copy for KSRESOLUTION {}
-impl Clone for KSRESOLUTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSRTAUDIO_BUFFER {
     pub BufferAddress: *mut core::ffi::c_void,
     pub ActualBufferSize: u32,
     pub CallMemoryBarrier: super::super::Foundation::BOOL,
 }
-impl Copy for KSRTAUDIO_BUFFER {}
-impl Clone for KSRTAUDIO_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSRTAUDIO_BUFFER32 {
     pub BufferAddress: u32,
     pub ActualBufferSize: u32,
     pub CallMemoryBarrier: super::super::Foundation::BOOL,
 }
-impl Copy for KSRTAUDIO_BUFFER32 {}
-impl Clone for KSRTAUDIO_BUFFER32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSRTAUDIO_BUFFER_PROPERTY {
     pub Property: KSIDENTIFIER,
     pub BaseAddress: *mut core::ffi::c_void,
     pub RequestedBufferSize: u32,
 }
-impl Copy for KSRTAUDIO_BUFFER_PROPERTY {}
-impl Clone for KSRTAUDIO_BUFFER_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSRTAUDIO_BUFFER_PROPERTY32 {
     pub Property: KSIDENTIFIER,
     pub BaseAddress: u32,
     pub RequestedBufferSize: u32,
 }
-impl Copy for KSRTAUDIO_BUFFER_PROPERTY32 {}
-impl Clone for KSRTAUDIO_BUFFER_PROPERTY32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {
     pub Property: KSIDENTIFIER,
     pub BaseAddress: *mut core::ffi::c_void,
     pub RequestedBufferSize: u32,
     pub NotificationCount: u32,
 }
-impl Copy for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {}
-impl Clone for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {
     pub Property: KSIDENTIFIER,
     pub BaseAddress: u32,
     pub RequestedBufferSize: u32,
     pub NotificationCount: u32,
 }
-impl Copy for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {}
-impl Clone for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSRTAUDIO_GETREADPACKET_INFO {
     pub PacketNumber: u32,
     pub Flags: u32,
     pub PerformanceCounterValue: u64,
     pub MoreData: super::super::Foundation::BOOL,
 }
-impl Copy for KSRTAUDIO_GETREADPACKET_INFO {}
-impl Clone for KSRTAUDIO_GETREADPACKET_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSRTAUDIO_HWLATENCY {
     pub FifoSize: u32,
     pub ChipsetDelay: u32,
     pub CodecDelay: u32,
 }
-impl Copy for KSRTAUDIO_HWLATENCY {}
-impl Clone for KSRTAUDIO_HWLATENCY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSRTAUDIO_HWREGISTER {
     pub Register: *mut core::ffi::c_void,
     pub Width: u32,
@@ -5441,13 +4124,8 @@ pub struct KSRTAUDIO_HWREGISTER {
     pub Denominator: u64,
     pub Accuracy: u32,
 }
-impl Copy for KSRTAUDIO_HWREGISTER {}
-impl Clone for KSRTAUDIO_HWREGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSRTAUDIO_HWREGISTER32 {
     pub Register: u32,
     pub Width: u32,
@@ -5455,128 +4133,73 @@ pub struct KSRTAUDIO_HWREGISTER32 {
     pub Denominator: u64,
     pub Accuracy: u32,
 }
-impl Copy for KSRTAUDIO_HWREGISTER32 {}
-impl Clone for KSRTAUDIO_HWREGISTER32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSRTAUDIO_HWREGISTER_PROPERTY {
     pub Property: KSIDENTIFIER,
     pub BaseAddress: *mut core::ffi::c_void,
 }
-impl Copy for KSRTAUDIO_HWREGISTER_PROPERTY {}
-impl Clone for KSRTAUDIO_HWREGISTER_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSRTAUDIO_HWREGISTER_PROPERTY32 {
     pub Property: KSIDENTIFIER,
     pub BaseAddress: u32,
 }
-impl Copy for KSRTAUDIO_HWREGISTER_PROPERTY32 {}
-impl Clone for KSRTAUDIO_HWREGISTER_PROPERTY32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {
     pub Property: KSIDENTIFIER,
     pub NotificationEvent: super::super::Foundation::HANDLE,
 }
-impl Copy for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {}
-impl Clone for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
     pub Property: KSIDENTIFIER,
     pub NotificationEvent: u32,
 }
-impl Copy for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {}
-impl Clone for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSRTAUDIO_PACKETVREGISTER {
     pub CompletedPacketCount: *mut u64,
     pub CompletedPacketQPC: *mut u64,
     pub CompletedPacketHash: *mut u64,
 }
-impl Copy for KSRTAUDIO_PACKETVREGISTER {}
-impl Clone for KSRTAUDIO_PACKETVREGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSRTAUDIO_PACKETVREGISTER_PROPERTY {
     pub Property: KSIDENTIFIER,
     pub BaseAddress: *mut core::ffi::c_void,
 }
-impl Copy for KSRTAUDIO_PACKETVREGISTER_PROPERTY {}
-impl Clone for KSRTAUDIO_PACKETVREGISTER_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSRTAUDIO_SETWRITEPACKET_INFO {
     pub PacketNumber: u32,
     pub Flags: u32,
     pub EosPacketLength: u32,
 }
-impl Copy for KSRTAUDIO_SETWRITEPACKET_INFO {}
-impl Clone for KSRTAUDIO_SETWRITEPACKET_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSSOUNDDETECTORPROPERTY {
     pub Property: KSIDENTIFIER,
     pub EventId: windows_sys::core::GUID,
 }
-impl Copy for KSSOUNDDETECTORPROPERTY {}
-impl Clone for KSSOUNDDETECTORPROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSSTREAMALLOCATOR_STATUS {
     pub Framing: KSALLOCATOR_FRAMING,
     pub AllocatedFrames: u32,
     pub Reserved: u32,
 }
-impl Copy for KSSTREAMALLOCATOR_STATUS {}
-impl Clone for KSSTREAMALLOCATOR_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSSTREAMALLOCATOR_STATUS_EX {
     pub Framing: KSALLOCATOR_FRAMING_EX,
     pub AllocatedFrames: u32,
     pub Reserved: u32,
 }
-impl Copy for KSSTREAMALLOCATOR_STATUS_EX {}
-impl Clone for KSSTREAMALLOCATOR_STATUS_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct KSSTREAM_HEADER {
     pub Size: u32,
     pub TypeSpecificFlags: u32,
@@ -5588,16 +4211,9 @@ pub struct KSSTREAM_HEADER {
     pub OptionsFlags: u32,
     pub Reserved: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for KSSTREAM_HEADER {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for KSSTREAM_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct KSSTREAM_HEADER {
     pub Size: u32,
     pub TypeSpecificFlags: u32,
@@ -5608,15 +4224,8 @@ pub struct KSSTREAM_HEADER {
     pub Data: *mut core::ffi::c_void,
     pub OptionsFlags: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for KSSTREAM_HEADER {}
-#[cfg(target_arch = "x86")]
-impl Clone for KSSTREAM_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSSTREAM_METADATA_INFO {
     pub BufferSize: u32,
     pub UsedSize: u32,
@@ -5625,37 +4234,22 @@ pub struct KSSTREAM_METADATA_INFO {
     pub Flags: u32,
     pub Reserved: u32,
 }
-impl Copy for KSSTREAM_METADATA_INFO {}
-impl Clone for KSSTREAM_METADATA_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSSTREAM_SEGMENT {
     pub KsInterfaceHandler: *mut core::ffi::c_void,
     pub KsDataTypeHandler: *mut core::ffi::c_void,
     pub IoOperation: KSIOOPERATION,
     pub CompletionEvent: super::super::Foundation::HANDLE,
 }
-impl Copy for KSSTREAM_SEGMENT {}
-impl Clone for KSSTREAM_SEGMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSSTREAM_UVC_METADATA {
     pub StartOfFrameTimestamp: KSSTREAM_UVC_METADATATYPE_TIMESTAMP,
     pub EndOfFrameTimestamp: KSSTREAM_UVC_METADATATYPE_TIMESTAMP,
 }
-impl Copy for KSSTREAM_UVC_METADATA {}
-impl Clone for KSSTREAM_UVC_METADATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSSTREAM_UVC_METADATATYPE_TIMESTAMP {
     pub PresentationTimeStamp: u32,
     pub SourceClockReference: u32,
@@ -5663,77 +4257,41 @@ pub struct KSSTREAM_UVC_METADATATYPE_TIMESTAMP {
     pub Reserved0: u16,
     pub Reserved1: u32,
 }
-impl Copy for KSSTREAM_UVC_METADATATYPE_TIMESTAMP {}
-impl Clone for KSSTREAM_UVC_METADATATYPE_TIMESTAMP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0 {
     pub Anonymous: KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0_0,
     pub SCRToken: u16,
 }
-impl Copy for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0 {}
-impl Clone for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0_0 {
     pub _bitfield: u16,
 }
-impl Copy for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0_0 {}
-impl Clone for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSTELEPHONY_CALLCONTROL {
     pub CallType: TELEPHONY_CALLTYPE,
     pub CallControlOp: TELEPHONY_CALLCONTROLOP,
 }
-impl Copy for KSTELEPHONY_CALLCONTROL {}
-impl Clone for KSTELEPHONY_CALLCONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSTELEPHONY_CALLINFO {
     pub CallType: TELEPHONY_CALLTYPE,
     pub CallState: TELEPHONY_CALLSTATE,
 }
-impl Copy for KSTELEPHONY_CALLINFO {}
-impl Clone for KSTELEPHONY_CALLINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSTELEPHONY_PROVIDERCHANGE {
     pub CallType: TELEPHONY_CALLTYPE,
     pub ProviderChangeOp: TELEPHONY_PROVIDERCHANGEOP,
 }
-impl Copy for KSTELEPHONY_PROVIDERCHANGE {}
-impl Clone for KSTELEPHONY_PROVIDERCHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSTIME {
     pub Time: i64,
     pub Numerator: u32,
     pub Denominator: u32,
-}
-impl Copy for KSTIME {}
-impl Clone for KSTIME {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const KSTIME_FORMAT_BYTE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7b785571_8c82_11cf_bc0c_00aa00ac74f6);
 pub const KSTIME_FORMAT_FIELD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7b785573_8c82_11cf_bc0c_00aa00ac74f6);
@@ -5741,6 +4299,7 @@ pub const KSTIME_FORMAT_FRAME: windows_sys::core::GUID = windows_sys::core::GUID
 pub const KSTIME_FORMAT_MEDIA_TIME: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7b785574_8c82_11cf_bc0c_00aa00ac74f6);
 pub const KSTIME_FORMAT_SAMPLE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7b785572_8c82_11cf_bc0c_00aa00ac74f6);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSTOPOLOGY {
     pub CategoriesCount: u32,
     pub Categories: *const windows_sys::core::GUID,
@@ -5751,83 +4310,48 @@ pub struct KSTOPOLOGY {
     pub TopologyNodesNames: *const windows_sys::core::GUID,
     pub Reserved: u32,
 }
-impl Copy for KSTOPOLOGY {}
-impl Clone for KSTOPOLOGY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSTOPOLOGY_CONNECTION {
     pub FromNode: u32,
     pub FromNodePin: u32,
     pub ToNode: u32,
     pub ToNodePin: u32,
 }
-impl Copy for KSTOPOLOGY_CONNECTION {}
-impl Clone for KSTOPOLOGY_CONNECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSTOPOLOGY_ENDPOINTID {
     pub TopologyName: [u16; 260],
     pub PinId: u32,
 }
-impl Copy for KSTOPOLOGY_ENDPOINTID {}
-impl Clone for KSTOPOLOGY_ENDPOINTID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSTOPOLOGY_ENDPOINTIDPAIR {
     pub RenderEndpoint: KSTOPOLOGY_ENDPOINTID,
     pub CaptureEndpoint: KSTOPOLOGY_ENDPOINTID,
 }
-impl Copy for KSTOPOLOGY_ENDPOINTIDPAIR {}
-impl Clone for KSTOPOLOGY_ENDPOINTIDPAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSVPMAXPIXELRATE {
     pub Size: KS_AMVPSIZE,
     pub MaxPixelsPerSecond: u32,
     pub Reserved: u32,
 }
-impl Copy for KSVPMAXPIXELRATE {}
-impl Clone for KSVPMAXPIXELRATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSVPSIZE_PROP {
     pub Property: KSIDENTIFIER,
     pub Size: KS_AMVPSIZE,
 }
-impl Copy for KSVPSIZE_PROP {}
-impl Clone for KSVPSIZE_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSVPSURFACEPARAMS {
     pub dwPitch: u32,
     pub dwXOrigin: u32,
     pub dwYOrigin: u32,
 }
-impl Copy for KSVPSURFACEPARAMS {}
-impl Clone for KSVPSURFACEPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSWAVETABLE_WAVE_DESC {
     pub Identifier: KSIDENTIFIER,
     pub Size: u32,
@@ -5836,35 +4360,20 @@ pub struct KSWAVETABLE_WAVE_DESC {
     pub InROM: super::super::Foundation::BOOL,
     pub Format: KSDATAFORMAT,
 }
-impl Copy for KSWAVETABLE_WAVE_DESC {}
-impl Clone for KSWAVETABLE_WAVE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSWAVE_BUFFER {
     pub Attributes: u32,
     pub BufferSize: u32,
     pub BufferAddress: *mut core::ffi::c_void,
 }
-impl Copy for KSWAVE_BUFFER {}
-impl Clone for KSWAVE_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSWAVE_COMPATCAPS {
     pub ulDeviceType: u32,
 }
-impl Copy for KSWAVE_COMPATCAPS {}
-impl Clone for KSWAVE_COMPATCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSWAVE_INPUT_CAPABILITIES {
     pub MaximumChannelsPerConnection: u32,
     pub MinimumBitsPerSample: u32,
@@ -5874,13 +4383,8 @@ pub struct KSWAVE_INPUT_CAPABILITIES {
     pub TotalConnections: u32,
     pub ActiveConnections: u32,
 }
-impl Copy for KSWAVE_INPUT_CAPABILITIES {}
-impl Clone for KSWAVE_INPUT_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSWAVE_OUTPUT_CAPABILITIES {
     pub MaximumChannelsPerConnection: u32,
     pub MinimumBitsPerSample: u32,
@@ -5903,24 +4407,14 @@ pub struct KSWAVE_OUTPUT_CAPABILITIES {
     pub FreeSampleMemory: u32,
     pub LargestFreeContiguousSampleMemory: u32,
 }
-impl Copy for KSWAVE_OUTPUT_CAPABILITIES {}
-impl Clone for KSWAVE_OUTPUT_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSWAVE_VOLUME {
     pub LeftAttenuation: i32,
     pub RightAttenuation: i32,
 }
-impl Copy for KSWAVE_VOLUME {}
-impl Clone for KSWAVE_VOLUME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_AMVPDATAINFO {
     pub dwSize: u32,
     pub dwMicrosecondsPerField: u32,
@@ -5936,13 +4430,8 @@ pub struct KS_AMVPDATAINFO {
     pub lHalfLinesEven: i32,
     pub dwReserved1: u32,
 }
-impl Copy for KS_AMVPDATAINFO {}
-impl Clone for KS_AMVPDATAINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_AMVPDIMINFO {
     pub dwFieldWidth: u32,
     pub dwFieldHeight: u32,
@@ -5950,46 +4439,26 @@ pub struct KS_AMVPDIMINFO {
     pub dwVBIHeight: u32,
     pub rcValidRegion: super::super::Foundation::RECT,
 }
-impl Copy for KS_AMVPDIMINFO {}
-impl Clone for KS_AMVPDIMINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_AMVPSIZE {
     pub dwWidth: u32,
     pub dwHeight: u32,
 }
-impl Copy for KS_AMVPSIZE {}
-impl Clone for KS_AMVPSIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_AM_ExactRateChange {
     pub OutputZeroTime: i64,
     pub Rate: i32,
 }
-impl Copy for KS_AM_ExactRateChange {}
-impl Clone for KS_AM_ExactRateChange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_AM_SimpleRateChange {
     pub StartTime: i64,
     pub Rate: i32,
 }
-impl Copy for KS_AM_SimpleRateChange {}
-impl Clone for KS_AM_SimpleRateChange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_ANALOGVIDEOINFO {
     pub rcSource: super::super::Foundation::RECT,
     pub rcTarget: super::super::Foundation::RECT,
@@ -5997,13 +4466,8 @@ pub struct KS_ANALOGVIDEOINFO {
     pub dwActiveHeight: u32,
     pub AvgTimePerFrame: i64,
 }
-impl Copy for KS_ANALOGVIDEOINFO {}
-impl Clone for KS_ANALOGVIDEOINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_BITMAPINFOHEADER {
     pub biSize: u32,
     pub biWidth: i32,
@@ -6017,136 +4481,76 @@ pub struct KS_BITMAPINFOHEADER {
     pub biClrUsed: u32,
     pub biClrImportant: u32,
 }
-impl Copy for KS_BITMAPINFOHEADER {}
-impl Clone for KS_BITMAPINFOHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_COLCON {
     pub _bitfield1: u8,
     pub _bitfield2: u8,
     pub _bitfield3: u8,
     pub _bitfield4: u8,
 }
-impl Copy for KS_COLCON {}
-impl Clone for KS_COLCON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_COMPRESSION {
     pub RatioNumerator: u32,
     pub RatioDenominator: u32,
     pub RatioConstantMargin: u32,
 }
-impl Copy for KS_COMPRESSION {}
-impl Clone for KS_COMPRESSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_COPY_MACROVISION {
     pub MACROVISIONLevel: u32,
 }
-impl Copy for KS_COPY_MACROVISION {}
-impl Clone for KS_COPY_MACROVISION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_H264VIDEOINFO {
     pub DataFormat: KSDATAFORMAT,
     pub H264VideoInfoHeader: KS_H264VIDEOINFO,
 }
-impl Copy for KS_DATAFORMAT_H264VIDEOINFO {}
-impl Clone for KS_DATAFORMAT_H264VIDEOINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_IMAGEINFO {
     pub DataFormat: KSDATAFORMAT,
     pub ImageInfoHeader: KS_BITMAPINFOHEADER,
 }
-impl Copy for KS_DATAFORMAT_IMAGEINFO {}
-impl Clone for KS_DATAFORMAT_IMAGEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_MPEGVIDEOINFO2 {
     pub DataFormat: KSDATAFORMAT,
     pub MpegVideoInfoHeader2: KS_MPEGVIDEOINFO2,
 }
-impl Copy for KS_DATAFORMAT_MPEGVIDEOINFO2 {}
-impl Clone for KS_DATAFORMAT_MPEGVIDEOINFO2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_VBIINFOHEADER {
     pub DataFormat: KSDATAFORMAT,
     pub VBIInfoHeader: KS_VBIINFOHEADER,
 }
-impl Copy for KS_DATAFORMAT_VBIINFOHEADER {}
-impl Clone for KS_DATAFORMAT_VBIINFOHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_VIDEOINFOHEADER {
     pub DataFormat: KSDATAFORMAT,
     pub VideoInfoHeader: KS_VIDEOINFOHEADER,
 }
-impl Copy for KS_DATAFORMAT_VIDEOINFOHEADER {}
-impl Clone for KS_DATAFORMAT_VIDEOINFOHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_VIDEOINFOHEADER2 {
     pub DataFormat: KSDATAFORMAT,
     pub VideoInfoHeader2: KS_VIDEOINFOHEADER2,
 }
-impl Copy for KS_DATAFORMAT_VIDEOINFOHEADER2 {}
-impl Clone for KS_DATAFORMAT_VIDEOINFOHEADER2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_DATAFORMAT_VIDEOINFO_PALETTE {
     pub DataFormat: KSDATAFORMAT,
     pub VideoInfo: KS_VIDEOINFO,
 }
-impl Copy for KS_DATAFORMAT_VIDEOINFO_PALETTE {}
-impl Clone for KS_DATAFORMAT_VIDEOINFO_PALETTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_DATARANGE_ANALOGVIDEO {
     pub DataRange: KSDATAFORMAT,
     pub AnalogVideoInfo: KS_ANALOGVIDEOINFO,
 }
-impl Copy for KS_DATARANGE_ANALOGVIDEO {}
-impl Clone for KS_DATARANGE_ANALOGVIDEO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_DATARANGE_H264_VIDEO {
     pub DataRange: KSDATAFORMAT,
     pub bFixedSizeSamples: super::super::Foundation::BOOL,
@@ -6156,25 +4560,15 @@ pub struct KS_DATARANGE_H264_VIDEO {
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfoHeader: KS_H264VIDEOINFO,
 }
-impl Copy for KS_DATARANGE_H264_VIDEO {}
-impl Clone for KS_DATARANGE_H264_VIDEO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_DATARANGE_IMAGE {
     pub DataRange: KSDATAFORMAT,
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub ImageInfoHeader: KS_BITMAPINFOHEADER,
 }
-impl Copy for KS_DATARANGE_IMAGE {}
-impl Clone for KS_DATARANGE_IMAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_DATARANGE_MPEG1_VIDEO {
     pub DataRange: KSDATAFORMAT,
     pub bFixedSizeSamples: super::super::Foundation::BOOL,
@@ -6184,13 +4578,8 @@ pub struct KS_DATARANGE_MPEG1_VIDEO {
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfoHeader: KS_MPEG1VIDEOINFO,
 }
-impl Copy for KS_DATARANGE_MPEG1_VIDEO {}
-impl Clone for KS_DATARANGE_MPEG1_VIDEO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_DATARANGE_MPEG2_VIDEO {
     pub DataRange: KSDATAFORMAT,
     pub bFixedSizeSamples: super::super::Foundation::BOOL,
@@ -6200,13 +4589,8 @@ pub struct KS_DATARANGE_MPEG2_VIDEO {
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfoHeader: KS_MPEGVIDEOINFO2,
 }
-impl Copy for KS_DATARANGE_MPEG2_VIDEO {}
-impl Clone for KS_DATARANGE_MPEG2_VIDEO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_DATARANGE_VIDEO {
     pub DataRange: KSDATAFORMAT,
     pub bFixedSizeSamples: super::super::Foundation::BOOL,
@@ -6216,13 +4600,8 @@ pub struct KS_DATARANGE_VIDEO {
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfoHeader: KS_VIDEOINFOHEADER,
 }
-impl Copy for KS_DATARANGE_VIDEO {}
-impl Clone for KS_DATARANGE_VIDEO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_DATARANGE_VIDEO2 {
     pub DataRange: KSDATAFORMAT,
     pub bFixedSizeSamples: super::super::Foundation::BOOL,
@@ -6232,13 +4611,8 @@ pub struct KS_DATARANGE_VIDEO2 {
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfoHeader: KS_VIDEOINFOHEADER2,
 }
-impl Copy for KS_DATARANGE_VIDEO2 {}
-impl Clone for KS_DATARANGE_VIDEO2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_DATARANGE_VIDEO_PALETTE {
     pub DataRange: KSDATAFORMAT,
     pub bFixedSizeSamples: super::super::Foundation::BOOL,
@@ -6248,13 +4622,8 @@ pub struct KS_DATARANGE_VIDEO_PALETTE {
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VideoInfo: KS_VIDEOINFO,
 }
-impl Copy for KS_DATARANGE_VIDEO_PALETTE {}
-impl Clone for KS_DATARANGE_VIDEO_PALETTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_DATARANGE_VIDEO_VBI {
     pub DataRange: KSDATAFORMAT,
     pub bFixedSizeSamples: super::super::Foundation::BOOL,
@@ -6264,106 +4633,61 @@ pub struct KS_DATARANGE_VIDEO_VBI {
     pub ConfigCaps: KS_VIDEO_STREAM_CONFIG_CAPS,
     pub VBIInfoHeader: KS_VBIINFOHEADER,
 }
-impl Copy for KS_DATARANGE_VIDEO_VBI {}
-impl Clone for KS_DATARANGE_VIDEO_VBI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_DVDCOPY_BUSKEY {
     pub BusKey: [u8; 5],
     pub Reserved: [u8; 1],
 }
-impl Copy for KS_DVDCOPY_BUSKEY {}
-impl Clone for KS_DVDCOPY_BUSKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_DVDCOPY_CHLGKEY {
     pub ChlgKey: [u8; 10],
     pub Reserved: [u8; 2],
 }
-impl Copy for KS_DVDCOPY_CHLGKEY {}
-impl Clone for KS_DVDCOPY_CHLGKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_DVDCOPY_DISCKEY {
     pub DiscKey: [u8; 2048],
 }
-impl Copy for KS_DVDCOPY_DISCKEY {}
-impl Clone for KS_DVDCOPY_DISCKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_DVDCOPY_REGION {
     pub Reserved: u8,
     pub RegionData: u8,
     pub Reserved2: [u8; 2],
 }
-impl Copy for KS_DVDCOPY_REGION {}
-impl Clone for KS_DVDCOPY_REGION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_DVDCOPY_SET_COPY_STATE {
     pub DVDCopyState: u32,
 }
-impl Copy for KS_DVDCOPY_SET_COPY_STATE {}
-impl Clone for KS_DVDCOPY_SET_COPY_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_DVDCOPY_TITLEKEY {
     pub KeyFlags: u32,
     pub ReservedNT: [u32; 2],
     pub TitleKey: [u8; 6],
     pub Reserved: [u8; 2],
 }
-impl Copy for KS_DVDCOPY_TITLEKEY {}
-impl Clone for KS_DVDCOPY_TITLEKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_DVD_YCrCb {
     pub Reserved: u8,
     pub Y: u8,
     pub Cr: u8,
     pub Cb: u8,
 }
-impl Copy for KS_DVD_YCrCb {}
-impl Clone for KS_DVD_YCrCb {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_DVD_YUV {
     pub Reserved: u8,
     pub Y: u8,
     pub V: u8,
     pub U: u8,
 }
-impl Copy for KS_DVD_YUV {}
-impl Clone for KS_DVD_YUV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_FRAME_INFO {
     pub ExtendedHeaderSize: u32,
     pub dwFrameFlags: u32,
@@ -6376,46 +4700,26 @@ pub struct KS_FRAME_INFO {
     pub Reserved2: u32,
     pub Anonymous2: KS_FRAME_INFO_1,
 }
-impl Copy for KS_FRAME_INFO {}
-impl Clone for KS_FRAME_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KS_FRAME_INFO_0 {
     pub lSurfacePitch: i32,
     pub Reserved1: u32,
 }
-impl Copy for KS_FRAME_INFO_0 {}
-impl Clone for KS_FRAME_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KS_FRAME_INFO_1 {
     pub Anonymous: KS_FRAME_INFO_1_0,
     pub FrameCompletionNumber: u64,
 }
-impl Copy for KS_FRAME_INFO_1 {}
-impl Clone for KS_FRAME_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_FRAME_INFO_1_0 {
     pub Reserved3: u32,
     pub Reserved4: u32,
 }
-impl Copy for KS_FRAME_INFO_1_0 {}
-impl Clone for KS_FRAME_INFO_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_FRAMING_ITEM {
     pub MemoryType: windows_sys::core::GUID,
     pub BusType: windows_sys::core::GUID,
@@ -6428,48 +4732,28 @@ pub struct KS_FRAMING_ITEM {
     pub PhysicalRange: KS_FRAMING_RANGE,
     pub FramingRange: KS_FRAMING_RANGE_WEIGHTED,
 }
-impl Copy for KS_FRAMING_ITEM {}
-impl Clone for KS_FRAMING_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KS_FRAMING_ITEM_0 {
     pub FileAlignment: u32,
     pub FramePitch: i32,
 }
-impl Copy for KS_FRAMING_ITEM_0 {}
-impl Clone for KS_FRAMING_ITEM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_FRAMING_RANGE {
     pub MinFrameSize: u32,
     pub MaxFrameSize: u32,
     pub Stepping: u32,
 }
-impl Copy for KS_FRAMING_RANGE {}
-impl Clone for KS_FRAMING_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_FRAMING_RANGE_WEIGHTED {
     pub Range: KS_FRAMING_RANGE,
     pub InPlaceWeight: u32,
     pub NotInPlaceWeight: u32,
 }
-impl Copy for KS_FRAMING_RANGE_WEIGHTED {}
-impl Clone for KS_FRAMING_RANGE_WEIGHTED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_H264VIDEOINFO {
     pub wWidth: u16,
     pub wHeight: u16,
@@ -6510,39 +4794,24 @@ pub struct KS_H264VIDEOINFO {
     pub wMaxMBperSecThreeResolutionsFullScalability: u16,
     pub wMaxMBperSecFourResolutionsFullScalability: u16,
 }
-impl Copy for KS_H264VIDEOINFO {}
-impl Clone for KS_H264VIDEOINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_MPEG1VIDEOINFO {
     pub hdr: KS_VIDEOINFOHEADER,
     pub dwStartTimeCode: u32,
     pub cbSequenceHeader: u32,
     pub bSequenceHeader: [u8; 1],
 }
-impl Copy for KS_MPEG1VIDEOINFO {}
-impl Clone for KS_MPEG1VIDEOINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_MPEGAUDIOINFO {
     pub dwFlags: u32,
     pub dwReserved1: u32,
     pub dwReserved2: u32,
     pub dwReserved3: u32,
 }
-impl Copy for KS_MPEGAUDIOINFO {}
-impl Clone for KS_MPEGAUDIOINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_MPEGVIDEOINFO2 {
     pub hdr: KS_VIDEOINFOHEADER2,
     pub dwStartTimeCode: u32,
@@ -6552,51 +4821,31 @@ pub struct KS_MPEGVIDEOINFO2 {
     pub dwFlags: u32,
     pub bSequenceHeader: [u32; 1],
 }
-impl Copy for KS_MPEGVIDEOINFO2 {}
-impl Clone for KS_MPEGVIDEOINFO2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_RGBQUAD {
     pub rgbBlue: u8,
     pub rgbGreen: u8,
     pub rgbRed: u8,
     pub rgbReserved: u8,
 }
-impl Copy for KS_RGBQUAD {}
-impl Clone for KS_RGBQUAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const KS_SECURE_CAMERA_SCENARIO_ID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xae53fc6e_8d89_4488_9d2e_4d008731c5fd);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_TRUECOLORINFO {
     pub dwBitMasks: [u32; 3],
     pub bmiColors: [KS_RGBQUAD; 256],
 }
-impl Copy for KS_TRUECOLORINFO {}
-impl Clone for KS_TRUECOLORINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_TVTUNER_CHANGE_INFO {
     pub dwFlags: u32,
     pub dwCountryCode: u32,
     pub dwAnalogVideoStandard: u32,
     pub dwChannel: u32,
 }
-impl Copy for KS_TVTUNER_CHANGE_INFO {}
-impl Clone for KS_TVTUNER_CHANGE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_VBIINFOHEADER {
     pub StartLine: u32,
     pub EndLine: u32,
@@ -6610,13 +4859,8 @@ pub struct KS_VBIINFOHEADER {
     pub StrideInBytes: u32,
     pub BufferSize: u32,
 }
-impl Copy for KS_VBIINFOHEADER {}
-impl Clone for KS_VBIINFOHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_VBI_FRAME_INFO {
     pub ExtendedHeaderSize: u32,
     pub dwFrameFlags: u32,
@@ -6626,13 +4870,8 @@ pub struct KS_VBI_FRAME_INFO {
     pub TvTunerChangeInfo: KS_TVTUNER_CHANGE_INFO,
     pub VBIInfoHeader: KS_VBIINFOHEADER,
 }
-impl Copy for KS_VBI_FRAME_INFO {}
-impl Clone for KS_VBI_FRAME_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_VIDEOINFO {
     pub rcSource: super::super::Foundation::RECT,
     pub rcTarget: super::super::Foundation::RECT,
@@ -6642,25 +4881,15 @@ pub struct KS_VIDEOINFO {
     pub bmiHeader: KS_BITMAPINFOHEADER,
     pub Anonymous: KS_VIDEOINFO_0,
 }
-impl Copy for KS_VIDEOINFO {}
-impl Clone for KS_VIDEOINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KS_VIDEOINFO_0 {
     pub bmiColors: [KS_RGBQUAD; 256],
     pub dwBitMasks: [u32; 3],
     pub TrueColorInfo: KS_TRUECOLORINFO,
 }
-impl Copy for KS_VIDEOINFO_0 {}
-impl Clone for KS_VIDEOINFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_VIDEOINFOHEADER {
     pub rcSource: super::super::Foundation::RECT,
     pub rcTarget: super::super::Foundation::RECT,
@@ -6669,13 +4898,8 @@ pub struct KS_VIDEOINFOHEADER {
     pub AvgTimePerFrame: i64,
     pub bmiHeader: KS_BITMAPINFOHEADER,
 }
-impl Copy for KS_VIDEOINFOHEADER {}
-impl Clone for KS_VIDEOINFOHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_VIDEOINFOHEADER2 {
     pub rcSource: super::super::Foundation::RECT,
     pub rcTarget: super::super::Foundation::RECT,
@@ -6690,24 +4914,14 @@ pub struct KS_VIDEOINFOHEADER2 {
     pub dwReserved2: u32,
     pub bmiHeader: KS_BITMAPINFOHEADER,
 }
-impl Copy for KS_VIDEOINFOHEADER2 {}
-impl Clone for KS_VIDEOINFOHEADER2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KS_VIDEOINFOHEADER2_0 {
     pub dwControlFlags: u32,
     pub dwReserved1: u32,
 }
-impl Copy for KS_VIDEOINFOHEADER2_0 {}
-impl Clone for KS_VIDEOINFOHEADER2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KS_VIDEO_STREAM_CONFIG_CAPS {
     pub guid: windows_sys::core::GUID,
     pub VideoStandard: u32,
@@ -6731,105 +4945,59 @@ pub struct KS_VIDEO_STREAM_CONFIG_CAPS {
     pub MinBitsPerSecond: i32,
     pub MaxBitsPerSecond: i32,
 }
-impl Copy for KS_VIDEO_STREAM_CONFIG_CAPS {}
-impl Clone for KS_VIDEO_STREAM_CONFIG_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LOOPEDSTREAMING_POSITION_EVENT_DATA {
     pub KsEventData: KSEVENTDATA,
     pub Position: u64,
 }
-impl Copy for LOOPEDSTREAMING_POSITION_EVENT_DATA {}
-impl Clone for LOOPEDSTREAMING_POSITION_EVENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MEDIUM_INFO {
     pub MediaPresent: super::super::Foundation::BOOL,
     pub MediaType: u32,
     pub RecordInhibit: super::super::Foundation::BOOL,
 }
-impl Copy for MEDIUM_INFO {}
-impl Clone for MEDIUM_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MF_MDL_SHARED_PAYLOAD_KEY {
     pub combined: MF_MDL_SHARED_PAYLOAD_KEY_0,
     pub GMDLHandle: windows_sys::core::GUID,
 }
-impl Copy for MF_MDL_SHARED_PAYLOAD_KEY {}
-impl Clone for MF_MDL_SHARED_PAYLOAD_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MF_MDL_SHARED_PAYLOAD_KEY_0 {
     pub pHandle: u32,
     pub fHandle: u32,
     pub uPayload: u64,
 }
-impl Copy for MF_MDL_SHARED_PAYLOAD_KEY_0 {}
-impl Clone for MF_MDL_SHARED_PAYLOAD_KEY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NABTSFEC_BUFFER {
     pub dataSize: u32,
     pub groupID: u16,
     pub Reserved: u16,
     pub data: [u8; 448],
 }
-impl Copy for NABTSFEC_BUFFER {}
-impl Clone for NABTSFEC_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct NABTS_BUFFER {
     pub ScanlinesRequested: VBICODECFILTERING_SCANLINES,
     pub PictureNumber: i64,
     pub NabtsLines: [NABTS_BUFFER_LINE; 11],
 }
-impl Copy for NABTS_BUFFER {}
-impl Clone for NABTS_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NABTS_BUFFER_LINE {
     pub Confidence: u8,
     pub Bytes: [u8; 36],
 }
-impl Copy for NABTS_BUFFER_LINE {}
-impl Clone for NABTS_BUFFER_LINE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OPTIMAL_WEIGHT_TOTALS {
     pub MinTotalNominator: i64,
     pub MaxTotalNominator: i64,
     pub TotalDenominator: i64,
-}
-impl Copy for OPTIMAL_WEIGHT_TOTALS {}
-impl Clone for OPTIMAL_WEIGHT_TOTALS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const PINNAME_DISPLAYPORT_OUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x21fbb329_1a4a_48da_a076_2318a3c59b26);
 pub const PINNAME_HDMI_OUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x387bfc03_e7ef_4901_86e0_35b7c32b00ef);
@@ -6851,18 +5019,14 @@ pub const PINNAME_VIDEO_VBI: windows_sys::core::GUID = windows_sys::core::GUID::
 pub const PINNAME_VIDEO_VIDEOPORT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfb6c4285_0353_11d1_905f_0000c0cc16ba);
 pub const PINNAME_VIDEO_VIDEOPORT_VBI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfb6c428c_0353_11d1_905f_0000c0cc16ba);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PIPE_DIMENSIONS {
     pub AllocatorPin: KS_COMPRESSION,
     pub MaxExpansionPin: KS_COMPRESSION,
     pub EndPin: KS_COMPRESSION,
 }
-impl Copy for PIPE_DIMENSIONS {}
-impl Clone for PIPE_DIMENSIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PIPE_TERMINATION {
     pub Flags: u32,
     pub OutsideFactors: u32,
@@ -6870,12 +5034,6 @@ pub struct PIPE_TERMINATION {
     pub PhysicalRange: KS_FRAMING_RANGE,
     pub OptimalRange: KS_FRAMING_RANGE_WEIGHTED,
     pub Compression: KS_COMPRESSION,
-}
-impl Copy for PIPE_TERMINATION {}
-impl Clone for PIPE_TERMINATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const PROPSETID_ALLOCATOR_CONTROL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x53171960_148e_11d2_9979_0000c0cc16ba);
 pub const PROPSETID_EXT_DEVICE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb5730a90_1a2c_11cf_8c23_00aa006b6814);
@@ -6897,30 +5055,21 @@ pub const PROPSETID_VIDCAP_VIDEODECODER: windows_sys::core::GUID = windows_sys::
 pub const PROPSETID_VIDCAP_VIDEOENCODER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a2e0610_28e4_11d0_a18c_00a0c9118956);
 pub const PROPSETID_VIDCAP_VIDEOPROCAMP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc6e13360_30ac_11d0_a18c_00a0c9118956);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SECURE_BUFFER_INFO {
     pub guidBufferIdentifier: windows_sys::core::GUID,
     pub cbBufferSize: u32,
     pub cbCaptured: u32,
     pub ullReserved: [u64; 16],
 }
-impl Copy for SECURE_BUFFER_INFO {}
-impl Clone for SECURE_BUFFER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SOUNDDETECTOR_PATTERNHEADER {
     pub Size: u32,
     pub PatternType: windows_sys::core::GUID,
 }
-impl Copy for SOUNDDETECTOR_PATTERNHEADER {}
-impl Clone for SOUNDDETECTOR_PATTERNHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRANSPORTAUDIOPARMS {
     pub EnableOutput: i32,
     pub EnableRecord: i32,
@@ -6928,13 +5077,8 @@ pub struct TRANSPORTAUDIOPARMS {
     pub Input: i32,
     pub MonitorSource: i32,
 }
-impl Copy for TRANSPORTAUDIOPARMS {}
-impl Clone for TRANSPORTAUDIOPARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRANSPORTBASICPARMS {
     pub TimeFormat: i32,
     pub TimeReference: i32,
@@ -6967,13 +5111,8 @@ pub struct TRANSPORTBASICPARMS {
     pub TimerStopDay: i32,
     pub TimerStopTime: i32,
 }
-impl Copy for TRANSPORTBASICPARMS {}
-impl Clone for TRANSPORTBASICPARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRANSPORTSTATUS {
     pub Mode: i32,
     pub LastError: i32,
@@ -6989,35 +5128,20 @@ pub struct TRANSPORTSTATUS {
     pub LinkMode: i32,
     pub NotifyOn: i32,
 }
-impl Copy for TRANSPORTSTATUS {}
-impl Clone for TRANSPORTSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRANSPORTVIDEOPARMS {
     pub OutputMode: i32,
     pub Input: i32,
 }
-impl Copy for TRANSPORTVIDEOPARMS {}
-impl Clone for TRANSPORTVIDEOPARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRANSPORT_STATE {
     pub Mode: u32,
     pub State: u32,
 }
-impl Copy for TRANSPORT_STATE {}
-impl Clone for TRANSPORT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TUNER_ANALOG_CAPS_S {
     pub Mode: u32,
     pub StandardsSupported: u32,
@@ -7028,75 +5152,40 @@ pub struct TUNER_ANALOG_CAPS_S {
     pub ScanSensingRange: u32,
     pub FineTuneSensingRange: u32,
 }
-impl Copy for TUNER_ANALOG_CAPS_S {}
-impl Clone for TUNER_ANALOG_CAPS_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VBICAP_PROPERTIES_PROTECTION_S {
     pub Property: KSIDENTIFIER,
     pub StreamIndex: u32,
     pub Status: u32,
 }
-impl Copy for VBICAP_PROPERTIES_PROTECTION_S {}
-impl Clone for VBICAP_PROPERTIES_PROTECTION_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VBICODECFILTERING_CC_SUBSTREAMS {
     pub SubstreamMask: u32,
 }
-impl Copy for VBICODECFILTERING_CC_SUBSTREAMS {}
-impl Clone for VBICODECFILTERING_CC_SUBSTREAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VBICODECFILTERING_NABTS_SUBSTREAMS {
     pub SubstreamMask: [u32; 128],
 }
-impl Copy for VBICODECFILTERING_NABTS_SUBSTREAMS {}
-impl Clone for VBICODECFILTERING_NABTS_SUBSTREAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VBICODECFILTERING_SCANLINES {
     pub DwordBitArray: [u32; 32],
 }
-impl Copy for VBICODECFILTERING_SCANLINES {}
-impl Clone for VBICODECFILTERING_SCANLINES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VBICODECFILTERING_STATISTICS_CC {
     pub Common: VBICODECFILTERING_STATISTICS_COMMON,
 }
-impl Copy for VBICODECFILTERING_STATISTICS_CC {}
-impl Clone for VBICODECFILTERING_STATISTICS_CC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VBICODECFILTERING_STATISTICS_CC_PIN {
     pub Common: VBICODECFILTERING_STATISTICS_COMMON_PIN,
 }
-impl Copy for VBICODECFILTERING_STATISTICS_CC_PIN {}
-impl Clone for VBICODECFILTERING_STATISTICS_CC_PIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VBICODECFILTERING_STATISTICS_COMMON {
     pub InputSRBsProcessed: u32,
     pub OutputSRBsProcessed: u32,
@@ -7113,13 +5202,8 @@ pub struct VBICODECFILTERING_STATISTICS_COMMON {
     pub LineConfidenceAvg: u32,
     pub BytesOutput: u32,
 }
-impl Copy for VBICODECFILTERING_STATISTICS_COMMON {}
-impl Clone for VBICODECFILTERING_STATISTICS_COMMON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VBICODECFILTERING_STATISTICS_COMMON_PIN {
     pub SRBsProcessed: u32,
     pub SRBsIgnored: u32,
@@ -7130,13 +5214,8 @@ pub struct VBICODECFILTERING_STATISTICS_COMMON_PIN {
     pub LineConfidenceAvg: u32,
     pub BytesOutput: u32,
 }
-impl Copy for VBICODECFILTERING_STATISTICS_COMMON_PIN {}
-impl Clone for VBICODECFILTERING_STATISTICS_COMMON_PIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VBICODECFILTERING_STATISTICS_NABTS {
     pub Common: VBICODECFILTERING_STATISTICS_COMMON,
     pub FECBundleBadLines: u32,
@@ -7147,43 +5226,23 @@ pub struct VBICODECFILTERING_STATISTICS_NABTS {
     pub BundlesSent2IP: u32,
     pub FilteredLines: u32,
 }
-impl Copy for VBICODECFILTERING_STATISTICS_NABTS {}
-impl Clone for VBICODECFILTERING_STATISTICS_NABTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VBICODECFILTERING_STATISTICS_NABTS_PIN {
     pub Common: VBICODECFILTERING_STATISTICS_COMMON_PIN,
 }
-impl Copy for VBICODECFILTERING_STATISTICS_NABTS_PIN {}
-impl Clone for VBICODECFILTERING_STATISTICS_NABTS_PIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VBICODECFILTERING_STATISTICS_TELETEXT {
     pub Common: VBICODECFILTERING_STATISTICS_COMMON,
 }
-impl Copy for VBICODECFILTERING_STATISTICS_TELETEXT {}
-impl Clone for VBICODECFILTERING_STATISTICS_TELETEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VBICODECFILTERING_STATISTICS_TELETEXT_PIN {
     pub Common: VBICODECFILTERING_STATISTICS_COMMON_PIN,
 }
-impl Copy for VBICODECFILTERING_STATISTICS_TELETEXT_PIN {}
-impl Clone for VBICODECFILTERING_STATISTICS_TELETEXT_PIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VRAM_SURFACE_INFO {
     pub hSurface: usize,
     pub VramPhysicalAddress: i64,
@@ -7194,55 +5253,29 @@ pub struct VRAM_SURFACE_INFO {
     pub lPitch: i32,
     pub ullReserved: [u64; 16],
 }
-impl Copy for VRAM_SURFACE_INFO {}
-impl Clone for VRAM_SURFACE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VRAM_SURFACE_INFO_PROPERTY_S {
     pub Property: KSIDENTIFIER,
     pub pVramSurfaceInfo: *mut VRAM_SURFACE_INFO,
 }
-impl Copy for VRAM_SURFACE_INFO_PROPERTY_S {}
-impl Clone for VRAM_SURFACE_INFO_PROPERTY_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WNF_KSCAMERA_STREAMSTATE_INFO {
     pub ProcessId: u32,
     pub SessionId: u32,
     pub StreamState: u32,
     pub Reserved: u32,
 }
-impl Copy for WNF_KSCAMERA_STREAMSTATE_INFO {}
-impl Clone for WNF_KSCAMERA_STREAMSTATE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WST_BUFFER {
     pub ScanlinesRequested: VBICODECFILTERING_SCANLINES,
     pub WstLines: [WST_BUFFER_LINE; 17],
 }
-impl Copy for WST_BUFFER {}
-impl Clone for WST_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WST_BUFFER_LINE {
     pub Confidence: u8,
     pub Bytes: [u8; 42],
-}
-impl Copy for WST_BUFFER_LINE {}
-impl Clone for WST_BUFFER_LINE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

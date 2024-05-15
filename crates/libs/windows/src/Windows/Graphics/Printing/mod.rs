@@ -1875,22 +1875,12 @@ impl windows_core::RuntimeType for PrintTaskCompletion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTaskCompletion;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PrintPageDescription {
     pub PageSize: super::super::Foundation::Size,
     pub ImageableRect: super::super::Foundation::Rect,
     pub DpiX: u32,
     pub DpiY: u32,
-}
-impl Copy for PrintPageDescription {}
-impl Clone for PrintPageDescription {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PrintPageDescription {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PrintPageDescription").field("PageSize", &self.PageSize).field("ImageableRect", &self.ImageableRect).field("DpiX", &self.DpiX).field("DpiY", &self.DpiY).finish()
-    }
 }
 impl windows_core::TypeKind for PrintPageDescription {
     type TypeKind = windows_core::CopyType;
@@ -1898,12 +1888,6 @@ impl windows_core::TypeKind for PrintPageDescription {
 impl windows_core::RuntimeType for PrintPageDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Printing.PrintPageDescription;struct(Windows.Foundation.Size;f4;f4);struct(Windows.Foundation.Rect;f4;f4;f4;f4);u4;u4)");
 }
-impl PartialEq for PrintPageDescription {
-    fn eq(&self, other: &Self) -> bool {
-        self.PageSize == other.PageSize && self.ImageableRect == other.ImageableRect && self.DpiX == other.DpiX && self.DpiY == other.DpiY
-    }
-}
-impl Eq for PrintPageDescription {}
 impl Default for PrintPageDescription {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

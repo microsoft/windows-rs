@@ -222,6 +222,7 @@ impl core::fmt::Debug for SAFER_POLICY_INFO_CLASS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFER_CODE_PROPERTIES_V1 {
     pub cbSize: u32,
     pub dwCheckFlags: u32,
@@ -237,44 +238,9 @@ pub struct SAFER_CODE_PROPERTIES_V1 {
     pub dwWVTUIChoice: u32,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for SAFER_CODE_PROPERTIES_V1 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for SAFER_CODE_PROPERTIES_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for SAFER_CODE_PROPERTIES_V1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SAFER_CODE_PROPERTIES_V1")
-            .field("cbSize", &self.cbSize)
-            .field("dwCheckFlags", &self.dwCheckFlags)
-            .field("ImagePath", &self.ImagePath)
-            .field("hImageFileHandle", &self.hImageFileHandle)
-            .field("UrlZoneId", &self.UrlZoneId)
-            .field("ImageHash", &self.ImageHash)
-            .field("dwImageHashSize", &self.dwImageHashSize)
-            .field("ImageSize", &self.ImageSize)
-            .field("HashAlgorithm", &self.HashAlgorithm)
-            .field("pByteBlock", &self.pByteBlock)
-            .field("hWndParent", &self.hWndParent)
-            .field("dwWVTUIChoice", &self.dwWVTUIChoice)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for SAFER_CODE_PROPERTIES_V1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for SAFER_CODE_PROPERTIES_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwCheckFlags == other.dwCheckFlags && self.ImagePath == other.ImagePath && self.hImageFileHandle == other.hImageFileHandle && self.UrlZoneId == other.UrlZoneId && self.ImageHash == other.ImageHash && self.dwImageHashSize == other.dwImageHashSize && self.ImageSize == other.ImageSize && self.HashAlgorithm == other.HashAlgorithm && self.pByteBlock == other.pByteBlock && self.hWndParent == other.hWndParent && self.dwWVTUIChoice == other.dwWVTUIChoice
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for SAFER_CODE_PROPERTIES_V1 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for SAFER_CODE_PROPERTIES_V1 {
     fn default() -> Self {
@@ -283,6 +249,7 @@ impl Default for SAFER_CODE_PROPERTIES_V1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFER_CODE_PROPERTIES_V2 {
     pub cbSize: u32,
     pub dwCheckFlags: u32,
@@ -303,49 +270,9 @@ pub struct SAFER_CODE_PROPERTIES_V2 {
     pub PackageIsFramework: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for SAFER_CODE_PROPERTIES_V2 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for SAFER_CODE_PROPERTIES_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for SAFER_CODE_PROPERTIES_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SAFER_CODE_PROPERTIES_V2")
-            .field("cbSize", &self.cbSize)
-            .field("dwCheckFlags", &self.dwCheckFlags)
-            .field("ImagePath", &self.ImagePath)
-            .field("hImageFileHandle", &self.hImageFileHandle)
-            .field("UrlZoneId", &self.UrlZoneId)
-            .field("ImageHash", &self.ImageHash)
-            .field("dwImageHashSize", &self.dwImageHashSize)
-            .field("ImageSize", &self.ImageSize)
-            .field("HashAlgorithm", &self.HashAlgorithm)
-            .field("pByteBlock", &self.pByteBlock)
-            .field("hWndParent", &self.hWndParent)
-            .field("dwWVTUIChoice", &self.dwWVTUIChoice)
-            .field("PackageMoniker", &self.PackageMoniker)
-            .field("PackagePublisher", &self.PackagePublisher)
-            .field("PackageName", &self.PackageName)
-            .field("PackageVersion", &self.PackageVersion)
-            .field("PackageIsFramework", &self.PackageIsFramework)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for SAFER_CODE_PROPERTIES_V2 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for SAFER_CODE_PROPERTIES_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwCheckFlags == other.dwCheckFlags && self.ImagePath == other.ImagePath && self.hImageFileHandle == other.hImageFileHandle && self.UrlZoneId == other.UrlZoneId && self.ImageHash == other.ImageHash && self.dwImageHashSize == other.dwImageHashSize && self.ImageSize == other.ImageSize && self.HashAlgorithm == other.HashAlgorithm && self.pByteBlock == other.pByteBlock && self.hWndParent == other.hWndParent && self.dwWVTUIChoice == other.dwWVTUIChoice && self.PackageMoniker == other.PackageMoniker && self.PackagePublisher == other.PackagePublisher && self.PackageName == other.PackageName && self.PackageVersion == other.PackageVersion && self.PackageIsFramework == other.PackageIsFramework
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for SAFER_CODE_PROPERTIES_V2 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for SAFER_CODE_PROPERTIES_V2 {
     fn default() -> Self {
@@ -354,6 +281,7 @@ impl Default for SAFER_CODE_PROPERTIES_V2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFER_HASH_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
     pub Description: [u16; 256],
@@ -365,31 +293,9 @@ pub struct SAFER_HASH_IDENTIFICATION {
     pub dwSaferFlags: u32,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for SAFER_HASH_IDENTIFICATION {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for SAFER_HASH_IDENTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for SAFER_HASH_IDENTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SAFER_HASH_IDENTIFICATION").field("header", &self.header).field("Description", &self.Description).field("FriendlyName", &self.FriendlyName).field("HashSize", &self.HashSize).field("ImageHash", &self.ImageHash).field("HashAlgorithm", &self.HashAlgorithm).field("ImageSize", &self.ImageSize).field("dwSaferFlags", &self.dwSaferFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for SAFER_HASH_IDENTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for SAFER_HASH_IDENTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.header == other.header && self.Description == other.Description && self.FriendlyName == other.FriendlyName && self.HashSize == other.HashSize && self.ImageHash == other.ImageHash && self.HashAlgorithm == other.HashAlgorithm && self.ImageSize == other.ImageSize && self.dwSaferFlags == other.dwSaferFlags
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for SAFER_HASH_IDENTIFICATION {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for SAFER_HASH_IDENTIFICATION {
     fn default() -> Self {
@@ -398,6 +304,7 @@ impl Default for SAFER_HASH_IDENTIFICATION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFER_HASH_IDENTIFICATION2 {
     pub hashIdentification: SAFER_HASH_IDENTIFICATION,
     pub HashSize: u32,
@@ -405,31 +312,9 @@ pub struct SAFER_HASH_IDENTIFICATION2 {
     pub HashAlgorithm: super::Cryptography::ALG_ID,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for SAFER_HASH_IDENTIFICATION2 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for SAFER_HASH_IDENTIFICATION2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for SAFER_HASH_IDENTIFICATION2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SAFER_HASH_IDENTIFICATION2").field("hashIdentification", &self.hashIdentification).field("HashSize", &self.HashSize).field("ImageHash", &self.ImageHash).field("HashAlgorithm", &self.HashAlgorithm).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for SAFER_HASH_IDENTIFICATION2 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for SAFER_HASH_IDENTIFICATION2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hashIdentification == other.hashIdentification && self.HashSize == other.HashSize && self.ImageHash == other.ImageHash && self.HashAlgorithm == other.HashAlgorithm
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for SAFER_HASH_IDENTIFICATION2 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for SAFER_HASH_IDENTIFICATION2 {
     fn default() -> Self {
@@ -437,95 +322,47 @@ impl Default for SAFER_HASH_IDENTIFICATION2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFER_IDENTIFICATION_HEADER {
     pub dwIdentificationType: SAFER_IDENTIFICATION_TYPES,
     pub cbStructSize: u32,
     pub IdentificationGuid: windows_core::GUID,
     pub lastModified: super::super::Foundation::FILETIME,
 }
-impl Copy for SAFER_IDENTIFICATION_HEADER {}
-impl Clone for SAFER_IDENTIFICATION_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SAFER_IDENTIFICATION_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SAFER_IDENTIFICATION_HEADER").field("dwIdentificationType", &self.dwIdentificationType).field("cbStructSize", &self.cbStructSize).field("IdentificationGuid", &self.IdentificationGuid).field("lastModified", &self.lastModified).finish()
-    }
-}
 impl windows_core::TypeKind for SAFER_IDENTIFICATION_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SAFER_IDENTIFICATION_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIdentificationType == other.dwIdentificationType && self.cbStructSize == other.cbStructSize && self.IdentificationGuid == other.IdentificationGuid && self.lastModified == other.lastModified
-    }
-}
-impl Eq for SAFER_IDENTIFICATION_HEADER {}
 impl Default for SAFER_IDENTIFICATION_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFER_PATHNAME_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
     pub Description: [u16; 256],
     pub ImageName: windows_core::PWSTR,
     pub dwSaferFlags: u32,
 }
-impl Copy for SAFER_PATHNAME_IDENTIFICATION {}
-impl Clone for SAFER_PATHNAME_IDENTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SAFER_PATHNAME_IDENTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SAFER_PATHNAME_IDENTIFICATION").field("header", &self.header).field("Description", &self.Description).field("ImageName", &self.ImageName).field("dwSaferFlags", &self.dwSaferFlags).finish()
-    }
-}
 impl windows_core::TypeKind for SAFER_PATHNAME_IDENTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SAFER_PATHNAME_IDENTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.header == other.header && self.Description == other.Description && self.ImageName == other.ImageName && self.dwSaferFlags == other.dwSaferFlags
-    }
-}
-impl Eq for SAFER_PATHNAME_IDENTIFICATION {}
 impl Default for SAFER_PATHNAME_IDENTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFER_URLZONE_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
     pub UrlZoneId: u32,
     pub dwSaferFlags: u32,
 }
-impl Copy for SAFER_URLZONE_IDENTIFICATION {}
-impl Clone for SAFER_URLZONE_IDENTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SAFER_URLZONE_IDENTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SAFER_URLZONE_IDENTIFICATION").field("header", &self.header).field("UrlZoneId", &self.UrlZoneId).field("dwSaferFlags", &self.dwSaferFlags).finish()
-    }
-}
 impl windows_core::TypeKind for SAFER_URLZONE_IDENTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SAFER_URLZONE_IDENTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.header == other.header && self.UrlZoneId == other.UrlZoneId && self.dwSaferFlags == other.dwSaferFlags
-    }
-}
-impl Eq for SAFER_URLZONE_IDENTIFICATION {}
 impl Default for SAFER_URLZONE_IDENTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

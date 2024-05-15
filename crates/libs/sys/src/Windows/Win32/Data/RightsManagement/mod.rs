@@ -188,6 +188,7 @@ pub type DRM_DISTRIBUTION_POINT_INFO = i32;
 pub type DRM_STATUS_MSG = i32;
 pub type DRM_USAGEPOLICY_TYPE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRMBOUNDLICENSEPARAMS {
     pub uVersion: u32,
     pub hEnablingPrincipal: u32,
@@ -200,37 +201,22 @@ pub struct DRMBOUNDLICENSEPARAMS {
     pub wszDefaultEnablingPrincipalCredentials: windows_sys::core::PWSTR,
     pub dwFlags: u32,
 }
-impl Copy for DRMBOUNDLICENSEPARAMS {}
-impl Clone for DRMBOUNDLICENSEPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRMID {
     pub uVersion: u32,
     pub wszIDType: windows_sys::core::PWSTR,
     pub wszID: windows_sys::core::PWSTR,
 }
-impl Copy for DRMID {}
-impl Clone for DRMID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRM_ACTSERV_INFO {
     pub uVersion: u32,
     pub wszPubKey: windows_sys::core::PWSTR,
     pub wszURL: windows_sys::core::PWSTR,
 }
-impl Copy for DRM_ACTSERV_INFO {}
-impl Clone for DRM_ACTSERV_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRM_CLIENT_VERSION_INFO {
     pub uStructVersion: u32,
     pub dwVersion: [u32; 4],
@@ -238,13 +224,8 @@ pub struct DRM_CLIENT_VERSION_INFO {
     pub wszProductId: [u16; 256],
     pub wszProductDescription: [u16; 256],
 }
-impl Copy for DRM_CLIENT_VERSION_INFO {}
-impl Clone for DRM_CLIENT_VERSION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRM_LICENSE_ACQ_DATA {
     pub uVersion: u32,
     pub wszURL: windows_sys::core::PWSTR,
@@ -252,11 +233,5 @@ pub struct DRM_LICENSE_ACQ_DATA {
     pub pbPostData: *mut u8,
     pub dwPostDataSize: u32,
     pub wszFriendlyName: windows_sys::core::PWSTR,
-}
-impl Copy for DRM_LICENSE_ACQ_DATA {}
-impl Clone for DRM_LICENSE_ACQ_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type DRMCALLBACK = Option<unsafe extern "system" fn(param0: DRM_STATUS_MSG, param1: windows_sys::core::HRESULT, param2: *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;

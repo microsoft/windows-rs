@@ -6447,6 +6447,7 @@ impl core::fmt::Debug for SendToMode {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_CONFIGURATIONA {
     pub SizeOfStruct: u32,
     pub Retries: u32,
@@ -6462,46 +6463,16 @@ pub struct FAX_CONFIGURATIONA {
     pub ArchiveDirectory: windows_core::PCSTR,
     pub Reserved: windows_core::PCSTR,
 }
-impl Copy for FAX_CONFIGURATIONA {}
-impl Clone for FAX_CONFIGURATIONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_CONFIGURATIONA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_CONFIGURATIONA")
-            .field("SizeOfStruct", &self.SizeOfStruct)
-            .field("Retries", &self.Retries)
-            .field("RetryDelay", &self.RetryDelay)
-            .field("DirtyDays", &self.DirtyDays)
-            .field("Branding", &self.Branding)
-            .field("UseDeviceTsid", &self.UseDeviceTsid)
-            .field("ServerCp", &self.ServerCp)
-            .field("PauseServerQueue", &self.PauseServerQueue)
-            .field("StartCheapTime", &self.StartCheapTime)
-            .field("StopCheapTime", &self.StopCheapTime)
-            .field("ArchiveOutgoingFaxes", &self.ArchiveOutgoingFaxes)
-            .field("ArchiveDirectory", &self.ArchiveDirectory)
-            .field("Reserved", &self.Reserved)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for FAX_CONFIGURATIONA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_CONFIGURATIONA {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct && self.Retries == other.Retries && self.RetryDelay == other.RetryDelay && self.DirtyDays == other.DirtyDays && self.Branding == other.Branding && self.UseDeviceTsid == other.UseDeviceTsid && self.ServerCp == other.ServerCp && self.PauseServerQueue == other.PauseServerQueue && self.StartCheapTime == other.StartCheapTime && self.StopCheapTime == other.StopCheapTime && self.ArchiveOutgoingFaxes == other.ArchiveOutgoingFaxes && self.ArchiveDirectory == other.ArchiveDirectory && self.Reserved == other.Reserved
-    }
-}
-impl Eq for FAX_CONFIGURATIONA {}
 impl Default for FAX_CONFIGURATIONA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_CONFIGURATIONW {
     pub SizeOfStruct: u32,
     pub Retries: u32,
@@ -6517,40 +6488,9 @@ pub struct FAX_CONFIGURATIONW {
     pub ArchiveDirectory: windows_core::PCWSTR,
     pub Reserved: windows_core::PCWSTR,
 }
-impl Copy for FAX_CONFIGURATIONW {}
-impl Clone for FAX_CONFIGURATIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_CONFIGURATIONW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_CONFIGURATIONW")
-            .field("SizeOfStruct", &self.SizeOfStruct)
-            .field("Retries", &self.Retries)
-            .field("RetryDelay", &self.RetryDelay)
-            .field("DirtyDays", &self.DirtyDays)
-            .field("Branding", &self.Branding)
-            .field("UseDeviceTsid", &self.UseDeviceTsid)
-            .field("ServerCp", &self.ServerCp)
-            .field("PauseServerQueue", &self.PauseServerQueue)
-            .field("StartCheapTime", &self.StartCheapTime)
-            .field("StopCheapTime", &self.StopCheapTime)
-            .field("ArchiveOutgoingFaxes", &self.ArchiveOutgoingFaxes)
-            .field("ArchiveDirectory", &self.ArchiveDirectory)
-            .field("Reserved", &self.Reserved)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for FAX_CONFIGURATIONW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_CONFIGURATIONW {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct && self.Retries == other.Retries && self.RetryDelay == other.RetryDelay && self.DirtyDays == other.DirtyDays && self.Branding == other.Branding && self.UseDeviceTsid == other.UseDeviceTsid && self.ServerCp == other.ServerCp && self.PauseServerQueue == other.PauseServerQueue && self.StartCheapTime == other.StartCheapTime && self.StopCheapTime == other.StopCheapTime && self.ArchiveOutgoingFaxes == other.ArchiveOutgoingFaxes && self.ArchiveDirectory == other.ArchiveDirectory && self.Reserved == other.Reserved
-    }
-}
-impl Eq for FAX_CONFIGURATIONW {}
 impl Default for FAX_CONFIGURATIONW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6558,37 +6498,16 @@ impl Default for FAX_CONFIGURATIONW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_CONTEXT_INFOA {
     pub SizeOfStruct: u32,
     pub hDC: super::super::Graphics::Gdi::HDC,
     pub ServerName: [i8; 16],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for FAX_CONTEXT_INFOA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for FAX_CONTEXT_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for FAX_CONTEXT_INFOA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_CONTEXT_INFOA").field("SizeOfStruct", &self.SizeOfStruct).field("hDC", &self.hDC).field("ServerName", &self.ServerName).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for FAX_CONTEXT_INFOA {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for FAX_CONTEXT_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct && self.hDC == other.hDC && self.ServerName == other.ServerName
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for FAX_CONTEXT_INFOA {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for FAX_CONTEXT_INFOA {
     fn default() -> Self {
@@ -6597,37 +6516,16 @@ impl Default for FAX_CONTEXT_INFOA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_CONTEXT_INFOW {
     pub SizeOfStruct: u32,
     pub hDC: super::super::Graphics::Gdi::HDC,
     pub ServerName: [u16; 16],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for FAX_CONTEXT_INFOW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for FAX_CONTEXT_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for FAX_CONTEXT_INFOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_CONTEXT_INFOW").field("SizeOfStruct", &self.SizeOfStruct).field("hDC", &self.hDC).field("ServerName", &self.ServerName).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for FAX_CONTEXT_INFOW {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for FAX_CONTEXT_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct && self.hDC == other.hDC && self.ServerName == other.ServerName
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for FAX_CONTEXT_INFOW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for FAX_CONTEXT_INFOW {
     fn default() -> Self {
@@ -6635,6 +6533,7 @@ impl Default for FAX_CONTEXT_INFOW {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_COVERPAGE_INFOA {
     pub SizeOfStruct: u32,
     pub CoverPageName: windows_core::PCSTR,
@@ -6666,90 +6565,16 @@ pub struct FAX_COVERPAGE_INFOA {
     pub TimeSent: super::super::Foundation::SYSTEMTIME,
     pub PageCount: u32,
 }
-impl Copy for FAX_COVERPAGE_INFOA {}
-impl Clone for FAX_COVERPAGE_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_COVERPAGE_INFOA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_COVERPAGE_INFOA")
-            .field("SizeOfStruct", &self.SizeOfStruct)
-            .field("CoverPageName", &self.CoverPageName)
-            .field("UseServerCoverPage", &self.UseServerCoverPage)
-            .field("RecName", &self.RecName)
-            .field("RecFaxNumber", &self.RecFaxNumber)
-            .field("RecCompany", &self.RecCompany)
-            .field("RecStreetAddress", &self.RecStreetAddress)
-            .field("RecCity", &self.RecCity)
-            .field("RecState", &self.RecState)
-            .field("RecZip", &self.RecZip)
-            .field("RecCountry", &self.RecCountry)
-            .field("RecTitle", &self.RecTitle)
-            .field("RecDepartment", &self.RecDepartment)
-            .field("RecOfficeLocation", &self.RecOfficeLocation)
-            .field("RecHomePhone", &self.RecHomePhone)
-            .field("RecOfficePhone", &self.RecOfficePhone)
-            .field("SdrName", &self.SdrName)
-            .field("SdrFaxNumber", &self.SdrFaxNumber)
-            .field("SdrCompany", &self.SdrCompany)
-            .field("SdrAddress", &self.SdrAddress)
-            .field("SdrTitle", &self.SdrTitle)
-            .field("SdrDepartment", &self.SdrDepartment)
-            .field("SdrOfficeLocation", &self.SdrOfficeLocation)
-            .field("SdrHomePhone", &self.SdrHomePhone)
-            .field("SdrOfficePhone", &self.SdrOfficePhone)
-            .field("Note", &self.Note)
-            .field("Subject", &self.Subject)
-            .field("TimeSent", &self.TimeSent)
-            .field("PageCount", &self.PageCount)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for FAX_COVERPAGE_INFOA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_COVERPAGE_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct
-            && self.CoverPageName == other.CoverPageName
-            && self.UseServerCoverPage == other.UseServerCoverPage
-            && self.RecName == other.RecName
-            && self.RecFaxNumber == other.RecFaxNumber
-            && self.RecCompany == other.RecCompany
-            && self.RecStreetAddress == other.RecStreetAddress
-            && self.RecCity == other.RecCity
-            && self.RecState == other.RecState
-            && self.RecZip == other.RecZip
-            && self.RecCountry == other.RecCountry
-            && self.RecTitle == other.RecTitle
-            && self.RecDepartment == other.RecDepartment
-            && self.RecOfficeLocation == other.RecOfficeLocation
-            && self.RecHomePhone == other.RecHomePhone
-            && self.RecOfficePhone == other.RecOfficePhone
-            && self.SdrName == other.SdrName
-            && self.SdrFaxNumber == other.SdrFaxNumber
-            && self.SdrCompany == other.SdrCompany
-            && self.SdrAddress == other.SdrAddress
-            && self.SdrTitle == other.SdrTitle
-            && self.SdrDepartment == other.SdrDepartment
-            && self.SdrOfficeLocation == other.SdrOfficeLocation
-            && self.SdrHomePhone == other.SdrHomePhone
-            && self.SdrOfficePhone == other.SdrOfficePhone
-            && self.Note == other.Note
-            && self.Subject == other.Subject
-            && self.TimeSent == other.TimeSent
-            && self.PageCount == other.PageCount
-    }
-}
-impl Eq for FAX_COVERPAGE_INFOA {}
 impl Default for FAX_COVERPAGE_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_COVERPAGE_INFOW {
     pub SizeOfStruct: u32,
     pub CoverPageName: windows_core::PCWSTR,
@@ -6781,90 +6606,16 @@ pub struct FAX_COVERPAGE_INFOW {
     pub TimeSent: super::super::Foundation::SYSTEMTIME,
     pub PageCount: u32,
 }
-impl Copy for FAX_COVERPAGE_INFOW {}
-impl Clone for FAX_COVERPAGE_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_COVERPAGE_INFOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_COVERPAGE_INFOW")
-            .field("SizeOfStruct", &self.SizeOfStruct)
-            .field("CoverPageName", &self.CoverPageName)
-            .field("UseServerCoverPage", &self.UseServerCoverPage)
-            .field("RecName", &self.RecName)
-            .field("RecFaxNumber", &self.RecFaxNumber)
-            .field("RecCompany", &self.RecCompany)
-            .field("RecStreetAddress", &self.RecStreetAddress)
-            .field("RecCity", &self.RecCity)
-            .field("RecState", &self.RecState)
-            .field("RecZip", &self.RecZip)
-            .field("RecCountry", &self.RecCountry)
-            .field("RecTitle", &self.RecTitle)
-            .field("RecDepartment", &self.RecDepartment)
-            .field("RecOfficeLocation", &self.RecOfficeLocation)
-            .field("RecHomePhone", &self.RecHomePhone)
-            .field("RecOfficePhone", &self.RecOfficePhone)
-            .field("SdrName", &self.SdrName)
-            .field("SdrFaxNumber", &self.SdrFaxNumber)
-            .field("SdrCompany", &self.SdrCompany)
-            .field("SdrAddress", &self.SdrAddress)
-            .field("SdrTitle", &self.SdrTitle)
-            .field("SdrDepartment", &self.SdrDepartment)
-            .field("SdrOfficeLocation", &self.SdrOfficeLocation)
-            .field("SdrHomePhone", &self.SdrHomePhone)
-            .field("SdrOfficePhone", &self.SdrOfficePhone)
-            .field("Note", &self.Note)
-            .field("Subject", &self.Subject)
-            .field("TimeSent", &self.TimeSent)
-            .field("PageCount", &self.PageCount)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for FAX_COVERPAGE_INFOW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_COVERPAGE_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct
-            && self.CoverPageName == other.CoverPageName
-            && self.UseServerCoverPage == other.UseServerCoverPage
-            && self.RecName == other.RecName
-            && self.RecFaxNumber == other.RecFaxNumber
-            && self.RecCompany == other.RecCompany
-            && self.RecStreetAddress == other.RecStreetAddress
-            && self.RecCity == other.RecCity
-            && self.RecState == other.RecState
-            && self.RecZip == other.RecZip
-            && self.RecCountry == other.RecCountry
-            && self.RecTitle == other.RecTitle
-            && self.RecDepartment == other.RecDepartment
-            && self.RecOfficeLocation == other.RecOfficeLocation
-            && self.RecHomePhone == other.RecHomePhone
-            && self.RecOfficePhone == other.RecOfficePhone
-            && self.SdrName == other.SdrName
-            && self.SdrFaxNumber == other.SdrFaxNumber
-            && self.SdrCompany == other.SdrCompany
-            && self.SdrAddress == other.SdrAddress
-            && self.SdrTitle == other.SdrTitle
-            && self.SdrDepartment == other.SdrDepartment
-            && self.SdrOfficeLocation == other.SdrOfficeLocation
-            && self.SdrHomePhone == other.SdrHomePhone
-            && self.SdrOfficePhone == other.SdrOfficePhone
-            && self.Note == other.Note
-            && self.Subject == other.Subject
-            && self.TimeSent == other.TimeSent
-            && self.PageCount == other.PageCount
-    }
-}
-impl Eq for FAX_COVERPAGE_INFOW {}
 impl Default for FAX_COVERPAGE_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_DEVICE_STATUSA {
     pub SizeOfStruct: u32,
     pub CallerId: windows_core::PCSTR,
@@ -6887,53 +6638,16 @@ pub struct FAX_DEVICE_STATUSA {
     pub Tsid: windows_core::PCSTR,
     pub UserName: windows_core::PCSTR,
 }
-impl Copy for FAX_DEVICE_STATUSA {}
-impl Clone for FAX_DEVICE_STATUSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_DEVICE_STATUSA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_DEVICE_STATUSA")
-            .field("SizeOfStruct", &self.SizeOfStruct)
-            .field("CallerId", &self.CallerId)
-            .field("Csid", &self.Csid)
-            .field("CurrentPage", &self.CurrentPage)
-            .field("DeviceId", &self.DeviceId)
-            .field("DeviceName", &self.DeviceName)
-            .field("DocumentName", &self.DocumentName)
-            .field("JobType", &self.JobType)
-            .field("PhoneNumber", &self.PhoneNumber)
-            .field("RoutingString", &self.RoutingString)
-            .field("SenderName", &self.SenderName)
-            .field("RecipientName", &self.RecipientName)
-            .field("Size", &self.Size)
-            .field("StartTime", &self.StartTime)
-            .field("Status", &self.Status)
-            .field("StatusString", &self.StatusString)
-            .field("SubmittedTime", &self.SubmittedTime)
-            .field("TotalPages", &self.TotalPages)
-            .field("Tsid", &self.Tsid)
-            .field("UserName", &self.UserName)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for FAX_DEVICE_STATUSA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_DEVICE_STATUSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct && self.CallerId == other.CallerId && self.Csid == other.Csid && self.CurrentPage == other.CurrentPage && self.DeviceId == other.DeviceId && self.DeviceName == other.DeviceName && self.DocumentName == other.DocumentName && self.JobType == other.JobType && self.PhoneNumber == other.PhoneNumber && self.RoutingString == other.RoutingString && self.SenderName == other.SenderName && self.RecipientName == other.RecipientName && self.Size == other.Size && self.StartTime == other.StartTime && self.Status == other.Status && self.StatusString == other.StatusString && self.SubmittedTime == other.SubmittedTime && self.TotalPages == other.TotalPages && self.Tsid == other.Tsid && self.UserName == other.UserName
-    }
-}
-impl Eq for FAX_DEVICE_STATUSA {}
 impl Default for FAX_DEVICE_STATUSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_DEVICE_STATUSW {
     pub SizeOfStruct: u32,
     pub CallerId: windows_core::PCWSTR,
@@ -6956,53 +6670,16 @@ pub struct FAX_DEVICE_STATUSW {
     pub Tsid: windows_core::PCWSTR,
     pub UserName: windows_core::PCWSTR,
 }
-impl Copy for FAX_DEVICE_STATUSW {}
-impl Clone for FAX_DEVICE_STATUSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_DEVICE_STATUSW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_DEVICE_STATUSW")
-            .field("SizeOfStruct", &self.SizeOfStruct)
-            .field("CallerId", &self.CallerId)
-            .field("Csid", &self.Csid)
-            .field("CurrentPage", &self.CurrentPage)
-            .field("DeviceId", &self.DeviceId)
-            .field("DeviceName", &self.DeviceName)
-            .field("DocumentName", &self.DocumentName)
-            .field("JobType", &self.JobType)
-            .field("PhoneNumber", &self.PhoneNumber)
-            .field("RoutingString", &self.RoutingString)
-            .field("SenderName", &self.SenderName)
-            .field("RecipientName", &self.RecipientName)
-            .field("Size", &self.Size)
-            .field("StartTime", &self.StartTime)
-            .field("Status", &self.Status)
-            .field("StatusString", &self.StatusString)
-            .field("SubmittedTime", &self.SubmittedTime)
-            .field("TotalPages", &self.TotalPages)
-            .field("Tsid", &self.Tsid)
-            .field("UserName", &self.UserName)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for FAX_DEVICE_STATUSW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_DEVICE_STATUSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct && self.CallerId == other.CallerId && self.Csid == other.Csid && self.CurrentPage == other.CurrentPage && self.DeviceId == other.DeviceId && self.DeviceName == other.DeviceName && self.DocumentName == other.DocumentName && self.JobType == other.JobType && self.PhoneNumber == other.PhoneNumber && self.RoutingString == other.RoutingString && self.SenderName == other.SenderName && self.RecipientName == other.RecipientName && self.Size == other.Size && self.StartTime == other.StartTime && self.Status == other.Status && self.StatusString == other.StatusString && self.SubmittedTime == other.SubmittedTime && self.TotalPages == other.TotalPages && self.Tsid == other.Tsid && self.UserName == other.UserName
-    }
-}
-impl Eq for FAX_DEVICE_STATUSW {}
 impl Default for FAX_DEVICE_STATUSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_DEV_STATUS {
     pub SizeOfStruct: u32,
     pub StatusId: u32,
@@ -7014,32 +6691,16 @@ pub struct FAX_DEV_STATUS {
     pub ErrorCode: u32,
     pub Reserved: [u32; 3],
 }
-impl Copy for FAX_DEV_STATUS {}
-impl Clone for FAX_DEV_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_DEV_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_DEV_STATUS").field("SizeOfStruct", &self.SizeOfStruct).field("StatusId", &self.StatusId).field("StringId", &self.StringId).field("PageCount", &self.PageCount).field("CSI", &self.CSI).field("CallerId", &self.CallerId).field("RoutingInfo", &self.RoutingInfo).field("ErrorCode", &self.ErrorCode).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for FAX_DEV_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_DEV_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct && self.StatusId == other.StatusId && self.StringId == other.StringId && self.PageCount == other.PageCount && self.CSI == other.CSI && self.CallerId == other.CallerId && self.RoutingInfo == other.RoutingInfo && self.ErrorCode == other.ErrorCode && self.Reserved == other.Reserved
-    }
-}
-impl Eq for FAX_DEV_STATUS {}
 impl Default for FAX_DEV_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_EVENTA {
     pub SizeOfStruct: u32,
     pub TimeStamp: super::super::Foundation::FILETIME,
@@ -7047,32 +6708,16 @@ pub struct FAX_EVENTA {
     pub EventId: u32,
     pub JobId: u32,
 }
-impl Copy for FAX_EVENTA {}
-impl Clone for FAX_EVENTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_EVENTA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_EVENTA").field("SizeOfStruct", &self.SizeOfStruct).field("TimeStamp", &self.TimeStamp).field("DeviceId", &self.DeviceId).field("EventId", &self.EventId).field("JobId", &self.JobId).finish()
-    }
-}
 impl windows_core::TypeKind for FAX_EVENTA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_EVENTA {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct && self.TimeStamp == other.TimeStamp && self.DeviceId == other.DeviceId && self.EventId == other.EventId && self.JobId == other.JobId
-    }
-}
-impl Eq for FAX_EVENTA {}
 impl Default for FAX_EVENTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_EVENTW {
     pub SizeOfStruct: u32,
     pub TimeStamp: super::super::Foundation::FILETIME,
@@ -7080,32 +6725,16 @@ pub struct FAX_EVENTW {
     pub EventId: u32,
     pub JobId: u32,
 }
-impl Copy for FAX_EVENTW {}
-impl Clone for FAX_EVENTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_EVENTW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_EVENTW").field("SizeOfStruct", &self.SizeOfStruct).field("TimeStamp", &self.TimeStamp).field("DeviceId", &self.DeviceId).field("EventId", &self.EventId).field("JobId", &self.JobId).finish()
-    }
-}
 impl windows_core::TypeKind for FAX_EVENTW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_EVENTW {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct && self.TimeStamp == other.TimeStamp && self.DeviceId == other.DeviceId && self.EventId == other.EventId && self.JobId == other.JobId
-    }
-}
-impl Eq for FAX_EVENTW {}
 impl Default for FAX_EVENTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_GLOBAL_ROUTING_INFOA {
     pub SizeOfStruct: u32,
     pub Priority: u32,
@@ -7115,32 +6744,16 @@ pub struct FAX_GLOBAL_ROUTING_INFOA {
     pub ExtensionImageName: windows_core::PCSTR,
     pub ExtensionFriendlyName: windows_core::PCSTR,
 }
-impl Copy for FAX_GLOBAL_ROUTING_INFOA {}
-impl Clone for FAX_GLOBAL_ROUTING_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_GLOBAL_ROUTING_INFOA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_GLOBAL_ROUTING_INFOA").field("SizeOfStruct", &self.SizeOfStruct).field("Priority", &self.Priority).field("Guid", &self.Guid).field("FriendlyName", &self.FriendlyName).field("FunctionName", &self.FunctionName).field("ExtensionImageName", &self.ExtensionImageName).field("ExtensionFriendlyName", &self.ExtensionFriendlyName).finish()
-    }
-}
 impl windows_core::TypeKind for FAX_GLOBAL_ROUTING_INFOA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_GLOBAL_ROUTING_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct && self.Priority == other.Priority && self.Guid == other.Guid && self.FriendlyName == other.FriendlyName && self.FunctionName == other.FunctionName && self.ExtensionImageName == other.ExtensionImageName && self.ExtensionFriendlyName == other.ExtensionFriendlyName
-    }
-}
-impl Eq for FAX_GLOBAL_ROUTING_INFOA {}
 impl Default for FAX_GLOBAL_ROUTING_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_GLOBAL_ROUTING_INFOW {
     pub SizeOfStruct: u32,
     pub Priority: u32,
@@ -7150,32 +6763,16 @@ pub struct FAX_GLOBAL_ROUTING_INFOW {
     pub ExtensionImageName: windows_core::PCWSTR,
     pub ExtensionFriendlyName: windows_core::PCWSTR,
 }
-impl Copy for FAX_GLOBAL_ROUTING_INFOW {}
-impl Clone for FAX_GLOBAL_ROUTING_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_GLOBAL_ROUTING_INFOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_GLOBAL_ROUTING_INFOW").field("SizeOfStruct", &self.SizeOfStruct).field("Priority", &self.Priority).field("Guid", &self.Guid).field("FriendlyName", &self.FriendlyName).field("FunctionName", &self.FunctionName).field("ExtensionImageName", &self.ExtensionImageName).field("ExtensionFriendlyName", &self.ExtensionFriendlyName).finish()
-    }
-}
 impl windows_core::TypeKind for FAX_GLOBAL_ROUTING_INFOW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_GLOBAL_ROUTING_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct && self.Priority == other.Priority && self.Guid == other.Guid && self.FriendlyName == other.FriendlyName && self.FunctionName == other.FunctionName && self.ExtensionImageName == other.ExtensionImageName && self.ExtensionFriendlyName == other.ExtensionFriendlyName
-    }
-}
-impl Eq for FAX_GLOBAL_ROUTING_INFOW {}
 impl Default for FAX_GLOBAL_ROUTING_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_JOB_ENTRYA {
     pub SizeOfStruct: u32,
     pub JobId: u32,
@@ -7198,72 +6795,16 @@ pub struct FAX_JOB_ENTRYA {
     pub DeliveryReportAddress: windows_core::PCSTR,
     pub DocumentName: windows_core::PCSTR,
 }
-impl Copy for FAX_JOB_ENTRYA {}
-impl Clone for FAX_JOB_ENTRYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_JOB_ENTRYA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_JOB_ENTRYA")
-            .field("SizeOfStruct", &self.SizeOfStruct)
-            .field("JobId", &self.JobId)
-            .field("UserName", &self.UserName)
-            .field("JobType", &self.JobType)
-            .field("QueueStatus", &self.QueueStatus)
-            .field("Status", &self.Status)
-            .field("Size", &self.Size)
-            .field("PageCount", &self.PageCount)
-            .field("RecipientNumber", &self.RecipientNumber)
-            .field("RecipientName", &self.RecipientName)
-            .field("Tsid", &self.Tsid)
-            .field("SenderName", &self.SenderName)
-            .field("SenderCompany", &self.SenderCompany)
-            .field("SenderDept", &self.SenderDept)
-            .field("BillingCode", &self.BillingCode)
-            .field("ScheduleAction", &self.ScheduleAction)
-            .field("ScheduleTime", &self.ScheduleTime)
-            .field("DeliveryReportType", &self.DeliveryReportType)
-            .field("DeliveryReportAddress", &self.DeliveryReportAddress)
-            .field("DocumentName", &self.DocumentName)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for FAX_JOB_ENTRYA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_JOB_ENTRYA {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct
-            && self.JobId == other.JobId
-            && self.UserName == other.UserName
-            && self.JobType == other.JobType
-            && self.QueueStatus == other.QueueStatus
-            && self.Status == other.Status
-            && self.Size == other.Size
-            && self.PageCount == other.PageCount
-            && self.RecipientNumber == other.RecipientNumber
-            && self.RecipientName == other.RecipientName
-            && self.Tsid == other.Tsid
-            && self.SenderName == other.SenderName
-            && self.SenderCompany == other.SenderCompany
-            && self.SenderDept == other.SenderDept
-            && self.BillingCode == other.BillingCode
-            && self.ScheduleAction == other.ScheduleAction
-            && self.ScheduleTime == other.ScheduleTime
-            && self.DeliveryReportType == other.DeliveryReportType
-            && self.DeliveryReportAddress == other.DeliveryReportAddress
-            && self.DocumentName == other.DocumentName
-    }
-}
-impl Eq for FAX_JOB_ENTRYA {}
 impl Default for FAX_JOB_ENTRYA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_JOB_ENTRYW {
     pub SizeOfStruct: u32,
     pub JobId: u32,
@@ -7286,72 +6827,16 @@ pub struct FAX_JOB_ENTRYW {
     pub DeliveryReportAddress: windows_core::PCWSTR,
     pub DocumentName: windows_core::PCWSTR,
 }
-impl Copy for FAX_JOB_ENTRYW {}
-impl Clone for FAX_JOB_ENTRYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_JOB_ENTRYW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_JOB_ENTRYW")
-            .field("SizeOfStruct", &self.SizeOfStruct)
-            .field("JobId", &self.JobId)
-            .field("UserName", &self.UserName)
-            .field("JobType", &self.JobType)
-            .field("QueueStatus", &self.QueueStatus)
-            .field("Status", &self.Status)
-            .field("Size", &self.Size)
-            .field("PageCount", &self.PageCount)
-            .field("RecipientNumber", &self.RecipientNumber)
-            .field("RecipientName", &self.RecipientName)
-            .field("Tsid", &self.Tsid)
-            .field("SenderName", &self.SenderName)
-            .field("SenderCompany", &self.SenderCompany)
-            .field("SenderDept", &self.SenderDept)
-            .field("BillingCode", &self.BillingCode)
-            .field("ScheduleAction", &self.ScheduleAction)
-            .field("ScheduleTime", &self.ScheduleTime)
-            .field("DeliveryReportType", &self.DeliveryReportType)
-            .field("DeliveryReportAddress", &self.DeliveryReportAddress)
-            .field("DocumentName", &self.DocumentName)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for FAX_JOB_ENTRYW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_JOB_ENTRYW {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct
-            && self.JobId == other.JobId
-            && self.UserName == other.UserName
-            && self.JobType == other.JobType
-            && self.QueueStatus == other.QueueStatus
-            && self.Status == other.Status
-            && self.Size == other.Size
-            && self.PageCount == other.PageCount
-            && self.RecipientNumber == other.RecipientNumber
-            && self.RecipientName == other.RecipientName
-            && self.Tsid == other.Tsid
-            && self.SenderName == other.SenderName
-            && self.SenderCompany == other.SenderCompany
-            && self.SenderDept == other.SenderDept
-            && self.BillingCode == other.BillingCode
-            && self.ScheduleAction == other.ScheduleAction
-            && self.ScheduleTime == other.ScheduleTime
-            && self.DeliveryReportType == other.DeliveryReportType
-            && self.DeliveryReportAddress == other.DeliveryReportAddress
-            && self.DocumentName == other.DocumentName
-    }
-}
-impl Eq for FAX_JOB_ENTRYW {}
 impl Default for FAX_JOB_ENTRYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_JOB_PARAMA {
     pub SizeOfStruct: u32,
     pub RecipientNumber: windows_core::PCSTR,
@@ -7369,48 +6854,16 @@ pub struct FAX_JOB_PARAMA {
     pub CallHandle: u32,
     pub Reserved: [usize; 3],
 }
-impl Copy for FAX_JOB_PARAMA {}
-impl Clone for FAX_JOB_PARAMA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_JOB_PARAMA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_JOB_PARAMA")
-            .field("SizeOfStruct", &self.SizeOfStruct)
-            .field("RecipientNumber", &self.RecipientNumber)
-            .field("RecipientName", &self.RecipientName)
-            .field("Tsid", &self.Tsid)
-            .field("SenderName", &self.SenderName)
-            .field("SenderCompany", &self.SenderCompany)
-            .field("SenderDept", &self.SenderDept)
-            .field("BillingCode", &self.BillingCode)
-            .field("ScheduleAction", &self.ScheduleAction)
-            .field("ScheduleTime", &self.ScheduleTime)
-            .field("DeliveryReportType", &self.DeliveryReportType)
-            .field("DeliveryReportAddress", &self.DeliveryReportAddress)
-            .field("DocumentName", &self.DocumentName)
-            .field("CallHandle", &self.CallHandle)
-            .field("Reserved", &self.Reserved)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for FAX_JOB_PARAMA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_JOB_PARAMA {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct && self.RecipientNumber == other.RecipientNumber && self.RecipientName == other.RecipientName && self.Tsid == other.Tsid && self.SenderName == other.SenderName && self.SenderCompany == other.SenderCompany && self.SenderDept == other.SenderDept && self.BillingCode == other.BillingCode && self.ScheduleAction == other.ScheduleAction && self.ScheduleTime == other.ScheduleTime && self.DeliveryReportType == other.DeliveryReportType && self.DeliveryReportAddress == other.DeliveryReportAddress && self.DocumentName == other.DocumentName && self.CallHandle == other.CallHandle && self.Reserved == other.Reserved
-    }
-}
-impl Eq for FAX_JOB_PARAMA {}
 impl Default for FAX_JOB_PARAMA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_JOB_PARAMW {
     pub SizeOfStruct: u32,
     pub RecipientNumber: windows_core::PCWSTR,
@@ -7428,110 +6881,46 @@ pub struct FAX_JOB_PARAMW {
     pub CallHandle: u32,
     pub Reserved: [usize; 3],
 }
-impl Copy for FAX_JOB_PARAMW {}
-impl Clone for FAX_JOB_PARAMW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_JOB_PARAMW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_JOB_PARAMW")
-            .field("SizeOfStruct", &self.SizeOfStruct)
-            .field("RecipientNumber", &self.RecipientNumber)
-            .field("RecipientName", &self.RecipientName)
-            .field("Tsid", &self.Tsid)
-            .field("SenderName", &self.SenderName)
-            .field("SenderCompany", &self.SenderCompany)
-            .field("SenderDept", &self.SenderDept)
-            .field("BillingCode", &self.BillingCode)
-            .field("ScheduleAction", &self.ScheduleAction)
-            .field("ScheduleTime", &self.ScheduleTime)
-            .field("DeliveryReportType", &self.DeliveryReportType)
-            .field("DeliveryReportAddress", &self.DeliveryReportAddress)
-            .field("DocumentName", &self.DocumentName)
-            .field("CallHandle", &self.CallHandle)
-            .field("Reserved", &self.Reserved)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for FAX_JOB_PARAMW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_JOB_PARAMW {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct && self.RecipientNumber == other.RecipientNumber && self.RecipientName == other.RecipientName && self.Tsid == other.Tsid && self.SenderName == other.SenderName && self.SenderCompany == other.SenderCompany && self.SenderDept == other.SenderDept && self.BillingCode == other.BillingCode && self.ScheduleAction == other.ScheduleAction && self.ScheduleTime == other.ScheduleTime && self.DeliveryReportType == other.DeliveryReportType && self.DeliveryReportAddress == other.DeliveryReportAddress && self.DocumentName == other.DocumentName && self.CallHandle == other.CallHandle && self.Reserved == other.Reserved
-    }
-}
-impl Eq for FAX_JOB_PARAMW {}
 impl Default for FAX_JOB_PARAMW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_LOG_CATEGORYA {
     pub Name: windows_core::PCSTR,
     pub Category: u32,
     pub Level: u32,
 }
-impl Copy for FAX_LOG_CATEGORYA {}
-impl Clone for FAX_LOG_CATEGORYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_LOG_CATEGORYA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_LOG_CATEGORYA").field("Name", &self.Name).field("Category", &self.Category).field("Level", &self.Level).finish()
-    }
-}
 impl windows_core::TypeKind for FAX_LOG_CATEGORYA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_LOG_CATEGORYA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Name == other.Name && self.Category == other.Category && self.Level == other.Level
-    }
-}
-impl Eq for FAX_LOG_CATEGORYA {}
 impl Default for FAX_LOG_CATEGORYA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_LOG_CATEGORYW {
     pub Name: windows_core::PCWSTR,
     pub Category: u32,
     pub Level: u32,
 }
-impl Copy for FAX_LOG_CATEGORYW {}
-impl Clone for FAX_LOG_CATEGORYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_LOG_CATEGORYW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_LOG_CATEGORYW").field("Name", &self.Name).field("Category", &self.Category).field("Level", &self.Level).finish()
-    }
-}
 impl windows_core::TypeKind for FAX_LOG_CATEGORYW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_LOG_CATEGORYW {
-    fn eq(&self, other: &Self) -> bool {
-        self.Name == other.Name && self.Category == other.Category && self.Level == other.Level
-    }
-}
-impl Eq for FAX_LOG_CATEGORYW {}
 impl Default for FAX_LOG_CATEGORYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_PORT_INFOA {
     pub SizeOfStruct: u32,
     pub DeviceId: u32,
@@ -7543,32 +6932,16 @@ pub struct FAX_PORT_INFOA {
     pub Tsid: windows_core::PCSTR,
     pub Csid: windows_core::PCSTR,
 }
-impl Copy for FAX_PORT_INFOA {}
-impl Clone for FAX_PORT_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_PORT_INFOA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_PORT_INFOA").field("SizeOfStruct", &self.SizeOfStruct).field("DeviceId", &self.DeviceId).field("State", &self.State).field("Flags", &self.Flags).field("Rings", &self.Rings).field("Priority", &self.Priority).field("DeviceName", &self.DeviceName).field("Tsid", &self.Tsid).field("Csid", &self.Csid).finish()
-    }
-}
 impl windows_core::TypeKind for FAX_PORT_INFOA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_PORT_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct && self.DeviceId == other.DeviceId && self.State == other.State && self.Flags == other.Flags && self.Rings == other.Rings && self.Priority == other.Priority && self.DeviceName == other.DeviceName && self.Tsid == other.Tsid && self.Csid == other.Csid
-    }
-}
-impl Eq for FAX_PORT_INFOA {}
 impl Default for FAX_PORT_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_PORT_INFOW {
     pub SizeOfStruct: u32,
     pub DeviceId: u32,
@@ -7580,32 +6953,16 @@ pub struct FAX_PORT_INFOW {
     pub Tsid: windows_core::PCWSTR,
     pub Csid: windows_core::PCWSTR,
 }
-impl Copy for FAX_PORT_INFOW {}
-impl Clone for FAX_PORT_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_PORT_INFOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_PORT_INFOW").field("SizeOfStruct", &self.SizeOfStruct).field("DeviceId", &self.DeviceId).field("State", &self.State).field("Flags", &self.Flags).field("Rings", &self.Rings).field("Priority", &self.Priority).field("DeviceName", &self.DeviceName).field("Tsid", &self.Tsid).field("Csid", &self.Csid).finish()
-    }
-}
 impl windows_core::TypeKind for FAX_PORT_INFOW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_PORT_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct && self.DeviceId == other.DeviceId && self.State == other.State && self.Flags == other.Flags && self.Rings == other.Rings && self.Priority == other.Priority && self.DeviceName == other.DeviceName && self.Tsid == other.Tsid && self.Csid == other.Csid
-    }
-}
-impl Eq for FAX_PORT_INFOW {}
 impl Default for FAX_PORT_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_PRINT_INFOA {
     pub SizeOfStruct: u32,
     pub DocName: windows_core::PCSTR,
@@ -7619,44 +6976,16 @@ pub struct FAX_PRINT_INFOA {
     pub DrEmailAddress: windows_core::PCSTR,
     pub OutputFileName: windows_core::PCSTR,
 }
-impl Copy for FAX_PRINT_INFOA {}
-impl Clone for FAX_PRINT_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_PRINT_INFOA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_PRINT_INFOA")
-            .field("SizeOfStruct", &self.SizeOfStruct)
-            .field("DocName", &self.DocName)
-            .field("RecipientName", &self.RecipientName)
-            .field("RecipientNumber", &self.RecipientNumber)
-            .field("SenderName", &self.SenderName)
-            .field("SenderCompany", &self.SenderCompany)
-            .field("SenderDept", &self.SenderDept)
-            .field("SenderBillingCode", &self.SenderBillingCode)
-            .field("Reserved", &self.Reserved)
-            .field("DrEmailAddress", &self.DrEmailAddress)
-            .field("OutputFileName", &self.OutputFileName)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for FAX_PRINT_INFOA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_PRINT_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct && self.DocName == other.DocName && self.RecipientName == other.RecipientName && self.RecipientNumber == other.RecipientNumber && self.SenderName == other.SenderName && self.SenderCompany == other.SenderCompany && self.SenderDept == other.SenderDept && self.SenderBillingCode == other.SenderBillingCode && self.Reserved == other.Reserved && self.DrEmailAddress == other.DrEmailAddress && self.OutputFileName == other.OutputFileName
-    }
-}
-impl Eq for FAX_PRINT_INFOA {}
 impl Default for FAX_PRINT_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_PRINT_INFOW {
     pub SizeOfStruct: u32,
     pub DocName: windows_core::PCWSTR,
@@ -7670,44 +6999,16 @@ pub struct FAX_PRINT_INFOW {
     pub DrEmailAddress: windows_core::PCWSTR,
     pub OutputFileName: windows_core::PCWSTR,
 }
-impl Copy for FAX_PRINT_INFOW {}
-impl Clone for FAX_PRINT_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_PRINT_INFOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_PRINT_INFOW")
-            .field("SizeOfStruct", &self.SizeOfStruct)
-            .field("DocName", &self.DocName)
-            .field("RecipientName", &self.RecipientName)
-            .field("RecipientNumber", &self.RecipientNumber)
-            .field("SenderName", &self.SenderName)
-            .field("SenderCompany", &self.SenderCompany)
-            .field("SenderDept", &self.SenderDept)
-            .field("SenderBillingCode", &self.SenderBillingCode)
-            .field("Reserved", &self.Reserved)
-            .field("DrEmailAddress", &self.DrEmailAddress)
-            .field("OutputFileName", &self.OutputFileName)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for FAX_PRINT_INFOW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_PRINT_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct && self.DocName == other.DocName && self.RecipientName == other.RecipientName && self.RecipientNumber == other.RecipientNumber && self.SenderName == other.SenderName && self.SenderCompany == other.SenderCompany && self.SenderDept == other.SenderDept && self.SenderBillingCode == other.SenderBillingCode && self.Reserved == other.Reserved && self.DrEmailAddress == other.DrEmailAddress && self.OutputFileName == other.OutputFileName
-    }
-}
-impl Eq for FAX_PRINT_INFOW {}
 impl Default for FAX_PRINT_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_RECEIVE {
     pub SizeOfStruct: u32,
     pub FileName: windows_core::PWSTR,
@@ -7715,32 +7016,16 @@ pub struct FAX_RECEIVE {
     pub ReceiverNumber: windows_core::PWSTR,
     pub Reserved: [u32; 4],
 }
-impl Copy for FAX_RECEIVE {}
-impl Clone for FAX_RECEIVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_RECEIVE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_RECEIVE").field("SizeOfStruct", &self.SizeOfStruct).field("FileName", &self.FileName).field("ReceiverName", &self.ReceiverName).field("ReceiverNumber", &self.ReceiverNumber).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for FAX_RECEIVE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_RECEIVE {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct && self.FileName == other.FileName && self.ReceiverName == other.ReceiverName && self.ReceiverNumber == other.ReceiverNumber && self.Reserved == other.Reserved
-    }
-}
-impl Eq for FAX_RECEIVE {}
 impl Default for FAX_RECEIVE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_ROUTE {
     pub SizeOfStruct: u32,
     pub JobId: u32,
@@ -7758,48 +7043,16 @@ pub struct FAX_ROUTE {
     pub RoutingInfoData: *mut u8,
     pub RoutingInfoDataSize: u32,
 }
-impl Copy for FAX_ROUTE {}
-impl Clone for FAX_ROUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_ROUTE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_ROUTE")
-            .field("SizeOfStruct", &self.SizeOfStruct)
-            .field("JobId", &self.JobId)
-            .field("ElapsedTime", &self.ElapsedTime)
-            .field("ReceiveTime", &self.ReceiveTime)
-            .field("PageCount", &self.PageCount)
-            .field("Csid", &self.Csid)
-            .field("Tsid", &self.Tsid)
-            .field("CallerId", &self.CallerId)
-            .field("RoutingInfo", &self.RoutingInfo)
-            .field("ReceiverName", &self.ReceiverName)
-            .field("ReceiverNumber", &self.ReceiverNumber)
-            .field("DeviceName", &self.DeviceName)
-            .field("DeviceId", &self.DeviceId)
-            .field("RoutingInfoData", &self.RoutingInfoData)
-            .field("RoutingInfoDataSize", &self.RoutingInfoDataSize)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for FAX_ROUTE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_ROUTE {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct && self.JobId == other.JobId && self.ElapsedTime == other.ElapsedTime && self.ReceiveTime == other.ReceiveTime && self.PageCount == other.PageCount && self.Csid == other.Csid && self.Tsid == other.Tsid && self.CallerId == other.CallerId && self.RoutingInfo == other.RoutingInfo && self.ReceiverName == other.ReceiverName && self.ReceiverNumber == other.ReceiverNumber && self.DeviceName == other.DeviceName && self.DeviceId == other.DeviceId && self.RoutingInfoData == other.RoutingInfoData && self.RoutingInfoDataSize == other.RoutingInfoDataSize
-    }
-}
-impl Eq for FAX_ROUTE {}
 impl Default for FAX_ROUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct FAX_ROUTE_CALLBACKROUTINES {
     pub SizeOfStruct: u32,
     pub FaxRouteAddFile: PFAXROUTEADDFILE,
@@ -7807,17 +7060,6 @@ pub struct FAX_ROUTE_CALLBACKROUTINES {
     pub FaxRouteGetFile: PFAXROUTEGETFILE,
     pub FaxRouteEnumFiles: PFAXROUTEENUMFILES,
     pub FaxRouteModifyRoutingData: PFAXROUTEMODIFYROUTINGDATA,
-}
-impl Copy for FAX_ROUTE_CALLBACKROUTINES {}
-impl Clone for FAX_ROUTE_CALLBACKROUTINES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_ROUTE_CALLBACKROUTINES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_ROUTE_CALLBACKROUTINES").field("SizeOfStruct", &self.SizeOfStruct).finish()
-    }
 }
 impl windows_core::TypeKind for FAX_ROUTE_CALLBACKROUTINES {
     type TypeKind = windows_core::CopyType;
@@ -7828,6 +7070,7 @@ impl Default for FAX_ROUTE_CALLBACKROUTINES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_ROUTING_METHODA {
     pub SizeOfStruct: u32,
     pub DeviceId: u32,
@@ -7839,32 +7082,16 @@ pub struct FAX_ROUTING_METHODA {
     pub ExtensionImageName: windows_core::PCSTR,
     pub ExtensionFriendlyName: windows_core::PCSTR,
 }
-impl Copy for FAX_ROUTING_METHODA {}
-impl Clone for FAX_ROUTING_METHODA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_ROUTING_METHODA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_ROUTING_METHODA").field("SizeOfStruct", &self.SizeOfStruct).field("DeviceId", &self.DeviceId).field("Enabled", &self.Enabled).field("DeviceName", &self.DeviceName).field("Guid", &self.Guid).field("FriendlyName", &self.FriendlyName).field("FunctionName", &self.FunctionName).field("ExtensionImageName", &self.ExtensionImageName).field("ExtensionFriendlyName", &self.ExtensionFriendlyName).finish()
-    }
-}
 impl windows_core::TypeKind for FAX_ROUTING_METHODA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_ROUTING_METHODA {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct && self.DeviceId == other.DeviceId && self.Enabled == other.Enabled && self.DeviceName == other.DeviceName && self.Guid == other.Guid && self.FriendlyName == other.FriendlyName && self.FunctionName == other.FunctionName && self.ExtensionImageName == other.ExtensionImageName && self.ExtensionFriendlyName == other.ExtensionFriendlyName
-    }
-}
-impl Eq for FAX_ROUTING_METHODA {}
 impl Default for FAX_ROUTING_METHODA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_ROUTING_METHODW {
     pub SizeOfStruct: u32,
     pub DeviceId: u32,
@@ -7876,32 +7103,16 @@ pub struct FAX_ROUTING_METHODW {
     pub ExtensionImageName: windows_core::PCWSTR,
     pub ExtensionFriendlyName: windows_core::PCWSTR,
 }
-impl Copy for FAX_ROUTING_METHODW {}
-impl Clone for FAX_ROUTING_METHODW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_ROUTING_METHODW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_ROUTING_METHODW").field("SizeOfStruct", &self.SizeOfStruct).field("DeviceId", &self.DeviceId).field("Enabled", &self.Enabled).field("DeviceName", &self.DeviceName).field("Guid", &self.Guid).field("FriendlyName", &self.FriendlyName).field("FunctionName", &self.FunctionName).field("ExtensionImageName", &self.ExtensionImageName).field("ExtensionFriendlyName", &self.ExtensionFriendlyName).finish()
-    }
-}
 impl windows_core::TypeKind for FAX_ROUTING_METHODW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_ROUTING_METHODW {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct && self.DeviceId == other.DeviceId && self.Enabled == other.Enabled && self.DeviceName == other.DeviceName && self.Guid == other.Guid && self.FriendlyName == other.FriendlyName && self.FunctionName == other.FunctionName && self.ExtensionImageName == other.ExtensionImageName && self.ExtensionFriendlyName == other.ExtensionFriendlyName
-    }
-}
-impl Eq for FAX_ROUTING_METHODW {}
 impl Default for FAX_ROUTING_METHODW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_SEND {
     pub SizeOfStruct: u32,
     pub FileName: windows_core::PWSTR,
@@ -7913,56 +7124,23 @@ pub struct FAX_SEND {
     pub CallHandle: u32,
     pub Reserved: [u32; 3],
 }
-impl Copy for FAX_SEND {}
-impl Clone for FAX_SEND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_SEND {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_SEND").field("SizeOfStruct", &self.SizeOfStruct).field("FileName", &self.FileName).field("CallerName", &self.CallerName).field("CallerNumber", &self.CallerNumber).field("ReceiverName", &self.ReceiverName).field("ReceiverNumber", &self.ReceiverNumber).field("Branding", &self.Branding).field("CallHandle", &self.CallHandle).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for FAX_SEND {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_SEND {
-    fn eq(&self, other: &Self) -> bool {
-        self.SizeOfStruct == other.SizeOfStruct && self.FileName == other.FileName && self.CallerName == other.CallerName && self.CallerNumber == other.CallerNumber && self.ReceiverName == other.ReceiverName && self.ReceiverNumber == other.ReceiverNumber && self.Branding == other.Branding && self.CallHandle == other.CallHandle && self.Reserved == other.Reserved
-    }
-}
-impl Eq for FAX_SEND {}
 impl Default for FAX_SEND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAX_TIME {
     pub Hour: u16,
     pub Minute: u16,
 }
-impl Copy for FAX_TIME {}
-impl Clone for FAX_TIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FAX_TIME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FAX_TIME").field("Hour", &self.Hour).field("Minute", &self.Minute).finish()
-    }
-}
 impl windows_core::TypeKind for FAX_TIME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FAX_TIME {
-    fn eq(&self, other: &Self) -> bool {
-        self.Hour == other.Hour && self.Minute == other.Minute
-    }
-}
-impl Eq for FAX_TIME {}
 impl Default for FAX_TIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8019,37 +7197,22 @@ pub const FaxSecurity2: windows_core::GUID = windows_core::GUID::from_u128(0x735
 pub const FaxSender: windows_core::GUID = windows_core::GUID::from_u128(0x265d84d0_1850_4360_b7c8_758bbb5f0b96);
 pub const FaxServer: windows_core::GUID = windows_core::GUID::from_u128(0xcda8acb0_8cf5_4f6c_9ba2_5931d40c8cae);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STINOTIFY {
     pub dwSize: u32,
     pub guidNotificationCode: windows_core::GUID,
     pub abNotificationData: [u8; 64],
 }
-impl Copy for STINOTIFY {}
-impl Clone for STINOTIFY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STINOTIFY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STINOTIFY").field("dwSize", &self.dwSize).field("guidNotificationCode", &self.guidNotificationCode).field("abNotificationData", &self.abNotificationData).finish()
-    }
-}
 impl windows_core::TypeKind for STINOTIFY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STINOTIFY {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.guidNotificationCode == other.guidNotificationCode && self.abNotificationData == other.abNotificationData
-    }
-}
-impl Eq for STINOTIFY {}
 impl Default for STINOTIFY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STISUBSCRIBE {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -8058,32 +7221,16 @@ pub struct STISUBSCRIBE {
     pub hEvent: super::super::Foundation::HANDLE,
     pub uiNotificationMessage: u32,
 }
-impl Copy for STISUBSCRIBE {}
-impl Clone for STISUBSCRIBE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STISUBSCRIBE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STISUBSCRIBE").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwFilter", &self.dwFilter).field("hWndNotify", &self.hWndNotify).field("hEvent", &self.hEvent).field("uiNotificationMessage", &self.uiNotificationMessage).finish()
-    }
-}
 impl windows_core::TypeKind for STISUBSCRIBE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STISUBSCRIBE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwFilter == other.dwFilter && self.hWndNotify == other.hWndNotify && self.hEvent == other.hEvent && self.uiNotificationMessage == other.uiNotificationMessage
-    }
-}
-impl Eq for STISUBSCRIBE {}
 impl Default for STISUBSCRIBE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STI_DEVICE_INFORMATIONW {
     pub dwSize: u32,
     pub DeviceType: u32,
@@ -8096,43 +7243,16 @@ pub struct STI_DEVICE_INFORMATIONW {
     pub pszPropProvider: windows_core::PWSTR,
     pub pszLocalName: windows_core::PWSTR,
 }
-impl Copy for STI_DEVICE_INFORMATIONW {}
-impl Clone for STI_DEVICE_INFORMATIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STI_DEVICE_INFORMATIONW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STI_DEVICE_INFORMATIONW")
-            .field("dwSize", &self.dwSize)
-            .field("DeviceType", &self.DeviceType)
-            .field("szDeviceInternalName", &self.szDeviceInternalName)
-            .field("DeviceCapabilitiesA", &self.DeviceCapabilitiesA)
-            .field("dwHardwareConfiguration", &self.dwHardwareConfiguration)
-            .field("pszVendorDescription", &self.pszVendorDescription)
-            .field("pszDeviceDescription", &self.pszDeviceDescription)
-            .field("pszPortName", &self.pszPortName)
-            .field("pszPropProvider", &self.pszPropProvider)
-            .field("pszLocalName", &self.pszLocalName)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for STI_DEVICE_INFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STI_DEVICE_INFORMATIONW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.DeviceType == other.DeviceType && self.szDeviceInternalName == other.szDeviceInternalName && self.DeviceCapabilitiesA == other.DeviceCapabilitiesA && self.dwHardwareConfiguration == other.dwHardwareConfiguration && self.pszVendorDescription == other.pszVendorDescription && self.pszDeviceDescription == other.pszDeviceDescription && self.pszPortName == other.pszPortName && self.pszPropProvider == other.pszPropProvider && self.pszLocalName == other.pszLocalName
-    }
-}
-impl Eq for STI_DEVICE_INFORMATIONW {}
 impl Default for STI_DEVICE_INFORMATIONW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STI_DEVICE_STATUS {
     pub dwSize: u32,
     pub StatusMask: u32,
@@ -8141,61 +7261,29 @@ pub struct STI_DEVICE_STATUS {
     pub dwEventHandlingState: u32,
     pub dwPollingInterval: u32,
 }
-impl Copy for STI_DEVICE_STATUS {}
-impl Clone for STI_DEVICE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STI_DEVICE_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STI_DEVICE_STATUS").field("dwSize", &self.dwSize).field("StatusMask", &self.StatusMask).field("dwOnlineState", &self.dwOnlineState).field("dwHardwareStatusCode", &self.dwHardwareStatusCode).field("dwEventHandlingState", &self.dwEventHandlingState).field("dwPollingInterval", &self.dwPollingInterval).finish()
-    }
-}
 impl windows_core::TypeKind for STI_DEVICE_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STI_DEVICE_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.StatusMask == other.StatusMask && self.dwOnlineState == other.dwOnlineState && self.dwHardwareStatusCode == other.dwHardwareStatusCode && self.dwEventHandlingState == other.dwEventHandlingState && self.dwPollingInterval == other.dwPollingInterval
-    }
-}
-impl Eq for STI_DEVICE_STATUS {}
 impl Default for STI_DEVICE_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STI_DEV_CAPS {
     pub dwGeneric: u32,
-}
-impl Copy for STI_DEV_CAPS {}
-impl Clone for STI_DEV_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STI_DEV_CAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STI_DEV_CAPS").field("dwGeneric", &self.dwGeneric).finish()
-    }
 }
 impl windows_core::TypeKind for STI_DEV_CAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STI_DEV_CAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwGeneric == other.dwGeneric
-    }
-}
-impl Eq for STI_DEV_CAPS {}
 impl Default for STI_DEV_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STI_DIAG {
     pub dwSize: u32,
     pub dwBasicDiagCode: u32,
@@ -8203,62 +7291,30 @@ pub struct STI_DIAG {
     pub dwStatusMask: u32,
     pub sErrorInfo: _ERROR_INFOW,
 }
-impl Copy for STI_DIAG {}
-impl Clone for STI_DIAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STI_DIAG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STI_DIAG").field("dwSize", &self.dwSize).field("dwBasicDiagCode", &self.dwBasicDiagCode).field("dwVendorDiagCode", &self.dwVendorDiagCode).field("dwStatusMask", &self.dwStatusMask).field("sErrorInfo", &self.sErrorInfo).finish()
-    }
-}
 impl windows_core::TypeKind for STI_DIAG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STI_DIAG {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwBasicDiagCode == other.dwBasicDiagCode && self.dwVendorDiagCode == other.dwVendorDiagCode && self.dwStatusMask == other.dwStatusMask && self.sErrorInfo == other.sErrorInfo
-    }
-}
-impl Eq for STI_DIAG {}
 impl Default for STI_DIAG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STI_USD_CAPS {
     pub dwVersion: u32,
     pub dwGenericCaps: u32,
 }
-impl Copy for STI_USD_CAPS {}
-impl Clone for STI_USD_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STI_USD_CAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STI_USD_CAPS").field("dwVersion", &self.dwVersion).field("dwGenericCaps", &self.dwGenericCaps).finish()
-    }
-}
 impl windows_core::TypeKind for STI_USD_CAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STI_USD_CAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.dwGenericCaps == other.dwGenericCaps
-    }
-}
-impl Eq for STI_USD_CAPS {}
 impl Default for STI_USD_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STI_WIA_DEVICE_INFORMATIONW {
     pub dwSize: u32,
     pub DeviceType: u32,
@@ -8273,71 +7329,25 @@ pub struct STI_WIA_DEVICE_INFORMATIONW {
     pub pszUiDll: windows_core::PWSTR,
     pub pszServer: windows_core::PWSTR,
 }
-impl Copy for STI_WIA_DEVICE_INFORMATIONW {}
-impl Clone for STI_WIA_DEVICE_INFORMATIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STI_WIA_DEVICE_INFORMATIONW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STI_WIA_DEVICE_INFORMATIONW")
-            .field("dwSize", &self.dwSize)
-            .field("DeviceType", &self.DeviceType)
-            .field("szDeviceInternalName", &self.szDeviceInternalName)
-            .field("DeviceCapabilitiesA", &self.DeviceCapabilitiesA)
-            .field("dwHardwareConfiguration", &self.dwHardwareConfiguration)
-            .field("pszVendorDescription", &self.pszVendorDescription)
-            .field("pszDeviceDescription", &self.pszDeviceDescription)
-            .field("pszPortName", &self.pszPortName)
-            .field("pszPropProvider", &self.pszPropProvider)
-            .field("pszLocalName", &self.pszLocalName)
-            .field("pszUiDll", &self.pszUiDll)
-            .field("pszServer", &self.pszServer)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for STI_WIA_DEVICE_INFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STI_WIA_DEVICE_INFORMATIONW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.DeviceType == other.DeviceType && self.szDeviceInternalName == other.szDeviceInternalName && self.DeviceCapabilitiesA == other.DeviceCapabilitiesA && self.dwHardwareConfiguration == other.dwHardwareConfiguration && self.pszVendorDescription == other.pszVendorDescription && self.pszDeviceDescription == other.pszDeviceDescription && self.pszPortName == other.pszPortName && self.pszPropProvider == other.pszPropProvider && self.pszLocalName == other.pszLocalName && self.pszUiDll == other.pszUiDll && self.pszServer == other.pszServer
-    }
-}
-impl Eq for STI_WIA_DEVICE_INFORMATIONW {}
 impl Default for STI_WIA_DEVICE_INFORMATIONW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _ERROR_INFOW {
     pub dwSize: u32,
     pub dwGenericError: u32,
     pub dwVendorError: u32,
     pub szExtendedErrorText: [u16; 255],
 }
-impl Copy for _ERROR_INFOW {}
-impl Clone for _ERROR_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for _ERROR_INFOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("_ERROR_INFOW").field("dwSize", &self.dwSize).field("dwGenericError", &self.dwGenericError).field("dwVendorError", &self.dwVendorError).field("szExtendedErrorText", &self.szExtendedErrorText).finish()
-    }
-}
 impl windows_core::TypeKind for _ERROR_INFOW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for _ERROR_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwGenericError == other.dwGenericError && self.dwVendorError == other.dwVendorError && self.szExtendedErrorText == other.szExtendedErrorText
-    }
-}
-impl Eq for _ERROR_INFOW {}
 impl Default for _ERROR_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

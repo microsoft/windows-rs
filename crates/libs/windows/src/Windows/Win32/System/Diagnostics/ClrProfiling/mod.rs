@@ -1917,62 +1917,30 @@ impl core::fmt::Debug for CorDebugIlToNativeMappingTypes {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COR_DEBUG_IL_TO_NATIVE_MAP {
     pub ilOffset: u32,
     pub nativeStartOffset: u32,
     pub nativeEndOffset: u32,
 }
-impl Copy for COR_DEBUG_IL_TO_NATIVE_MAP {}
-impl Clone for COR_DEBUG_IL_TO_NATIVE_MAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COR_DEBUG_IL_TO_NATIVE_MAP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COR_DEBUG_IL_TO_NATIVE_MAP").field("ilOffset", &self.ilOffset).field("nativeStartOffset", &self.nativeStartOffset).field("nativeEndOffset", &self.nativeEndOffset).finish()
-    }
-}
 impl windows_core::TypeKind for COR_DEBUG_IL_TO_NATIVE_MAP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COR_DEBUG_IL_TO_NATIVE_MAP {
-    fn eq(&self, other: &Self) -> bool {
-        self.ilOffset == other.ilOffset && self.nativeStartOffset == other.nativeStartOffset && self.nativeEndOffset == other.nativeEndOffset
-    }
-}
-impl Eq for COR_DEBUG_IL_TO_NATIVE_MAP {}
 impl Default for COR_DEBUG_IL_TO_NATIVE_MAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COR_IL_MAP {
     pub oldOffset: u32,
     pub newOffset: u32,
     pub fAccurate: super::super::super::Foundation::BOOL,
 }
-impl Copy for COR_IL_MAP {}
-impl Clone for COR_IL_MAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COR_IL_MAP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COR_IL_MAP").field("oldOffset", &self.oldOffset).field("newOffset", &self.newOffset).field("fAccurate", &self.fAccurate).finish()
-    }
-}
 impl windows_core::TypeKind for COR_IL_MAP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COR_IL_MAP {
-    fn eq(&self, other: &Self) -> bool {
-        self.oldOffset == other.oldOffset && self.newOffset == other.newOffset && self.fAccurate == other.fAccurate
-    }
-}
-impl Eq for COR_IL_MAP {}
 impl Default for COR_IL_MAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1980,6 +1948,7 @@ impl Default for COR_IL_MAP {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COR_PRF_ASSEMBLY_REFERENCE_INFO {
     pub pbPublicKeyOrToken: *mut core::ffi::c_void,
     pub cbPublicKeyOrToken: u32,
@@ -1990,31 +1959,9 @@ pub struct COR_PRF_ASSEMBLY_REFERENCE_INFO {
     pub dwAssemblyRefFlags: u32,
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
-impl Copy for COR_PRF_ASSEMBLY_REFERENCE_INFO {}
-#[cfg(feature = "Win32_System_WinRT_Metadata")]
-impl Clone for COR_PRF_ASSEMBLY_REFERENCE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_WinRT_Metadata")]
-impl core::fmt::Debug for COR_PRF_ASSEMBLY_REFERENCE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COR_PRF_ASSEMBLY_REFERENCE_INFO").field("pbPublicKeyOrToken", &self.pbPublicKeyOrToken).field("cbPublicKeyOrToken", &self.cbPublicKeyOrToken).field("szName", &self.szName).field("pMetaData", &self.pMetaData).field("pbHashValue", &self.pbHashValue).field("cbHashValue", &self.cbHashValue).field("dwAssemblyRefFlags", &self.dwAssemblyRefFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::TypeKind for COR_PRF_ASSEMBLY_REFERENCE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_WinRT_Metadata")]
-impl PartialEq for COR_PRF_ASSEMBLY_REFERENCE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pbPublicKeyOrToken == other.pbPublicKeyOrToken && self.cbPublicKeyOrToken == other.cbPublicKeyOrToken && self.szName == other.szName && self.pMetaData == other.pMetaData && self.pbHashValue == other.pbHashValue && self.cbHashValue == other.cbHashValue && self.dwAssemblyRefFlags == other.dwAssemblyRefFlags
-    }
-}
-#[cfg(feature = "Win32_System_WinRT_Metadata")]
-impl Eq for COR_PRF_ASSEMBLY_REFERENCE_INFO {}
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl Default for COR_PRF_ASSEMBLY_REFERENCE_INFO {
     fn default() -> Self {
@@ -2022,386 +1969,189 @@ impl Default for COR_PRF_ASSEMBLY_REFERENCE_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COR_PRF_CODE_INFO {
     pub startAddress: usize,
     pub size: usize,
 }
-impl Copy for COR_PRF_CODE_INFO {}
-impl Clone for COR_PRF_CODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COR_PRF_CODE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COR_PRF_CODE_INFO").field("startAddress", &self.startAddress).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for COR_PRF_CODE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COR_PRF_CODE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.startAddress == other.startAddress && self.size == other.size
-    }
-}
-impl Eq for COR_PRF_CODE_INFO {}
 impl Default for COR_PRF_CODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COR_PRF_EVENTPIPE_PARAM_DESC {
     pub r#type: u32,
     pub elementType: u32,
     pub name: windows_core::PCWSTR,
 }
-impl Copy for COR_PRF_EVENTPIPE_PARAM_DESC {}
-impl Clone for COR_PRF_EVENTPIPE_PARAM_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COR_PRF_EVENTPIPE_PARAM_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COR_PRF_EVENTPIPE_PARAM_DESC").field("type", &self.r#type).field("elementType", &self.elementType).field("name", &self.name).finish()
-    }
-}
 impl windows_core::TypeKind for COR_PRF_EVENTPIPE_PARAM_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COR_PRF_EVENTPIPE_PARAM_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.r#type == other.r#type && self.elementType == other.elementType && self.name == other.name
-    }
-}
-impl Eq for COR_PRF_EVENTPIPE_PARAM_DESC {}
 impl Default for COR_PRF_EVENTPIPE_PARAM_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COR_PRF_EVENTPIPE_PROVIDER_CONFIG {
     pub providerName: windows_core::PCWSTR,
     pub keywords: u64,
     pub loggingLevel: u32,
     pub filterData: windows_core::PCWSTR,
 }
-impl Copy for COR_PRF_EVENTPIPE_PROVIDER_CONFIG {}
-impl Clone for COR_PRF_EVENTPIPE_PROVIDER_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COR_PRF_EVENTPIPE_PROVIDER_CONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COR_PRF_EVENTPIPE_PROVIDER_CONFIG").field("providerName", &self.providerName).field("keywords", &self.keywords).field("loggingLevel", &self.loggingLevel).field("filterData", &self.filterData).finish()
-    }
-}
 impl windows_core::TypeKind for COR_PRF_EVENTPIPE_PROVIDER_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COR_PRF_EVENTPIPE_PROVIDER_CONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.providerName == other.providerName && self.keywords == other.keywords && self.loggingLevel == other.loggingLevel && self.filterData == other.filterData
-    }
-}
-impl Eq for COR_PRF_EVENTPIPE_PROVIDER_CONFIG {}
 impl Default for COR_PRF_EVENTPIPE_PROVIDER_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COR_PRF_EVENT_DATA {
     pub ptr: u64,
     pub size: u32,
     pub reserved: u32,
 }
-impl Copy for COR_PRF_EVENT_DATA {}
-impl Clone for COR_PRF_EVENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COR_PRF_EVENT_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COR_PRF_EVENT_DATA").field("ptr", &self.ptr).field("size", &self.size).field("reserved", &self.reserved).finish()
-    }
-}
 impl windows_core::TypeKind for COR_PRF_EVENT_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COR_PRF_EVENT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.ptr == other.ptr && self.size == other.size && self.reserved == other.reserved
-    }
-}
-impl Eq for COR_PRF_EVENT_DATA {}
 impl Default for COR_PRF_EVENT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COR_PRF_EX_CLAUSE_INFO {
     pub clauseType: COR_PRF_CLAUSE_TYPE,
     pub programCounter: usize,
     pub framePointer: usize,
     pub shadowStackPointer: usize,
 }
-impl Copy for COR_PRF_EX_CLAUSE_INFO {}
-impl Clone for COR_PRF_EX_CLAUSE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COR_PRF_EX_CLAUSE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COR_PRF_EX_CLAUSE_INFO").field("clauseType", &self.clauseType).field("programCounter", &self.programCounter).field("framePointer", &self.framePointer).field("shadowStackPointer", &self.shadowStackPointer).finish()
-    }
-}
 impl windows_core::TypeKind for COR_PRF_EX_CLAUSE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COR_PRF_EX_CLAUSE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.clauseType == other.clauseType && self.programCounter == other.programCounter && self.framePointer == other.framePointer && self.shadowStackPointer == other.shadowStackPointer
-    }
-}
-impl Eq for COR_PRF_EX_CLAUSE_INFO {}
 impl Default for COR_PRF_EX_CLAUSE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COR_PRF_FILTER_DATA {
     pub Ptr: u64,
     pub Size: u32,
     pub Type: u32,
 }
-impl Copy for COR_PRF_FILTER_DATA {}
-impl Clone for COR_PRF_FILTER_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COR_PRF_FILTER_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COR_PRF_FILTER_DATA").field("Ptr", &self.Ptr).field("Size", &self.Size).field("Type", &self.Type).finish()
-    }
-}
 impl windows_core::TypeKind for COR_PRF_FILTER_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COR_PRF_FILTER_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Ptr == other.Ptr && self.Size == other.Size && self.Type == other.Type
-    }
-}
-impl Eq for COR_PRF_FILTER_DATA {}
 impl Default for COR_PRF_FILTER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COR_PRF_FUNCTION {
     pub functionId: usize,
     pub reJitId: usize,
 }
-impl Copy for COR_PRF_FUNCTION {}
-impl Clone for COR_PRF_FUNCTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COR_PRF_FUNCTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COR_PRF_FUNCTION").field("functionId", &self.functionId).field("reJitId", &self.reJitId).finish()
-    }
-}
 impl windows_core::TypeKind for COR_PRF_FUNCTION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COR_PRF_FUNCTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.functionId == other.functionId && self.reJitId == other.reJitId
-    }
-}
-impl Eq for COR_PRF_FUNCTION {}
 impl Default for COR_PRF_FUNCTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COR_PRF_FUNCTION_ARGUMENT_INFO {
     pub numRanges: u32,
     pub totalArgumentSize: u32,
     pub ranges: [COR_PRF_FUNCTION_ARGUMENT_RANGE; 1],
 }
-impl Copy for COR_PRF_FUNCTION_ARGUMENT_INFO {}
-impl Clone for COR_PRF_FUNCTION_ARGUMENT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COR_PRF_FUNCTION_ARGUMENT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COR_PRF_FUNCTION_ARGUMENT_INFO").field("numRanges", &self.numRanges).field("totalArgumentSize", &self.totalArgumentSize).field("ranges", &self.ranges).finish()
-    }
-}
 impl windows_core::TypeKind for COR_PRF_FUNCTION_ARGUMENT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COR_PRF_FUNCTION_ARGUMENT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.numRanges == other.numRanges && self.totalArgumentSize == other.totalArgumentSize && self.ranges == other.ranges
-    }
-}
-impl Eq for COR_PRF_FUNCTION_ARGUMENT_INFO {}
 impl Default for COR_PRF_FUNCTION_ARGUMENT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COR_PRF_FUNCTION_ARGUMENT_RANGE {
     pub startAddress: usize,
     pub length: u32,
 }
-impl Copy for COR_PRF_FUNCTION_ARGUMENT_RANGE {}
-impl Clone for COR_PRF_FUNCTION_ARGUMENT_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COR_PRF_FUNCTION_ARGUMENT_RANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COR_PRF_FUNCTION_ARGUMENT_RANGE").field("startAddress", &self.startAddress).field("length", &self.length).finish()
-    }
-}
 impl windows_core::TypeKind for COR_PRF_FUNCTION_ARGUMENT_RANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COR_PRF_FUNCTION_ARGUMENT_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.startAddress == other.startAddress && self.length == other.length
-    }
-}
-impl Eq for COR_PRF_FUNCTION_ARGUMENT_RANGE {}
 impl Default for COR_PRF_FUNCTION_ARGUMENT_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COR_PRF_GC_GENERATION_RANGE {
     pub generation: COR_PRF_GC_GENERATION,
     pub rangeStart: usize,
     pub rangeLength: usize,
     pub rangeLengthReserved: usize,
 }
-impl Copy for COR_PRF_GC_GENERATION_RANGE {}
-impl Clone for COR_PRF_GC_GENERATION_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COR_PRF_GC_GENERATION_RANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COR_PRF_GC_GENERATION_RANGE").field("generation", &self.generation).field("rangeStart", &self.rangeStart).field("rangeLength", &self.rangeLength).field("rangeLengthReserved", &self.rangeLengthReserved).finish()
-    }
-}
 impl windows_core::TypeKind for COR_PRF_GC_GENERATION_RANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COR_PRF_GC_GENERATION_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.generation == other.generation && self.rangeStart == other.rangeStart && self.rangeLength == other.rangeLength && self.rangeLengthReserved == other.rangeLengthReserved
-    }
-}
-impl Eq for COR_PRF_GC_GENERATION_RANGE {}
 impl Default for COR_PRF_GC_GENERATION_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COR_PRF_METHOD {
     pub moduleId: usize,
     pub methodId: u32,
 }
-impl Copy for COR_PRF_METHOD {}
-impl Clone for COR_PRF_METHOD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COR_PRF_METHOD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COR_PRF_METHOD").field("moduleId", &self.moduleId).field("methodId", &self.methodId).finish()
-    }
-}
 impl windows_core::TypeKind for COR_PRF_METHOD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COR_PRF_METHOD {
-    fn eq(&self, other: &Self) -> bool {
-        self.moduleId == other.moduleId && self.methodId == other.methodId
-    }
-}
-impl Eq for COR_PRF_METHOD {}
 impl Default for COR_PRF_METHOD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COR_PRF_NONGC_HEAP_RANGE {
     pub rangeStart: usize,
     pub rangeLength: usize,
     pub rangeLengthReserved: usize,
 }
-impl Copy for COR_PRF_NONGC_HEAP_RANGE {}
-impl Clone for COR_PRF_NONGC_HEAP_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COR_PRF_NONGC_HEAP_RANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COR_PRF_NONGC_HEAP_RANGE").field("rangeStart", &self.rangeStart).field("rangeLength", &self.rangeLength).field("rangeLengthReserved", &self.rangeLengthReserved).finish()
-    }
-}
 impl windows_core::TypeKind for COR_PRF_NONGC_HEAP_RANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COR_PRF_NONGC_HEAP_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.rangeStart == other.rangeStart && self.rangeLength == other.rangeLength && self.rangeLengthReserved == other.rangeLengthReserved
-    }
-}
-impl Eq for COR_PRF_NONGC_HEAP_RANGE {}
 impl Default for COR_PRF_NONGC_HEAP_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union FunctionIDOrClientID {
     pub functionID: usize,
     pub clientID: usize,
-}
-impl Copy for FunctionIDOrClientID {}
-impl Clone for FunctionIDOrClientID {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for FunctionIDOrClientID {
     type TypeKind = windows_core::CopyType;

@@ -703,15 +703,10 @@ impl core::fmt::Debug for SNMP_STATUS {
     }
 }
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct AsnAny {
     pub asnType: u8,
     pub asnValue: AsnAny_0,
-}
-impl Copy for AsnAny {}
-impl Clone for AsnAny {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for AsnAny {
     type TypeKind = windows_core::CopyType;
@@ -722,6 +717,7 @@ impl Default for AsnAny {
     }
 }
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub union AsnAny_0 {
     pub number: i32,
     pub unsigned32: u32,
@@ -736,12 +732,6 @@ pub union AsnAny_0 {
     pub ticks: u32,
     pub arbitrary: AsnOctetString,
 }
-impl Copy for AsnAny_0 {}
-impl Clone for AsnAny_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for AsnAny_0 {
     type TypeKind = windows_core::CopyType;
 }
@@ -752,17 +742,10 @@ impl Default for AsnAny_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct AsnObjectIdentifier {
     pub idLength: u32,
     pub ids: *mut u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for AsnObjectIdentifier {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for AsnObjectIdentifier {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for AsnObjectIdentifier {
@@ -776,17 +759,10 @@ impl Default for AsnObjectIdentifier {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct AsnObjectIdentifier {
     pub idLength: u32,
     pub ids: *mut u32,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for AsnObjectIdentifier {}
-#[cfg(target_arch = "x86")]
-impl Clone for AsnObjectIdentifier {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for AsnObjectIdentifier {
@@ -800,18 +776,11 @@ impl Default for AsnObjectIdentifier {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct AsnOctetString {
     pub stream: *mut u8,
     pub length: u32,
     pub dynamic: super::super::Foundation::BOOL,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for AsnOctetString {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for AsnOctetString {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for AsnOctetString {
@@ -825,18 +794,11 @@ impl Default for AsnOctetString {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct AsnOctetString {
     pub stream: *mut u8,
     pub length: u32,
     pub dynamic: super::super::Foundation::BOOL,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for AsnOctetString {}
-#[cfg(target_arch = "x86")]
-impl Clone for AsnOctetString {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for AsnOctetString {
@@ -849,15 +811,10 @@ impl Default for AsnOctetString {
     }
 }
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct SnmpVarBind {
     pub name: AsnObjectIdentifier,
     pub value: AsnAny,
-}
-impl Copy for SnmpVarBind {}
-impl Clone for SnmpVarBind {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SnmpVarBind {
     type TypeKind = windows_core::CopyType;
@@ -869,17 +826,10 @@ impl Default for SnmpVarBind {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SnmpVarBindList {
     pub list: *mut SnmpVarBind,
     pub len: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SnmpVarBindList {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SnmpVarBindList {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for SnmpVarBindList {
@@ -893,17 +843,10 @@ impl Default for SnmpVarBindList {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SnmpVarBindList {
     pub list: *mut SnmpVarBind,
     pub len: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for SnmpVarBindList {}
-#[cfg(target_arch = "x86")]
-impl Clone for SnmpVarBindList {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for SnmpVarBindList {
@@ -916,105 +859,52 @@ impl Default for SnmpVarBindList {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct smiCNTR64 {
     pub hipart: u32,
     pub lopart: u32,
 }
-impl Copy for smiCNTR64 {}
-impl Clone for smiCNTR64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for smiCNTR64 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("smiCNTR64").field("hipart", &self.hipart).field("lopart", &self.lopart).finish()
-    }
-}
 impl windows_core::TypeKind for smiCNTR64 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for smiCNTR64 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hipart == other.hipart && self.lopart == other.lopart
-    }
-}
-impl Eq for smiCNTR64 {}
 impl Default for smiCNTR64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct smiOCTETS {
     pub len: u32,
     pub ptr: *mut u8,
 }
-impl Copy for smiOCTETS {}
-impl Clone for smiOCTETS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for smiOCTETS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("smiOCTETS").field("len", &self.len).field("ptr", &self.ptr).finish()
-    }
-}
 impl windows_core::TypeKind for smiOCTETS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for smiOCTETS {
-    fn eq(&self, other: &Self) -> bool {
-        self.len == other.len && self.ptr == other.ptr
-    }
-}
-impl Eq for smiOCTETS {}
 impl Default for smiOCTETS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct smiOID {
     pub len: u32,
     pub ptr: *mut u32,
 }
-impl Copy for smiOID {}
-impl Clone for smiOID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for smiOID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("smiOID").field("len", &self.len).field("ptr", &self.ptr).finish()
-    }
-}
 impl windows_core::TypeKind for smiOID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for smiOID {
-    fn eq(&self, other: &Self) -> bool {
-        self.len == other.len && self.ptr == other.ptr
-    }
-}
-impl Eq for smiOID {}
 impl Default for smiOID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct smiVALUE {
     pub syntax: u32,
     pub value: smiVALUE_0,
-}
-impl Copy for smiVALUE {}
-impl Clone for smiVALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for smiVALUE {
     type TypeKind = windows_core::CopyType;
@@ -1025,6 +915,7 @@ impl Default for smiVALUE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union smiVALUE_0 {
     pub sNumber: i32,
     pub uNumber: u32,
@@ -1032,12 +923,6 @@ pub union smiVALUE_0 {
     pub string: smiOCTETS,
     pub oid: smiOID,
     pub empty: u8,
-}
-impl Copy for smiVALUE_0 {}
-impl Clone for smiVALUE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for smiVALUE_0 {
     type TypeKind = windows_core::CopyType;
@@ -1048,6 +933,7 @@ impl Default for smiVALUE_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct smiVENDORINFO {
     pub vendorName: [i8; 64],
     pub vendorContact: [i8; 64],
@@ -1055,26 +941,9 @@ pub struct smiVENDORINFO {
     pub vendorVersionDate: [i8; 32],
     pub vendorEnterprise: u32,
 }
-impl Copy for smiVENDORINFO {}
-impl Clone for smiVENDORINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for smiVENDORINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("smiVENDORINFO").field("vendorName", &self.vendorName).field("vendorContact", &self.vendorContact).field("vendorVersionId", &self.vendorVersionId).field("vendorVersionDate", &self.vendorVersionDate).field("vendorEnterprise", &self.vendorEnterprise).finish()
-    }
-}
 impl windows_core::TypeKind for smiVENDORINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for smiVENDORINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.vendorName == other.vendorName && self.vendorContact == other.vendorContact && self.vendorVersionId == other.vendorVersionId && self.vendorVersionDate == other.vendorVersionDate && self.vendorEnterprise == other.vendorEnterprise
-    }
-}
-impl Eq for smiVENDORINFO {}
 impl Default for smiVENDORINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -255,17 +255,13 @@ pub type SNMP_OUTPUT_LOG_TYPE = u32;
 pub type SNMP_PDU_TYPE = u32;
 pub type SNMP_STATUS = u32;
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct AsnAny {
     pub asnType: u8,
     pub asnValue: AsnAny_0,
 }
-impl Copy for AsnAny {}
-impl Clone for AsnAny {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub union AsnAny_0 {
     pub number: i32,
     pub unsigned32: u32,
@@ -280,154 +276,82 @@ pub union AsnAny_0 {
     pub ticks: u32,
     pub arbitrary: AsnOctetString,
 }
-impl Copy for AsnAny_0 {}
-impl Clone for AsnAny_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct AsnObjectIdentifier {
     pub idLength: u32,
     pub ids: *mut u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for AsnObjectIdentifier {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for AsnObjectIdentifier {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct AsnObjectIdentifier {
     pub idLength: u32,
     pub ids: *mut u32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for AsnObjectIdentifier {}
-#[cfg(target_arch = "x86")]
-impl Clone for AsnObjectIdentifier {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct AsnOctetString {
     pub stream: *mut u8,
     pub length: u32,
     pub dynamic: super::super::Foundation::BOOL,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for AsnOctetString {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for AsnOctetString {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct AsnOctetString {
     pub stream: *mut u8,
     pub length: u32,
     pub dynamic: super::super::Foundation::BOOL,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for AsnOctetString {}
-#[cfg(target_arch = "x86")]
-impl Clone for AsnOctetString {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct SnmpVarBind {
     pub name: AsnObjectIdentifier,
     pub value: AsnAny,
 }
-impl Copy for SnmpVarBind {}
-impl Clone for SnmpVarBind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SnmpVarBindList {
     pub list: *mut SnmpVarBind,
     pub len: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SnmpVarBindList {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SnmpVarBindList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SnmpVarBindList {
     pub list: *mut SnmpVarBind,
     pub len: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SnmpVarBindList {}
-#[cfg(target_arch = "x86")]
-impl Clone for SnmpVarBindList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct smiCNTR64 {
     pub hipart: u32,
     pub lopart: u32,
 }
-impl Copy for smiCNTR64 {}
-impl Clone for smiCNTR64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct smiOCTETS {
     pub len: u32,
     pub ptr: *mut u8,
 }
-impl Copy for smiOCTETS {}
-impl Clone for smiOCTETS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct smiOID {
     pub len: u32,
     pub ptr: *mut u32,
 }
-impl Copy for smiOID {}
-impl Clone for smiOID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct smiVALUE {
     pub syntax: u32,
     pub value: smiVALUE_0,
 }
-impl Copy for smiVALUE {}
-impl Clone for smiVALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union smiVALUE_0 {
     pub sNumber: i32,
     pub uNumber: u32,
@@ -436,25 +360,14 @@ pub union smiVALUE_0 {
     pub oid: smiOID,
     pub empty: u8,
 }
-impl Copy for smiVALUE_0 {}
-impl Clone for smiVALUE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct smiVENDORINFO {
     pub vendorName: [i8; 64],
     pub vendorContact: [i8; 64],
     pub vendorVersionId: [i8; 32],
     pub vendorVersionDate: [i8; 32],
     pub vendorEnterprise: u32,
-}
-impl Copy for smiVENDORINFO {}
-impl Clone for smiVENDORINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type PFNSNMPCLEANUPEX = Option<unsafe extern "system" fn() -> u32>;
 pub type PFNSNMPEXTENSIONCLOSE = Option<unsafe extern "system" fn()>;

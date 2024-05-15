@@ -35,121 +35,72 @@ pub const MF_TRANSFER_VIDEO_FRAME_STRETCH: MF_TRANSFER_VIDEO_FRAME_FLAGS = 1i32;
 pub type MF_MEDIASOURCE_STATUS_INFO = i32;
 pub type MF_TRANSFER_VIDEO_FRAME_FLAGS = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CapturedMetadataExposureCompensation {
     pub Flags: u64,
     pub Value: i32,
 }
-impl Copy for CapturedMetadataExposureCompensation {}
-impl Clone for CapturedMetadataExposureCompensation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CapturedMetadataISOGains {
     pub AnalogGain: f32,
     pub DigitalGain: f32,
 }
-impl Copy for CapturedMetadataISOGains {}
-impl Clone for CapturedMetadataISOGains {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CapturedMetadataWhiteBalanceGains {
     pub R: f32,
     pub G: f32,
     pub B: f32,
 }
-impl Copy for CapturedMetadataWhiteBalanceGains {}
-impl Clone for CapturedMetadataWhiteBalanceGains {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FaceCharacterization {
     pub BlinkScoreLeft: u32,
     pub BlinkScoreRight: u32,
     pub FacialExpression: u32,
     pub FacialExpressionScore: u32,
 }
-impl Copy for FaceCharacterization {}
-impl Clone for FaceCharacterization {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FaceCharacterizationBlobHeader {
     pub Size: u32,
     pub Count: u32,
 }
-impl Copy for FaceCharacterizationBlobHeader {}
-impl Clone for FaceCharacterizationBlobHeader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FaceRectInfo {
     pub Region: super::super::Foundation::RECT,
     pub confidenceLevel: i32,
 }
-impl Copy for FaceRectInfo {}
-impl Clone for FaceRectInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FaceRectInfoBlobHeader {
     pub Size: u32,
     pub Count: u32,
 }
-impl Copy for FaceRectInfoBlobHeader {}
-impl Clone for FaceRectInfoBlobHeader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HistogramBlobHeader {
     pub Size: u32,
     pub Histograms: u32,
 }
-impl Copy for HistogramBlobHeader {}
-impl Clone for HistogramBlobHeader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HistogramDataHeader {
     pub Size: u32,
     pub ChannelMask: u32,
     pub Linear: u32,
 }
-impl Copy for HistogramDataHeader {}
-impl Clone for HistogramDataHeader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HistogramGrid {
     pub Width: u32,
     pub Height: u32,
     pub Region: super::super::Foundation::RECT,
 }
-impl Copy for HistogramGrid {}
-impl Clone for HistogramGrid {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HistogramHeader {
     pub Size: u32,
     pub Bins: u32,
@@ -157,21 +108,10 @@ pub struct HistogramHeader {
     pub ChannelMasks: u32,
     pub Grid: HistogramGrid,
 }
-impl Copy for HistogramHeader {}
-impl Clone for HistogramHeader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MetadataTimeStamps {
     pub Flags: u32,
     pub Device: i64,
     pub Presentation: i64,
-}
-impl Copy for MetadataTimeStamps {}
-impl Clone for MetadataTimeStamps {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

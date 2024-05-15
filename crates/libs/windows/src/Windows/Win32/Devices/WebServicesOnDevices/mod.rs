@@ -1827,65 +1827,34 @@ impl core::fmt::Debug for WSD_PROTOCOL_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REQUESTBODY_GetStatus {
     pub Any: *mut WSDXML_ELEMENT,
-}
-impl Copy for REQUESTBODY_GetStatus {}
-impl Clone for REQUESTBODY_GetStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for REQUESTBODY_GetStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REQUESTBODY_GetStatus").field("Any", &self.Any).finish()
-    }
 }
 impl windows_core::TypeKind for REQUESTBODY_GetStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for REQUESTBODY_GetStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.Any == other.Any
-    }
-}
-impl Eq for REQUESTBODY_GetStatus {}
 impl Default for REQUESTBODY_GetStatus {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REQUESTBODY_Renew {
     pub Expires: *mut WSD_EVENTING_EXPIRES,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for REQUESTBODY_Renew {}
-impl Clone for REQUESTBODY_Renew {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for REQUESTBODY_Renew {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REQUESTBODY_Renew").field("Expires", &self.Expires).field("Any", &self.Any).finish()
-    }
-}
 impl windows_core::TypeKind for REQUESTBODY_Renew {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for REQUESTBODY_Renew {
-    fn eq(&self, other: &Self) -> bool {
-        self.Expires == other.Expires && self.Any == other.Any
-    }
-}
-impl Eq for REQUESTBODY_Renew {}
 impl Default for REQUESTBODY_Renew {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REQUESTBODY_Subscribe {
     pub EndTo: *mut WSD_ENDPOINT_REFERENCE,
     pub Delivery: *mut WSD_EVENTING_DELIVERY_MODE,
@@ -1893,213 +1862,101 @@ pub struct REQUESTBODY_Subscribe {
     pub Filter: *mut WSD_EVENTING_FILTER,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for REQUESTBODY_Subscribe {}
-impl Clone for REQUESTBODY_Subscribe {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for REQUESTBODY_Subscribe {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REQUESTBODY_Subscribe").field("EndTo", &self.EndTo).field("Delivery", &self.Delivery).field("Expires", &self.Expires).field("Filter", &self.Filter).field("Any", &self.Any).finish()
-    }
-}
 impl windows_core::TypeKind for REQUESTBODY_Subscribe {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for REQUESTBODY_Subscribe {
-    fn eq(&self, other: &Self) -> bool {
-        self.EndTo == other.EndTo && self.Delivery == other.Delivery && self.Expires == other.Expires && self.Filter == other.Filter && self.Any == other.Any
-    }
-}
-impl Eq for REQUESTBODY_Subscribe {}
 impl Default for REQUESTBODY_Subscribe {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REQUESTBODY_Unsubscribe {
     pub any: *mut WSDXML_ELEMENT,
-}
-impl Copy for REQUESTBODY_Unsubscribe {}
-impl Clone for REQUESTBODY_Unsubscribe {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for REQUESTBODY_Unsubscribe {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REQUESTBODY_Unsubscribe").field("any", &self.any).finish()
-    }
 }
 impl windows_core::TypeKind for REQUESTBODY_Unsubscribe {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for REQUESTBODY_Unsubscribe {
-    fn eq(&self, other: &Self) -> bool {
-        self.any == other.any
-    }
-}
-impl Eq for REQUESTBODY_Unsubscribe {}
 impl Default for REQUESTBODY_Unsubscribe {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESPONSEBODY_GetMetadata {
     pub Metadata: *mut WSD_METADATA_SECTION_LIST,
-}
-impl Copy for RESPONSEBODY_GetMetadata {}
-impl Clone for RESPONSEBODY_GetMetadata {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RESPONSEBODY_GetMetadata {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RESPONSEBODY_GetMetadata").field("Metadata", &self.Metadata).finish()
-    }
 }
 impl windows_core::TypeKind for RESPONSEBODY_GetMetadata {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RESPONSEBODY_GetMetadata {
-    fn eq(&self, other: &Self) -> bool {
-        self.Metadata == other.Metadata
-    }
-}
-impl Eq for RESPONSEBODY_GetMetadata {}
 impl Default for RESPONSEBODY_GetMetadata {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESPONSEBODY_GetStatus {
     pub expires: *mut WSD_EVENTING_EXPIRES,
     pub any: *mut WSDXML_ELEMENT,
 }
-impl Copy for RESPONSEBODY_GetStatus {}
-impl Clone for RESPONSEBODY_GetStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RESPONSEBODY_GetStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RESPONSEBODY_GetStatus").field("expires", &self.expires).field("any", &self.any).finish()
-    }
-}
 impl windows_core::TypeKind for RESPONSEBODY_GetStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RESPONSEBODY_GetStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.expires == other.expires && self.any == other.any
-    }
-}
-impl Eq for RESPONSEBODY_GetStatus {}
 impl Default for RESPONSEBODY_GetStatus {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESPONSEBODY_Renew {
     pub expires: *mut WSD_EVENTING_EXPIRES,
     pub any: *mut WSDXML_ELEMENT,
 }
-impl Copy for RESPONSEBODY_Renew {}
-impl Clone for RESPONSEBODY_Renew {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RESPONSEBODY_Renew {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RESPONSEBODY_Renew").field("expires", &self.expires).field("any", &self.any).finish()
-    }
-}
 impl windows_core::TypeKind for RESPONSEBODY_Renew {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RESPONSEBODY_Renew {
-    fn eq(&self, other: &Self) -> bool {
-        self.expires == other.expires && self.any == other.any
-    }
-}
-impl Eq for RESPONSEBODY_Renew {}
 impl Default for RESPONSEBODY_Renew {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESPONSEBODY_Subscribe {
     pub SubscriptionManager: *mut WSD_ENDPOINT_REFERENCE,
     pub expires: *mut WSD_EVENTING_EXPIRES,
     pub any: *mut WSDXML_ELEMENT,
 }
-impl Copy for RESPONSEBODY_Subscribe {}
-impl Clone for RESPONSEBODY_Subscribe {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RESPONSEBODY_Subscribe {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RESPONSEBODY_Subscribe").field("SubscriptionManager", &self.SubscriptionManager).field("expires", &self.expires).field("any", &self.any).finish()
-    }
-}
 impl windows_core::TypeKind for RESPONSEBODY_Subscribe {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RESPONSEBODY_Subscribe {
-    fn eq(&self, other: &Self) -> bool {
-        self.SubscriptionManager == other.SubscriptionManager && self.expires == other.expires && self.any == other.any
-    }
-}
-impl Eq for RESPONSEBODY_Subscribe {}
 impl Default for RESPONSEBODY_Subscribe {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESPONSEBODY_SubscriptionEnd {
     pub SubscriptionManager: *mut WSD_ENDPOINT_REFERENCE,
     pub Status: windows_core::PCWSTR,
     pub Reason: *mut WSD_LOCALIZED_STRING,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for RESPONSEBODY_SubscriptionEnd {}
-impl Clone for RESPONSEBODY_SubscriptionEnd {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RESPONSEBODY_SubscriptionEnd {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RESPONSEBODY_SubscriptionEnd").field("SubscriptionManager", &self.SubscriptionManager).field("Status", &self.Status).field("Reason", &self.Reason).field("Any", &self.Any).finish()
-    }
-}
 impl windows_core::TypeKind for RESPONSEBODY_SubscriptionEnd {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RESPONSEBODY_SubscriptionEnd {
-    fn eq(&self, other: &Self) -> bool {
-        self.SubscriptionManager == other.SubscriptionManager && self.Status == other.Status && self.Reason == other.Reason && self.Any == other.Any
-    }
-}
-impl Eq for RESPONSEBODY_SubscriptionEnd {}
 impl Default for RESPONSEBODY_SubscriptionEnd {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSDUdpRetransmitParams {
     pub ulSendDelay: u32,
     pub ulRepeat: u32,
@@ -2107,64 +1964,32 @@ pub struct WSDUdpRetransmitParams {
     pub ulRepeatMaxDelay: u32,
     pub ulRepeatUpperDelay: u32,
 }
-impl Copy for WSDUdpRetransmitParams {}
-impl Clone for WSDUdpRetransmitParams {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSDUdpRetransmitParams {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSDUdpRetransmitParams").field("ulSendDelay", &self.ulSendDelay).field("ulRepeat", &self.ulRepeat).field("ulRepeatMinDelay", &self.ulRepeatMinDelay).field("ulRepeatMaxDelay", &self.ulRepeatMaxDelay).field("ulRepeatUpperDelay", &self.ulRepeatUpperDelay).finish()
-    }
-}
 impl windows_core::TypeKind for WSDUdpRetransmitParams {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSDUdpRetransmitParams {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulSendDelay == other.ulSendDelay && self.ulRepeat == other.ulRepeat && self.ulRepeatMinDelay == other.ulRepeatMinDelay && self.ulRepeatMaxDelay == other.ulRepeatMaxDelay && self.ulRepeatUpperDelay == other.ulRepeatUpperDelay
-    }
-}
-impl Eq for WSDUdpRetransmitParams {}
 impl Default for WSDUdpRetransmitParams {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSDXML_ATTRIBUTE {
     pub Element: *mut WSDXML_ELEMENT,
     pub Next: *mut WSDXML_ATTRIBUTE,
     pub Name: *mut WSDXML_NAME,
     pub Value: windows_core::PWSTR,
 }
-impl Copy for WSDXML_ATTRIBUTE {}
-impl Clone for WSDXML_ATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSDXML_ATTRIBUTE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSDXML_ATTRIBUTE").field("Element", &self.Element).field("Next", &self.Next).field("Name", &self.Name).field("Value", &self.Value).finish()
-    }
-}
 impl windows_core::TypeKind for WSDXML_ATTRIBUTE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSDXML_ATTRIBUTE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Element == other.Element && self.Next == other.Next && self.Name == other.Name && self.Value == other.Value
-    }
-}
-impl Eq for WSDXML_ATTRIBUTE {}
 impl Default for WSDXML_ATTRIBUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSDXML_ELEMENT {
     pub Node: WSDXML_NODE,
     pub Name: *mut WSDXML_NAME,
@@ -2172,92 +1997,44 @@ pub struct WSDXML_ELEMENT {
     pub FirstChild: *mut WSDXML_NODE,
     pub PrefixMappings: *mut WSDXML_PREFIX_MAPPING,
 }
-impl Copy for WSDXML_ELEMENT {}
-impl Clone for WSDXML_ELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSDXML_ELEMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSDXML_ELEMENT").field("Node", &self.Node).field("Name", &self.Name).field("FirstAttribute", &self.FirstAttribute).field("FirstChild", &self.FirstChild).field("PrefixMappings", &self.PrefixMappings).finish()
-    }
-}
 impl windows_core::TypeKind for WSDXML_ELEMENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSDXML_ELEMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Node == other.Node && self.Name == other.Name && self.FirstAttribute == other.FirstAttribute && self.FirstChild == other.FirstChild && self.PrefixMappings == other.PrefixMappings
-    }
-}
-impl Eq for WSDXML_ELEMENT {}
 impl Default for WSDXML_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSDXML_ELEMENT_LIST {
     pub Next: *mut WSDXML_ELEMENT_LIST,
     pub Element: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSDXML_ELEMENT_LIST {}
-impl Clone for WSDXML_ELEMENT_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSDXML_ELEMENT_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSDXML_ELEMENT_LIST").field("Next", &self.Next).field("Element", &self.Element).finish()
-    }
-}
 impl windows_core::TypeKind for WSDXML_ELEMENT_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSDXML_ELEMENT_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Next == other.Next && self.Element == other.Element
-    }
-}
-impl Eq for WSDXML_ELEMENT_LIST {}
 impl Default for WSDXML_ELEMENT_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSDXML_NAME {
     pub Space: *mut WSDXML_NAMESPACE,
     pub LocalName: windows_core::PWSTR,
 }
-impl Copy for WSDXML_NAME {}
-impl Clone for WSDXML_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSDXML_NAME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSDXML_NAME").field("Space", &self.Space).field("LocalName", &self.LocalName).finish()
-    }
-}
 impl windows_core::TypeKind for WSDXML_NAME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSDXML_NAME {
-    fn eq(&self, other: &Self) -> bool {
-        self.Space == other.Space && self.LocalName == other.LocalName
-    }
-}
-impl Eq for WSDXML_NAME {}
 impl Default for WSDXML_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSDXML_NAMESPACE {
     pub Uri: windows_core::PCWSTR,
     pub PreferredPrefix: windows_core::PCWSTR,
@@ -2265,32 +2042,16 @@ pub struct WSDXML_NAMESPACE {
     pub NamesCount: u16,
     pub Encoding: u16,
 }
-impl Copy for WSDXML_NAMESPACE {}
-impl Clone for WSDXML_NAMESPACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSDXML_NAMESPACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSDXML_NAMESPACE").field("Uri", &self.Uri).field("PreferredPrefix", &self.PreferredPrefix).field("Names", &self.Names).field("NamesCount", &self.NamesCount).field("Encoding", &self.Encoding).finish()
-    }
-}
 impl windows_core::TypeKind for WSDXML_NAMESPACE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSDXML_NAMESPACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Uri == other.Uri && self.PreferredPrefix == other.PreferredPrefix && self.Names == other.Names && self.NamesCount == other.NamesCount && self.Encoding == other.Encoding
-    }
-}
-impl Eq for WSDXML_NAMESPACE {}
 impl Default for WSDXML_NAMESPACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSDXML_NODE {
     pub Type: i32,
     pub Parent: *mut WSDXML_ELEMENT,
@@ -2300,246 +2061,118 @@ impl WSDXML_NODE {
     pub const ElementType: i32 = 0i32;
     pub const TextType: i32 = 1i32;
 }
-impl Copy for WSDXML_NODE {}
-impl Clone for WSDXML_NODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSDXML_NODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSDXML_NODE").field("Type", &self.Type).field("Parent", &self.Parent).field("Next", &self.Next).finish()
-    }
-}
 impl windows_core::TypeKind for WSDXML_NODE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSDXML_NODE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Parent == other.Parent && self.Next == other.Next
-    }
-}
-impl Eq for WSDXML_NODE {}
 impl Default for WSDXML_NODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSDXML_PREFIX_MAPPING {
     pub Refs: u32,
     pub Next: *mut WSDXML_PREFIX_MAPPING,
     pub Space: *mut WSDXML_NAMESPACE,
     pub Prefix: windows_core::PWSTR,
 }
-impl Copy for WSDXML_PREFIX_MAPPING {}
-impl Clone for WSDXML_PREFIX_MAPPING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSDXML_PREFIX_MAPPING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSDXML_PREFIX_MAPPING").field("Refs", &self.Refs).field("Next", &self.Next).field("Space", &self.Space).field("Prefix", &self.Prefix).finish()
-    }
-}
 impl windows_core::TypeKind for WSDXML_PREFIX_MAPPING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSDXML_PREFIX_MAPPING {
-    fn eq(&self, other: &Self) -> bool {
-        self.Refs == other.Refs && self.Next == other.Next && self.Space == other.Space && self.Prefix == other.Prefix
-    }
-}
-impl Eq for WSDXML_PREFIX_MAPPING {}
 impl Default for WSDXML_PREFIX_MAPPING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSDXML_TEXT {
     pub Node: WSDXML_NODE,
     pub Text: windows_core::PWSTR,
 }
-impl Copy for WSDXML_TEXT {}
-impl Clone for WSDXML_TEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSDXML_TEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSDXML_TEXT").field("Node", &self.Node).field("Text", &self.Text).finish()
-    }
-}
 impl windows_core::TypeKind for WSDXML_TEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSDXML_TEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Node == other.Node && self.Text == other.Text
-    }
-}
-impl Eq for WSDXML_TEXT {}
 impl Default for WSDXML_TEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSDXML_TYPE {
     pub Uri: windows_core::PCWSTR,
     pub Table: *const u8,
 }
-impl Copy for WSDXML_TYPE {}
-impl Clone for WSDXML_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSDXML_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSDXML_TYPE").field("Uri", &self.Uri).field("Table", &self.Table).finish()
-    }
-}
 impl windows_core::TypeKind for WSDXML_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSDXML_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Uri == other.Uri && self.Table == other.Table
-    }
-}
-impl Eq for WSDXML_TYPE {}
 impl Default for WSDXML_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_APP_SEQUENCE {
     pub InstanceId: u64,
     pub SequenceId: windows_core::PCWSTR,
     pub MessageNumber: u64,
 }
-impl Copy for WSD_APP_SEQUENCE {}
-impl Clone for WSD_APP_SEQUENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_APP_SEQUENCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_APP_SEQUENCE").field("InstanceId", &self.InstanceId).field("SequenceId", &self.SequenceId).field("MessageNumber", &self.MessageNumber).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_APP_SEQUENCE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_APP_SEQUENCE {
-    fn eq(&self, other: &Self) -> bool {
-        self.InstanceId == other.InstanceId && self.SequenceId == other.SequenceId && self.MessageNumber == other.MessageNumber
-    }
-}
-impl Eq for WSD_APP_SEQUENCE {}
 impl Default for WSD_APP_SEQUENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_BYE {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_BYE {}
-impl Clone for WSD_BYE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_BYE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_BYE").field("EndpointReference", &self.EndpointReference).field("Any", &self.Any).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_BYE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_BYE {
-    fn eq(&self, other: &Self) -> bool {
-        self.EndpointReference == other.EndpointReference && self.Any == other.Any
-    }
-}
-impl Eq for WSD_BYE {}
 impl Default for WSD_BYE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_CONFIG_ADDRESSES {
     pub addresses: *mut Option<IWSDAddress>,
     pub dwAddressCount: u32,
 }
-impl Copy for WSD_CONFIG_ADDRESSES {}
-impl Clone for WSD_CONFIG_ADDRESSES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_CONFIG_ADDRESSES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_CONFIG_ADDRESSES").field("addresses", &self.addresses).field("dwAddressCount", &self.dwAddressCount).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_CONFIG_ADDRESSES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_CONFIG_ADDRESSES {
-    fn eq(&self, other: &Self) -> bool {
-        self.addresses == other.addresses && self.dwAddressCount == other.dwAddressCount
-    }
-}
-impl Eq for WSD_CONFIG_ADDRESSES {}
 impl Default for WSD_CONFIG_ADDRESSES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_CONFIG_PARAM {
     pub configParamType: WSD_CONFIG_PARAM_TYPE,
     pub pConfigData: *mut core::ffi::c_void,
     pub dwConfigDataSize: u32,
 }
-impl Copy for WSD_CONFIG_PARAM {}
-impl Clone for WSD_CONFIG_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_CONFIG_PARAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_CONFIG_PARAM").field("configParamType", &self.configParamType).field("pConfigData", &self.pConfigData).field("dwConfigDataSize", &self.dwConfigDataSize).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_CONFIG_PARAM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_CONFIG_PARAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.configParamType == other.configParamType && self.pConfigData == other.pConfigData && self.dwConfigDataSize == other.dwConfigDataSize
-    }
-}
-impl Eq for WSD_CONFIG_PARAM {}
 impl Default for WSD_CONFIG_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_DATETIME {
     pub isPositive: super::super::Foundation::BOOL,
     pub year: u32,
@@ -2554,32 +2187,16 @@ pub struct WSD_DATETIME {
     pub TZHour: u8,
     pub TZMinute: u8,
 }
-impl Copy for WSD_DATETIME {}
-impl Clone for WSD_DATETIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_DATETIME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_DATETIME").field("isPositive", &self.isPositive).field("year", &self.year).field("month", &self.month).field("day", &self.day).field("hour", &self.hour).field("minute", &self.minute).field("second", &self.second).field("millisecond", &self.millisecond).field("TZIsLocal", &self.TZIsLocal).field("TZIsPositive", &self.TZIsPositive).field("TZHour", &self.TZHour).field("TZMinute", &self.TZMinute).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_DATETIME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_DATETIME {
-    fn eq(&self, other: &Self) -> bool {
-        self.isPositive == other.isPositive && self.year == other.year && self.month == other.month && self.day == other.day && self.hour == other.hour && self.minute == other.minute && self.second == other.second && self.millisecond == other.millisecond && self.TZIsLocal == other.TZIsLocal && self.TZIsPositive == other.TZIsPositive && self.TZHour == other.TZHour && self.TZMinute == other.TZMinute
-    }
-}
-impl Eq for WSD_DATETIME {}
 impl Default for WSD_DATETIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_DURATION {
     pub isPositive: super::super::Foundation::BOOL,
     pub year: u32,
@@ -2590,32 +2207,16 @@ pub struct WSD_DURATION {
     pub second: u32,
     pub millisecond: u32,
 }
-impl Copy for WSD_DURATION {}
-impl Clone for WSD_DURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_DURATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_DURATION").field("isPositive", &self.isPositive).field("year", &self.year).field("month", &self.month).field("day", &self.day).field("hour", &self.hour).field("minute", &self.minute).field("second", &self.second).field("millisecond", &self.millisecond).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_DURATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_DURATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.isPositive == other.isPositive && self.year == other.year && self.month == other.month && self.day == other.day && self.hour == other.hour && self.minute == other.minute && self.second == other.second && self.millisecond == other.millisecond
-    }
-}
-impl Eq for WSD_DURATION {}
 impl Default for WSD_DURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_ENDPOINT_REFERENCE {
     pub Address: windows_core::PCWSTR,
     pub ReferenceProperties: WSD_REFERENCE_PROPERTIES,
@@ -2624,62 +2225,30 @@ pub struct WSD_ENDPOINT_REFERENCE {
     pub ServiceName: *mut WSDXML_NAME,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_ENDPOINT_REFERENCE {}
-impl Clone for WSD_ENDPOINT_REFERENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_ENDPOINT_REFERENCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_ENDPOINT_REFERENCE").field("Address", &self.Address).field("ReferenceProperties", &self.ReferenceProperties).field("ReferenceParameters", &self.ReferenceParameters).field("PortType", &self.PortType).field("ServiceName", &self.ServiceName).field("Any", &self.Any).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_ENDPOINT_REFERENCE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_ENDPOINT_REFERENCE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Address == other.Address && self.ReferenceProperties == other.ReferenceProperties && self.ReferenceParameters == other.ReferenceParameters && self.PortType == other.PortType && self.ServiceName == other.ServiceName && self.Any == other.Any
-    }
-}
-impl Eq for WSD_ENDPOINT_REFERENCE {}
 impl Default for WSD_ENDPOINT_REFERENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_ENDPOINT_REFERENCE_LIST {
     pub Next: *mut WSD_ENDPOINT_REFERENCE_LIST,
     pub Element: *mut WSD_ENDPOINT_REFERENCE,
 }
-impl Copy for WSD_ENDPOINT_REFERENCE_LIST {}
-impl Clone for WSD_ENDPOINT_REFERENCE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_ENDPOINT_REFERENCE_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_ENDPOINT_REFERENCE_LIST").field("Next", &self.Next).field("Element", &self.Element).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_ENDPOINT_REFERENCE_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_ENDPOINT_REFERENCE_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Next == other.Next && self.Element == other.Element
-    }
-}
-impl Eq for WSD_ENDPOINT_REFERENCE_LIST {}
 impl Default for WSD_ENDPOINT_REFERENCE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug)]
 pub struct WSD_EVENT {
     pub Hr: windows_core::HRESULT,
     pub EventType: u32,
@@ -2694,11 +2263,6 @@ impl Clone for WSD_EVENT {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for WSD_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_EVENT").field("Hr", &self.Hr).field("EventType", &self.EventType).field("DispatchTag", &self.DispatchTag).field("Soap", &self.Soap).field("Operation", &self.Operation).field("MessageParameters", &self.MessageParameters).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_EVENT {
     type TypeKind = windows_core::CopyType;
 }
@@ -2708,156 +2272,77 @@ impl Default for WSD_EVENT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_EVENTING_DELIVERY_MODE {
     pub Mode: windows_core::PCWSTR,
     pub Push: *mut WSD_EVENTING_DELIVERY_MODE_PUSH,
     pub Data: *mut core::ffi::c_void,
 }
-impl Copy for WSD_EVENTING_DELIVERY_MODE {}
-impl Clone for WSD_EVENTING_DELIVERY_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_EVENTING_DELIVERY_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_EVENTING_DELIVERY_MODE").field("Mode", &self.Mode).field("Push", &self.Push).field("Data", &self.Data).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_EVENTING_DELIVERY_MODE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_EVENTING_DELIVERY_MODE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Mode == other.Mode && self.Push == other.Push && self.Data == other.Data
-    }
-}
-impl Eq for WSD_EVENTING_DELIVERY_MODE {}
 impl Default for WSD_EVENTING_DELIVERY_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_EVENTING_DELIVERY_MODE_PUSH {
     pub NotifyTo: *mut WSD_ENDPOINT_REFERENCE,
-}
-impl Copy for WSD_EVENTING_DELIVERY_MODE_PUSH {}
-impl Clone for WSD_EVENTING_DELIVERY_MODE_PUSH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_EVENTING_DELIVERY_MODE_PUSH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_EVENTING_DELIVERY_MODE_PUSH").field("NotifyTo", &self.NotifyTo).finish()
-    }
 }
 impl windows_core::TypeKind for WSD_EVENTING_DELIVERY_MODE_PUSH {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_EVENTING_DELIVERY_MODE_PUSH {
-    fn eq(&self, other: &Self) -> bool {
-        self.NotifyTo == other.NotifyTo
-    }
-}
-impl Eq for WSD_EVENTING_DELIVERY_MODE_PUSH {}
 impl Default for WSD_EVENTING_DELIVERY_MODE_PUSH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_EVENTING_EXPIRES {
     pub Duration: *mut WSD_DURATION,
     pub DateTime: *mut WSD_DATETIME,
 }
-impl Copy for WSD_EVENTING_EXPIRES {}
-impl Clone for WSD_EVENTING_EXPIRES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_EVENTING_EXPIRES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_EVENTING_EXPIRES").field("Duration", &self.Duration).field("DateTime", &self.DateTime).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_EVENTING_EXPIRES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_EVENTING_EXPIRES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Duration == other.Duration && self.DateTime == other.DateTime
-    }
-}
-impl Eq for WSD_EVENTING_EXPIRES {}
 impl Default for WSD_EVENTING_EXPIRES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_EVENTING_FILTER {
     pub Dialect: windows_core::PCWSTR,
     pub FilterAction: *mut WSD_EVENTING_FILTER_ACTION,
     pub Data: *mut core::ffi::c_void,
 }
-impl Copy for WSD_EVENTING_FILTER {}
-impl Clone for WSD_EVENTING_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_EVENTING_FILTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_EVENTING_FILTER").field("Dialect", &self.Dialect).field("FilterAction", &self.FilterAction).field("Data", &self.Data).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_EVENTING_FILTER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_EVENTING_FILTER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Dialect == other.Dialect && self.FilterAction == other.FilterAction && self.Data == other.Data
-    }
-}
-impl Eq for WSD_EVENTING_FILTER {}
 impl Default for WSD_EVENTING_FILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_EVENTING_FILTER_ACTION {
     pub Actions: *mut WSD_URI_LIST,
-}
-impl Copy for WSD_EVENTING_FILTER_ACTION {}
-impl Clone for WSD_EVENTING_FILTER_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_EVENTING_FILTER_ACTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_EVENTING_FILTER_ACTION").field("Actions", &self.Actions).finish()
-    }
 }
 impl windows_core::TypeKind for WSD_EVENTING_FILTER_ACTION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_EVENTING_FILTER_ACTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Actions == other.Actions
-    }
-}
-impl Eq for WSD_EVENTING_FILTER_ACTION {}
 impl Default for WSD_EVENTING_FILTER_ACTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug)]
 pub struct WSD_HANDLER_CONTEXT {
     pub Handler: PWSD_SOAP_MESSAGE_HANDLER,
     pub PVoid: *mut core::ffi::c_void,
@@ -2866,11 +2351,6 @@ pub struct WSD_HANDLER_CONTEXT {
 impl Clone for WSD_HANDLER_CONTEXT {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
-    }
-}
-impl core::fmt::Debug for WSD_HANDLER_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_HANDLER_CONTEXT").field("PVoid", &self.PVoid).field("Unknown", &self.Unknown).finish()
     }
 }
 impl windows_core::TypeKind for WSD_HANDLER_CONTEXT {
@@ -2882,36 +2362,21 @@ impl Default for WSD_HANDLER_CONTEXT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_HEADER_RELATESTO {
     pub RelationshipType: *mut WSDXML_NAME,
     pub MessageID: windows_core::PCWSTR,
 }
-impl Copy for WSD_HEADER_RELATESTO {}
-impl Clone for WSD_HEADER_RELATESTO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_HEADER_RELATESTO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_HEADER_RELATESTO").field("RelationshipType", &self.RelationshipType).field("MessageID", &self.MessageID).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_HEADER_RELATESTO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_HEADER_RELATESTO {
-    fn eq(&self, other: &Self) -> bool {
-        self.RelationshipType == other.RelationshipType && self.MessageID == other.MessageID
-    }
-}
-impl Eq for WSD_HEADER_RELATESTO {}
 impl Default for WSD_HEADER_RELATESTO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_HELLO {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Types: *mut WSD_NAME_LIST,
@@ -2920,122 +2385,58 @@ pub struct WSD_HELLO {
     pub MetadataVersion: u64,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_HELLO {}
-impl Clone for WSD_HELLO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_HELLO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_HELLO").field("EndpointReference", &self.EndpointReference).field("Types", &self.Types).field("Scopes", &self.Scopes).field("XAddrs", &self.XAddrs).field("MetadataVersion", &self.MetadataVersion).field("Any", &self.Any).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_HELLO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_HELLO {
-    fn eq(&self, other: &Self) -> bool {
-        self.EndpointReference == other.EndpointReference && self.Types == other.Types && self.Scopes == other.Scopes && self.XAddrs == other.XAddrs && self.MetadataVersion == other.MetadataVersion && self.Any == other.Any
-    }
-}
-impl Eq for WSD_HELLO {}
 impl Default for WSD_HELLO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_HOST_METADATA {
     pub Host: *mut WSD_SERVICE_METADATA,
     pub Hosted: *mut WSD_SERVICE_METADATA_LIST,
 }
-impl Copy for WSD_HOST_METADATA {}
-impl Clone for WSD_HOST_METADATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_HOST_METADATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_HOST_METADATA").field("Host", &self.Host).field("Hosted", &self.Hosted).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_HOST_METADATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_HOST_METADATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Host == other.Host && self.Hosted == other.Hosted
-    }
-}
-impl Eq for WSD_HOST_METADATA {}
 impl Default for WSD_HOST_METADATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_LOCALIZED_STRING {
     pub lang: windows_core::PCWSTR,
     pub String: windows_core::PCWSTR,
 }
-impl Copy for WSD_LOCALIZED_STRING {}
-impl Clone for WSD_LOCALIZED_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_LOCALIZED_STRING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_LOCALIZED_STRING").field("lang", &self.lang).field("String", &self.String).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_LOCALIZED_STRING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_LOCALIZED_STRING {
-    fn eq(&self, other: &Self) -> bool {
-        self.lang == other.lang && self.String == other.String
-    }
-}
-impl Eq for WSD_LOCALIZED_STRING {}
 impl Default for WSD_LOCALIZED_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_LOCALIZED_STRING_LIST {
     pub Next: *mut WSD_LOCALIZED_STRING_LIST,
     pub Element: *mut WSD_LOCALIZED_STRING,
 }
-impl Copy for WSD_LOCALIZED_STRING_LIST {}
-impl Clone for WSD_LOCALIZED_STRING_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_LOCALIZED_STRING_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_LOCALIZED_STRING_LIST").field("Next", &self.Next).field("Element", &self.Element).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_LOCALIZED_STRING_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_LOCALIZED_STRING_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Next == other.Next && self.Element == other.Element
-    }
-}
-impl Eq for WSD_LOCALIZED_STRING_LIST {}
 impl Default for WSD_LOCALIZED_STRING_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_METADATA_SECTION {
     pub Dialect: windows_core::PCWSTR,
     pub Identifier: windows_core::PCWSTR,
@@ -3044,107 +2445,48 @@ pub struct WSD_METADATA_SECTION {
     pub Location: windows_core::PCWSTR,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_METADATA_SECTION {}
-impl Clone for WSD_METADATA_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_METADATA_SECTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_METADATA_SECTION").field("Dialect", &self.Dialect).field("Identifier", &self.Identifier).field("Data", &self.Data).field("MetadataReference", &self.MetadataReference).field("Location", &self.Location).field("Any", &self.Any).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_METADATA_SECTION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_METADATA_SECTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Dialect == other.Dialect && self.Identifier == other.Identifier && self.Data == other.Data && self.MetadataReference == other.MetadataReference && self.Location == other.Location && self.Any == other.Any
-    }
-}
-impl Eq for WSD_METADATA_SECTION {}
 impl Default for WSD_METADATA_SECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_METADATA_SECTION_LIST {
     pub Next: *mut WSD_METADATA_SECTION_LIST,
     pub Element: *mut WSD_METADATA_SECTION,
 }
-impl Copy for WSD_METADATA_SECTION_LIST {}
-impl Clone for WSD_METADATA_SECTION_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_METADATA_SECTION_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_METADATA_SECTION_LIST").field("Next", &self.Next).field("Element", &self.Element).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_METADATA_SECTION_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_METADATA_SECTION_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Next == other.Next && self.Element == other.Element
-    }
-}
-impl Eq for WSD_METADATA_SECTION_LIST {}
 impl Default for WSD_METADATA_SECTION_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_NAME_LIST {
     pub Next: *mut WSD_NAME_LIST,
     pub Element: *mut WSDXML_NAME,
 }
-impl Copy for WSD_NAME_LIST {}
-impl Clone for WSD_NAME_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_NAME_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_NAME_LIST").field("Next", &self.Next).field("Element", &self.Element).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_NAME_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_NAME_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Next == other.Next && self.Element == other.Element
-    }
-}
-impl Eq for WSD_NAME_LIST {}
 impl Default for WSD_NAME_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct WSD_OPERATION {
     pub RequestType: *mut WSDXML_TYPE,
     pub ResponseType: *mut WSDXML_TYPE,
     pub RequestStubFunction: WSD_STUB_FUNCTION,
-}
-impl Copy for WSD_OPERATION {}
-impl Clone for WSD_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_OPERATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_OPERATION").field("RequestType", &self.RequestType).field("ResponseType", &self.ResponseType).finish()
-    }
 }
 impl windows_core::TypeKind for WSD_OPERATION {
     type TypeKind = windows_core::CopyType;
@@ -3155,69 +2497,38 @@ impl Default for WSD_OPERATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_PORT_TYPE {
     pub EncodedName: u32,
     pub OperationCount: u32,
     pub Operations: *mut WSD_OPERATION,
     pub ProtocolType: WSD_PROTOCOL_TYPE,
 }
-impl Copy for WSD_PORT_TYPE {}
-impl Clone for WSD_PORT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_PORT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_PORT_TYPE").field("EncodedName", &self.EncodedName).field("OperationCount", &self.OperationCount).field("Operations", &self.Operations).field("ProtocolType", &self.ProtocolType).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_PORT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_PORT_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.EncodedName == other.EncodedName && self.OperationCount == other.OperationCount && self.Operations == other.Operations && self.ProtocolType == other.ProtocolType
-    }
-}
-impl Eq for WSD_PORT_TYPE {}
 impl Default for WSD_PORT_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_PROBE {
     pub Types: *mut WSD_NAME_LIST,
     pub Scopes: *mut WSD_SCOPES,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_PROBE {}
-impl Clone for WSD_PROBE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_PROBE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_PROBE").field("Types", &self.Types).field("Scopes", &self.Scopes).field("Any", &self.Any).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_PROBE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_PROBE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Types == other.Types && self.Scopes == other.Scopes && self.Any == other.Any
-    }
-}
-impl Eq for WSD_PROBE {}
 impl Default for WSD_PROBE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_PROBE_MATCH {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Types: *mut WSD_NAME_LIST,
@@ -3226,211 +2537,99 @@ pub struct WSD_PROBE_MATCH {
     pub MetadataVersion: u64,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_PROBE_MATCH {}
-impl Clone for WSD_PROBE_MATCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_PROBE_MATCH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_PROBE_MATCH").field("EndpointReference", &self.EndpointReference).field("Types", &self.Types).field("Scopes", &self.Scopes).field("XAddrs", &self.XAddrs).field("MetadataVersion", &self.MetadataVersion).field("Any", &self.Any).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_PROBE_MATCH {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_PROBE_MATCH {
-    fn eq(&self, other: &Self) -> bool {
-        self.EndpointReference == other.EndpointReference && self.Types == other.Types && self.Scopes == other.Scopes && self.XAddrs == other.XAddrs && self.MetadataVersion == other.MetadataVersion && self.Any == other.Any
-    }
-}
-impl Eq for WSD_PROBE_MATCH {}
 impl Default for WSD_PROBE_MATCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_PROBE_MATCHES {
     pub ProbeMatch: *mut WSD_PROBE_MATCH_LIST,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_PROBE_MATCHES {}
-impl Clone for WSD_PROBE_MATCHES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_PROBE_MATCHES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_PROBE_MATCHES").field("ProbeMatch", &self.ProbeMatch).field("Any", &self.Any).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_PROBE_MATCHES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_PROBE_MATCHES {
-    fn eq(&self, other: &Self) -> bool {
-        self.ProbeMatch == other.ProbeMatch && self.Any == other.Any
-    }
-}
-impl Eq for WSD_PROBE_MATCHES {}
 impl Default for WSD_PROBE_MATCHES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_PROBE_MATCH_LIST {
     pub Next: *mut WSD_PROBE_MATCH_LIST,
     pub Element: *mut WSD_PROBE_MATCH,
 }
-impl Copy for WSD_PROBE_MATCH_LIST {}
-impl Clone for WSD_PROBE_MATCH_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_PROBE_MATCH_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_PROBE_MATCH_LIST").field("Next", &self.Next).field("Element", &self.Element).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_PROBE_MATCH_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_PROBE_MATCH_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Next == other.Next && self.Element == other.Element
-    }
-}
-impl Eq for WSD_PROBE_MATCH_LIST {}
 impl Default for WSD_PROBE_MATCH_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_REFERENCE_PARAMETERS {
     pub Any: *mut WSDXML_ELEMENT,
-}
-impl Copy for WSD_REFERENCE_PARAMETERS {}
-impl Clone for WSD_REFERENCE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_REFERENCE_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_REFERENCE_PARAMETERS").field("Any", &self.Any).finish()
-    }
 }
 impl windows_core::TypeKind for WSD_REFERENCE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_REFERENCE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Any == other.Any
-    }
-}
-impl Eq for WSD_REFERENCE_PARAMETERS {}
 impl Default for WSD_REFERENCE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_REFERENCE_PROPERTIES {
     pub Any: *mut WSDXML_ELEMENT,
-}
-impl Copy for WSD_REFERENCE_PROPERTIES {}
-impl Clone for WSD_REFERENCE_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_REFERENCE_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_REFERENCE_PROPERTIES").field("Any", &self.Any).finish()
-    }
 }
 impl windows_core::TypeKind for WSD_REFERENCE_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_REFERENCE_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Any == other.Any
-    }
-}
-impl Eq for WSD_REFERENCE_PROPERTIES {}
 impl Default for WSD_REFERENCE_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_RELATIONSHIP_METADATA {
     pub Type: windows_core::PCWSTR,
     pub Data: *mut WSD_HOST_METADATA,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_RELATIONSHIP_METADATA {}
-impl Clone for WSD_RELATIONSHIP_METADATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_RELATIONSHIP_METADATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_RELATIONSHIP_METADATA").field("Type", &self.Type).field("Data", &self.Data).field("Any", &self.Any).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_RELATIONSHIP_METADATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_RELATIONSHIP_METADATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Data == other.Data && self.Any == other.Any
-    }
-}
-impl Eq for WSD_RELATIONSHIP_METADATA {}
 impl Default for WSD_RELATIONSHIP_METADATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_RESOLVE {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_RESOLVE {}
-impl Clone for WSD_RESOLVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_RESOLVE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_RESOLVE").field("EndpointReference", &self.EndpointReference).field("Any", &self.Any).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_RESOLVE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_RESOLVE {
-    fn eq(&self, other: &Self) -> bool {
-        self.EndpointReference == other.EndpointReference && self.Any == other.Any
-    }
-}
-impl Eq for WSD_RESOLVE {}
 impl Default for WSD_RESOLVE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_RESOLVE_MATCH {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Types: *mut WSD_NAME_LIST,
@@ -3439,86 +2638,37 @@ pub struct WSD_RESOLVE_MATCH {
     pub MetadataVersion: u64,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_RESOLVE_MATCH {}
-impl Clone for WSD_RESOLVE_MATCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_RESOLVE_MATCH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_RESOLVE_MATCH").field("EndpointReference", &self.EndpointReference).field("Types", &self.Types).field("Scopes", &self.Scopes).field("XAddrs", &self.XAddrs).field("MetadataVersion", &self.MetadataVersion).field("Any", &self.Any).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_RESOLVE_MATCH {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_RESOLVE_MATCH {
-    fn eq(&self, other: &Self) -> bool {
-        self.EndpointReference == other.EndpointReference && self.Types == other.Types && self.Scopes == other.Scopes && self.XAddrs == other.XAddrs && self.MetadataVersion == other.MetadataVersion && self.Any == other.Any
-    }
-}
-impl Eq for WSD_RESOLVE_MATCH {}
 impl Default for WSD_RESOLVE_MATCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_RESOLVE_MATCHES {
     pub ResolveMatch: *mut WSD_RESOLVE_MATCH,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_RESOLVE_MATCHES {}
-impl Clone for WSD_RESOLVE_MATCHES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_RESOLVE_MATCHES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_RESOLVE_MATCHES").field("ResolveMatch", &self.ResolveMatch).field("Any", &self.Any).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_RESOLVE_MATCHES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_RESOLVE_MATCHES {
-    fn eq(&self, other: &Self) -> bool {
-        self.ResolveMatch == other.ResolveMatch && self.Any == other.Any
-    }
-}
-impl Eq for WSD_RESOLVE_MATCHES {}
 impl Default for WSD_RESOLVE_MATCHES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_SCOPES {
     pub MatchBy: windows_core::PCWSTR,
     pub Scopes: *mut WSD_URI_LIST,
 }
-impl Copy for WSD_SCOPES {}
-impl Clone for WSD_SCOPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_SCOPES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_SCOPES").field("MatchBy", &self.MatchBy).field("Scopes", &self.Scopes).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_SCOPES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_SCOPES {
-    fn eq(&self, other: &Self) -> bool {
-        self.MatchBy == other.MatchBy && self.Scopes == other.Scopes
-    }
-}
-impl Eq for WSD_SCOPES {}
 impl Default for WSD_SCOPES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3526,6 +2676,7 @@ impl Default for WSD_SCOPES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_SECURITY_CERT_VALIDATION {
     pub certMatchArray: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
     pub dwCertMatchArrayCount: u32,
@@ -3537,31 +2688,9 @@ pub struct WSD_SECURITY_CERT_VALIDATION {
     pub dwCertHashSize: u32,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for WSD_SECURITY_CERT_VALIDATION {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for WSD_SECURITY_CERT_VALIDATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for WSD_SECURITY_CERT_VALIDATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_SECURITY_CERT_VALIDATION").field("certMatchArray", &self.certMatchArray).field("dwCertMatchArrayCount", &self.dwCertMatchArrayCount).field("hCertMatchStore", &self.hCertMatchStore).field("hCertIssuerStore", &self.hCertIssuerStore).field("dwCertCheckOptions", &self.dwCertCheckOptions).field("pszCNGHashAlgId", &self.pszCNGHashAlgId).field("pbCertHash", &self.pbCertHash).field("dwCertHashSize", &self.dwCertHashSize).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for WSD_SECURITY_CERT_VALIDATION {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for WSD_SECURITY_CERT_VALIDATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.certMatchArray == other.certMatchArray && self.dwCertMatchArrayCount == other.dwCertMatchArrayCount && self.hCertMatchStore == other.hCertMatchStore && self.hCertIssuerStore == other.hCertIssuerStore && self.dwCertCheckOptions == other.dwCertCheckOptions && self.pszCNGHashAlgId == other.pszCNGHashAlgId && self.pbCertHash == other.pbCertHash && self.dwCertHashSize == other.dwCertHashSize
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for WSD_SECURITY_CERT_VALIDATION {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for WSD_SECURITY_CERT_VALIDATION {
     fn default() -> Self {
@@ -3570,6 +2699,7 @@ impl Default for WSD_SECURITY_CERT_VALIDATION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_SECURITY_CERT_VALIDATION_V1 {
     pub certMatchArray: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
     pub dwCertMatchArrayCount: u32,
@@ -3578,31 +2708,9 @@ pub struct WSD_SECURITY_CERT_VALIDATION_V1 {
     pub dwCertCheckOptions: u32,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for WSD_SECURITY_CERT_VALIDATION_V1 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for WSD_SECURITY_CERT_VALIDATION_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for WSD_SECURITY_CERT_VALIDATION_V1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_SECURITY_CERT_VALIDATION_V1").field("certMatchArray", &self.certMatchArray).field("dwCertMatchArrayCount", &self.dwCertMatchArrayCount).field("hCertMatchStore", &self.hCertMatchStore).field("hCertIssuerStore", &self.hCertIssuerStore).field("dwCertCheckOptions", &self.dwCertCheckOptions).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for WSD_SECURITY_CERT_VALIDATION_V1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for WSD_SECURITY_CERT_VALIDATION_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.certMatchArray == other.certMatchArray && self.dwCertMatchArrayCount == other.dwCertMatchArrayCount && self.hCertMatchStore == other.hCertMatchStore && self.hCertIssuerStore == other.hCertIssuerStore && self.dwCertCheckOptions == other.dwCertCheckOptions
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for WSD_SECURITY_CERT_VALIDATION_V1 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for WSD_SECURITY_CERT_VALIDATION_V1 {
     fn default() -> Self {
@@ -3611,6 +2719,7 @@ impl Default for WSD_SECURITY_CERT_VALIDATION_V1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_SECURITY_SIGNATURE_VALIDATION {
     pub signingCertArray: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
     pub dwSigningCertArrayCount: u32,
@@ -3618,31 +2727,9 @@ pub struct WSD_SECURITY_SIGNATURE_VALIDATION {
     pub dwFlags: u32,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for WSD_SECURITY_SIGNATURE_VALIDATION {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for WSD_SECURITY_SIGNATURE_VALIDATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl core::fmt::Debug for WSD_SECURITY_SIGNATURE_VALIDATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_SECURITY_SIGNATURE_VALIDATION").field("signingCertArray", &self.signingCertArray).field("dwSigningCertArrayCount", &self.dwSigningCertArrayCount).field("hSigningCertStore", &self.hSigningCertStore).field("dwFlags", &self.dwFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl windows_core::TypeKind for WSD_SECURITY_SIGNATURE_VALIDATION {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl PartialEq for WSD_SECURITY_SIGNATURE_VALIDATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.signingCertArray == other.signingCertArray && self.dwSigningCertArrayCount == other.dwSigningCertArrayCount && self.hSigningCertStore == other.hSigningCertStore && self.dwFlags == other.dwFlags
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Eq for WSD_SECURITY_SIGNATURE_VALIDATION {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for WSD_SECURITY_SIGNATURE_VALIDATION {
     fn default() -> Self {
@@ -3650,68 +2737,37 @@ impl Default for WSD_SECURITY_SIGNATURE_VALIDATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_SERVICE_METADATA {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE_LIST,
     pub Types: *mut WSD_NAME_LIST,
     pub ServiceId: windows_core::PCWSTR,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_SERVICE_METADATA {}
-impl Clone for WSD_SERVICE_METADATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_SERVICE_METADATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_SERVICE_METADATA").field("EndpointReference", &self.EndpointReference).field("Types", &self.Types).field("ServiceId", &self.ServiceId).field("Any", &self.Any).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_SERVICE_METADATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_SERVICE_METADATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.EndpointReference == other.EndpointReference && self.Types == other.Types && self.ServiceId == other.ServiceId && self.Any == other.Any
-    }
-}
-impl Eq for WSD_SERVICE_METADATA {}
 impl Default for WSD_SERVICE_METADATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_SERVICE_METADATA_LIST {
     pub Next: *mut WSD_SERVICE_METADATA_LIST,
     pub Element: *mut WSD_SERVICE_METADATA,
 }
-impl Copy for WSD_SERVICE_METADATA_LIST {}
-impl Clone for WSD_SERVICE_METADATA_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_SERVICE_METADATA_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_SERVICE_METADATA_LIST").field("Next", &self.Next).field("Element", &self.Element).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_SERVICE_METADATA_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_SERVICE_METADATA_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Next == other.Next && self.Element == other.Element
-    }
-}
-impl Eq for WSD_SERVICE_METADATA_LIST {}
 impl Default for WSD_SERVICE_METADATA_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_SOAP_FAULT {
     pub Code: *mut WSD_SOAP_FAULT_CODE,
     pub Reason: *mut WSD_SOAP_FAULT_REASON,
@@ -3719,121 +2775,57 @@ pub struct WSD_SOAP_FAULT {
     pub Role: windows_core::PCWSTR,
     pub Detail: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_SOAP_FAULT {}
-impl Clone for WSD_SOAP_FAULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_SOAP_FAULT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_SOAP_FAULT").field("Code", &self.Code).field("Reason", &self.Reason).field("Node", &self.Node).field("Role", &self.Role).field("Detail", &self.Detail).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_SOAP_FAULT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_SOAP_FAULT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Code == other.Code && self.Reason == other.Reason && self.Node == other.Node && self.Role == other.Role && self.Detail == other.Detail
-    }
-}
-impl Eq for WSD_SOAP_FAULT {}
 impl Default for WSD_SOAP_FAULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_SOAP_FAULT_CODE {
     pub Value: *mut WSDXML_NAME,
     pub Subcode: *mut WSD_SOAP_FAULT_SUBCODE,
 }
-impl Copy for WSD_SOAP_FAULT_CODE {}
-impl Clone for WSD_SOAP_FAULT_CODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_SOAP_FAULT_CODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_SOAP_FAULT_CODE").field("Value", &self.Value).field("Subcode", &self.Subcode).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_SOAP_FAULT_CODE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_SOAP_FAULT_CODE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value && self.Subcode == other.Subcode
-    }
-}
-impl Eq for WSD_SOAP_FAULT_CODE {}
 impl Default for WSD_SOAP_FAULT_CODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_SOAP_FAULT_REASON {
     pub Text: *mut WSD_LOCALIZED_STRING_LIST,
-}
-impl Copy for WSD_SOAP_FAULT_REASON {}
-impl Clone for WSD_SOAP_FAULT_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_SOAP_FAULT_REASON {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_SOAP_FAULT_REASON").field("Text", &self.Text).finish()
-    }
 }
 impl windows_core::TypeKind for WSD_SOAP_FAULT_REASON {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_SOAP_FAULT_REASON {
-    fn eq(&self, other: &Self) -> bool {
-        self.Text == other.Text
-    }
-}
-impl Eq for WSD_SOAP_FAULT_REASON {}
 impl Default for WSD_SOAP_FAULT_REASON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_SOAP_FAULT_SUBCODE {
     pub Value: *mut WSDXML_NAME,
     pub Subcode: *mut WSD_SOAP_FAULT_SUBCODE,
 }
-impl Copy for WSD_SOAP_FAULT_SUBCODE {}
-impl Clone for WSD_SOAP_FAULT_SUBCODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_SOAP_FAULT_SUBCODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_SOAP_FAULT_SUBCODE").field("Value", &self.Value).field("Subcode", &self.Subcode).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_SOAP_FAULT_SUBCODE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_SOAP_FAULT_SUBCODE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value && self.Subcode == other.Subcode
-    }
-}
-impl Eq for WSD_SOAP_FAULT_SUBCODE {}
 impl Default for WSD_SOAP_FAULT_SUBCODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_SOAP_HEADER {
     pub To: windows_core::PCWSTR,
     pub Action: windows_core::PCWSTR,
@@ -3845,63 +2837,31 @@ pub struct WSD_SOAP_HEADER {
     pub AppSequence: *mut WSD_APP_SEQUENCE,
     pub AnyHeaders: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_SOAP_HEADER {}
-impl Clone for WSD_SOAP_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_SOAP_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_SOAP_HEADER").field("To", &self.To).field("Action", &self.Action).field("MessageID", &self.MessageID).field("RelatesTo", &self.RelatesTo).field("ReplyTo", &self.ReplyTo).field("From", &self.From).field("FaultTo", &self.FaultTo).field("AppSequence", &self.AppSequence).field("AnyHeaders", &self.AnyHeaders).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_SOAP_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_SOAP_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.To == other.To && self.Action == other.Action && self.MessageID == other.MessageID && self.RelatesTo == other.RelatesTo && self.ReplyTo == other.ReplyTo && self.From == other.From && self.FaultTo == other.FaultTo && self.AppSequence == other.AppSequence && self.AnyHeaders == other.AnyHeaders
-    }
-}
-impl Eq for WSD_SOAP_HEADER {}
 impl Default for WSD_SOAP_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_SOAP_MESSAGE {
     pub Header: WSD_SOAP_HEADER,
     pub Body: *mut core::ffi::c_void,
     pub BodyType: *mut WSDXML_TYPE,
 }
-impl Copy for WSD_SOAP_MESSAGE {}
-impl Clone for WSD_SOAP_MESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_SOAP_MESSAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_SOAP_MESSAGE").field("Header", &self.Header).field("Body", &self.Body).field("BodyType", &self.BodyType).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_SOAP_MESSAGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_SOAP_MESSAGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.Body == other.Body && self.BodyType == other.BodyType
-    }
-}
-impl Eq for WSD_SOAP_MESSAGE {}
 impl Default for WSD_SOAP_MESSAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     pub hr: windows_core::HRESULT,
     pub eventHandle: super::super::Foundation::HANDLE,
@@ -3913,58 +2873,32 @@ impl Clone for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_SYNCHRONOUS_RESPONSE_CONTEXT").field("hr", &self.hr).field("eventHandle", &self.eventHandle).field("messageParameters", &self.messageParameters).field("results", &self.results).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.hr == other.hr && self.eventHandle == other.eventHandle && self.messageParameters == other.messageParameters && self.results == other.results
-    }
-}
-impl Eq for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {}
 impl Default for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_THIS_DEVICE_METADATA {
     pub FriendlyName: *mut WSD_LOCALIZED_STRING_LIST,
     pub FirmwareVersion: windows_core::PCWSTR,
     pub SerialNumber: windows_core::PCWSTR,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_THIS_DEVICE_METADATA {}
-impl Clone for WSD_THIS_DEVICE_METADATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_THIS_DEVICE_METADATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_THIS_DEVICE_METADATA").field("FriendlyName", &self.FriendlyName).field("FirmwareVersion", &self.FirmwareVersion).field("SerialNumber", &self.SerialNumber).field("Any", &self.Any).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_THIS_DEVICE_METADATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_THIS_DEVICE_METADATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.FriendlyName == other.FriendlyName && self.FirmwareVersion == other.FirmwareVersion && self.SerialNumber == other.SerialNumber && self.Any == other.Any
-    }
-}
-impl Eq for WSD_THIS_DEVICE_METADATA {}
 impl Default for WSD_THIS_DEVICE_METADATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_THIS_MODEL_METADATA {
     pub Manufacturer: *mut WSD_LOCALIZED_STRING_LIST,
     pub ManufacturerUrl: windows_core::PCWSTR,
@@ -3974,85 +2908,36 @@ pub struct WSD_THIS_MODEL_METADATA {
     pub PresentationUrl: windows_core::PCWSTR,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_THIS_MODEL_METADATA {}
-impl Clone for WSD_THIS_MODEL_METADATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_THIS_MODEL_METADATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_THIS_MODEL_METADATA").field("Manufacturer", &self.Manufacturer).field("ManufacturerUrl", &self.ManufacturerUrl).field("ModelName", &self.ModelName).field("ModelNumber", &self.ModelNumber).field("ModelUrl", &self.ModelUrl).field("PresentationUrl", &self.PresentationUrl).field("Any", &self.Any).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_THIS_MODEL_METADATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_THIS_MODEL_METADATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Manufacturer == other.Manufacturer && self.ManufacturerUrl == other.ManufacturerUrl && self.ModelName == other.ModelName && self.ModelNumber == other.ModelNumber && self.ModelUrl == other.ModelUrl && self.PresentationUrl == other.PresentationUrl && self.Any == other.Any
-    }
-}
-impl Eq for WSD_THIS_MODEL_METADATA {}
 impl Default for WSD_THIS_MODEL_METADATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_UNKNOWN_LOOKUP {
     pub Any: *mut WSDXML_ELEMENT,
-}
-impl Copy for WSD_UNKNOWN_LOOKUP {}
-impl Clone for WSD_UNKNOWN_LOOKUP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_UNKNOWN_LOOKUP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_UNKNOWN_LOOKUP").field("Any", &self.Any).finish()
-    }
 }
 impl windows_core::TypeKind for WSD_UNKNOWN_LOOKUP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_UNKNOWN_LOOKUP {
-    fn eq(&self, other: &Self) -> bool {
-        self.Any == other.Any
-    }
-}
-impl Eq for WSD_UNKNOWN_LOOKUP {}
 impl Default for WSD_UNKNOWN_LOOKUP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_URI_LIST {
     pub Next: *mut WSD_URI_LIST,
     pub Element: windows_core::PCWSTR,
 }
-impl Copy for WSD_URI_LIST {}
-impl Clone for WSD_URI_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSD_URI_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSD_URI_LIST").field("Next", &self.Next).field("Element", &self.Element).finish()
-    }
-}
 impl windows_core::TypeKind for WSD_URI_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSD_URI_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.Next == other.Next && self.Element == other.Element
-    }
-}
-impl Eq for WSD_URI_LIST {}
 impl Default for WSD_URI_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

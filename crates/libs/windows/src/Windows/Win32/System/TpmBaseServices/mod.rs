@@ -128,44 +128,23 @@ impl core::fmt::Debug for TBS_COMMAND_PRIORITY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TBS_CONTEXT_PARAMS {
     pub version: u32,
-}
-impl Copy for TBS_CONTEXT_PARAMS {}
-impl Clone for TBS_CONTEXT_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TBS_CONTEXT_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TBS_CONTEXT_PARAMS").field("version", &self.version).finish()
-    }
 }
 impl windows_core::TypeKind for TBS_CONTEXT_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TBS_CONTEXT_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.version == other.version
-    }
-}
-impl Eq for TBS_CONTEXT_PARAMS {}
 impl Default for TBS_CONTEXT_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TBS_CONTEXT_PARAMS2 {
     pub version: u32,
     pub Anonymous: TBS_CONTEXT_PARAMS2_0,
-}
-impl Copy for TBS_CONTEXT_PARAMS2 {}
-impl Clone for TBS_CONTEXT_PARAMS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for TBS_CONTEXT_PARAMS2 {
     type TypeKind = windows_core::CopyType;
@@ -176,15 +155,10 @@ impl Default for TBS_CONTEXT_PARAMS2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union TBS_CONTEXT_PARAMS2_0 {
     pub Anonymous: TBS_CONTEXT_PARAMS2_0_0,
     pub asUINT32: u32,
-}
-impl Copy for TBS_CONTEXT_PARAMS2_0 {}
-impl Clone for TBS_CONTEXT_PARAMS2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for TBS_CONTEXT_PARAMS2_0 {
     type TypeKind = windows_core::CopyType;
@@ -195,91 +169,43 @@ impl Default for TBS_CONTEXT_PARAMS2_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TBS_CONTEXT_PARAMS2_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for TBS_CONTEXT_PARAMS2_0_0 {}
-impl Clone for TBS_CONTEXT_PARAMS2_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TBS_CONTEXT_PARAMS2_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TBS_CONTEXT_PARAMS2_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for TBS_CONTEXT_PARAMS2_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TBS_CONTEXT_PARAMS2_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for TBS_CONTEXT_PARAMS2_0_0 {}
 impl Default for TBS_CONTEXT_PARAMS2_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TPM_DEVICE_INFO {
     pub structVersion: u32,
     pub tpmVersion: u32,
     pub tpmInterfaceType: u32,
     pub tpmImpRevision: u32,
 }
-impl Copy for TPM_DEVICE_INFO {}
-impl Clone for TPM_DEVICE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TPM_DEVICE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TPM_DEVICE_INFO").field("structVersion", &self.structVersion).field("tpmVersion", &self.tpmVersion).field("tpmInterfaceType", &self.tpmInterfaceType).field("tpmImpRevision", &self.tpmImpRevision).finish()
-    }
-}
 impl windows_core::TypeKind for TPM_DEVICE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TPM_DEVICE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.structVersion == other.structVersion && self.tpmVersion == other.tpmVersion && self.tpmInterfaceType == other.tpmInterfaceType && self.tpmImpRevision == other.tpmImpRevision
-    }
-}
-impl Eq for TPM_DEVICE_INFO {}
 impl Default for TPM_DEVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TPM_WNF_PROVISIONING {
     pub status: u32,
     pub message: [u8; 28],
 }
-impl Copy for TPM_WNF_PROVISIONING {}
-impl Clone for TPM_WNF_PROVISIONING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TPM_WNF_PROVISIONING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TPM_WNF_PROVISIONING").field("status", &self.status).field("message", &self.message).finish()
-    }
-}
 impl windows_core::TypeKind for TPM_WNF_PROVISIONING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TPM_WNF_PROVISIONING {
-    fn eq(&self, other: &Self) -> bool {
-        self.status == other.status && self.message == other.message
-    }
-}
-impl Eq for TPM_WNF_PROVISIONING {}
 impl Default for TPM_WNF_PROVISIONING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

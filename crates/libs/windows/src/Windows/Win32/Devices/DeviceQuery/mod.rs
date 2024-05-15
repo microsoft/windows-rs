@@ -345,36 +345,15 @@ impl core::fmt::Debug for DEV_QUERY_STATE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVPROP_FILTER_EXPRESSION {
     pub Operator: DEVPROP_OPERATOR,
     pub Property: super::Properties::DEVPROPERTY,
 }
 #[cfg(feature = "Win32_Devices_Properties")]
-impl Copy for DEVPROP_FILTER_EXPRESSION {}
-#[cfg(feature = "Win32_Devices_Properties")]
-impl Clone for DEVPROP_FILTER_EXPRESSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Devices_Properties")]
-impl core::fmt::Debug for DEVPROP_FILTER_EXPRESSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DEVPROP_FILTER_EXPRESSION").field("Operator", &self.Operator).field("Property", &self.Property).finish()
-    }
-}
-#[cfg(feature = "Win32_Devices_Properties")]
 impl windows_core::TypeKind for DEVPROP_FILTER_EXPRESSION {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Devices_Properties")]
-impl PartialEq for DEVPROP_FILTER_EXPRESSION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Operator == other.Operator && self.Property == other.Property
-    }
-}
-#[cfg(feature = "Win32_Devices_Properties")]
-impl Eq for DEVPROP_FILTER_EXPRESSION {}
 #[cfg(feature = "Win32_Devices_Properties")]
 impl Default for DEVPROP_FILTER_EXPRESSION {
     fn default() -> Self {
@@ -383,6 +362,7 @@ impl Default for DEVPROP_FILTER_EXPRESSION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEV_OBJECT {
     pub ObjectType: DEV_OBJECT_TYPE,
     pub pszObjectId: windows_core::PCWSTR,
@@ -390,31 +370,9 @@ pub struct DEV_OBJECT {
     pub pProperties: *const super::Properties::DEVPROPERTY,
 }
 #[cfg(feature = "Win32_Devices_Properties")]
-impl Copy for DEV_OBJECT {}
-#[cfg(feature = "Win32_Devices_Properties")]
-impl Clone for DEV_OBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Devices_Properties")]
-impl core::fmt::Debug for DEV_OBJECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DEV_OBJECT").field("ObjectType", &self.ObjectType).field("pszObjectId", &self.pszObjectId).field("cPropertyCount", &self.cPropertyCount).field("pProperties", &self.pProperties).finish()
-    }
-}
-#[cfg(feature = "Win32_Devices_Properties")]
 impl windows_core::TypeKind for DEV_OBJECT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Devices_Properties")]
-impl PartialEq for DEV_OBJECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.ObjectType == other.ObjectType && self.pszObjectId == other.pszObjectId && self.cPropertyCount == other.cPropertyCount && self.pProperties == other.pProperties
-    }
-}
-#[cfg(feature = "Win32_Devices_Properties")]
-impl Eq for DEV_OBJECT {}
 #[cfg(feature = "Win32_Devices_Properties")]
 impl Default for DEV_OBJECT {
     fn default() -> Self {
@@ -423,6 +381,7 @@ impl Default for DEV_OBJECT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEV_QUERY_PARAMETER {
     pub Key: super::Properties::DEVPROPKEY,
     pub Type: super::Properties::DEVPROPTYPE,
@@ -430,31 +389,9 @@ pub struct DEV_QUERY_PARAMETER {
     pub Buffer: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Devices_Properties")]
-impl Copy for DEV_QUERY_PARAMETER {}
-#[cfg(feature = "Win32_Devices_Properties")]
-impl Clone for DEV_QUERY_PARAMETER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Devices_Properties")]
-impl core::fmt::Debug for DEV_QUERY_PARAMETER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DEV_QUERY_PARAMETER").field("Key", &self.Key).field("Type", &self.Type).field("BufferSize", &self.BufferSize).field("Buffer", &self.Buffer).finish()
-    }
-}
-#[cfg(feature = "Win32_Devices_Properties")]
 impl windows_core::TypeKind for DEV_QUERY_PARAMETER {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Devices_Properties")]
-impl PartialEq for DEV_QUERY_PARAMETER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Key == other.Key && self.Type == other.Type && self.BufferSize == other.BufferSize && self.Buffer == other.Buffer
-    }
-}
-#[cfg(feature = "Win32_Devices_Properties")]
-impl Eq for DEV_QUERY_PARAMETER {}
 #[cfg(feature = "Win32_Devices_Properties")]
 impl Default for DEV_QUERY_PARAMETER {
     fn default() -> Self {
@@ -463,17 +400,10 @@ impl Default for DEV_QUERY_PARAMETER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
+#[derive(Clone, Copy)]
 pub struct DEV_QUERY_RESULT_ACTION_DATA {
     pub Action: DEV_QUERY_RESULT_ACTION,
     pub Data: DEV_QUERY_RESULT_ACTION_DATA_0,
-}
-#[cfg(feature = "Win32_Devices_Properties")]
-impl Copy for DEV_QUERY_RESULT_ACTION_DATA {}
-#[cfg(feature = "Win32_Devices_Properties")]
-impl Clone for DEV_QUERY_RESULT_ACTION_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 impl windows_core::TypeKind for DEV_QUERY_RESULT_ACTION_DATA {
@@ -487,17 +417,10 @@ impl Default for DEV_QUERY_RESULT_ACTION_DATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
+#[derive(Clone, Copy)]
 pub union DEV_QUERY_RESULT_ACTION_DATA_0 {
     pub State: DEV_QUERY_STATE,
     pub DeviceObject: DEV_OBJECT,
-}
-#[cfg(feature = "Win32_Devices_Properties")]
-impl Copy for DEV_QUERY_RESULT_ACTION_DATA_0 {}
-#[cfg(feature = "Win32_Devices_Properties")]
-impl Clone for DEV_QUERY_RESULT_ACTION_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 impl windows_core::TypeKind for DEV_QUERY_RESULT_ACTION_DATA_0 {

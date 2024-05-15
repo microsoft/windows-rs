@@ -2769,6 +2769,7 @@ impl core::fmt::Debug for WIAVIDEO_STATE {
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct DEVICEDIALOGDATA {
     pub cbSize: u32,
     pub hwndParent: super::super::Foundation::HWND,
@@ -2783,26 +2784,16 @@ impl Clone for DEVICEDIALOGDATA {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for DEVICEDIALOGDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DEVICEDIALOGDATA").field("cbSize", &self.cbSize).field("hwndParent", &self.hwndParent).field("pIWiaItemRoot", &self.pIWiaItemRoot).field("dwFlags", &self.dwFlags).field("lIntent", &self.lIntent).field("lItemCount", &self.lItemCount).field("ppWiaItems", &self.ppWiaItems).finish()
-    }
-}
 impl windows_core::TypeKind for DEVICEDIALOGDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DEVICEDIALOGDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.hwndParent == other.hwndParent && self.pIWiaItemRoot == other.pIWiaItemRoot && self.dwFlags == other.dwFlags && self.lIntent == other.lIntent && self.lItemCount == other.lItemCount && self.ppWiaItems == other.ppWiaItems
-    }
-}
-impl Eq for DEVICEDIALOGDATA {}
 impl Default for DEVICEDIALOGDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct DEVICEDIALOGDATA2 {
     pub cbSize: u32,
     pub pIWiaItemRoot: std::mem::ManuallyDrop<Option<IWiaItem2>>,
@@ -2819,26 +2810,16 @@ impl Clone for DEVICEDIALOGDATA2 {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for DEVICEDIALOGDATA2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DEVICEDIALOGDATA2").field("cbSize", &self.cbSize).field("pIWiaItemRoot", &self.pIWiaItemRoot).field("dwFlags", &self.dwFlags).field("hwndParent", &self.hwndParent).field("bstrFolderName", &self.bstrFolderName).field("bstrFilename", &self.bstrFilename).field("lNumFiles", &self.lNumFiles).field("pbstrFilePaths", &self.pbstrFilePaths).field("pWiaItem", &self.pWiaItem).finish()
-    }
-}
 impl windows_core::TypeKind for DEVICEDIALOGDATA2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DEVICEDIALOGDATA2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pIWiaItemRoot == other.pIWiaItemRoot && self.dwFlags == other.dwFlags && self.hwndParent == other.hwndParent && self.bstrFolderName == other.bstrFolderName && self.bstrFilename == other.bstrFilename && self.lNumFiles == other.lNumFiles && self.pbstrFilePaths == other.pbstrFilePaths && self.pWiaItem == other.pWiaItem
-    }
-}
-impl Eq for DEVICEDIALOGDATA2 {}
 impl Default for DEVICEDIALOGDATA2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MINIDRV_TRANSFER_CONTEXT {
     pub lSize: i32,
     pub lWidthInPixels: i32,
@@ -2873,111 +2854,31 @@ impl Clone for MINIDRV_TRANSFER_CONTEXT {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for MINIDRV_TRANSFER_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MINIDRV_TRANSFER_CONTEXT")
-            .field("lSize", &self.lSize)
-            .field("lWidthInPixels", &self.lWidthInPixels)
-            .field("lLines", &self.lLines)
-            .field("lDepth", &self.lDepth)
-            .field("lXRes", &self.lXRes)
-            .field("lYRes", &self.lYRes)
-            .field("lCompression", &self.lCompression)
-            .field("guidFormatID", &self.guidFormatID)
-            .field("tymed", &self.tymed)
-            .field("hFile", &self.hFile)
-            .field("cbOffset", &self.cbOffset)
-            .field("lBufferSize", &self.lBufferSize)
-            .field("lActiveBuffer", &self.lActiveBuffer)
-            .field("lNumBuffers", &self.lNumBuffers)
-            .field("pBaseBuffer", &self.pBaseBuffer)
-            .field("pTransferBuffer", &self.pTransferBuffer)
-            .field("bTransferDataCB", &self.bTransferDataCB)
-            .field("bClassDrvAllocBuf", &self.bClassDrvAllocBuf)
-            .field("lClientAddress", &self.lClientAddress)
-            .field("pIWiaMiniDrvCallBack", &self.pIWiaMiniDrvCallBack)
-            .field("lImageSize", &self.lImageSize)
-            .field("lHeaderSize", &self.lHeaderSize)
-            .field("lItemSize", &self.lItemSize)
-            .field("cbWidthInBytes", &self.cbWidthInBytes)
-            .field("lPage", &self.lPage)
-            .field("lCurIfdOffset", &self.lCurIfdOffset)
-            .field("lPrevIfdOffset", &self.lPrevIfdOffset)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MINIDRV_TRANSFER_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MINIDRV_TRANSFER_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.lSize == other.lSize
-            && self.lWidthInPixels == other.lWidthInPixels
-            && self.lLines == other.lLines
-            && self.lDepth == other.lDepth
-            && self.lXRes == other.lXRes
-            && self.lYRes == other.lYRes
-            && self.lCompression == other.lCompression
-            && self.guidFormatID == other.guidFormatID
-            && self.tymed == other.tymed
-            && self.hFile == other.hFile
-            && self.cbOffset == other.cbOffset
-            && self.lBufferSize == other.lBufferSize
-            && self.lActiveBuffer == other.lActiveBuffer
-            && self.lNumBuffers == other.lNumBuffers
-            && self.pBaseBuffer == other.pBaseBuffer
-            && self.pTransferBuffer == other.pTransferBuffer
-            && self.bTransferDataCB == other.bTransferDataCB
-            && self.bClassDrvAllocBuf == other.bClassDrvAllocBuf
-            && self.lClientAddress == other.lClientAddress
-            && self.pIWiaMiniDrvCallBack == other.pIWiaMiniDrvCallBack
-            && self.lImageSize == other.lImageSize
-            && self.lHeaderSize == other.lHeaderSize
-            && self.lItemSize == other.lItemSize
-            && self.cbWidthInBytes == other.cbWidthInBytes
-            && self.lPage == other.lPage
-            && self.lCurIfdOffset == other.lCurIfdOffset
-            && self.lPrevIfdOffset == other.lPrevIfdOffset
-    }
-}
-impl Eq for MINIDRV_TRANSFER_CONTEXT {}
 impl Default for MINIDRV_TRANSFER_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RANGEVALUE {
     pub lMin: i32,
     pub lMax: i32,
     pub lStep: i32,
 }
-impl Copy for RANGEVALUE {}
-impl Clone for RANGEVALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RANGEVALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RANGEVALUE").field("lMin", &self.lMin).field("lMax", &self.lMax).field("lStep", &self.lStep).finish()
-    }
-}
 impl windows_core::TypeKind for RANGEVALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RANGEVALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.lMin == other.lMin && self.lMax == other.lMax && self.lStep == other.lStep
-    }
-}
-impl Eq for RANGEVALUE {}
 impl Default for RANGEVALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCANINFO {
     pub ADF: i32,
     pub TPA: i32,
@@ -3016,136 +2917,32 @@ pub struct SCANINFO {
     pub lReserved: [i32; 4],
     pub pMicroDriverContext: *mut core::ffi::c_void,
 }
-impl Copy for SCANINFO {}
-impl Clone for SCANINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCANINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCANINFO")
-            .field("ADF", &self.ADF)
-            .field("TPA", &self.TPA)
-            .field("Endorser", &self.Endorser)
-            .field("OpticalXResolution", &self.OpticalXResolution)
-            .field("OpticalYResolution", &self.OpticalYResolution)
-            .field("BedWidth", &self.BedWidth)
-            .field("BedHeight", &self.BedHeight)
-            .field("IntensityRange", &self.IntensityRange)
-            .field("ContrastRange", &self.ContrastRange)
-            .field("SupportedCompressionType", &self.SupportedCompressionType)
-            .field("SupportedDataTypes", &self.SupportedDataTypes)
-            .field("WidthPixels", &self.WidthPixels)
-            .field("WidthBytes", &self.WidthBytes)
-            .field("Lines", &self.Lines)
-            .field("DataType", &self.DataType)
-            .field("PixelBits", &self.PixelBits)
-            .field("Intensity", &self.Intensity)
-            .field("Contrast", &self.Contrast)
-            .field("Xresolution", &self.Xresolution)
-            .field("Yresolution", &self.Yresolution)
-            .field("Window", &self.Window)
-            .field("DitherPattern", &self.DitherPattern)
-            .field("Negative", &self.Negative)
-            .field("Mirror", &self.Mirror)
-            .field("AutoBack", &self.AutoBack)
-            .field("ColorDitherPattern", &self.ColorDitherPattern)
-            .field("ToneMap", &self.ToneMap)
-            .field("Compression", &self.Compression)
-            .field("RawDataFormat", &self.RawDataFormat)
-            .field("RawPixelOrder", &self.RawPixelOrder)
-            .field("bNeedDataAlignment", &self.bNeedDataAlignment)
-            .field("DelayBetweenRead", &self.DelayBetweenRead)
-            .field("MaxBufferSize", &self.MaxBufferSize)
-            .field("DeviceIOHandles", &self.DeviceIOHandles)
-            .field("lReserved", &self.lReserved)
-            .field("pMicroDriverContext", &self.pMicroDriverContext)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for SCANINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCANINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ADF == other.ADF
-            && self.TPA == other.TPA
-            && self.Endorser == other.Endorser
-            && self.OpticalXResolution == other.OpticalXResolution
-            && self.OpticalYResolution == other.OpticalYResolution
-            && self.BedWidth == other.BedWidth
-            && self.BedHeight == other.BedHeight
-            && self.IntensityRange == other.IntensityRange
-            && self.ContrastRange == other.ContrastRange
-            && self.SupportedCompressionType == other.SupportedCompressionType
-            && self.SupportedDataTypes == other.SupportedDataTypes
-            && self.WidthPixels == other.WidthPixels
-            && self.WidthBytes == other.WidthBytes
-            && self.Lines == other.Lines
-            && self.DataType == other.DataType
-            && self.PixelBits == other.PixelBits
-            && self.Intensity == other.Intensity
-            && self.Contrast == other.Contrast
-            && self.Xresolution == other.Xresolution
-            && self.Yresolution == other.Yresolution
-            && self.Window == other.Window
-            && self.DitherPattern == other.DitherPattern
-            && self.Negative == other.Negative
-            && self.Mirror == other.Mirror
-            && self.AutoBack == other.AutoBack
-            && self.ColorDitherPattern == other.ColorDitherPattern
-            && self.ToneMap == other.ToneMap
-            && self.Compression == other.Compression
-            && self.RawDataFormat == other.RawDataFormat
-            && self.RawPixelOrder == other.RawPixelOrder
-            && self.bNeedDataAlignment == other.bNeedDataAlignment
-            && self.DelayBetweenRead == other.DelayBetweenRead
-            && self.MaxBufferSize == other.MaxBufferSize
-            && self.DeviceIOHandles == other.DeviceIOHandles
-            && self.lReserved == other.lReserved
-            && self.pMicroDriverContext == other.pMicroDriverContext
-    }
-}
-impl Eq for SCANINFO {}
 impl Default for SCANINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCANWINDOW {
     pub xPos: i32,
     pub yPos: i32,
     pub xExtent: i32,
     pub yExtent: i32,
 }
-impl Copy for SCANWINDOW {}
-impl Clone for SCANWINDOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCANWINDOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCANWINDOW").field("xPos", &self.xPos).field("yPos", &self.yPos).field("xExtent", &self.xExtent).field("yExtent", &self.yExtent).finish()
-    }
-}
 impl windows_core::TypeKind for SCANWINDOW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCANWINDOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.xPos == other.xPos && self.yPos == other.yPos && self.xExtent == other.xExtent && self.yExtent == other.yExtent
-    }
-}
-impl Eq for SCANWINDOW {}
 impl Default for SCANWINDOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TWAIN_CAPABILITY {
     pub lSize: i32,
     pub lMSG: i32,
@@ -3156,32 +2953,16 @@ pub struct TWAIN_CAPABILITY {
     pub lDataSize: i32,
     pub Data: [u8; 1],
 }
-impl Copy for TWAIN_CAPABILITY {}
-impl Clone for TWAIN_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TWAIN_CAPABILITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TWAIN_CAPABILITY").field("lSize", &self.lSize).field("lMSG", &self.lMSG).field("lCapID", &self.lCapID).field("lConType", &self.lConType).field("lRC", &self.lRC).field("lCC", &self.lCC).field("lDataSize", &self.lDataSize).field("Data", &self.Data).finish()
-    }
-}
 impl windows_core::TypeKind for TWAIN_CAPABILITY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TWAIN_CAPABILITY {
-    fn eq(&self, other: &Self) -> bool {
-        self.lSize == other.lSize && self.lMSG == other.lMSG && self.lCapID == other.lCapID && self.lConType == other.lConType && self.lRC == other.lRC && self.lCC == other.lCC && self.lDataSize == other.lDataSize && self.Data == other.Data
-    }
-}
-impl Eq for TWAIN_CAPABILITY {}
 impl Default for TWAIN_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VAL {
     pub lVal: i32,
     pub dblVal: f64,
@@ -3193,26 +2974,9 @@ pub struct VAL {
     pub lReserved: i32,
     pub szVal: [i8; 255],
 }
-impl Copy for VAL {}
-impl Clone for VAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VAL").field("lVal", &self.lVal).field("dblVal", &self.dblVal).field("pGuid", &self.pGuid).field("pScanInfo", &self.pScanInfo).field("handle", &self.handle).field("ppButtonNames", &self.ppButtonNames).field("pHandle", &self.pHandle).field("lReserved", &self.lReserved).field("szVal", &self.szVal).finish()
-    }
-}
 impl windows_core::TypeKind for VAL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.lVal == other.lVal && self.dblVal == other.dblVal && self.pGuid == other.pGuid && self.pScanInfo == other.pScanInfo && self.handle == other.handle && self.ppButtonNames == other.ppButtonNames && self.pHandle == other.pHandle && self.lReserved == other.lReserved && self.szVal == other.szVal
-    }
-}
-impl Eq for VAL {}
 impl Default for VAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3279,6 +3043,7 @@ impl Default for WIAS_CHANGED_VALUE_INFO_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIAS_DOWN_SAMPLE_INFO {
     pub ulOriginalWidth: u32,
     pub ulOriginalHeight: u32,
@@ -3293,106 +3058,45 @@ pub struct WIAS_DOWN_SAMPLE_INFO {
     pub pSrcBuffer: *mut u8,
     pub pDestBuffer: *mut u8,
 }
-impl Copy for WIAS_DOWN_SAMPLE_INFO {}
-impl Clone for WIAS_DOWN_SAMPLE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WIAS_DOWN_SAMPLE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIAS_DOWN_SAMPLE_INFO")
-            .field("ulOriginalWidth", &self.ulOriginalWidth)
-            .field("ulOriginalHeight", &self.ulOriginalHeight)
-            .field("ulBitsPerPixel", &self.ulBitsPerPixel)
-            .field("ulXRes", &self.ulXRes)
-            .field("ulYRes", &self.ulYRes)
-            .field("ulDownSampledWidth", &self.ulDownSampledWidth)
-            .field("ulDownSampledHeight", &self.ulDownSampledHeight)
-            .field("ulActualSize", &self.ulActualSize)
-            .field("ulDestBufSize", &self.ulDestBufSize)
-            .field("ulSrcBufSize", &self.ulSrcBufSize)
-            .field("pSrcBuffer", &self.pSrcBuffer)
-            .field("pDestBuffer", &self.pDestBuffer)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WIAS_DOWN_SAMPLE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WIAS_DOWN_SAMPLE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulOriginalWidth == other.ulOriginalWidth && self.ulOriginalHeight == other.ulOriginalHeight && self.ulBitsPerPixel == other.ulBitsPerPixel && self.ulXRes == other.ulXRes && self.ulYRes == other.ulYRes && self.ulDownSampledWidth == other.ulDownSampledWidth && self.ulDownSampledHeight == other.ulDownSampledHeight && self.ulActualSize == other.ulActualSize && self.ulDestBufSize == other.ulDestBufSize && self.ulSrcBufSize == other.ulSrcBufSize && self.pSrcBuffer == other.pSrcBuffer && self.pDestBuffer == other.pDestBuffer
-    }
-}
-impl Eq for WIAS_DOWN_SAMPLE_INFO {}
 impl Default for WIAS_DOWN_SAMPLE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIAS_ENDORSER_INFO {
     pub ulPageCount: u32,
     pub ulNumEndorserValues: u32,
     pub pEndorserValues: *mut WIAS_ENDORSER_VALUE,
 }
-impl Copy for WIAS_ENDORSER_INFO {}
-impl Clone for WIAS_ENDORSER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WIAS_ENDORSER_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIAS_ENDORSER_INFO").field("ulPageCount", &self.ulPageCount).field("ulNumEndorserValues", &self.ulNumEndorserValues).field("pEndorserValues", &self.pEndorserValues).finish()
-    }
-}
 impl windows_core::TypeKind for WIAS_ENDORSER_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WIAS_ENDORSER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulPageCount == other.ulPageCount && self.ulNumEndorserValues == other.ulNumEndorserValues && self.pEndorserValues == other.pEndorserValues
-    }
-}
-impl Eq for WIAS_ENDORSER_INFO {}
 impl Default for WIAS_ENDORSER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIAS_ENDORSER_VALUE {
     pub wszTokenName: windows_core::PWSTR,
     pub wszValue: windows_core::PWSTR,
 }
-impl Copy for WIAS_ENDORSER_VALUE {}
-impl Clone for WIAS_ENDORSER_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WIAS_ENDORSER_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIAS_ENDORSER_VALUE").field("wszTokenName", &self.wszTokenName).field("wszValue", &self.wszValue).finish()
-    }
-}
 impl windows_core::TypeKind for WIAS_ENDORSER_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WIAS_ENDORSER_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.wszTokenName == other.wszTokenName && self.wszValue == other.wszValue
-    }
-}
-impl Eq for WIAS_ENDORSER_VALUE {}
 impl Default for WIAS_ENDORSER_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_BARCODES {
     pub Tag: u32,
     pub Version: u32,
@@ -3400,32 +3104,16 @@ pub struct WIA_BARCODES {
     pub Count: u32,
     pub Barcodes: [WIA_BARCODE_INFO; 1],
 }
-impl Copy for WIA_BARCODES {}
-impl Clone for WIA_BARCODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WIA_BARCODES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIA_BARCODES").field("Tag", &self.Tag).field("Version", &self.Version).field("Size", &self.Size).field("Count", &self.Count).field("Barcodes", &self.Barcodes).finish()
-    }
-}
 impl windows_core::TypeKind for WIA_BARCODES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WIA_BARCODES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Tag == other.Tag && self.Version == other.Version && self.Size == other.Size && self.Count == other.Count && self.Barcodes == other.Barcodes
-    }
-}
-impl Eq for WIA_BARCODES {}
 impl Default for WIA_BARCODES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_BARCODE_INFO {
     pub Size: u32,
     pub Type: u32,
@@ -3437,64 +3125,32 @@ pub struct WIA_BARCODE_INFO {
     pub Length: u32,
     pub Text: [u16; 1],
 }
-impl Copy for WIA_BARCODE_INFO {}
-impl Clone for WIA_BARCODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WIA_BARCODE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIA_BARCODE_INFO").field("Size", &self.Size).field("Type", &self.Type).field("Page", &self.Page).field("Confidence", &self.Confidence).field("XOffset", &self.XOffset).field("YOffset", &self.YOffset).field("Rotation", &self.Rotation).field("Length", &self.Length).field("Text", &self.Text).finish()
-    }
-}
 impl windows_core::TypeKind for WIA_BARCODE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WIA_BARCODE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Type == other.Type && self.Page == other.Page && self.Confidence == other.Confidence && self.XOffset == other.XOffset && self.YOffset == other.YOffset && self.Rotation == other.Rotation && self.Length == other.Length && self.Text == other.Text
-    }
-}
-impl Eq for WIA_BARCODE_INFO {}
 impl Default for WIA_BARCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_DATA_CALLBACK_HEADER {
     pub lSize: i32,
     pub guidFormatID: windows_core::GUID,
     pub lBufferSize: i32,
     pub lPageCount: i32,
 }
-impl Copy for WIA_DATA_CALLBACK_HEADER {}
-impl Clone for WIA_DATA_CALLBACK_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WIA_DATA_CALLBACK_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIA_DATA_CALLBACK_HEADER").field("lSize", &self.lSize).field("guidFormatID", &self.guidFormatID).field("lBufferSize", &self.lBufferSize).field("lPageCount", &self.lPageCount).finish()
-    }
-}
 impl windows_core::TypeKind for WIA_DATA_CALLBACK_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WIA_DATA_CALLBACK_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.lSize == other.lSize && self.guidFormatID == other.guidFormatID && self.lBufferSize == other.lBufferSize && self.lPageCount == other.lPageCount
-    }
-}
-impl Eq for WIA_DATA_CALLBACK_HEADER {}
 impl Default for WIA_DATA_CALLBACK_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_DATA_TRANSFER_INFO {
     pub ulSize: u32,
     pub ulSection: u32,
@@ -3504,32 +3160,16 @@ pub struct WIA_DATA_TRANSFER_INFO {
     pub ulReserved2: u32,
     pub ulReserved3: u32,
 }
-impl Copy for WIA_DATA_TRANSFER_INFO {}
-impl Clone for WIA_DATA_TRANSFER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WIA_DATA_TRANSFER_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIA_DATA_TRANSFER_INFO").field("ulSize", &self.ulSize).field("ulSection", &self.ulSection).field("ulBufferSize", &self.ulBufferSize).field("bDoubleBuffer", &self.bDoubleBuffer).field("ulReserved1", &self.ulReserved1).field("ulReserved2", &self.ulReserved2).field("ulReserved3", &self.ulReserved3).finish()
-    }
-}
 impl windows_core::TypeKind for WIA_DATA_TRANSFER_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WIA_DATA_TRANSFER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulSize == other.ulSize && self.ulSection == other.ulSection && self.ulBufferSize == other.ulBufferSize && self.bDoubleBuffer == other.bDoubleBuffer && self.ulReserved1 == other.ulReserved1 && self.ulReserved2 == other.ulReserved2 && self.ulReserved3 == other.ulReserved3
-    }
-}
-impl Eq for WIA_DATA_TRANSFER_INFO {}
 impl Default for WIA_DATA_TRANSFER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct WIA_DEV_CAP {
     pub guid: windows_core::GUID,
     pub ulFlags: u32,
@@ -3543,26 +3183,16 @@ impl Clone for WIA_DEV_CAP {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for WIA_DEV_CAP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIA_DEV_CAP").field("guid", &self.guid).field("ulFlags", &self.ulFlags).field("bstrName", &self.bstrName).field("bstrDescription", &self.bstrDescription).field("bstrIcon", &self.bstrIcon).field("bstrCommandline", &self.bstrCommandline).finish()
-    }
-}
 impl windows_core::TypeKind for WIA_DEV_CAP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WIA_DEV_CAP {
-    fn eq(&self, other: &Self) -> bool {
-        self.guid == other.guid && self.ulFlags == other.ulFlags && self.bstrName == other.bstrName && self.bstrDescription == other.bstrDescription && self.bstrIcon == other.bstrIcon && self.bstrCommandline == other.bstrCommandline
-    }
-}
-impl Eq for WIA_DEV_CAP {}
 impl Default for WIA_DEV_CAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_DEV_CAP_DRV {
     pub guid: *mut windows_core::GUID,
     pub ulFlags: u32,
@@ -3570,32 +3200,16 @@ pub struct WIA_DEV_CAP_DRV {
     pub wszDescription: windows_core::PWSTR,
     pub wszIcon: windows_core::PWSTR,
 }
-impl Copy for WIA_DEV_CAP_DRV {}
-impl Clone for WIA_DEV_CAP_DRV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WIA_DEV_CAP_DRV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIA_DEV_CAP_DRV").field("guid", &self.guid).field("ulFlags", &self.ulFlags).field("wszName", &self.wszName).field("wszDescription", &self.wszDescription).field("wszIcon", &self.wszIcon).finish()
-    }
-}
 impl windows_core::TypeKind for WIA_DEV_CAP_DRV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WIA_DEV_CAP_DRV {
-    fn eq(&self, other: &Self) -> bool {
-        self.guid == other.guid && self.ulFlags == other.ulFlags && self.wszName == other.wszName && self.wszDescription == other.wszDescription && self.wszIcon == other.wszIcon
-    }
-}
-impl Eq for WIA_DEV_CAP_DRV {}
 impl Default for WIA_DEV_CAP_DRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct WIA_DITHER_PATTERN_DATA {
     pub lSize: i32,
     pub bstrPatternName: std::mem::ManuallyDrop<windows_core::BSTR>,
@@ -3609,26 +3223,16 @@ impl Clone for WIA_DITHER_PATTERN_DATA {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for WIA_DITHER_PATTERN_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIA_DITHER_PATTERN_DATA").field("lSize", &self.lSize).field("bstrPatternName", &self.bstrPatternName).field("lPatternWidth", &self.lPatternWidth).field("lPatternLength", &self.lPatternLength).field("cbPattern", &self.cbPattern).field("pbPattern", &self.pbPattern).finish()
-    }
-}
 impl windows_core::TypeKind for WIA_DITHER_PATTERN_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WIA_DITHER_PATTERN_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lSize == other.lSize && self.bstrPatternName == other.bstrPatternName && self.lPatternWidth == other.lPatternWidth && self.lPatternLength == other.lPatternLength && self.cbPattern == other.cbPattern && self.pbPattern == other.pbPattern
-    }
-}
-impl Eq for WIA_DITHER_PATTERN_DATA {}
 impl Default for WIA_DITHER_PATTERN_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_EXTENDED_TRANSFER_INFO {
     pub ulSize: u32,
     pub ulMinBufferSize: u32,
@@ -3636,62 +3240,30 @@ pub struct WIA_EXTENDED_TRANSFER_INFO {
     pub ulMaxBufferSize: u32,
     pub ulNumBuffers: u32,
 }
-impl Copy for WIA_EXTENDED_TRANSFER_INFO {}
-impl Clone for WIA_EXTENDED_TRANSFER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WIA_EXTENDED_TRANSFER_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIA_EXTENDED_TRANSFER_INFO").field("ulSize", &self.ulSize).field("ulMinBufferSize", &self.ulMinBufferSize).field("ulOptimalBufferSize", &self.ulOptimalBufferSize).field("ulMaxBufferSize", &self.ulMaxBufferSize).field("ulNumBuffers", &self.ulNumBuffers).finish()
-    }
-}
 impl windows_core::TypeKind for WIA_EXTENDED_TRANSFER_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WIA_EXTENDED_TRANSFER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulSize == other.ulSize && self.ulMinBufferSize == other.ulMinBufferSize && self.ulOptimalBufferSize == other.ulOptimalBufferSize && self.ulMaxBufferSize == other.ulMaxBufferSize && self.ulNumBuffers == other.ulNumBuffers
-    }
-}
-impl Eq for WIA_EXTENDED_TRANSFER_INFO {}
 impl Default for WIA_EXTENDED_TRANSFER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_FORMAT_INFO {
     pub guidFormatID: windows_core::GUID,
     pub lTymed: i32,
 }
-impl Copy for WIA_FORMAT_INFO {}
-impl Clone for WIA_FORMAT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WIA_FORMAT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIA_FORMAT_INFO").field("guidFormatID", &self.guidFormatID).field("lTymed", &self.lTymed).finish()
-    }
-}
 impl windows_core::TypeKind for WIA_FORMAT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WIA_FORMAT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.guidFormatID == other.guidFormatID && self.lTymed == other.lTymed
-    }
-}
-impl Eq for WIA_FORMAT_INFO {}
 impl Default for WIA_FORMAT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_MICR {
     pub Tag: u32,
     pub Version: u32,
@@ -3701,64 +3273,32 @@ pub struct WIA_MICR {
     pub Count: u32,
     pub Micr: [WIA_MICR_INFO; 1],
 }
-impl Copy for WIA_MICR {}
-impl Clone for WIA_MICR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WIA_MICR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIA_MICR").field("Tag", &self.Tag).field("Version", &self.Version).field("Size", &self.Size).field("Placeholder", &self.Placeholder).field("Reserved", &self.Reserved).field("Count", &self.Count).field("Micr", &self.Micr).finish()
-    }
-}
 impl windows_core::TypeKind for WIA_MICR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WIA_MICR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Tag == other.Tag && self.Version == other.Version && self.Size == other.Size && self.Placeholder == other.Placeholder && self.Reserved == other.Reserved && self.Count == other.Count && self.Micr == other.Micr
-    }
-}
-impl Eq for WIA_MICR {}
 impl Default for WIA_MICR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_MICR_INFO {
     pub Size: u32,
     pub Page: u32,
     pub Length: u32,
     pub Text: [u16; 1],
 }
-impl Copy for WIA_MICR_INFO {}
-impl Clone for WIA_MICR_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WIA_MICR_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIA_MICR_INFO").field("Size", &self.Size).field("Page", &self.Page).field("Length", &self.Length).field("Text", &self.Text).finish()
-    }
-}
 impl windows_core::TypeKind for WIA_MICR_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WIA_MICR_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Page == other.Page && self.Length == other.Length && self.Text == other.Text
-    }
-}
-impl Eq for WIA_MICR_INFO {}
 impl Default for WIA_MICR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_PATCH_CODES {
     pub Tag: u32,
     pub Version: u32,
@@ -3766,86 +3306,37 @@ pub struct WIA_PATCH_CODES {
     pub Count: u32,
     pub PatchCodes: [WIA_PATCH_CODE_INFO; 1],
 }
-impl Copy for WIA_PATCH_CODES {}
-impl Clone for WIA_PATCH_CODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WIA_PATCH_CODES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIA_PATCH_CODES").field("Tag", &self.Tag).field("Version", &self.Version).field("Size", &self.Size).field("Count", &self.Count).field("PatchCodes", &self.PatchCodes).finish()
-    }
-}
 impl windows_core::TypeKind for WIA_PATCH_CODES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WIA_PATCH_CODES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Tag == other.Tag && self.Version == other.Version && self.Size == other.Size && self.Count == other.Count && self.PatchCodes == other.PatchCodes
-    }
-}
-impl Eq for WIA_PATCH_CODES {}
 impl Default for WIA_PATCH_CODES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_PATCH_CODE_INFO {
     pub Type: u32,
-}
-impl Copy for WIA_PATCH_CODE_INFO {}
-impl Clone for WIA_PATCH_CODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WIA_PATCH_CODE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIA_PATCH_CODE_INFO").field("Type", &self.Type).finish()
-    }
 }
 impl windows_core::TypeKind for WIA_PATCH_CODE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WIA_PATCH_CODE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type
-    }
-}
-impl Eq for WIA_PATCH_CODE_INFO {}
 impl Default for WIA_PATCH_CODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_PROPERTY_CONTEXT {
     pub cProps: u32,
     pub pProps: *mut u32,
     pub pChanged: *mut super::super::Foundation::BOOL,
 }
-impl Copy for WIA_PROPERTY_CONTEXT {}
-impl Clone for WIA_PROPERTY_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WIA_PROPERTY_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIA_PROPERTY_CONTEXT").field("cProps", &self.cProps).field("pProps", &self.pProps).field("pChanged", &self.pChanged).finish()
-    }
-}
 impl windows_core::TypeKind for WIA_PROPERTY_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WIA_PROPERTY_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cProps == other.cProps && self.pProps == other.pProps && self.pChanged == other.pChanged
-    }
-}
-impl Eq for WIA_PROPERTY_CONTEXT {}
 impl Default for WIA_PROPERTY_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3904,36 +3395,15 @@ impl Default for WIA_PROPERTY_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_PROPERTY_INFO_0_0 {
     pub Nom: i32,
     pub ValidBits: i32,
 }
 #[cfg(feature = "Win32_System_Variant")]
-impl Copy for WIA_PROPERTY_INFO_0_0 {}
-#[cfg(feature = "Win32_System_Variant")]
-impl Clone for WIA_PROPERTY_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl core::fmt::Debug for WIA_PROPERTY_INFO_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIA_PROPERTY_INFO_0_0").field("Nom", &self.Nom).field("ValidBits", &self.ValidBits).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
 impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl PartialEq for WIA_PROPERTY_INFO_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Nom == other.Nom && self.ValidBits == other.ValidBits
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl Eq for WIA_PROPERTY_INFO_0_0 {}
 #[cfg(feature = "Win32_System_Variant")]
 impl Default for WIA_PROPERTY_INFO_0_0 {
     fn default() -> Self {
@@ -3942,6 +3412,7 @@ impl Default for WIA_PROPERTY_INFO_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct WIA_PROPERTY_INFO_0_1 {
     pub cNumList: i32,
     pub Nom: std::mem::ManuallyDrop<windows_core::BSTR>,
@@ -3954,23 +3425,9 @@ impl Clone for WIA_PROPERTY_INFO_0_1 {
     }
 }
 #[cfg(feature = "Win32_System_Variant")]
-impl core::fmt::Debug for WIA_PROPERTY_INFO_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIA_PROPERTY_INFO_0_1").field("cNumList", &self.cNumList).field("Nom", &self.Nom).field("pList", &self.pList).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
 impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl PartialEq for WIA_PROPERTY_INFO_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.cNumList == other.cNumList && self.Nom == other.Nom && self.pList == other.pList
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl Eq for WIA_PROPERTY_INFO_0_1 {}
 #[cfg(feature = "Win32_System_Variant")]
 impl Default for WIA_PROPERTY_INFO_0_1 {
     fn default() -> Self {
@@ -3979,37 +3436,16 @@ impl Default for WIA_PROPERTY_INFO_0_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_PROPERTY_INFO_0_2 {
     pub cNumList: i32,
     pub Nom: f64,
     pub pList: *mut u8,
 }
 #[cfg(feature = "Win32_System_Variant")]
-impl Copy for WIA_PROPERTY_INFO_0_2 {}
-#[cfg(feature = "Win32_System_Variant")]
-impl Clone for WIA_PROPERTY_INFO_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl core::fmt::Debug for WIA_PROPERTY_INFO_0_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIA_PROPERTY_INFO_0_2").field("cNumList", &self.cNumList).field("Nom", &self.Nom).field("pList", &self.pList).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
 impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl PartialEq for WIA_PROPERTY_INFO_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.cNumList == other.cNumList && self.Nom == other.Nom && self.pList == other.pList
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl Eq for WIA_PROPERTY_INFO_0_2 {}
 #[cfg(feature = "Win32_System_Variant")]
 impl Default for WIA_PROPERTY_INFO_0_2 {
     fn default() -> Self {
@@ -4018,37 +3454,16 @@ impl Default for WIA_PROPERTY_INFO_0_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_PROPERTY_INFO_0_3 {
     pub cNumList: i32,
     pub Nom: windows_core::GUID,
     pub pList: *mut windows_core::GUID,
 }
 #[cfg(feature = "Win32_System_Variant")]
-impl Copy for WIA_PROPERTY_INFO_0_3 {}
-#[cfg(feature = "Win32_System_Variant")]
-impl Clone for WIA_PROPERTY_INFO_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl core::fmt::Debug for WIA_PROPERTY_INFO_0_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIA_PROPERTY_INFO_0_3").field("cNumList", &self.cNumList).field("Nom", &self.Nom).field("pList", &self.pList).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
 impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_3 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl PartialEq for WIA_PROPERTY_INFO_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.cNumList == other.cNumList && self.Nom == other.Nom && self.pList == other.pList
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl Eq for WIA_PROPERTY_INFO_0_3 {}
 #[cfg(feature = "Win32_System_Variant")]
 impl Default for WIA_PROPERTY_INFO_0_3 {
     fn default() -> Self {
@@ -4057,37 +3472,16 @@ impl Default for WIA_PROPERTY_INFO_0_3 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_PROPERTY_INFO_0_4 {
     pub cNumList: i32,
     pub Nom: i32,
     pub pList: *mut u8,
 }
 #[cfg(feature = "Win32_System_Variant")]
-impl Copy for WIA_PROPERTY_INFO_0_4 {}
-#[cfg(feature = "Win32_System_Variant")]
-impl Clone for WIA_PROPERTY_INFO_0_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl core::fmt::Debug for WIA_PROPERTY_INFO_0_4 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIA_PROPERTY_INFO_0_4").field("cNumList", &self.cNumList).field("Nom", &self.Nom).field("pList", &self.pList).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
 impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_4 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl PartialEq for WIA_PROPERTY_INFO_0_4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.cNumList == other.cNumList && self.Nom == other.Nom && self.pList == other.pList
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl Eq for WIA_PROPERTY_INFO_0_4 {}
 #[cfg(feature = "Win32_System_Variant")]
 impl Default for WIA_PROPERTY_INFO_0_4 {
     fn default() -> Self {
@@ -4096,35 +3490,14 @@ impl Default for WIA_PROPERTY_INFO_0_4 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_PROPERTY_INFO_0_5 {
     pub Dummy: i32,
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl Copy for WIA_PROPERTY_INFO_0_5 {}
-#[cfg(feature = "Win32_System_Variant")]
-impl Clone for WIA_PROPERTY_INFO_0_5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl core::fmt::Debug for WIA_PROPERTY_INFO_0_5 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIA_PROPERTY_INFO_0_5").field("Dummy", &self.Dummy).finish()
-    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_5 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl PartialEq for WIA_PROPERTY_INFO_0_5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Dummy == other.Dummy
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl Eq for WIA_PROPERTY_INFO_0_5 {}
 #[cfg(feature = "Win32_System_Variant")]
 impl Default for WIA_PROPERTY_INFO_0_5 {
     fn default() -> Self {
@@ -4133,6 +3506,7 @@ impl Default for WIA_PROPERTY_INFO_0_5 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_PROPERTY_INFO_0_6 {
     pub Min: f64,
     pub Nom: f64,
@@ -4140,31 +3514,9 @@ pub struct WIA_PROPERTY_INFO_0_6 {
     pub Inc: f64,
 }
 #[cfg(feature = "Win32_System_Variant")]
-impl Copy for WIA_PROPERTY_INFO_0_6 {}
-#[cfg(feature = "Win32_System_Variant")]
-impl Clone for WIA_PROPERTY_INFO_0_6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl core::fmt::Debug for WIA_PROPERTY_INFO_0_6 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIA_PROPERTY_INFO_0_6").field("Min", &self.Min).field("Nom", &self.Nom).field("Max", &self.Max).field("Inc", &self.Inc).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
 impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_6 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl PartialEq for WIA_PROPERTY_INFO_0_6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Min == other.Min && self.Nom == other.Nom && self.Max == other.Max && self.Inc == other.Inc
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl Eq for WIA_PROPERTY_INFO_0_6 {}
 #[cfg(feature = "Win32_System_Variant")]
 impl Default for WIA_PROPERTY_INFO_0_6 {
     fn default() -> Self {
@@ -4173,6 +3525,7 @@ impl Default for WIA_PROPERTY_INFO_0_6 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_PROPERTY_INFO_0_7 {
     pub Min: i32,
     pub Nom: i32,
@@ -4180,31 +3533,9 @@ pub struct WIA_PROPERTY_INFO_0_7 {
     pub Inc: i32,
 }
 #[cfg(feature = "Win32_System_Variant")]
-impl Copy for WIA_PROPERTY_INFO_0_7 {}
-#[cfg(feature = "Win32_System_Variant")]
-impl Clone for WIA_PROPERTY_INFO_0_7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl core::fmt::Debug for WIA_PROPERTY_INFO_0_7 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIA_PROPERTY_INFO_0_7").field("Min", &self.Min).field("Nom", &self.Nom).field("Max", &self.Max).field("Inc", &self.Inc).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
 impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_7 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl PartialEq for WIA_PROPERTY_INFO_0_7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Min == other.Min && self.Nom == other.Nom && self.Max == other.Max && self.Inc == other.Inc
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl Eq for WIA_PROPERTY_INFO_0_7 {}
 #[cfg(feature = "Win32_System_Variant")]
 impl Default for WIA_PROPERTY_INFO_0_7 {
     fn default() -> Self {
@@ -4212,36 +3543,21 @@ impl Default for WIA_PROPERTY_INFO_0_7 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_PROPID_TO_NAME {
     pub propid: u32,
     pub pszName: windows_core::PWSTR,
 }
-impl Copy for WIA_PROPID_TO_NAME {}
-impl Clone for WIA_PROPID_TO_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WIA_PROPID_TO_NAME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIA_PROPID_TO_NAME").field("propid", &self.propid).field("pszName", &self.pszName).finish()
-    }
-}
 impl windows_core::TypeKind for WIA_PROPID_TO_NAME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WIA_PROPID_TO_NAME {
-    fn eq(&self, other: &Self) -> bool {
-        self.propid == other.propid && self.pszName == other.pszName
-    }
-}
-impl Eq for WIA_PROPID_TO_NAME {}
 impl Default for WIA_PROPID_TO_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_RAW_HEADER {
     pub Tag: u32,
     pub Version: u32,
@@ -4263,46 +3579,9 @@ pub struct WIA_RAW_HEADER {
     pub PaletteOffset: u32,
     pub PaletteSize: u32,
 }
-impl Copy for WIA_RAW_HEADER {}
-impl Clone for WIA_RAW_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WIA_RAW_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIA_RAW_HEADER")
-            .field("Tag", &self.Tag)
-            .field("Version", &self.Version)
-            .field("HeaderSize", &self.HeaderSize)
-            .field("XRes", &self.XRes)
-            .field("YRes", &self.YRes)
-            .field("XExtent", &self.XExtent)
-            .field("YExtent", &self.YExtent)
-            .field("BytesPerLine", &self.BytesPerLine)
-            .field("BitsPerPixel", &self.BitsPerPixel)
-            .field("ChannelsPerPixel", &self.ChannelsPerPixel)
-            .field("DataType", &self.DataType)
-            .field("BitsPerChannel", &self.BitsPerChannel)
-            .field("Compression", &self.Compression)
-            .field("PhotometricInterp", &self.PhotometricInterp)
-            .field("LineOrder", &self.LineOrder)
-            .field("RawDataOffset", &self.RawDataOffset)
-            .field("RawDataSize", &self.RawDataSize)
-            .field("PaletteOffset", &self.PaletteOffset)
-            .field("PaletteSize", &self.PaletteSize)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WIA_RAW_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WIA_RAW_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Tag == other.Tag && self.Version == other.Version && self.HeaderSize == other.HeaderSize && self.XRes == other.XRes && self.YRes == other.YRes && self.XExtent == other.XExtent && self.YExtent == other.YExtent && self.BytesPerLine == other.BytesPerLine && self.BitsPerPixel == other.BitsPerPixel && self.ChannelsPerPixel == other.ChannelsPerPixel && self.DataType == other.DataType && self.BitsPerChannel == other.BitsPerChannel && self.Compression == other.Compression && self.PhotometricInterp == other.PhotometricInterp && self.LineOrder == other.LineOrder && self.RawDataOffset == other.RawDataOffset && self.RawDataSize == other.RawDataSize && self.PaletteOffset == other.PaletteOffset && self.PaletteSize == other.PaletteSize
-    }
-}
-impl Eq for WIA_RAW_HEADER {}
 impl Default for WIA_RAW_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4312,32 +3591,16 @@ pub const WiaDevMgr: windows_core::GUID = windows_core::GUID::from_u128(0xa1f4e7
 pub const WiaDevMgr2: windows_core::GUID = windows_core::GUID::from_u128(0xb6c292bc_7c88_41ee_8b54_8ec92617e599);
 pub const WiaLog: windows_core::GUID = windows_core::GUID::from_u128(0xa1e75357_881a_419e_83e2_bb16db197c68);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WiaTransferParams {
     pub lMessage: i32,
     pub lPercentComplete: i32,
     pub ulTransferredBytes: u64,
     pub hrErrorStatus: windows_core::HRESULT,
 }
-impl Copy for WiaTransferParams {}
-impl Clone for WiaTransferParams {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WiaTransferParams {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WiaTransferParams").field("lMessage", &self.lMessage).field("lPercentComplete", &self.lPercentComplete).field("ulTransferredBytes", &self.ulTransferredBytes).field("hrErrorStatus", &self.hrErrorStatus).finish()
-    }
-}
 impl windows_core::TypeKind for WiaTransferParams {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WiaTransferParams {
-    fn eq(&self, other: &Self) -> bool {
-        self.lMessage == other.lMessage && self.lPercentComplete == other.lPercentComplete && self.ulTransferredBytes == other.ulTransferredBytes && self.hrErrorStatus == other.hrErrorStatus
-    }
-}
-impl Eq for WiaTransferParams {}
 impl Default for WiaTransferParams {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

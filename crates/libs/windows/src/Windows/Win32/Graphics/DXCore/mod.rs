@@ -244,100 +244,53 @@ impl core::fmt::Debug for DXCoreSegmentGroup {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXCoreAdapterMemoryBudget {
     pub budget: u64,
     pub currentUsage: u64,
     pub availableForReservation: u64,
     pub currentReservation: u64,
 }
-impl Copy for DXCoreAdapterMemoryBudget {}
-impl Clone for DXCoreAdapterMemoryBudget {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXCoreAdapterMemoryBudget {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXCoreAdapterMemoryBudget").field("budget", &self.budget).field("currentUsage", &self.currentUsage).field("availableForReservation", &self.availableForReservation).field("currentReservation", &self.currentReservation).finish()
-    }
-}
 impl windows_core::TypeKind for DXCoreAdapterMemoryBudget {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXCoreAdapterMemoryBudget {
-    fn eq(&self, other: &Self) -> bool {
-        self.budget == other.budget && self.currentUsage == other.currentUsage && self.availableForReservation == other.availableForReservation && self.currentReservation == other.currentReservation
-    }
-}
-impl Eq for DXCoreAdapterMemoryBudget {}
 impl Default for DXCoreAdapterMemoryBudget {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXCoreAdapterMemoryBudgetNodeSegmentGroup {
     pub nodeIndex: u32,
     pub segmentGroup: DXCoreSegmentGroup,
 }
-impl Copy for DXCoreAdapterMemoryBudgetNodeSegmentGroup {}
-impl Clone for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXCoreAdapterMemoryBudgetNodeSegmentGroup").field("nodeIndex", &self.nodeIndex).field("segmentGroup", &self.segmentGroup).finish()
-    }
-}
 impl windows_core::TypeKind for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.nodeIndex == other.nodeIndex && self.segmentGroup == other.segmentGroup
-    }
-}
-impl Eq for DXCoreAdapterMemoryBudgetNodeSegmentGroup {}
 impl Default for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXCoreHardwareID {
     pub vendorID: u32,
     pub deviceID: u32,
     pub subSysID: u32,
     pub revision: u32,
 }
-impl Copy for DXCoreHardwareID {}
-impl Clone for DXCoreHardwareID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXCoreHardwareID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXCoreHardwareID").field("vendorID", &self.vendorID).field("deviceID", &self.deviceID).field("subSysID", &self.subSysID).field("revision", &self.revision).finish()
-    }
-}
 impl windows_core::TypeKind for DXCoreHardwareID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXCoreHardwareID {
-    fn eq(&self, other: &Self) -> bool {
-        self.vendorID == other.vendorID && self.deviceID == other.deviceID && self.subSysID == other.subSysID && self.revision == other.revision
-    }
-}
-impl Eq for DXCoreHardwareID {}
 impl Default for DXCoreHardwareID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXCoreHardwareIDParts {
     pub vendorID: u32,
     pub deviceID: u32,
@@ -345,26 +298,9 @@ pub struct DXCoreHardwareIDParts {
     pub subVendorID: u32,
     pub revisionID: u32,
 }
-impl Copy for DXCoreHardwareIDParts {}
-impl Clone for DXCoreHardwareIDParts {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DXCoreHardwareIDParts {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DXCoreHardwareIDParts").field("vendorID", &self.vendorID).field("deviceID", &self.deviceID).field("subSystemID", &self.subSystemID).field("subVendorID", &self.subVendorID).field("revisionID", &self.revisionID).finish()
-    }
-}
 impl windows_core::TypeKind for DXCoreHardwareIDParts {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DXCoreHardwareIDParts {
-    fn eq(&self, other: &Self) -> bool {
-        self.vendorID == other.vendorID && self.deviceID == other.deviceID && self.subSystemID == other.subSystemID && self.subVendorID == other.subVendorID && self.revisionID == other.revisionID
-    }
-}
-impl Eq for DXCoreHardwareIDParts {}
 impl Default for DXCoreHardwareIDParts {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

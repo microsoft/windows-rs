@@ -167,38 +167,23 @@ impl windows_core::TypeKind for HCOMDB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERENUM_PORT_DESC {
     pub Size: u32,
     pub PortHandle: *mut core::ffi::c_void,
     pub PortAddress: i64,
     pub Reserved: [u16; 1],
 }
-impl Copy for SERENUM_PORT_DESC {}
-impl Clone for SERENUM_PORT_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERENUM_PORT_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERENUM_PORT_DESC").field("Size", &self.Size).field("PortHandle", &self.PortHandle).field("PortAddress", &self.PortAddress).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for SERENUM_PORT_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERENUM_PORT_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.PortHandle == other.PortHandle && self.PortAddress == other.PortAddress && self.Reserved == other.Reserved
-    }
-}
-impl Eq for SERENUM_PORT_DESC {}
 impl Default for SERENUM_PORT_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct SERENUM_PORT_PARAMETERS {
     pub Size: u32,
     pub ReadAccessor: PSERENUM_READPORT,
@@ -209,17 +194,6 @@ pub struct SERENUM_PORT_PARAMETERS {
     pub NumberAxis: u16,
     pub Reserved: [u16; 3],
 }
-impl Copy for SERENUM_PORT_PARAMETERS {}
-impl Clone for SERENUM_PORT_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERENUM_PORT_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERENUM_PORT_PARAMETERS").field("Size", &self.Size).field("SerPortAddress", &self.SerPortAddress).field("HardwareHandle", &self.HardwareHandle).field("Portion", &self.Portion).field("NumberAxis", &self.NumberAxis).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for SERENUM_PORT_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
@@ -229,6 +203,7 @@ impl Default for SERENUM_PORT_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIALCONFIG {
     pub Size: u32,
     pub Version: u16,
@@ -237,32 +212,16 @@ pub struct SERIALCONFIG {
     pub ProviderSize: u32,
     pub ProviderData: [u16; 1],
 }
-impl Copy for SERIALCONFIG {}
-impl Clone for SERIALCONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERIALCONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERIALCONFIG").field("Size", &self.Size).field("Version", &self.Version).field("SubType", &self.SubType).field("ProvOffset", &self.ProvOffset).field("ProviderSize", &self.ProviderSize).field("ProviderData", &self.ProviderData).finish()
-    }
-}
 impl windows_core::TypeKind for SERIALCONFIG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERIALCONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.SubType == other.SubType && self.ProvOffset == other.ProvOffset && self.ProviderSize == other.ProviderSize && self.ProviderData == other.ProviderData
-    }
-}
-impl Eq for SERIALCONFIG {}
 impl Default for SERIALCONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIALPERF_STATS {
     pub ReceivedCount: u32,
     pub TransmittedCount: u32,
@@ -271,93 +230,45 @@ pub struct SERIALPERF_STATS {
     pub BufferOverrunErrorCount: u32,
     pub ParityErrorCount: u32,
 }
-impl Copy for SERIALPERF_STATS {}
-impl Clone for SERIALPERF_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERIALPERF_STATS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERIALPERF_STATS").field("ReceivedCount", &self.ReceivedCount).field("TransmittedCount", &self.TransmittedCount).field("FrameErrorCount", &self.FrameErrorCount).field("SerialOverrunErrorCount", &self.SerialOverrunErrorCount).field("BufferOverrunErrorCount", &self.BufferOverrunErrorCount).field("ParityErrorCount", &self.ParityErrorCount).finish()
-    }
-}
 impl windows_core::TypeKind for SERIALPERF_STATS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERIALPERF_STATS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ReceivedCount == other.ReceivedCount && self.TransmittedCount == other.TransmittedCount && self.FrameErrorCount == other.FrameErrorCount && self.SerialOverrunErrorCount == other.SerialOverrunErrorCount && self.BufferOverrunErrorCount == other.BufferOverrunErrorCount && self.ParityErrorCount == other.ParityErrorCount
-    }
-}
-impl Eq for SERIALPERF_STATS {}
 impl Default for SERIALPERF_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIAL_BASIC_SETTINGS {
     pub Timeouts: SERIAL_TIMEOUTS,
     pub HandFlow: SERIAL_HANDFLOW,
     pub RxFifo: u32,
     pub TxFifo: u32,
 }
-impl Copy for SERIAL_BASIC_SETTINGS {}
-impl Clone for SERIAL_BASIC_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERIAL_BASIC_SETTINGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERIAL_BASIC_SETTINGS").field("Timeouts", &self.Timeouts).field("HandFlow", &self.HandFlow).field("RxFifo", &self.RxFifo).field("TxFifo", &self.TxFifo).finish()
-    }
-}
 impl windows_core::TypeKind for SERIAL_BASIC_SETTINGS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERIAL_BASIC_SETTINGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Timeouts == other.Timeouts && self.HandFlow == other.HandFlow && self.RxFifo == other.RxFifo && self.TxFifo == other.TxFifo
-    }
-}
-impl Eq for SERIAL_BASIC_SETTINGS {}
 impl Default for SERIAL_BASIC_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIAL_BAUD_RATE {
     pub BaudRate: u32,
-}
-impl Copy for SERIAL_BAUD_RATE {}
-impl Clone for SERIAL_BAUD_RATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERIAL_BAUD_RATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERIAL_BAUD_RATE").field("BaudRate", &self.BaudRate).finish()
-    }
 }
 impl windows_core::TypeKind for SERIAL_BAUD_RATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERIAL_BAUD_RATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.BaudRate == other.BaudRate
-    }
-}
-impl Eq for SERIAL_BAUD_RATE {}
 impl Default for SERIAL_BAUD_RATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIAL_CHARS {
     pub EofChar: u8,
     pub ErrorChar: u8,
@@ -366,32 +277,16 @@ pub struct SERIAL_CHARS {
     pub XonChar: u8,
     pub XoffChar: u8,
 }
-impl Copy for SERIAL_CHARS {}
-impl Clone for SERIAL_CHARS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERIAL_CHARS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERIAL_CHARS").field("EofChar", &self.EofChar).field("ErrorChar", &self.ErrorChar).field("BreakChar", &self.BreakChar).field("EventChar", &self.EventChar).field("XonChar", &self.XonChar).field("XoffChar", &self.XoffChar).finish()
-    }
-}
 impl windows_core::TypeKind for SERIAL_CHARS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERIAL_CHARS {
-    fn eq(&self, other: &Self) -> bool {
-        self.EofChar == other.EofChar && self.ErrorChar == other.ErrorChar && self.BreakChar == other.BreakChar && self.EventChar == other.EventChar && self.XonChar == other.XonChar && self.XoffChar == other.XoffChar
-    }
-}
-impl Eq for SERIAL_CHARS {}
 impl Default for SERIAL_CHARS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIAL_COMMPROP {
     pub PacketLength: u16,
     pub PacketVersion: u16,
@@ -412,144 +307,61 @@ pub struct SERIAL_COMMPROP {
     pub ProvSpec2: u32,
     pub ProvChar: [u16; 1],
 }
-impl Copy for SERIAL_COMMPROP {}
-impl Clone for SERIAL_COMMPROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERIAL_COMMPROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERIAL_COMMPROP")
-            .field("PacketLength", &self.PacketLength)
-            .field("PacketVersion", &self.PacketVersion)
-            .field("ServiceMask", &self.ServiceMask)
-            .field("Reserved1", &self.Reserved1)
-            .field("MaxTxQueue", &self.MaxTxQueue)
-            .field("MaxRxQueue", &self.MaxRxQueue)
-            .field("MaxBaud", &self.MaxBaud)
-            .field("ProvSubType", &self.ProvSubType)
-            .field("ProvCapabilities", &self.ProvCapabilities)
-            .field("SettableParams", &self.SettableParams)
-            .field("SettableBaud", &self.SettableBaud)
-            .field("SettableData", &self.SettableData)
-            .field("SettableStopParity", &self.SettableStopParity)
-            .field("CurrentTxQueue", &self.CurrentTxQueue)
-            .field("CurrentRxQueue", &self.CurrentRxQueue)
-            .field("ProvSpec1", &self.ProvSpec1)
-            .field("ProvSpec2", &self.ProvSpec2)
-            .field("ProvChar", &self.ProvChar)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for SERIAL_COMMPROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERIAL_COMMPROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.PacketLength == other.PacketLength && self.PacketVersion == other.PacketVersion && self.ServiceMask == other.ServiceMask && self.Reserved1 == other.Reserved1 && self.MaxTxQueue == other.MaxTxQueue && self.MaxRxQueue == other.MaxRxQueue && self.MaxBaud == other.MaxBaud && self.ProvSubType == other.ProvSubType && self.ProvCapabilities == other.ProvCapabilities && self.SettableParams == other.SettableParams && self.SettableBaud == other.SettableBaud && self.SettableData == other.SettableData && self.SettableStopParity == other.SettableStopParity && self.CurrentTxQueue == other.CurrentTxQueue && self.CurrentRxQueue == other.CurrentRxQueue && self.ProvSpec1 == other.ProvSpec1 && self.ProvSpec2 == other.ProvSpec2 && self.ProvChar == other.ProvChar
-    }
-}
-impl Eq for SERIAL_COMMPROP {}
 impl Default for SERIAL_COMMPROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIAL_HANDFLOW {
     pub ControlHandShake: u32,
     pub FlowReplace: u32,
     pub XonLimit: i32,
     pub XoffLimit: i32,
 }
-impl Copy for SERIAL_HANDFLOW {}
-impl Clone for SERIAL_HANDFLOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERIAL_HANDFLOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERIAL_HANDFLOW").field("ControlHandShake", &self.ControlHandShake).field("FlowReplace", &self.FlowReplace).field("XonLimit", &self.XonLimit).field("XoffLimit", &self.XoffLimit).finish()
-    }
-}
 impl windows_core::TypeKind for SERIAL_HANDFLOW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERIAL_HANDFLOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.ControlHandShake == other.ControlHandShake && self.FlowReplace == other.FlowReplace && self.XonLimit == other.XonLimit && self.XoffLimit == other.XoffLimit
-    }
-}
-impl Eq for SERIAL_HANDFLOW {}
 impl Default for SERIAL_HANDFLOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIAL_LINE_CONTROL {
     pub StopBits: u8,
     pub Parity: u8,
     pub WordLength: u8,
 }
-impl Copy for SERIAL_LINE_CONTROL {}
-impl Clone for SERIAL_LINE_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERIAL_LINE_CONTROL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERIAL_LINE_CONTROL").field("StopBits", &self.StopBits).field("Parity", &self.Parity).field("WordLength", &self.WordLength).finish()
-    }
-}
 impl windows_core::TypeKind for SERIAL_LINE_CONTROL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERIAL_LINE_CONTROL {
-    fn eq(&self, other: &Self) -> bool {
-        self.StopBits == other.StopBits && self.Parity == other.Parity && self.WordLength == other.WordLength
-    }
-}
-impl Eq for SERIAL_LINE_CONTROL {}
 impl Default for SERIAL_LINE_CONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIAL_QUEUE_SIZE {
     pub InSize: u32,
     pub OutSize: u32,
 }
-impl Copy for SERIAL_QUEUE_SIZE {}
-impl Clone for SERIAL_QUEUE_SIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERIAL_QUEUE_SIZE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERIAL_QUEUE_SIZE").field("InSize", &self.InSize).field("OutSize", &self.OutSize).finish()
-    }
-}
 impl windows_core::TypeKind for SERIAL_QUEUE_SIZE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERIAL_QUEUE_SIZE {
-    fn eq(&self, other: &Self) -> bool {
-        self.InSize == other.InSize && self.OutSize == other.OutSize
-    }
-}
-impl Eq for SERIAL_QUEUE_SIZE {}
 impl Default for SERIAL_QUEUE_SIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIAL_STATUS {
     pub Errors: u32,
     pub HoldReasons: u32,
@@ -558,32 +370,16 @@ pub struct SERIAL_STATUS {
     pub EofReceived: super::super::Foundation::BOOLEAN,
     pub WaitForImmediate: super::super::Foundation::BOOLEAN,
 }
-impl Copy for SERIAL_STATUS {}
-impl Clone for SERIAL_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERIAL_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERIAL_STATUS").field("Errors", &self.Errors).field("HoldReasons", &self.HoldReasons).field("AmountInInQueue", &self.AmountInInQueue).field("AmountInOutQueue", &self.AmountInOutQueue).field("EofReceived", &self.EofReceived).field("WaitForImmediate", &self.WaitForImmediate).finish()
-    }
-}
 impl windows_core::TypeKind for SERIAL_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERIAL_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Errors == other.Errors && self.HoldReasons == other.HoldReasons && self.AmountInInQueue == other.AmountInInQueue && self.AmountInOutQueue == other.AmountInOutQueue && self.EofReceived == other.EofReceived && self.WaitForImmediate == other.WaitForImmediate
-    }
-}
-impl Eq for SERIAL_STATUS {}
 impl Default for SERIAL_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIAL_TIMEOUTS {
     pub ReadIntervalTimeout: u32,
     pub ReadTotalTimeoutMultiplier: u32,
@@ -591,57 +387,24 @@ pub struct SERIAL_TIMEOUTS {
     pub WriteTotalTimeoutMultiplier: u32,
     pub WriteTotalTimeoutConstant: u32,
 }
-impl Copy for SERIAL_TIMEOUTS {}
-impl Clone for SERIAL_TIMEOUTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERIAL_TIMEOUTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERIAL_TIMEOUTS").field("ReadIntervalTimeout", &self.ReadIntervalTimeout).field("ReadTotalTimeoutMultiplier", &self.ReadTotalTimeoutMultiplier).field("ReadTotalTimeoutConstant", &self.ReadTotalTimeoutConstant).field("WriteTotalTimeoutMultiplier", &self.WriteTotalTimeoutMultiplier).field("WriteTotalTimeoutConstant", &self.WriteTotalTimeoutConstant).finish()
-    }
-}
 impl windows_core::TypeKind for SERIAL_TIMEOUTS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERIAL_TIMEOUTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ReadIntervalTimeout == other.ReadIntervalTimeout && self.ReadTotalTimeoutMultiplier == other.ReadTotalTimeoutMultiplier && self.ReadTotalTimeoutConstant == other.ReadTotalTimeoutConstant && self.WriteTotalTimeoutMultiplier == other.WriteTotalTimeoutMultiplier && self.WriteTotalTimeoutConstant == other.WriteTotalTimeoutConstant
-    }
-}
-impl Eq for SERIAL_TIMEOUTS {}
 impl Default for SERIAL_TIMEOUTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIAL_XOFF_COUNTER {
     pub Timeout: u32,
     pub Counter: i32,
     pub XoffChar: u8,
 }
-impl Copy for SERIAL_XOFF_COUNTER {}
-impl Clone for SERIAL_XOFF_COUNTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERIAL_XOFF_COUNTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERIAL_XOFF_COUNTER").field("Timeout", &self.Timeout).field("Counter", &self.Counter).field("XoffChar", &self.XoffChar).finish()
-    }
-}
 impl windows_core::TypeKind for SERIAL_XOFF_COUNTER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERIAL_XOFF_COUNTER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Timeout == other.Timeout && self.Counter == other.Counter && self.XoffChar == other.XoffChar
-    }
-}
-impl Eq for SERIAL_XOFF_COUNTER {}
 impl Default for SERIAL_XOFF_COUNTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

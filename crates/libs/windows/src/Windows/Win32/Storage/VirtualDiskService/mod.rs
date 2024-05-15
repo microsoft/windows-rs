@@ -4350,15 +4350,10 @@ impl core::fmt::Debug for __VDS_PARTITION_STYLE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CHANGE_ATTRIBUTES_PARAMETERS {
     pub style: VDS_PARTITION_STYLE,
     pub Anonymous: CHANGE_ATTRIBUTES_PARAMETERS_0,
-}
-impl Copy for CHANGE_ATTRIBUTES_PARAMETERS {}
-impl Clone for CHANGE_ATTRIBUTES_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CHANGE_ATTRIBUTES_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -4369,15 +4364,10 @@ impl Default for CHANGE_ATTRIBUTES_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CHANGE_ATTRIBUTES_PARAMETERS_0 {
     pub MbrPartInfo: CHANGE_ATTRIBUTES_PARAMETERS_0_1,
     pub GptPartInfo: CHANGE_ATTRIBUTES_PARAMETERS_0_0,
-}
-impl Copy for CHANGE_ATTRIBUTES_PARAMETERS_0 {}
-impl Clone for CHANGE_ATTRIBUTES_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CHANGE_ATTRIBUTES_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
@@ -4388,73 +4378,36 @@ impl Default for CHANGE_ATTRIBUTES_PARAMETERS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
     pub attributes: u64,
-}
-impl Copy for CHANGE_ATTRIBUTES_PARAMETERS_0_0 {}
-impl Clone for CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CHANGE_ATTRIBUTES_PARAMETERS_0_0").field("attributes", &self.attributes).finish()
-    }
 }
 impl windows_core::TypeKind for CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.attributes == other.attributes
-    }
-}
-impl Eq for CHANGE_ATTRIBUTES_PARAMETERS_0_0 {}
 impl Default for CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
     pub bootIndicator: super::super::Foundation::BOOLEAN,
-}
-impl Copy for CHANGE_ATTRIBUTES_PARAMETERS_0_1 {}
-impl Clone for CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CHANGE_ATTRIBUTES_PARAMETERS_0_1").field("bootIndicator", &self.bootIndicator).finish()
-    }
 }
 impl windows_core::TypeKind for CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.bootIndicator == other.bootIndicator
-    }
-}
-impl Eq for CHANGE_ATTRIBUTES_PARAMETERS_0_1 {}
 impl Default for CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CHANGE_PARTITION_TYPE_PARAMETERS {
     pub style: VDS_PARTITION_STYLE,
     pub Anonymous: CHANGE_PARTITION_TYPE_PARAMETERS_0,
-}
-impl Copy for CHANGE_PARTITION_TYPE_PARAMETERS {}
-impl Clone for CHANGE_PARTITION_TYPE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CHANGE_PARTITION_TYPE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -4465,15 +4418,10 @@ impl Default for CHANGE_PARTITION_TYPE_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CHANGE_PARTITION_TYPE_PARAMETERS_0 {
     pub MbrPartInfo: CHANGE_PARTITION_TYPE_PARAMETERS_0_1,
     pub GptPartInfo: CHANGE_PARTITION_TYPE_PARAMETERS_0_0,
-}
-impl Copy for CHANGE_PARTITION_TYPE_PARAMETERS_0 {}
-impl Clone for CHANGE_PARTITION_TYPE_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CHANGE_PARTITION_TYPE_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
@@ -4484,73 +4432,36 @@ impl Default for CHANGE_PARTITION_TYPE_PARAMETERS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
     pub partitionType: windows_core::GUID,
-}
-impl Copy for CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {}
-impl Clone for CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CHANGE_PARTITION_TYPE_PARAMETERS_0_0").field("partitionType", &self.partitionType).finish()
-    }
 }
 impl windows_core::TypeKind for CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.partitionType == other.partitionType
-    }
-}
-impl Eq for CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {}
 impl Default for CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
     pub partitionType: u8,
-}
-impl Copy for CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {}
-impl Clone for CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CHANGE_PARTITION_TYPE_PARAMETERS_0_1").field("partitionType", &self.partitionType).finish()
-    }
 }
 impl windows_core::TypeKind for CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.partitionType == other.partitionType
-    }
-}
-impl Eq for CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {}
 impl Default for CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CREATE_PARTITION_PARAMETERS {
     pub style: VDS_PARTITION_STYLE,
     pub Anonymous: CREATE_PARTITION_PARAMETERS_0,
-}
-impl Copy for CREATE_PARTITION_PARAMETERS {}
-impl Clone for CREATE_PARTITION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CREATE_PARTITION_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -4561,15 +4472,10 @@ impl Default for CREATE_PARTITION_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CREATE_PARTITION_PARAMETERS_0 {
     pub MbrPartInfo: CREATE_PARTITION_PARAMETERS_0_1,
     pub GptPartInfo: CREATE_PARTITION_PARAMETERS_0_0,
-}
-impl Copy for CREATE_PARTITION_PARAMETERS_0 {}
-impl Clone for CREATE_PARTITION_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CREATE_PARTITION_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
@@ -4580,68 +4486,37 @@ impl Default for CREATE_PARTITION_PARAMETERS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREATE_PARTITION_PARAMETERS_0_0 {
     pub partitionType: windows_core::GUID,
     pub partitionId: windows_core::GUID,
     pub attributes: u64,
     pub name: [u16; 36],
 }
-impl Copy for CREATE_PARTITION_PARAMETERS_0_0 {}
-impl Clone for CREATE_PARTITION_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CREATE_PARTITION_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CREATE_PARTITION_PARAMETERS_0_0").field("partitionType", &self.partitionType).field("partitionId", &self.partitionId).field("attributes", &self.attributes).field("name", &self.name).finish()
-    }
-}
 impl windows_core::TypeKind for CREATE_PARTITION_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CREATE_PARTITION_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.partitionType == other.partitionType && self.partitionId == other.partitionId && self.attributes == other.attributes && self.name == other.name
-    }
-}
-impl Eq for CREATE_PARTITION_PARAMETERS_0_0 {}
 impl Default for CREATE_PARTITION_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREATE_PARTITION_PARAMETERS_0_1 {
     pub partitionType: u8,
     pub bootIndicator: super::super::Foundation::BOOLEAN,
 }
-impl Copy for CREATE_PARTITION_PARAMETERS_0_1 {}
-impl Clone for CREATE_PARTITION_PARAMETERS_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CREATE_PARTITION_PARAMETERS_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CREATE_PARTITION_PARAMETERS_0_1").field("partitionType", &self.partitionType).field("bootIndicator", &self.bootIndicator).finish()
-    }
-}
 impl windows_core::TypeKind for CREATE_PARTITION_PARAMETERS_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CREATE_PARTITION_PARAMETERS_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.partitionType == other.partitionType && self.bootIndicator == other.bootIndicator
-    }
-}
-impl Eq for CREATE_PARTITION_PARAMETERS_0_1 {}
 impl Default for CREATE_PARTITION_PARAMETERS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VDS_ADVANCEDDISK_PROP {
     pub pwszId: windows_core::PWSTR,
     pub pwszPathname: windows_core::PWSTR,
@@ -4667,12 +4542,6 @@ pub struct VDS_ADVANCEDDISK_PROP {
     pub ulFlags: u32,
     pub dwDeviceType: u32,
 }
-impl Copy for VDS_ADVANCEDDISK_PROP {}
-impl Clone for VDS_ADVANCEDDISK_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for VDS_ADVANCEDDISK_PROP {
     type TypeKind = windows_core::CopyType;
 }
@@ -4682,15 +4551,10 @@ impl Default for VDS_ADVANCEDDISK_PROP {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VDS_ADVANCEDDISK_PROP_0 {
     pub dwSignature: u32,
     pub DiskGuid: windows_core::GUID,
-}
-impl Copy for VDS_ADVANCEDDISK_PROP_0 {}
-impl Clone for VDS_ADVANCEDDISK_PROP_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VDS_ADVANCEDDISK_PROP_0 {
     type TypeKind = windows_core::CopyType;
@@ -4743,6 +4607,7 @@ impl Default for VDS_ASYNC_OUTPUT_0 {
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_0 {
     pub pVolumeUnk: std::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
@@ -4751,26 +4616,16 @@ impl Clone for VDS_ASYNC_OUTPUT_0_0 {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for VDS_ASYNC_OUTPUT_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_ASYNC_OUTPUT_0_0").field("pVolumeUnk", &self.pVolumeUnk).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_ASYNC_OUTPUT_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pVolumeUnk == other.pVolumeUnk
-    }
-}
-impl Eq for VDS_ASYNC_OUTPUT_0_0 {}
 impl Default for VDS_ASYNC_OUTPUT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_1 {
     pub pLunUnk: std::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
@@ -4779,56 +4634,30 @@ impl Clone for VDS_ASYNC_OUTPUT_0_1 {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for VDS_ASYNC_OUTPUT_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_ASYNC_OUTPUT_0_1").field("pLunUnk", &self.pLunUnk).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_ASYNC_OUTPUT_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pLunUnk == other.pLunUnk
-    }
-}
-impl Eq for VDS_ASYNC_OUTPUT_0_1 {}
 impl Default for VDS_ASYNC_OUTPUT_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_2 {
     pub ullOffset: u64,
     pub volumeId: windows_core::GUID,
 }
-impl Copy for VDS_ASYNC_OUTPUT_0_2 {}
-impl Clone for VDS_ASYNC_OUTPUT_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_ASYNC_OUTPUT_0_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_ASYNC_OUTPUT_0_2").field("ullOffset", &self.ullOffset).field("volumeId", &self.volumeId).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_ASYNC_OUTPUT_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ullOffset == other.ullOffset && self.volumeId == other.volumeId
-    }
-}
-impl Eq for VDS_ASYNC_OUTPUT_0_2 {}
 impl Default for VDS_ASYNC_OUTPUT_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_3 {
     pub pPortalGroupUnk: std::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
@@ -4837,26 +4666,16 @@ impl Clone for VDS_ASYNC_OUTPUT_0_3 {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for VDS_ASYNC_OUTPUT_0_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_ASYNC_OUTPUT_0_3").field("pPortalGroupUnk", &self.pPortalGroupUnk).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_ASYNC_OUTPUT_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pPortalGroupUnk == other.pPortalGroupUnk
-    }
-}
-impl Eq for VDS_ASYNC_OUTPUT_0_3 {}
 impl Default for VDS_ASYNC_OUTPUT_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_4 {
     pub pTargetUnk: std::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
@@ -4865,26 +4684,16 @@ impl Clone for VDS_ASYNC_OUTPUT_0_4 {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for VDS_ASYNC_OUTPUT_0_4 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_ASYNC_OUTPUT_0_4").field("pTargetUnk", &self.pTargetUnk).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_4 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_ASYNC_OUTPUT_0_4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pTargetUnk == other.pTargetUnk
-    }
-}
-impl Eq for VDS_ASYNC_OUTPUT_0_4 {}
 impl Default for VDS_ASYNC_OUTPUT_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_5 {
     pub pVolumeUnk: std::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
@@ -4893,26 +4702,16 @@ impl Clone for VDS_ASYNC_OUTPUT_0_5 {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for VDS_ASYNC_OUTPUT_0_5 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_ASYNC_OUTPUT_0_5").field("pVolumeUnk", &self.pVolumeUnk).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_5 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_ASYNC_OUTPUT_0_5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pVolumeUnk == other.pVolumeUnk
-    }
-}
-impl Eq for VDS_ASYNC_OUTPUT_0_5 {}
 impl Default for VDS_ASYNC_OUTPUT_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_6 {
     pub pVDiskUnk: std::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
@@ -4921,85 +4720,43 @@ impl Clone for VDS_ASYNC_OUTPUT_0_6 {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for VDS_ASYNC_OUTPUT_0_6 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_ASYNC_OUTPUT_0_6").field("pVDiskUnk", &self.pVDiskUnk).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_6 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_ASYNC_OUTPUT_0_6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pVDiskUnk == other.pVDiskUnk
-    }
-}
-impl Eq for VDS_ASYNC_OUTPUT_0_6 {}
 impl Default for VDS_ASYNC_OUTPUT_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_7 {
     pub ullReclaimedBytes: u64,
-}
-impl Copy for VDS_ASYNC_OUTPUT_0_7 {}
-impl Clone for VDS_ASYNC_OUTPUT_0_7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_ASYNC_OUTPUT_0_7 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_ASYNC_OUTPUT_0_7").field("ullReclaimedBytes", &self.ullReclaimedBytes).finish()
-    }
 }
 impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_7 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_ASYNC_OUTPUT_0_7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ullReclaimedBytes == other.ullReclaimedBytes
-    }
-}
-impl Eq for VDS_ASYNC_OUTPUT_0_7 {}
 impl Default for VDS_ASYNC_OUTPUT_0_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_CONTROLLER_NOTIFICATION {
     pub ulEvent: VDS_NF_CONTROLLER,
     pub controllerId: windows_core::GUID,
 }
-impl Copy for VDS_CONTROLLER_NOTIFICATION {}
-impl Clone for VDS_CONTROLLER_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_CONTROLLER_NOTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_CONTROLLER_NOTIFICATION").field("ulEvent", &self.ulEvent).field("controllerId", &self.controllerId).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_CONTROLLER_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_CONTROLLER_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulEvent == other.ulEvent && self.controllerId == other.controllerId
-    }
-}
-impl Eq for VDS_CONTROLLER_NOTIFICATION {}
 impl Default for VDS_CONTROLLER_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_CONTROLLER_PROP {
     pub id: windows_core::GUID,
     pub pwszFriendlyName: windows_core::PWSTR,
@@ -5008,32 +4765,16 @@ pub struct VDS_CONTROLLER_PROP {
     pub health: VDS_HEALTH,
     pub sNumberOfPorts: i16,
 }
-impl Copy for VDS_CONTROLLER_PROP {}
-impl Clone for VDS_CONTROLLER_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_CONTROLLER_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_CONTROLLER_PROP").field("id", &self.id).field("pwszFriendlyName", &self.pwszFriendlyName).field("pwszIdentification", &self.pwszIdentification).field("status", &self.status).field("health", &self.health).field("sNumberOfPorts", &self.sNumberOfPorts).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_CONTROLLER_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_CONTROLLER_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.pwszFriendlyName == other.pwszFriendlyName && self.pwszIdentification == other.pwszIdentification && self.status == other.status && self.health == other.health && self.sNumberOfPorts == other.sNumberOfPorts
-    }
-}
-impl Eq for VDS_CONTROLLER_PROP {}
 impl Default for VDS_CONTROLLER_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_CREATE_VDISK_PARAMETERS {
     pub UniqueId: windows_core::GUID,
     pub MaximumSize: u64,
@@ -5042,32 +4783,16 @@ pub struct VDS_CREATE_VDISK_PARAMETERS {
     pub pParentPath: windows_core::PWSTR,
     pub pSourcePath: windows_core::PWSTR,
 }
-impl Copy for VDS_CREATE_VDISK_PARAMETERS {}
-impl Clone for VDS_CREATE_VDISK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_CREATE_VDISK_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_CREATE_VDISK_PARAMETERS").field("UniqueId", &self.UniqueId).field("MaximumSize", &self.MaximumSize).field("BlockSizeInBytes", &self.BlockSizeInBytes).field("SectorSizeInBytes", &self.SectorSizeInBytes).field("pParentPath", &self.pParentPath).field("pSourcePath", &self.pSourcePath).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_CREATE_VDISK_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_CREATE_VDISK_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.UniqueId == other.UniqueId && self.MaximumSize == other.MaximumSize && self.BlockSizeInBytes == other.BlockSizeInBytes && self.SectorSizeInBytes == other.SectorSizeInBytes && self.pParentPath == other.pParentPath && self.pSourcePath == other.pSourcePath
-    }
-}
-impl Eq for VDS_CREATE_VDISK_PARAMETERS {}
 impl Default for VDS_CREATE_VDISK_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_DISK_EXTENT {
     pub diskId: windows_core::GUID,
     pub r#type: VDS_DISK_EXTENT_TYPE,
@@ -5077,93 +4802,45 @@ pub struct VDS_DISK_EXTENT {
     pub plexId: windows_core::GUID,
     pub memberIdx: u32,
 }
-impl Copy for VDS_DISK_EXTENT {}
-impl Clone for VDS_DISK_EXTENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_DISK_EXTENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_DISK_EXTENT").field("diskId", &self.diskId).field("type", &self.r#type).field("ullOffset", &self.ullOffset).field("ullSize", &self.ullSize).field("volumeId", &self.volumeId).field("plexId", &self.plexId).field("memberIdx", &self.memberIdx).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_DISK_EXTENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_DISK_EXTENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.diskId == other.diskId && self.r#type == other.r#type && self.ullOffset == other.ullOffset && self.ullSize == other.ullSize && self.volumeId == other.volumeId && self.plexId == other.plexId && self.memberIdx == other.memberIdx
-    }
-}
-impl Eq for VDS_DISK_EXTENT {}
 impl Default for VDS_DISK_EXTENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_DISK_FREE_EXTENT {
     pub diskId: windows_core::GUID,
     pub ullOffset: u64,
     pub ullSize: u64,
 }
-impl Copy for VDS_DISK_FREE_EXTENT {}
-impl Clone for VDS_DISK_FREE_EXTENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_DISK_FREE_EXTENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_DISK_FREE_EXTENT").field("diskId", &self.diskId).field("ullOffset", &self.ullOffset).field("ullSize", &self.ullSize).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_DISK_FREE_EXTENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_DISK_FREE_EXTENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.diskId == other.diskId && self.ullOffset == other.ullOffset && self.ullSize == other.ullSize
-    }
-}
-impl Eq for VDS_DISK_FREE_EXTENT {}
 impl Default for VDS_DISK_FREE_EXTENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_DISK_NOTIFICATION {
     pub ulEvent: VDS_NF_DISK,
     pub diskId: windows_core::GUID,
 }
-impl Copy for VDS_DISK_NOTIFICATION {}
-impl Clone for VDS_DISK_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_DISK_NOTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_DISK_NOTIFICATION").field("ulEvent", &self.ulEvent).field("diskId", &self.diskId).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_DISK_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_DISK_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulEvent == other.ulEvent && self.diskId == other.diskId
-    }
-}
-impl Eq for VDS_DISK_NOTIFICATION {}
 impl Default for VDS_DISK_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VDS_DISK_PROP {
     pub id: windows_core::GUID,
     pub status: VDS_DISK_STATUS,
@@ -5185,12 +4862,6 @@ pub struct VDS_DISK_PROP {
     pub pwszAdaptorName: windows_core::PWSTR,
     pub pwszDevicePath: windows_core::PWSTR,
 }
-impl Copy for VDS_DISK_PROP {}
-impl Clone for VDS_DISK_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for VDS_DISK_PROP {
     type TypeKind = windows_core::CopyType;
 }
@@ -5200,15 +4871,10 @@ impl Default for VDS_DISK_PROP {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VDS_DISK_PROP_0 {
     pub dwSignature: u32,
     pub DiskGuid: windows_core::GUID,
-}
-impl Copy for VDS_DISK_PROP_0 {}
-impl Clone for VDS_DISK_PROP_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VDS_DISK_PROP_0 {
     type TypeKind = windows_core::CopyType;
@@ -5219,6 +4885,7 @@ impl Default for VDS_DISK_PROP_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VDS_DISK_PROP2 {
     pub id: windows_core::GUID,
     pub status: VDS_DISK_STATUS,
@@ -5242,12 +4909,6 @@ pub struct VDS_DISK_PROP2 {
     pub pwszDevicePath: windows_core::PWSTR,
     pub pwszLocationPath: windows_core::PWSTR,
 }
-impl Copy for VDS_DISK_PROP2 {}
-impl Clone for VDS_DISK_PROP2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for VDS_DISK_PROP2 {
     type TypeKind = windows_core::CopyType;
 }
@@ -5257,15 +4918,10 @@ impl Default for VDS_DISK_PROP2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VDS_DISK_PROP2_0 {
     pub dwSignature: u32,
     pub DiskGuid: windows_core::GUID,
-}
-impl Copy for VDS_DISK_PROP2_0 {}
-impl Clone for VDS_DISK_PROP2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VDS_DISK_PROP2_0 {
     type TypeKind = windows_core::CopyType;
@@ -5276,131 +4932,68 @@ impl Default for VDS_DISK_PROP2_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_DRIVE_EXTENT {
     pub id: windows_core::GUID,
     pub LunId: windows_core::GUID,
     pub ullSize: u64,
     pub bUsed: super::super::Foundation::BOOL,
 }
-impl Copy for VDS_DRIVE_EXTENT {}
-impl Clone for VDS_DRIVE_EXTENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_DRIVE_EXTENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_DRIVE_EXTENT").field("id", &self.id).field("LunId", &self.LunId).field("ullSize", &self.ullSize).field("bUsed", &self.bUsed).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_DRIVE_EXTENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_DRIVE_EXTENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.LunId == other.LunId && self.ullSize == other.ullSize && self.bUsed == other.bUsed
-    }
-}
-impl Eq for VDS_DRIVE_EXTENT {}
 impl Default for VDS_DRIVE_EXTENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_DRIVE_LETTER_NOTIFICATION {
     pub ulEvent: u32,
     pub wcLetter: u16,
     pub volumeId: windows_core::GUID,
 }
-impl Copy for VDS_DRIVE_LETTER_NOTIFICATION {}
-impl Clone for VDS_DRIVE_LETTER_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_DRIVE_LETTER_NOTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_DRIVE_LETTER_NOTIFICATION").field("ulEvent", &self.ulEvent).field("wcLetter", &self.wcLetter).field("volumeId", &self.volumeId).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_DRIVE_LETTER_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_DRIVE_LETTER_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulEvent == other.ulEvent && self.wcLetter == other.wcLetter && self.volumeId == other.volumeId
-    }
-}
-impl Eq for VDS_DRIVE_LETTER_NOTIFICATION {}
 impl Default for VDS_DRIVE_LETTER_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_DRIVE_LETTER_PROP {
     pub wcLetter: u16,
     pub volumeId: windows_core::GUID,
     pub ulFlags: u32,
     pub bUsed: super::super::Foundation::BOOL,
 }
-impl Copy for VDS_DRIVE_LETTER_PROP {}
-impl Clone for VDS_DRIVE_LETTER_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_DRIVE_LETTER_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_DRIVE_LETTER_PROP").field("wcLetter", &self.wcLetter).field("volumeId", &self.volumeId).field("ulFlags", &self.ulFlags).field("bUsed", &self.bUsed).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_DRIVE_LETTER_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_DRIVE_LETTER_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.wcLetter == other.wcLetter && self.volumeId == other.volumeId && self.ulFlags == other.ulFlags && self.bUsed == other.bUsed
-    }
-}
-impl Eq for VDS_DRIVE_LETTER_PROP {}
 impl Default for VDS_DRIVE_LETTER_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_DRIVE_NOTIFICATION {
     pub ulEvent: VDS_NF_DRIVE,
     pub driveId: windows_core::GUID,
 }
-impl Copy for VDS_DRIVE_NOTIFICATION {}
-impl Clone for VDS_DRIVE_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_DRIVE_NOTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_DRIVE_NOTIFICATION").field("ulEvent", &self.ulEvent).field("driveId", &self.driveId).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_DRIVE_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_DRIVE_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulEvent == other.ulEvent && self.driveId == other.driveId
-    }
-}
-impl Eq for VDS_DRIVE_NOTIFICATION {}
 impl Default for VDS_DRIVE_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_DRIVE_PROP {
     pub id: windows_core::GUID,
     pub ullSize: u64,
@@ -5412,32 +5005,16 @@ pub struct VDS_DRIVE_PROP {
     pub sInternalBusNumber: i16,
     pub sSlotNumber: i16,
 }
-impl Copy for VDS_DRIVE_PROP {}
-impl Clone for VDS_DRIVE_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_DRIVE_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_DRIVE_PROP").field("id", &self.id).field("ullSize", &self.ullSize).field("pwszFriendlyName", &self.pwszFriendlyName).field("pwszIdentification", &self.pwszIdentification).field("ulFlags", &self.ulFlags).field("status", &self.status).field("health", &self.health).field("sInternalBusNumber", &self.sInternalBusNumber).field("sSlotNumber", &self.sSlotNumber).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_DRIVE_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_DRIVE_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.ullSize == other.ullSize && self.pwszFriendlyName == other.pwszFriendlyName && self.pwszIdentification == other.pwszIdentification && self.ulFlags == other.ulFlags && self.status == other.status && self.health == other.health && self.sInternalBusNumber == other.sInternalBusNumber && self.sSlotNumber == other.sSlotNumber
-    }
-}
-impl Eq for VDS_DRIVE_PROP {}
 impl Default for VDS_DRIVE_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_DRIVE_PROP2 {
     pub id: windows_core::GUID,
     pub ullSize: u64,
@@ -5452,45 +5029,16 @@ pub struct VDS_DRIVE_PROP2 {
     pub busType: VDS_STORAGE_BUS_TYPE,
     pub ulSpindleSpeed: u32,
 }
-impl Copy for VDS_DRIVE_PROP2 {}
-impl Clone for VDS_DRIVE_PROP2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_DRIVE_PROP2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_DRIVE_PROP2")
-            .field("id", &self.id)
-            .field("ullSize", &self.ullSize)
-            .field("pwszFriendlyName", &self.pwszFriendlyName)
-            .field("pwszIdentification", &self.pwszIdentification)
-            .field("ulFlags", &self.ulFlags)
-            .field("status", &self.status)
-            .field("health", &self.health)
-            .field("sInternalBusNumber", &self.sInternalBusNumber)
-            .field("sSlotNumber", &self.sSlotNumber)
-            .field("ulEnclosureNumber", &self.ulEnclosureNumber)
-            .field("busType", &self.busType)
-            .field("ulSpindleSpeed", &self.ulSpindleSpeed)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for VDS_DRIVE_PROP2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_DRIVE_PROP2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.ullSize == other.ullSize && self.pwszFriendlyName == other.pwszFriendlyName && self.pwszIdentification == other.pwszIdentification && self.ulFlags == other.ulFlags && self.status == other.status && self.health == other.health && self.sInternalBusNumber == other.sInternalBusNumber && self.sSlotNumber == other.sSlotNumber && self.ulEnclosureNumber == other.ulEnclosureNumber && self.busType == other.busType && self.ulSpindleSpeed == other.ulSpindleSpeed
-    }
-}
-impl Eq for VDS_DRIVE_PROP2 {}
 impl Default for VDS_DRIVE_PROP2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP {
     pub ulFlags: u32,
     pub usRevision: u16,
@@ -5498,63 +5046,31 @@ pub struct VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP {
     pub rgulAllowedUnitAllocationSizes: [u32; 32],
     pub wszName: [u16; 32],
 }
-impl Copy for VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP {}
-impl Clone for VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP").field("ulFlags", &self.ulFlags).field("usRevision", &self.usRevision).field("ulDefaultUnitAllocationSize", &self.ulDefaultUnitAllocationSize).field("rgulAllowedUnitAllocationSizes", &self.rgulAllowedUnitAllocationSizes).field("wszName", &self.wszName).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulFlags == other.ulFlags && self.usRevision == other.usRevision && self.ulDefaultUnitAllocationSize == other.ulDefaultUnitAllocationSize && self.rgulAllowedUnitAllocationSizes == other.rgulAllowedUnitAllocationSizes && self.wszName == other.wszName
-    }
-}
-impl Eq for VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP {}
 impl Default for VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_FILE_SYSTEM_NOTIFICATION {
     pub ulEvent: VDS_NF_FILE_SYSTEM,
     pub volumeId: windows_core::GUID,
     pub dwPercentCompleted: u32,
 }
-impl Copy for VDS_FILE_SYSTEM_NOTIFICATION {}
-impl Clone for VDS_FILE_SYSTEM_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_FILE_SYSTEM_NOTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_FILE_SYSTEM_NOTIFICATION").field("ulEvent", &self.ulEvent).field("volumeId", &self.volumeId).field("dwPercentCompleted", &self.dwPercentCompleted).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_FILE_SYSTEM_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_FILE_SYSTEM_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulEvent == other.ulEvent && self.volumeId == other.volumeId && self.dwPercentCompleted == other.dwPercentCompleted
-    }
-}
-impl Eq for VDS_FILE_SYSTEM_NOTIFICATION {}
 impl Default for VDS_FILE_SYSTEM_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_FILE_SYSTEM_PROP {
     pub r#type: VDS_FILE_SYSTEM_TYPE,
     pub volumeId: windows_core::GUID,
@@ -5564,32 +5080,16 @@ pub struct VDS_FILE_SYSTEM_PROP {
     pub ulAllocationUnitSize: u32,
     pub pwszLabel: windows_core::PWSTR,
 }
-impl Copy for VDS_FILE_SYSTEM_PROP {}
-impl Clone for VDS_FILE_SYSTEM_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_FILE_SYSTEM_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_FILE_SYSTEM_PROP").field("type", &self.r#type).field("volumeId", &self.volumeId).field("ulFlags", &self.ulFlags).field("ullTotalAllocationUnits", &self.ullTotalAllocationUnits).field("ullAvailableAllocationUnits", &self.ullAvailableAllocationUnits).field("ulAllocationUnitSize", &self.ulAllocationUnitSize).field("pwszLabel", &self.pwszLabel).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_FILE_SYSTEM_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_FILE_SYSTEM_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.r#type == other.r#type && self.volumeId == other.volumeId && self.ulFlags == other.ulFlags && self.ullTotalAllocationUnits == other.ullTotalAllocationUnits && self.ullAvailableAllocationUnits == other.ullAvailableAllocationUnits && self.ulAllocationUnitSize == other.ulAllocationUnitSize && self.pwszLabel == other.pwszLabel
-    }
-}
-impl Eq for VDS_FILE_SYSTEM_PROP {}
 impl Default for VDS_FILE_SYSTEM_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_FILE_SYSTEM_TYPE_PROP {
     pub r#type: VDS_FILE_SYSTEM_TYPE,
     pub wszName: [u16; 8],
@@ -5598,32 +5098,16 @@ pub struct VDS_FILE_SYSTEM_TYPE_PROP {
     pub ulMaxLableLength: u32,
     pub pwszIllegalLabelCharSet: windows_core::PWSTR,
 }
-impl Copy for VDS_FILE_SYSTEM_TYPE_PROP {}
-impl Clone for VDS_FILE_SYSTEM_TYPE_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_FILE_SYSTEM_TYPE_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_FILE_SYSTEM_TYPE_PROP").field("type", &self.r#type).field("wszName", &self.wszName).field("ulFlags", &self.ulFlags).field("ulCompressionFlags", &self.ulCompressionFlags).field("ulMaxLableLength", &self.ulMaxLableLength).field("pwszIllegalLabelCharSet", &self.pwszIllegalLabelCharSet).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_FILE_SYSTEM_TYPE_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_FILE_SYSTEM_TYPE_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.r#type == other.r#type && self.wszName == other.wszName && self.ulFlags == other.ulFlags && self.ulCompressionFlags == other.ulCompressionFlags && self.ulMaxLableLength == other.ulMaxLableLength && self.pwszIllegalLabelCharSet == other.pwszIllegalLabelCharSet
-    }
-}
-impl Eq for VDS_FILE_SYSTEM_TYPE_PROP {}
 impl Default for VDS_FILE_SYSTEM_TYPE_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_HBAPORT_PROP {
     pub id: windows_core::GUID,
     pub wwnNode: VDS_WWN,
@@ -5633,32 +5117,16 @@ pub struct VDS_HBAPORT_PROP {
     pub ulPortSpeed: u32,
     pub ulSupportedPortSpeed: u32,
 }
-impl Copy for VDS_HBAPORT_PROP {}
-impl Clone for VDS_HBAPORT_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_HBAPORT_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_HBAPORT_PROP").field("id", &self.id).field("wwnNode", &self.wwnNode).field("wwnPort", &self.wwnPort).field("type", &self.r#type).field("status", &self.status).field("ulPortSpeed", &self.ulPortSpeed).field("ulSupportedPortSpeed", &self.ulSupportedPortSpeed).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_HBAPORT_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_HBAPORT_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.wwnNode == other.wwnNode && self.wwnPort == other.wwnPort && self.r#type == other.r#type && self.status == other.status && self.ulPortSpeed == other.ulPortSpeed && self.ulSupportedPortSpeed == other.ulSupportedPortSpeed
-    }
-}
-impl Eq for VDS_HBAPORT_PROP {}
 impl Default for VDS_HBAPORT_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_HINTS {
     pub ullHintMask: u64,
     pub ullExpectedMaximumSize: u64,
@@ -5679,68 +5147,16 @@ pub struct VDS_HINTS {
     pub bIsYankable: super::super::Foundation::BOOL,
     pub sRebuildPriority: i16,
 }
-impl Copy for VDS_HINTS {}
-impl Clone for VDS_HINTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_HINTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_HINTS")
-            .field("ullHintMask", &self.ullHintMask)
-            .field("ullExpectedMaximumSize", &self.ullExpectedMaximumSize)
-            .field("ulOptimalReadSize", &self.ulOptimalReadSize)
-            .field("ulOptimalReadAlignment", &self.ulOptimalReadAlignment)
-            .field("ulOptimalWriteSize", &self.ulOptimalWriteSize)
-            .field("ulOptimalWriteAlignment", &self.ulOptimalWriteAlignment)
-            .field("ulMaximumDriveCount", &self.ulMaximumDriveCount)
-            .field("ulStripeSize", &self.ulStripeSize)
-            .field("bFastCrashRecoveryRequired", &self.bFastCrashRecoveryRequired)
-            .field("bMostlyReads", &self.bMostlyReads)
-            .field("bOptimizeForSequentialReads", &self.bOptimizeForSequentialReads)
-            .field("bOptimizeForSequentialWrites", &self.bOptimizeForSequentialWrites)
-            .field("bRemapEnabled", &self.bRemapEnabled)
-            .field("bReadBackVerifyEnabled", &self.bReadBackVerifyEnabled)
-            .field("bWriteThroughCachingEnabled", &self.bWriteThroughCachingEnabled)
-            .field("bHardwareChecksumEnabled", &self.bHardwareChecksumEnabled)
-            .field("bIsYankable", &self.bIsYankable)
-            .field("sRebuildPriority", &self.sRebuildPriority)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for VDS_HINTS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_HINTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ullHintMask == other.ullHintMask
-            && self.ullExpectedMaximumSize == other.ullExpectedMaximumSize
-            && self.ulOptimalReadSize == other.ulOptimalReadSize
-            && self.ulOptimalReadAlignment == other.ulOptimalReadAlignment
-            && self.ulOptimalWriteSize == other.ulOptimalWriteSize
-            && self.ulOptimalWriteAlignment == other.ulOptimalWriteAlignment
-            && self.ulMaximumDriveCount == other.ulMaximumDriveCount
-            && self.ulStripeSize == other.ulStripeSize
-            && self.bFastCrashRecoveryRequired == other.bFastCrashRecoveryRequired
-            && self.bMostlyReads == other.bMostlyReads
-            && self.bOptimizeForSequentialReads == other.bOptimizeForSequentialReads
-            && self.bOptimizeForSequentialWrites == other.bOptimizeForSequentialWrites
-            && self.bRemapEnabled == other.bRemapEnabled
-            && self.bReadBackVerifyEnabled == other.bReadBackVerifyEnabled
-            && self.bWriteThroughCachingEnabled == other.bWriteThroughCachingEnabled
-            && self.bHardwareChecksumEnabled == other.bHardwareChecksumEnabled
-            && self.bIsYankable == other.bIsYankable
-            && self.sRebuildPriority == other.sRebuildPriority
-    }
-}
-impl Eq for VDS_HINTS {}
 impl Default for VDS_HINTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_HINTS2 {
     pub ullHintMask: u64,
     pub ullExpectedMaximumSize: u64,
@@ -5774,126 +5190,32 @@ pub struct VDS_HINTS2 {
     pub bReserved3: super::super::Foundation::BOOL,
     pub sRebuildPriority: i16,
 }
-impl Copy for VDS_HINTS2 {}
-impl Clone for VDS_HINTS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_HINTS2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_HINTS2")
-            .field("ullHintMask", &self.ullHintMask)
-            .field("ullExpectedMaximumSize", &self.ullExpectedMaximumSize)
-            .field("ulOptimalReadSize", &self.ulOptimalReadSize)
-            .field("ulOptimalReadAlignment", &self.ulOptimalReadAlignment)
-            .field("ulOptimalWriteSize", &self.ulOptimalWriteSize)
-            .field("ulOptimalWriteAlignment", &self.ulOptimalWriteAlignment)
-            .field("ulMaximumDriveCount", &self.ulMaximumDriveCount)
-            .field("ulStripeSize", &self.ulStripeSize)
-            .field("ulReserved1", &self.ulReserved1)
-            .field("ulReserved2", &self.ulReserved2)
-            .field("ulReserved3", &self.ulReserved3)
-            .field("bFastCrashRecoveryRequired", &self.bFastCrashRecoveryRequired)
-            .field("bMostlyReads", &self.bMostlyReads)
-            .field("bOptimizeForSequentialReads", &self.bOptimizeForSequentialReads)
-            .field("bOptimizeForSequentialWrites", &self.bOptimizeForSequentialWrites)
-            .field("bRemapEnabled", &self.bRemapEnabled)
-            .field("bReadBackVerifyEnabled", &self.bReadBackVerifyEnabled)
-            .field("bWriteThroughCachingEnabled", &self.bWriteThroughCachingEnabled)
-            .field("bHardwareChecksumEnabled", &self.bHardwareChecksumEnabled)
-            .field("bIsYankable", &self.bIsYankable)
-            .field("bAllocateHotSpare", &self.bAllocateHotSpare)
-            .field("bUseMirroredCache", &self.bUseMirroredCache)
-            .field("bReadCachingEnabled", &self.bReadCachingEnabled)
-            .field("bWriteCachingEnabled", &self.bWriteCachingEnabled)
-            .field("bMediaScanEnabled", &self.bMediaScanEnabled)
-            .field("bConsistencyCheckEnabled", &self.bConsistencyCheckEnabled)
-            .field("BusType", &self.BusType)
-            .field("bReserved1", &self.bReserved1)
-            .field("bReserved2", &self.bReserved2)
-            .field("bReserved3", &self.bReserved3)
-            .field("sRebuildPriority", &self.sRebuildPriority)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for VDS_HINTS2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_HINTS2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ullHintMask == other.ullHintMask
-            && self.ullExpectedMaximumSize == other.ullExpectedMaximumSize
-            && self.ulOptimalReadSize == other.ulOptimalReadSize
-            && self.ulOptimalReadAlignment == other.ulOptimalReadAlignment
-            && self.ulOptimalWriteSize == other.ulOptimalWriteSize
-            && self.ulOptimalWriteAlignment == other.ulOptimalWriteAlignment
-            && self.ulMaximumDriveCount == other.ulMaximumDriveCount
-            && self.ulStripeSize == other.ulStripeSize
-            && self.ulReserved1 == other.ulReserved1
-            && self.ulReserved2 == other.ulReserved2
-            && self.ulReserved3 == other.ulReserved3
-            && self.bFastCrashRecoveryRequired == other.bFastCrashRecoveryRequired
-            && self.bMostlyReads == other.bMostlyReads
-            && self.bOptimizeForSequentialReads == other.bOptimizeForSequentialReads
-            && self.bOptimizeForSequentialWrites == other.bOptimizeForSequentialWrites
-            && self.bRemapEnabled == other.bRemapEnabled
-            && self.bReadBackVerifyEnabled == other.bReadBackVerifyEnabled
-            && self.bWriteThroughCachingEnabled == other.bWriteThroughCachingEnabled
-            && self.bHardwareChecksumEnabled == other.bHardwareChecksumEnabled
-            && self.bIsYankable == other.bIsYankable
-            && self.bAllocateHotSpare == other.bAllocateHotSpare
-            && self.bUseMirroredCache == other.bUseMirroredCache
-            && self.bReadCachingEnabled == other.bReadCachingEnabled
-            && self.bWriteCachingEnabled == other.bWriteCachingEnabled
-            && self.bMediaScanEnabled == other.bMediaScanEnabled
-            && self.bConsistencyCheckEnabled == other.bConsistencyCheckEnabled
-            && self.BusType == other.BusType
-            && self.bReserved1 == other.bReserved1
-            && self.bReserved2 == other.bReserved2
-            && self.bReserved3 == other.bReserved3
-            && self.sRebuildPriority == other.sRebuildPriority
-    }
-}
-impl Eq for VDS_HINTS2 {}
 impl Default for VDS_HINTS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_INPUT_DISK {
     pub diskId: windows_core::GUID,
     pub ullSize: u64,
     pub plexId: windows_core::GUID,
     pub memberIdx: u32,
 }
-impl Copy for VDS_INPUT_DISK {}
-impl Clone for VDS_INPUT_DISK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_INPUT_DISK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_INPUT_DISK").field("diskId", &self.diskId).field("ullSize", &self.ullSize).field("plexId", &self.plexId).field("memberIdx", &self.memberIdx).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_INPUT_DISK {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_INPUT_DISK {
-    fn eq(&self, other: &Self) -> bool {
-        self.diskId == other.diskId && self.ullSize == other.ullSize && self.plexId == other.plexId && self.memberIdx == other.memberIdx
-    }
-}
-impl Eq for VDS_INPUT_DISK {}
 impl Default for VDS_INPUT_DISK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_INTERCONNECT {
     pub m_addressType: VDS_INTERCONNECT_ADDRESS_TYPE,
     pub m_cbPort: u32,
@@ -5901,32 +5223,16 @@ pub struct VDS_INTERCONNECT {
     pub m_cbAddress: u32,
     pub m_pbAddress: *mut u8,
 }
-impl Copy for VDS_INTERCONNECT {}
-impl Clone for VDS_INTERCONNECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_INTERCONNECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_INTERCONNECT").field("m_addressType", &self.m_addressType).field("m_cbPort", &self.m_cbPort).field("m_pbPort", &self.m_pbPort).field("m_cbAddress", &self.m_cbAddress).field("m_pbAddress", &self.m_pbAddress).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_INTERCONNECT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_INTERCONNECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_addressType == other.m_addressType && self.m_cbPort == other.m_cbPort && self.m_pbPort == other.m_pbPort && self.m_cbAddress == other.m_cbAddress && self.m_pbAddress == other.m_pbAddress
-    }
-}
-impl Eq for VDS_INTERCONNECT {}
 impl Default for VDS_INTERCONNECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_IPADDRESS {
     pub r#type: VDS_IPADDRESS_TYPE,
     pub ipv4Address: u32,
@@ -5936,246 +5242,118 @@ pub struct VDS_IPADDRESS {
     pub wszTextAddress: [u16; 257],
     pub ulPort: u32,
 }
-impl Copy for VDS_IPADDRESS {}
-impl Clone for VDS_IPADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_IPADDRESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_IPADDRESS").field("type", &self.r#type).field("ipv4Address", &self.ipv4Address).field("ipv6Address", &self.ipv6Address).field("ulIpv6FlowInfo", &self.ulIpv6FlowInfo).field("ulIpv6ScopeId", &self.ulIpv6ScopeId).field("wszTextAddress", &self.wszTextAddress).field("ulPort", &self.ulPort).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_IPADDRESS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_IPADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.r#type == other.r#type && self.ipv4Address == other.ipv4Address && self.ipv6Address == other.ipv6Address && self.ulIpv6FlowInfo == other.ulIpv6FlowInfo && self.ulIpv6ScopeId == other.ulIpv6ScopeId && self.wszTextAddress == other.wszTextAddress && self.ulPort == other.ulPort
-    }
-}
-impl Eq for VDS_IPADDRESS {}
 impl Default for VDS_IPADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_ISCSI_INITIATOR_ADAPTER_PROP {
     pub id: windows_core::GUID,
     pub pwszName: windows_core::PWSTR,
 }
-impl Copy for VDS_ISCSI_INITIATOR_ADAPTER_PROP {}
-impl Clone for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_ISCSI_INITIATOR_ADAPTER_PROP").field("id", &self.id).field("pwszName", &self.pwszName).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.pwszName == other.pwszName
-    }
-}
-impl Eq for VDS_ISCSI_INITIATOR_ADAPTER_PROP {}
 impl Default for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_ISCSI_INITIATOR_PORTAL_PROP {
     pub id: windows_core::GUID,
     pub address: VDS_IPADDRESS,
     pub ulPortIndex: u32,
 }
-impl Copy for VDS_ISCSI_INITIATOR_PORTAL_PROP {}
-impl Clone for VDS_ISCSI_INITIATOR_PORTAL_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_ISCSI_INITIATOR_PORTAL_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_ISCSI_INITIATOR_PORTAL_PROP").field("id", &self.id).field("address", &self.address).field("ulPortIndex", &self.ulPortIndex).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_ISCSI_INITIATOR_PORTAL_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_ISCSI_INITIATOR_PORTAL_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.address == other.address && self.ulPortIndex == other.ulPortIndex
-    }
-}
-impl Eq for VDS_ISCSI_INITIATOR_PORTAL_PROP {}
 impl Default for VDS_ISCSI_INITIATOR_PORTAL_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_ISCSI_IPSEC_KEY {
     pub pKey: *mut u8,
     pub ulKeySize: u32,
 }
-impl Copy for VDS_ISCSI_IPSEC_KEY {}
-impl Clone for VDS_ISCSI_IPSEC_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_ISCSI_IPSEC_KEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_ISCSI_IPSEC_KEY").field("pKey", &self.pKey).field("ulKeySize", &self.ulKeySize).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_ISCSI_IPSEC_KEY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_ISCSI_IPSEC_KEY {
-    fn eq(&self, other: &Self) -> bool {
-        self.pKey == other.pKey && self.ulKeySize == other.ulKeySize
-    }
-}
-impl Eq for VDS_ISCSI_IPSEC_KEY {}
 impl Default for VDS_ISCSI_IPSEC_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_ISCSI_PORTALGROUP_PROP {
     pub id: windows_core::GUID,
     pub tag: u16,
 }
-impl Copy for VDS_ISCSI_PORTALGROUP_PROP {}
-impl Clone for VDS_ISCSI_PORTALGROUP_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_ISCSI_PORTALGROUP_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_ISCSI_PORTALGROUP_PROP").field("id", &self.id).field("tag", &self.tag).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_ISCSI_PORTALGROUP_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_ISCSI_PORTALGROUP_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.tag == other.tag
-    }
-}
-impl Eq for VDS_ISCSI_PORTALGROUP_PROP {}
 impl Default for VDS_ISCSI_PORTALGROUP_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_ISCSI_PORTAL_PROP {
     pub id: windows_core::GUID,
     pub address: VDS_IPADDRESS,
     pub status: VDS_ISCSI_PORTAL_STATUS,
 }
-impl Copy for VDS_ISCSI_PORTAL_PROP {}
-impl Clone for VDS_ISCSI_PORTAL_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_ISCSI_PORTAL_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_ISCSI_PORTAL_PROP").field("id", &self.id).field("address", &self.address).field("status", &self.status).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_ISCSI_PORTAL_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_ISCSI_PORTAL_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.address == other.address && self.status == other.status
-    }
-}
-impl Eq for VDS_ISCSI_PORTAL_PROP {}
 impl Default for VDS_ISCSI_PORTAL_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_ISCSI_SHARED_SECRET {
     pub pSharedSecret: *mut u8,
     pub ulSharedSecretSize: u32,
 }
-impl Copy for VDS_ISCSI_SHARED_SECRET {}
-impl Clone for VDS_ISCSI_SHARED_SECRET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_ISCSI_SHARED_SECRET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_ISCSI_SHARED_SECRET").field("pSharedSecret", &self.pSharedSecret).field("ulSharedSecretSize", &self.ulSharedSecretSize).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_ISCSI_SHARED_SECRET {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_ISCSI_SHARED_SECRET {
-    fn eq(&self, other: &Self) -> bool {
-        self.pSharedSecret == other.pSharedSecret && self.ulSharedSecretSize == other.ulSharedSecretSize
-    }
-}
-impl Eq for VDS_ISCSI_SHARED_SECRET {}
 impl Default for VDS_ISCSI_SHARED_SECRET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_ISCSI_TARGET_PROP {
     pub id: windows_core::GUID,
     pub pwszIscsiName: windows_core::PWSTR,
     pub pwszFriendlyName: windows_core::PWSTR,
     pub bChapEnabled: super::super::Foundation::BOOL,
 }
-impl Copy for VDS_ISCSI_TARGET_PROP {}
-impl Clone for VDS_ISCSI_TARGET_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_ISCSI_TARGET_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_ISCSI_TARGET_PROP").field("id", &self.id).field("pwszIscsiName", &self.pwszIscsiName).field("pwszFriendlyName", &self.pwszFriendlyName).field("bChapEnabled", &self.bChapEnabled).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_ISCSI_TARGET_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_ISCSI_TARGET_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.pwszIscsiName == other.pwszIscsiName && self.pwszFriendlyName == other.pwszFriendlyName && self.bChapEnabled == other.bChapEnabled
-    }
-}
-impl Eq for VDS_ISCSI_TARGET_PROP {}
 impl Default for VDS_ISCSI_TARGET_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_LUN_INFORMATION {
     pub m_version: u32,
     pub m_DeviceType: u8,
@@ -6191,76 +5369,30 @@ pub struct VDS_LUN_INFORMATION {
     pub m_cInterconnects: u32,
     pub m_rgInterconnects: *mut VDS_INTERCONNECT,
 }
-impl Copy for VDS_LUN_INFORMATION {}
-impl Clone for VDS_LUN_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_LUN_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_LUN_INFORMATION")
-            .field("m_version", &self.m_version)
-            .field("m_DeviceType", &self.m_DeviceType)
-            .field("m_DeviceTypeModifier", &self.m_DeviceTypeModifier)
-            .field("m_bCommandQueueing", &self.m_bCommandQueueing)
-            .field("m_BusType", &self.m_BusType)
-            .field("m_szVendorId", &self.m_szVendorId)
-            .field("m_szProductId", &self.m_szProductId)
-            .field("m_szProductRevision", &self.m_szProductRevision)
-            .field("m_szSerialNumber", &self.m_szSerialNumber)
-            .field("m_diskSignature", &self.m_diskSignature)
-            .field("m_deviceIdDescriptor", &self.m_deviceIdDescriptor)
-            .field("m_cInterconnects", &self.m_cInterconnects)
-            .field("m_rgInterconnects", &self.m_rgInterconnects)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for VDS_LUN_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_LUN_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_version == other.m_version && self.m_DeviceType == other.m_DeviceType && self.m_DeviceTypeModifier == other.m_DeviceTypeModifier && self.m_bCommandQueueing == other.m_bCommandQueueing && self.m_BusType == other.m_BusType && self.m_szVendorId == other.m_szVendorId && self.m_szProductId == other.m_szProductId && self.m_szProductRevision == other.m_szProductRevision && self.m_szSerialNumber == other.m_szSerialNumber && self.m_diskSignature == other.m_diskSignature && self.m_deviceIdDescriptor == other.m_deviceIdDescriptor && self.m_cInterconnects == other.m_cInterconnects && self.m_rgInterconnects == other.m_rgInterconnects
-    }
-}
-impl Eq for VDS_LUN_INFORMATION {}
 impl Default for VDS_LUN_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_LUN_NOTIFICATION {
     pub ulEvent: VDS_NF_LUN,
     pub LunId: windows_core::GUID,
 }
-impl Copy for VDS_LUN_NOTIFICATION {}
-impl Clone for VDS_LUN_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_LUN_NOTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_LUN_NOTIFICATION").field("ulEvent", &self.ulEvent).field("LunId", &self.LunId).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_LUN_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_LUN_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulEvent == other.ulEvent && self.LunId == other.LunId
-    }
-}
-impl Eq for VDS_LUN_NOTIFICATION {}
 impl Default for VDS_LUN_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_LUN_PLEX_PROP {
     pub id: windows_core::GUID,
     pub ullSize: u64,
@@ -6272,32 +5404,16 @@ pub struct VDS_LUN_PLEX_PROP {
     pub ulStripeSize: u32,
     pub sRebuildPriority: i16,
 }
-impl Copy for VDS_LUN_PLEX_PROP {}
-impl Clone for VDS_LUN_PLEX_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_LUN_PLEX_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_LUN_PLEX_PROP").field("id", &self.id).field("ullSize", &self.ullSize).field("type", &self.r#type).field("status", &self.status).field("health", &self.health).field("TransitionState", &self.TransitionState).field("ulFlags", &self.ulFlags).field("ulStripeSize", &self.ulStripeSize).field("sRebuildPriority", &self.sRebuildPriority).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_LUN_PLEX_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_LUN_PLEX_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.ullSize == other.ullSize && self.r#type == other.r#type && self.status == other.status && self.health == other.health && self.TransitionState == other.TransitionState && self.ulFlags == other.ulFlags && self.ulStripeSize == other.ulStripeSize && self.sRebuildPriority == other.sRebuildPriority
-    }
-}
-impl Eq for VDS_LUN_PLEX_PROP {}
 impl Default for VDS_LUN_PLEX_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_LUN_PROP {
     pub id: windows_core::GUID,
     pub ullSize: u64,
@@ -6311,71 +5427,33 @@ pub struct VDS_LUN_PROP {
     pub TransitionState: VDS_TRANSITION_STATE,
     pub sRebuildPriority: i16,
 }
-impl Copy for VDS_LUN_PROP {}
-impl Clone for VDS_LUN_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_LUN_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_LUN_PROP").field("id", &self.id).field("ullSize", &self.ullSize).field("pwszFriendlyName", &self.pwszFriendlyName).field("pwszIdentification", &self.pwszIdentification).field("pwszUnmaskingList", &self.pwszUnmaskingList).field("ulFlags", &self.ulFlags).field("type", &self.r#type).field("status", &self.status).field("health", &self.health).field("TransitionState", &self.TransitionState).field("sRebuildPriority", &self.sRebuildPriority).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_LUN_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_LUN_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.ullSize == other.ullSize && self.pwszFriendlyName == other.pwszFriendlyName && self.pwszIdentification == other.pwszIdentification && self.pwszUnmaskingList == other.pwszUnmaskingList && self.ulFlags == other.ulFlags && self.r#type == other.r#type && self.status == other.status && self.health == other.health && self.TransitionState == other.TransitionState && self.sRebuildPriority == other.sRebuildPriority
-    }
-}
-impl Eq for VDS_LUN_PROP {}
 impl Default for VDS_LUN_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_MOUNT_POINT_NOTIFICATION {
     pub ulEvent: u32,
     pub volumeId: windows_core::GUID,
 }
-impl Copy for VDS_MOUNT_POINT_NOTIFICATION {}
-impl Clone for VDS_MOUNT_POINT_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_MOUNT_POINT_NOTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_MOUNT_POINT_NOTIFICATION").field("ulEvent", &self.ulEvent).field("volumeId", &self.volumeId).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_MOUNT_POINT_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_MOUNT_POINT_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulEvent == other.ulEvent && self.volumeId == other.volumeId
-    }
-}
-impl Eq for VDS_MOUNT_POINT_NOTIFICATION {}
 impl Default for VDS_MOUNT_POINT_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VDS_NOTIFICATION {
     pub objectType: VDS_NOTIFICATION_TARGET_TYPE,
     pub Anonymous: VDS_NOTIFICATION_0,
-}
-impl Copy for VDS_NOTIFICATION {}
-impl Clone for VDS_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VDS_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
@@ -6386,6 +5464,7 @@ impl Default for VDS_NOTIFICATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VDS_NOTIFICATION_0 {
     pub Pack: VDS_PACK_NOTIFICATION,
     pub Disk: VDS_DISK_NOTIFICATION,
@@ -6404,12 +5483,6 @@ pub union VDS_NOTIFICATION_0 {
     pub PortalGroup: VDS_PORTAL_GROUP_NOTIFICATION,
     pub Service: VDS_SERVICE_NOTIFICATION,
 }
-impl Copy for VDS_NOTIFICATION_0 {}
-impl Clone for VDS_NOTIFICATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for VDS_NOTIFICATION_0 {
     type TypeKind = windows_core::CopyType;
 }
@@ -6419,68 +5492,37 @@ impl Default for VDS_NOTIFICATION_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_PACK_NOTIFICATION {
     pub ulEvent: VDS_NF_PACK,
     pub packId: windows_core::GUID,
 }
-impl Copy for VDS_PACK_NOTIFICATION {}
-impl Clone for VDS_PACK_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_PACK_NOTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_PACK_NOTIFICATION").field("ulEvent", &self.ulEvent).field("packId", &self.packId).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_PACK_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_PACK_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulEvent == other.ulEvent && self.packId == other.packId
-    }
-}
-impl Eq for VDS_PACK_NOTIFICATION {}
 impl Default for VDS_PACK_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_PACK_PROP {
     pub id: windows_core::GUID,
     pub pwszName: windows_core::PWSTR,
     pub status: VDS_PACK_STATUS,
     pub ulFlags: u32,
 }
-impl Copy for VDS_PACK_PROP {}
-impl Clone for VDS_PACK_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_PACK_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_PACK_PROP").field("id", &self.id).field("pwszName", &self.pwszName).field("status", &self.status).field("ulFlags", &self.ulFlags).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_PACK_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_PACK_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.pwszName == other.pwszName && self.status == other.status && self.ulFlags == other.ulFlags
-    }
-}
-impl Eq for VDS_PACK_PROP {}
 impl Default for VDS_PACK_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VDS_PARTITION_INFORMATION_EX {
     pub dwPartitionStyle: __VDS_PARTITION_STYLE,
     pub ullStartingOffset: u64,
@@ -6488,12 +5530,6 @@ pub struct VDS_PARTITION_INFORMATION_EX {
     pub dwPartitionNumber: u32,
     pub bRewritePartition: super::super::Foundation::BOOLEAN,
     pub Anonymous: VDS_PARTITION_INFORMATION_EX_0,
-}
-impl Copy for VDS_PARTITION_INFORMATION_EX {}
-impl Clone for VDS_PARTITION_INFORMATION_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VDS_PARTITION_INFORMATION_EX {
     type TypeKind = windows_core::CopyType;
@@ -6504,15 +5540,10 @@ impl Default for VDS_PARTITION_INFORMATION_EX {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VDS_PARTITION_INFORMATION_EX_0 {
     pub Mbr: VDS_PARTITION_INFO_MBR,
     pub Gpt: VDS_PARTITION_INFO_GPT,
-}
-impl Copy for VDS_PARTITION_INFORMATION_EX_0 {}
-impl Clone for VDS_PARTITION_INFORMATION_EX_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VDS_PARTITION_INFORMATION_EX_0 {
     type TypeKind = windows_core::CopyType;
@@ -6523,101 +5554,54 @@ impl Default for VDS_PARTITION_INFORMATION_EX_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_PARTITION_INFO_GPT {
     pub partitionType: windows_core::GUID,
     pub partitionId: windows_core::GUID,
     pub attributes: u64,
     pub name: [u16; 36],
 }
-impl Copy for VDS_PARTITION_INFO_GPT {}
-impl Clone for VDS_PARTITION_INFO_GPT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_PARTITION_INFO_GPT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_PARTITION_INFO_GPT").field("partitionType", &self.partitionType).field("partitionId", &self.partitionId).field("attributes", &self.attributes).field("name", &self.name).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_PARTITION_INFO_GPT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_PARTITION_INFO_GPT {
-    fn eq(&self, other: &Self) -> bool {
-        self.partitionType == other.partitionType && self.partitionId == other.partitionId && self.attributes == other.attributes && self.name == other.name
-    }
-}
-impl Eq for VDS_PARTITION_INFO_GPT {}
 impl Default for VDS_PARTITION_INFO_GPT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_PARTITION_INFO_MBR {
     pub partitionType: u8,
     pub bootIndicator: super::super::Foundation::BOOLEAN,
     pub recognizedPartition: super::super::Foundation::BOOLEAN,
     pub hiddenSectors: u32,
 }
-impl Copy for VDS_PARTITION_INFO_MBR {}
-impl Clone for VDS_PARTITION_INFO_MBR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_PARTITION_INFO_MBR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_PARTITION_INFO_MBR").field("partitionType", &self.partitionType).field("bootIndicator", &self.bootIndicator).field("recognizedPartition", &self.recognizedPartition).field("hiddenSectors", &self.hiddenSectors).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_PARTITION_INFO_MBR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_PARTITION_INFO_MBR {
-    fn eq(&self, other: &Self) -> bool {
-        self.partitionType == other.partitionType && self.bootIndicator == other.bootIndicator && self.recognizedPartition == other.recognizedPartition && self.hiddenSectors == other.hiddenSectors
-    }
-}
-impl Eq for VDS_PARTITION_INFO_MBR {}
 impl Default for VDS_PARTITION_INFO_MBR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_PARTITION_NOTIFICATION {
     pub ulEvent: u32,
     pub diskId: windows_core::GUID,
     pub ullOffset: u64,
 }
-impl Copy for VDS_PARTITION_NOTIFICATION {}
-impl Clone for VDS_PARTITION_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_PARTITION_NOTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_PARTITION_NOTIFICATION").field("ulEvent", &self.ulEvent).field("diskId", &self.diskId).field("ullOffset", &self.ullOffset).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_PARTITION_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_PARTITION_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulEvent == other.ulEvent && self.diskId == other.diskId && self.ullOffset == other.ullOffset
-    }
-}
-impl Eq for VDS_PARTITION_NOTIFICATION {}
 impl Default for VDS_PARTITION_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VDS_PARTITION_PROP {
     pub PartitionStyle: VDS_PARTITION_STYLE,
     pub ulFlags: u32,
@@ -6625,12 +5609,6 @@ pub struct VDS_PARTITION_PROP {
     pub ullOffset: u64,
     pub ullSize: u64,
     pub Anonymous: VDS_PARTITION_PROP_0,
-}
-impl Copy for VDS_PARTITION_PROP {}
-impl Clone for VDS_PARTITION_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VDS_PARTITION_PROP {
     type TypeKind = windows_core::CopyType;
@@ -6641,15 +5619,10 @@ impl Default for VDS_PARTITION_PROP {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VDS_PARTITION_PROP_0 {
     pub Mbr: VDS_PARTITION_INFO_MBR,
     pub Gpt: VDS_PARTITION_INFO_GPT,
-}
-impl Copy for VDS_PARTITION_PROP_0 {}
-impl Clone for VDS_PARTITION_PROP_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VDS_PARTITION_PROP_0 {
     type TypeKind = windows_core::CopyType;
@@ -6660,36 +5633,21 @@ impl Default for VDS_PARTITION_PROP_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_PATH_ID {
     pub ullSourceId: u64,
     pub ullPathId: u64,
 }
-impl Copy for VDS_PATH_ID {}
-impl Clone for VDS_PATH_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_PATH_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_PATH_ID").field("ullSourceId", &self.ullSourceId).field("ullPathId", &self.ullPathId).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_PATH_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_PATH_ID {
-    fn eq(&self, other: &Self) -> bool {
-        self.ullSourceId == other.ullSourceId && self.ullPathId == other.ullPathId
-    }
-}
-impl Eq for VDS_PATH_ID {}
 impl Default for VDS_PATH_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VDS_PATH_INFO {
     pub pathId: VDS_PATH_ID,
     pub r#type: VDS_HWPROVIDER_TYPE,
@@ -6697,12 +5655,6 @@ pub struct VDS_PATH_INFO {
     pub Anonymous1: VDS_PATH_INFO_0,
     pub Anonymous2: VDS_PATH_INFO_1,
     pub Anonymous3: VDS_PATH_INFO_2,
-}
-impl Copy for VDS_PATH_INFO {}
-impl Clone for VDS_PATH_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VDS_PATH_INFO {
     type TypeKind = windows_core::CopyType;
@@ -6713,15 +5665,10 @@ impl Default for VDS_PATH_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VDS_PATH_INFO_0 {
     pub controllerPortId: windows_core::GUID,
     pub targetPortalId: windows_core::GUID,
-}
-impl Copy for VDS_PATH_INFO_0 {}
-impl Clone for VDS_PATH_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VDS_PATH_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -6732,15 +5679,10 @@ impl Default for VDS_PATH_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VDS_PATH_INFO_1 {
     pub hbaPortId: windows_core::GUID,
     pub initiatorAdapterId: windows_core::GUID,
-}
-impl Copy for VDS_PATH_INFO_1 {}
-impl Clone for VDS_PATH_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VDS_PATH_INFO_1 {
     type TypeKind = windows_core::CopyType;
@@ -6751,15 +5693,10 @@ impl Default for VDS_PATH_INFO_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VDS_PATH_INFO_2 {
     pub pHbaPortProp: *mut VDS_HBAPORT_PROP,
     pub pInitiatorPortalIpAddr: *mut VDS_IPADDRESS,
-}
-impl Copy for VDS_PATH_INFO_2 {}
-impl Clone for VDS_PATH_INFO_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VDS_PATH_INFO_2 {
     type TypeKind = windows_core::CopyType;
@@ -6770,37 +5707,22 @@ impl Default for VDS_PATH_INFO_2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_PATH_POLICY {
     pub pathId: VDS_PATH_ID,
     pub bPrimaryPath: super::super::Foundation::BOOL,
     pub ulWeight: u32,
 }
-impl Copy for VDS_PATH_POLICY {}
-impl Clone for VDS_PATH_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_PATH_POLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_PATH_POLICY").field("pathId", &self.pathId).field("bPrimaryPath", &self.bPrimaryPath).field("ulWeight", &self.ulWeight).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_PATH_POLICY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_PATH_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.pathId == other.pathId && self.bPrimaryPath == other.bPrimaryPath && self.ulWeight == other.ulWeight
-    }
-}
-impl Eq for VDS_PATH_POLICY {}
 impl Default for VDS_PATH_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_POOL_ATTRIBUTES {
     pub ullAttributeMask: u64,
     pub raidType: VDS_RAID_TYPE,
@@ -6841,260 +5763,88 @@ pub struct VDS_POOL_ATTRIBUTES {
     pub ullReserved1: u64,
     pub ullReserved2: u64,
 }
-impl Copy for VDS_POOL_ATTRIBUTES {}
-impl Clone for VDS_POOL_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_POOL_ATTRIBUTES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_POOL_ATTRIBUTES")
-            .field("ullAttributeMask", &self.ullAttributeMask)
-            .field("raidType", &self.raidType)
-            .field("busType", &self.busType)
-            .field("pwszIntendedUsage", &self.pwszIntendedUsage)
-            .field("bSpinDown", &self.bSpinDown)
-            .field("bIsThinProvisioned", &self.bIsThinProvisioned)
-            .field("ullProvisionedSpace", &self.ullProvisionedSpace)
-            .field("bNoSinglePointOfFailure", &self.bNoSinglePointOfFailure)
-            .field("ulDataRedundancyMax", &self.ulDataRedundancyMax)
-            .field("ulDataRedundancyMin", &self.ulDataRedundancyMin)
-            .field("ulDataRedundancyDefault", &self.ulDataRedundancyDefault)
-            .field("ulPackageRedundancyMax", &self.ulPackageRedundancyMax)
-            .field("ulPackageRedundancyMin", &self.ulPackageRedundancyMin)
-            .field("ulPackageRedundancyDefault", &self.ulPackageRedundancyDefault)
-            .field("ulStripeSize", &self.ulStripeSize)
-            .field("ulStripeSizeMax", &self.ulStripeSizeMax)
-            .field("ulStripeSizeMin", &self.ulStripeSizeMin)
-            .field("ulDefaultStripeSize", &self.ulDefaultStripeSize)
-            .field("ulNumberOfColumns", &self.ulNumberOfColumns)
-            .field("ulNumberOfColumnsMax", &self.ulNumberOfColumnsMax)
-            .field("ulNumberOfColumnsMin", &self.ulNumberOfColumnsMin)
-            .field("ulDefaultNumberofColumns", &self.ulDefaultNumberofColumns)
-            .field("ulDataAvailabilityHint", &self.ulDataAvailabilityHint)
-            .field("ulAccessRandomnessHint", &self.ulAccessRandomnessHint)
-            .field("ulAccessDirectionHint", &self.ulAccessDirectionHint)
-            .field("ulAccessSizeHint", &self.ulAccessSizeHint)
-            .field("ulAccessLatencyHint", &self.ulAccessLatencyHint)
-            .field("ulAccessBandwidthWeightHint", &self.ulAccessBandwidthWeightHint)
-            .field("ulStorageCostHint", &self.ulStorageCostHint)
-            .field("ulStorageEfficiencyHint", &self.ulStorageEfficiencyHint)
-            .field("ulNumOfCustomAttributes", &self.ulNumOfCustomAttributes)
-            .field("pPoolCustomAttributes", &self.pPoolCustomAttributes)
-            .field("bReserved1", &self.bReserved1)
-            .field("bReserved2", &self.bReserved2)
-            .field("ulReserved1", &self.ulReserved1)
-            .field("ulReserved2", &self.ulReserved2)
-            .field("ullReserved1", &self.ullReserved1)
-            .field("ullReserved2", &self.ullReserved2)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for VDS_POOL_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_POOL_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.ullAttributeMask == other.ullAttributeMask
-            && self.raidType == other.raidType
-            && self.busType == other.busType
-            && self.pwszIntendedUsage == other.pwszIntendedUsage
-            && self.bSpinDown == other.bSpinDown
-            && self.bIsThinProvisioned == other.bIsThinProvisioned
-            && self.ullProvisionedSpace == other.ullProvisionedSpace
-            && self.bNoSinglePointOfFailure == other.bNoSinglePointOfFailure
-            && self.ulDataRedundancyMax == other.ulDataRedundancyMax
-            && self.ulDataRedundancyMin == other.ulDataRedundancyMin
-            && self.ulDataRedundancyDefault == other.ulDataRedundancyDefault
-            && self.ulPackageRedundancyMax == other.ulPackageRedundancyMax
-            && self.ulPackageRedundancyMin == other.ulPackageRedundancyMin
-            && self.ulPackageRedundancyDefault == other.ulPackageRedundancyDefault
-            && self.ulStripeSize == other.ulStripeSize
-            && self.ulStripeSizeMax == other.ulStripeSizeMax
-            && self.ulStripeSizeMin == other.ulStripeSizeMin
-            && self.ulDefaultStripeSize == other.ulDefaultStripeSize
-            && self.ulNumberOfColumns == other.ulNumberOfColumns
-            && self.ulNumberOfColumnsMax == other.ulNumberOfColumnsMax
-            && self.ulNumberOfColumnsMin == other.ulNumberOfColumnsMin
-            && self.ulDefaultNumberofColumns == other.ulDefaultNumberofColumns
-            && self.ulDataAvailabilityHint == other.ulDataAvailabilityHint
-            && self.ulAccessRandomnessHint == other.ulAccessRandomnessHint
-            && self.ulAccessDirectionHint == other.ulAccessDirectionHint
-            && self.ulAccessSizeHint == other.ulAccessSizeHint
-            && self.ulAccessLatencyHint == other.ulAccessLatencyHint
-            && self.ulAccessBandwidthWeightHint == other.ulAccessBandwidthWeightHint
-            && self.ulStorageCostHint == other.ulStorageCostHint
-            && self.ulStorageEfficiencyHint == other.ulStorageEfficiencyHint
-            && self.ulNumOfCustomAttributes == other.ulNumOfCustomAttributes
-            && self.pPoolCustomAttributes == other.pPoolCustomAttributes
-            && self.bReserved1 == other.bReserved1
-            && self.bReserved2 == other.bReserved2
-            && self.ulReserved1 == other.ulReserved1
-            && self.ulReserved2 == other.ulReserved2
-            && self.ullReserved1 == other.ullReserved1
-            && self.ullReserved2 == other.ullReserved2
-    }
-}
-impl Eq for VDS_POOL_ATTRIBUTES {}
 impl Default for VDS_POOL_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_POOL_CUSTOM_ATTRIBUTES {
     pub pwszName: windows_core::PWSTR,
     pub pwszValue: windows_core::PWSTR,
 }
-impl Copy for VDS_POOL_CUSTOM_ATTRIBUTES {}
-impl Clone for VDS_POOL_CUSTOM_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_POOL_CUSTOM_ATTRIBUTES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_POOL_CUSTOM_ATTRIBUTES").field("pwszName", &self.pwszName).field("pwszValue", &self.pwszValue).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_POOL_CUSTOM_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_POOL_CUSTOM_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszName == other.pwszName && self.pwszValue == other.pwszValue
-    }
-}
-impl Eq for VDS_POOL_CUSTOM_ATTRIBUTES {}
 impl Default for VDS_POOL_CUSTOM_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_PORTAL_GROUP_NOTIFICATION {
     pub ulEvent: u32,
     pub portalGroupId: windows_core::GUID,
 }
-impl Copy for VDS_PORTAL_GROUP_NOTIFICATION {}
-impl Clone for VDS_PORTAL_GROUP_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_PORTAL_GROUP_NOTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_PORTAL_GROUP_NOTIFICATION").field("ulEvent", &self.ulEvent).field("portalGroupId", &self.portalGroupId).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_PORTAL_GROUP_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_PORTAL_GROUP_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulEvent == other.ulEvent && self.portalGroupId == other.portalGroupId
-    }
-}
-impl Eq for VDS_PORTAL_GROUP_NOTIFICATION {}
 impl Default for VDS_PORTAL_GROUP_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_PORTAL_NOTIFICATION {
     pub ulEvent: u32,
     pub portalId: windows_core::GUID,
 }
-impl Copy for VDS_PORTAL_NOTIFICATION {}
-impl Clone for VDS_PORTAL_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_PORTAL_NOTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_PORTAL_NOTIFICATION").field("ulEvent", &self.ulEvent).field("portalId", &self.portalId).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_PORTAL_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_PORTAL_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulEvent == other.ulEvent && self.portalId == other.portalId
-    }
-}
-impl Eq for VDS_PORTAL_NOTIFICATION {}
 impl Default for VDS_PORTAL_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_PORT_NOTIFICATION {
     pub ulEvent: VDS_NF_PORT,
     pub portId: windows_core::GUID,
 }
-impl Copy for VDS_PORT_NOTIFICATION {}
-impl Clone for VDS_PORT_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_PORT_NOTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_PORT_NOTIFICATION").field("ulEvent", &self.ulEvent).field("portId", &self.portId).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_PORT_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_PORT_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulEvent == other.ulEvent && self.portId == other.portId
-    }
-}
-impl Eq for VDS_PORT_NOTIFICATION {}
 impl Default for VDS_PORT_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_PORT_PROP {
     pub id: windows_core::GUID,
     pub pwszFriendlyName: windows_core::PWSTR,
     pub pwszIdentification: windows_core::PWSTR,
     pub status: VDS_PORT_STATUS,
 }
-impl Copy for VDS_PORT_PROP {}
-impl Clone for VDS_PORT_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_PORT_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_PORT_PROP").field("id", &self.id).field("pwszFriendlyName", &self.pwszFriendlyName).field("pwszIdentification", &self.pwszIdentification).field("status", &self.status).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_PORT_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_PORT_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.pwszFriendlyName == other.pwszFriendlyName && self.pwszIdentification == other.pwszIdentification && self.status == other.status
-    }
-}
-impl Eq for VDS_PORT_PROP {}
 impl Default for VDS_PORT_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_PROVIDER_PROP {
     pub id: windows_core::GUID,
     pub pwszName: windows_core::PWSTR,
@@ -7105,216 +5855,104 @@ pub struct VDS_PROVIDER_PROP {
     pub ulStripeSizeFlags: u32,
     pub sRebuildPriority: i16,
 }
-impl Copy for VDS_PROVIDER_PROP {}
-impl Clone for VDS_PROVIDER_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_PROVIDER_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_PROVIDER_PROP").field("id", &self.id).field("pwszName", &self.pwszName).field("guidVersionId", &self.guidVersionId).field("pwszVersion", &self.pwszVersion).field("type", &self.r#type).field("ulFlags", &self.ulFlags).field("ulStripeSizeFlags", &self.ulStripeSizeFlags).field("sRebuildPriority", &self.sRebuildPriority).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_PROVIDER_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_PROVIDER_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.pwszName == other.pwszName && self.guidVersionId == other.guidVersionId && self.pwszVersion == other.pwszVersion && self.r#type == other.r#type && self.ulFlags == other.ulFlags && self.ulStripeSizeFlags == other.ulStripeSizeFlags && self.sRebuildPriority == other.sRebuildPriority
-    }
-}
-impl Eq for VDS_PROVIDER_PROP {}
 impl Default for VDS_PROVIDER_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_REPARSE_POINT_PROP {
     pub SourceVolumeId: windows_core::GUID,
     pub pwszPath: windows_core::PWSTR,
 }
-impl Copy for VDS_REPARSE_POINT_PROP {}
-impl Clone for VDS_REPARSE_POINT_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_REPARSE_POINT_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_REPARSE_POINT_PROP").field("SourceVolumeId", &self.SourceVolumeId).field("pwszPath", &self.pwszPath).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_REPARSE_POINT_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_REPARSE_POINT_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.SourceVolumeId == other.SourceVolumeId && self.pwszPath == other.pwszPath
-    }
-}
-impl Eq for VDS_REPARSE_POINT_PROP {}
 impl Default for VDS_REPARSE_POINT_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_SERVICE_NOTIFICATION {
     pub ulEvent: u32,
     pub action: VDS_RECOVER_ACTION,
 }
-impl Copy for VDS_SERVICE_NOTIFICATION {}
-impl Clone for VDS_SERVICE_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_SERVICE_NOTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_SERVICE_NOTIFICATION").field("ulEvent", &self.ulEvent).field("action", &self.action).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_SERVICE_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_SERVICE_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulEvent == other.ulEvent && self.action == other.action
-    }
-}
-impl Eq for VDS_SERVICE_NOTIFICATION {}
 impl Default for VDS_SERVICE_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_SERVICE_PROP {
     pub pwszVersion: windows_core::PWSTR,
     pub ulFlags: u32,
 }
-impl Copy for VDS_SERVICE_PROP {}
-impl Clone for VDS_SERVICE_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_SERVICE_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_SERVICE_PROP").field("pwszVersion", &self.pwszVersion).field("ulFlags", &self.ulFlags).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_SERVICE_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_SERVICE_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszVersion == other.pwszVersion && self.ulFlags == other.ulFlags
-    }
-}
-impl Eq for VDS_SERVICE_PROP {}
 impl Default for VDS_SERVICE_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
     pub m_version: u32,
     pub m_cIdentifiers: u32,
     pub m_rgIdentifiers: *mut VDS_STORAGE_IDENTIFIER,
 }
-impl Copy for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {}
-impl Clone for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_STORAGE_DEVICE_ID_DESCRIPTOR").field("m_version", &self.m_version).field("m_cIdentifiers", &self.m_cIdentifiers).field("m_rgIdentifiers", &self.m_rgIdentifiers).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_version == other.m_version && self.m_cIdentifiers == other.m_cIdentifiers && self.m_rgIdentifiers == other.m_rgIdentifiers
-    }
-}
-impl Eq for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {}
 impl Default for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_STORAGE_IDENTIFIER {
     pub m_CodeSet: VDS_STORAGE_IDENTIFIER_CODE_SET,
     pub m_Type: VDS_STORAGE_IDENTIFIER_TYPE,
     pub m_cbIdentifier: u32,
     pub m_rgbIdentifier: *mut u8,
 }
-impl Copy for VDS_STORAGE_IDENTIFIER {}
-impl Clone for VDS_STORAGE_IDENTIFIER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_STORAGE_IDENTIFIER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_STORAGE_IDENTIFIER").field("m_CodeSet", &self.m_CodeSet).field("m_Type", &self.m_Type).field("m_cbIdentifier", &self.m_cbIdentifier).field("m_rgbIdentifier", &self.m_rgbIdentifier).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_STORAGE_IDENTIFIER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_STORAGE_IDENTIFIER {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_CodeSet == other.m_CodeSet && self.m_Type == other.m_Type && self.m_cbIdentifier == other.m_cbIdentifier && self.m_rgbIdentifier == other.m_rgbIdentifier
-    }
-}
-impl Eq for VDS_STORAGE_IDENTIFIER {}
 impl Default for VDS_STORAGE_IDENTIFIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_STORAGE_POOL_DRIVE_EXTENT {
     pub id: windows_core::GUID,
     pub ullSize: u64,
     pub bUsed: super::super::Foundation::BOOL,
 }
-impl Copy for VDS_STORAGE_POOL_DRIVE_EXTENT {}
-impl Clone for VDS_STORAGE_POOL_DRIVE_EXTENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_STORAGE_POOL_DRIVE_EXTENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_STORAGE_POOL_DRIVE_EXTENT").field("id", &self.id).field("ullSize", &self.ullSize).field("bUsed", &self.bUsed).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_STORAGE_POOL_DRIVE_EXTENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_STORAGE_POOL_DRIVE_EXTENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.ullSize == other.ullSize && self.bUsed == other.bUsed
-    }
-}
-impl Eq for VDS_STORAGE_POOL_DRIVE_EXTENT {}
 impl Default for VDS_STORAGE_POOL_DRIVE_EXTENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_STORAGE_POOL_PROP {
     pub id: windows_core::GUID,
     pub status: VDS_STORAGE_POOL_STATUS,
@@ -7326,62 +5964,30 @@ pub struct VDS_STORAGE_POOL_PROP {
     pub ullTotalManagedSpace: u64,
     pub ullRemainingFreeSpace: u64,
 }
-impl Copy for VDS_STORAGE_POOL_PROP {}
-impl Clone for VDS_STORAGE_POOL_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_STORAGE_POOL_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_STORAGE_POOL_PROP").field("id", &self.id).field("status", &self.status).field("health", &self.health).field("type", &self.r#type).field("pwszName", &self.pwszName).field("pwszDescription", &self.pwszDescription).field("ullTotalConsumedSpace", &self.ullTotalConsumedSpace).field("ullTotalManagedSpace", &self.ullTotalManagedSpace).field("ullRemainingFreeSpace", &self.ullRemainingFreeSpace).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_STORAGE_POOL_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_STORAGE_POOL_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.status == other.status && self.health == other.health && self.r#type == other.r#type && self.pwszName == other.pwszName && self.pwszDescription == other.pwszDescription && self.ullTotalConsumedSpace == other.ullTotalConsumedSpace && self.ullTotalManagedSpace == other.ullTotalManagedSpace && self.ullRemainingFreeSpace == other.ullRemainingFreeSpace
-    }
-}
-impl Eq for VDS_STORAGE_POOL_PROP {}
 impl Default for VDS_STORAGE_POOL_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_SUB_SYSTEM_NOTIFICATION {
     pub ulEvent: u32,
     pub subSystemId: windows_core::GUID,
 }
-impl Copy for VDS_SUB_SYSTEM_NOTIFICATION {}
-impl Clone for VDS_SUB_SYSTEM_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_SUB_SYSTEM_NOTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_SUB_SYSTEM_NOTIFICATION").field("ulEvent", &self.ulEvent).field("subSystemId", &self.subSystemId).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_SUB_SYSTEM_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_SUB_SYSTEM_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulEvent == other.ulEvent && self.subSystemId == other.subSystemId
-    }
-}
-impl Eq for VDS_SUB_SYSTEM_NOTIFICATION {}
 impl Default for VDS_SUB_SYSTEM_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_SUB_SYSTEM_PROP {
     pub id: windows_core::GUID,
     pub pwszFriendlyName: windows_core::PWSTR,
@@ -7395,44 +6001,16 @@ pub struct VDS_SUB_SYSTEM_PROP {
     pub sMaxNumberOfControllers: i16,
     pub sRebuildPriority: i16,
 }
-impl Copy for VDS_SUB_SYSTEM_PROP {}
-impl Clone for VDS_SUB_SYSTEM_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_SUB_SYSTEM_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_SUB_SYSTEM_PROP")
-            .field("id", &self.id)
-            .field("pwszFriendlyName", &self.pwszFriendlyName)
-            .field("pwszIdentification", &self.pwszIdentification)
-            .field("ulFlags", &self.ulFlags)
-            .field("ulStripeSizeFlags", &self.ulStripeSizeFlags)
-            .field("status", &self.status)
-            .field("health", &self.health)
-            .field("sNumberOfInternalBuses", &self.sNumberOfInternalBuses)
-            .field("sMaxNumberOfSlotsEachBus", &self.sMaxNumberOfSlotsEachBus)
-            .field("sMaxNumberOfControllers", &self.sMaxNumberOfControllers)
-            .field("sRebuildPriority", &self.sRebuildPriority)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for VDS_SUB_SYSTEM_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_SUB_SYSTEM_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.pwszFriendlyName == other.pwszFriendlyName && self.pwszIdentification == other.pwszIdentification && self.ulFlags == other.ulFlags && self.ulStripeSizeFlags == other.ulStripeSizeFlags && self.status == other.status && self.health == other.health && self.sNumberOfInternalBuses == other.sNumberOfInternalBuses && self.sMaxNumberOfSlotsEachBus == other.sMaxNumberOfSlotsEachBus && self.sMaxNumberOfControllers == other.sMaxNumberOfControllers && self.sRebuildPriority == other.sRebuildPriority
-    }
-}
-impl Eq for VDS_SUB_SYSTEM_PROP {}
 impl Default for VDS_SUB_SYSTEM_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_SUB_SYSTEM_PROP2 {
     pub id: windows_core::GUID,
     pub pwszFriendlyName: windows_core::PWSTR,
@@ -7448,70 +6026,23 @@ pub struct VDS_SUB_SYSTEM_PROP2 {
     pub sRebuildPriority: i16,
     pub ulNumberOfEnclosures: u32,
 }
-impl Copy for VDS_SUB_SYSTEM_PROP2 {}
-impl Clone for VDS_SUB_SYSTEM_PROP2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_SUB_SYSTEM_PROP2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_SUB_SYSTEM_PROP2")
-            .field("id", &self.id)
-            .field("pwszFriendlyName", &self.pwszFriendlyName)
-            .field("pwszIdentification", &self.pwszIdentification)
-            .field("ulFlags", &self.ulFlags)
-            .field("ulStripeSizeFlags", &self.ulStripeSizeFlags)
-            .field("ulSupportedRaidTypeFlags", &self.ulSupportedRaidTypeFlags)
-            .field("status", &self.status)
-            .field("health", &self.health)
-            .field("sNumberOfInternalBuses", &self.sNumberOfInternalBuses)
-            .field("sMaxNumberOfSlotsEachBus", &self.sMaxNumberOfSlotsEachBus)
-            .field("sMaxNumberOfControllers", &self.sMaxNumberOfControllers)
-            .field("sRebuildPriority", &self.sRebuildPriority)
-            .field("ulNumberOfEnclosures", &self.ulNumberOfEnclosures)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for VDS_SUB_SYSTEM_PROP2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_SUB_SYSTEM_PROP2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.pwszFriendlyName == other.pwszFriendlyName && self.pwszIdentification == other.pwszIdentification && self.ulFlags == other.ulFlags && self.ulStripeSizeFlags == other.ulStripeSizeFlags && self.ulSupportedRaidTypeFlags == other.ulSupportedRaidTypeFlags && self.status == other.status && self.health == other.health && self.sNumberOfInternalBuses == other.sNumberOfInternalBuses && self.sMaxNumberOfSlotsEachBus == other.sMaxNumberOfSlotsEachBus && self.sMaxNumberOfControllers == other.sMaxNumberOfControllers && self.sRebuildPriority == other.sRebuildPriority && self.ulNumberOfEnclosures == other.ulNumberOfEnclosures
-    }
-}
-impl Eq for VDS_SUB_SYSTEM_PROP2 {}
 impl Default for VDS_SUB_SYSTEM_PROP2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_TARGET_NOTIFICATION {
     pub ulEvent: u32,
     pub targetId: windows_core::GUID,
 }
-impl Copy for VDS_TARGET_NOTIFICATION {}
-impl Clone for VDS_TARGET_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_TARGET_NOTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_TARGET_NOTIFICATION").field("ulEvent", &self.ulEvent).field("targetId", &self.targetId).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_TARGET_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_TARGET_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulEvent == other.ulEvent && self.targetId == other.targetId
-    }
-}
-impl Eq for VDS_TARGET_NOTIFICATION {}
 impl Default for VDS_TARGET_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7519,6 +6050,7 @@ impl Default for VDS_TARGET_NOTIFICATION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_Vhd")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_VDISK_PROPERTIES {
     pub Id: windows_core::GUID,
     pub State: VDS_VDISK_STATE,
@@ -7532,31 +6064,9 @@ pub struct VDS_VDISK_PROPERTIES {
     pub pParentPath: windows_core::PWSTR,
 }
 #[cfg(feature = "Win32_Storage_Vhd")]
-impl Copy for VDS_VDISK_PROPERTIES {}
-#[cfg(feature = "Win32_Storage_Vhd")]
-impl Clone for VDS_VDISK_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Storage_Vhd")]
-impl core::fmt::Debug for VDS_VDISK_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_VDISK_PROPERTIES").field("Id", &self.Id).field("State", &self.State).field("VirtualDeviceType", &self.VirtualDeviceType).field("VirtualSize", &self.VirtualSize).field("PhysicalSize", &self.PhysicalSize).field("pPath", &self.pPath).field("pDeviceName", &self.pDeviceName).field("DiskFlag", &self.DiskFlag).field("bIsChild", &self.bIsChild).field("pParentPath", &self.pParentPath).finish()
-    }
-}
-#[cfg(feature = "Win32_Storage_Vhd")]
 impl windows_core::TypeKind for VDS_VDISK_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Storage_Vhd")]
-impl PartialEq for VDS_VDISK_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Id == other.Id && self.State == other.State && self.VirtualDeviceType == other.VirtualDeviceType && self.VirtualSize == other.VirtualSize && self.PhysicalSize == other.PhysicalSize && self.pPath == other.pPath && self.pDeviceName == other.pDeviceName && self.DiskFlag == other.DiskFlag && self.bIsChild == other.bIsChild && self.pParentPath == other.pParentPath
-    }
-}
-#[cfg(feature = "Win32_Storage_Vhd")]
-impl Eq for VDS_VDISK_PROPERTIES {}
 #[cfg(feature = "Win32_Storage_Vhd")]
 impl Default for VDS_VDISK_PROPERTIES {
     fn default() -> Self {
@@ -7564,38 +6074,23 @@ impl Default for VDS_VDISK_PROPERTIES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_VOLUME_NOTIFICATION {
     pub ulEvent: u32,
     pub volumeId: windows_core::GUID,
     pub plexId: windows_core::GUID,
     pub ulPercentCompleted: u32,
 }
-impl Copy for VDS_VOLUME_NOTIFICATION {}
-impl Clone for VDS_VOLUME_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_VOLUME_NOTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_VOLUME_NOTIFICATION").field("ulEvent", &self.ulEvent).field("volumeId", &self.volumeId).field("plexId", &self.plexId).field("ulPercentCompleted", &self.ulPercentCompleted).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_VOLUME_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_VOLUME_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulEvent == other.ulEvent && self.volumeId == other.volumeId && self.plexId == other.plexId && self.ulPercentCompleted == other.ulPercentCompleted
-    }
-}
-impl Eq for VDS_VOLUME_NOTIFICATION {}
 impl Default for VDS_VOLUME_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_VOLUME_PLEX_PROP {
     pub id: windows_core::GUID,
     pub r#type: VDS_VOLUME_PLEX_TYPE,
@@ -7606,32 +6101,16 @@ pub struct VDS_VOLUME_PLEX_PROP {
     pub ulStripeSize: u32,
     pub ulNumberOfMembers: u32,
 }
-impl Copy for VDS_VOLUME_PLEX_PROP {}
-impl Clone for VDS_VOLUME_PLEX_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_VOLUME_PLEX_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_VOLUME_PLEX_PROP").field("id", &self.id).field("type", &self.r#type).field("status", &self.status).field("health", &self.health).field("TransitionState", &self.TransitionState).field("ullSize", &self.ullSize).field("ulStripeSize", &self.ulStripeSize).field("ulNumberOfMembers", &self.ulNumberOfMembers).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_VOLUME_PLEX_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_VOLUME_PLEX_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.r#type == other.r#type && self.status == other.status && self.health == other.health && self.TransitionState == other.TransitionState && self.ullSize == other.ullSize && self.ulStripeSize == other.ulStripeSize && self.ulNumberOfMembers == other.ulNumberOfMembers
-    }
-}
-impl Eq for VDS_VOLUME_PLEX_PROP {}
 impl Default for VDS_VOLUME_PLEX_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_VOLUME_PROP {
     pub id: windows_core::GUID,
     pub r#type: VDS_VOLUME_TYPE,
@@ -7643,32 +6122,16 @@ pub struct VDS_VOLUME_PROP {
     pub RecommendedFileSystemType: VDS_FILE_SYSTEM_TYPE,
     pub pwszName: windows_core::PWSTR,
 }
-impl Copy for VDS_VOLUME_PROP {}
-impl Clone for VDS_VOLUME_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_VOLUME_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_VOLUME_PROP").field("id", &self.id).field("type", &self.r#type).field("status", &self.status).field("health", &self.health).field("TransitionState", &self.TransitionState).field("ullSize", &self.ullSize).field("ulFlags", &self.ulFlags).field("RecommendedFileSystemType", &self.RecommendedFileSystemType).field("pwszName", &self.pwszName).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_VOLUME_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_VOLUME_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.r#type == other.r#type && self.status == other.status && self.health == other.health && self.TransitionState == other.TransitionState && self.ullSize == other.ullSize && self.ulFlags == other.ulFlags && self.RecommendedFileSystemType == other.RecommendedFileSystemType && self.pwszName == other.pwszName
-    }
-}
-impl Eq for VDS_VOLUME_PROP {}
 impl Default for VDS_VOLUME_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_VOLUME_PROP2 {
     pub id: windows_core::GUID,
     pub r#type: VDS_VOLUME_TYPE,
@@ -7682,55 +6145,22 @@ pub struct VDS_VOLUME_PROP2 {
     pub pwszName: windows_core::PWSTR,
     pub pUniqueId: *mut u8,
 }
-impl Copy for VDS_VOLUME_PROP2 {}
-impl Clone for VDS_VOLUME_PROP2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_VOLUME_PROP2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_VOLUME_PROP2").field("id", &self.id).field("type", &self.r#type).field("status", &self.status).field("health", &self.health).field("TransitionState", &self.TransitionState).field("ullSize", &self.ullSize).field("ulFlags", &self.ulFlags).field("RecommendedFileSystemType", &self.RecommendedFileSystemType).field("cbUniqueId", &self.cbUniqueId).field("pwszName", &self.pwszName).field("pUniqueId", &self.pUniqueId).finish()
-    }
-}
 impl windows_core::TypeKind for VDS_VOLUME_PROP2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_VOLUME_PROP2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.r#type == other.r#type && self.status == other.status && self.health == other.health && self.TransitionState == other.TransitionState && self.ullSize == other.ullSize && self.ulFlags == other.ulFlags && self.RecommendedFileSystemType == other.RecommendedFileSystemType && self.cbUniqueId == other.cbUniqueId && self.pwszName == other.pwszName && self.pUniqueId == other.pUniqueId
-    }
-}
-impl Eq for VDS_VOLUME_PROP2 {}
 impl Default for VDS_VOLUME_PROP2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_WWN {
     pub rguchWwn: [u8; 8],
-}
-impl Copy for VDS_WWN {}
-impl Clone for VDS_WWN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDS_WWN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDS_WWN").field("rguchWwn", &self.rguchWwn).finish()
-    }
 }
 impl windows_core::TypeKind for VDS_WWN {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDS_WWN {
-    fn eq(&self, other: &Self) -> bool {
-        self.rguchWwn == other.rguchWwn
-    }
-}
-impl Eq for VDS_WWN {}
 impl Default for VDS_WWN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

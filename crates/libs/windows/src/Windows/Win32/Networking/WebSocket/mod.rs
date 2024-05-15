@@ -198,15 +198,10 @@ impl core::fmt::Debug for WEB_SOCKET_PROPERTY_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WEB_SOCKET_BUFFER {
     pub Data: WEB_SOCKET_BUFFER_1,
     pub CloseStatus: WEB_SOCKET_BUFFER_0,
-}
-impl Copy for WEB_SOCKET_BUFFER {}
-impl Clone for WEB_SOCKET_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WEB_SOCKET_BUFFER {
     type TypeKind = windows_core::CopyType;
@@ -217,61 +212,29 @@ impl Default for WEB_SOCKET_BUFFER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEB_SOCKET_BUFFER_0 {
     pub pbReason: *mut u8,
     pub ulReasonLength: u32,
     pub usStatus: u16,
 }
-impl Copy for WEB_SOCKET_BUFFER_0 {}
-impl Clone for WEB_SOCKET_BUFFER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WEB_SOCKET_BUFFER_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WEB_SOCKET_BUFFER_0").field("pbReason", &self.pbReason).field("ulReasonLength", &self.ulReasonLength).field("usStatus", &self.usStatus).finish()
-    }
-}
 impl windows_core::TypeKind for WEB_SOCKET_BUFFER_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WEB_SOCKET_BUFFER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pbReason == other.pbReason && self.ulReasonLength == other.ulReasonLength && self.usStatus == other.usStatus
-    }
-}
-impl Eq for WEB_SOCKET_BUFFER_0 {}
 impl Default for WEB_SOCKET_BUFFER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEB_SOCKET_BUFFER_1 {
     pub pbBuffer: *mut u8,
     pub ulBufferLength: u32,
 }
-impl Copy for WEB_SOCKET_BUFFER_1 {}
-impl Clone for WEB_SOCKET_BUFFER_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WEB_SOCKET_BUFFER_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WEB_SOCKET_BUFFER_1").field("pbBuffer", &self.pbBuffer).field("ulBufferLength", &self.ulBufferLength).finish()
-    }
-}
 impl windows_core::TypeKind for WEB_SOCKET_BUFFER_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WEB_SOCKET_BUFFER_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pbBuffer == other.pbBuffer && self.ulBufferLength == other.ulBufferLength
-    }
-}
-impl Eq for WEB_SOCKET_BUFFER_1 {}
 impl Default for WEB_SOCKET_BUFFER_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -294,63 +257,31 @@ impl windows_core::TypeKind for WEB_SOCKET_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEB_SOCKET_HTTP_HEADER {
     pub pcName: windows_core::PSTR,
     pub ulNameLength: u32,
     pub pcValue: windows_core::PSTR,
     pub ulValueLength: u32,
 }
-impl Copy for WEB_SOCKET_HTTP_HEADER {}
-impl Clone for WEB_SOCKET_HTTP_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WEB_SOCKET_HTTP_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WEB_SOCKET_HTTP_HEADER").field("pcName", &self.pcName).field("ulNameLength", &self.ulNameLength).field("pcValue", &self.pcValue).field("ulValueLength", &self.ulValueLength).finish()
-    }
-}
 impl windows_core::TypeKind for WEB_SOCKET_HTTP_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WEB_SOCKET_HTTP_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.pcName == other.pcName && self.ulNameLength == other.ulNameLength && self.pcValue == other.pcValue && self.ulValueLength == other.ulValueLength
-    }
-}
-impl Eq for WEB_SOCKET_HTTP_HEADER {}
 impl Default for WEB_SOCKET_HTTP_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEB_SOCKET_PROPERTY {
     pub Type: WEB_SOCKET_PROPERTY_TYPE,
     pub pvValue: *mut core::ffi::c_void,
     pub ulValueSize: u32,
 }
-impl Copy for WEB_SOCKET_PROPERTY {}
-impl Clone for WEB_SOCKET_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WEB_SOCKET_PROPERTY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WEB_SOCKET_PROPERTY").field("Type", &self.Type).field("pvValue", &self.pvValue).field("ulValueSize", &self.ulValueSize).finish()
-    }
-}
 impl windows_core::TypeKind for WEB_SOCKET_PROPERTY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WEB_SOCKET_PROPERTY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.pvValue == other.pvValue && self.ulValueSize == other.ulValueSize
-    }
-}
-impl Eq for WEB_SOCKET_PROPERTY {}
 impl Default for WEB_SOCKET_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

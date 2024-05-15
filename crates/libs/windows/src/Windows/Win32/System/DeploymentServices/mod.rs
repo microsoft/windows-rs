@@ -2413,17 +2413,12 @@ impl core::fmt::Debug for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PXE_ADDRESS {
     pub uFlags: u32,
     pub Anonymous: PXE_ADDRESS_0,
     pub uAddrLen: u32,
     pub uPort: u16,
-}
-impl Copy for PXE_ADDRESS {}
-impl Clone for PXE_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PXE_ADDRESS {
     type TypeKind = windows_core::CopyType;
@@ -2434,15 +2429,10 @@ impl Default for PXE_ADDRESS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PXE_ADDRESS_0 {
     pub bAddress: [u8; 16],
     pub uIpAddress: u32,
-}
-impl Copy for PXE_ADDRESS_0 {}
-impl Clone for PXE_ADDRESS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PXE_ADDRESS_0 {
     type TypeKind = windows_core::CopyType;
@@ -2453,18 +2443,13 @@ impl Default for PXE_ADDRESS_0 {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PXE_DHCPV6_MESSAGE {
     pub MessageType: u8,
     pub TransactionIDByte1: u8,
     pub TransactionIDByte2: u8,
     pub TransactionIDByte3: u8,
     pub Options: [PXE_DHCPV6_OPTION; 1],
-}
-impl Copy for PXE_DHCPV6_MESSAGE {}
-impl Clone for PXE_DHCPV6_MESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PXE_DHCPV6_MESSAGE {
     type TypeKind = windows_core::CopyType;
@@ -2475,15 +2460,10 @@ impl Default for PXE_DHCPV6_MESSAGE {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PXE_DHCPV6_MESSAGE_HEADER {
     pub MessageType: u8,
     pub Message: [u8; 1],
-}
-impl Copy for PXE_DHCPV6_MESSAGE_HEADER {}
-impl Clone for PXE_DHCPV6_MESSAGE_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PXE_DHCPV6_MESSAGE_HEADER {
     type TypeKind = windows_core::CopyType;
@@ -2494,48 +2474,27 @@ impl Default for PXE_DHCPV6_MESSAGE_HEADER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PXE_DHCPV6_NESTED_RELAY_MESSAGE {
     pub pRelayMessage: *mut PXE_DHCPV6_RELAY_MESSAGE,
     pub cbRelayMessage: u32,
     pub pInterfaceIdOption: *mut core::ffi::c_void,
     pub cbInterfaceIdOption: u16,
 }
-impl Copy for PXE_DHCPV6_NESTED_RELAY_MESSAGE {}
-impl Clone for PXE_DHCPV6_NESTED_RELAY_MESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PXE_DHCPV6_NESTED_RELAY_MESSAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PXE_DHCPV6_NESTED_RELAY_MESSAGE").field("pRelayMessage", &self.pRelayMessage).field("cbRelayMessage", &self.cbRelayMessage).field("pInterfaceIdOption", &self.pInterfaceIdOption).field("cbInterfaceIdOption", &self.cbInterfaceIdOption).finish()
-    }
-}
 impl windows_core::TypeKind for PXE_DHCPV6_NESTED_RELAY_MESSAGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PXE_DHCPV6_NESTED_RELAY_MESSAGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pRelayMessage == other.pRelayMessage && self.cbRelayMessage == other.cbRelayMessage && self.pInterfaceIdOption == other.pInterfaceIdOption && self.cbInterfaceIdOption == other.cbInterfaceIdOption
-    }
-}
-impl Eq for PXE_DHCPV6_NESTED_RELAY_MESSAGE {}
 impl Default for PXE_DHCPV6_NESTED_RELAY_MESSAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PXE_DHCPV6_OPTION {
     pub OptionCode: u16,
     pub DataLength: u16,
     pub Data: [u8; 1],
-}
-impl Copy for PXE_DHCPV6_OPTION {}
-impl Clone for PXE_DHCPV6_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PXE_DHCPV6_OPTION {
     type TypeKind = windows_core::CopyType;
@@ -2546,18 +2505,13 @@ impl Default for PXE_DHCPV6_OPTION {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PXE_DHCPV6_RELAY_MESSAGE {
     pub MessageType: u8,
     pub HopCount: u8,
     pub LinkAddress: [u8; 16],
     pub PeerAddress: [u8; 16],
     pub Options: [PXE_DHCPV6_OPTION; 1],
-}
-impl Copy for PXE_DHCPV6_RELAY_MESSAGE {}
-impl Clone for PXE_DHCPV6_RELAY_MESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PXE_DHCPV6_RELAY_MESSAGE {
     type TypeKind = windows_core::CopyType;
@@ -2568,6 +2522,7 @@ impl Default for PXE_DHCPV6_RELAY_MESSAGE {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PXE_DHCP_MESSAGE {
     pub Operation: u8,
     pub HardwareAddressType: u8,
@@ -2586,12 +2541,6 @@ pub struct PXE_DHCP_MESSAGE {
     pub Anonymous: PXE_DHCP_MESSAGE_0,
     pub Option: PXE_DHCP_OPTION,
 }
-impl Copy for PXE_DHCP_MESSAGE {}
-impl Clone for PXE_DHCP_MESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for PXE_DHCP_MESSAGE {
     type TypeKind = windows_core::CopyType;
 }
@@ -2601,15 +2550,10 @@ impl Default for PXE_DHCP_MESSAGE {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union PXE_DHCP_MESSAGE_0 {
     pub bMagicCookie: [u8; 4],
     pub uMagicCookie: u32,
-}
-impl Copy for PXE_DHCP_MESSAGE_0 {}
-impl Clone for PXE_DHCP_MESSAGE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PXE_DHCP_MESSAGE_0 {
     type TypeKind = windows_core::CopyType;
@@ -2620,16 +2564,11 @@ impl Default for PXE_DHCP_MESSAGE_0 {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PXE_DHCP_OPTION {
     pub OptionType: u8,
     pub OptionLength: u8,
     pub OptionValue: [u8; 1],
-}
-impl Copy for PXE_DHCP_OPTION {}
-impl Clone for PXE_DHCP_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PXE_DHCP_OPTION {
     type TypeKind = windows_core::CopyType;
@@ -2640,6 +2579,7 @@ impl Default for PXE_DHCP_OPTION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PXE_PROVIDER {
     pub uSizeOfStruct: u32,
     pub pwszName: windows_core::PWSTR,
@@ -2647,94 +2587,46 @@ pub struct PXE_PROVIDER {
     pub bIsCritical: super::super::Foundation::BOOL,
     pub uIndex: u32,
 }
-impl Copy for PXE_PROVIDER {}
-impl Clone for PXE_PROVIDER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PXE_PROVIDER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PXE_PROVIDER").field("uSizeOfStruct", &self.uSizeOfStruct).field("pwszName", &self.pwszName).field("pwszFilePath", &self.pwszFilePath).field("bIsCritical", &self.bIsCritical).field("uIndex", &self.uIndex).finish()
-    }
-}
 impl windows_core::TypeKind for PXE_PROVIDER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PXE_PROVIDER {
-    fn eq(&self, other: &Self) -> bool {
-        self.uSizeOfStruct == other.uSizeOfStruct && self.pwszName == other.pwszName && self.pwszFilePath == other.pwszFilePath && self.bIsCritical == other.bIsCritical && self.uIndex == other.uIndex
-    }
-}
-impl Eq for PXE_PROVIDER {}
 impl Default for PXE_PROVIDER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSPORTCLIENT_SESSION_INFO {
     pub ulStructureLength: u32,
     pub ullFileSize: u64,
     pub ulBlockSize: u32,
 }
-impl Copy for TRANSPORTCLIENT_SESSION_INFO {}
-impl Clone for TRANSPORTCLIENT_SESSION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TRANSPORTCLIENT_SESSION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRANSPORTCLIENT_SESSION_INFO").field("ulStructureLength", &self.ulStructureLength).field("ullFileSize", &self.ullFileSize).field("ulBlockSize", &self.ulBlockSize).finish()
-    }
-}
 impl windows_core::TypeKind for TRANSPORTCLIENT_SESSION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TRANSPORTCLIENT_SESSION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulStructureLength == other.ulStructureLength && self.ullFileSize == other.ullFileSize && self.ulBlockSize == other.ulBlockSize
-    }
-}
-impl Eq for TRANSPORTCLIENT_SESSION_INFO {}
 impl Default for TRANSPORTCLIENT_SESSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WDS_CLI_CRED {
     pub pwszUserName: windows_core::PCWSTR,
     pub pwszDomain: windows_core::PCWSTR,
     pub pwszPassword: windows_core::PCWSTR,
 }
-impl Copy for WDS_CLI_CRED {}
-impl Clone for WDS_CLI_CRED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WDS_CLI_CRED {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WDS_CLI_CRED").field("pwszUserName", &self.pwszUserName).field("pwszDomain", &self.pwszDomain).field("pwszPassword", &self.pwszPassword).finish()
-    }
-}
 impl windows_core::TypeKind for WDS_CLI_CRED {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WDS_CLI_CRED {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszUserName == other.pwszUserName && self.pwszDomain == other.pwszDomain && self.pwszPassword == other.pwszPassword
-    }
-}
-impl Eq for WDS_CLI_CRED {}
 impl Default for WDS_CLI_CRED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct WDS_TRANSPORTCLIENT_CALLBACKS {
     pub SessionStart: PFN_WdsTransportClientSessionStart,
     pub SessionStartEx: PFN_WdsTransportClientSessionStartEx,
@@ -2742,17 +2634,6 @@ pub struct WDS_TRANSPORTCLIENT_CALLBACKS {
     pub ReceiveMetadata: PFN_WdsTransportClientReceiveMetadata,
     pub SessionComplete: PFN_WdsTransportClientSessionComplete,
     pub SessionNegotiate: PFN_WdsTransportClientSessionNegotiate,
-}
-impl Copy for WDS_TRANSPORTCLIENT_CALLBACKS {}
-impl Clone for WDS_TRANSPORTCLIENT_CALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WDS_TRANSPORTCLIENT_CALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WDS_TRANSPORTCLIENT_CALLBACKS").finish()
-    }
 }
 impl windows_core::TypeKind for WDS_TRANSPORTCLIENT_CALLBACKS {
     type TypeKind = windows_core::CopyType;
@@ -2763,6 +2644,7 @@ impl Default for WDS_TRANSPORTCLIENT_CALLBACKS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WDS_TRANSPORTCLIENT_REQUEST {
     pub ulLength: u32,
     pub ulApiVersion: u32,
@@ -2775,26 +2657,9 @@ pub struct WDS_TRANSPORTCLIENT_REQUEST {
     pub pvProtocolData: *mut core::ffi::c_void,
     pub ulProtocolDataLength: u32,
 }
-impl Copy for WDS_TRANSPORTCLIENT_REQUEST {}
-impl Clone for WDS_TRANSPORTCLIENT_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WDS_TRANSPORTCLIENT_REQUEST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WDS_TRANSPORTCLIENT_REQUEST").field("ulLength", &self.ulLength).field("ulApiVersion", &self.ulApiVersion).field("ulAuthLevel", &self.ulAuthLevel).field("pwszServer", &self.pwszServer).field("pwszNamespace", &self.pwszNamespace).field("pwszObjectName", &self.pwszObjectName).field("ulCacheSize", &self.ulCacheSize).field("ulProtocol", &self.ulProtocol).field("pvProtocolData", &self.pvProtocolData).field("ulProtocolDataLength", &self.ulProtocolDataLength).finish()
-    }
-}
 impl windows_core::TypeKind for WDS_TRANSPORTCLIENT_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WDS_TRANSPORTCLIENT_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulLength == other.ulLength && self.ulApiVersion == other.ulApiVersion && self.ulAuthLevel == other.ulAuthLevel && self.pwszServer == other.pwszServer && self.pwszNamespace == other.pwszNamespace && self.pwszObjectName == other.pwszObjectName && self.ulCacheSize == other.ulCacheSize && self.ulProtocol == other.ulProtocol && self.pvProtocolData == other.pvProtocolData && self.ulProtocolDataLength == other.ulProtocolDataLength
-    }
-}
-impl Eq for WDS_TRANSPORTCLIENT_REQUEST {}
 impl Default for WDS_TRANSPORTCLIENT_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2802,6 +2667,7 @@ impl Default for WDS_TRANSPORTCLIENT_REQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WDS_TRANSPORTPROVIDER_INIT_PARAMS {
     pub ulLength: u32,
     pub ulMcServerVersion: u32,
@@ -2809,31 +2675,9 @@ pub struct WDS_TRANSPORTPROVIDER_INIT_PARAMS {
     pub hProvider: super::super::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_System_Registry")]
-impl Copy for WDS_TRANSPORTPROVIDER_INIT_PARAMS {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for WDS_TRANSPORTPROVIDER_INIT_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl core::fmt::Debug for WDS_TRANSPORTPROVIDER_INIT_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WDS_TRANSPORTPROVIDER_INIT_PARAMS").field("ulLength", &self.ulLength).field("ulMcServerVersion", &self.ulMcServerVersion).field("hRegistryKey", &self.hRegistryKey).field("hProvider", &self.hProvider).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Registry")]
 impl windows_core::TypeKind for WDS_TRANSPORTPROVIDER_INIT_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl PartialEq for WDS_TRANSPORTPROVIDER_INIT_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulLength == other.ulLength && self.ulMcServerVersion == other.ulMcServerVersion && self.hRegistryKey == other.hRegistryKey && self.hProvider == other.hProvider
-    }
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl Eq for WDS_TRANSPORTPROVIDER_INIT_PARAMS {}
 #[cfg(feature = "Win32_System_Registry")]
 impl Default for WDS_TRANSPORTPROVIDER_INIT_PARAMS {
     fn default() -> Self {
@@ -2841,30 +2685,14 @@ impl Default for WDS_TRANSPORTPROVIDER_INIT_PARAMS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WDS_TRANSPORTPROVIDER_SETTINGS {
     pub ulLength: u32,
     pub ulProviderVersion: u32,
 }
-impl Copy for WDS_TRANSPORTPROVIDER_SETTINGS {}
-impl Clone for WDS_TRANSPORTPROVIDER_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WDS_TRANSPORTPROVIDER_SETTINGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WDS_TRANSPORTPROVIDER_SETTINGS").field("ulLength", &self.ulLength).field("ulProviderVersion", &self.ulProviderVersion).finish()
-    }
-}
 impl windows_core::TypeKind for WDS_TRANSPORTPROVIDER_SETTINGS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WDS_TRANSPORTPROVIDER_SETTINGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulLength == other.ulLength && self.ulProviderVersion == other.ulProviderVersion
-    }
-}
-impl Eq for WDS_TRANSPORTPROVIDER_SETTINGS {}
 impl Default for WDS_TRANSPORTPROVIDER_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

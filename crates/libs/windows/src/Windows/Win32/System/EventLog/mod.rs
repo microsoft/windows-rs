@@ -951,6 +951,7 @@ impl core::fmt::Debug for REPORT_EVENT_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EVENTLOGRECORD {
     pub Length: u32,
     pub Reserved: u32,
@@ -969,104 +970,38 @@ pub struct EVENTLOGRECORD {
     pub DataLength: u32,
     pub DataOffset: u32,
 }
-impl Copy for EVENTLOGRECORD {}
-impl Clone for EVENTLOGRECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EVENTLOGRECORD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EVENTLOGRECORD")
-            .field("Length", &self.Length)
-            .field("Reserved", &self.Reserved)
-            .field("RecordNumber", &self.RecordNumber)
-            .field("TimeGenerated", &self.TimeGenerated)
-            .field("TimeWritten", &self.TimeWritten)
-            .field("EventID", &self.EventID)
-            .field("EventType", &self.EventType)
-            .field("NumStrings", &self.NumStrings)
-            .field("EventCategory", &self.EventCategory)
-            .field("ReservedFlags", &self.ReservedFlags)
-            .field("ClosingRecordNumber", &self.ClosingRecordNumber)
-            .field("StringOffset", &self.StringOffset)
-            .field("UserSidLength", &self.UserSidLength)
-            .field("UserSidOffset", &self.UserSidOffset)
-            .field("DataLength", &self.DataLength)
-            .field("DataOffset", &self.DataOffset)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for EVENTLOGRECORD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EVENTLOGRECORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.Reserved == other.Reserved && self.RecordNumber == other.RecordNumber && self.TimeGenerated == other.TimeGenerated && self.TimeWritten == other.TimeWritten && self.EventID == other.EventID && self.EventType == other.EventType && self.NumStrings == other.NumStrings && self.EventCategory == other.EventCategory && self.ReservedFlags == other.ReservedFlags && self.ClosingRecordNumber == other.ClosingRecordNumber && self.StringOffset == other.StringOffset && self.UserSidLength == other.UserSidLength && self.UserSidOffset == other.UserSidOffset && self.DataLength == other.DataLength && self.DataOffset == other.DataOffset
-    }
-}
-impl Eq for EVENTLOGRECORD {}
 impl Default for EVENTLOGRECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EVENTLOG_FULL_INFORMATION {
     pub dwFull: u32,
-}
-impl Copy for EVENTLOG_FULL_INFORMATION {}
-impl Clone for EVENTLOG_FULL_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EVENTLOG_FULL_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EVENTLOG_FULL_INFORMATION").field("dwFull", &self.dwFull).finish()
-    }
 }
 impl windows_core::TypeKind for EVENTLOG_FULL_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EVENTLOG_FULL_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFull == other.dwFull
-    }
-}
-impl Eq for EVENTLOG_FULL_INFORMATION {}
 impl Default for EVENTLOG_FULL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EVENTSFORLOGFILE {
     pub ulSize: u32,
     pub szLogicalLogFile: [u16; 256],
     pub ulNumRecords: u32,
     pub pEventLogRecords: [EVENTLOGRECORD; 1],
 }
-impl Copy for EVENTSFORLOGFILE {}
-impl Clone for EVENTSFORLOGFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EVENTSFORLOGFILE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EVENTSFORLOGFILE").field("ulSize", &self.ulSize).field("szLogicalLogFile", &self.szLogicalLogFile).field("ulNumRecords", &self.ulNumRecords).field("pEventLogRecords", &self.pEventLogRecords).finish()
-    }
-}
 impl windows_core::TypeKind for EVENTSFORLOGFILE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EVENTSFORLOGFILE {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulSize == other.ulSize && self.szLogicalLogFile == other.szLogicalLogFile && self.ulNumRecords == other.ulNumRecords && self.pEventLogRecords == other.pEventLogRecords
-    }
-}
-impl Eq for EVENTSFORLOGFILE {}
 impl Default for EVENTSFORLOGFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1096,6 +1031,7 @@ impl windows_core::TypeKind for EVT_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EVT_RPC_LOGIN {
     pub Server: windows_core::PWSTR,
     pub User: windows_core::PWSTR,
@@ -1103,42 +1039,20 @@ pub struct EVT_RPC_LOGIN {
     pub Password: windows_core::PWSTR,
     pub Flags: u32,
 }
-impl Copy for EVT_RPC_LOGIN {}
-impl Clone for EVT_RPC_LOGIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EVT_RPC_LOGIN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EVT_RPC_LOGIN").field("Server", &self.Server).field("User", &self.User).field("Domain", &self.Domain).field("Password", &self.Password).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for EVT_RPC_LOGIN {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EVT_RPC_LOGIN {
-    fn eq(&self, other: &Self) -> bool {
-        self.Server == other.Server && self.User == other.User && self.Domain == other.Domain && self.Password == other.Password && self.Flags == other.Flags
-    }
-}
-impl Eq for EVT_RPC_LOGIN {}
 impl Default for EVT_RPC_LOGIN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EVT_VARIANT {
     pub Anonymous: EVT_VARIANT_0,
     pub Count: u32,
     pub Type: u32,
-}
-impl Copy for EVT_VARIANT {}
-impl Clone for EVT_VARIANT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for EVT_VARIANT {
     type TypeKind = windows_core::CopyType;
@@ -1149,6 +1063,7 @@ impl Default for EVT_VARIANT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union EVT_VARIANT_0 {
     pub BooleanVal: super::super::Foundation::BOOL,
     pub SByteVal: i8,
@@ -1190,12 +1105,6 @@ pub union EVT_VARIANT_0 {
     pub EvtHandleVal: EVT_HANDLE,
     pub XmlVal: windows_core::PCWSTR,
     pub XmlValArr: *const windows_core::PCWSTR,
-}
-impl Copy for EVT_VARIANT_0 {}
-impl Clone for EVT_VARIANT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for EVT_VARIANT_0 {
     type TypeKind = windows_core::CopyType;

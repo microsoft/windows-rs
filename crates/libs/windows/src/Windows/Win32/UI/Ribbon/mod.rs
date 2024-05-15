@@ -672,15 +672,10 @@ impl core::fmt::Debug for UI_VIEWVERB {
 pub const UIRibbonFramework: windows_core::GUID = windows_core::GUID::from_u128(0x926749fa_2615_4987_8845_c33e65f2b957);
 pub const UIRibbonImageFromBitmapFactory: windows_core::GUID = windows_core::GUID::from_u128(0x0f7434b6_59b6_4250_999e_d168d6ae4293);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UI_EVENTPARAMS {
     pub EventType: UI_EVENTTYPE,
     pub Anonymous: UI_EVENTPARAMS_0,
-}
-impl Copy for UI_EVENTPARAMS {}
-impl Clone for UI_EVENTPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for UI_EVENTPARAMS {
     type TypeKind = windows_core::CopyType;
@@ -691,15 +686,10 @@ impl Default for UI_EVENTPARAMS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union UI_EVENTPARAMS_0 {
     pub Modes: i32,
     pub Params: UI_EVENTPARAMS_COMMAND,
-}
-impl Copy for UI_EVENTPARAMS_0 {}
-impl Clone for UI_EVENTPARAMS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for UI_EVENTPARAMS_0 {
     type TypeKind = windows_core::CopyType;
@@ -710,6 +700,7 @@ impl Default for UI_EVENTPARAMS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UI_EVENTPARAMS_COMMAND {
     pub CommandID: u32,
     pub CommandName: windows_core::PCWSTR,
@@ -718,26 +709,9 @@ pub struct UI_EVENTPARAMS_COMMAND {
     pub SelectionIndex: u32,
     pub Location: UI_EVENTLOCATION,
 }
-impl Copy for UI_EVENTPARAMS_COMMAND {}
-impl Clone for UI_EVENTPARAMS_COMMAND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UI_EVENTPARAMS_COMMAND {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UI_EVENTPARAMS_COMMAND").field("CommandID", &self.CommandID).field("CommandName", &self.CommandName).field("ParentCommandID", &self.ParentCommandID).field("ParentCommandName", &self.ParentCommandName).field("SelectionIndex", &self.SelectionIndex).field("Location", &self.Location).finish()
-    }
-}
 impl windows_core::TypeKind for UI_EVENTPARAMS_COMMAND {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UI_EVENTPARAMS_COMMAND {
-    fn eq(&self, other: &Self) -> bool {
-        self.CommandID == other.CommandID && self.CommandName == other.CommandName && self.ParentCommandID == other.ParentCommandID && self.ParentCommandName == other.ParentCommandName && self.SelectionIndex == other.SelectionIndex && self.Location == other.Location
-    }
-}
-impl Eq for UI_EVENTPARAMS_COMMAND {}
 impl Default for UI_EVENTPARAMS_COMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

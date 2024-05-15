@@ -327,296 +327,165 @@ pub type PROPVAR_COMPARE_UNIT = i32;
 pub type STGFMT = u32;
 pub type STGMOVE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BSTRBLOB {
     pub cbSize: u32,
     pub pData: *mut u8,
 }
-impl Copy for BSTRBLOB {}
-impl Clone for BSTRBLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CABOOL {
     pub cElems: u32,
     pub pElems: *mut super::super::super::Foundation::VARIANT_BOOL,
 }
-impl Copy for CABOOL {}
-impl Clone for CABOOL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CABSTR {
     pub cElems: u32,
     pub pElems: *mut windows_sys::core::BSTR,
 }
-impl Copy for CABSTR {}
-impl Clone for CABSTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CABSTRBLOB {
     pub cElems: u32,
     pub pElems: *mut BSTRBLOB,
 }
-impl Copy for CABSTRBLOB {}
-impl Clone for CABSTRBLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CAC {
     pub cElems: u32,
     pub pElems: windows_sys::core::PSTR,
 }
-impl Copy for CAC {}
-impl Clone for CAC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CACLIPDATA {
     pub cElems: u32,
     pub pElems: *mut CLIPDATA,
 }
-impl Copy for CACLIPDATA {}
-impl Clone for CACLIPDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CACLSID {
     pub cElems: u32,
     pub pElems: *mut windows_sys::core::GUID,
 }
-impl Copy for CACLSID {}
-impl Clone for CACLSID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CACY {
     pub cElems: u32,
     pub pElems: *mut super::CY,
 }
-impl Copy for CACY {}
-impl Clone for CACY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CADATE {
     pub cElems: u32,
     pub pElems: *mut f64,
 }
-impl Copy for CADATE {}
-impl Clone for CADATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CADBL {
     pub cElems: u32,
     pub pElems: *mut f64,
 }
-impl Copy for CADBL {}
-impl Clone for CADBL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CAFILETIME {
     pub cElems: u32,
     pub pElems: *mut super::super::super::Foundation::FILETIME,
 }
-impl Copy for CAFILETIME {}
-impl Clone for CAFILETIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CAFLT {
     pub cElems: u32,
     pub pElems: *mut f32,
 }
-impl Copy for CAFLT {}
-impl Clone for CAFLT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CAH {
     pub cElems: u32,
     pub pElems: *mut i64,
 }
-impl Copy for CAH {}
-impl Clone for CAH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CAI {
     pub cElems: u32,
     pub pElems: *mut i16,
 }
-impl Copy for CAI {}
-impl Clone for CAI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CAL {
     pub cElems: u32,
     pub pElems: *mut i32,
 }
-impl Copy for CAL {}
-impl Clone for CAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CALPSTR {
     pub cElems: u32,
     pub pElems: *mut windows_sys::core::PSTR,
 }
-impl Copy for CALPSTR {}
-impl Clone for CALPSTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CALPWSTR {
     pub cElems: u32,
     pub pElems: *mut windows_sys::core::PWSTR,
 }
-impl Copy for CALPWSTR {}
-impl Clone for CALPWSTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy)]
 pub struct CAPROPVARIANT {
     pub cElems: u32,
     pub pElems: *mut PROPVARIANT,
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl Copy for CAPROPVARIANT {}
-#[cfg(feature = "Win32_System_Variant")]
-impl Clone for CAPROPVARIANT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CASCODE {
     pub cElems: u32,
     pub pElems: *mut i32,
 }
-impl Copy for CASCODE {}
-impl Clone for CASCODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CAUB {
     pub cElems: u32,
     pub pElems: *mut u8,
 }
-impl Copy for CAUB {}
-impl Clone for CAUB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CAUH {
     pub cElems: u32,
     pub pElems: *mut u64,
 }
-impl Copy for CAUH {}
-impl Clone for CAUH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CAUI {
     pub cElems: u32,
     pub pElems: *mut u16,
 }
-impl Copy for CAUI {}
-impl Clone for CAUI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CAUL {
     pub cElems: u32,
     pub pElems: *mut u32,
 }
-impl Copy for CAUL {}
-impl Clone for CAUL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLIPDATA {
     pub cbSize: u32,
     pub ulClipFmt: i32,
     pub pClipData: *mut u8,
 }
-impl Copy for CLIPDATA {}
-impl Clone for CLIPDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OLESTREAM {
     pub lpstbl: *mut OLESTREAMVTBL,
 }
-impl Copy for OLESTREAM {}
-impl Clone for OLESTREAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OLESTREAMVTBL {
     pub Get: isize,
     pub Put: isize,
 }
-impl Copy for OLESTREAMVTBL {}
-impl Clone for OLESTREAMVTBL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy)]
 pub struct PROPBAG2 {
     pub dwType: u32,
     pub vt: super::super::Variant::VARENUM,
@@ -625,65 +494,34 @@ pub struct PROPBAG2 {
     pub pstrName: windows_sys::core::PWSTR,
     pub clsid: windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl Copy for PROPBAG2 {}
-#[cfg(feature = "Win32_System_Variant")]
-impl Clone for PROPBAG2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROPSPEC {
     pub ulKind: PROPSPEC_KIND,
     pub Anonymous: PROPSPEC_0,
 }
-impl Copy for PROPSPEC {}
-impl Clone for PROPSPEC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROPSPEC_0 {
     pub propid: u32,
     pub lpwstr: windows_sys::core::PWSTR,
 }
-impl Copy for PROPSPEC_0 {}
-impl Clone for PROPSPEC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy)]
 pub struct PROPVARIANT {
     pub Anonymous: PROPVARIANT_0,
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl Copy for PROPVARIANT {}
-#[cfg(feature = "Win32_System_Variant")]
-impl Clone for PROPVARIANT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy)]
 pub union PROPVARIANT_0 {
     pub Anonymous: PROPVARIANT_0_0,
     pub decVal: super::super::super::Foundation::DECIMAL,
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl Copy for PROPVARIANT_0 {}
-#[cfg(feature = "Win32_System_Variant")]
-impl Clone for PROPVARIANT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy)]
 pub struct PROPVARIANT_0_0 {
     pub vt: super::super::Variant::VARENUM,
     pub wReserved1: u16,
@@ -691,16 +529,9 @@ pub struct PROPVARIANT_0_0 {
     pub wReserved3: u16,
     pub Anonymous: PROPVARIANT_0_0_0,
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl Copy for PROPVARIANT_0_0 {}
-#[cfg(feature = "Win32_System_Variant")]
-impl Clone for PROPVARIANT_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy)]
 pub union PROPVARIANT_0_0_0 {
     pub cVal: i8,
     pub bVal: u8,
@@ -776,38 +607,21 @@ pub union PROPVARIANT_0_0_0 {
     pub pparray: *mut *mut super::SAFEARRAY,
     pub pvarVal: *mut PROPVARIANT,
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl Copy for PROPVARIANT_0_0_0 {}
-#[cfg(feature = "Win32_System_Variant")]
-impl Clone for PROPVARIANT_0_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RemSNB {
     pub ulCntStr: u32,
     pub ulCntChar: u32,
     pub rgString: [u16; 1],
 }
-impl Copy for RemSNB {}
-impl Clone for RemSNB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERIALIZEDPROPERTYVALUE {
     pub dwType: u32,
     pub rgb: [u8; 1],
 }
-impl Copy for SERIALIZEDPROPERTYVALUE {}
-impl Clone for SERIALIZEDPROPERTYVALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STATPROPSETSTG {
     pub fmtid: windows_sys::core::GUID,
     pub clsid: windows_sys::core::GUID,
@@ -817,48 +631,25 @@ pub struct STATPROPSETSTG {
     pub atime: super::super::super::Foundation::FILETIME,
     pub dwOSVersion: u32,
 }
-impl Copy for STATPROPSETSTG {}
-impl Clone for STATPROPSETSTG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy)]
 pub struct STATPROPSTG {
     pub lpwstrName: windows_sys::core::PWSTR,
     pub propid: u32,
     pub vt: super::super::Variant::VARENUM,
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl Copy for STATPROPSTG {}
-#[cfg(feature = "Win32_System_Variant")]
-impl Clone for STATPROPSTG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STGOPTIONS {
     pub usVersion: u16,
     pub reserved: u16,
     pub ulSectorSize: u32,
     pub pwcsTemplateFile: windows_sys::core::PCWSTR,
 }
-impl Copy for STGOPTIONS {}
-impl Clone for STGOPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VERSIONEDSTREAM {
     pub guidVersion: windows_sys::core::GUID,
     pub pStream: *mut core::ffi::c_void,
-}
-impl Copy for VERSIONEDSTREAM {}
-impl Clone for VERSIONEDSTREAM {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

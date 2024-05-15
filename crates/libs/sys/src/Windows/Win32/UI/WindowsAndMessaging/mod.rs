@@ -2769,18 +2769,14 @@ pub type WINDOW_MESSAGE_FILTER_ACTION = u32;
 pub type WINDOW_STYLE = u32;
 pub type WNDCLASS_STYLES = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACCEL {
     pub fVirt: ACCEL_VIRT_FLAGS,
     pub key: u16,
     pub cmd: u16,
 }
-impl Copy for ACCEL {}
-impl Clone for ACCEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ALTTABINFO {
     pub cbSize: u32,
     pub cItems: i32,
@@ -2792,91 +2788,51 @@ pub struct ALTTABINFO {
     pub cyItem: i32,
     pub ptStart: super::super::Foundation::POINT,
 }
-impl Copy for ALTTABINFO {}
-impl Clone for ALTTABINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ANIMATIONINFO {
     pub cbSize: u32,
     pub iMinAnimate: i32,
 }
-impl Copy for ANIMATIONINFO {}
-impl Clone for ANIMATIONINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AUDIODESCRIPTION {
     pub cbSize: u32,
     pub Enabled: super::super::Foundation::BOOL,
     pub Locale: u32,
 }
-impl Copy for AUDIODESCRIPTION {}
-impl Clone for AUDIODESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CBTACTIVATESTRUCT {
     pub fMouse: super::super::Foundation::BOOL,
     pub hWndActive: super::super::Foundation::HWND,
 }
-impl Copy for CBTACTIVATESTRUCT {}
-impl Clone for CBTACTIVATESTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CBT_CREATEWNDA {
     pub lpcs: *mut CREATESTRUCTA,
     pub hwndInsertAfter: super::super::Foundation::HWND,
 }
-impl Copy for CBT_CREATEWNDA {}
-impl Clone for CBT_CREATEWNDA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CBT_CREATEWNDW {
     pub lpcs: *mut CREATESTRUCTW,
     pub hwndInsertAfter: super::super::Foundation::HWND,
 }
-impl Copy for CBT_CREATEWNDW {}
-impl Clone for CBT_CREATEWNDW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CHANGEFILTERSTRUCT {
     pub cbSize: u32,
     pub ExtStatus: MSGFLTINFO_STATUS,
 }
-impl Copy for CHANGEFILTERSTRUCT {}
-impl Clone for CHANGEFILTERSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLIENTCREATESTRUCT {
     pub hWindowMenu: super::super::Foundation::HANDLE,
     pub idFirstChild: u32,
 }
-impl Copy for CLIENTCREATESTRUCT {}
-impl Clone for CLIENTCREATESTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CREATESTRUCTA {
     pub lpCreateParams: *mut core::ffi::c_void,
     pub hInstance: super::super::Foundation::HINSTANCE,
@@ -2891,13 +2847,8 @@ pub struct CREATESTRUCTA {
     pub lpszClass: windows_sys::core::PCSTR,
     pub dwExStyle: u32,
 }
-impl Copy for CREATESTRUCTA {}
-impl Clone for CREATESTRUCTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CREATESTRUCTW {
     pub lpCreateParams: *mut core::ffi::c_void,
     pub hInstance: super::super::Foundation::HINSTANCE,
@@ -2912,26 +2863,16 @@ pub struct CREATESTRUCTW {
     pub lpszClass: windows_sys::core::PCWSTR,
     pub dwExStyle: u32,
 }
-impl Copy for CREATESTRUCTW {}
-impl Clone for CREATESTRUCTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CURSORINFO {
     pub cbSize: u32,
     pub flags: CURSORINFO_FLAGS,
     pub hCursor: HCURSOR,
     pub ptScreenPos: super::super::Foundation::POINT,
 }
-impl Copy for CURSORINFO {}
-impl Clone for CURSORINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CURSORSHAPE {
     pub xHotSpot: i32,
     pub yHotSpot: i32,
@@ -2941,13 +2882,8 @@ pub struct CURSORSHAPE {
     pub Planes: u8,
     pub BitsPixel: u8,
 }
-impl Copy for CURSORSHAPE {}
-impl Clone for CURSORSHAPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CWPRETSTRUCT {
     pub lResult: super::super::Foundation::LRESULT,
     pub lParam: super::super::Foundation::LPARAM,
@@ -2955,26 +2891,16 @@ pub struct CWPRETSTRUCT {
     pub message: u32,
     pub hwnd: super::super::Foundation::HWND,
 }
-impl Copy for CWPRETSTRUCT {}
-impl Clone for CWPRETSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CWPSTRUCT {
     pub lParam: super::super::Foundation::LPARAM,
     pub wParam: super::super::Foundation::WPARAM,
     pub message: u32,
     pub hwnd: super::super::Foundation::HWND,
 }
-impl Copy for CWPSTRUCT {}
-impl Clone for CWPSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUGHOOKINFO {
     pub idThread: u32,
     pub idThreadInstaller: u32,
@@ -2982,25 +2908,15 @@ pub struct DEBUGHOOKINFO {
     pub wParam: super::super::Foundation::WPARAM,
     pub code: i32,
 }
-impl Copy for DEBUGHOOKINFO {}
-impl Clone for DEBUGHOOKINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVICE_EVENT_BECOMING_READY {
     pub Version: u32,
     pub Reason: u32,
     pub Estimated100msToReady: u32,
 }
-impl Copy for DEVICE_EVENT_BECOMING_READY {}
-impl Clone for DEVICE_EVENT_BECOMING_READY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVICE_EVENT_EXTERNAL_REQUEST {
     pub Version: u32,
     pub DeviceClass: u32,
@@ -3008,36 +2924,21 @@ pub struct DEVICE_EVENT_EXTERNAL_REQUEST {
     pub Request: u16,
     pub SystemTime: i64,
 }
-impl Copy for DEVICE_EVENT_EXTERNAL_REQUEST {}
-impl Clone for DEVICE_EVENT_EXTERNAL_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVICE_EVENT_GENERIC_DATA {
     pub EventNumber: u32,
 }
-impl Copy for DEVICE_EVENT_GENERIC_DATA {}
-impl Clone for DEVICE_EVENT_GENERIC_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVICE_EVENT_MOUNT {
     pub Version: u32,
     pub Flags: u32,
     pub FileSystemNameLength: u32,
     pub FileSystemNameOffset: u32,
 }
-impl Copy for DEVICE_EVENT_MOUNT {}
-impl Clone for DEVICE_EVENT_MOUNT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVICE_EVENT_RBC_DATA {
     pub EventNumber: u32,
     pub SenseQualifier: u8,
@@ -3046,13 +2947,8 @@ pub struct DEVICE_EVENT_RBC_DATA {
     pub Reserved: u8,
     pub Information: u32,
 }
-impl Copy for DEVICE_EVENT_RBC_DATA {}
-impl Clone for DEVICE_EVENT_RBC_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEV_BROADCAST_DEVICEINTERFACE_A {
     pub dbcc_size: u32,
     pub dbcc_devicetype: u32,
@@ -3060,13 +2956,8 @@ pub struct DEV_BROADCAST_DEVICEINTERFACE_A {
     pub dbcc_classguid: windows_sys::core::GUID,
     pub dbcc_name: [i8; 1],
 }
-impl Copy for DEV_BROADCAST_DEVICEINTERFACE_A {}
-impl Clone for DEV_BROADCAST_DEVICEINTERFACE_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEV_BROADCAST_DEVICEINTERFACE_W {
     pub dbcc_size: u32,
     pub dbcc_devicetype: u32,
@@ -3074,26 +2965,16 @@ pub struct DEV_BROADCAST_DEVICEINTERFACE_W {
     pub dbcc_classguid: windows_sys::core::GUID,
     pub dbcc_name: [u16; 1],
 }
-impl Copy for DEV_BROADCAST_DEVICEINTERFACE_W {}
-impl Clone for DEV_BROADCAST_DEVICEINTERFACE_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEV_BROADCAST_DEVNODE {
     pub dbcd_size: u32,
     pub dbcd_devicetype: u32,
     pub dbcd_reserved: u32,
     pub dbcd_devnode: u32,
 }
-impl Copy for DEV_BROADCAST_DEVNODE {}
-impl Clone for DEV_BROADCAST_DEVNODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEV_BROADCAST_HANDLE {
     pub dbch_size: u32,
     pub dbch_devicetype: u32,
@@ -3104,13 +2985,8 @@ pub struct DEV_BROADCAST_HANDLE {
     pub dbch_nameoffset: i32,
     pub dbch_data: [u8; 1],
 }
-impl Copy for DEV_BROADCAST_HANDLE {}
-impl Clone for DEV_BROADCAST_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEV_BROADCAST_HANDLE32 {
     pub dbch_size: u32,
     pub dbch_devicetype: u32,
@@ -3121,13 +2997,8 @@ pub struct DEV_BROADCAST_HANDLE32 {
     pub dbch_nameoffset: i32,
     pub dbch_data: [u8; 1],
 }
-impl Copy for DEV_BROADCAST_HANDLE32 {}
-impl Clone for DEV_BROADCAST_HANDLE32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEV_BROADCAST_HANDLE64 {
     pub dbch_size: u32,
     pub dbch_devicetype: u32,
@@ -3138,25 +3009,15 @@ pub struct DEV_BROADCAST_HANDLE64 {
     pub dbch_nameoffset: i32,
     pub dbch_data: [u8; 1],
 }
-impl Copy for DEV_BROADCAST_HANDLE64 {}
-impl Clone for DEV_BROADCAST_HANDLE64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEV_BROADCAST_HDR {
     pub dbch_size: u32,
     pub dbch_devicetype: DEV_BROADCAST_HDR_DEVICE_TYPE,
     pub dbch_reserved: u32,
 }
-impl Copy for DEV_BROADCAST_HDR {}
-impl Clone for DEV_BROADCAST_HDR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEV_BROADCAST_NET {
     pub dbcn_size: u32,
     pub dbcn_devicetype: u32,
@@ -3164,13 +3025,8 @@ pub struct DEV_BROADCAST_NET {
     pub dbcn_resource: u32,
     pub dbcn_flags: u32,
 }
-impl Copy for DEV_BROADCAST_NET {}
-impl Clone for DEV_BROADCAST_NET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEV_BROADCAST_OEM {
     pub dbco_size: u32,
     pub dbco_devicetype: u32,
@@ -3178,39 +3034,24 @@ pub struct DEV_BROADCAST_OEM {
     pub dbco_identifier: u32,
     pub dbco_suppfunc: u32,
 }
-impl Copy for DEV_BROADCAST_OEM {}
-impl Clone for DEV_BROADCAST_OEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEV_BROADCAST_PORT_A {
     pub dbcp_size: u32,
     pub dbcp_devicetype: u32,
     pub dbcp_reserved: u32,
     pub dbcp_name: [i8; 1],
 }
-impl Copy for DEV_BROADCAST_PORT_A {}
-impl Clone for DEV_BROADCAST_PORT_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEV_BROADCAST_PORT_W {
     pub dbcp_size: u32,
     pub dbcp_devicetype: u32,
     pub dbcp_reserved: u32,
     pub dbcp_name: [u16; 1],
 }
-impl Copy for DEV_BROADCAST_PORT_W {}
-impl Clone for DEV_BROADCAST_PORT_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEV_BROADCAST_VOLUME {
     pub dbcv_size: u32,
     pub dbcv_devicetype: u32,
@@ -3218,23 +3059,13 @@ pub struct DEV_BROADCAST_VOLUME {
     pub dbcv_unitmask: u32,
     pub dbcv_flags: DEV_BROADCAST_VOLUME_FLAGS,
 }
-impl Copy for DEV_BROADCAST_VOLUME {}
-impl Clone for DEV_BROADCAST_VOLUME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DISK_HEALTH_NOTIFICATION_DATA {
     pub DeviceGuid: windows_sys::core::GUID,
 }
-impl Copy for DISK_HEALTH_NOTIFICATION_DATA {}
-impl Clone for DISK_HEALTH_NOTIFICATION_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct DLGITEMTEMPLATE {
     pub style: u32,
     pub dwExtendedStyle: u32,
@@ -3244,13 +3075,8 @@ pub struct DLGITEMTEMPLATE {
     pub cy: i16,
     pub id: u16,
 }
-impl Copy for DLGITEMTEMPLATE {}
-impl Clone for DLGITEMTEMPLATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct DLGTEMPLATE {
     pub style: u32,
     pub dwExtendedStyle: u32,
@@ -3260,13 +3086,8 @@ pub struct DLGTEMPLATE {
     pub cx: i16,
     pub cy: i16,
 }
-impl Copy for DLGTEMPLATE {}
-impl Clone for DLGTEMPLATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DROPSTRUCT {
     pub hwndSource: super::super::Foundation::HWND,
     pub hwndSink: super::super::Foundation::HWND,
@@ -3275,13 +3096,8 @@ pub struct DROPSTRUCT {
     pub ptDrop: super::super::Foundation::POINT,
     pub dwControlData: u32,
 }
-impl Copy for DROPSTRUCT {}
-impl Clone for DROPSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EVENTMSG {
     pub message: u32,
     pub paramL: u32,
@@ -3289,13 +3105,8 @@ pub struct EVENTMSG {
     pub time: u32,
     pub hwnd: super::super::Foundation::HWND,
 }
-impl Copy for EVENTMSG {}
-impl Clone for EVENTMSG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FLASHWINFO {
     pub cbSize: u32,
     pub hwnd: super::super::Foundation::HWND,
@@ -3303,35 +3114,20 @@ pub struct FLASHWINFO {
     pub uCount: u32,
     pub dwTimeout: u32,
 }
-impl Copy for FLASHWINFO {}
-impl Clone for FLASHWINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GETCLIPBMETADATA {
     pub Version: u32,
     pub IsDelayRendered: super::super::Foundation::BOOL,
     pub IsSynthetic: super::super::Foundation::BOOL,
 }
-impl Copy for GETCLIPBMETADATA {}
-impl Clone for GETCLIPBMETADATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
     pub DiskNumber: u32,
 }
-impl Copy for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {}
-impl Clone for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GUITHREADINFO {
     pub cbSize: u32,
     pub flags: GUITHREADINFO_FLAGS,
@@ -3343,25 +3139,14 @@ pub struct GUITHREADINFO {
     pub hwndCaret: super::super::Foundation::HWND,
     pub rcCaret: super::super::Foundation::RECT,
 }
-impl Copy for GUITHREADINFO {}
-impl Clone for GUITHREADINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type HACCEL = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HARDWAREHOOKSTRUCT {
     pub hwnd: super::super::Foundation::HWND,
     pub message: u32,
     pub wParam: super::super::Foundation::WPARAM,
     pub lParam: super::super::Foundation::LPARAM,
-}
-impl Copy for HARDWAREHOOKSTRUCT {}
-impl Clone for HARDWAREHOOKSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type HCURSOR = isize;
 pub type HDEVNOTIFY = *mut core::ffi::c_void;
@@ -3371,6 +3156,7 @@ pub type HICON = isize;
 pub type HMENU = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct ICONINFO {
     pub fIcon: super::super::Foundation::BOOL,
     pub xHotspot: u32,
@@ -3378,16 +3164,9 @@ pub struct ICONINFO {
     pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
     pub hbmColor: super::super::Graphics::Gdi::HBITMAP,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for ICONINFO {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for ICONINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct ICONINFOEXA {
     pub cbSize: u32,
     pub fIcon: super::super::Foundation::BOOL,
@@ -3399,16 +3178,9 @@ pub struct ICONINFOEXA {
     pub szModName: [i8; 260],
     pub szResName: [i8; 260],
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for ICONINFOEXA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for ICONINFOEXA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct ICONINFOEXW {
     pub cbSize: u32,
     pub fIcon: super::super::Foundation::BOOL,
@@ -3420,16 +3192,9 @@ pub struct ICONINFOEXW {
     pub szModName: [u16; 260],
     pub szResName: [u16; 260],
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for ICONINFOEXW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for ICONINFOEXW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct ICONMETRICSA {
     pub cbSize: u32,
     pub iHorzSpacing: i32,
@@ -3437,16 +3202,9 @@ pub struct ICONMETRICSA {
     pub iTitleWrap: i32,
     pub lfFont: super::super::Graphics::Gdi::LOGFONTA,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for ICONMETRICSA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for ICONMETRICSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct ICONMETRICSW {
     pub cbSize: u32,
     pub iHorzSpacing: i32,
@@ -3454,26 +3212,14 @@ pub struct ICONMETRICSW {
     pub iTitleWrap: i32,
     pub lfFont: super::super::Graphics::Gdi::LOGFONTW,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for ICONMETRICSW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for ICONMETRICSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IndexedResourceQualifier {
     pub name: windows_sys::core::PWSTR,
     pub value: windows_sys::core::PWSTR,
 }
-impl Copy for IndexedResourceQualifier {}
-impl Clone for IndexedResourceQualifier {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KBDLLHOOKSTRUCT {
     pub vkCode: u32,
     pub scanCode: u32,
@@ -3481,13 +3227,8 @@ pub struct KBDLLHOOKSTRUCT {
     pub time: u32,
     pub dwExtraInfo: usize,
 }
-impl Copy for KBDLLHOOKSTRUCT {}
-impl Clone for KBDLLHOOKSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MDICREATESTRUCTA {
     pub szClass: windows_sys::core::PCSTR,
     pub szTitle: windows_sys::core::PCSTR,
@@ -3499,13 +3240,8 @@ pub struct MDICREATESTRUCTA {
     pub style: WINDOW_STYLE,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl Copy for MDICREATESTRUCTA {}
-impl Clone for MDICREATESTRUCTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MDICREATESTRUCTW {
     pub szClass: windows_sys::core::PCWSTR,
     pub szTitle: windows_sys::core::PCWSTR,
@@ -3517,25 +3253,15 @@ pub struct MDICREATESTRUCTW {
     pub style: WINDOW_STYLE,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl Copy for MDICREATESTRUCTW {}
-impl Clone for MDICREATESTRUCTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MDINEXTMENU {
     pub hmenuIn: HMENU,
     pub hmenuNext: HMENU,
     pub hwndNext: super::super::Foundation::HWND,
 }
-impl Copy for MDINEXTMENU {}
-impl Clone for MDINEXTMENU {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MENUBARINFO {
     pub cbSize: u32,
     pub rcBar: super::super::Foundation::RECT,
@@ -3543,25 +3269,15 @@ pub struct MENUBARINFO {
     pub hwndMenu: super::super::Foundation::HWND,
     pub _bitfield: i32,
 }
-impl Copy for MENUBARINFO {}
-impl Clone for MENUBARINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MENUEX_TEMPLATE_HEADER {
     pub wVersion: u16,
     pub wOffset: u16,
     pub dwHelpId: u32,
 }
-impl Copy for MENUEX_TEMPLATE_HEADER {}
-impl Clone for MENUEX_TEMPLATE_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MENUEX_TEMPLATE_ITEM {
     pub dwType: u32,
     pub dwState: u32,
@@ -3569,13 +3285,8 @@ pub struct MENUEX_TEMPLATE_ITEM {
     pub wFlags: u16,
     pub szText: [u16; 1],
 }
-impl Copy for MENUEX_TEMPLATE_ITEM {}
-impl Clone for MENUEX_TEMPLATE_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MENUGETOBJECTINFO {
     pub dwFlags: MENUGETOBJECTINFO_FLAGS,
     pub uPos: u32,
@@ -3583,14 +3294,9 @@ pub struct MENUGETOBJECTINFO {
     pub riid: *mut core::ffi::c_void,
     pub pvObj: *mut core::ffi::c_void,
 }
-impl Copy for MENUGETOBJECTINFO {}
-impl Clone for MENUGETOBJECTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct MENUINFO {
     pub cbSize: u32,
     pub fMask: MENUINFO_MASK,
@@ -3600,16 +3306,9 @@ pub struct MENUINFO {
     pub dwContextHelpID: u32,
     pub dwMenuData: usize,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for MENUINFO {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for MENUINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct MENUITEMINFOA {
     pub cbSize: u32,
     pub fMask: MENU_ITEM_MASK,
@@ -3624,16 +3323,9 @@ pub struct MENUITEMINFOA {
     pub cch: u32,
     pub hbmpItem: super::super::Graphics::Gdi::HBITMAP,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for MENUITEMINFOA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for MENUITEMINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct MENUITEMINFOW {
     pub cbSize: u32,
     pub fMask: MENU_ITEM_MASK,
@@ -3648,116 +3340,64 @@ pub struct MENUITEMINFOW {
     pub cch: u32,
     pub hbmpItem: super::super::Graphics::Gdi::HBITMAP,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for MENUITEMINFOW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for MENUITEMINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MENUITEMTEMPLATE {
     pub mtOption: u16,
     pub mtID: u16,
     pub mtString: [u16; 1],
 }
-impl Copy for MENUITEMTEMPLATE {}
-impl Clone for MENUITEMTEMPLATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MENUITEMTEMPLATEHEADER {
     pub versionNumber: u16,
     pub offset: u16,
 }
-impl Copy for MENUITEMTEMPLATEHEADER {}
-impl Clone for MENUITEMTEMPLATEHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MENUTEMPLATEEX {
     pub Anonymous: MENUTEMPLATEEX_0,
 }
-impl Copy for MENUTEMPLATEEX {}
-impl Clone for MENUTEMPLATEEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MENUTEMPLATEEX_0 {
     pub Menu: MENUTEMPLATEEX_0_1,
     pub MenuEx: MENUTEMPLATEEX_0_0,
 }
-impl Copy for MENUTEMPLATEEX_0 {}
-impl Clone for MENUTEMPLATEEX_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MENUTEMPLATEEX_0_0 {
     pub mexHeader: MENUEX_TEMPLATE_HEADER,
     pub mexItem: [MENUEX_TEMPLATE_ITEM; 1],
 }
-impl Copy for MENUTEMPLATEEX_0_0 {}
-impl Clone for MENUTEMPLATEEX_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MENUTEMPLATEEX_0_1 {
     pub mitHeader: MENUITEMTEMPLATEHEADER,
     pub miTemplate: [MENUITEMTEMPLATE; 1],
 }
-impl Copy for MENUTEMPLATEEX_0_1 {}
-impl Clone for MENUTEMPLATEEX_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MESSAGE_RESOURCE_BLOCK {
     pub LowId: u32,
     pub HighId: u32,
     pub OffsetToEntries: u32,
 }
-impl Copy for MESSAGE_RESOURCE_BLOCK {}
-impl Clone for MESSAGE_RESOURCE_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MESSAGE_RESOURCE_DATA {
     pub NumberOfBlocks: u32,
     pub Blocks: [MESSAGE_RESOURCE_BLOCK; 1],
 }
-impl Copy for MESSAGE_RESOURCE_DATA {}
-impl Clone for MESSAGE_RESOURCE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MESSAGE_RESOURCE_ENTRY {
     pub Length: u16,
     pub Flags: u16,
     pub Text: [u8; 1],
 }
-impl Copy for MESSAGE_RESOURCE_ENTRY {}
-impl Clone for MESSAGE_RESOURCE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MINIMIZEDMETRICS {
     pub cbSize: u32,
     pub iWidth: i32,
@@ -3765,13 +3405,8 @@ pub struct MINIMIZEDMETRICS {
     pub iVertGap: i32,
     pub iArrange: MINIMIZEDMETRICS_ARRANGE,
 }
-impl Copy for MINIMIZEDMETRICS {}
-impl Clone for MINIMIZEDMETRICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MINMAXINFO {
     pub ptReserved: super::super::Foundation::POINT,
     pub ptMaxSize: super::super::Foundation::POINT,
@@ -3779,37 +3414,22 @@ pub struct MINMAXINFO {
     pub ptMinTrackSize: super::super::Foundation::POINT,
     pub ptMaxTrackSize: super::super::Foundation::POINT,
 }
-impl Copy for MINMAXINFO {}
-impl Clone for MINMAXINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MOUSEHOOKSTRUCT {
     pub pt: super::super::Foundation::POINT,
     pub hwnd: super::super::Foundation::HWND,
     pub wHitTestCode: u32,
     pub dwExtraInfo: usize,
 }
-impl Copy for MOUSEHOOKSTRUCT {}
-impl Clone for MOUSEHOOKSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MOUSEHOOKSTRUCTEX {
     pub Base: MOUSEHOOKSTRUCT,
     pub mouseData: u32,
 }
-impl Copy for MOUSEHOOKSTRUCTEX {}
-impl Clone for MOUSEHOOKSTRUCTEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MSG {
     pub hwnd: super::super::Foundation::HWND,
     pub message: u32,
@@ -3818,14 +3438,9 @@ pub struct MSG {
     pub time: u32,
     pub pt: super::super::Foundation::POINT,
 }
-impl Copy for MSG {}
-impl Clone for MSG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell")]
+#[derive(Clone, Copy)]
 pub struct MSGBOXPARAMSA {
     pub cbSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -3838,16 +3453,9 @@ pub struct MSGBOXPARAMSA {
     pub lpfnMsgBoxCallback: MSGBOXCALLBACK,
     pub dwLanguageId: u32,
 }
-#[cfg(feature = "Win32_UI_Shell")]
-impl Copy for MSGBOXPARAMSA {}
-#[cfg(feature = "Win32_UI_Shell")]
-impl Clone for MSGBOXPARAMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell")]
+#[derive(Clone, Copy)]
 pub struct MSGBOXPARAMSW {
     pub cbSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -3860,15 +3468,8 @@ pub struct MSGBOXPARAMSW {
     pub lpfnMsgBoxCallback: MSGBOXCALLBACK,
     pub dwLanguageId: u32,
 }
-#[cfg(feature = "Win32_UI_Shell")]
-impl Copy for MSGBOXPARAMSW {}
-#[cfg(feature = "Win32_UI_Shell")]
-impl Clone for MSGBOXPARAMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MSLLHOOKSTRUCT {
     pub pt: super::super::Foundation::POINT,
     pub mouseData: u32,
@@ -3876,47 +3477,27 @@ pub struct MSLLHOOKSTRUCT {
     pub time: u32,
     pub dwExtraInfo: usize,
 }
-impl Copy for MSLLHOOKSTRUCT {}
-impl Clone for MSLLHOOKSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MrmResourceIndexerHandle {
     pub handle: *mut core::ffi::c_void,
 }
-impl Copy for MrmResourceIndexerHandle {}
-impl Clone for MrmResourceIndexerHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MrmResourceIndexerMessage {
     pub severity: MrmResourceIndexerMessageSeverity,
     pub id: u32,
     pub text: windows_sys::core::PCWSTR,
 }
-impl Copy for MrmResourceIndexerMessage {}
-impl Clone for MrmResourceIndexerMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NCCALCSIZE_PARAMS {
     pub rgrc: [super::super::Foundation::RECT; 3],
     pub lppos: *mut WINDOWPOS,
 }
-impl Copy for NCCALCSIZE_PARAMS {}
-impl Clone for NCCALCSIZE_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct NONCLIENTMETRICSA {
     pub cbSize: u32,
     pub iBorderWidth: i32,
@@ -3935,16 +3516,9 @@ pub struct NONCLIENTMETRICSA {
     pub lfMessageFont: super::super::Graphics::Gdi::LOGFONTA,
     pub iPaddedBorderWidth: i32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for NONCLIENTMETRICSA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for NONCLIENTMETRICSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct NONCLIENTMETRICSW {
     pub cbSize: u32,
     pub iBorderWidth: i32,
@@ -3963,15 +3537,8 @@ pub struct NONCLIENTMETRICSW {
     pub lfMessageFont: super::super::Graphics::Gdi::LOGFONTW,
     pub iPaddedBorderWidth: i32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for NONCLIENTMETRICSW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for NONCLIENTMETRICSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCROLLBARINFO {
     pub cbSize: u32,
     pub rcScrollBar: super::super::Foundation::RECT,
@@ -3981,13 +3548,8 @@ pub struct SCROLLBARINFO {
     pub reserved: i32,
     pub rgstate: [u32; 6],
 }
-impl Copy for SCROLLBARINFO {}
-impl Clone for SCROLLBARINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCROLLINFO {
     pub cbSize: u32,
     pub fMask: SCROLLINFO_MASK,
@@ -3997,85 +3559,50 @@ pub struct SCROLLINFO {
     pub nPos: i32,
     pub nTrackPos: i32,
 }
-impl Copy for SCROLLINFO {}
-impl Clone for SCROLLINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SHELLHOOKINFO {
     pub hwnd: super::super::Foundation::HWND,
     pub rc: super::super::Foundation::RECT,
 }
-impl Copy for SHELLHOOKINFO {}
-impl Clone for SHELLHOOKINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STYLESTRUCT {
     pub styleOld: u32,
     pub styleNew: u32,
 }
-impl Copy for STYLESTRUCT {}
-impl Clone for STYLESTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TITLEBARINFO {
     pub cbSize: u32,
     pub rcTitleBar: super::super::Foundation::RECT,
     pub rgstate: [u32; 6],
 }
-impl Copy for TITLEBARINFO {}
-impl Clone for TITLEBARINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TITLEBARINFOEX {
     pub cbSize: u32,
     pub rcTitleBar: super::super::Foundation::RECT,
     pub rgstate: [u32; 6],
     pub rgrect: [super::super::Foundation::RECT; 6],
 }
-impl Copy for TITLEBARINFOEX {}
-impl Clone for TITLEBARINFOEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TOUCHPREDICTIONPARAMETERS {
     pub cbSize: u32,
     pub dwLatency: u32,
     pub dwSampleTime: u32,
     pub bUseHWTimeStamp: u32,
 }
-impl Copy for TOUCHPREDICTIONPARAMETERS {}
-impl Clone for TOUCHPREDICTIONPARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TPMPARAMS {
     pub cbSize: u32,
     pub rcExclude: super::super::Foundation::RECT,
 }
-impl Copy for TPMPARAMS {}
-impl Clone for TPMPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct UPDATELAYEREDWINDOWINFO {
     pub cbSize: u32,
     pub hdcDst: super::super::Graphics::Gdi::HDC,
@@ -4088,15 +3615,8 @@ pub struct UPDATELAYEREDWINDOWINFO {
     pub dwFlags: UPDATE_LAYERED_WINDOW_FLAGS,
     pub prcDirty: *const super::super::Foundation::RECT,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for UPDATELAYEREDWINDOWINFO {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for UPDATELAYEREDWINDOWINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VolLockBroadcast {
     pub vlb_dbh: DEV_BROADCAST_HDR,
     pub vlb_owner: u32,
@@ -4105,13 +3625,8 @@ pub struct VolLockBroadcast {
     pub vlb_drive: u8,
     pub vlb_flags: u8,
 }
-impl Copy for VolLockBroadcast {}
-impl Clone for VolLockBroadcast {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINDOWINFO {
     pub cbSize: u32,
     pub rcWindow: super::super::Foundation::RECT,
@@ -4124,13 +3639,8 @@ pub struct WINDOWINFO {
     pub atomWindowType: u16,
     pub wCreatorVersion: u16,
 }
-impl Copy for WINDOWINFO {}
-impl Clone for WINDOWINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINDOWPLACEMENT {
     pub length: u32,
     pub flags: WINDOWPLACEMENT_FLAGS,
@@ -4139,13 +3649,8 @@ pub struct WINDOWPLACEMENT {
     pub ptMaxPosition: super::super::Foundation::POINT,
     pub rcNormalPosition: super::super::Foundation::RECT,
 }
-impl Copy for WINDOWPLACEMENT {}
-impl Clone for WINDOWPLACEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINDOWPOS {
     pub hwnd: super::super::Foundation::HWND,
     pub hwndInsertAfter: super::super::Foundation::HWND,
@@ -4155,14 +3660,9 @@ pub struct WINDOWPOS {
     pub cy: i32,
     pub flags: SET_WINDOW_POS_FLAGS,
 }
-impl Copy for WINDOWPOS {}
-impl Clone for WINDOWPOS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct WNDCLASSA {
     pub style: WNDCLASS_STYLES,
     pub lpfnWndProc: WNDPROC,
@@ -4175,16 +3675,9 @@ pub struct WNDCLASSA {
     pub lpszMenuName: windows_sys::core::PCSTR,
     pub lpszClassName: windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for WNDCLASSA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for WNDCLASSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct WNDCLASSEXA {
     pub cbSize: u32,
     pub style: WNDCLASS_STYLES,
@@ -4199,16 +3692,9 @@ pub struct WNDCLASSEXA {
     pub lpszClassName: windows_sys::core::PCSTR,
     pub hIconSm: HICON,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for WNDCLASSEXA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for WNDCLASSEXA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct WNDCLASSEXW {
     pub cbSize: u32,
     pub style: WNDCLASS_STYLES,
@@ -4223,16 +3709,9 @@ pub struct WNDCLASSEXW {
     pub lpszClassName: windows_sys::core::PCWSTR,
     pub hIconSm: HICON,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for WNDCLASSEXW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for WNDCLASSEXW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct WNDCLASSW {
     pub style: WNDCLASS_STYLES,
     pub lpfnWndProc: WNDPROC,
@@ -4245,36 +3724,18 @@ pub struct WNDCLASSW {
     pub lpszMenuName: windows_sys::core::PCWSTR,
     pub lpszClassName: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for WNDCLASSW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for WNDCLASSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _DEV_BROADCAST_HEADER {
     pub dbcd_size: u32,
     pub dbcd_devicetype: u32,
     pub dbcd_reserved: u32,
 }
-impl Copy for _DEV_BROADCAST_HEADER {}
-impl Clone for _DEV_BROADCAST_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _DEV_BROADCAST_USERDEFINED {
     pub dbud_dbh: DEV_BROADCAST_HDR,
     pub dbud_szName: [i8; 1],
-}
-impl Copy for _DEV_BROADCAST_USERDEFINED {}
-impl Clone for _DEV_BROADCAST_USERDEFINED {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type DLGPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> isize>;
 pub type HOOKPROC = Option<unsafe extern "system" fn(code: i32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;

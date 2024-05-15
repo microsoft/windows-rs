@@ -66,17 +66,12 @@ impl core::fmt::Debug for RESTOREPOINTINFO_TYPE {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RESTOREPOINTINFOA {
     pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
     pub dwRestorePtType: RESTOREPOINTINFO_TYPE,
     pub llSequenceNumber: i64,
     pub szDescription: [i8; 64],
-}
-impl Copy for RESTOREPOINTINFOA {}
-impl Clone for RESTOREPOINTINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RESTOREPOINTINFOA {
     type TypeKind = windows_core::CopyType;
@@ -87,18 +82,13 @@ impl Default for RESTOREPOINTINFOA {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RESTOREPOINTINFOEX {
     pub ftCreation: super::super::Foundation::FILETIME,
     pub dwEventType: u32,
     pub dwRestorePtType: u32,
     pub dwRPNum: u32,
     pub szDescription: [u16; 256],
-}
-impl Copy for RESTOREPOINTINFOEX {}
-impl Clone for RESTOREPOINTINFOEX {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RESTOREPOINTINFOEX {
     type TypeKind = windows_core::CopyType;
@@ -109,17 +99,12 @@ impl Default for RESTOREPOINTINFOEX {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RESTOREPOINTINFOW {
     pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
     pub dwRestorePtType: RESTOREPOINTINFO_TYPE,
     pub llSequenceNumber: i64,
     pub szDescription: [u16; 256],
-}
-impl Copy for RESTOREPOINTINFOW {}
-impl Clone for RESTOREPOINTINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RESTOREPOINTINFOW {
     type TypeKind = windows_core::CopyType;
@@ -130,15 +115,10 @@ impl Default for RESTOREPOINTINFOW {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct STATEMGRSTATUS {
     pub nStatus: super::super::Foundation::WIN32_ERROR,
     pub llSequenceNumber: i64,
-}
-impl Copy for STATEMGRSTATUS {}
-impl Clone for STATEMGRSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for STATEMGRSTATUS {
     type TypeKind = windows_core::CopyType;

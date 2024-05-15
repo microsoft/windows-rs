@@ -238,39 +238,24 @@ pub const MAX_DEVPROP_TYPEMOD: u32 = 8192u32;
 pub type DEVPROPSTORE = i32;
 pub type DEVPROPTYPE = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVPROPCOMPKEY {
     pub Key: DEVPROPKEY,
     pub Store: DEVPROPSTORE,
     pub LocaleName: windows_sys::core::PCWSTR,
 }
-impl Copy for DEVPROPCOMPKEY {}
-impl Clone for DEVPROPCOMPKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVPROPERTY {
     pub CompKey: DEVPROPCOMPKEY,
     pub Type: DEVPROPTYPE,
     pub BufferSize: u32,
     pub Buffer: *mut core::ffi::c_void,
 }
-impl Copy for DEVPROPERTY {}
-impl Clone for DEVPROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVPROPKEY {
     pub fmtid: windows_sys::core::GUID,
     pub pid: u32,
-}
-impl Copy for DEVPROPKEY {}
-impl Clone for DEVPROPKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type DEVPROP_BOOLEAN = u8;

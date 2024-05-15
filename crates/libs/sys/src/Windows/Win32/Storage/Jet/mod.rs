@@ -1418,30 +1418,21 @@ pub type JET_ERRCAT = i32;
 pub type JET_INDEXCHECKING = i32;
 pub type JET_RELOP = i32;
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct JET_BKINFO {
     pub lgposMark: JET_LGPOS,
     pub Anonymous: JET_BKINFO_0,
     pub genLow: u32,
     pub genHigh: u32,
 }
-impl Copy for JET_BKINFO {}
-impl Clone for JET_BKINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JET_BKINFO_0 {
     pub logtimeMark: JET_LOGTIME,
     pub bklogtimeMark: JET_BKLOGTIME,
 }
-impl Copy for JET_BKINFO_0 {}
-impl Clone for JET_BKINFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_BKLOGTIME {
     pub bSeconds: i8,
     pub bMinutes: i8,
@@ -1452,55 +1443,30 @@ pub struct JET_BKLOGTIME {
     pub Anonymous1: JET_BKLOGTIME_0,
     pub Anonymous2: JET_BKLOGTIME_1,
 }
-impl Copy for JET_BKLOGTIME {}
-impl Clone for JET_BKLOGTIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JET_BKLOGTIME_0 {
     pub bFiller1: i8,
     pub Anonymous: JET_BKLOGTIME_0_0,
 }
-impl Copy for JET_BKLOGTIME_0 {}
-impl Clone for JET_BKLOGTIME_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_BKLOGTIME_0_0 {
     pub _bitfield: u8,
 }
-impl Copy for JET_BKLOGTIME_0_0 {}
-impl Clone for JET_BKLOGTIME_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JET_BKLOGTIME_1 {
     pub bFiller2: i8,
     pub Anonymous: JET_BKLOGTIME_1_0,
 }
-impl Copy for JET_BKLOGTIME_1 {}
-impl Clone for JET_BKLOGTIME_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_BKLOGTIME_1_0 {
     pub _bitfield: u8,
 }
-impl Copy for JET_BKLOGTIME_1_0 {}
-impl Clone for JET_BKLOGTIME_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_COLUMNBASE_A {
     pub cbStruct: u32,
     pub columnid: u32,
@@ -1514,13 +1480,8 @@ pub struct JET_COLUMNBASE_A {
     pub szBaseTableName: [i8; 256],
     pub szBaseColumnName: [i8; 256],
 }
-impl Copy for JET_COLUMNBASE_A {}
-impl Clone for JET_COLUMNBASE_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_COLUMNBASE_W {
     pub cbStruct: u32,
     pub columnid: u32,
@@ -1534,13 +1495,8 @@ pub struct JET_COLUMNBASE_W {
     pub szBaseTableName: [u16; 256],
     pub szBaseColumnName: [u16; 256],
 }
-impl Copy for JET_COLUMNBASE_W {}
-impl Clone for JET_COLUMNBASE_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_COLUMNCREATE_A {
     pub cbStruct: u32,
     pub szColumnName: windows_sys::core::PSTR,
@@ -1553,13 +1509,8 @@ pub struct JET_COLUMNCREATE_A {
     pub columnid: u32,
     pub err: i32,
 }
-impl Copy for JET_COLUMNCREATE_A {}
-impl Clone for JET_COLUMNCREATE_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_COLUMNCREATE_W {
     pub cbStruct: u32,
     pub szColumnName: windows_sys::core::PWSTR,
@@ -1572,13 +1523,8 @@ pub struct JET_COLUMNCREATE_W {
     pub columnid: u32,
     pub err: i32,
 }
-impl Copy for JET_COLUMNCREATE_W {}
-impl Clone for JET_COLUMNCREATE_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_COLUMNDEF {
     pub cbStruct: u32,
     pub columnid: u32,
@@ -1590,14 +1536,9 @@ pub struct JET_COLUMNDEF {
     pub cbMax: u32,
     pub grbit: u32,
 }
-impl Copy for JET_COLUMNDEF {}
-impl Clone for JET_COLUMNDEF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[derive(Clone, Copy)]
 pub struct JET_COLUMNLIST {
     pub cbStruct: u32,
     pub tableid: super::StructuredStorage::JET_TABLEID,
@@ -1617,133 +1558,72 @@ pub struct JET_COLUMNLIST {
     pub columnidBaseColumnName: u32,
     pub columnidDefinitionName: u32,
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Copy for JET_COLUMNLIST {}
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Clone for JET_COLUMNLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct JET_COMMIT_ID {
     pub signLog: JET_SIGNATURE,
     pub reserved: i32,
     pub commitId: i64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for JET_COMMIT_ID {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for JET_COMMIT_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct JET_COMMIT_ID {
     pub signLog: JET_SIGNATURE,
     pub reserved: i32,
     pub commitId: i64,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for JET_COMMIT_ID {}
-#[cfg(target_arch = "x86")]
-impl Clone for JET_COMMIT_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_CONDITIONALCOLUMN_A {
     pub cbStruct: u32,
     pub szColumnName: windows_sys::core::PSTR,
     pub grbit: u32,
 }
-impl Copy for JET_CONDITIONALCOLUMN_A {}
-impl Clone for JET_CONDITIONALCOLUMN_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_CONDITIONALCOLUMN_W {
     pub cbStruct: u32,
     pub szColumnName: windows_sys::core::PWSTR,
     pub grbit: u32,
 }
-impl Copy for JET_CONDITIONALCOLUMN_W {}
-impl Clone for JET_CONDITIONALCOLUMN_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_CONVERT_A {
     pub szOldDll: windows_sys::core::PSTR,
     pub Anonymous: JET_CONVERT_A_0,
 }
-impl Copy for JET_CONVERT_A {}
-impl Clone for JET_CONVERT_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JET_CONVERT_A_0 {
     pub fFlags: u32,
     pub Anonymous: JET_CONVERT_A_0_0,
 }
-impl Copy for JET_CONVERT_A_0 {}
-impl Clone for JET_CONVERT_A_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_CONVERT_A_0_0 {
     pub _bitfield: u32,
 }
-impl Copy for JET_CONVERT_A_0_0 {}
-impl Clone for JET_CONVERT_A_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_CONVERT_W {
     pub szOldDll: windows_sys::core::PWSTR,
     pub Anonymous: JET_CONVERT_W_0,
 }
-impl Copy for JET_CONVERT_W {}
-impl Clone for JET_CONVERT_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JET_CONVERT_W_0 {
     pub fFlags: u32,
     pub Anonymous: JET_CONVERT_W_0_0,
 }
-impl Copy for JET_CONVERT_W_0 {}
-impl Clone for JET_CONVERT_W_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_CONVERT_W_0_0 {
     pub _bitfield: u32,
 }
-impl Copy for JET_CONVERT_W_0_0 {}
-impl Clone for JET_CONVERT_W_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_DBINFOMISC {
     pub ulVersion: u32,
     pub ulUpdate: u32,
@@ -1767,13 +1647,8 @@ pub struct JET_DBINFOMISC {
     pub lSPNumber: i32,
     pub cbPageSize: u32,
 }
-impl Copy for JET_DBINFOMISC {}
-impl Clone for JET_DBINFOMISC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_DBINFOMISC2 {
     pub ulVersion: u32,
     pub ulUpdate: u32,
@@ -1812,13 +1687,8 @@ pub struct JET_DBINFOMISC2 {
     pub logtimeBadChecksum: JET_LOGTIME,
     pub ulBadChecksumOld: u32,
 }
-impl Copy for JET_DBINFOMISC2 {}
-impl Clone for JET_DBINFOMISC2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_DBINFOMISC3 {
     pub ulVersion: u32,
     pub ulUpdate: u32,
@@ -1858,13 +1728,8 @@ pub struct JET_DBINFOMISC3 {
     pub ulBadChecksumOld: u32,
     pub genCommitted: u32,
 }
-impl Copy for JET_DBINFOMISC3 {}
-impl Clone for JET_DBINFOMISC3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_DBINFOMISC4 {
     pub ulVersion: u32,
     pub ulUpdate: u32,
@@ -1906,13 +1771,8 @@ pub struct JET_DBINFOMISC4 {
     pub bkinfoCopyPrev: JET_BKINFO,
     pub bkinfoDiffPrev: JET_BKINFO,
 }
-impl Copy for JET_DBINFOMISC4 {}
-impl Clone for JET_DBINFOMISC4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_DBINFOUPGRADE {
     pub cbStruct: u32,
     pub cbFilesizeLow: u32,
@@ -1922,104 +1782,59 @@ pub struct JET_DBINFOUPGRADE {
     pub csecToUpgrade: u32,
     pub Anonymous: JET_DBINFOUPGRADE_0,
 }
-impl Copy for JET_DBINFOUPGRADE {}
-impl Clone for JET_DBINFOUPGRADE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JET_DBINFOUPGRADE_0 {
     pub ulFlags: u32,
     pub Anonymous: JET_DBINFOUPGRADE_0_0,
 }
-impl Copy for JET_DBINFOUPGRADE_0 {}
-impl Clone for JET_DBINFOUPGRADE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_DBINFOUPGRADE_0_0 {
     pub _bitfield: u32,
 }
-impl Copy for JET_DBINFOUPGRADE_0_0 {}
-impl Clone for JET_DBINFOUPGRADE_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_ENUMCOLUMN {
     pub columnid: u32,
     pub err: i32,
     pub Anonymous: JET_ENUMCOLUMN_0,
 }
-impl Copy for JET_ENUMCOLUMN {}
-impl Clone for JET_ENUMCOLUMN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JET_ENUMCOLUMN_0 {
     pub Anonymous1: JET_ENUMCOLUMN_0_0,
     pub Anonymous2: JET_ENUMCOLUMN_0_1,
 }
-impl Copy for JET_ENUMCOLUMN_0 {}
-impl Clone for JET_ENUMCOLUMN_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_ENUMCOLUMN_0_0 {
     pub cEnumColumnValue: u32,
     pub rgEnumColumnValue: *mut JET_ENUMCOLUMNVALUE,
 }
-impl Copy for JET_ENUMCOLUMN_0_0 {}
-impl Clone for JET_ENUMCOLUMN_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_ENUMCOLUMN_0_1 {
     pub cbData: u32,
     pub pvData: *mut core::ffi::c_void,
 }
-impl Copy for JET_ENUMCOLUMN_0_1 {}
-impl Clone for JET_ENUMCOLUMN_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_ENUMCOLUMNID {
     pub columnid: u32,
     pub ctagSequence: u32,
     pub rgtagSequence: *mut u32,
 }
-impl Copy for JET_ENUMCOLUMNID {}
-impl Clone for JET_ENUMCOLUMNID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_ENUMCOLUMNVALUE {
     pub itagSequence: u32,
     pub err: i32,
     pub cbData: u32,
     pub pvData: *mut core::ffi::c_void,
 }
-impl Copy for JET_ENUMCOLUMNVALUE {}
-impl Clone for JET_ENUMCOLUMNVALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_ERRINFOBASIC_W {
     pub cbStruct: u32,
     pub errValue: i32,
@@ -2028,13 +1843,8 @@ pub struct JET_ERRINFOBASIC_W {
     pub lSourceLine: u32,
     pub rgszSourceFile: [u16; 64],
 }
-impl Copy for JET_ERRINFOBASIC_W {}
-impl Clone for JET_ERRINFOBASIC_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_INDEXCREATE2_A {
     pub cbStruct: u32,
     pub szIndexName: windows_sys::core::PSTR,
@@ -2050,35 +1860,20 @@ pub struct JET_INDEXCREATE2_A {
     pub cbKeyMost: u32,
     pub pSpacehints: *mut JET_SPACEHINTS,
 }
-impl Copy for JET_INDEXCREATE2_A {}
-impl Clone for JET_INDEXCREATE2_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JET_INDEXCREATE2_A_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
-impl Copy for JET_INDEXCREATE2_A_0 {}
-impl Clone for JET_INDEXCREATE2_A_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JET_INDEXCREATE2_A_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
-impl Copy for JET_INDEXCREATE2_A_1 {}
-impl Clone for JET_INDEXCREATE2_A_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_INDEXCREATE2_W {
     pub cbStruct: u32,
     pub szIndexName: windows_sys::core::PWSTR,
@@ -2094,35 +1889,20 @@ pub struct JET_INDEXCREATE2_W {
     pub cbKeyMost: u32,
     pub pSpacehints: *mut JET_SPACEHINTS,
 }
-impl Copy for JET_INDEXCREATE2_W {}
-impl Clone for JET_INDEXCREATE2_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JET_INDEXCREATE2_W_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
-impl Copy for JET_INDEXCREATE2_W_0 {}
-impl Clone for JET_INDEXCREATE2_W_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JET_INDEXCREATE2_W_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
-impl Copy for JET_INDEXCREATE2_W_1 {}
-impl Clone for JET_INDEXCREATE2_W_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_INDEXCREATE3_A {
     pub cbStruct: u32,
     pub szIndexName: windows_sys::core::PSTR,
@@ -2138,24 +1918,14 @@ pub struct JET_INDEXCREATE3_A {
     pub cbKeyMost: u32,
     pub pSpacehints: *mut JET_SPACEHINTS,
 }
-impl Copy for JET_INDEXCREATE3_A {}
-impl Clone for JET_INDEXCREATE3_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JET_INDEXCREATE3_A_0 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
-impl Copy for JET_INDEXCREATE3_A_0 {}
-impl Clone for JET_INDEXCREATE3_A_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_INDEXCREATE3_W {
     pub cbStruct: u32,
     pub szIndexName: windows_sys::core::PWSTR,
@@ -2171,24 +1941,14 @@ pub struct JET_INDEXCREATE3_W {
     pub cbKeyMost: u32,
     pub pSpacehints: *mut JET_SPACEHINTS,
 }
-impl Copy for JET_INDEXCREATE3_W {}
-impl Clone for JET_INDEXCREATE3_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JET_INDEXCREATE3_W_0 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
-impl Copy for JET_INDEXCREATE3_W_0 {}
-impl Clone for JET_INDEXCREATE3_W_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_INDEXCREATE_A {
     pub cbStruct: u32,
     pub szIndexName: windows_sys::core::PSTR,
@@ -2203,35 +1963,20 @@ pub struct JET_INDEXCREATE_A {
     pub err: i32,
     pub cbKeyMost: u32,
 }
-impl Copy for JET_INDEXCREATE_A {}
-impl Clone for JET_INDEXCREATE_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JET_INDEXCREATE_A_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
-impl Copy for JET_INDEXCREATE_A_0 {}
-impl Clone for JET_INDEXCREATE_A_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JET_INDEXCREATE_A_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
-impl Copy for JET_INDEXCREATE_A_1 {}
-impl Clone for JET_INDEXCREATE_A_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_INDEXCREATE_W {
     pub cbStruct: u32,
     pub szIndexName: windows_sys::core::PWSTR,
@@ -2246,64 +1991,35 @@ pub struct JET_INDEXCREATE_W {
     pub err: i32,
     pub cbKeyMost: u32,
 }
-impl Copy for JET_INDEXCREATE_W {}
-impl Clone for JET_INDEXCREATE_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JET_INDEXCREATE_W_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
-impl Copy for JET_INDEXCREATE_W_0 {}
-impl Clone for JET_INDEXCREATE_W_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JET_INDEXCREATE_W_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
-impl Copy for JET_INDEXCREATE_W_1 {}
-impl Clone for JET_INDEXCREATE_W_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct JET_INDEXID {
     pub cbStruct: u32,
     pub rgbIndexId: [u8; 16],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for JET_INDEXID {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for JET_INDEXID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct JET_INDEXID {
     pub cbStruct: u32,
     pub rgbIndexId: [u8; 12],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for JET_INDEXID {}
-#[cfg(target_arch = "x86")]
-impl Clone for JET_INDEXID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[derive(Clone, Copy)]
 pub struct JET_INDEXLIST {
     pub cbStruct: u32,
     pub tableid: super::StructuredStorage::JET_TABLEID,
@@ -2325,30 +2041,16 @@ pub struct JET_INDEXLIST {
     pub columnidcolumnname: u32,
     pub columnidLCMapFlags: u32,
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Copy for JET_INDEXLIST {}
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Clone for JET_INDEXLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[derive(Clone, Copy)]
 pub struct JET_INDEXRANGE {
     pub cbStruct: u32,
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub grbit: u32,
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Copy for JET_INDEXRANGE {}
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Clone for JET_INDEXRANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_INDEX_COLUMN {
     pub columnid: u32,
     pub relop: JET_RELOP,
@@ -2356,27 +2058,17 @@ pub struct JET_INDEX_COLUMN {
     pub cb: u32,
     pub grbit: u32,
 }
-impl Copy for JET_INDEX_COLUMN {}
-impl Clone for JET_INDEX_COLUMN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_INDEX_RANGE {
     pub rgStartColumns: *mut JET_INDEX_COLUMN,
     pub cStartColumns: u32,
     pub rgEndColumns: *mut JET_INDEX_COLUMN,
     pub cEndColumns: u32,
 }
-impl Copy for JET_INDEX_RANGE {}
-impl Clone for JET_INDEX_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[derive(Clone, Copy)]
 pub struct JET_INSTANCE_INFO_A {
     pub hInstanceId: super::StructuredStorage::JET_INSTANCE,
     pub szInstanceName: windows_sys::core::PSTR,
@@ -2385,16 +2077,9 @@ pub struct JET_INSTANCE_INFO_A {
     pub szDatabaseDisplayName: *mut *mut i8,
     pub szDatabaseSLVFileName_Obsolete: *mut *mut i8,
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Copy for JET_INSTANCE_INFO_A {}
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Clone for JET_INSTANCE_INFO_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[derive(Clone, Copy)]
 pub struct JET_INSTANCE_INFO_W {
     pub hInstanceId: super::StructuredStorage::JET_INSTANCE,
     pub szInstanceName: windows_sys::core::PWSTR,
@@ -2403,53 +2088,31 @@ pub struct JET_INSTANCE_INFO_W {
     pub szDatabaseDisplayName: *mut *mut u16,
     pub szDatabaseSLVFileName_Obsolete: *mut *mut u16,
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Copy for JET_INSTANCE_INFO_W {}
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Clone for JET_INSTANCE_INFO_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct JET_LGPOS {
     pub ib: u16,
     pub isec: u16,
     pub lGeneration: i32,
 }
-impl Copy for JET_LGPOS {}
-impl Clone for JET_LGPOS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_LOGINFO_A {
     pub cbSize: u32,
     pub ulGenLow: u32,
     pub ulGenHigh: u32,
     pub szBaseName: [i8; 4],
 }
-impl Copy for JET_LOGINFO_A {}
-impl Clone for JET_LOGINFO_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_LOGINFO_W {
     pub cbSize: u32,
     pub ulGenLow: u32,
     pub ulGenHigh: u32,
     pub szBaseName: [u16; 4],
 }
-impl Copy for JET_LOGINFO_W {}
-impl Clone for JET_LOGINFO_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_LOGTIME {
     pub bSeconds: i8,
     pub bMinutes: i8,
@@ -2460,57 +2123,32 @@ pub struct JET_LOGTIME {
     pub Anonymous1: JET_LOGTIME_0,
     pub Anonymous2: JET_LOGTIME_1,
 }
-impl Copy for JET_LOGTIME {}
-impl Clone for JET_LOGTIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JET_LOGTIME_0 {
     pub bFiller1: i8,
     pub Anonymous: JET_LOGTIME_0_0,
 }
-impl Copy for JET_LOGTIME_0 {}
-impl Clone for JET_LOGTIME_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_LOGTIME_0_0 {
     pub _bitfield: u8,
 }
-impl Copy for JET_LOGTIME_0_0 {}
-impl Clone for JET_LOGTIME_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union JET_LOGTIME_1 {
     pub bFiller2: i8,
     pub Anonymous: JET_LOGTIME_1_0,
 }
-impl Copy for JET_LOGTIME_1 {}
-impl Clone for JET_LOGTIME_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_LOGTIME_1_0 {
     pub _bitfield: u8,
-}
-impl Copy for JET_LOGTIME_1_0 {}
-impl Clone for JET_LOGTIME_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type JET_LS = usize;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct JET_OBJECTINFO {
     pub cbStruct: u32,
     pub objtyp: u32,
@@ -2520,17 +2158,10 @@ pub struct JET_OBJECTINFO {
     pub flags: u32,
     pub cRecord: u32,
     pub cPage: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for JET_OBJECTINFO {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for JET_OBJECTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct JET_OBJECTINFO {
     pub cbStruct: u32,
     pub objtyp: u32,
@@ -2541,16 +2172,9 @@ pub struct JET_OBJECTINFO {
     pub cRecord: u32,
     pub cPage: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for JET_OBJECTINFO {}
-#[cfg(target_arch = "x86")]
-impl Clone for JET_OBJECTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[derive(Clone, Copy)]
 pub struct JET_OBJECTLIST {
     pub cbStruct: u32,
     pub tableid: super::StructuredStorage::JET_TABLEID,
@@ -2565,16 +2189,9 @@ pub struct JET_OBJECTLIST {
     pub columnidcRecord: u32,
     pub columnidcPage: u32,
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Copy for JET_OBJECTLIST {}
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Clone for JET_OBJECTLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[derive(Clone, Copy)]
 pub struct JET_OPENTEMPORARYTABLE {
     pub cbStruct: u32,
     pub prgcolumndef: *const JET_COLUMNDEF,
@@ -2586,16 +2203,9 @@ pub struct JET_OPENTEMPORARYTABLE {
     pub cbVarSegMac: u32,
     pub tableid: super::StructuredStorage::JET_TABLEID,
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Copy for JET_OPENTEMPORARYTABLE {}
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Clone for JET_OPENTEMPORARYTABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[derive(Clone, Copy)]
 pub struct JET_OPENTEMPORARYTABLE2 {
     pub cbStruct: u32,
     pub prgcolumndef: *const JET_COLUMNDEF,
@@ -2607,15 +2217,8 @@ pub struct JET_OPENTEMPORARYTABLE2 {
     pub cbVarSegMac: u32,
     pub tableid: super::StructuredStorage::JET_TABLEID,
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Copy for JET_OPENTEMPORARYTABLE2 {}
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Clone for JET_OPENTEMPORARYTABLE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_OPERATIONCONTEXT {
     pub ulUserID: u32,
     pub nOperationID: u8,
@@ -2623,44 +2226,27 @@ pub struct JET_OPERATIONCONTEXT {
     pub nClientType: u8,
     pub fFlags: u8,
 }
-impl Copy for JET_OPERATIONCONTEXT {}
-impl Clone for JET_OPERATIONCONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type JET_OSSNAPID = usize;
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[derive(Clone, Copy)]
 pub struct JET_RECORDLIST {
     pub cbStruct: u32,
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub cRecord: u32,
     pub columnidBookmark: u32,
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Copy for JET_RECORDLIST {}
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Clone for JET_RECORDLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_RECPOS {
     pub cbStruct: u32,
     pub centriesLT: u32,
     pub centriesInRange: u32,
     pub centriesTotal: u32,
 }
-impl Copy for JET_RECPOS {}
-impl Clone for JET_RECPOS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct JET_RECPOS2 {
     pub cbStruct: u32,
     pub centriesLTDeprecated: u32,
@@ -2668,17 +2254,10 @@ pub struct JET_RECPOS2 {
     pub centriesTotalDeprecated: u32,
     pub centriesLT: u64,
     pub centriesTotal: u64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for JET_RECPOS2 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for JET_RECPOS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct JET_RECPOS2 {
     pub cbStruct: u32,
     pub centriesLTDeprecated: u32,
@@ -2687,16 +2266,9 @@ pub struct JET_RECPOS2 {
     pub centriesLT: u64,
     pub centriesTotal: u64,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for JET_RECPOS2 {}
-#[cfg(target_arch = "x86")]
-impl Clone for JET_RECPOS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct JET_RECSIZE {
     pub cbData: u64,
     pub cbLongValueData: u64,
@@ -2707,16 +2279,9 @@ pub struct JET_RECSIZE {
     pub cLongValues: u64,
     pub cMultiValues: u64,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for JET_RECSIZE {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for JET_RECSIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct JET_RECSIZE {
     pub cbData: u64,
     pub cbLongValueData: u64,
@@ -2727,16 +2292,9 @@ pub struct JET_RECSIZE {
     pub cLongValues: u64,
     pub cMultiValues: u64,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for JET_RECSIZE {}
-#[cfg(target_arch = "x86")]
-impl Clone for JET_RECSIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct JET_RECSIZE2 {
     pub cbData: u64,
     pub cbLongValueData: u64,
@@ -2750,16 +2308,9 @@ pub struct JET_RECSIZE2 {
     pub cbDataCompressed: u64,
     pub cbLongValueDataCompressed: u64,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for JET_RECSIZE2 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for JET_RECSIZE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct JET_RECSIZE2 {
     pub cbData: u64,
     pub cbLongValueData: u64,
@@ -2773,28 +2324,16 @@ pub struct JET_RECSIZE2 {
     pub cbDataCompressed: u64,
     pub cbLongValueDataCompressed: u64,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for JET_RECSIZE2 {}
-#[cfg(target_arch = "x86")]
-impl Clone for JET_RECSIZE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_RETINFO {
     pub cbStruct: u32,
     pub ibLongValue: u32,
     pub itagSequence: u32,
     pub columnidNextTagged: u32,
 }
-impl Copy for JET_RETINFO {}
-impl Clone for JET_RETINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_RETRIEVECOLUMN {
     pub columnid: u32,
     pub pvData: *mut core::ffi::c_void,
@@ -2806,14 +2345,9 @@ pub struct JET_RETRIEVECOLUMN {
     pub columnidNextTagged: u32,
     pub err: i32,
 }
-impl Copy for JET_RETRIEVECOLUMN {}
-impl Clone for JET_RETRIEVECOLUMN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[derive(Clone, Copy)]
 pub struct JET_RSTINFO_A {
     pub cbStruct: u32,
     pub rgrstmap: *mut JET_RSTMAP_A,
@@ -2822,16 +2356,9 @@ pub struct JET_RSTINFO_A {
     pub logtimeStop: JET_LOGTIME,
     pub pfnStatus: JET_PFNSTATUS,
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Copy for JET_RSTINFO_A {}
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Clone for JET_RSTINFO_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[derive(Clone, Copy)]
 pub struct JET_RSTINFO_W {
     pub cbStruct: u32,
     pub rgrstmap: *mut JET_RSTMAP_W,
@@ -2840,37 +2367,20 @@ pub struct JET_RSTINFO_W {
     pub logtimeStop: JET_LOGTIME,
     pub pfnStatus: JET_PFNSTATUS,
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Copy for JET_RSTINFO_W {}
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Clone for JET_RSTINFO_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_RSTMAP_A {
     pub szDatabaseName: windows_sys::core::PSTR,
     pub szNewDatabaseName: windows_sys::core::PSTR,
 }
-impl Copy for JET_RSTMAP_A {}
-impl Clone for JET_RSTMAP_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_RSTMAP_W {
     pub szDatabaseName: windows_sys::core::PWSTR,
     pub szNewDatabaseName: windows_sys::core::PWSTR,
 }
-impl Copy for JET_RSTMAP_W {}
-impl Clone for JET_RSTMAP_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_SETCOLUMN {
     pub columnid: u32,
     pub pvData: *const core::ffi::c_void,
@@ -2880,81 +2390,47 @@ pub struct JET_SETCOLUMN {
     pub itagSequence: u32,
     pub err: i32,
 }
-impl Copy for JET_SETCOLUMN {}
-impl Clone for JET_SETCOLUMN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_SETINFO {
     pub cbStruct: u32,
     pub ibLongValue: u32,
     pub itagSequence: u32,
 }
-impl Copy for JET_SETINFO {}
-impl Clone for JET_SETINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[derive(Clone, Copy)]
 pub struct JET_SETSYSPARAM_A {
     pub paramid: u32,
     pub lParam: super::StructuredStorage::JET_API_PTR,
     pub sz: windows_sys::core::PCSTR,
     pub err: i32,
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Copy for JET_SETSYSPARAM_A {}
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Clone for JET_SETSYSPARAM_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[derive(Clone, Copy)]
 pub struct JET_SETSYSPARAM_W {
     pub paramid: u32,
     pub lParam: super::StructuredStorage::JET_API_PTR,
     pub sz: windows_sys::core::PCWSTR,
     pub err: i32,
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Copy for JET_SETSYSPARAM_W {}
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Clone for JET_SETSYSPARAM_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct JET_SIGNATURE {
     pub ulRandom: u32,
     pub logtimeCreate: JET_LOGTIME,
     pub szComputerName: [i8; 16],
 }
-impl Copy for JET_SIGNATURE {}
-impl Clone for JET_SIGNATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_SNPROG {
     pub cbStruct: u32,
     pub cunitDone: u32,
     pub cunitTotal: u32,
 }
-impl Copy for JET_SNPROG {}
-impl Clone for JET_SNPROG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_SPACEHINTS {
     pub cbStruct: u32,
     pub ulInitialDensity: u32,
@@ -2965,14 +2441,9 @@ pub struct JET_SPACEHINTS {
     pub cbMinExtent: u32,
     pub cbMaxExtent: u32,
 }
-impl Copy for JET_SPACEHINTS {}
-impl Clone for JET_SPACEHINTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[derive(Clone, Copy)]
 pub struct JET_TABLECREATE2_A {
     pub cbStruct: u32,
     pub szTableName: windows_sys::core::PSTR,
@@ -2989,16 +2460,9 @@ pub struct JET_TABLECREATE2_A {
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub cCreated: u32,
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Copy for JET_TABLECREATE2_A {}
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Clone for JET_TABLECREATE2_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[derive(Clone, Copy)]
 pub struct JET_TABLECREATE2_W {
     pub cbStruct: u32,
     pub szTableName: windows_sys::core::PWSTR,
@@ -3015,16 +2479,9 @@ pub struct JET_TABLECREATE2_W {
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub cCreated: u32,
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Copy for JET_TABLECREATE2_W {}
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Clone for JET_TABLECREATE2_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[derive(Clone, Copy)]
 pub struct JET_TABLECREATE3_A {
     pub cbStruct: u32,
     pub szTableName: windows_sys::core::PSTR,
@@ -3044,16 +2501,9 @@ pub struct JET_TABLECREATE3_A {
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub cCreated: u32,
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Copy for JET_TABLECREATE3_A {}
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Clone for JET_TABLECREATE3_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[derive(Clone, Copy)]
 pub struct JET_TABLECREATE3_W {
     pub cbStruct: u32,
     pub szTableName: windows_sys::core::PWSTR,
@@ -3073,16 +2523,9 @@ pub struct JET_TABLECREATE3_W {
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub cCreated: u32,
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Copy for JET_TABLECREATE3_W {}
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Clone for JET_TABLECREATE3_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[derive(Clone, Copy)]
 pub struct JET_TABLECREATE4_A {
     pub cbStruct: u32,
     pub szTableName: windows_sys::core::PSTR,
@@ -3102,16 +2545,9 @@ pub struct JET_TABLECREATE4_A {
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub cCreated: u32,
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Copy for JET_TABLECREATE4_A {}
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Clone for JET_TABLECREATE4_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[derive(Clone, Copy)]
 pub struct JET_TABLECREATE4_W {
     pub cbStruct: u32,
     pub szTableName: windows_sys::core::PWSTR,
@@ -3131,16 +2567,9 @@ pub struct JET_TABLECREATE4_W {
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub cCreated: u32,
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Copy for JET_TABLECREATE4_W {}
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Clone for JET_TABLECREATE4_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[derive(Clone, Copy)]
 pub struct JET_TABLECREATE_A {
     pub cbStruct: u32,
     pub szTableName: windows_sys::core::PSTR,
@@ -3155,16 +2584,9 @@ pub struct JET_TABLECREATE_A {
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub cCreated: u32,
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Copy for JET_TABLECREATE_A {}
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Clone for JET_TABLECREATE_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[derive(Clone, Copy)]
 pub struct JET_TABLECREATE_W {
     pub cbStruct: u32,
     pub szTableName: windows_sys::core::PWSTR,
@@ -3179,15 +2601,8 @@ pub struct JET_TABLECREATE_W {
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub cCreated: u32,
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Copy for JET_TABLECREATE_W {}
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl Clone for JET_TABLECREATE_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_THREADSTATS {
     pub cbStruct: u32,
     pub cPageReferenced: u32,
@@ -3198,14 +2613,9 @@ pub struct JET_THREADSTATS {
     pub cLogRecord: u32,
     pub cbLogRecord: u32,
 }
-impl Copy for JET_THREADSTATS {}
-impl Clone for JET_THREADSTATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct JET_THREADSTATS2 {
     pub cbStruct: u32,
     pub cPageReferenced: u32,
@@ -3217,17 +2627,10 @@ pub struct JET_THREADSTATS2 {
     pub cbLogRecord: u32,
     pub cusecPageCacheMiss: u64,
     pub cPageCacheMiss: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for JET_THREADSTATS2 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for JET_THREADSTATS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct JET_THREADSTATS2 {
     pub cbStruct: u32,
     pub cPageReferenced: u32,
@@ -3240,15 +2643,8 @@ pub struct JET_THREADSTATS2 {
     pub cusecPageCacheMiss: u64,
     pub cPageCacheMiss: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for JET_THREADSTATS2 {}
-#[cfg(target_arch = "x86")]
-impl Clone for JET_THREADSTATS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_TUPLELIMITS {
     pub chLengthMin: u32,
     pub chLengthMax: u32,
@@ -3256,59 +2652,33 @@ pub struct JET_TUPLELIMITS {
     pub cchIncrement: u32,
     pub ichStart: u32,
 }
-impl Copy for JET_TUPLELIMITS {}
-impl Clone for JET_TUPLELIMITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_UNICODEINDEX {
     pub lcid: u32,
     pub dwMapFlags: u32,
 }
-impl Copy for JET_UNICODEINDEX {}
-impl Clone for JET_UNICODEINDEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_UNICODEINDEX2 {
     pub szLocaleName: windows_sys::core::PWSTR,
     pub dwMapFlags: u32,
 }
-impl Copy for JET_UNICODEINDEX2 {}
-impl Clone for JET_UNICODEINDEX2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_USERDEFINEDDEFAULT_A {
     pub szCallback: windows_sys::core::PSTR,
     pub pbUserData: *mut u8,
     pub cbUserData: u32,
     pub szDependantColumns: windows_sys::core::PSTR,
 }
-impl Copy for JET_USERDEFINEDDEFAULT_A {}
-impl Clone for JET_USERDEFINEDDEFAULT_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JET_USERDEFINEDDEFAULT_W {
     pub szCallback: windows_sys::core::PWSTR,
     pub pbUserData: *mut u8,
     pub cbUserData: u32,
     pub szDependantColumns: windows_sys::core::PWSTR,
-}
-impl Copy for JET_USERDEFINEDDEFAULT_W {}
-impl Clone for JET_USERDEFINEDDEFAULT_W {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub type JET_CALLBACK = Option<unsafe extern "system" fn(sesid: super::StructuredStorage::JET_SESID, dbid: u32, tableid: super::StructuredStorage::JET_TABLEID, cbtyp: u32, pvarg1: *mut core::ffi::c_void, pvarg2: *mut core::ffi::c_void, pvcontext: *const core::ffi::c_void, ulunused: super::StructuredStorage::JET_API_PTR) -> i32>;

@@ -5688,37 +5688,22 @@ impl core::fmt::Debug for WbemTimeout {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Application {
     pub reserved1: u64,
     pub reserved2: isize,
     pub ft: *const MI_ApplicationFT,
 }
-impl Copy for MI_Application {}
-impl Clone for MI_Application {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Application {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Application").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).field("ft", &self.ft).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Application {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Application {
-    fn eq(&self, other: &Self) -> bool {
-        self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2 && self.ft == other.ft
-    }
-}
-impl Eq for MI_Application {}
 impl Default for MI_Application {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ApplicationFT {
     pub Close: isize,
     pub NewSession: isize,
@@ -5732,289 +5717,133 @@ pub struct MI_ApplicationFT {
     pub NewInstanceFromClass: isize,
     pub NewClass: isize,
 }
-impl Copy for MI_ApplicationFT {}
-impl Clone for MI_ApplicationFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ApplicationFT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ApplicationFT")
-            .field("Close", &self.Close)
-            .field("NewSession", &self.NewSession)
-            .field("NewHostedProvider", &self.NewHostedProvider)
-            .field("NewInstance", &self.NewInstance)
-            .field("NewDestinationOptions", &self.NewDestinationOptions)
-            .field("NewOperationOptions", &self.NewOperationOptions)
-            .field("NewSubscriptionDeliveryOptions", &self.NewSubscriptionDeliveryOptions)
-            .field("NewSerializer", &self.NewSerializer)
-            .field("NewDeserializer", &self.NewDeserializer)
-            .field("NewInstanceFromClass", &self.NewInstanceFromClass)
-            .field("NewClass", &self.NewClass)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MI_ApplicationFT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ApplicationFT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Close == other.Close && self.NewSession == other.NewSession && self.NewHostedProvider == other.NewHostedProvider && self.NewInstance == other.NewInstance && self.NewDestinationOptions == other.NewDestinationOptions && self.NewOperationOptions == other.NewOperationOptions && self.NewSubscriptionDeliveryOptions == other.NewSubscriptionDeliveryOptions && self.NewSerializer == other.NewSerializer && self.NewDeserializer == other.NewDeserializer && self.NewInstanceFromClass == other.NewInstanceFromClass && self.NewClass == other.NewClass
-    }
-}
-impl Eq for MI_ApplicationFT {}
 impl Default for MI_ApplicationFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Array {
     pub data: *mut core::ffi::c_void,
     pub size: u32,
 }
-impl Copy for MI_Array {}
-impl Clone for MI_Array {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Array {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Array").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Array {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Array {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_Array {}
 impl Default for MI_Array {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ArrayField {
     pub value: MI_Array,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ArrayField {}
-impl Clone for MI_ArrayField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ArrayField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ArrayField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ArrayField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ArrayField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ArrayField {}
 impl Default for MI_ArrayField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_BooleanA {
     pub data: *mut u8,
     pub size: u32,
 }
-impl Copy for MI_BooleanA {}
-impl Clone for MI_BooleanA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_BooleanA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_BooleanA").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_BooleanA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_BooleanA {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_BooleanA {}
 impl Default for MI_BooleanA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_BooleanAField {
     pub value: MI_BooleanA,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_BooleanAField {}
-impl Clone for MI_BooleanAField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_BooleanAField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_BooleanAField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_BooleanAField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_BooleanAField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_BooleanAField {}
 impl Default for MI_BooleanAField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_BooleanField {
     pub value: u8,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_BooleanField {}
-impl Clone for MI_BooleanField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_BooleanField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_BooleanField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_BooleanField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_BooleanField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_BooleanField {}
 impl Default for MI_BooleanField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Char16A {
     pub data: *mut u16,
     pub size: u32,
 }
-impl Copy for MI_Char16A {}
-impl Clone for MI_Char16A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Char16A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Char16A").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Char16A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Char16A {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_Char16A {}
 impl Default for MI_Char16A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Char16AField {
     pub value: MI_Char16A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Char16AField {}
-impl Clone for MI_Char16AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Char16AField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Char16AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Char16AField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Char16AField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_Char16AField {}
 impl Default for MI_Char16AField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Char16Field {
     pub value: u16,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Char16Field {}
-impl Clone for MI_Char16Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Char16Field {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Char16Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Char16Field {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Char16Field {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_Char16Field {}
 impl Default for MI_Char16Field {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Class {
     pub ft: *const MI_ClassFT,
     pub classDecl: *const MI_ClassDecl,
@@ -6022,32 +5851,16 @@ pub struct MI_Class {
     pub serverName: *const u16,
     pub reserved: [isize; 4],
 }
-impl Copy for MI_Class {}
-impl Clone for MI_Class {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Class {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Class").field("ft", &self.ft).field("classDecl", &self.classDecl).field("namespaceName", &self.namespaceName).field("serverName", &self.serverName).field("reserved", &self.reserved).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Class {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Class {
-    fn eq(&self, other: &Self) -> bool {
-        self.ft == other.ft && self.classDecl == other.classDecl && self.namespaceName == other.namespaceName && self.serverName == other.serverName && self.reserved == other.reserved
-    }
-}
-impl Eq for MI_Class {}
 impl Default for MI_Class {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ClassDecl {
     pub flags: u32,
     pub code: u32,
@@ -6065,48 +5878,16 @@ pub struct MI_ClassDecl {
     pub providerFT: *const MI_ProviderFT,
     pub owningClass: *mut MI_Class,
 }
-impl Copy for MI_ClassDecl {}
-impl Clone for MI_ClassDecl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ClassDecl {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ClassDecl")
-            .field("flags", &self.flags)
-            .field("code", &self.code)
-            .field("name", &self.name)
-            .field("qualifiers", &self.qualifiers)
-            .field("numQualifiers", &self.numQualifiers)
-            .field("properties", &self.properties)
-            .field("numProperties", &self.numProperties)
-            .field("size", &self.size)
-            .field("superClass", &self.superClass)
-            .field("superClassDecl", &self.superClassDecl)
-            .field("methods", &self.methods)
-            .field("numMethods", &self.numMethods)
-            .field("schema", &self.schema)
-            .field("providerFT", &self.providerFT)
-            .field("owningClass", &self.owningClass)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MI_ClassDecl {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ClassDecl {
-    fn eq(&self, other: &Self) -> bool {
-        self.flags == other.flags && self.code == other.code && self.name == other.name && self.qualifiers == other.qualifiers && self.numQualifiers == other.numQualifiers && self.properties == other.properties && self.numProperties == other.numProperties && self.size == other.size && self.superClass == other.superClass && self.superClassDecl == other.superClassDecl && self.methods == other.methods && self.numMethods == other.numMethods && self.schema == other.schema && self.providerFT == other.providerFT && self.owningClass == other.owningClass
-    }
-}
-impl Eq for MI_ClassDecl {}
 impl Default for MI_ClassDecl {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ClassFT {
     pub GetClassNameA: isize,
     pub GetNameSpace: isize,
@@ -6123,47 +5904,16 @@ pub struct MI_ClassFT {
     pub Delete: isize,
     pub Clone: isize,
 }
-impl Copy for MI_ClassFT {}
-impl Clone for MI_ClassFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ClassFT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ClassFT")
-            .field("GetClassNameA", &self.GetClassNameA)
-            .field("GetNameSpace", &self.GetNameSpace)
-            .field("GetServerName", &self.GetServerName)
-            .field("GetElementCount", &self.GetElementCount)
-            .field("GetElement", &self.GetElement)
-            .field("GetElementAt", &self.GetElementAt)
-            .field("GetClassQualifierSet", &self.GetClassQualifierSet)
-            .field("GetMethodCount", &self.GetMethodCount)
-            .field("GetMethodAt", &self.GetMethodAt)
-            .field("GetMethod", &self.GetMethod)
-            .field("GetParentClassName", &self.GetParentClassName)
-            .field("GetParentClass", &self.GetParentClass)
-            .field("Delete", &self.Delete)
-            .field("Clone", &self.Clone)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MI_ClassFT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ClassFT {
-    fn eq(&self, other: &Self) -> bool {
-        self.GetClassNameA == other.GetClassNameA && self.GetNameSpace == other.GetNameSpace && self.GetServerName == other.GetServerName && self.GetElementCount == other.GetElementCount && self.GetElement == other.GetElement && self.GetElementAt == other.GetElementAt && self.GetClassQualifierSet == other.GetClassQualifierSet && self.GetMethodCount == other.GetMethodCount && self.GetMethodAt == other.GetMethodAt && self.GetMethod == other.GetMethod && self.GetParentClassName == other.GetParentClassName && self.GetParentClass == other.GetParentClass && self.Delete == other.Delete && self.Clone == other.Clone
-    }
-}
-impl Eq for MI_ClassFT {}
 impl Default for MI_ClassFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ClientFT_V1 {
     pub applicationFT: *const MI_ApplicationFT,
     pub sessionFT: *const MI_SessionFT,
@@ -6176,298 +5926,137 @@ pub struct MI_ClientFT_V1 {
     pub operationOptionsFT: *const MI_OperationOptionsFT,
     pub utilitiesFT: *const MI_UtilitiesFT,
 }
-impl Copy for MI_ClientFT_V1 {}
-impl Clone for MI_ClientFT_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ClientFT_V1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ClientFT_V1")
-            .field("applicationFT", &self.applicationFT)
-            .field("sessionFT", &self.sessionFT)
-            .field("operationFT", &self.operationFT)
-            .field("hostedProviderFT", &self.hostedProviderFT)
-            .field("serializerFT", &self.serializerFT)
-            .field("deserializerFT", &self.deserializerFT)
-            .field("subscribeDeliveryOptionsFT", &self.subscribeDeliveryOptionsFT)
-            .field("destinationOptionsFT", &self.destinationOptionsFT)
-            .field("operationOptionsFT", &self.operationOptionsFT)
-            .field("utilitiesFT", &self.utilitiesFT)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MI_ClientFT_V1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ClientFT_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.applicationFT == other.applicationFT && self.sessionFT == other.sessionFT && self.operationFT == other.operationFT && self.hostedProviderFT == other.hostedProviderFT && self.serializerFT == other.serializerFT && self.deserializerFT == other.deserializerFT && self.subscribeDeliveryOptionsFT == other.subscribeDeliveryOptionsFT && self.destinationOptionsFT == other.destinationOptionsFT && self.operationOptionsFT == other.operationOptionsFT && self.utilitiesFT == other.utilitiesFT
-    }
-}
-impl Eq for MI_ClientFT_V1 {}
 impl Default for MI_ClientFT_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstBooleanA {
     pub data: *const u8,
     pub size: u32,
 }
-impl Copy for MI_ConstBooleanA {}
-impl Clone for MI_ConstBooleanA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstBooleanA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstBooleanA").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstBooleanA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstBooleanA {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_ConstBooleanA {}
 impl Default for MI_ConstBooleanA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstBooleanAField {
     pub value: MI_ConstBooleanA,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstBooleanAField {}
-impl Clone for MI_ConstBooleanAField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstBooleanAField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstBooleanAField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstBooleanAField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstBooleanAField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstBooleanAField {}
 impl Default for MI_ConstBooleanAField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstBooleanField {
     pub value: u8,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstBooleanField {}
-impl Clone for MI_ConstBooleanField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstBooleanField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstBooleanField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstBooleanField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstBooleanField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstBooleanField {}
 impl Default for MI_ConstBooleanField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstChar16A {
     pub data: *const u16,
     pub size: u32,
 }
-impl Copy for MI_ConstChar16A {}
-impl Clone for MI_ConstChar16A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstChar16A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstChar16A").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstChar16A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstChar16A {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_ConstChar16A {}
 impl Default for MI_ConstChar16A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstChar16AField {
     pub value: MI_ConstChar16A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstChar16AField {}
-impl Clone for MI_ConstChar16AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstChar16AField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstChar16AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstChar16AField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstChar16AField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstChar16AField {}
 impl Default for MI_ConstChar16AField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstChar16Field {
     pub value: u16,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstChar16Field {}
-impl Clone for MI_ConstChar16Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstChar16Field {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstChar16Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstChar16Field {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstChar16Field {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstChar16Field {}
 impl Default for MI_ConstChar16Field {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstDatetimeA {
     pub data: *const MI_Datetime,
     pub size: u32,
 }
-impl Copy for MI_ConstDatetimeA {}
-impl Clone for MI_ConstDatetimeA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstDatetimeA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstDatetimeA").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstDatetimeA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstDatetimeA {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_ConstDatetimeA {}
 impl Default for MI_ConstDatetimeA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstDatetimeAField {
     pub value: MI_ConstDatetimeA,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstDatetimeAField {}
-impl Clone for MI_ConstDatetimeAField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstDatetimeAField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstDatetimeAField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstDatetimeAField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstDatetimeAField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstDatetimeAField {}
 impl Default for MI_ConstDatetimeAField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstDatetimeField {
     pub value: MI_Datetime,
     pub exists: u8,
     pub flags: u8,
-}
-impl Copy for MI_ConstDatetimeField {}
-impl Clone for MI_ConstDatetimeField {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MI_ConstDatetimeField {
     type TypeKind = windows_core::CopyType;
@@ -6478,1232 +6067,593 @@ impl Default for MI_ConstDatetimeField {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstInstanceA {
     pub data: *const *const MI_Instance,
     pub size: u32,
 }
-impl Copy for MI_ConstInstanceA {}
-impl Clone for MI_ConstInstanceA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstInstanceA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstInstanceA").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstInstanceA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstInstanceA {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_ConstInstanceA {}
 impl Default for MI_ConstInstanceA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstInstanceAField {
     pub value: MI_ConstInstanceA,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstInstanceAField {}
-impl Clone for MI_ConstInstanceAField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstInstanceAField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstInstanceAField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstInstanceAField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstInstanceAField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstInstanceAField {}
 impl Default for MI_ConstInstanceAField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstInstanceField {
     pub value: *const MI_Instance,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstInstanceField {}
-impl Clone for MI_ConstInstanceField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstInstanceField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstInstanceField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstInstanceField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstInstanceField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstInstanceField {}
 impl Default for MI_ConstInstanceField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstReal32A {
     pub data: *const f32,
     pub size: u32,
 }
-impl Copy for MI_ConstReal32A {}
-impl Clone for MI_ConstReal32A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstReal32A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstReal32A").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstReal32A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstReal32A {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_ConstReal32A {}
 impl Default for MI_ConstReal32A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstReal32AField {
     pub value: MI_ConstReal32A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstReal32AField {}
-impl Clone for MI_ConstReal32AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstReal32AField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstReal32AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstReal32AField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstReal32AField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstReal32AField {}
 impl Default for MI_ConstReal32AField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstReal32Field {
     pub value: f32,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstReal32Field {}
-impl Clone for MI_ConstReal32Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstReal32Field {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstReal32Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstReal32Field {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstReal32Field {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstReal32Field {}
 impl Default for MI_ConstReal32Field {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstReal64A {
     pub data: *const f64,
     pub size: u32,
 }
-impl Copy for MI_ConstReal64A {}
-impl Clone for MI_ConstReal64A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstReal64A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstReal64A").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstReal64A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstReal64A {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_ConstReal64A {}
 impl Default for MI_ConstReal64A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstReal64AField {
     pub value: MI_ConstReal64A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstReal64AField {}
-impl Clone for MI_ConstReal64AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstReal64AField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstReal64AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstReal64AField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstReal64AField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstReal64AField {}
 impl Default for MI_ConstReal64AField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstReal64Field {
     pub value: f64,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstReal64Field {}
-impl Clone for MI_ConstReal64Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstReal64Field {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstReal64Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstReal64Field {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstReal64Field {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstReal64Field {}
 impl Default for MI_ConstReal64Field {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstReferenceA {
     pub data: *const *const MI_Instance,
     pub size: u32,
 }
-impl Copy for MI_ConstReferenceA {}
-impl Clone for MI_ConstReferenceA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstReferenceA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstReferenceA").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstReferenceA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstReferenceA {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_ConstReferenceA {}
 impl Default for MI_ConstReferenceA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstReferenceAField {
     pub value: MI_ConstReferenceA,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstReferenceAField {}
-impl Clone for MI_ConstReferenceAField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstReferenceAField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstReferenceAField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstReferenceAField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstReferenceAField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstReferenceAField {}
 impl Default for MI_ConstReferenceAField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstReferenceField {
     pub value: *const MI_Instance,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstReferenceField {}
-impl Clone for MI_ConstReferenceField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstReferenceField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstReferenceField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstReferenceField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstReferenceField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstReferenceField {}
 impl Default for MI_ConstReferenceField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstSint16A {
     pub data: *const i16,
     pub size: u32,
 }
-impl Copy for MI_ConstSint16A {}
-impl Clone for MI_ConstSint16A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstSint16A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstSint16A").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstSint16A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstSint16A {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_ConstSint16A {}
 impl Default for MI_ConstSint16A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstSint16AField {
     pub value: MI_ConstSint16A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstSint16AField {}
-impl Clone for MI_ConstSint16AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstSint16AField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstSint16AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstSint16AField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstSint16AField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstSint16AField {}
 impl Default for MI_ConstSint16AField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstSint16Field {
     pub value: i16,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstSint16Field {}
-impl Clone for MI_ConstSint16Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstSint16Field {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstSint16Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstSint16Field {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstSint16Field {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstSint16Field {}
 impl Default for MI_ConstSint16Field {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstSint32A {
     pub data: *const i32,
     pub size: u32,
 }
-impl Copy for MI_ConstSint32A {}
-impl Clone for MI_ConstSint32A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstSint32A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstSint32A").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstSint32A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstSint32A {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_ConstSint32A {}
 impl Default for MI_ConstSint32A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstSint32AField {
     pub value: MI_ConstSint32A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstSint32AField {}
-impl Clone for MI_ConstSint32AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstSint32AField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstSint32AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstSint32AField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstSint32AField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstSint32AField {}
 impl Default for MI_ConstSint32AField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstSint32Field {
     pub value: i32,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstSint32Field {}
-impl Clone for MI_ConstSint32Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstSint32Field {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstSint32Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstSint32Field {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstSint32Field {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstSint32Field {}
 impl Default for MI_ConstSint32Field {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstSint64A {
     pub data: *const i64,
     pub size: u32,
 }
-impl Copy for MI_ConstSint64A {}
-impl Clone for MI_ConstSint64A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstSint64A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstSint64A").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstSint64A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstSint64A {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_ConstSint64A {}
 impl Default for MI_ConstSint64A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstSint64AField {
     pub value: MI_ConstSint64A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstSint64AField {}
-impl Clone for MI_ConstSint64AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstSint64AField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstSint64AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstSint64AField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstSint64AField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstSint64AField {}
 impl Default for MI_ConstSint64AField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstSint64Field {
     pub value: i64,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstSint64Field {}
-impl Clone for MI_ConstSint64Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstSint64Field {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstSint64Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstSint64Field {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstSint64Field {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstSint64Field {}
 impl Default for MI_ConstSint64Field {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstSint8A {
     pub data: *const i8,
     pub size: u32,
 }
-impl Copy for MI_ConstSint8A {}
-impl Clone for MI_ConstSint8A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstSint8A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstSint8A").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstSint8A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstSint8A {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_ConstSint8A {}
 impl Default for MI_ConstSint8A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstSint8AField {
     pub value: MI_ConstSint8A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstSint8AField {}
-impl Clone for MI_ConstSint8AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstSint8AField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstSint8AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstSint8AField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstSint8AField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstSint8AField {}
 impl Default for MI_ConstSint8AField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstSint8Field {
     pub value: i8,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstSint8Field {}
-impl Clone for MI_ConstSint8Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstSint8Field {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstSint8Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstSint8Field {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstSint8Field {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstSint8Field {}
 impl Default for MI_ConstSint8Field {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstStringA {
     pub data: *const *const u16,
     pub size: u32,
 }
-impl Copy for MI_ConstStringA {}
-impl Clone for MI_ConstStringA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstStringA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstStringA").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstStringA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstStringA {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_ConstStringA {}
 impl Default for MI_ConstStringA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstStringAField {
     pub value: MI_ConstStringA,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstStringAField {}
-impl Clone for MI_ConstStringAField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstStringAField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstStringAField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstStringAField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstStringAField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstStringAField {}
 impl Default for MI_ConstStringAField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstStringField {
     pub value: *const u16,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstStringField {}
-impl Clone for MI_ConstStringField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstStringField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstStringField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstStringField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstStringField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstStringField {}
 impl Default for MI_ConstStringField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstUint16A {
     pub data: *const u16,
     pub size: u32,
 }
-impl Copy for MI_ConstUint16A {}
-impl Clone for MI_ConstUint16A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstUint16A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstUint16A").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstUint16A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstUint16A {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_ConstUint16A {}
 impl Default for MI_ConstUint16A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstUint16AField {
     pub value: MI_ConstUint16A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstUint16AField {}
-impl Clone for MI_ConstUint16AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstUint16AField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstUint16AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstUint16AField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstUint16AField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstUint16AField {}
 impl Default for MI_ConstUint16AField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstUint16Field {
     pub value: u16,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstUint16Field {}
-impl Clone for MI_ConstUint16Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstUint16Field {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstUint16Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstUint16Field {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstUint16Field {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstUint16Field {}
 impl Default for MI_ConstUint16Field {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstUint32A {
     pub data: *const u32,
     pub size: u32,
 }
-impl Copy for MI_ConstUint32A {}
-impl Clone for MI_ConstUint32A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstUint32A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstUint32A").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstUint32A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstUint32A {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_ConstUint32A {}
 impl Default for MI_ConstUint32A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstUint32AField {
     pub value: MI_ConstUint32A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstUint32AField {}
-impl Clone for MI_ConstUint32AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstUint32AField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstUint32AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstUint32AField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstUint32AField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstUint32AField {}
 impl Default for MI_ConstUint32AField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstUint32Field {
     pub value: u32,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstUint32Field {}
-impl Clone for MI_ConstUint32Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstUint32Field {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstUint32Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstUint32Field {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstUint32Field {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstUint32Field {}
 impl Default for MI_ConstUint32Field {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstUint64A {
     pub data: *const u64,
     pub size: u32,
 }
-impl Copy for MI_ConstUint64A {}
-impl Clone for MI_ConstUint64A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstUint64A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstUint64A").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstUint64A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstUint64A {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_ConstUint64A {}
 impl Default for MI_ConstUint64A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstUint64AField {
     pub value: MI_ConstUint64A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstUint64AField {}
-impl Clone for MI_ConstUint64AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstUint64AField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstUint64AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstUint64AField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstUint64AField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstUint64AField {}
 impl Default for MI_ConstUint64AField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstUint64Field {
     pub value: u64,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstUint64Field {}
-impl Clone for MI_ConstUint64Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstUint64Field {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstUint64Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstUint64Field {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstUint64Field {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstUint64Field {}
 impl Default for MI_ConstUint64Field {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstUint8A {
     pub data: *const u8,
     pub size: u32,
 }
-impl Copy for MI_ConstUint8A {}
-impl Clone for MI_ConstUint8A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstUint8A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstUint8A").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstUint8A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstUint8A {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_ConstUint8A {}
 impl Default for MI_ConstUint8A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstUint8AField {
     pub value: MI_ConstUint8A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstUint8AField {}
-impl Clone for MI_ConstUint8AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstUint8AField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstUint8AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstUint8AField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstUint8AField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstUint8AField {}
 impl Default for MI_ConstUint8AField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ConstUint8Field {
     pub value: u8,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstUint8Field {}
-impl Clone for MI_ConstUint8Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ConstUint8Field {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ConstUint8Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ConstUint8Field {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ConstUint8Field {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ConstUint8Field {}
 impl Default for MI_ConstUint8Field {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Context {
     pub ft: *const MI_ContextFT,
     pub reserved: [isize; 3],
 }
-impl Copy for MI_Context {}
-impl Clone for MI_Context {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Context {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Context").field("ft", &self.ft).field("reserved", &self.reserved).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Context {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Context {
-    fn eq(&self, other: &Self) -> bool {
-        self.ft == other.ft && self.reserved == other.reserved
-    }
-}
-impl Eq for MI_Context {}
 impl Default for MI_Context {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ContextFT {
     pub PostResult: isize,
     pub PostInstance: isize,
@@ -7736,101 +6686,19 @@ pub struct MI_ContextFT {
     pub PostCimError: isize,
     pub WriteError: isize,
 }
-impl Copy for MI_ContextFT {}
-impl Clone for MI_ContextFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ContextFT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ContextFT")
-            .field("PostResult", &self.PostResult)
-            .field("PostInstance", &self.PostInstance)
-            .field("PostIndication", &self.PostIndication)
-            .field("ConstructInstance", &self.ConstructInstance)
-            .field("ConstructParameters", &self.ConstructParameters)
-            .field("NewInstance", &self.NewInstance)
-            .field("NewDynamicInstance", &self.NewDynamicInstance)
-            .field("NewParameters", &self.NewParameters)
-            .field("Canceled", &self.Canceled)
-            .field("GetLocale", &self.GetLocale)
-            .field("RegisterCancel", &self.RegisterCancel)
-            .field("RequestUnload", &self.RequestUnload)
-            .field("RefuseUnload", &self.RefuseUnload)
-            .field("GetLocalSession", &self.GetLocalSession)
-            .field("SetStringOption", &self.SetStringOption)
-            .field("GetStringOption", &self.GetStringOption)
-            .field("GetNumberOption", &self.GetNumberOption)
-            .field("GetCustomOption", &self.GetCustomOption)
-            .field("GetCustomOptionCount", &self.GetCustomOptionCount)
-            .field("GetCustomOptionAt", &self.GetCustomOptionAt)
-            .field("WriteMessage", &self.WriteMessage)
-            .field("WriteProgress", &self.WriteProgress)
-            .field("WriteStreamParameter", &self.WriteStreamParameter)
-            .field("WriteCimError", &self.WriteCimError)
-            .field("PromptUser", &self.PromptUser)
-            .field("ShouldProcess", &self.ShouldProcess)
-            .field("ShouldContinue", &self.ShouldContinue)
-            .field("PostError", &self.PostError)
-            .field("PostCimError", &self.PostCimError)
-            .field("WriteError", &self.WriteError)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MI_ContextFT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ContextFT {
-    fn eq(&self, other: &Self) -> bool {
-        self.PostResult == other.PostResult
-            && self.PostInstance == other.PostInstance
-            && self.PostIndication == other.PostIndication
-            && self.ConstructInstance == other.ConstructInstance
-            && self.ConstructParameters == other.ConstructParameters
-            && self.NewInstance == other.NewInstance
-            && self.NewDynamicInstance == other.NewDynamicInstance
-            && self.NewParameters == other.NewParameters
-            && self.Canceled == other.Canceled
-            && self.GetLocale == other.GetLocale
-            && self.RegisterCancel == other.RegisterCancel
-            && self.RequestUnload == other.RequestUnload
-            && self.RefuseUnload == other.RefuseUnload
-            && self.GetLocalSession == other.GetLocalSession
-            && self.SetStringOption == other.SetStringOption
-            && self.GetStringOption == other.GetStringOption
-            && self.GetNumberOption == other.GetNumberOption
-            && self.GetCustomOption == other.GetCustomOption
-            && self.GetCustomOptionCount == other.GetCustomOptionCount
-            && self.GetCustomOptionAt == other.GetCustomOptionAt
-            && self.WriteMessage == other.WriteMessage
-            && self.WriteProgress == other.WriteProgress
-            && self.WriteStreamParameter == other.WriteStreamParameter
-            && self.WriteCimError == other.WriteCimError
-            && self.PromptUser == other.PromptUser
-            && self.ShouldProcess == other.ShouldProcess
-            && self.ShouldContinue == other.ShouldContinue
-            && self.PostError == other.PostError
-            && self.PostCimError == other.PostCimError
-            && self.WriteError == other.WriteError
-    }
-}
-impl Eq for MI_ContextFT {}
 impl Default for MI_ContextFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Datetime {
     pub isTimestamp: u32,
     pub u: MI_Datetime_0,
-}
-impl Copy for MI_Datetime {}
-impl Clone for MI_Datetime {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MI_Datetime {
     type TypeKind = windows_core::CopyType;
@@ -7841,15 +6709,10 @@ impl Default for MI_Datetime {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MI_Datetime_0 {
     pub timestamp: MI_Timestamp,
     pub interval: MI_Interval,
-}
-impl Copy for MI_Datetime_0 {}
-impl Clone for MI_Datetime_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MI_Datetime_0 {
     type TypeKind = windows_core::CopyType;
@@ -7860,77 +6723,40 @@ impl Default for MI_Datetime_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_DatetimeA {
     pub data: *mut MI_Datetime,
     pub size: u32,
 }
-impl Copy for MI_DatetimeA {}
-impl Clone for MI_DatetimeA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_DatetimeA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_DatetimeA").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_DatetimeA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_DatetimeA {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_DatetimeA {}
 impl Default for MI_DatetimeA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_DatetimeAField {
     pub value: MI_DatetimeA,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_DatetimeAField {}
-impl Clone for MI_DatetimeAField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_DatetimeAField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_DatetimeAField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_DatetimeAField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_DatetimeAField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_DatetimeAField {}
 impl Default for MI_DatetimeAField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_DatetimeField {
     pub value: MI_Datetime,
     pub exists: u8,
     pub flags: u8,
-}
-impl Copy for MI_DatetimeField {}
-impl Clone for MI_DatetimeField {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MI_DatetimeField {
     type TypeKind = windows_core::CopyType;
@@ -7941,36 +6767,21 @@ impl Default for MI_DatetimeField {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Deserializer {
     pub reserved1: u64,
     pub reserved2: isize,
 }
-impl Copy for MI_Deserializer {}
-impl Clone for MI_Deserializer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Deserializer {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Deserializer").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Deserializer {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Deserializer {
-    fn eq(&self, other: &Self) -> bool {
-        self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2
-    }
-}
-impl Eq for MI_Deserializer {}
 impl Default for MI_Deserializer {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_DeserializerFT {
     pub Close: isize,
     pub DeserializeClass: isize,
@@ -7979,63 +6790,31 @@ pub struct MI_DeserializerFT {
     pub DeserializeInstance: isize,
     pub Instance_GetClassName: isize,
 }
-impl Copy for MI_DeserializerFT {}
-impl Clone for MI_DeserializerFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_DeserializerFT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_DeserializerFT").field("Close", &self.Close).field("DeserializeClass", &self.DeserializeClass).field("Class_GetClassName", &self.Class_GetClassName).field("Class_GetParentClassName", &self.Class_GetParentClassName).field("DeserializeInstance", &self.DeserializeInstance).field("Instance_GetClassName", &self.Instance_GetClassName).finish()
-    }
-}
 impl windows_core::TypeKind for MI_DeserializerFT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_DeserializerFT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Close == other.Close && self.DeserializeClass == other.DeserializeClass && self.Class_GetClassName == other.Class_GetClassName && self.Class_GetParentClassName == other.Class_GetParentClassName && self.DeserializeInstance == other.DeserializeInstance && self.Instance_GetClassName == other.Instance_GetClassName
-    }
-}
-impl Eq for MI_DeserializerFT {}
 impl Default for MI_DeserializerFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_DestinationOptions {
     pub reserved1: u64,
     pub reserved2: isize,
     pub ft: *const MI_DestinationOptionsFT,
 }
-impl Copy for MI_DestinationOptions {}
-impl Clone for MI_DestinationOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_DestinationOptions {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_DestinationOptions").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).field("ft", &self.ft).finish()
-    }
-}
 impl windows_core::TypeKind for MI_DestinationOptions {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_DestinationOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2 && self.ft == other.ft
-    }
-}
-impl Eq for MI_DestinationOptions {}
 impl Default for MI_DestinationOptions {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_DestinationOptionsFT {
     pub Delete: isize,
     pub SetString: isize,
@@ -8053,48 +6832,16 @@ pub struct MI_DestinationOptionsFT {
     pub SetInterval: isize,
     pub GetInterval: isize,
 }
-impl Copy for MI_DestinationOptionsFT {}
-impl Clone for MI_DestinationOptionsFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_DestinationOptionsFT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_DestinationOptionsFT")
-            .field("Delete", &self.Delete)
-            .field("SetString", &self.SetString)
-            .field("SetNumber", &self.SetNumber)
-            .field("AddCredentials", &self.AddCredentials)
-            .field("GetString", &self.GetString)
-            .field("GetNumber", &self.GetNumber)
-            .field("GetOptionCount", &self.GetOptionCount)
-            .field("GetOptionAt", &self.GetOptionAt)
-            .field("GetOption", &self.GetOption)
-            .field("GetCredentialsCount", &self.GetCredentialsCount)
-            .field("GetCredentialsAt", &self.GetCredentialsAt)
-            .field("GetCredentialsPasswordAt", &self.GetCredentialsPasswordAt)
-            .field("Clone", &self.Clone)
-            .field("SetInterval", &self.SetInterval)
-            .field("GetInterval", &self.GetInterval)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MI_DestinationOptionsFT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_DestinationOptionsFT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Delete == other.Delete && self.SetString == other.SetString && self.SetNumber == other.SetNumber && self.AddCredentials == other.AddCredentials && self.GetString == other.GetString && self.GetNumber == other.GetNumber && self.GetOptionCount == other.GetOptionCount && self.GetOptionAt == other.GetOptionAt && self.GetOption == other.GetOption && self.GetCredentialsCount == other.GetCredentialsCount && self.GetCredentialsAt == other.GetCredentialsAt && self.GetCredentialsPasswordAt == other.GetCredentialsPasswordAt && self.Clone == other.Clone && self.SetInterval == other.SetInterval && self.GetInterval == other.GetInterval
-    }
-}
-impl Eq for MI_DestinationOptionsFT {}
 impl Default for MI_DestinationOptionsFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_FeatureDecl {
     pub flags: u32,
     pub code: u32,
@@ -8102,153 +6849,73 @@ pub struct MI_FeatureDecl {
     pub qualifiers: *const *const MI_Qualifier,
     pub numQualifiers: u32,
 }
-impl Copy for MI_FeatureDecl {}
-impl Clone for MI_FeatureDecl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_FeatureDecl {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_FeatureDecl").field("flags", &self.flags).field("code", &self.code).field("name", &self.name).field("qualifiers", &self.qualifiers).field("numQualifiers", &self.numQualifiers).finish()
-    }
-}
 impl windows_core::TypeKind for MI_FeatureDecl {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_FeatureDecl {
-    fn eq(&self, other: &Self) -> bool {
-        self.flags == other.flags && self.code == other.code && self.name == other.name && self.qualifiers == other.qualifiers && self.numQualifiers == other.numQualifiers
-    }
-}
-impl Eq for MI_FeatureDecl {}
 impl Default for MI_FeatureDecl {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Filter {
     pub ft: *const MI_FilterFT,
     pub reserved: [isize; 3],
 }
-impl Copy for MI_Filter {}
-impl Clone for MI_Filter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Filter {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Filter").field("ft", &self.ft).field("reserved", &self.reserved).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Filter {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Filter {
-    fn eq(&self, other: &Self) -> bool {
-        self.ft == other.ft && self.reserved == other.reserved
-    }
-}
-impl Eq for MI_Filter {}
 impl Default for MI_Filter {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_FilterFT {
     pub Evaluate: isize,
     pub GetExpression: isize,
 }
-impl Copy for MI_FilterFT {}
-impl Clone for MI_FilterFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_FilterFT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_FilterFT").field("Evaluate", &self.Evaluate).field("GetExpression", &self.GetExpression).finish()
-    }
-}
 impl windows_core::TypeKind for MI_FilterFT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_FilterFT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Evaluate == other.Evaluate && self.GetExpression == other.GetExpression
-    }
-}
-impl Eq for MI_FilterFT {}
 impl Default for MI_FilterFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_HostedProvider {
     pub reserved1: u64,
     pub reserved2: isize,
     pub ft: *const MI_HostedProviderFT,
 }
-impl Copy for MI_HostedProvider {}
-impl Clone for MI_HostedProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_HostedProvider {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_HostedProvider").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).field("ft", &self.ft).finish()
-    }
-}
 impl windows_core::TypeKind for MI_HostedProvider {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_HostedProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2 && self.ft == other.ft
-    }
-}
-impl Eq for MI_HostedProvider {}
 impl Default for MI_HostedProvider {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_HostedProviderFT {
     pub Close: isize,
     pub GetApplication: isize,
 }
-impl Copy for MI_HostedProviderFT {}
-impl Clone for MI_HostedProviderFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_HostedProviderFT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_HostedProviderFT").field("Close", &self.Close).field("GetApplication", &self.GetApplication).finish()
-    }
-}
 impl windows_core::TypeKind for MI_HostedProviderFT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_HostedProviderFT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Close == other.Close && self.GetApplication == other.GetApplication
-    }
-}
-impl Eq for MI_HostedProviderFT {}
 impl Default for MI_HostedProviderFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Instance {
     pub ft: *const MI_InstanceFT,
     pub classDecl: *const MI_ClassDecl,
@@ -8256,123 +6923,59 @@ pub struct MI_Instance {
     pub nameSpace: *const u16,
     pub reserved: [isize; 4],
 }
-impl Copy for MI_Instance {}
-impl Clone for MI_Instance {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Instance {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Instance").field("ft", &self.ft).field("classDecl", &self.classDecl).field("serverName", &self.serverName).field("nameSpace", &self.nameSpace).field("reserved", &self.reserved).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Instance {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Instance {
-    fn eq(&self, other: &Self) -> bool {
-        self.ft == other.ft && self.classDecl == other.classDecl && self.serverName == other.serverName && self.nameSpace == other.nameSpace && self.reserved == other.reserved
-    }
-}
-impl Eq for MI_Instance {}
 impl Default for MI_Instance {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_InstanceA {
     pub data: *mut *mut MI_Instance,
     pub size: u32,
 }
-impl Copy for MI_InstanceA {}
-impl Clone for MI_InstanceA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_InstanceA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_InstanceA").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_InstanceA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_InstanceA {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_InstanceA {}
 impl Default for MI_InstanceA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_InstanceAField {
     pub value: MI_InstanceA,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_InstanceAField {}
-impl Clone for MI_InstanceAField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_InstanceAField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_InstanceAField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_InstanceAField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_InstanceAField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_InstanceAField {}
 impl Default for MI_InstanceAField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_InstanceExFT {
     pub parent: MI_InstanceFT,
     pub Normalize: isize,
 }
-impl Copy for MI_InstanceExFT {}
-impl Clone for MI_InstanceExFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_InstanceExFT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_InstanceExFT").field("parent", &self.parent).field("Normalize", &self.Normalize).finish()
-    }
-}
 impl windows_core::TypeKind for MI_InstanceExFT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_InstanceExFT {
-    fn eq(&self, other: &Self) -> bool {
-        self.parent == other.parent && self.Normalize == other.Normalize
-    }
-}
-impl Eq for MI_InstanceExFT {}
 impl Default for MI_InstanceExFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_InstanceFT {
     pub Clone: isize,
     pub Destruct: isize,
@@ -8393,82 +6996,31 @@ pub struct MI_InstanceFT {
     pub SetServerName: isize,
     pub GetClass: isize,
 }
-impl Copy for MI_InstanceFT {}
-impl Clone for MI_InstanceFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_InstanceFT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_InstanceFT")
-            .field("Clone", &self.Clone)
-            .field("Destruct", &self.Destruct)
-            .field("Delete", &self.Delete)
-            .field("IsA", &self.IsA)
-            .field("GetClassNameA", &self.GetClassNameA)
-            .field("SetNameSpace", &self.SetNameSpace)
-            .field("GetNameSpace", &self.GetNameSpace)
-            .field("GetElementCount", &self.GetElementCount)
-            .field("AddElement", &self.AddElement)
-            .field("SetElement", &self.SetElement)
-            .field("SetElementAt", &self.SetElementAt)
-            .field("GetElement", &self.GetElement)
-            .field("GetElementAt", &self.GetElementAt)
-            .field("ClearElement", &self.ClearElement)
-            .field("ClearElementAt", &self.ClearElementAt)
-            .field("GetServerName", &self.GetServerName)
-            .field("SetServerName", &self.SetServerName)
-            .field("GetClass", &self.GetClass)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MI_InstanceFT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_InstanceFT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Clone == other.Clone && self.Destruct == other.Destruct && self.Delete == other.Delete && self.IsA == other.IsA && self.GetClassNameA == other.GetClassNameA && self.SetNameSpace == other.SetNameSpace && self.GetNameSpace == other.GetNameSpace && self.GetElementCount == other.GetElementCount && self.AddElement == other.AddElement && self.SetElement == other.SetElement && self.SetElementAt == other.SetElementAt && self.GetElement == other.GetElement && self.GetElementAt == other.GetElementAt && self.ClearElement == other.ClearElement && self.ClearElementAt == other.ClearElementAt && self.GetServerName == other.GetServerName && self.SetServerName == other.SetServerName && self.GetClass == other.GetClass
-    }
-}
-impl Eq for MI_InstanceFT {}
 impl Default for MI_InstanceFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_InstanceField {
     pub value: *mut MI_Instance,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_InstanceField {}
-impl Clone for MI_InstanceField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_InstanceField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_InstanceField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_InstanceField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_InstanceField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_InstanceField {}
 impl Default for MI_InstanceField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Interval {
     pub days: u32,
     pub hours: u32,
@@ -8479,32 +7031,16 @@ pub struct MI_Interval {
     pub __padding2: u32,
     pub __padding3: u32,
 }
-impl Copy for MI_Interval {}
-impl Clone for MI_Interval {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Interval {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Interval").field("days", &self.days).field("hours", &self.hours).field("minutes", &self.minutes).field("seconds", &self.seconds).field("microseconds", &self.microseconds).field("__padding1", &self.__padding1).field("__padding2", &self.__padding2).field("__padding3", &self.__padding3).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Interval {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Interval {
-    fn eq(&self, other: &Self) -> bool {
-        self.days == other.days && self.hours == other.hours && self.minutes == other.minutes && self.seconds == other.seconds && self.microseconds == other.microseconds && self.__padding1 == other.__padding1 && self.__padding2 == other.__padding2 && self.__padding3 == other.__padding3
-    }
-}
-impl Eq for MI_Interval {}
 impl Default for MI_Interval {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct MI_MethodDecl {
     pub flags: u32,
     pub code: u32,
@@ -8520,17 +7056,6 @@ pub struct MI_MethodDecl {
     pub schema: *const MI_SchemaDecl,
     pub function: MI_MethodDecl_Invoke,
 }
-impl Copy for MI_MethodDecl {}
-impl Clone for MI_MethodDecl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_MethodDecl {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_MethodDecl").field("flags", &self.flags).field("code", &self.code).field("name", &self.name).field("qualifiers", &self.qualifiers).field("numQualifiers", &self.numQualifiers).field("parameters", &self.parameters).field("numParameters", &self.numParameters).field("size", &self.size).field("returnType", &self.returnType).field("origin", &self.origin).field("propagator", &self.propagator).field("schema", &self.schema).finish()
-    }
-}
 impl windows_core::TypeKind for MI_MethodDecl {
     type TypeKind = windows_core::CopyType;
 }
@@ -8540,6 +7065,7 @@ impl Default for MI_MethodDecl {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct MI_Module {
     pub version: u32,
     pub generatorVersion: u32,
@@ -8549,17 +7075,6 @@ pub struct MI_Module {
     pub Load: MI_Module_Load,
     pub Unload: MI_Module_Unload,
     pub dynamicProviderFT: *const MI_ProviderFT,
-}
-impl Copy for MI_Module {}
-impl Clone for MI_Module {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Module {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Module").field("version", &self.version).field("generatorVersion", &self.generatorVersion).field("flags", &self.flags).field("charSize", &self.charSize).field("schemaDecl", &self.schemaDecl).field("dynamicProviderFT", &self.dynamicProviderFT).finish()
-    }
 }
 impl windows_core::TypeKind for MI_Module {
     type TypeKind = windows_core::CopyType;
@@ -8581,6 +7096,7 @@ impl windows_core::TypeKind for MI_Module_Self {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ObjectDecl {
     pub flags: u32,
     pub code: u32,
@@ -8591,63 +7107,31 @@ pub struct MI_ObjectDecl {
     pub numProperties: u32,
     pub size: u32,
 }
-impl Copy for MI_ObjectDecl {}
-impl Clone for MI_ObjectDecl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ObjectDecl {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ObjectDecl").field("flags", &self.flags).field("code", &self.code).field("name", &self.name).field("qualifiers", &self.qualifiers).field("numQualifiers", &self.numQualifiers).field("properties", &self.properties).field("numProperties", &self.numProperties).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ObjectDecl {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ObjectDecl {
-    fn eq(&self, other: &Self) -> bool {
-        self.flags == other.flags && self.code == other.code && self.name == other.name && self.qualifiers == other.qualifiers && self.numQualifiers == other.numQualifiers && self.properties == other.properties && self.numProperties == other.numProperties && self.size == other.size
-    }
-}
-impl Eq for MI_ObjectDecl {}
 impl Default for MI_ObjectDecl {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Operation {
     pub reserved1: u64,
     pub reserved2: isize,
     pub ft: *const MI_OperationFT,
 }
-impl Copy for MI_Operation {}
-impl Clone for MI_Operation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Operation {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Operation").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).field("ft", &self.ft).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Operation {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Operation {
-    fn eq(&self, other: &Self) -> bool {
-        self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2 && self.ft == other.ft
-    }
-}
-impl Eq for MI_Operation {}
 impl Default for MI_Operation {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct MI_OperationCallbacks {
     pub callbackContext: *mut core::ffi::c_void,
     pub promptUser: MI_OperationCallback_PromptUser,
@@ -8659,17 +7143,6 @@ pub struct MI_OperationCallbacks {
     pub classResult: MI_OperationCallback_Class,
     pub streamedParameterResult: MI_OperationCallback_StreamedParameter,
 }
-impl Copy for MI_OperationCallbacks {}
-impl Clone for MI_OperationCallbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_OperationCallbacks {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_OperationCallbacks").field("callbackContext", &self.callbackContext).finish()
-    }
-}
 impl windows_core::TypeKind for MI_OperationCallbacks {
     type TypeKind = windows_core::CopyType;
 }
@@ -8679,6 +7152,7 @@ impl Default for MI_OperationCallbacks {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_OperationFT {
     pub Close: isize,
     pub Cancel: isize,
@@ -8687,63 +7161,31 @@ pub struct MI_OperationFT {
     pub GetIndication: isize,
     pub GetClass: isize,
 }
-impl Copy for MI_OperationFT {}
-impl Clone for MI_OperationFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_OperationFT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_OperationFT").field("Close", &self.Close).field("Cancel", &self.Cancel).field("GetSession", &self.GetSession).field("GetInstance", &self.GetInstance).field("GetIndication", &self.GetIndication).field("GetClass", &self.GetClass).finish()
-    }
-}
 impl windows_core::TypeKind for MI_OperationFT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_OperationFT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Close == other.Close && self.Cancel == other.Cancel && self.GetSession == other.GetSession && self.GetInstance == other.GetInstance && self.GetIndication == other.GetIndication && self.GetClass == other.GetClass
-    }
-}
-impl Eq for MI_OperationFT {}
 impl Default for MI_OperationFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_OperationOptions {
     pub reserved1: u64,
     pub reserved2: isize,
     pub ft: *const MI_OperationOptionsFT,
 }
-impl Copy for MI_OperationOptions {}
-impl Clone for MI_OperationOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_OperationOptions {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_OperationOptions").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).field("ft", &self.ft).finish()
-    }
-}
 impl windows_core::TypeKind for MI_OperationOptions {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_OperationOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2 && self.ft == other.ft
-    }
-}
-impl Eq for MI_OperationOptions {}
 impl Default for MI_OperationOptions {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_OperationOptionsFT {
     pub Delete: isize,
     pub SetString: isize,
@@ -8759,46 +7201,16 @@ pub struct MI_OperationOptionsFT {
     pub SetInterval: isize,
     pub GetInterval: isize,
 }
-impl Copy for MI_OperationOptionsFT {}
-impl Clone for MI_OperationOptionsFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_OperationOptionsFT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_OperationOptionsFT")
-            .field("Delete", &self.Delete)
-            .field("SetString", &self.SetString)
-            .field("SetNumber", &self.SetNumber)
-            .field("SetCustomOption", &self.SetCustomOption)
-            .field("GetString", &self.GetString)
-            .field("GetNumber", &self.GetNumber)
-            .field("GetOptionCount", &self.GetOptionCount)
-            .field("GetOptionAt", &self.GetOptionAt)
-            .field("GetOption", &self.GetOption)
-            .field("GetEnabledChannels", &self.GetEnabledChannels)
-            .field("Clone", &self.Clone)
-            .field("SetInterval", &self.SetInterval)
-            .field("GetInterval", &self.GetInterval)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MI_OperationOptionsFT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_OperationOptionsFT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Delete == other.Delete && self.SetString == other.SetString && self.SetNumber == other.SetNumber && self.SetCustomOption == other.SetCustomOption && self.GetString == other.GetString && self.GetNumber == other.GetNumber && self.GetOptionCount == other.GetOptionCount && self.GetOptionAt == other.GetOptionAt && self.GetOption == other.GetOption && self.GetEnabledChannels == other.GetEnabledChannels && self.Clone == other.Clone && self.SetInterval == other.SetInterval && self.GetInterval == other.GetInterval
-    }
-}
-impl Eq for MI_OperationOptionsFT {}
 impl Default for MI_OperationOptionsFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ParameterDecl {
     pub flags: u32,
     pub code: u32,
@@ -8810,95 +7222,47 @@ pub struct MI_ParameterDecl {
     pub subscript: u32,
     pub offset: u32,
 }
-impl Copy for MI_ParameterDecl {}
-impl Clone for MI_ParameterDecl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ParameterDecl {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ParameterDecl").field("flags", &self.flags).field("code", &self.code).field("name", &self.name).field("qualifiers", &self.qualifiers).field("numQualifiers", &self.numQualifiers).field("type", &self.r#type).field("className", &self.className).field("subscript", &self.subscript).field("offset", &self.offset).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ParameterDecl {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ParameterDecl {
-    fn eq(&self, other: &Self) -> bool {
-        self.flags == other.flags && self.code == other.code && self.name == other.name && self.qualifiers == other.qualifiers && self.numQualifiers == other.numQualifiers && self.r#type == other.r#type && self.className == other.className && self.subscript == other.subscript && self.offset == other.offset
-    }
-}
-impl Eq for MI_ParameterDecl {}
 impl Default for MI_ParameterDecl {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ParameterSet {
     pub reserved1: u64,
     pub reserved2: isize,
     pub ft: *const MI_ParameterSetFT,
 }
-impl Copy for MI_ParameterSet {}
-impl Clone for MI_ParameterSet {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ParameterSet {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ParameterSet").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).field("ft", &self.ft).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ParameterSet {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ParameterSet {
-    fn eq(&self, other: &Self) -> bool {
-        self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2 && self.ft == other.ft
-    }
-}
-impl Eq for MI_ParameterSet {}
 impl Default for MI_ParameterSet {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ParameterSetFT {
     pub GetMethodReturnType: isize,
     pub GetParameterCount: isize,
     pub GetParameterAt: isize,
     pub GetParameter: isize,
 }
-impl Copy for MI_ParameterSetFT {}
-impl Clone for MI_ParameterSetFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ParameterSetFT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ParameterSetFT").field("GetMethodReturnType", &self.GetMethodReturnType).field("GetParameterCount", &self.GetParameterCount).field("GetParameterAt", &self.GetParameterAt).field("GetParameter", &self.GetParameter).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ParameterSetFT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ParameterSetFT {
-    fn eq(&self, other: &Self) -> bool {
-        self.GetMethodReturnType == other.GetMethodReturnType && self.GetParameterCount == other.GetParameterCount && self.GetParameterAt == other.GetParameterAt && self.GetParameter == other.GetParameter
-    }
-}
-impl Eq for MI_ParameterSetFT {}
 impl Default for MI_ParameterSetFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_PropertyDecl {
     pub flags: u32,
     pub code: u32,
@@ -8913,62 +7277,30 @@ pub struct MI_PropertyDecl {
     pub propagator: *const u16,
     pub value: *const core::ffi::c_void,
 }
-impl Copy for MI_PropertyDecl {}
-impl Clone for MI_PropertyDecl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_PropertyDecl {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_PropertyDecl").field("flags", &self.flags).field("code", &self.code).field("name", &self.name).field("qualifiers", &self.qualifiers).field("numQualifiers", &self.numQualifiers).field("type", &self.r#type).field("className", &self.className).field("subscript", &self.subscript).field("offset", &self.offset).field("origin", &self.origin).field("propagator", &self.propagator).field("value", &self.value).finish()
-    }
-}
 impl windows_core::TypeKind for MI_PropertyDecl {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_PropertyDecl {
-    fn eq(&self, other: &Self) -> bool {
-        self.flags == other.flags && self.code == other.code && self.name == other.name && self.qualifiers == other.qualifiers && self.numQualifiers == other.numQualifiers && self.r#type == other.r#type && self.className == other.className && self.subscript == other.subscript && self.offset == other.offset && self.origin == other.origin && self.propagator == other.propagator && self.value == other.value
-    }
-}
-impl Eq for MI_PropertyDecl {}
 impl Default for MI_PropertyDecl {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_PropertySet {
     pub ft: *const MI_PropertySetFT,
     pub reserved: [isize; 3],
 }
-impl Copy for MI_PropertySet {}
-impl Clone for MI_PropertySet {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_PropertySet {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_PropertySet").field("ft", &self.ft).field("reserved", &self.reserved).finish()
-    }
-}
 impl windows_core::TypeKind for MI_PropertySet {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_PropertySet {
-    fn eq(&self, other: &Self) -> bool {
-        self.ft == other.ft && self.reserved == other.reserved
-    }
-}
-impl Eq for MI_PropertySet {}
 impl Default for MI_PropertySet {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_PropertySetFT {
     pub GetElementCount: isize,
     pub ContainsElement: isize,
@@ -8979,32 +7311,16 @@ pub struct MI_PropertySetFT {
     pub Delete: isize,
     pub Clone: isize,
 }
-impl Copy for MI_PropertySetFT {}
-impl Clone for MI_PropertySetFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_PropertySetFT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_PropertySetFT").field("GetElementCount", &self.GetElementCount).field("ContainsElement", &self.ContainsElement).field("AddElement", &self.AddElement).field("GetElementAt", &self.GetElementAt).field("Clear", &self.Clear).field("Destruct", &self.Destruct).field("Delete", &self.Delete).field("Clone", &self.Clone).finish()
-    }
-}
 impl windows_core::TypeKind for MI_PropertySetFT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_PropertySetFT {
-    fn eq(&self, other: &Self) -> bool {
-        self.GetElementCount == other.GetElementCount && self.ContainsElement == other.ContainsElement && self.AddElement == other.AddElement && self.GetElementAt == other.GetElementAt && self.Clear == other.Clear && self.Destruct == other.Destruct && self.Delete == other.Delete && self.Clone == other.Clone
-    }
-}
-impl Eq for MI_PropertySetFT {}
 impl Default for MI_PropertySetFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct MI_ProviderFT {
     pub Load: MI_ProviderFT_Load,
     pub Unload: MI_ProviderFT_Unload,
@@ -9021,17 +7337,6 @@ pub struct MI_ProviderFT {
     pub Unsubscribe: MI_ProviderFT_Unsubscribe,
     pub Invoke: MI_ProviderFT_Invoke,
 }
-impl Copy for MI_ProviderFT {}
-impl Clone for MI_ProviderFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ProviderFT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ProviderFT").finish()
-    }
-}
 impl windows_core::TypeKind for MI_ProviderFT {
     type TypeKind = windows_core::CopyType;
 }
@@ -9041,38 +7346,23 @@ impl Default for MI_ProviderFT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Qualifier {
     pub name: *const u16,
     pub r#type: u32,
     pub flavor: u32,
     pub value: *const core::ffi::c_void,
 }
-impl Copy for MI_Qualifier {}
-impl Clone for MI_Qualifier {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Qualifier {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Qualifier").field("name", &self.name).field("type", &self.r#type).field("flavor", &self.flavor).field("value", &self.value).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Qualifier {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Qualifier {
-    fn eq(&self, other: &Self) -> bool {
-        self.name == other.name && self.r#type == other.r#type && self.flavor == other.flavor && self.value == other.value
-    }
-}
-impl Eq for MI_Qualifier {}
 impl Default for MI_Qualifier {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_QualifierDecl {
     pub name: *const u16,
     pub r#type: u32,
@@ -9081,463 +7371,223 @@ pub struct MI_QualifierDecl {
     pub subscript: u32,
     pub value: *const core::ffi::c_void,
 }
-impl Copy for MI_QualifierDecl {}
-impl Clone for MI_QualifierDecl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_QualifierDecl {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_QualifierDecl").field("name", &self.name).field("type", &self.r#type).field("scope", &self.scope).field("flavor", &self.flavor).field("subscript", &self.subscript).field("value", &self.value).finish()
-    }
-}
 impl windows_core::TypeKind for MI_QualifierDecl {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_QualifierDecl {
-    fn eq(&self, other: &Self) -> bool {
-        self.name == other.name && self.r#type == other.r#type && self.scope == other.scope && self.flavor == other.flavor && self.subscript == other.subscript && self.value == other.value
-    }
-}
-impl Eq for MI_QualifierDecl {}
 impl Default for MI_QualifierDecl {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_QualifierSet {
     pub reserved1: u64,
     pub reserved2: isize,
     pub ft: *const MI_QualifierSetFT,
 }
-impl Copy for MI_QualifierSet {}
-impl Clone for MI_QualifierSet {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_QualifierSet {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_QualifierSet").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).field("ft", &self.ft).finish()
-    }
-}
 impl windows_core::TypeKind for MI_QualifierSet {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_QualifierSet {
-    fn eq(&self, other: &Self) -> bool {
-        self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2 && self.ft == other.ft
-    }
-}
-impl Eq for MI_QualifierSet {}
 impl Default for MI_QualifierSet {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_QualifierSetFT {
     pub GetQualifierCount: isize,
     pub GetQualifierAt: isize,
     pub GetQualifier: isize,
 }
-impl Copy for MI_QualifierSetFT {}
-impl Clone for MI_QualifierSetFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_QualifierSetFT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_QualifierSetFT").field("GetQualifierCount", &self.GetQualifierCount).field("GetQualifierAt", &self.GetQualifierAt).field("GetQualifier", &self.GetQualifier).finish()
-    }
-}
 impl windows_core::TypeKind for MI_QualifierSetFT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_QualifierSetFT {
-    fn eq(&self, other: &Self) -> bool {
-        self.GetQualifierCount == other.GetQualifierCount && self.GetQualifierAt == other.GetQualifierAt && self.GetQualifier == other.GetQualifier
-    }
-}
-impl Eq for MI_QualifierSetFT {}
 impl Default for MI_QualifierSetFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Real32A {
     pub data: *mut f32,
     pub size: u32,
 }
-impl Copy for MI_Real32A {}
-impl Clone for MI_Real32A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Real32A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Real32A").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Real32A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Real32A {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_Real32A {}
 impl Default for MI_Real32A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Real32AField {
     pub value: MI_Real32A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Real32AField {}
-impl Clone for MI_Real32AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Real32AField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Real32AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Real32AField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Real32AField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_Real32AField {}
 impl Default for MI_Real32AField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Real32Field {
     pub value: f32,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Real32Field {}
-impl Clone for MI_Real32Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Real32Field {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Real32Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Real32Field {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Real32Field {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_Real32Field {}
 impl Default for MI_Real32Field {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Real64A {
     pub data: *mut f64,
     pub size: u32,
 }
-impl Copy for MI_Real64A {}
-impl Clone for MI_Real64A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Real64A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Real64A").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Real64A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Real64A {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_Real64A {}
 impl Default for MI_Real64A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Real64AField {
     pub value: MI_Real64A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Real64AField {}
-impl Clone for MI_Real64AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Real64AField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Real64AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Real64AField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Real64AField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_Real64AField {}
 impl Default for MI_Real64AField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Real64Field {
     pub value: f64,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Real64Field {}
-impl Clone for MI_Real64Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Real64Field {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Real64Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Real64Field {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Real64Field {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_Real64Field {}
 impl Default for MI_Real64Field {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ReferenceA {
     pub data: *mut *mut MI_Instance,
     pub size: u32,
 }
-impl Copy for MI_ReferenceA {}
-impl Clone for MI_ReferenceA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ReferenceA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ReferenceA").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ReferenceA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ReferenceA {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_ReferenceA {}
 impl Default for MI_ReferenceA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ReferenceAField {
     pub value: MI_ReferenceA,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ReferenceAField {}
-impl Clone for MI_ReferenceAField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ReferenceAField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ReferenceAField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ReferenceAField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ReferenceAField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ReferenceAField {}
 impl Default for MI_ReferenceAField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ReferenceField {
     pub value: *mut MI_Instance,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ReferenceField {}
-impl Clone for MI_ReferenceField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ReferenceField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ReferenceField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ReferenceField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ReferenceField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_ReferenceField {}
 impl Default for MI_ReferenceField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_SchemaDecl {
     pub qualifierDecls: *const *const MI_QualifierDecl,
     pub numQualifierDecls: u32,
     pub classDecls: *const *const MI_ClassDecl,
     pub numClassDecls: u32,
 }
-impl Copy for MI_SchemaDecl {}
-impl Clone for MI_SchemaDecl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_SchemaDecl {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_SchemaDecl").field("qualifierDecls", &self.qualifierDecls).field("numQualifierDecls", &self.numQualifierDecls).field("classDecls", &self.classDecls).field("numClassDecls", &self.numClassDecls).finish()
-    }
-}
 impl windows_core::TypeKind for MI_SchemaDecl {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_SchemaDecl {
-    fn eq(&self, other: &Self) -> bool {
-        self.qualifierDecls == other.qualifierDecls && self.numQualifierDecls == other.numQualifierDecls && self.classDecls == other.classDecls && self.numClassDecls == other.numClassDecls
-    }
-}
-impl Eq for MI_SchemaDecl {}
 impl Default for MI_SchemaDecl {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Serializer {
     pub reserved1: u64,
     pub reserved2: isize,
 }
-impl Copy for MI_Serializer {}
-impl Clone for MI_Serializer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Serializer {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Serializer").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Serializer {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Serializer {
-    fn eq(&self, other: &Self) -> bool {
-        self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2
-    }
-}
-impl Eq for MI_Serializer {}
 impl Default for MI_Serializer {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_SerializerFT {
     pub Close: isize,
     pub SerializeClass: isize,
     pub SerializeInstance: isize,
 }
-impl Copy for MI_SerializerFT {}
-impl Clone for MI_SerializerFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_SerializerFT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_SerializerFT").field("Close", &self.Close).field("SerializeClass", &self.SerializeClass).field("SerializeInstance", &self.SerializeInstance).finish()
-    }
-}
 impl windows_core::TypeKind for MI_SerializerFT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_SerializerFT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Close == other.Close && self.SerializeClass == other.SerializeClass && self.SerializeInstance == other.SerializeInstance
-    }
-}
-impl Eq for MI_SerializerFT {}
 impl Default for MI_SerializerFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Server {
     pub serverFT: *const MI_ServerFT,
     pub contextFT: *const MI_ContextFT,
@@ -9545,124 +7595,60 @@ pub struct MI_Server {
     pub propertySetFT: *const MI_PropertySetFT,
     pub filterFT: *const MI_FilterFT,
 }
-impl Copy for MI_Server {}
-impl Clone for MI_Server {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Server {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Server").field("serverFT", &self.serverFT).field("contextFT", &self.contextFT).field("instanceFT", &self.instanceFT).field("propertySetFT", &self.propertySetFT).field("filterFT", &self.filterFT).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Server {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Server {
-    fn eq(&self, other: &Self) -> bool {
-        self.serverFT == other.serverFT && self.contextFT == other.contextFT && self.instanceFT == other.instanceFT && self.propertySetFT == other.propertySetFT && self.filterFT == other.filterFT
-    }
-}
-impl Eq for MI_Server {}
 impl Default for MI_Server {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ServerFT {
     pub GetVersion: isize,
     pub GetSystemName: isize,
 }
-impl Copy for MI_ServerFT {}
-impl Clone for MI_ServerFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_ServerFT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_ServerFT").field("GetVersion", &self.GetVersion).field("GetSystemName", &self.GetSystemName).finish()
-    }
-}
 impl windows_core::TypeKind for MI_ServerFT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_ServerFT {
-    fn eq(&self, other: &Self) -> bool {
-        self.GetVersion == other.GetVersion && self.GetSystemName == other.GetSystemName
-    }
-}
-impl Eq for MI_ServerFT {}
 impl Default for MI_ServerFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Session {
     pub reserved1: u64,
     pub reserved2: isize,
     pub ft: *const MI_SessionFT,
 }
-impl Copy for MI_Session {}
-impl Clone for MI_Session {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Session {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Session").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).field("ft", &self.ft).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Session {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Session {
-    fn eq(&self, other: &Self) -> bool {
-        self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2 && self.ft == other.ft
-    }
-}
-impl Eq for MI_Session {}
 impl Default for MI_Session {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_SessionCallbacks {
     pub callbackContext: *mut core::ffi::c_void,
     pub writeMessage: isize,
     pub writeError: isize,
 }
-impl Copy for MI_SessionCallbacks {}
-impl Clone for MI_SessionCallbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_SessionCallbacks {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_SessionCallbacks").field("callbackContext", &self.callbackContext).field("writeMessage", &self.writeMessage).field("writeError", &self.writeError).finish()
-    }
-}
 impl windows_core::TypeKind for MI_SessionCallbacks {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_SessionCallbacks {
-    fn eq(&self, other: &Self) -> bool {
-        self.callbackContext == other.callbackContext && self.writeMessage == other.writeMessage && self.writeError == other.writeError
-    }
-}
-impl Eq for MI_SessionCallbacks {}
 impl Default for MI_SessionCallbacks {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_SessionFT {
     pub Close: isize,
     pub GetApplication: isize,
@@ -9680,539 +7666,251 @@ pub struct MI_SessionFT {
     pub EnumerateClasses: isize,
     pub TestConnection: isize,
 }
-impl Copy for MI_SessionFT {}
-impl Clone for MI_SessionFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_SessionFT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_SessionFT")
-            .field("Close", &self.Close)
-            .field("GetApplication", &self.GetApplication)
-            .field("GetInstance", &self.GetInstance)
-            .field("ModifyInstance", &self.ModifyInstance)
-            .field("CreateInstance", &self.CreateInstance)
-            .field("DeleteInstance", &self.DeleteInstance)
-            .field("Invoke", &self.Invoke)
-            .field("EnumerateInstances", &self.EnumerateInstances)
-            .field("QueryInstances", &self.QueryInstances)
-            .field("AssociatorInstances", &self.AssociatorInstances)
-            .field("ReferenceInstances", &self.ReferenceInstances)
-            .field("Subscribe", &self.Subscribe)
-            .field("GetClass", &self.GetClass)
-            .field("EnumerateClasses", &self.EnumerateClasses)
-            .field("TestConnection", &self.TestConnection)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MI_SessionFT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_SessionFT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Close == other.Close && self.GetApplication == other.GetApplication && self.GetInstance == other.GetInstance && self.ModifyInstance == other.ModifyInstance && self.CreateInstance == other.CreateInstance && self.DeleteInstance == other.DeleteInstance && self.Invoke == other.Invoke && self.EnumerateInstances == other.EnumerateInstances && self.QueryInstances == other.QueryInstances && self.AssociatorInstances == other.AssociatorInstances && self.ReferenceInstances == other.ReferenceInstances && self.Subscribe == other.Subscribe && self.GetClass == other.GetClass && self.EnumerateClasses == other.EnumerateClasses && self.TestConnection == other.TestConnection
-    }
-}
-impl Eq for MI_SessionFT {}
 impl Default for MI_SessionFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Sint16A {
     pub data: *mut i16,
     pub size: u32,
 }
-impl Copy for MI_Sint16A {}
-impl Clone for MI_Sint16A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Sint16A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Sint16A").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Sint16A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Sint16A {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_Sint16A {}
 impl Default for MI_Sint16A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Sint16AField {
     pub value: MI_Sint16A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Sint16AField {}
-impl Clone for MI_Sint16AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Sint16AField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Sint16AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Sint16AField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Sint16AField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_Sint16AField {}
 impl Default for MI_Sint16AField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Sint16Field {
     pub value: i16,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Sint16Field {}
-impl Clone for MI_Sint16Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Sint16Field {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Sint16Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Sint16Field {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Sint16Field {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_Sint16Field {}
 impl Default for MI_Sint16Field {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Sint32A {
     pub data: *mut i32,
     pub size: u32,
 }
-impl Copy for MI_Sint32A {}
-impl Clone for MI_Sint32A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Sint32A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Sint32A").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Sint32A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Sint32A {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_Sint32A {}
 impl Default for MI_Sint32A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Sint32AField {
     pub value: MI_Sint32A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Sint32AField {}
-impl Clone for MI_Sint32AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Sint32AField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Sint32AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Sint32AField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Sint32AField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_Sint32AField {}
 impl Default for MI_Sint32AField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Sint32Field {
     pub value: i32,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Sint32Field {}
-impl Clone for MI_Sint32Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Sint32Field {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Sint32Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Sint32Field {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Sint32Field {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_Sint32Field {}
 impl Default for MI_Sint32Field {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Sint64A {
     pub data: *mut i64,
     pub size: u32,
 }
-impl Copy for MI_Sint64A {}
-impl Clone for MI_Sint64A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Sint64A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Sint64A").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Sint64A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Sint64A {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_Sint64A {}
 impl Default for MI_Sint64A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Sint64AField {
     pub value: MI_Sint64A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Sint64AField {}
-impl Clone for MI_Sint64AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Sint64AField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Sint64AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Sint64AField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Sint64AField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_Sint64AField {}
 impl Default for MI_Sint64AField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Sint64Field {
     pub value: i64,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Sint64Field {}
-impl Clone for MI_Sint64Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Sint64Field {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Sint64Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Sint64Field {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Sint64Field {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_Sint64Field {}
 impl Default for MI_Sint64Field {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Sint8A {
     pub data: *mut i8,
     pub size: u32,
 }
-impl Copy for MI_Sint8A {}
-impl Clone for MI_Sint8A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Sint8A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Sint8A").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Sint8A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Sint8A {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_Sint8A {}
 impl Default for MI_Sint8A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Sint8AField {
     pub value: MI_Sint8A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Sint8AField {}
-impl Clone for MI_Sint8AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Sint8AField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Sint8AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Sint8AField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Sint8AField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_Sint8AField {}
 impl Default for MI_Sint8AField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Sint8Field {
     pub value: i8,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Sint8Field {}
-impl Clone for MI_Sint8Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Sint8Field {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Sint8Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Sint8Field {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Sint8Field {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_Sint8Field {}
 impl Default for MI_Sint8Field {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_StringA {
     pub data: *mut *mut u16,
     pub size: u32,
 }
-impl Copy for MI_StringA {}
-impl Clone for MI_StringA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_StringA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_StringA").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_StringA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_StringA {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_StringA {}
 impl Default for MI_StringA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_StringAField {
     pub value: MI_StringA,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_StringAField {}
-impl Clone for MI_StringAField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_StringAField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_StringAField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_StringAField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_StringAField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_StringAField {}
 impl Default for MI_StringAField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_StringField {
     pub value: *mut u16,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_StringField {}
-impl Clone for MI_StringField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_StringField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_StringField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_StringField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_StringField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_StringField {}
 impl Default for MI_StringField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_SubscriptionDeliveryOptions {
     pub reserved1: u64,
     pub reserved2: isize,
     pub ft: *const MI_SubscriptionDeliveryOptionsFT,
 }
-impl Copy for MI_SubscriptionDeliveryOptions {}
-impl Clone for MI_SubscriptionDeliveryOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_SubscriptionDeliveryOptions {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_SubscriptionDeliveryOptions").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).field("ft", &self.ft).finish()
-    }
-}
 impl windows_core::TypeKind for MI_SubscriptionDeliveryOptions {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_SubscriptionDeliveryOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2 && self.ft == other.ft
-    }
-}
-impl Eq for MI_SubscriptionDeliveryOptions {}
 impl Default for MI_SubscriptionDeliveryOptions {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_SubscriptionDeliveryOptionsFT {
     pub SetString: isize,
     pub SetNumber: isize,
@@ -10232,50 +7930,16 @@ pub struct MI_SubscriptionDeliveryOptionsFT {
     pub GetCredentialsPasswordAt: isize,
     pub Clone: isize,
 }
-impl Copy for MI_SubscriptionDeliveryOptionsFT {}
-impl Clone for MI_SubscriptionDeliveryOptionsFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_SubscriptionDeliveryOptionsFT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_SubscriptionDeliveryOptionsFT")
-            .field("SetString", &self.SetString)
-            .field("SetNumber", &self.SetNumber)
-            .field("SetDateTime", &self.SetDateTime)
-            .field("SetInterval", &self.SetInterval)
-            .field("AddCredentials", &self.AddCredentials)
-            .field("Delete", &self.Delete)
-            .field("GetString", &self.GetString)
-            .field("GetNumber", &self.GetNumber)
-            .field("GetDateTime", &self.GetDateTime)
-            .field("GetInterval", &self.GetInterval)
-            .field("GetOptionCount", &self.GetOptionCount)
-            .field("GetOptionAt", &self.GetOptionAt)
-            .field("GetOption", &self.GetOption)
-            .field("GetCredentialsCount", &self.GetCredentialsCount)
-            .field("GetCredentialsAt", &self.GetCredentialsAt)
-            .field("GetCredentialsPasswordAt", &self.GetCredentialsPasswordAt)
-            .field("Clone", &self.Clone)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MI_SubscriptionDeliveryOptionsFT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_SubscriptionDeliveryOptionsFT {
-    fn eq(&self, other: &Self) -> bool {
-        self.SetString == other.SetString && self.SetNumber == other.SetNumber && self.SetDateTime == other.SetDateTime && self.SetInterval == other.SetInterval && self.AddCredentials == other.AddCredentials && self.Delete == other.Delete && self.GetString == other.GetString && self.GetNumber == other.GetNumber && self.GetDateTime == other.GetDateTime && self.GetInterval == other.GetInterval && self.GetOptionCount == other.GetOptionCount && self.GetOptionAt == other.GetOptionAt && self.GetOption == other.GetOption && self.GetCredentialsCount == other.GetCredentialsCount && self.GetCredentialsAt == other.GetCredentialsAt && self.GetCredentialsPasswordAt == other.GetCredentialsPasswordAt && self.Clone == other.Clone
-    }
-}
-impl Eq for MI_SubscriptionDeliveryOptionsFT {}
 impl Default for MI_SubscriptionDeliveryOptionsFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Timestamp {
     pub year: u32,
     pub month: u32,
@@ -10286,409 +7950,195 @@ pub struct MI_Timestamp {
     pub microseconds: u32,
     pub utc: i32,
 }
-impl Copy for MI_Timestamp {}
-impl Clone for MI_Timestamp {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Timestamp {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Timestamp").field("year", &self.year).field("month", &self.month).field("day", &self.day).field("hour", &self.hour).field("minute", &self.minute).field("second", &self.second).field("microseconds", &self.microseconds).field("utc", &self.utc).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Timestamp {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Timestamp {
-    fn eq(&self, other: &Self) -> bool {
-        self.year == other.year && self.month == other.month && self.day == other.day && self.hour == other.hour && self.minute == other.minute && self.second == other.second && self.microseconds == other.microseconds && self.utc == other.utc
-    }
-}
-impl Eq for MI_Timestamp {}
 impl Default for MI_Timestamp {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Uint16A {
     pub data: *mut u16,
     pub size: u32,
 }
-impl Copy for MI_Uint16A {}
-impl Clone for MI_Uint16A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Uint16A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Uint16A").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Uint16A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Uint16A {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_Uint16A {}
 impl Default for MI_Uint16A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Uint16AField {
     pub value: MI_Uint16A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Uint16AField {}
-impl Clone for MI_Uint16AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Uint16AField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Uint16AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Uint16AField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Uint16AField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_Uint16AField {}
 impl Default for MI_Uint16AField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Uint16Field {
     pub value: u16,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Uint16Field {}
-impl Clone for MI_Uint16Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Uint16Field {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Uint16Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Uint16Field {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Uint16Field {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_Uint16Field {}
 impl Default for MI_Uint16Field {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Uint32A {
     pub data: *mut u32,
     pub size: u32,
 }
-impl Copy for MI_Uint32A {}
-impl Clone for MI_Uint32A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Uint32A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Uint32A").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Uint32A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Uint32A {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_Uint32A {}
 impl Default for MI_Uint32A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Uint32AField {
     pub value: MI_Uint32A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Uint32AField {}
-impl Clone for MI_Uint32AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Uint32AField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Uint32AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Uint32AField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Uint32AField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_Uint32AField {}
 impl Default for MI_Uint32AField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Uint32Field {
     pub value: u32,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Uint32Field {}
-impl Clone for MI_Uint32Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Uint32Field {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Uint32Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Uint32Field {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Uint32Field {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_Uint32Field {}
 impl Default for MI_Uint32Field {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Uint64A {
     pub data: *mut u64,
     pub size: u32,
 }
-impl Copy for MI_Uint64A {}
-impl Clone for MI_Uint64A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Uint64A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Uint64A").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Uint64A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Uint64A {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_Uint64A {}
 impl Default for MI_Uint64A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Uint64AField {
     pub value: MI_Uint64A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Uint64AField {}
-impl Clone for MI_Uint64AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Uint64AField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Uint64AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Uint64AField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Uint64AField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_Uint64AField {}
 impl Default for MI_Uint64AField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Uint64Field {
     pub value: u64,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Uint64Field {}
-impl Clone for MI_Uint64Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Uint64Field {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Uint64Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Uint64Field {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Uint64Field {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_Uint64Field {}
 impl Default for MI_Uint64Field {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Uint8A {
     pub data: *mut u8,
     pub size: u32,
 }
-impl Copy for MI_Uint8A {}
-impl Clone for MI_Uint8A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Uint8A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Uint8A").field("data", &self.data).field("size", &self.size).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Uint8A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Uint8A {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data && self.size == other.size
-    }
-}
-impl Eq for MI_Uint8A {}
 impl Default for MI_Uint8A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Uint8AField {
     pub value: MI_Uint8A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Uint8AField {}
-impl Clone for MI_Uint8AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Uint8AField {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Uint8AField").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Uint8AField {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Uint8AField {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_Uint8AField {}
 impl Default for MI_Uint8AField {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Uint8Field {
     pub value: u8,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Uint8Field {}
-impl Clone for MI_Uint8Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_Uint8Field {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_Uint8Field").field("value", &self.value).field("exists", &self.exists).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for MI_Uint8Field {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_Uint8Field {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.exists == other.exists && self.flags == other.flags
-    }
-}
-impl Eq for MI_Uint8Field {}
 impl Default for MI_Uint8Field {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_UserCredentials {
     pub authenticationType: *const u16,
     pub credentials: MI_UserCredentials_0,
-}
-impl Copy for MI_UserCredentials {}
-impl Clone for MI_UserCredentials {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MI_UserCredentials {
     type TypeKind = windows_core::CopyType;
@@ -10699,15 +8149,10 @@ impl Default for MI_UserCredentials {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MI_UserCredentials_0 {
     pub usernamePassword: MI_UsernamePasswordCreds,
     pub certificateThumbprint: *const u16,
-}
-impl Copy for MI_UserCredentials_0 {}
-impl Clone for MI_UserCredentials_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MI_UserCredentials_0 {
     type TypeKind = windows_core::CopyType;
@@ -10718,67 +8163,36 @@ impl Default for MI_UserCredentials_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_UsernamePasswordCreds {
     pub domain: *const u16,
     pub username: *const u16,
     pub password: *const u16,
 }
-impl Copy for MI_UsernamePasswordCreds {}
-impl Clone for MI_UsernamePasswordCreds {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_UsernamePasswordCreds {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_UsernamePasswordCreds").field("domain", &self.domain).field("username", &self.username).field("password", &self.password).finish()
-    }
-}
 impl windows_core::TypeKind for MI_UsernamePasswordCreds {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_UsernamePasswordCreds {
-    fn eq(&self, other: &Self) -> bool {
-        self.domain == other.domain && self.username == other.username && self.password == other.password
-    }
-}
-impl Eq for MI_UsernamePasswordCreds {}
 impl Default for MI_UsernamePasswordCreds {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_UtilitiesFT {
     pub MapErrorToMiErrorCategory: isize,
     pub CimErrorFromErrorCode: isize,
 }
-impl Copy for MI_UtilitiesFT {}
-impl Clone for MI_UtilitiesFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MI_UtilitiesFT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MI_UtilitiesFT").field("MapErrorToMiErrorCategory", &self.MapErrorToMiErrorCategory).field("CimErrorFromErrorCode", &self.CimErrorFromErrorCode).finish()
-    }
-}
 impl windows_core::TypeKind for MI_UtilitiesFT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MI_UtilitiesFT {
-    fn eq(&self, other: &Self) -> bool {
-        self.MapErrorToMiErrorCategory == other.MapErrorToMiErrorCategory && self.CimErrorFromErrorCode == other.CimErrorFromErrorCode
-    }
-}
-impl Eq for MI_UtilitiesFT {}
 impl Default for MI_UtilitiesFT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MI_Value {
     pub boolean: u8,
     pub uint8: u8,
@@ -10814,12 +8228,6 @@ pub union MI_Value {
     pub instancea: MI_InstanceA,
     pub array: MI_Array,
 }
-impl Copy for MI_Value {}
-impl Clone for MI_Value {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for MI_Value {
     type TypeKind = windows_core::CopyType;
 }
@@ -10830,6 +8238,7 @@ impl Default for MI_Value {
 }
 pub const MofCompiler: windows_core::GUID = windows_core::GUID::from_u128(0x6daf9757_2e37_11d2_aec9_00c04fb68820);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SWbemAnalysisMatrix {
     pub m_uVersion: u32,
     pub m_uMatrixType: u32,
@@ -10839,64 +8248,32 @@ pub struct SWbemAnalysisMatrix {
     pub m_pValues: *mut *mut core::ffi::c_void,
     pub m_pbTruthTable: *mut super::super::Foundation::BOOL,
 }
-impl Copy for SWbemAnalysisMatrix {}
-impl Clone for SWbemAnalysisMatrix {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SWbemAnalysisMatrix {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SWbemAnalysisMatrix").field("m_uVersion", &self.m_uVersion).field("m_uMatrixType", &self.m_uMatrixType).field("m_pszProperty", &self.m_pszProperty).field("m_uPropertyType", &self.m_uPropertyType).field("m_uEntries", &self.m_uEntries).field("m_pValues", &self.m_pValues).field("m_pbTruthTable", &self.m_pbTruthTable).finish()
-    }
-}
 impl windows_core::TypeKind for SWbemAnalysisMatrix {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SWbemAnalysisMatrix {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_uVersion == other.m_uVersion && self.m_uMatrixType == other.m_uMatrixType && self.m_pszProperty == other.m_pszProperty && self.m_uPropertyType == other.m_uPropertyType && self.m_uEntries == other.m_uEntries && self.m_pValues == other.m_pValues && self.m_pbTruthTable == other.m_pbTruthTable
-    }
-}
-impl Eq for SWbemAnalysisMatrix {}
 impl Default for SWbemAnalysisMatrix {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SWbemAnalysisMatrixList {
     pub m_uVersion: u32,
     pub m_uMatrixType: u32,
     pub m_uNumMatrices: u32,
     pub m_pMatrices: *mut SWbemAnalysisMatrix,
 }
-impl Copy for SWbemAnalysisMatrixList {}
-impl Clone for SWbemAnalysisMatrixList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SWbemAnalysisMatrixList {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SWbemAnalysisMatrixList").field("m_uVersion", &self.m_uVersion).field("m_uMatrixType", &self.m_uMatrixType).field("m_uNumMatrices", &self.m_uNumMatrices).field("m_pMatrices", &self.m_pMatrices).finish()
-    }
-}
 impl windows_core::TypeKind for SWbemAnalysisMatrixList {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SWbemAnalysisMatrixList {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_uVersion == other.m_uVersion && self.m_uMatrixType == other.m_uMatrixType && self.m_uNumMatrices == other.m_uNumMatrices && self.m_pMatrices == other.m_pMatrices
-    }
-}
-impl Eq for SWbemAnalysisMatrixList {}
 impl Default for SWbemAnalysisMatrixList {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct SWbemAssocQueryInf {
     pub m_uVersion: u32,
     pub m_uAnalysisType: u32,
@@ -10916,33 +8293,9 @@ impl Clone for SWbemAssocQueryInf {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for SWbemAssocQueryInf {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SWbemAssocQueryInf")
-            .field("m_uVersion", &self.m_uVersion)
-            .field("m_uAnalysisType", &self.m_uAnalysisType)
-            .field("m_uFeatureMask", &self.m_uFeatureMask)
-            .field("m_pPath", &self.m_pPath)
-            .field("m_pszPath", &self.m_pszPath)
-            .field("m_pszQueryText", &self.m_pszQueryText)
-            .field("m_pszResultClass", &self.m_pszResultClass)
-            .field("m_pszAssocClass", &self.m_pszAssocClass)
-            .field("m_pszRole", &self.m_pszRole)
-            .field("m_pszResultRole", &self.m_pszResultRole)
-            .field("m_pszRequiredQualifier", &self.m_pszRequiredQualifier)
-            .field("m_pszRequiredAssocQualifier", &self.m_pszRequiredAssocQualifier)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for SWbemAssocQueryInf {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SWbemAssocQueryInf {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_uVersion == other.m_uVersion && self.m_uAnalysisType == other.m_uAnalysisType && self.m_uFeatureMask == other.m_uFeatureMask && self.m_pPath == other.m_pPath && self.m_pszPath == other.m_pszPath && self.m_pszQueryText == other.m_pszQueryText && self.m_pszResultClass == other.m_pszResultClass && self.m_pszAssocClass == other.m_pszAssocClass && self.m_pszRole == other.m_pszRole && self.m_pszResultRole == other.m_pszResultRole && self.m_pszRequiredQualifier == other.m_pszRequiredQualifier && self.m_pszRequiredAssocQualifier == other.m_pszRequiredAssocQualifier
-    }
-}
-impl Eq for SWbemAssocQueryInf {}
 impl Default for SWbemAssocQueryInf {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10967,6 +8320,7 @@ pub const SWbemPropertySet: windows_core::GUID = windows_core::GUID::from_u128(0
 pub const SWbemQualifier: windows_core::GUID = windows_core::GUID::from_u128(0x04b83d5f_21ae_11d2_8b33_00600806d9b6);
 pub const SWbemQualifierSet: windows_core::GUID = windows_core::GUID::from_u128(0x04b83d5e_21ae_11d2_8b33_00600806d9b6);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SWbemQueryQualifiedName {
     pub m_uVersion: u32,
     pub m_uTokenType: u32,
@@ -10976,26 +8330,9 @@ pub struct SWbemQueryQualifiedName {
     pub m_pbArrayElUsed: *mut super::super::Foundation::BOOL,
     pub m_puArrayIndex: *mut u32,
 }
-impl Copy for SWbemQueryQualifiedName {}
-impl Clone for SWbemQueryQualifiedName {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SWbemQueryQualifiedName {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SWbemQueryQualifiedName").field("m_uVersion", &self.m_uVersion).field("m_uTokenType", &self.m_uTokenType).field("m_uNameListSize", &self.m_uNameListSize).field("m_ppszNameList", &self.m_ppszNameList).field("m_bArraysUsed", &self.m_bArraysUsed).field("m_pbArrayElUsed", &self.m_pbArrayElUsed).field("m_puArrayIndex", &self.m_puArrayIndex).finish()
-    }
-}
 impl windows_core::TypeKind for SWbemQueryQualifiedName {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SWbemQueryQualifiedName {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_uVersion == other.m_uVersion && self.m_uTokenType == other.m_uTokenType && self.m_uNameListSize == other.m_uNameListSize && self.m_ppszNameList == other.m_ppszNameList && self.m_bArraysUsed == other.m_bArraysUsed && self.m_pbArrayElUsed == other.m_pbArrayElUsed && self.m_puArrayIndex == other.m_puArrayIndex
-    }
-}
-impl Eq for SWbemQueryQualifiedName {}
 impl Default for SWbemQueryQualifiedName {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11004,6 +8341,7 @@ impl Default for SWbemQueryQualifiedName {
 pub const SWbemRefreshableItem: windows_core::GUID = windows_core::GUID::from_u128(0x8c6854bc_de4b_11d3_b390_00105a1f473a);
 pub const SWbemRefresher: windows_core::GUID = windows_core::GUID::from_u128(0xd269bf5c_d9c1_11d3_b38f_00105a1f473a);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SWbemRpnConst {
     pub m_pszStrVal: windows_core::PCWSTR,
     pub m_bBoolVal: super::super::Foundation::BOOL,
@@ -11012,12 +8350,6 @@ pub union SWbemRpnConst {
     pub m_dblVal: f64,
     pub m_lVal64: i64,
     pub m_uVal64: i64,
-}
-impl Copy for SWbemRpnConst {}
-impl Clone for SWbemRpnConst {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SWbemRpnConst {
     type TypeKind = windows_core::CopyType;
@@ -11028,6 +8360,7 @@ impl Default for SWbemRpnConst {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SWbemRpnEncodedQuery {
     pub m_uVersion: u32,
     pub m_uTokenType: u32,
@@ -11048,68 +8381,16 @@ pub struct SWbemRpnEncodedQuery {
     pub m_ppszOrderByList: *const windows_core::PCWSTR,
     pub m_uOrderDirectionEl: *mut u32,
 }
-impl Copy for SWbemRpnEncodedQuery {}
-impl Clone for SWbemRpnEncodedQuery {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SWbemRpnEncodedQuery {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SWbemRpnEncodedQuery")
-            .field("m_uVersion", &self.m_uVersion)
-            .field("m_uTokenType", &self.m_uTokenType)
-            .field("m_uParsedFeatureMask", &self.m_uParsedFeatureMask)
-            .field("m_uDetectedArraySize", &self.m_uDetectedArraySize)
-            .field("m_puDetectedFeatures", &self.m_puDetectedFeatures)
-            .field("m_uSelectListSize", &self.m_uSelectListSize)
-            .field("m_ppSelectList", &self.m_ppSelectList)
-            .field("m_uFromTargetType", &self.m_uFromTargetType)
-            .field("m_pszOptionalFromPath", &self.m_pszOptionalFromPath)
-            .field("m_uFromListSize", &self.m_uFromListSize)
-            .field("m_ppszFromList", &self.m_ppszFromList)
-            .field("m_uWhereClauseSize", &self.m_uWhereClauseSize)
-            .field("m_ppRpnWhereClause", &self.m_ppRpnWhereClause)
-            .field("m_dblWithinPolling", &self.m_dblWithinPolling)
-            .field("m_dblWithinWindow", &self.m_dblWithinWindow)
-            .field("m_uOrderByListSize", &self.m_uOrderByListSize)
-            .field("m_ppszOrderByList", &self.m_ppszOrderByList)
-            .field("m_uOrderDirectionEl", &self.m_uOrderDirectionEl)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for SWbemRpnEncodedQuery {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SWbemRpnEncodedQuery {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_uVersion == other.m_uVersion
-            && self.m_uTokenType == other.m_uTokenType
-            && self.m_uParsedFeatureMask == other.m_uParsedFeatureMask
-            && self.m_uDetectedArraySize == other.m_uDetectedArraySize
-            && self.m_puDetectedFeatures == other.m_puDetectedFeatures
-            && self.m_uSelectListSize == other.m_uSelectListSize
-            && self.m_ppSelectList == other.m_ppSelectList
-            && self.m_uFromTargetType == other.m_uFromTargetType
-            && self.m_pszOptionalFromPath == other.m_pszOptionalFromPath
-            && self.m_uFromListSize == other.m_uFromListSize
-            && self.m_ppszFromList == other.m_ppszFromList
-            && self.m_uWhereClauseSize == other.m_uWhereClauseSize
-            && self.m_ppRpnWhereClause == other.m_ppRpnWhereClause
-            && self.m_dblWithinPolling == other.m_dblWithinPolling
-            && self.m_dblWithinWindow == other.m_dblWithinWindow
-            && self.m_uOrderByListSize == other.m_uOrderByListSize
-            && self.m_ppszOrderByList == other.m_ppszOrderByList
-            && self.m_uOrderDirectionEl == other.m_uOrderDirectionEl
-    }
-}
-impl Eq for SWbemRpnEncodedQuery {}
 impl Default for SWbemRpnEncodedQuery {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SWbemRpnQueryToken {
     pub m_uVersion: u32,
     pub m_uTokenType: u32,
@@ -11124,12 +8405,6 @@ pub struct SWbemRpnQueryToken {
     pub m_pszRightFunc: windows_core::PCWSTR,
     pub m_pszLeftFunc: windows_core::PCWSTR,
 }
-impl Copy for SWbemRpnQueryToken {}
-impl Clone for SWbemRpnQueryToken {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for SWbemRpnQueryToken {
     type TypeKind = windows_core::CopyType;
 }
@@ -11139,31 +8414,15 @@ impl Default for SWbemRpnQueryToken {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SWbemRpnTokenList {
     pub m_uVersion: u32,
     pub m_uTokenType: u32,
     pub m_uNumTokens: u32,
 }
-impl Copy for SWbemRpnTokenList {}
-impl Clone for SWbemRpnTokenList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SWbemRpnTokenList {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SWbemRpnTokenList").field("m_uVersion", &self.m_uVersion).field("m_uTokenType", &self.m_uTokenType).field("m_uNumTokens", &self.m_uNumTokens).finish()
-    }
-}
 impl windows_core::TypeKind for SWbemRpnTokenList {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SWbemRpnTokenList {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_uVersion == other.m_uVersion && self.m_uTokenType == other.m_uTokenType && self.m_uNumTokens == other.m_uNumTokens
-    }
-}
-impl Eq for SWbemRpnTokenList {}
 impl Default for SWbemRpnTokenList {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11175,6 +8434,7 @@ pub const SWbemServicesEx: windows_core::GUID = windows_core::GUID::from_u128(0x
 pub const SWbemSink: windows_core::GUID = windows_core::GUID::from_u128(0x75718c9a_f029_11d1_a1ac_00c04fb6c223);
 pub const UnsecuredApartment: windows_core::GUID = windows_core::GUID::from_u128(0x49bd2028_1523_11d1_ad79_00c04fd8fdff);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WBEM_COMPILE_STATUS_INFO {
     pub lPhaseError: i32,
     pub hRes: windows_core::HRESULT,
@@ -11183,26 +8443,9 @@ pub struct WBEM_COMPILE_STATUS_INFO {
     pub LastLine: i32,
     pub dwOutFlags: u32,
 }
-impl Copy for WBEM_COMPILE_STATUS_INFO {}
-impl Clone for WBEM_COMPILE_STATUS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WBEM_COMPILE_STATUS_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WBEM_COMPILE_STATUS_INFO").field("lPhaseError", &self.lPhaseError).field("hRes", &self.hRes).field("ObjectNum", &self.ObjectNum).field("FirstLine", &self.FirstLine).field("LastLine", &self.LastLine).field("dwOutFlags", &self.dwOutFlags).finish()
-    }
-}
 impl windows_core::TypeKind for WBEM_COMPILE_STATUS_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WBEM_COMPILE_STATUS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.lPhaseError == other.lPhaseError && self.hRes == other.hRes && self.ObjectNum == other.ObjectNum && self.FirstLine == other.FirstLine && self.LastLine == other.LastLine && self.dwOutFlags == other.dwOutFlags
-    }
-}
-impl Eq for WBEM_COMPILE_STATUS_INFO {}
 impl Default for WBEM_COMPILE_STATUS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

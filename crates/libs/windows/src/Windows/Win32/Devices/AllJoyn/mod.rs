@@ -5156,20 +5156,10 @@ impl windows_core::TypeKind for alljoyn_aboutdatalistener {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct alljoyn_aboutdatalistener_callbacks {
     pub about_datalistener_getaboutdata: alljoyn_aboutdatalistener_getaboutdata_ptr,
     pub about_datalistener_getannouncedaboutdata: alljoyn_aboutdatalistener_getannouncedaboutdata_ptr,
-}
-impl Copy for alljoyn_aboutdatalistener_callbacks {}
-impl Clone for alljoyn_aboutdatalistener_callbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for alljoyn_aboutdatalistener_callbacks {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("alljoyn_aboutdatalistener_callbacks").finish()
-    }
 }
 impl windows_core::TypeKind for alljoyn_aboutdatalistener_callbacks {
     type TypeKind = windows_core::CopyType;
@@ -5224,19 +5214,9 @@ impl windows_core::TypeKind for alljoyn_aboutlistener {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct alljoyn_aboutlistener_callback {
     pub about_listener_announced: alljoyn_about_announced_ptr,
-}
-impl Copy for alljoyn_aboutlistener_callback {}
-impl Clone for alljoyn_aboutlistener_callback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for alljoyn_aboutlistener_callback {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("alljoyn_aboutlistener_callback").finish()
-    }
 }
 impl windows_core::TypeKind for alljoyn_aboutlistener_callback {
     type TypeKind = windows_core::CopyType;
@@ -5291,19 +5271,9 @@ impl windows_core::TypeKind for alljoyn_applicationstatelistener {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct alljoyn_applicationstatelistener_callbacks {
     pub state: alljoyn_applicationstatelistener_state_ptr,
-}
-impl Copy for alljoyn_applicationstatelistener_callbacks {}
-impl Clone for alljoyn_applicationstatelistener_callbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for alljoyn_applicationstatelistener_callbacks {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("alljoyn_applicationstatelistener_callbacks").finish()
-    }
 }
 impl windows_core::TypeKind for alljoyn_applicationstatelistener_callbacks {
     type TypeKind = windows_core::CopyType;
@@ -5325,22 +5295,12 @@ impl windows_core::TypeKind for alljoyn_authlistener {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct alljoyn_authlistener_callbacks {
     pub request_credentials: alljoyn_authlistener_requestcredentials_ptr,
     pub verify_credentials: alljoyn_authlistener_verifycredentials_ptr,
     pub security_violation: alljoyn_authlistener_securityviolation_ptr,
     pub authentication_complete: alljoyn_authlistener_authenticationcomplete_ptr,
-}
-impl Copy for alljoyn_authlistener_callbacks {}
-impl Clone for alljoyn_authlistener_callbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for alljoyn_authlistener_callbacks {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("alljoyn_authlistener_callbacks").finish()
-    }
 }
 impl windows_core::TypeKind for alljoyn_authlistener_callbacks {
     type TypeKind = windows_core::CopyType;
@@ -5351,22 +5311,12 @@ impl Default for alljoyn_authlistener_callbacks {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct alljoyn_authlistenerasync_callbacks {
     pub request_credentials: alljoyn_authlistener_requestcredentialsasync_ptr,
     pub verify_credentials: alljoyn_authlistener_verifycredentialsasync_ptr,
     pub security_violation: alljoyn_authlistener_securityviolation_ptr,
     pub authentication_complete: alljoyn_authlistener_authenticationcomplete_ptr,
-}
-impl Copy for alljoyn_authlistenerasync_callbacks {}
-impl Clone for alljoyn_authlistenerasync_callbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for alljoyn_authlistenerasync_callbacks {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("alljoyn_authlistenerasync_callbacks").finish()
-    }
 }
 impl windows_core::TypeKind for alljoyn_authlistenerasync_callbacks {
     type TypeKind = windows_core::CopyType;
@@ -5410,6 +5360,7 @@ impl windows_core::TypeKind for alljoyn_buslistener {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct alljoyn_buslistener_callbacks {
     pub listener_registered: alljoyn_buslistener_listener_registered_ptr,
     pub listener_unregistered: alljoyn_buslistener_listener_unregistered_ptr,
@@ -5419,17 +5370,6 @@ pub struct alljoyn_buslistener_callbacks {
     pub bus_stopping: alljoyn_buslistener_bus_stopping_ptr,
     pub bus_disconnected: alljoyn_buslistener_bus_disconnected_ptr,
     pub property_changed: alljoyn_buslistener_bus_prop_changed_ptr,
-}
-impl Copy for alljoyn_buslistener_callbacks {}
-impl Clone for alljoyn_buslistener_callbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for alljoyn_buslistener_callbacks {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("alljoyn_buslistener_callbacks").finish()
-    }
 }
 impl windows_core::TypeKind for alljoyn_buslistener_callbacks {
     type TypeKind = windows_core::CopyType;
@@ -5451,22 +5391,12 @@ impl windows_core::TypeKind for alljoyn_busobject {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct alljoyn_busobject_callbacks {
     pub property_get: alljoyn_busobject_prop_get_ptr,
     pub property_set: alljoyn_busobject_prop_set_ptr,
     pub object_registered: alljoyn_busobject_object_registration_ptr,
     pub object_unregistered: alljoyn_busobject_object_registration_ptr,
-}
-impl Copy for alljoyn_busobject_callbacks {}
-impl Clone for alljoyn_busobject_callbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for alljoyn_busobject_callbacks {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("alljoyn_busobject_callbacks").finish()
-    }
 }
 impl windows_core::TypeKind for alljoyn_busobject_callbacks {
     type TypeKind = windows_core::CopyType;
@@ -5477,20 +5407,10 @@ impl Default for alljoyn_busobject_callbacks {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct alljoyn_busobject_methodentry {
     pub member: *const alljoyn_interfacedescription_member,
     pub method_handler: alljoyn_messagereceiver_methodhandler_ptr,
-}
-impl Copy for alljoyn_busobject_methodentry {}
-impl Clone for alljoyn_busobject_methodentry {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for alljoyn_busobject_methodentry {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("alljoyn_busobject_methodentry").field("member", &self.member).finish()
-    }
 }
 impl windows_core::TypeKind for alljoyn_busobject_methodentry {
     type TypeKind = windows_core::CopyType;
@@ -5501,6 +5421,7 @@ impl Default for alljoyn_busobject_methodentry {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct alljoyn_certificateid {
     pub serial: *mut u8,
     pub serialLen: usize,
@@ -5508,56 +5429,23 @@ pub struct alljoyn_certificateid {
     pub issuerAki: *mut u8,
     pub issuerAkiLen: usize,
 }
-impl Copy for alljoyn_certificateid {}
-impl Clone for alljoyn_certificateid {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for alljoyn_certificateid {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("alljoyn_certificateid").field("serial", &self.serial).field("serialLen", &self.serialLen).field("issuerPublicKey", &self.issuerPublicKey).field("issuerAki", &self.issuerAki).field("issuerAkiLen", &self.issuerAkiLen).finish()
-    }
-}
 impl windows_core::TypeKind for alljoyn_certificateid {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for alljoyn_certificateid {
-    fn eq(&self, other: &Self) -> bool {
-        self.serial == other.serial && self.serialLen == other.serialLen && self.issuerPublicKey == other.issuerPublicKey && self.issuerAki == other.issuerAki && self.issuerAkiLen == other.issuerAkiLen
-    }
-}
-impl Eq for alljoyn_certificateid {}
 impl Default for alljoyn_certificateid {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct alljoyn_certificateidarray {
     pub count: usize,
     pub ids: *mut alljoyn_certificateid,
 }
-impl Copy for alljoyn_certificateidarray {}
-impl Clone for alljoyn_certificateidarray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for alljoyn_certificateidarray {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("alljoyn_certificateidarray").field("count", &self.count).field("ids", &self.ids).finish()
-    }
-}
 impl windows_core::TypeKind for alljoyn_certificateidarray {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for alljoyn_certificateidarray {
-    fn eq(&self, other: &Self) -> bool {
-        self.count == other.count && self.ids == other.ids
-    }
-}
-impl Eq for alljoyn_certificateidarray {}
 impl Default for alljoyn_certificateidarray {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5586,6 +5474,7 @@ impl windows_core::TypeKind for alljoyn_interfacedescription {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct alljoyn_interfacedescription_member {
     pub iface: alljoyn_interfacedescription,
     pub memberType: alljoyn_messagetype,
@@ -5595,58 +5484,25 @@ pub struct alljoyn_interfacedescription_member {
     pub argNames: windows_core::PCSTR,
     pub internal_member: *const core::ffi::c_void,
 }
-impl Copy for alljoyn_interfacedescription_member {}
-impl Clone for alljoyn_interfacedescription_member {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for alljoyn_interfacedescription_member {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("alljoyn_interfacedescription_member").field("iface", &self.iface).field("memberType", &self.memberType).field("name", &self.name).field("signature", &self.signature).field("returnSignature", &self.returnSignature).field("argNames", &self.argNames).field("internal_member", &self.internal_member).finish()
-    }
-}
 impl windows_core::TypeKind for alljoyn_interfacedescription_member {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for alljoyn_interfacedescription_member {
-    fn eq(&self, other: &Self) -> bool {
-        self.iface == other.iface && self.memberType == other.memberType && self.name == other.name && self.signature == other.signature && self.returnSignature == other.returnSignature && self.argNames == other.argNames && self.internal_member == other.internal_member
-    }
-}
-impl Eq for alljoyn_interfacedescription_member {}
 impl Default for alljoyn_interfacedescription_member {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct alljoyn_interfacedescription_property {
     pub name: windows_core::PCSTR,
     pub signature: windows_core::PCSTR,
     pub access: u8,
     pub internal_property: *const core::ffi::c_void,
 }
-impl Copy for alljoyn_interfacedescription_property {}
-impl Clone for alljoyn_interfacedescription_property {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for alljoyn_interfacedescription_property {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("alljoyn_interfacedescription_property").field("name", &self.name).field("signature", &self.signature).field("access", &self.access).field("internal_property", &self.internal_property).finish()
-    }
-}
 impl windows_core::TypeKind for alljoyn_interfacedescription_property {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for alljoyn_interfacedescription_property {
-    fn eq(&self, other: &Self) -> bool {
-        self.name == other.name && self.signature == other.signature && self.access == other.access && self.internal_property == other.internal_property
-    }
-}
-impl Eq for alljoyn_interfacedescription_property {}
 impl Default for alljoyn_interfacedescription_property {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5675,20 +5531,10 @@ impl windows_core::TypeKind for alljoyn_keystorelistener {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct alljoyn_keystorelistener_callbacks {
     pub load_request: alljoyn_keystorelistener_loadrequest_ptr,
     pub store_request: alljoyn_keystorelistener_storerequest_ptr,
-}
-impl Copy for alljoyn_keystorelistener_callbacks {}
-impl Clone for alljoyn_keystorelistener_callbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for alljoyn_keystorelistener_callbacks {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("alljoyn_keystorelistener_callbacks").finish()
-    }
 }
 impl windows_core::TypeKind for alljoyn_keystorelistener_callbacks {
     type TypeKind = windows_core::CopyType;
@@ -5699,22 +5545,12 @@ impl Default for alljoyn_keystorelistener_callbacks {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct alljoyn_keystorelistener_with_synchronization_callbacks {
     pub load_request: alljoyn_keystorelistener_loadrequest_ptr,
     pub store_request: alljoyn_keystorelistener_storerequest_ptr,
     pub acquire_exclusive_lock: alljoyn_keystorelistener_acquireexclusivelock_ptr,
     pub release_exclusive_lock: alljoyn_keystorelistener_releaseexclusivelock_ptr,
-}
-impl Copy for alljoyn_keystorelistener_with_synchronization_callbacks {}
-impl Clone for alljoyn_keystorelistener_with_synchronization_callbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for alljoyn_keystorelistener_with_synchronization_callbacks {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("alljoyn_keystorelistener_with_synchronization_callbacks").finish()
-    }
 }
 impl windows_core::TypeKind for alljoyn_keystorelistener_with_synchronization_callbacks {
     type TypeKind = windows_core::CopyType;
@@ -5725,30 +5561,14 @@ impl Default for alljoyn_keystorelistener_with_synchronization_callbacks {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct alljoyn_manifestarray {
     pub count: usize,
     pub xmls: *mut *mut i8,
 }
-impl Copy for alljoyn_manifestarray {}
-impl Clone for alljoyn_manifestarray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for alljoyn_manifestarray {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("alljoyn_manifestarray").field("count", &self.count).field("xmls", &self.xmls).finish()
-    }
-}
 impl windows_core::TypeKind for alljoyn_manifestarray {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for alljoyn_manifestarray {
-    fn eq(&self, other: &Self) -> bool {
-        self.count == other.count && self.xmls == other.xmls
-    }
-}
-impl Eq for alljoyn_manifestarray {}
 impl Default for alljoyn_manifestarray {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5799,20 +5619,10 @@ impl windows_core::TypeKind for alljoyn_observerlistener {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct alljoyn_observerlistener_callback {
     pub object_discovered: alljoyn_observer_object_discovered_ptr,
     pub object_lost: alljoyn_observer_object_lost_ptr,
-}
-impl Copy for alljoyn_observerlistener_callback {}
-impl Clone for alljoyn_observerlistener_callback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for alljoyn_observerlistener_callback {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("alljoyn_observerlistener_callback").finish()
-    }
 }
 impl windows_core::TypeKind for alljoyn_observerlistener_callback {
     type TypeKind = windows_core::CopyType;
@@ -5834,22 +5644,12 @@ impl windows_core::TypeKind for alljoyn_permissionconfigurationlistener {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct alljoyn_permissionconfigurationlistener_callbacks {
     pub factory_reset: alljoyn_permissionconfigurationlistener_factoryreset_ptr,
     pub policy_changed: alljoyn_permissionconfigurationlistener_policychanged_ptr,
     pub start_management: alljoyn_permissionconfigurationlistener_startmanagement_ptr,
     pub end_management: alljoyn_permissionconfigurationlistener_endmanagement_ptr,
-}
-impl Copy for alljoyn_permissionconfigurationlistener_callbacks {}
-impl Clone for alljoyn_permissionconfigurationlistener_callbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for alljoyn_permissionconfigurationlistener_callbacks {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("alljoyn_permissionconfigurationlistener_callbacks").finish()
-    }
 }
 impl windows_core::TypeKind for alljoyn_permissionconfigurationlistener_callbacks {
     type TypeKind = windows_core::CopyType;
@@ -5882,20 +5682,10 @@ impl windows_core::TypeKind for alljoyn_pinglistener {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct alljoyn_pinglistener_callback {
     pub destination_found: alljoyn_autopinger_destination_found_ptr,
     pub destination_lost: alljoyn_autopinger_destination_lost_ptr,
-}
-impl Copy for alljoyn_pinglistener_callback {}
-impl Clone for alljoyn_pinglistener_callback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for alljoyn_pinglistener_callback {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("alljoyn_pinglistener_callback").finish()
-    }
 }
 impl windows_core::TypeKind for alljoyn_pinglistener_callback {
     type TypeKind = windows_core::CopyType;
@@ -5950,21 +5740,11 @@ impl windows_core::TypeKind for alljoyn_sessionlistener {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct alljoyn_sessionlistener_callbacks {
     pub session_lost: alljoyn_sessionlistener_sessionlost_ptr,
     pub session_member_added: alljoyn_sessionlistener_sessionmemberadded_ptr,
     pub session_member_removed: alljoyn_sessionlistener_sessionmemberremoved_ptr,
-}
-impl Copy for alljoyn_sessionlistener_callbacks {}
-impl Clone for alljoyn_sessionlistener_callbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for alljoyn_sessionlistener_callbacks {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("alljoyn_sessionlistener_callbacks").finish()
-    }
 }
 impl windows_core::TypeKind for alljoyn_sessionlistener_callbacks {
     type TypeKind = windows_core::CopyType;
@@ -5997,20 +5777,10 @@ impl windows_core::TypeKind for alljoyn_sessionportlistener {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct alljoyn_sessionportlistener_callbacks {
     pub accept_session_joiner: alljoyn_sessionportlistener_acceptsessionjoiner_ptr,
     pub session_joined: alljoyn_sessionportlistener_sessionjoined_ptr,
-}
-impl Copy for alljoyn_sessionportlistener_callbacks {}
-impl Clone for alljoyn_sessionportlistener_callbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for alljoyn_sessionportlistener_callbacks {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("alljoyn_sessionportlistener_callbacks").finish()
-    }
 }
 impl windows_core::TypeKind for alljoyn_sessionportlistener_callbacks {
     type TypeKind = windows_core::CopyType;

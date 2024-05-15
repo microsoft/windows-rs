@@ -499,19 +499,12 @@ impl core::fmt::Debug for GESTURE_TYPE {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct DWM_BLURBEHIND {
     pub dwFlags: u32,
     pub fEnable: super::super::Foundation::BOOL,
     pub hRgnBlur: super::Gdi::HRGN,
     pub fTransitionOnMaximized: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DWM_BLURBEHIND {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DWM_BLURBEHIND {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for DWM_BLURBEHIND {
@@ -524,6 +517,7 @@ impl Default for DWM_BLURBEHIND {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DWM_PRESENT_PARAMETERS {
     pub cbSize: u32,
     pub fQueue: super::super::Foundation::BOOL,
@@ -534,12 +528,6 @@ pub struct DWM_PRESENT_PARAMETERS {
     pub cRefreshesPerFrame: u32,
     pub eSampling: DWM_SOURCE_FRAME_SAMPLING,
 }
-impl Copy for DWM_PRESENT_PARAMETERS {}
-impl Clone for DWM_PRESENT_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DWM_PRESENT_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
@@ -549,6 +537,7 @@ impl Default for DWM_PRESENT_PARAMETERS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DWM_THUMBNAIL_PROPERTIES {
     pub dwFlags: u32,
     pub rcDestination: super::super::Foundation::RECT,
@@ -556,12 +545,6 @@ pub struct DWM_THUMBNAIL_PROPERTIES {
     pub opacity: u8,
     pub fVisible: super::super::Foundation::BOOL,
     pub fSourceClientAreaOnly: super::super::Foundation::BOOL,
-}
-impl Copy for DWM_THUMBNAIL_PROPERTIES {}
-impl Clone for DWM_THUMBNAIL_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DWM_THUMBNAIL_PROPERTIES {
     type TypeKind = windows_core::CopyType;
@@ -572,6 +555,7 @@ impl Default for DWM_THUMBNAIL_PROPERTIES {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DWM_TIMING_INFO {
     pub cbSize: u32,
     pub rateRefresh: UNSIGNED_RATIO,
@@ -614,12 +598,6 @@ pub struct DWM_TIMING_INFO {
     pub cPixelsDrawn: u64,
     pub cBuffersEmpty: u64,
 }
-impl Copy for DWM_TIMING_INFO {}
-impl Clone for DWM_TIMING_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DWM_TIMING_INFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -629,6 +607,7 @@ impl Default for DWM_TIMING_INFO {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MilMatrix3x2D {
     pub S_11: f64,
     pub S_12: f64,
@@ -636,12 +615,6 @@ pub struct MilMatrix3x2D {
     pub S_22: f64,
     pub DX: f64,
     pub DY: f64,
-}
-impl Copy for MilMatrix3x2D {}
-impl Clone for MilMatrix3x2D {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MilMatrix3x2D {
     type TypeKind = windows_core::CopyType;
@@ -652,15 +625,10 @@ impl Default for MilMatrix3x2D {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct UNSIGNED_RATIO {
     pub uiNumerator: u32,
     pub uiDenominator: u32,
-}
-impl Copy for UNSIGNED_RATIO {}
-impl Clone for UNSIGNED_RATIO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for UNSIGNED_RATIO {
     type TypeKind = windows_core::CopyType;

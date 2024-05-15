@@ -331,6 +331,7 @@ impl core::fmt::Debug for HCN_PORT_PROTOCOL {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HCN_PORT_RANGE_ENTRY {
     pub OwningPartitionId: windows_core::GUID,
     pub TargetPartitionId: windows_core::GUID,
@@ -342,56 +343,23 @@ pub struct HCN_PORT_RANGE_ENTRY {
     pub StartingPort: u16,
     pub EndingPort: u16,
 }
-impl Copy for HCN_PORT_RANGE_ENTRY {}
-impl Clone for HCN_PORT_RANGE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HCN_PORT_RANGE_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HCN_PORT_RANGE_ENTRY").field("OwningPartitionId", &self.OwningPartitionId).field("TargetPartitionId", &self.TargetPartitionId).field("Protocol", &self.Protocol).field("Priority", &self.Priority).field("ReservationType", &self.ReservationType).field("SharingFlags", &self.SharingFlags).field("DeliveryMode", &self.DeliveryMode).field("StartingPort", &self.StartingPort).field("EndingPort", &self.EndingPort).finish()
-    }
-}
 impl windows_core::TypeKind for HCN_PORT_RANGE_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HCN_PORT_RANGE_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.OwningPartitionId == other.OwningPartitionId && self.TargetPartitionId == other.TargetPartitionId && self.Protocol == other.Protocol && self.Priority == other.Priority && self.ReservationType == other.ReservationType && self.SharingFlags == other.SharingFlags && self.DeliveryMode == other.DeliveryMode && self.StartingPort == other.StartingPort && self.EndingPort == other.EndingPort
-    }
-}
-impl Eq for HCN_PORT_RANGE_ENTRY {}
 impl Default for HCN_PORT_RANGE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HCN_PORT_RANGE_RESERVATION {
     pub startingPort: u16,
     pub endingPort: u16,
 }
-impl Copy for HCN_PORT_RANGE_RESERVATION {}
-impl Clone for HCN_PORT_RANGE_RESERVATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HCN_PORT_RANGE_RESERVATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HCN_PORT_RANGE_RESERVATION").field("startingPort", &self.startingPort).field("endingPort", &self.endingPort).finish()
-    }
-}
 impl windows_core::TypeKind for HCN_PORT_RANGE_RESERVATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HCN_PORT_RANGE_RESERVATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.startingPort == other.startingPort && self.endingPort == other.endingPort
-    }
-}
-impl Eq for HCN_PORT_RANGE_RESERVATION {}
 impl Default for HCN_PORT_RANGE_RESERVATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

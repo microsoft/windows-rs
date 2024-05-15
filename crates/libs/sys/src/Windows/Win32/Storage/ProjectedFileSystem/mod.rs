@@ -81,6 +81,7 @@ pub type PRJ_STARTVIRTUALIZING_FLAGS = i32;
 pub type PRJ_UPDATE_FAILURE_CAUSES = i32;
 pub type PRJ_UPDATE_TYPES = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRJ_CALLBACKS {
     pub StartDirectoryEnumerationCallback: PRJ_START_DIRECTORY_ENUMERATION_CB,
     pub EndDirectoryEnumerationCallback: PRJ_END_DIRECTORY_ENUMERATION_CB,
@@ -91,13 +92,8 @@ pub struct PRJ_CALLBACKS {
     pub NotificationCallback: PRJ_NOTIFICATION_CB,
     pub CancelCommandCallback: PRJ_CANCEL_COMMAND_CB,
 }
-impl Copy for PRJ_CALLBACKS {}
-impl Clone for PRJ_CALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRJ_CALLBACK_DATA {
     pub Size: u32,
     pub Flags: PRJ_CALLBACK_DATA_FLAGS,
@@ -111,88 +107,48 @@ pub struct PRJ_CALLBACK_DATA {
     pub TriggeringProcessImageFileName: windows_sys::core::PCWSTR,
     pub InstanceContext: *mut core::ffi::c_void,
 }
-impl Copy for PRJ_CALLBACK_DATA {}
-impl Clone for PRJ_CALLBACK_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
     pub CommandType: PRJ_COMPLETE_COMMAND_TYPE,
     pub Anonymous: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0,
 }
-impl Copy for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {}
-impl Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
     pub Notification: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1,
     pub Enumeration: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0,
 }
-impl Copy for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {}
-impl Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
     pub DirEntryBufferHandle: PRJ_DIR_ENTRY_BUFFER_HANDLE,
 }
-impl Copy for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {}
-impl Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
 }
-impl Copy for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {}
-impl Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type PRJ_DIR_ENTRY_BUFFER_HANDLE = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRJ_EXTENDED_INFO {
     pub InfoType: PRJ_EXT_INFO_TYPE,
     pub NextInfoOffset: u32,
     pub Anonymous: PRJ_EXTENDED_INFO_0,
 }
-impl Copy for PRJ_EXTENDED_INFO {}
-impl Clone for PRJ_EXTENDED_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PRJ_EXTENDED_INFO_0 {
     pub Symlink: PRJ_EXTENDED_INFO_0_0,
 }
-impl Copy for PRJ_EXTENDED_INFO_0 {}
-impl Clone for PRJ_EXTENDED_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRJ_EXTENDED_INFO_0_0 {
     pub TargetName: windows_sys::core::PCWSTR,
 }
-impl Copy for PRJ_EXTENDED_INFO_0_0 {}
-impl Clone for PRJ_EXTENDED_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRJ_FILE_BASIC_INFO {
     pub IsDirectory: super::super::Foundation::BOOLEAN,
     pub FileSize: i64,
@@ -202,67 +158,37 @@ pub struct PRJ_FILE_BASIC_INFO {
     pub ChangeTime: i64,
     pub FileAttributes: u32,
 }
-impl Copy for PRJ_FILE_BASIC_INFO {}
-impl Clone for PRJ_FILE_BASIC_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRJ_NOTIFICATION_MAPPING {
     pub NotificationBitMask: PRJ_NOTIFY_TYPES,
     pub NotificationRoot: windows_sys::core::PCWSTR,
 }
-impl Copy for PRJ_NOTIFICATION_MAPPING {}
-impl Clone for PRJ_NOTIFICATION_MAPPING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PRJ_NOTIFICATION_PARAMETERS {
     pub PostCreate: PRJ_NOTIFICATION_PARAMETERS_2,
     pub FileRenamed: PRJ_NOTIFICATION_PARAMETERS_1,
     pub FileDeletedOnHandleClose: PRJ_NOTIFICATION_PARAMETERS_0,
 }
-impl Copy for PRJ_NOTIFICATION_PARAMETERS {}
-impl Clone for PRJ_NOTIFICATION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRJ_NOTIFICATION_PARAMETERS_0 {
     pub IsFileModified: super::super::Foundation::BOOLEAN,
 }
-impl Copy for PRJ_NOTIFICATION_PARAMETERS_0 {}
-impl Clone for PRJ_NOTIFICATION_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRJ_NOTIFICATION_PARAMETERS_1 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
 }
-impl Copy for PRJ_NOTIFICATION_PARAMETERS_1 {}
-impl Clone for PRJ_NOTIFICATION_PARAMETERS_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRJ_NOTIFICATION_PARAMETERS_2 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
 }
-impl Copy for PRJ_NOTIFICATION_PARAMETERS_2 {}
-impl Clone for PRJ_NOTIFICATION_PARAMETERS_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRJ_PLACEHOLDER_INFO {
     pub FileBasicInfo: PRJ_FILE_BASIC_INFO,
     pub EaInformation: PRJ_PLACEHOLDER_INFO_0,
@@ -271,57 +197,32 @@ pub struct PRJ_PLACEHOLDER_INFO {
     pub VersionInfo: PRJ_PLACEHOLDER_VERSION_INFO,
     pub VariableData: [u8; 1],
 }
-impl Copy for PRJ_PLACEHOLDER_INFO {}
-impl Clone for PRJ_PLACEHOLDER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRJ_PLACEHOLDER_INFO_0 {
     pub EaBufferSize: u32,
     pub OffsetToFirstEa: u32,
 }
-impl Copy for PRJ_PLACEHOLDER_INFO_0 {}
-impl Clone for PRJ_PLACEHOLDER_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRJ_PLACEHOLDER_INFO_1 {
     pub SecurityBufferSize: u32,
     pub OffsetToSecurityDescriptor: u32,
 }
-impl Copy for PRJ_PLACEHOLDER_INFO_1 {}
-impl Clone for PRJ_PLACEHOLDER_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRJ_PLACEHOLDER_INFO_2 {
     pub StreamsInfoBufferSize: u32,
     pub OffsetToFirstStreamInfo: u32,
 }
-impl Copy for PRJ_PLACEHOLDER_INFO_2 {}
-impl Clone for PRJ_PLACEHOLDER_INFO_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRJ_PLACEHOLDER_VERSION_INFO {
     pub ProviderID: [u8; 128],
     pub ContentID: [u8; 128],
 }
-impl Copy for PRJ_PLACEHOLDER_VERSION_INFO {}
-impl Clone for PRJ_PLACEHOLDER_VERSION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRJ_STARTVIRTUALIZING_OPTIONS {
     pub Flags: PRJ_STARTVIRTUALIZING_FLAGS,
     pub PoolThreadCount: u32,
@@ -329,22 +230,11 @@ pub struct PRJ_STARTVIRTUALIZING_OPTIONS {
     pub NotificationMappings: *mut PRJ_NOTIFICATION_MAPPING,
     pub NotificationMappingsCount: u32,
 }
-impl Copy for PRJ_STARTVIRTUALIZING_OPTIONS {}
-impl Clone for PRJ_STARTVIRTUALIZING_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRJ_VIRTUALIZATION_INSTANCE_INFO {
     pub InstanceID: windows_sys::core::GUID,
     pub WriteAlignment: u32,
-}
-impl Copy for PRJ_VIRTUALIZATION_INSTANCE_INFO {}
-impl Clone for PRJ_VIRTUALIZATION_INSTANCE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type PRJ_CANCEL_COMMAND_CB = Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA)>;
 pub type PRJ_END_DIRECTORY_ENUMERATION_CB = Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const windows_sys::core::GUID) -> windows_sys::core::HRESULT>;

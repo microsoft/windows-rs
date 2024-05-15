@@ -215,39 +215,25 @@ pub type WINBIO_POLICY_SOURCE = i32;
 pub type WINBIO_POOL = u32;
 pub type WINBIO_SETTING_SOURCE = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ACCOUNT_POLICY {
     pub Identity: WINBIO_IDENTITY,
     pub AntiSpoofBehavior: WINBIO_ANTI_SPOOF_POLICY_ACTION,
 }
-impl Copy for WINBIO_ACCOUNT_POLICY {}
-impl Clone for WINBIO_ACCOUNT_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ADAPTER_INTERFACE_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
 }
-impl Copy for WINBIO_ADAPTER_INTERFACE_VERSION {}
-impl Clone for WINBIO_ADAPTER_INTERFACE_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ANTI_SPOOF_POLICY {
     pub Action: WINBIO_ANTI_SPOOF_POLICY_ACTION,
     pub Source: WINBIO_POLICY_SOURCE,
 }
-impl Copy for WINBIO_ANTI_SPOOF_POLICY {}
-impl Clone for WINBIO_ANTI_SPOOF_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT {
     pub SessionHandle: u32,
     pub Operation: u32,
@@ -258,13 +244,8 @@ pub struct WINBIO_ASYNC_RESULT {
     pub UserData: *mut core::ffi::c_void,
     pub Parameters: WINBIO_ASYNC_RESULT_0,
 }
-impl Copy for WINBIO_ASYNC_RESULT {}
-impl Clone for WINBIO_ASYNC_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WINBIO_ASYNC_RESULT_0 {
     pub Verify: WINBIO_ASYNC_RESULT_0_20,
     pub Identify: WINBIO_ASYNC_RESULT_0_15,
@@ -288,25 +269,15 @@ pub union WINBIO_ASYNC_RESULT_0 {
     pub GetProtectionPolicy: WINBIO_ASYNC_RESULT_0_13,
     pub NotifyUnitStatusChange: WINBIO_ASYNC_RESULT_0_17,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0 {}
-impl Clone for WINBIO_ASYNC_RESULT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_0 {
     pub Sample: *mut WINBIO_BIR,
     pub SampleSize: usize,
     pub RejectDetail: u32,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_0 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_1 {
     pub Component: WINBIO_COMPONENT,
     pub ControlCode: u32,
@@ -317,120 +288,65 @@ pub struct WINBIO_ASYNC_RESULT_0_1 {
     pub ReceiveBufferSize: usize,
     pub ReceiveDataSize: usize,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_1 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_2 {
     pub Identity: WINBIO_IDENTITY,
     pub SubFactor: u8,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_2 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_3 {
     pub SubFactor: u8,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_3 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_4 {
     pub RejectDetail: u32,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_4 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_5 {
     pub Identity: WINBIO_IDENTITY,
     pub IsNewTemplate: super::super::Foundation::BOOLEAN,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_5 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_6 {
     pub SelectorValue: u64,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_6 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_7 {
     pub UnitCount: usize,
     pub UnitSchemaArray: *mut WINBIO_UNIT_SCHEMA,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_7 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_8 {
     pub StorageCount: usize,
     pub StorageSchemaArray: *mut WINBIO_STORAGE_SCHEMA,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_8 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_9 {
     pub Identity: WINBIO_IDENTITY,
     pub SubFactorCount: usize,
     pub SubFactorArray: *mut u8,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_9 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_10 {
     pub BspCount: usize,
     pub BspSchemaArray: *mut WINBIO_BSP_SCHEMA,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_10 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_10 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_11 {
     pub Event: WINBIO_EVENT,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_11 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_11 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_12 {
     pub PropertyType: u32,
     pub PropertyId: u32,
@@ -439,71 +355,41 @@ pub struct WINBIO_ASYNC_RESULT_0_12 {
     pub PropertyBufferSize: usize,
     pub PropertyBuffer: *mut core::ffi::c_void,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_12 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_12 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_13 {
     pub Identity: WINBIO_IDENTITY,
     pub Policy: WINBIO_PROTECTION_POLICY,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_13 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_13 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_14 {
     pub Identity: WINBIO_IDENTITY,
     pub SubFactor: u8,
     pub RejectDetail: u32,
     pub Ticket: u64,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_14 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_14 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_15 {
     pub Identity: WINBIO_IDENTITY,
     pub SubFactor: u8,
     pub RejectDetail: u32,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_15 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_15 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_16 {
     pub ChangeType: u32,
     pub PresenceCount: usize,
     pub PresenceArray: *mut WINBIO_PRESENCE,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_16 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_16 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_17 {
     pub ExtendedStatus: WINBIO_EXTENDED_UNIT_STATUS,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_17 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_17 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_18 {
     pub PropertyType: u32,
     pub PropertyId: u32,
@@ -512,36 +398,21 @@ pub struct WINBIO_ASYNC_RESULT_0_18 {
     pub PropertyBufferSize: usize,
     pub PropertyBuffer: *mut core::ffi::c_void,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_18 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_18 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_19 {
     pub Match: super::super::Foundation::BOOLEAN,
     pub RejectDetail: u32,
     pub Ticket: u64,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_19 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_19 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_20 {
     pub Match: super::super::Foundation::BOOLEAN,
     pub RejectDetail: u32,
 }
-impl Copy for WINBIO_ASYNC_RESULT_0_20 {}
-impl Clone for WINBIO_ASYNC_RESULT_0_20 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_BDB_ANSI_381_HEADER {
     pub RecordLength: u64,
     pub FormatIdentifier: u32,
@@ -559,13 +430,8 @@ pub struct WINBIO_BDB_ANSI_381_HEADER {
     pub ImageCompressionAlg: u8,
     pub Reserved: u16,
 }
-impl Copy for WINBIO_BDB_ANSI_381_HEADER {}
-impl Clone for WINBIO_BDB_ANSI_381_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_BDB_ANSI_381_RECORD {
     pub BlockLength: u32,
     pub HorizontalLineLength: u16,
@@ -577,37 +443,22 @@ pub struct WINBIO_BDB_ANSI_381_RECORD {
     pub ImpressionType: u8,
     pub Reserved: u8,
 }
-impl Copy for WINBIO_BDB_ANSI_381_RECORD {}
-impl Clone for WINBIO_BDB_ANSI_381_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_BIR {
     pub HeaderBlock: WINBIO_BIR_DATA,
     pub StandardDataBlock: WINBIO_BIR_DATA,
     pub VendorDataBlock: WINBIO_BIR_DATA,
     pub SignatureBlock: WINBIO_BIR_DATA,
 }
-impl Copy for WINBIO_BIR {}
-impl Clone for WINBIO_BIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_BIR_DATA {
     pub Size: u32,
     pub Offset: u32,
 }
-impl Copy for WINBIO_BIR_DATA {}
-impl Clone for WINBIO_BIR_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_BIR_HEADER {
     pub ValidFields: u16,
     pub HeaderVersion: u8,
@@ -622,35 +473,20 @@ pub struct WINBIO_BIR_HEADER {
     pub BiometricDataFormat: WINBIO_REGISTERED_FORMAT,
     pub ProductId: WINBIO_REGISTERED_FORMAT,
 }
-impl Copy for WINBIO_BIR_HEADER {}
-impl Clone for WINBIO_BIR_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_BIR_HEADER_0 {
     pub BeginDate: i64,
     pub EndDate: i64,
 }
-impl Copy for WINBIO_BIR_HEADER_0 {}
-impl Clone for WINBIO_BIR_HEADER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_BLANK_PAYLOAD {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_sys::core::HRESULT,
 }
-impl Copy for WINBIO_BLANK_PAYLOAD {}
-impl Clone for WINBIO_BLANK_PAYLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_BSP_SCHEMA {
     pub BiometricFactor: u32,
     pub BspId: windows_sys::core::GUID,
@@ -658,25 +494,15 @@ pub struct WINBIO_BSP_SCHEMA {
     pub Vendor: [u16; 256],
     pub Version: WINBIO_VERSION,
 }
-impl Copy for WINBIO_BSP_SCHEMA {}
-impl Clone for WINBIO_BSP_SCHEMA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_CALIBRATION_INFO {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_sys::core::HRESULT,
     pub CalibrationData: WINBIO_DATA,
 }
-impl Copy for WINBIO_CALIBRATION_INFO {}
-impl Clone for WINBIO_CALIBRATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_CAPTURE_DATA {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_sys::core::HRESULT,
@@ -684,13 +510,8 @@ pub struct WINBIO_CAPTURE_DATA {
     pub RejectDetail: u32,
     pub CaptureData: WINBIO_DATA,
 }
-impl Copy for WINBIO_CAPTURE_DATA {}
-impl Clone for WINBIO_CAPTURE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_CAPTURE_PARAMETERS {
     pub PayloadSize: u32,
     pub Purpose: u8,
@@ -698,37 +519,22 @@ pub struct WINBIO_CAPTURE_PARAMETERS {
     pub VendorFormat: windows_sys::core::GUID,
     pub Flags: u8,
 }
-impl Copy for WINBIO_CAPTURE_PARAMETERS {}
-impl Clone for WINBIO_CAPTURE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_DATA {
     pub Size: u32,
     pub Data: [u8; 1],
 }
-impl Copy for WINBIO_DATA {}
-impl Clone for WINBIO_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_DIAGNOSTICS {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_sys::core::HRESULT,
     pub SensorStatus: u32,
     pub VendorDiagnostics: WINBIO_DATA,
 }
-impl Copy for WINBIO_DIAGNOSTICS {}
-impl Clone for WINBIO_DIAGNOSTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ENCRYPTED_CAPTURE_PARAMS {
     pub PayloadSize: u32,
     pub Purpose: u8,
@@ -737,14 +543,9 @@ pub struct WINBIO_ENCRYPTED_CAPTURE_PARAMS {
     pub Flags: u8,
     pub NonceSize: u32,
 }
-impl Copy for WINBIO_ENCRYPTED_CAPTURE_PARAMS {}
-impl Clone for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ENGINE_INTERFACE {
     pub Version: WINBIO_ADAPTER_INTERFACE_VERSION,
     pub Type: u32,
@@ -792,84 +593,47 @@ pub struct WINBIO_ENGINE_INTERFACE {
     pub CreateEnrollmentAuthenticated: PIBIO_ENGINE_CREATE_ENROLLMENT_AUTHENTICATED_FN,
     pub IdentifyFeatureSetAuthenticated: PIBIO_ENGINE_IDENTIFY_FEATURE_SET_AUTHENTICATED_FN,
 }
-#[cfg(feature = "Win32_System_IO")]
-impl Copy for WINBIO_ENGINE_INTERFACE {}
-#[cfg(feature = "Win32_System_IO")]
-impl Clone for WINBIO_ENGINE_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EVENT {
     pub Type: u32,
     pub Parameters: WINBIO_EVENT_0,
 }
-impl Copy for WINBIO_EVENT {}
-impl Clone for WINBIO_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WINBIO_EVENT_0 {
     pub Unclaimed: WINBIO_EVENT_0_2,
     pub UnclaimedIdentify: WINBIO_EVENT_0_1,
     pub Error: WINBIO_EVENT_0_0,
 }
-impl Copy for WINBIO_EVENT_0 {}
-impl Clone for WINBIO_EVENT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EVENT_0_0 {
     pub ErrorCode: windows_sys::core::HRESULT,
 }
-impl Copy for WINBIO_EVENT_0_0 {}
-impl Clone for WINBIO_EVENT_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EVENT_0_1 {
     pub UnitId: u32,
     pub Identity: WINBIO_IDENTITY,
     pub SubFactor: u8,
     pub RejectDetail: u32,
 }
-impl Copy for WINBIO_EVENT_0_1 {}
-impl Clone for WINBIO_EVENT_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EVENT_0_2 {
     pub UnitId: u32,
     pub RejectDetail: u32,
 }
-impl Copy for WINBIO_EVENT_0_2 {}
-impl Clone for WINBIO_EVENT_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO {
     pub GenericEngineCapabilities: u32,
     pub Factor: u32,
     pub Specific: WINBIO_EXTENDED_ENGINE_INFO_0,
 }
-impl Copy for WINBIO_EXTENDED_ENGINE_INFO {}
-impl Clone for WINBIO_EXTENDED_ENGINE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WINBIO_EXTENDED_ENGINE_INFO_0 {
     pub Null: u32,
     pub FacialFeatures: WINBIO_EXTENDED_ENGINE_INFO_0_0,
@@ -877,45 +641,25 @@ pub union WINBIO_EXTENDED_ENGINE_INFO_0 {
     pub Iris: WINBIO_EXTENDED_ENGINE_INFO_0_2,
     pub Voice: WINBIO_EXTENDED_ENGINE_INFO_0_3,
 }
-impl Copy for WINBIO_EXTENDED_ENGINE_INFO_0 {}
-impl Clone for WINBIO_EXTENDED_ENGINE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_0 {
     pub Capabilities: u32,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_0_0,
 }
-impl Copy for WINBIO_EXTENDED_ENGINE_INFO_0_0 {}
-impl Clone for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
     pub Null: u32,
 }
-impl Copy for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {}
-impl Clone for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_1 {
     pub Capabilities: u32,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_1_0,
 }
-impl Copy for WINBIO_EXTENDED_ENGINE_INFO_0_1 {}
-impl Clone for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
     pub GeneralSamples: u32,
     pub Center: u32,
@@ -924,66 +668,36 @@ pub struct WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
     pub LeftEdge: u32,
     pub RightEdge: u32,
 }
-impl Copy for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {}
-impl Clone for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_2 {
     pub Capabilities: u32,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_2_0,
 }
-impl Copy for WINBIO_EXTENDED_ENGINE_INFO_0_2 {}
-impl Clone for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
     pub Null: u32,
 }
-impl Copy for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {}
-impl Clone for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_3 {
     pub Capabilities: u32,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_3_0,
 }
-impl Copy for WINBIO_EXTENDED_ENGINE_INFO_0_3 {}
-impl Clone for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
     pub Null: u32,
 }
-impl Copy for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {}
-impl Clone for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
     pub Size: usize,
     pub SubFactor: u8,
 }
-impl Copy for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {}
-impl Clone for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS {
     pub TemplateStatus: windows_sys::core::HRESULT,
     pub RejectDetail: u32,
@@ -992,13 +706,8 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS {
     pub SubFactor: u8,
     pub Specific: WINBIO_EXTENDED_ENROLLMENT_STATUS_0,
 }
-impl Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS {}
-impl Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
     pub Null: u32,
     pub FacialFeatures: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0,
@@ -1006,36 +715,21 @@ pub union WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
     pub Iris: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2,
     pub Voice: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3,
 }
-impl Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {}
-impl Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
     pub BoundingBox: super::super::Foundation::RECT,
     pub Distance: i32,
     pub OpaqueEngineData: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0,
 }
-impl Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {}
-impl Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
     pub AdapterId: windows_sys::core::GUID,
     pub Data: [u32; 78],
 }
-impl Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {}
-impl Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
     pub GeneralSamples: u32,
     pub Center: u32,
@@ -1044,13 +738,8 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
     pub LeftEdge: u32,
     pub RightEdge: u32,
 }
-impl Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {}
-impl Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
     pub EyeBoundingBox_1: super::super::Foundation::RECT,
     pub EyeBoundingBox_2: super::super::Foundation::RECT,
@@ -1062,47 +751,27 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
     pub Point3D: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0,
     pub StopCaptureAndShowCriticalFeedback: super::super::Foundation::BOOL,
 }
-impl Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {}
-impl Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
     pub X: f64,
     pub Y: f64,
     pub Z: f64,
 }
-impl Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {}
-impl Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
     pub Reserved: u32,
 }
-impl Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {}
-impl Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO {
     pub GenericSensorCapabilities: u32,
     pub Factor: u32,
     pub Specific: WINBIO_EXTENDED_SENSOR_INFO_0,
 }
-impl Copy for WINBIO_EXTENDED_SENSOR_INFO {}
-impl Clone for WINBIO_EXTENDED_SENSOR_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WINBIO_EXTENDED_SENSOR_INFO_0 {
     pub Null: u32,
     pub FacialFeatures: WINBIO_EXTENDED_SENSOR_INFO_0_0,
@@ -1110,82 +779,47 @@ pub union WINBIO_EXTENDED_SENSOR_INFO_0 {
     pub Iris: WINBIO_EXTENDED_SENSOR_INFO_0_2,
     pub Voice: WINBIO_EXTENDED_SENSOR_INFO_0_3,
 }
-impl Copy for WINBIO_EXTENDED_SENSOR_INFO_0 {}
-impl Clone for WINBIO_EXTENDED_SENSOR_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_0 {
     pub FrameSize: super::super::Foundation::RECT,
     pub FrameOffset: super::super::Foundation::POINT,
     pub MandatoryOrientation: u32,
     pub HardwareInfo: WINBIO_EXTENDED_SENSOR_INFO_0_0_0,
 }
-impl Copy for WINBIO_EXTENDED_SENSOR_INFO_0_0 {}
-impl Clone for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
     pub ColorSensorId: [u16; 260],
     pub InfraredSensorId: [u16; 260],
     pub InfraredSensorRotationAngle: u32,
 }
-impl Copy for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {}
-impl Clone for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_1 {
     pub Reserved: u32,
 }
-impl Copy for WINBIO_EXTENDED_SENSOR_INFO_0_1 {}
-impl Clone for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_2 {
     pub FrameSize: super::super::Foundation::RECT,
     pub FrameOffset: super::super::Foundation::POINT,
     pub MandatoryOrientation: u32,
 }
-impl Copy for WINBIO_EXTENDED_SENSOR_INFO_0_2 {}
-impl Clone for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_3 {
     pub Reserved: u32,
 }
-impl Copy for WINBIO_EXTENDED_SENSOR_INFO_0_3 {}
-impl Clone for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO {
     pub GenericStorageCapabilities: u32,
     pub Factor: u32,
     pub Specific: WINBIO_EXTENDED_STORAGE_INFO_0,
 }
-impl Copy for WINBIO_EXTENDED_STORAGE_INFO {}
-impl Clone for WINBIO_EXTENDED_STORAGE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WINBIO_EXTENDED_STORAGE_INFO_0 {
     pub Null: u32,
     pub FacialFeatures: WINBIO_EXTENDED_STORAGE_INFO_0_0,
@@ -1193,76 +827,41 @@ pub union WINBIO_EXTENDED_STORAGE_INFO_0 {
     pub Iris: WINBIO_EXTENDED_STORAGE_INFO_0_2,
     pub Voice: WINBIO_EXTENDED_STORAGE_INFO_0_3,
 }
-impl Copy for WINBIO_EXTENDED_STORAGE_INFO_0 {}
-impl Clone for WINBIO_EXTENDED_STORAGE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_0 {
     pub Capabilities: u32,
 }
-impl Copy for WINBIO_EXTENDED_STORAGE_INFO_0_0 {}
-impl Clone for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_1 {
     pub Capabilities: u32,
 }
-impl Copy for WINBIO_EXTENDED_STORAGE_INFO_0_1 {}
-impl Clone for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_2 {
     pub Capabilities: u32,
 }
-impl Copy for WINBIO_EXTENDED_STORAGE_INFO_0_2 {}
-impl Clone for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_3 {
     pub Capabilities: u32,
 }
-impl Copy for WINBIO_EXTENDED_STORAGE_INFO_0_3 {}
-impl Clone for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_EXTENDED_UNIT_STATUS {
     pub Availability: u32,
     pub ReasonCode: u32,
 }
-impl Copy for WINBIO_EXTENDED_UNIT_STATUS {}
-impl Clone for WINBIO_EXTENDED_UNIT_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_FP_BU_STATE {
     pub SensorAttached: super::super::Foundation::BOOL,
     pub CreationResult: windows_sys::core::HRESULT,
 }
-impl Copy for WINBIO_FP_BU_STATE {}
-impl Clone for WINBIO_FP_BU_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
+#[derive(Clone, Copy)]
 pub struct WINBIO_FRAMEWORK_INTERFACE {
     pub Version: WINBIO_ADAPTER_INTERFACE_VERSION,
     pub Type: u32,
@@ -1313,51 +912,29 @@ pub struct WINBIO_FRAMEWORK_INTERFACE {
     pub QueryAuthorizedEnrollments: PIBIO_FRAMEWORK_VSM_QUERY_AUTHORIZED_ENROLLMENTS_FN,
     pub DecryptSample: PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN,
 }
-#[cfg(feature = "Win32_System_IO")]
-impl Copy for WINBIO_FRAMEWORK_INTERFACE {}
-#[cfg(feature = "Win32_System_IO")]
-impl Clone for WINBIO_FRAMEWORK_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_GESTURE_METADATA {
     pub Size: usize,
     pub BiometricType: u32,
     pub MatchType: u32,
     pub ProtectionType: u32,
 }
-impl Copy for WINBIO_GESTURE_METADATA {}
-impl Clone for WINBIO_GESTURE_METADATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_GET_INDICATOR {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_sys::core::HRESULT,
     pub IndicatorStatus: u32,
 }
-impl Copy for WINBIO_GET_INDICATOR {}
-impl Clone for WINBIO_GET_INDICATOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_IDENTITY {
     pub Type: u32,
     pub Value: WINBIO_IDENTITY_0,
 }
-impl Copy for WINBIO_IDENTITY {}
-impl Clone for WINBIO_IDENTITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WINBIO_IDENTITY_0 {
     pub Null: u32,
     pub Wildcard: u32,
@@ -1365,37 +942,22 @@ pub union WINBIO_IDENTITY_0 {
     pub AccountSid: WINBIO_IDENTITY_0_0,
     pub SecureId: [u8; 32],
 }
-impl Copy for WINBIO_IDENTITY_0 {}
-impl Clone for WINBIO_IDENTITY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_IDENTITY_0_0 {
     pub Size: u32,
     pub Data: [u8; 68],
 }
-impl Copy for WINBIO_IDENTITY_0_0 {}
-impl Clone for WINBIO_IDENTITY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_NOTIFY_WAKE {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_sys::core::HRESULT,
     pub Reason: u32,
 }
-impl Copy for WINBIO_NOTIFY_WAKE {}
-impl Clone for WINBIO_NOTIFY_WAKE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
+#[derive(Clone, Copy)]
 pub struct WINBIO_PIPELINE {
     pub SensorHandle: super::super::Foundation::HANDLE,
     pub EngineHandle: super::super::Foundation::HANDLE,
@@ -1408,15 +970,8 @@ pub struct WINBIO_PIPELINE {
     pub StorageContext: *mut WINIBIO_STORAGE_CONTEXT,
     pub FrameworkInterface: *mut WINBIO_FRAMEWORK_INTERFACE,
 }
-#[cfg(feature = "Win32_System_IO")]
-impl Copy for WINBIO_PIPELINE {}
-#[cfg(feature = "Win32_System_IO")]
-impl Clone for WINBIO_PIPELINE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_PRESENCE {
     pub Factor: u32,
     pub SubFactor: u8,
@@ -1428,58 +983,33 @@ pub struct WINBIO_PRESENCE {
     pub Properties: WINBIO_PRESENCE_PROPERTIES,
     pub Authorization: WINBIO_PRESENCE_0,
 }
-impl Copy for WINBIO_PRESENCE {}
-impl Clone for WINBIO_PRESENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_PRESENCE_0 {
     pub Size: u32,
     pub Data: [u8; 32],
 }
-impl Copy for WINBIO_PRESENCE_0 {}
-impl Clone for WINBIO_PRESENCE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WINBIO_PRESENCE_PROPERTIES {
     pub FacialFeatures: WINBIO_PRESENCE_PROPERTIES_0,
     pub Iris: WINBIO_PRESENCE_PROPERTIES_1,
 }
-impl Copy for WINBIO_PRESENCE_PROPERTIES {}
-impl Clone for WINBIO_PRESENCE_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_PRESENCE_PROPERTIES_0 {
     pub BoundingBox: super::super::Foundation::RECT,
     pub Distance: i32,
     pub OpaqueEngineData: WINBIO_PRESENCE_PROPERTIES_0_0,
 }
-impl Copy for WINBIO_PRESENCE_PROPERTIES_0 {}
-impl Clone for WINBIO_PRESENCE_PROPERTIES_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_PRESENCE_PROPERTIES_0_0 {
     pub AdapterId: windows_sys::core::GUID,
     pub Data: [u32; 78],
 }
-impl Copy for WINBIO_PRESENCE_PROPERTIES_0_0 {}
-impl Clone for WINBIO_PRESENCE_PROPERTIES_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_PRESENCE_PROPERTIES_1 {
     pub EyeBoundingBox_1: super::super::Foundation::RECT,
     pub EyeBoundingBox_2: super::super::Foundation::RECT,
@@ -1487,25 +1017,15 @@ pub struct WINBIO_PRESENCE_PROPERTIES_1 {
     pub PupilCenter_2: super::super::Foundation::POINT,
     pub Distance: i32,
 }
-impl Copy for WINBIO_PRESENCE_PROPERTIES_1 {}
-impl Clone for WINBIO_PRESENCE_PROPERTIES_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_PRIVATE_SENSOR_TYPE_INFO {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_sys::core::HRESULT,
     pub PrivateSensorTypeInfo: WINBIO_DATA,
 }
-impl Copy for WINBIO_PRIVATE_SENSOR_TYPE_INFO {}
-impl Clone for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_PROTECTION_POLICY {
     pub Version: u32,
     pub Identity: WINBIO_IDENTITY,
@@ -1514,37 +1034,22 @@ pub struct WINBIO_PROTECTION_POLICY {
     pub PolicySize: usize,
     pub Policy: [u8; 128],
 }
-impl Copy for WINBIO_PROTECTION_POLICY {}
-impl Clone for WINBIO_PROTECTION_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_REGISTERED_FORMAT {
     pub Owner: u16,
     pub Type: u16,
 }
-impl Copy for WINBIO_REGISTERED_FORMAT {}
-impl Clone for WINBIO_REGISTERED_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_SECURE_BUFFER_HEADER_V1 {
     pub Type: u32,
     pub Size: u32,
     pub Flags: u32,
     pub ValidationTag: u64,
 }
-impl Copy for WINBIO_SECURE_BUFFER_HEADER_V1 {}
-impl Clone for WINBIO_SECURE_BUFFER_HEADER_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_SECURE_CONNECTION_DATA {
     pub Size: u32,
     pub Version: u16,
@@ -1553,25 +1058,15 @@ pub struct WINBIO_SECURE_CONNECTION_DATA {
     pub IntermediateCA1Size: u32,
     pub IntermediateCA2Size: u32,
 }
-impl Copy for WINBIO_SECURE_CONNECTION_DATA {}
-impl Clone for WINBIO_SECURE_CONNECTION_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_SECURE_CONNECTION_PARAMS {
     pub PayloadSize: u32,
     pub Version: u16,
     pub Flags: u16,
 }
-impl Copy for WINBIO_SECURE_CONNECTION_PARAMS {}
-impl Clone for WINBIO_SECURE_CONNECTION_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_SENSOR_ATTRIBUTES {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_sys::core::HRESULT,
@@ -1586,14 +1081,9 @@ pub struct WINBIO_SENSOR_ATTRIBUTES {
     pub SupportedFormatEntries: u32,
     pub SupportedFormat: [WINBIO_REGISTERED_FORMAT; 1],
 }
-impl Copy for WINBIO_SENSOR_ATTRIBUTES {}
-impl Clone for WINBIO_SENSOR_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
+#[derive(Clone, Copy)]
 pub struct WINBIO_SENSOR_INTERFACE {
     pub Version: WINBIO_ADAPTER_INTERFACE_VERSION,
     pub Type: u32,
@@ -1631,27 +1121,15 @@ pub struct WINBIO_SENSOR_INTERFACE {
     pub StartNotifyWake: PIBIO_SENSOR_START_NOTIFY_WAKE_FN,
     pub FinishNotifyWake: PIBIO_SENSOR_FINISH_NOTIFY_WAKE_FN,
 }
-#[cfg(feature = "Win32_System_IO")]
-impl Copy for WINBIO_SENSOR_INTERFACE {}
-#[cfg(feature = "Win32_System_IO")]
-impl Clone for WINBIO_SENSOR_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_SET_INDICATOR {
     pub PayloadSize: u32,
     pub IndicatorStatus: u32,
 }
-impl Copy for WINBIO_SET_INDICATOR {}
-impl Clone for WINBIO_SET_INDICATOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
+#[derive(Clone, Copy)]
 pub struct WINBIO_STORAGE_INTERFACE {
     pub Version: WINBIO_ADAPTER_INTERFACE_VERSION,
     pub Type: u32,
@@ -1688,15 +1166,8 @@ pub struct WINBIO_STORAGE_INTERFACE {
     pub UpdateRecordBegin: PIBIO_STORAGE_UPDATE_RECORD_BEGIN_FN,
     pub UpdateRecordCommit: PIBIO_STORAGE_UPDATE_RECORD_COMMIT_FN,
 }
-#[cfg(feature = "Win32_System_IO")]
-impl Copy for WINBIO_STORAGE_INTERFACE {}
-#[cfg(feature = "Win32_System_IO")]
-impl Clone for WINBIO_STORAGE_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_STORAGE_RECORD {
     pub Identity: *mut WINBIO_IDENTITY,
     pub SubFactor: u8,
@@ -1707,13 +1178,8 @@ pub struct WINBIO_STORAGE_RECORD {
     pub PayloadBlob: *mut u8,
     pub PayloadBlobSize: usize,
 }
-impl Copy for WINBIO_STORAGE_RECORD {}
-impl Clone for WINBIO_STORAGE_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_STORAGE_SCHEMA {
     pub BiometricFactor: u32,
     pub DatabaseId: windows_sys::core::GUID,
@@ -1722,26 +1188,16 @@ pub struct WINBIO_STORAGE_SCHEMA {
     pub FilePath: [u16; 256],
     pub ConnectionString: [u16; 256],
 }
-impl Copy for WINBIO_STORAGE_SCHEMA {}
-impl Clone for WINBIO_STORAGE_SCHEMA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_SUPPORTED_ALGORITHMS {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_sys::core::HRESULT,
     pub NumberOfAlgorithms: u32,
     pub AlgorithmData: WINBIO_DATA,
 }
-impl Copy for WINBIO_SUPPORTED_ALGORITHMS {}
-impl Clone for WINBIO_SUPPORTED_ALGORITHMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_UNIT_SCHEMA {
     pub UnitId: u32,
     pub PoolType: u32,
@@ -1755,33 +1211,17 @@ pub struct WINBIO_UNIT_SCHEMA {
     pub SerialNumber: [u16; 256],
     pub FirmwareVersion: WINBIO_VERSION,
 }
-impl Copy for WINBIO_UNIT_SCHEMA {}
-impl Clone for WINBIO_UNIT_SCHEMA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_UPDATE_FIRMWARE {
     pub PayloadSize: u32,
     pub FirmwareData: WINBIO_DATA,
 }
-impl Copy for WINBIO_UPDATE_FIRMWARE {}
-impl Clone for WINBIO_UPDATE_FIRMWARE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_VERSION {
     pub MajorVersion: u32,
     pub MinorVersion: u32,
-}
-impl Copy for WINBIO_VERSION {}
-impl Clone for WINBIO_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type WINIBIO_ENGINE_CONTEXT = isize;
 pub type WINIBIO_SENSOR_CONTEXT = isize;

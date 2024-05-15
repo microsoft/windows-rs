@@ -3424,20 +3424,10 @@ impl windows_core::RuntimeType for StubPackageOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.StubPackageOption;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DeploymentProgress {
     pub state: DeploymentProgressState,
     pub percentage: u32,
-}
-impl Copy for DeploymentProgress {}
-impl Clone for DeploymentProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DeploymentProgress {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DeploymentProgress").field("state", &self.state).field("percentage", &self.percentage).finish()
-    }
 }
 impl windows_core::TypeKind for DeploymentProgress {
     type TypeKind = windows_core::CopyType;
@@ -3445,12 +3435,6 @@ impl windows_core::TypeKind for DeploymentProgress {
 impl windows_core::RuntimeType for DeploymentProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Management.Deployment.DeploymentProgress;enum(Windows.Management.Deployment.DeploymentProgressState;i4);u4)");
 }
-impl PartialEq for DeploymentProgress {
-    fn eq(&self, other: &Self) -> bool {
-        self.state == other.state && self.percentage == other.percentage
-    }
-}
-impl Eq for DeploymentProgress {}
 impl Default for DeploymentProgress {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -8716,161 +8716,82 @@ impl core::fmt::Debug for D3DX11_SCAN_OPCODE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AES_CTR_IV {
     pub IV: u64,
     pub Count: u64,
 }
-impl Copy for D3D11_AES_CTR_IV {}
-impl Clone for D3D11_AES_CTR_IV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AES_CTR_IV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AES_CTR_IV").field("IV", &self.IV).field("Count", &self.Count).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AES_CTR_IV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AES_CTR_IV {
-    fn eq(&self, other: &Self) -> bool {
-        self.IV == other.IV && self.Count == other.Count
-    }
-}
-impl Eq for D3D11_AES_CTR_IV {}
 impl Default for D3D11_AES_CTR_IV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_ACCESSIBLE_ENCRYPTION_INPUT {
     pub Parameters: D3D11_AUTHENTICATED_CONFIGURE_INPUT,
     pub EncryptionGuid: windows_core::GUID,
 }
-impl Copy for D3D11_AUTHENTICATED_CONFIGURE_ACCESSIBLE_ENCRYPTION_INPUT {}
-impl Clone for D3D11_AUTHENTICATED_CONFIGURE_ACCESSIBLE_ENCRYPTION_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_CONFIGURE_ACCESSIBLE_ENCRYPTION_INPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_CONFIGURE_ACCESSIBLE_ENCRYPTION_INPUT").field("Parameters", &self.Parameters).field("EncryptionGuid", &self.EncryptionGuid).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_CONFIGURE_ACCESSIBLE_ENCRYPTION_INPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_CONFIGURE_ACCESSIBLE_ENCRYPTION_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Parameters == other.Parameters && self.EncryptionGuid == other.EncryptionGuid
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_CONFIGURE_ACCESSIBLE_ENCRYPTION_INPUT {}
 impl Default for D3D11_AUTHENTICATED_CONFIGURE_ACCESSIBLE_ENCRYPTION_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION_INPUT {
     pub Parameters: D3D11_AUTHENTICATED_CONFIGURE_INPUT,
     pub DecoderHandle: super::super::Foundation::HANDLE,
     pub CryptoSessionHandle: super::super::Foundation::HANDLE,
     pub DeviceHandle: super::super::Foundation::HANDLE,
 }
-impl Copy for D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION_INPUT {}
-impl Clone for D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION_INPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION_INPUT").field("Parameters", &self.Parameters).field("DecoderHandle", &self.DecoderHandle).field("CryptoSessionHandle", &self.CryptoSessionHandle).field("DeviceHandle", &self.DeviceHandle).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION_INPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Parameters == other.Parameters && self.DecoderHandle == other.DecoderHandle && self.CryptoSessionHandle == other.CryptoSessionHandle && self.DeviceHandle == other.DeviceHandle
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION_INPUT {}
 impl Default for D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE_INPUT {
     pub Parameters: D3D11_AUTHENTICATED_CONFIGURE_INPUT,
     pub StartSequenceQuery: u32,
     pub StartSequenceConfigure: u32,
 }
-impl Copy for D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE_INPUT {}
-impl Clone for D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE_INPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE_INPUT").field("Parameters", &self.Parameters).field("StartSequenceQuery", &self.StartSequenceQuery).field("StartSequenceConfigure", &self.StartSequenceConfigure).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE_INPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Parameters == other.Parameters && self.StartSequenceQuery == other.StartSequenceQuery && self.StartSequenceConfigure == other.StartSequenceConfigure
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE_INPUT {}
 impl Default for D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_INPUT {
     pub omac: D3D11_OMAC,
     pub ConfigureType: windows_core::GUID,
     pub hChannel: super::super::Foundation::HANDLE,
     pub SequenceNumber: u32,
 }
-impl Copy for D3D11_AUTHENTICATED_CONFIGURE_INPUT {}
-impl Clone for D3D11_AUTHENTICATED_CONFIGURE_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_CONFIGURE_INPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_CONFIGURE_INPUT").field("omac", &self.omac).field("ConfigureType", &self.ConfigureType).field("hChannel", &self.hChannel).field("SequenceNumber", &self.SequenceNumber).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_CONFIGURE_INPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_CONFIGURE_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.omac == other.omac && self.ConfigureType == other.ConfigureType && self.hChannel == other.hChannel && self.SequenceNumber == other.SequenceNumber
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_CONFIGURE_INPUT {}
 impl Default for D3D11_AUTHENTICATED_CONFIGURE_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_OUTPUT {
     pub omac: D3D11_OMAC,
     pub ConfigureType: windows_core::GUID,
@@ -8878,41 +8799,19 @@ pub struct D3D11_AUTHENTICATED_CONFIGURE_OUTPUT {
     pub SequenceNumber: u32,
     pub ReturnCode: windows_core::HRESULT,
 }
-impl Copy for D3D11_AUTHENTICATED_CONFIGURE_OUTPUT {}
-impl Clone for D3D11_AUTHENTICATED_CONFIGURE_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_CONFIGURE_OUTPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_CONFIGURE_OUTPUT").field("omac", &self.omac).field("ConfigureType", &self.ConfigureType).field("hChannel", &self.hChannel).field("SequenceNumber", &self.SequenceNumber).field("ReturnCode", &self.ReturnCode).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_CONFIGURE_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_CONFIGURE_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.omac == other.omac && self.ConfigureType == other.ConfigureType && self.hChannel == other.hChannel && self.SequenceNumber == other.SequenceNumber && self.ReturnCode == other.ReturnCode
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_CONFIGURE_OUTPUT {}
 impl Default for D3D11_AUTHENTICATED_CONFIGURE_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT {
     pub Parameters: D3D11_AUTHENTICATED_CONFIGURE_INPUT,
     pub Protections: D3D11_AUTHENTICATED_PROTECTION_FLAGS,
-}
-impl Copy for D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT {}
-impl Clone for D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT {
     type TypeKind = windows_core::CopyType;
@@ -8923,47 +8822,26 @@ impl Default for D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE_INPUT {
     pub Parameters: D3D11_AUTHENTICATED_CONFIGURE_INPUT,
     pub ProcessType: D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE,
     pub ProcessHandle: super::super::Foundation::HANDLE,
     pub AllowAccess: super::super::Foundation::BOOL,
 }
-impl Copy for D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE_INPUT {}
-impl Clone for D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE_INPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE_INPUT").field("Parameters", &self.Parameters).field("ProcessType", &self.ProcessType).field("ProcessHandle", &self.ProcessHandle).field("AllowAccess", &self.AllowAccess).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE_INPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Parameters == other.Parameters && self.ProcessType == other.ProcessType && self.ProcessHandle == other.ProcessHandle && self.AllowAccess == other.AllowAccess
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE_INPUT {}
 impl Default for D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D11_AUTHENTICATED_PROTECTION_FLAGS {
     pub Flags: D3D11_AUTHENTICATED_PROTECTION_FLAGS_0,
     pub Value: u32,
-}
-impl Copy for D3D11_AUTHENTICATED_PROTECTION_FLAGS {}
-impl Clone for D3D11_AUTHENTICATED_PROTECTION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_PROTECTION_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -8974,341 +8852,166 @@ impl Default for D3D11_AUTHENTICATED_PROTECTION_FLAGS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_PROTECTION_FLAGS_0 {
     pub _bitfield: u32,
-}
-impl Copy for D3D11_AUTHENTICATED_PROTECTION_FLAGS_0 {}
-impl Clone for D3D11_AUTHENTICATED_PROTECTION_FLAGS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_PROTECTION_FLAGS_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_PROTECTION_FLAGS_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_PROTECTION_FLAGS_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_PROTECTION_FLAGS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_PROTECTION_FLAGS_0 {}
 impl Default for D3D11_AUTHENTICATED_PROTECTION_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_COUNT_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub EncryptionGuidCount: u32,
 }
-impl Copy for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_COUNT_OUTPUT {}
-impl Clone for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_COUNT_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_COUNT_OUTPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_COUNT_OUTPUT").field("Output", &self.Output).field("EncryptionGuidCount", &self.EncryptionGuidCount).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_COUNT_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_COUNT_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Output == other.Output && self.EncryptionGuidCount == other.EncryptionGuidCount
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_COUNT_OUTPUT {}
 impl Default for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_COUNT_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_INPUT {
     pub Input: D3D11_AUTHENTICATED_QUERY_INPUT,
     pub EncryptionGuidIndex: u32,
 }
-impl Copy for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_INPUT {}
-impl Clone for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_INPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_INPUT").field("Input", &self.Input).field("EncryptionGuidIndex", &self.EncryptionGuidIndex).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_INPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Input == other.Input && self.EncryptionGuidIndex == other.EncryptionGuidIndex
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_INPUT {}
 impl Default for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub EncryptionGuidIndex: u32,
     pub EncryptionGuid: windows_core::GUID,
 }
-impl Copy for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_OUTPUT {}
-impl Clone for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_OUTPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_OUTPUT").field("Output", &self.Output).field("EncryptionGuidIndex", &self.EncryptionGuidIndex).field("EncryptionGuid", &self.EncryptionGuid).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Output == other.Output && self.EncryptionGuidIndex == other.EncryptionGuidIndex && self.EncryptionGuid == other.EncryptionGuid
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_OUTPUT {}
 impl Default for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub BusType: D3D11_BUS_TYPE,
     pub AccessibleInContiguousBlocks: super::super::Foundation::BOOL,
     pub AccessibleInNonContiguousBlocks: super::super::Foundation::BOOL,
 }
-impl Copy for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT {}
-impl Clone for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT").field("Output", &self.Output).field("BusType", &self.BusType).field("AccessibleInContiguousBlocks", &self.AccessibleInContiguousBlocks).field("AccessibleInNonContiguousBlocks", &self.AccessibleInNonContiguousBlocks).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Output == other.Output && self.BusType == other.BusType && self.AccessibleInContiguousBlocks == other.AccessibleInContiguousBlocks && self.AccessibleInNonContiguousBlocks == other.AccessibleInNonContiguousBlocks
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT {}
 impl Default for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub ChannelType: D3D11_AUTHENTICATED_CHANNEL_TYPE,
 }
-impl Copy for D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE_OUTPUT {}
-impl Clone for D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE_OUTPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE_OUTPUT").field("Output", &self.Output).field("ChannelType", &self.ChannelType).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Output == other.Output && self.ChannelType == other.ChannelType
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE_OUTPUT {}
 impl Default for D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_INPUT {
     pub Input: D3D11_AUTHENTICATED_QUERY_INPUT,
     pub DecoderHandle: super::super::Foundation::HANDLE,
 }
-impl Copy for D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_INPUT {}
-impl Clone for D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_INPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_INPUT").field("Input", &self.Input).field("DecoderHandle", &self.DecoderHandle).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_INPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Input == other.Input && self.DecoderHandle == other.DecoderHandle
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_INPUT {}
 impl Default for D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub DecoderHandle: super::super::Foundation::HANDLE,
     pub CryptoSessionHandle: super::super::Foundation::HANDLE,
     pub DeviceHandle: super::super::Foundation::HANDLE,
 }
-impl Copy for D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_OUTPUT {}
-impl Clone for D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_OUTPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_OUTPUT").field("Output", &self.Output).field("DecoderHandle", &self.DecoderHandle).field("CryptoSessionHandle", &self.CryptoSessionHandle).field("DeviceHandle", &self.DeviceHandle).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Output == other.Output && self.DecoderHandle == other.DecoderHandle && self.CryptoSessionHandle == other.CryptoSessionHandle && self.DeviceHandle == other.DeviceHandle
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_OUTPUT {}
 impl Default for D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_CURRENT_ACCESSIBILITY_ENCRYPTION_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub EncryptionGuid: windows_core::GUID,
 }
-impl Copy for D3D11_AUTHENTICATED_QUERY_CURRENT_ACCESSIBILITY_ENCRYPTION_OUTPUT {}
-impl Clone for D3D11_AUTHENTICATED_QUERY_CURRENT_ACCESSIBILITY_ENCRYPTION_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_CURRENT_ACCESSIBILITY_ENCRYPTION_OUTPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_QUERY_CURRENT_ACCESSIBILITY_ENCRYPTION_OUTPUT").field("Output", &self.Output).field("EncryptionGuid", &self.EncryptionGuid).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_QUERY_CURRENT_ACCESSIBILITY_ENCRYPTION_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_QUERY_CURRENT_ACCESSIBILITY_ENCRYPTION_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Output == other.Output && self.EncryptionGuid == other.EncryptionGuid
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_QUERY_CURRENT_ACCESSIBILITY_ENCRYPTION_OUTPUT {}
 impl Default for D3D11_AUTHENTICATED_QUERY_CURRENT_ACCESSIBILITY_ENCRYPTION_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub DeviceHandle: super::super::Foundation::HANDLE,
 }
-impl Copy for D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE_OUTPUT {}
-impl Clone for D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE_OUTPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE_OUTPUT").field("Output", &self.Output).field("DeviceHandle", &self.DeviceHandle).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Output == other.Output && self.DeviceHandle == other.DeviceHandle
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE_OUTPUT {}
 impl Default for D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_INPUT {
     pub QueryType: windows_core::GUID,
     pub hChannel: super::super::Foundation::HANDLE,
     pub SequenceNumber: u32,
 }
-impl Copy for D3D11_AUTHENTICATED_QUERY_INPUT {}
-impl Clone for D3D11_AUTHENTICATED_QUERY_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_INPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_QUERY_INPUT").field("QueryType", &self.QueryType).field("hChannel", &self.hChannel).field("SequenceNumber", &self.SequenceNumber).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_QUERY_INPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_QUERY_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.QueryType == other.QueryType && self.hChannel == other.hChannel && self.SequenceNumber == other.SequenceNumber
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_QUERY_INPUT {}
 impl Default for D3D11_AUTHENTICATED_QUERY_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT {
     pub omac: D3D11_OMAC,
     pub QueryType: windows_core::GUID,
@@ -9316,127 +9019,63 @@ pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT {
     pub SequenceNumber: u32,
     pub ReturnCode: windows_core::HRESULT,
 }
-impl Copy for D3D11_AUTHENTICATED_QUERY_OUTPUT {}
-impl Clone for D3D11_AUTHENTICATED_QUERY_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_OUTPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_QUERY_OUTPUT").field("omac", &self.omac).field("QueryType", &self.QueryType).field("hChannel", &self.hChannel).field("SequenceNumber", &self.SequenceNumber).field("ReturnCode", &self.ReturnCode).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_QUERY_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_QUERY_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.omac == other.omac && self.QueryType == other.QueryType && self.hChannel == other.hChannel && self.SequenceNumber == other.SequenceNumber && self.ReturnCode == other.ReturnCode
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_QUERY_OUTPUT {}
 impl Default for D3D11_AUTHENTICATED_QUERY_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_INPUT {
     pub Input: D3D11_AUTHENTICATED_QUERY_INPUT,
     pub DeviceHandle: super::super::Foundation::HANDLE,
     pub CryptoSessionHandle: super::super::Foundation::HANDLE,
 }
-impl Copy for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_INPUT {}
-impl Clone for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_INPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_INPUT").field("Input", &self.Input).field("DeviceHandle", &self.DeviceHandle).field("CryptoSessionHandle", &self.CryptoSessionHandle).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_INPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Input == other.Input && self.DeviceHandle == other.DeviceHandle && self.CryptoSessionHandle == other.CryptoSessionHandle
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_INPUT {}
 impl Default for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub DeviceHandle: super::super::Foundation::HANDLE,
     pub CryptoSessionHandle: super::super::Foundation::HANDLE,
     pub OutputIDCount: u32,
 }
-impl Copy for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_OUTPUT {}
-impl Clone for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_OUTPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_OUTPUT").field("Output", &self.Output).field("DeviceHandle", &self.DeviceHandle).field("CryptoSessionHandle", &self.CryptoSessionHandle).field("OutputIDCount", &self.OutputIDCount).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Output == other.Output && self.DeviceHandle == other.DeviceHandle && self.CryptoSessionHandle == other.CryptoSessionHandle && self.OutputIDCount == other.OutputIDCount
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_OUTPUT {}
 impl Default for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_INPUT {
     pub Input: D3D11_AUTHENTICATED_QUERY_INPUT,
     pub DeviceHandle: super::super::Foundation::HANDLE,
     pub CryptoSessionHandle: super::super::Foundation::HANDLE,
     pub OutputIDIndex: u32,
 }
-impl Copy for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_INPUT {}
-impl Clone for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_INPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_INPUT").field("Input", &self.Input).field("DeviceHandle", &self.DeviceHandle).field("CryptoSessionHandle", &self.CryptoSessionHandle).field("OutputIDIndex", &self.OutputIDIndex).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_INPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Input == other.Input && self.DeviceHandle == other.DeviceHandle && self.CryptoSessionHandle == other.CryptoSessionHandle && self.OutputIDIndex == other.OutputIDIndex
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_INPUT {}
 impl Default for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub DeviceHandle: super::super::Foundation::HANDLE,
@@ -9444,41 +9083,19 @@ pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_OUTPUT {
     pub OutputIDIndex: u32,
     pub OutputID: u64,
 }
-impl Copy for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_OUTPUT {}
-impl Clone for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_OUTPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_OUTPUT").field("Output", &self.Output).field("DeviceHandle", &self.DeviceHandle).field("CryptoSessionHandle", &self.CryptoSessionHandle).field("OutputIDIndex", &self.OutputIDIndex).field("OutputID", &self.OutputID).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Output == other.Output && self.DeviceHandle == other.DeviceHandle && self.CryptoSessionHandle == other.CryptoSessionHandle && self.OutputIDIndex == other.OutputIDIndex && self.OutputID == other.OutputID
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_OUTPUT {}
 impl Default for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub ProtectionFlags: D3D11_AUTHENTICATED_PROTECTION_FLAGS,
-}
-impl Copy for D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT {}
-impl Clone for D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT {
     type TypeKind = windows_core::CopyType;
@@ -9489,190 +9106,95 @@ impl Default for D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub RestrictedSharedResourceProcessCount: u32,
 }
-impl Copy for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT_OUTPUT {}
-impl Clone for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT_OUTPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT_OUTPUT").field("Output", &self.Output).field("RestrictedSharedResourceProcessCount", &self.RestrictedSharedResourceProcessCount).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Output == other.Output && self.RestrictedSharedResourceProcessCount == other.RestrictedSharedResourceProcessCount
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT_OUTPUT {}
 impl Default for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_INPUT {
     pub Input: D3D11_AUTHENTICATED_QUERY_INPUT,
     pub ProcessIndex: u32,
 }
-impl Copy for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_INPUT {}
-impl Clone for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_INPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_INPUT").field("Input", &self.Input).field("ProcessIndex", &self.ProcessIndex).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_INPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Input == other.Input && self.ProcessIndex == other.ProcessIndex
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_INPUT {}
 impl Default for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub ProcessIndex: u32,
     pub ProcessIdentifier: D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE,
     pub ProcessHandle: super::super::Foundation::HANDLE,
 }
-impl Copy for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_OUTPUT {}
-impl Clone for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_OUTPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_OUTPUT").field("Output", &self.Output).field("ProcessIndex", &self.ProcessIndex).field("ProcessIdentifier", &self.ProcessIdentifier).field("ProcessHandle", &self.ProcessHandle).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Output == other.Output && self.ProcessIndex == other.ProcessIndex && self.ProcessIdentifier == other.ProcessIdentifier && self.ProcessHandle == other.ProcessHandle
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_OUTPUT {}
 impl Default for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub UnrestrictedProtectedSharedResourceCount: u32,
 }
-impl Copy for D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT_OUTPUT {}
-impl Clone for D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT_OUTPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT_OUTPUT").field("Output", &self.Output).field("UnrestrictedProtectedSharedResourceCount", &self.UnrestrictedProtectedSharedResourceCount).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Output == other.Output && self.UnrestrictedProtectedSharedResourceCount == other.UnrestrictedProtectedSharedResourceCount
-    }
-}
-impl Eq for D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT_OUTPUT {}
 impl Default for D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_BLEND_DESC {
     pub AlphaToCoverageEnable: super::super::Foundation::BOOL,
     pub IndependentBlendEnable: super::super::Foundation::BOOL,
     pub RenderTarget: [D3D11_RENDER_TARGET_BLEND_DESC; 8],
 }
-impl Copy for D3D11_BLEND_DESC {}
-impl Clone for D3D11_BLEND_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_BLEND_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_BLEND_DESC").field("AlphaToCoverageEnable", &self.AlphaToCoverageEnable).field("IndependentBlendEnable", &self.IndependentBlendEnable).field("RenderTarget", &self.RenderTarget).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_BLEND_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_BLEND_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.AlphaToCoverageEnable == other.AlphaToCoverageEnable && self.IndependentBlendEnable == other.IndependentBlendEnable && self.RenderTarget == other.RenderTarget
-    }
-}
-impl Eq for D3D11_BLEND_DESC {}
 impl Default for D3D11_BLEND_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_BLEND_DESC1 {
     pub AlphaToCoverageEnable: super::super::Foundation::BOOL,
     pub IndependentBlendEnable: super::super::Foundation::BOOL,
     pub RenderTarget: [D3D11_RENDER_TARGET_BLEND_DESC1; 8],
 }
-impl Copy for D3D11_BLEND_DESC1 {}
-impl Clone for D3D11_BLEND_DESC1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_BLEND_DESC1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_BLEND_DESC1").field("AlphaToCoverageEnable", &self.AlphaToCoverageEnable).field("IndependentBlendEnable", &self.IndependentBlendEnable).field("RenderTarget", &self.RenderTarget).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_BLEND_DESC1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_BLEND_DESC1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.AlphaToCoverageEnable == other.AlphaToCoverageEnable && self.IndependentBlendEnable == other.IndependentBlendEnable && self.RenderTarget == other.RenderTarget
-    }
-}
-impl Eq for D3D11_BLEND_DESC1 {}
 impl Default for D3D11_BLEND_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_BOX {
     pub left: u32,
     pub top: u32,
@@ -9681,63 +9203,31 @@ pub struct D3D11_BOX {
     pub bottom: u32,
     pub back: u32,
 }
-impl Copy for D3D11_BOX {}
-impl Clone for D3D11_BOX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_BOX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_BOX").field("left", &self.left).field("top", &self.top).field("front", &self.front).field("right", &self.right).field("bottom", &self.bottom).field("back", &self.back).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_BOX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_BOX {
-    fn eq(&self, other: &Self) -> bool {
-        self.left == other.left && self.top == other.top && self.front == other.front && self.right == other.right && self.bottom == other.bottom && self.back == other.back
-    }
-}
-impl Eq for D3D11_BOX {}
 impl Default for D3D11_BOX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_BUFFEREX_SRV {
     pub FirstElement: u32,
     pub NumElements: u32,
     pub Flags: u32,
 }
-impl Copy for D3D11_BUFFEREX_SRV {}
-impl Clone for D3D11_BUFFEREX_SRV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_BUFFEREX_SRV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_BUFFEREX_SRV").field("FirstElement", &self.FirstElement).field("NumElements", &self.NumElements).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_BUFFEREX_SRV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_BUFFEREX_SRV {
-    fn eq(&self, other: &Self) -> bool {
-        self.FirstElement == other.FirstElement && self.NumElements == other.NumElements && self.Flags == other.Flags
-    }
-}
-impl Eq for D3D11_BUFFEREX_SRV {}
 impl Default for D3D11_BUFFEREX_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_BUFFER_DESC {
     pub ByteWidth: u32,
     pub Usage: D3D11_USAGE,
@@ -9746,41 +9236,19 @@ pub struct D3D11_BUFFER_DESC {
     pub MiscFlags: u32,
     pub StructureByteStride: u32,
 }
-impl Copy for D3D11_BUFFER_DESC {}
-impl Clone for D3D11_BUFFER_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_BUFFER_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_BUFFER_DESC").field("ByteWidth", &self.ByteWidth).field("Usage", &self.Usage).field("BindFlags", &self.BindFlags).field("CPUAccessFlags", &self.CPUAccessFlags).field("MiscFlags", &self.MiscFlags).field("StructureByteStride", &self.StructureByteStride).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_BUFFER_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_BUFFER_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.ByteWidth == other.ByteWidth && self.Usage == other.Usage && self.BindFlags == other.BindFlags && self.CPUAccessFlags == other.CPUAccessFlags && self.MiscFlags == other.MiscFlags && self.StructureByteStride == other.StructureByteStride
-    }
-}
-impl Eq for D3D11_BUFFER_DESC {}
 impl Default for D3D11_BUFFER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D11_BUFFER_RTV {
     pub Anonymous1: D3D11_BUFFER_RTV_0,
     pub Anonymous2: D3D11_BUFFER_RTV_1,
-}
-impl Copy for D3D11_BUFFER_RTV {}
-impl Clone for D3D11_BUFFER_RTV {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D11_BUFFER_RTV {
     type TypeKind = windows_core::CopyType;
@@ -9791,15 +9259,10 @@ impl Default for D3D11_BUFFER_RTV {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D11_BUFFER_RTV_0 {
     pub FirstElement: u32,
     pub ElementOffset: u32,
-}
-impl Copy for D3D11_BUFFER_RTV_0 {}
-impl Clone for D3D11_BUFFER_RTV_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D11_BUFFER_RTV_0 {
     type TypeKind = windows_core::CopyType;
@@ -9810,15 +9273,10 @@ impl Default for D3D11_BUFFER_RTV_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D11_BUFFER_RTV_1 {
     pub NumElements: u32,
     pub ElementWidth: u32,
-}
-impl Copy for D3D11_BUFFER_RTV_1 {}
-impl Clone for D3D11_BUFFER_RTV_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D11_BUFFER_RTV_1 {
     type TypeKind = windows_core::CopyType;
@@ -9829,15 +9287,10 @@ impl Default for D3D11_BUFFER_RTV_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D11_BUFFER_SRV {
     pub Anonymous1: D3D11_BUFFER_SRV_0,
     pub Anonymous2: D3D11_BUFFER_SRV_1,
-}
-impl Copy for D3D11_BUFFER_SRV {}
-impl Clone for D3D11_BUFFER_SRV {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D11_BUFFER_SRV {
     type TypeKind = windows_core::CopyType;
@@ -9848,15 +9301,10 @@ impl Default for D3D11_BUFFER_SRV {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D11_BUFFER_SRV_0 {
     pub FirstElement: u32,
     pub ElementOffset: u32,
-}
-impl Copy for D3D11_BUFFER_SRV_0 {}
-impl Clone for D3D11_BUFFER_SRV_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D11_BUFFER_SRV_0 {
     type TypeKind = windows_core::CopyType;
@@ -9867,15 +9315,10 @@ impl Default for D3D11_BUFFER_SRV_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D11_BUFFER_SRV_1 {
     pub NumElements: u32,
     pub ElementWidth: u32,
-}
-impl Copy for D3D11_BUFFER_SRV_1 {}
-impl Clone for D3D11_BUFFER_SRV_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D11_BUFFER_SRV_1 {
     type TypeKind = windows_core::CopyType;
@@ -9886,37 +9329,22 @@ impl Default for D3D11_BUFFER_SRV_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_BUFFER_UAV {
     pub FirstElement: u32,
     pub NumElements: u32,
     pub Flags: u32,
 }
-impl Copy for D3D11_BUFFER_UAV {}
-impl Clone for D3D11_BUFFER_UAV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_BUFFER_UAV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_BUFFER_UAV").field("FirstElement", &self.FirstElement).field("NumElements", &self.NumElements).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_BUFFER_UAV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_BUFFER_UAV {
-    fn eq(&self, other: &Self) -> bool {
-        self.FirstElement == other.FirstElement && self.NumElements == other.NumElements && self.Flags == other.Flags
-    }
-}
-impl Eq for D3D11_BUFFER_UAV {}
 impl Default for D3D11_BUFFER_UAV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_CLASS_INSTANCE_DESC {
     pub InstanceId: u32,
     pub InstanceIndex: u32,
@@ -9927,156 +9355,76 @@ pub struct D3D11_CLASS_INSTANCE_DESC {
     pub BaseSampler: u32,
     pub Created: super::super::Foundation::BOOL,
 }
-impl Copy for D3D11_CLASS_INSTANCE_DESC {}
-impl Clone for D3D11_CLASS_INSTANCE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_CLASS_INSTANCE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_CLASS_INSTANCE_DESC").field("InstanceId", &self.InstanceId).field("InstanceIndex", &self.InstanceIndex).field("TypeId", &self.TypeId).field("ConstantBuffer", &self.ConstantBuffer).field("BaseConstantBufferOffset", &self.BaseConstantBufferOffset).field("BaseTexture", &self.BaseTexture).field("BaseSampler", &self.BaseSampler).field("Created", &self.Created).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_CLASS_INSTANCE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_CLASS_INSTANCE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InstanceId == other.InstanceId && self.InstanceIndex == other.InstanceIndex && self.TypeId == other.TypeId && self.ConstantBuffer == other.ConstantBuffer && self.BaseConstantBufferOffset == other.BaseConstantBufferOffset && self.BaseTexture == other.BaseTexture && self.BaseSampler == other.BaseSampler && self.Created == other.Created
-    }
-}
-impl Eq for D3D11_CLASS_INSTANCE_DESC {}
 impl Default for D3D11_CLASS_INSTANCE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_COMPUTE_SHADER_TRACE_DESC {
     pub Invocation: u64,
     pub ThreadIDInGroup: [u32; 3],
     pub ThreadGroupID: [u32; 3],
 }
-impl Copy for D3D11_COMPUTE_SHADER_TRACE_DESC {}
-impl Clone for D3D11_COMPUTE_SHADER_TRACE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_COMPUTE_SHADER_TRACE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_COMPUTE_SHADER_TRACE_DESC").field("Invocation", &self.Invocation).field("ThreadIDInGroup", &self.ThreadIDInGroup).field("ThreadGroupID", &self.ThreadGroupID).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_COMPUTE_SHADER_TRACE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_COMPUTE_SHADER_TRACE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Invocation == other.Invocation && self.ThreadIDInGroup == other.ThreadIDInGroup && self.ThreadGroupID == other.ThreadGroupID
-    }
-}
-impl Eq for D3D11_COMPUTE_SHADER_TRACE_DESC {}
 impl Default for D3D11_COMPUTE_SHADER_TRACE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_COUNTER_DESC {
     pub Counter: D3D11_COUNTER,
     pub MiscFlags: u32,
 }
-impl Copy for D3D11_COUNTER_DESC {}
-impl Clone for D3D11_COUNTER_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_COUNTER_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_COUNTER_DESC").field("Counter", &self.Counter).field("MiscFlags", &self.MiscFlags).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_COUNTER_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_COUNTER_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Counter == other.Counter && self.MiscFlags == other.MiscFlags
-    }
-}
-impl Eq for D3D11_COUNTER_DESC {}
 impl Default for D3D11_COUNTER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_COUNTER_INFO {
     pub LastDeviceDependentCounter: D3D11_COUNTER,
     pub NumSimultaneousCounters: u32,
     pub NumDetectableParallelUnits: u8,
 }
-impl Copy for D3D11_COUNTER_INFO {}
-impl Clone for D3D11_COUNTER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_COUNTER_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_COUNTER_INFO").field("LastDeviceDependentCounter", &self.LastDeviceDependentCounter).field("NumSimultaneousCounters", &self.NumSimultaneousCounters).field("NumDetectableParallelUnits", &self.NumDetectableParallelUnits).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_COUNTER_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_COUNTER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.LastDeviceDependentCounter == other.LastDeviceDependentCounter && self.NumSimultaneousCounters == other.NumSimultaneousCounters && self.NumDetectableParallelUnits == other.NumDetectableParallelUnits
-    }
-}
-impl Eq for D3D11_COUNTER_INFO {}
 impl Default for D3D11_COUNTER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_DEPTH_STENCILOP_DESC {
     pub StencilFailOp: D3D11_STENCIL_OP,
     pub StencilDepthFailOp: D3D11_STENCIL_OP,
     pub StencilPassOp: D3D11_STENCIL_OP,
     pub StencilFunc: D3D11_COMPARISON_FUNC,
 }
-impl Copy for D3D11_DEPTH_STENCILOP_DESC {}
-impl Clone for D3D11_DEPTH_STENCILOP_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_DEPTH_STENCILOP_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_DEPTH_STENCILOP_DESC").field("StencilFailOp", &self.StencilFailOp).field("StencilDepthFailOp", &self.StencilDepthFailOp).field("StencilPassOp", &self.StencilPassOp).field("StencilFunc", &self.StencilFunc).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_DEPTH_STENCILOP_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_DEPTH_STENCILOP_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.StencilFailOp == other.StencilFailOp && self.StencilDepthFailOp == other.StencilDepthFailOp && self.StencilPassOp == other.StencilPassOp && self.StencilFunc == other.StencilFunc
-    }
-}
-impl Eq for D3D11_DEPTH_STENCILOP_DESC {}
 impl Default for D3D11_DEPTH_STENCILOP_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_DEPTH_STENCIL_DESC {
     pub DepthEnable: super::super::Foundation::BOOL,
     pub DepthWriteMask: D3D11_DEPTH_WRITE_MASK,
@@ -10087,26 +9435,9 @@ pub struct D3D11_DEPTH_STENCIL_DESC {
     pub FrontFace: D3D11_DEPTH_STENCILOP_DESC,
     pub BackFace: D3D11_DEPTH_STENCILOP_DESC,
 }
-impl Copy for D3D11_DEPTH_STENCIL_DESC {}
-impl Clone for D3D11_DEPTH_STENCIL_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_DEPTH_STENCIL_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_DEPTH_STENCIL_DESC").field("DepthEnable", &self.DepthEnable).field("DepthWriteMask", &self.DepthWriteMask).field("DepthFunc", &self.DepthFunc).field("StencilEnable", &self.StencilEnable).field("StencilReadMask", &self.StencilReadMask).field("StencilWriteMask", &self.StencilWriteMask).field("FrontFace", &self.FrontFace).field("BackFace", &self.BackFace).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_DEPTH_STENCIL_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_DEPTH_STENCIL_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.DepthEnable == other.DepthEnable && self.DepthWriteMask == other.DepthWriteMask && self.DepthFunc == other.DepthFunc && self.StencilEnable == other.StencilEnable && self.StencilReadMask == other.StencilReadMask && self.StencilWriteMask == other.StencilWriteMask && self.FrontFace == other.FrontFace && self.BackFace == other.BackFace
-    }
-}
-impl Eq for D3D11_DEPTH_STENCIL_DESC {}
 impl Default for D3D11_DEPTH_STENCIL_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10114,19 +9445,12 @@ impl Default for D3D11_DEPTH_STENCIL_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
 pub struct D3D11_DEPTH_STENCIL_VIEW_DESC {
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub ViewDimension: D3D11_DSV_DIMENSION,
     pub Flags: u32,
     pub Anonymous: D3D11_DEPTH_STENCIL_VIEW_DESC_0,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D11_DEPTH_STENCIL_VIEW_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D11_DEPTH_STENCIL_VIEW_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D11_DEPTH_STENCIL_VIEW_DESC {
@@ -10140,6 +9464,7 @@ impl Default for D3D11_DEPTH_STENCIL_VIEW_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
 pub union D3D11_DEPTH_STENCIL_VIEW_DESC_0 {
     pub Texture1D: D3D11_TEX1D_DSV,
     pub Texture1DArray: D3D11_TEX1D_ARRAY_DSV,
@@ -10147,14 +9472,6 @@ pub union D3D11_DEPTH_STENCIL_VIEW_DESC_0 {
     pub Texture2DArray: D3D11_TEX2D_ARRAY_DSV,
     pub Texture2DMS: D3D11_TEX2DMS_DSV,
     pub Texture2DMSArray: D3D11_TEX2DMS_ARRAY_DSV,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D11_DEPTH_STENCIL_VIEW_DESC_0 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D11_DEPTH_STENCIL_VIEW_DESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D11_DEPTH_STENCIL_VIEW_DESC_0 {
@@ -10167,35 +9484,20 @@ impl Default for D3D11_DEPTH_STENCIL_VIEW_DESC_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_DOMAIN_SHADER_TRACE_DESC {
     pub Invocation: u64,
-}
-impl Copy for D3D11_DOMAIN_SHADER_TRACE_DESC {}
-impl Clone for D3D11_DOMAIN_SHADER_TRACE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_DOMAIN_SHADER_TRACE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_DOMAIN_SHADER_TRACE_DESC").field("Invocation", &self.Invocation).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_DOMAIN_SHADER_TRACE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_DOMAIN_SHADER_TRACE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Invocation == other.Invocation
-    }
-}
-impl Eq for D3D11_DOMAIN_SHADER_TRACE_DESC {}
 impl Default for D3D11_DOMAIN_SHADER_TRACE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_DRAW_INDEXED_INSTANCED_INDIRECT_ARGS {
     pub IndexCountPerInstance: u32,
     pub InstanceCount: u32,
@@ -10203,153 +9505,73 @@ pub struct D3D11_DRAW_INDEXED_INSTANCED_INDIRECT_ARGS {
     pub BaseVertexLocation: i32,
     pub StartInstanceLocation: u32,
 }
-impl Copy for D3D11_DRAW_INDEXED_INSTANCED_INDIRECT_ARGS {}
-impl Clone for D3D11_DRAW_INDEXED_INSTANCED_INDIRECT_ARGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_DRAW_INDEXED_INSTANCED_INDIRECT_ARGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_DRAW_INDEXED_INSTANCED_INDIRECT_ARGS").field("IndexCountPerInstance", &self.IndexCountPerInstance).field("InstanceCount", &self.InstanceCount).field("StartIndexLocation", &self.StartIndexLocation).field("BaseVertexLocation", &self.BaseVertexLocation).field("StartInstanceLocation", &self.StartInstanceLocation).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_DRAW_INDEXED_INSTANCED_INDIRECT_ARGS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_DRAW_INDEXED_INSTANCED_INDIRECT_ARGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.IndexCountPerInstance == other.IndexCountPerInstance && self.InstanceCount == other.InstanceCount && self.StartIndexLocation == other.StartIndexLocation && self.BaseVertexLocation == other.BaseVertexLocation && self.StartInstanceLocation == other.StartInstanceLocation
-    }
-}
-impl Eq for D3D11_DRAW_INDEXED_INSTANCED_INDIRECT_ARGS {}
 impl Default for D3D11_DRAW_INDEXED_INSTANCED_INDIRECT_ARGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_DRAW_INSTANCED_INDIRECT_ARGS {
     pub VertexCountPerInstance: u32,
     pub InstanceCount: u32,
     pub StartVertexLocation: u32,
     pub StartInstanceLocation: u32,
 }
-impl Copy for D3D11_DRAW_INSTANCED_INDIRECT_ARGS {}
-impl Clone for D3D11_DRAW_INSTANCED_INDIRECT_ARGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_DRAW_INSTANCED_INDIRECT_ARGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_DRAW_INSTANCED_INDIRECT_ARGS").field("VertexCountPerInstance", &self.VertexCountPerInstance).field("InstanceCount", &self.InstanceCount).field("StartVertexLocation", &self.StartVertexLocation).field("StartInstanceLocation", &self.StartInstanceLocation).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_DRAW_INSTANCED_INDIRECT_ARGS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_DRAW_INSTANCED_INDIRECT_ARGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.VertexCountPerInstance == other.VertexCountPerInstance && self.InstanceCount == other.InstanceCount && self.StartVertexLocation == other.StartVertexLocation && self.StartInstanceLocation == other.StartInstanceLocation
-    }
-}
-impl Eq for D3D11_DRAW_INSTANCED_INDIRECT_ARGS {}
 impl Default for D3D11_DRAW_INSTANCED_INDIRECT_ARGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_ENCRYPTED_BLOCK_INFO {
     pub NumEncryptedBytesAtBeginning: u32,
     pub NumBytesInSkipPattern: u32,
     pub NumBytesInEncryptPattern: u32,
 }
-impl Copy for D3D11_ENCRYPTED_BLOCK_INFO {}
-impl Clone for D3D11_ENCRYPTED_BLOCK_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_ENCRYPTED_BLOCK_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_ENCRYPTED_BLOCK_INFO").field("NumEncryptedBytesAtBeginning", &self.NumEncryptedBytesAtBeginning).field("NumBytesInSkipPattern", &self.NumBytesInSkipPattern).field("NumBytesInEncryptPattern", &self.NumBytesInEncryptPattern).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_ENCRYPTED_BLOCK_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_ENCRYPTED_BLOCK_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumEncryptedBytesAtBeginning == other.NumEncryptedBytesAtBeginning && self.NumBytesInSkipPattern == other.NumBytesInSkipPattern && self.NumBytesInEncryptPattern == other.NumBytesInEncryptPattern
-    }
-}
-impl Eq for D3D11_ENCRYPTED_BLOCK_INFO {}
 impl Default for D3D11_ENCRYPTED_BLOCK_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_ARCHITECTURE_INFO {
     pub TileBasedDeferredRenderer: super::super::Foundation::BOOL,
-}
-impl Copy for D3D11_FEATURE_DATA_ARCHITECTURE_INFO {}
-impl Clone for D3D11_FEATURE_DATA_ARCHITECTURE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_FEATURE_DATA_ARCHITECTURE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_FEATURE_DATA_ARCHITECTURE_INFO").field("TileBasedDeferredRenderer", &self.TileBasedDeferredRenderer).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_FEATURE_DATA_ARCHITECTURE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_FEATURE_DATA_ARCHITECTURE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.TileBasedDeferredRenderer == other.TileBasedDeferredRenderer
-    }
-}
-impl Eq for D3D11_FEATURE_DATA_ARCHITECTURE_INFO {}
 impl Default for D3D11_FEATURE_DATA_ARCHITECTURE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
     pub ComputeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x: super::super::Foundation::BOOL,
-}
-impl Copy for D3D11_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {}
-impl Clone for D3D11_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS").field("ComputeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x", &self.ComputeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ComputeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x == other.ComputeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x
-    }
-}
-impl Eq for D3D11_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {}
 impl Default for D3D11_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS {
     pub OutputMergerLogicOp: super::super::Foundation::BOOL,
     pub UAVOnlyRenderingForcedSampleCount: super::super::Foundation::BOOL,
@@ -10366,92 +9588,32 @@ pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS {
     pub ExtendedDoublesShaderInstructions: super::super::Foundation::BOOL,
     pub ExtendedResourceSharing: super::super::Foundation::BOOL,
 }
-impl Copy for D3D11_FEATURE_DATA_D3D11_OPTIONS {}
-impl Clone for D3D11_FEATURE_DATA_D3D11_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_FEATURE_DATA_D3D11_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_FEATURE_DATA_D3D11_OPTIONS")
-            .field("OutputMergerLogicOp", &self.OutputMergerLogicOp)
-            .field("UAVOnlyRenderingForcedSampleCount", &self.UAVOnlyRenderingForcedSampleCount)
-            .field("DiscardAPIsSeenByDriver", &self.DiscardAPIsSeenByDriver)
-            .field("FlagsForUpdateAndCopySeenByDriver", &self.FlagsForUpdateAndCopySeenByDriver)
-            .field("ClearView", &self.ClearView)
-            .field("CopyWithOverlap", &self.CopyWithOverlap)
-            .field("ConstantBufferPartialUpdate", &self.ConstantBufferPartialUpdate)
-            .field("ConstantBufferOffsetting", &self.ConstantBufferOffsetting)
-            .field("MapNoOverwriteOnDynamicConstantBuffer", &self.MapNoOverwriteOnDynamicConstantBuffer)
-            .field("MapNoOverwriteOnDynamicBufferSRV", &self.MapNoOverwriteOnDynamicBufferSRV)
-            .field("MultisampleRTVWithForcedSampleCountOne", &self.MultisampleRTVWithForcedSampleCountOne)
-            .field("SAD4ShaderInstructions", &self.SAD4ShaderInstructions)
-            .field("ExtendedDoublesShaderInstructions", &self.ExtendedDoublesShaderInstructions)
-            .field("ExtendedResourceSharing", &self.ExtendedResourceSharing)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_FEATURE_DATA_D3D11_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_FEATURE_DATA_D3D11_OPTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.OutputMergerLogicOp == other.OutputMergerLogicOp
-            && self.UAVOnlyRenderingForcedSampleCount == other.UAVOnlyRenderingForcedSampleCount
-            && self.DiscardAPIsSeenByDriver == other.DiscardAPIsSeenByDriver
-            && self.FlagsForUpdateAndCopySeenByDriver == other.FlagsForUpdateAndCopySeenByDriver
-            && self.ClearView == other.ClearView
-            && self.CopyWithOverlap == other.CopyWithOverlap
-            && self.ConstantBufferPartialUpdate == other.ConstantBufferPartialUpdate
-            && self.ConstantBufferOffsetting == other.ConstantBufferOffsetting
-            && self.MapNoOverwriteOnDynamicConstantBuffer == other.MapNoOverwriteOnDynamicConstantBuffer
-            && self.MapNoOverwriteOnDynamicBufferSRV == other.MapNoOverwriteOnDynamicBufferSRV
-            && self.MultisampleRTVWithForcedSampleCountOne == other.MultisampleRTVWithForcedSampleCountOne
-            && self.SAD4ShaderInstructions == other.SAD4ShaderInstructions
-            && self.ExtendedDoublesShaderInstructions == other.ExtendedDoublesShaderInstructions
-            && self.ExtendedResourceSharing == other.ExtendedResourceSharing
-    }
-}
-impl Eq for D3D11_FEATURE_DATA_D3D11_OPTIONS {}
 impl Default for D3D11_FEATURE_DATA_D3D11_OPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS1 {
     pub TiledResourcesTier: D3D11_TILED_RESOURCES_TIER,
     pub MinMaxFiltering: super::super::Foundation::BOOL,
     pub ClearViewAlsoSupportsDepthOnlyFormats: super::super::Foundation::BOOL,
     pub MapOnDefaultBuffers: super::super::Foundation::BOOL,
 }
-impl Copy for D3D11_FEATURE_DATA_D3D11_OPTIONS1 {}
-impl Clone for D3D11_FEATURE_DATA_D3D11_OPTIONS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_FEATURE_DATA_D3D11_OPTIONS1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_FEATURE_DATA_D3D11_OPTIONS1").field("TiledResourcesTier", &self.TiledResourcesTier).field("MinMaxFiltering", &self.MinMaxFiltering).field("ClearViewAlsoSupportsDepthOnlyFormats", &self.ClearViewAlsoSupportsDepthOnlyFormats).field("MapOnDefaultBuffers", &self.MapOnDefaultBuffers).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_FEATURE_DATA_D3D11_OPTIONS1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_FEATURE_DATA_D3D11_OPTIONS1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.TiledResourcesTier == other.TiledResourcesTier && self.MinMaxFiltering == other.MinMaxFiltering && self.ClearViewAlsoSupportsDepthOnlyFormats == other.ClearViewAlsoSupportsDepthOnlyFormats && self.MapOnDefaultBuffers == other.MapOnDefaultBuffers
-    }
-}
-impl Eq for D3D11_FEATURE_DATA_D3D11_OPTIONS1 {}
 impl Default for D3D11_FEATURE_DATA_D3D11_OPTIONS1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS2 {
     pub PSSpecifiedStencilRefSupported: super::super::Foundation::BOOL,
     pub TypedUAVLoadAdditionalFormats: super::super::Foundation::BOOL,
@@ -10462,300 +9624,130 @@ pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS2 {
     pub StandardSwizzle: super::super::Foundation::BOOL,
     pub UnifiedMemoryArchitecture: super::super::Foundation::BOOL,
 }
-impl Copy for D3D11_FEATURE_DATA_D3D11_OPTIONS2 {}
-impl Clone for D3D11_FEATURE_DATA_D3D11_OPTIONS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_FEATURE_DATA_D3D11_OPTIONS2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_FEATURE_DATA_D3D11_OPTIONS2")
-            .field("PSSpecifiedStencilRefSupported", &self.PSSpecifiedStencilRefSupported)
-            .field("TypedUAVLoadAdditionalFormats", &self.TypedUAVLoadAdditionalFormats)
-            .field("ROVsSupported", &self.ROVsSupported)
-            .field("ConservativeRasterizationTier", &self.ConservativeRasterizationTier)
-            .field("TiledResourcesTier", &self.TiledResourcesTier)
-            .field("MapOnDefaultTextures", &self.MapOnDefaultTextures)
-            .field("StandardSwizzle", &self.StandardSwizzle)
-            .field("UnifiedMemoryArchitecture", &self.UnifiedMemoryArchitecture)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_FEATURE_DATA_D3D11_OPTIONS2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_FEATURE_DATA_D3D11_OPTIONS2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.PSSpecifiedStencilRefSupported == other.PSSpecifiedStencilRefSupported && self.TypedUAVLoadAdditionalFormats == other.TypedUAVLoadAdditionalFormats && self.ROVsSupported == other.ROVsSupported && self.ConservativeRasterizationTier == other.ConservativeRasterizationTier && self.TiledResourcesTier == other.TiledResourcesTier && self.MapOnDefaultTextures == other.MapOnDefaultTextures && self.StandardSwizzle == other.StandardSwizzle && self.UnifiedMemoryArchitecture == other.UnifiedMemoryArchitecture
-    }
-}
-impl Eq for D3D11_FEATURE_DATA_D3D11_OPTIONS2 {}
 impl Default for D3D11_FEATURE_DATA_D3D11_OPTIONS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS3 {
     pub VPAndRTArrayIndexFromAnyShaderFeedingRasterizer: super::super::Foundation::BOOL,
-}
-impl Copy for D3D11_FEATURE_DATA_D3D11_OPTIONS3 {}
-impl Clone for D3D11_FEATURE_DATA_D3D11_OPTIONS3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_FEATURE_DATA_D3D11_OPTIONS3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_FEATURE_DATA_D3D11_OPTIONS3").field("VPAndRTArrayIndexFromAnyShaderFeedingRasterizer", &self.VPAndRTArrayIndexFromAnyShaderFeedingRasterizer).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_FEATURE_DATA_D3D11_OPTIONS3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_FEATURE_DATA_D3D11_OPTIONS3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.VPAndRTArrayIndexFromAnyShaderFeedingRasterizer == other.VPAndRTArrayIndexFromAnyShaderFeedingRasterizer
-    }
-}
-impl Eq for D3D11_FEATURE_DATA_D3D11_OPTIONS3 {}
 impl Default for D3D11_FEATURE_DATA_D3D11_OPTIONS3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS4 {
     pub ExtendedNV12SharedTextureSupported: super::super::Foundation::BOOL,
-}
-impl Copy for D3D11_FEATURE_DATA_D3D11_OPTIONS4 {}
-impl Clone for D3D11_FEATURE_DATA_D3D11_OPTIONS4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_FEATURE_DATA_D3D11_OPTIONS4 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_FEATURE_DATA_D3D11_OPTIONS4").field("ExtendedNV12SharedTextureSupported", &self.ExtendedNV12SharedTextureSupported).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_FEATURE_DATA_D3D11_OPTIONS4 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_FEATURE_DATA_D3D11_OPTIONS4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ExtendedNV12SharedTextureSupported == other.ExtendedNV12SharedTextureSupported
-    }
-}
-impl Eq for D3D11_FEATURE_DATA_D3D11_OPTIONS4 {}
 impl Default for D3D11_FEATURE_DATA_D3D11_OPTIONS4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS5 {
     pub SharedResourceTier: D3D11_SHARED_RESOURCE_TIER,
-}
-impl Copy for D3D11_FEATURE_DATA_D3D11_OPTIONS5 {}
-impl Clone for D3D11_FEATURE_DATA_D3D11_OPTIONS5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_FEATURE_DATA_D3D11_OPTIONS5 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_FEATURE_DATA_D3D11_OPTIONS5").field("SharedResourceTier", &self.SharedResourceTier).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_FEATURE_DATA_D3D11_OPTIONS5 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_FEATURE_DATA_D3D11_OPTIONS5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.SharedResourceTier == other.SharedResourceTier
-    }
-}
-impl Eq for D3D11_FEATURE_DATA_D3D11_OPTIONS5 {}
 impl Default for D3D11_FEATURE_DATA_D3D11_OPTIONS5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_D3D9_OPTIONS {
     pub FullNonPow2TextureSupport: super::super::Foundation::BOOL,
-}
-impl Copy for D3D11_FEATURE_DATA_D3D9_OPTIONS {}
-impl Clone for D3D11_FEATURE_DATA_D3D9_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_FEATURE_DATA_D3D9_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_FEATURE_DATA_D3D9_OPTIONS").field("FullNonPow2TextureSupport", &self.FullNonPow2TextureSupport).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_FEATURE_DATA_D3D9_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_FEATURE_DATA_D3D9_OPTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.FullNonPow2TextureSupport == other.FullNonPow2TextureSupport
-    }
-}
-impl Eq for D3D11_FEATURE_DATA_D3D9_OPTIONS {}
 impl Default for D3D11_FEATURE_DATA_D3D9_OPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_D3D9_OPTIONS1 {
     pub FullNonPow2TextureSupported: super::super::Foundation::BOOL,
     pub DepthAsTextureWithLessEqualComparisonFilterSupported: super::super::Foundation::BOOL,
     pub SimpleInstancingSupported: super::super::Foundation::BOOL,
     pub TextureCubeFaceRenderTargetWithNonCubeDepthStencilSupported: super::super::Foundation::BOOL,
 }
-impl Copy for D3D11_FEATURE_DATA_D3D9_OPTIONS1 {}
-impl Clone for D3D11_FEATURE_DATA_D3D9_OPTIONS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_FEATURE_DATA_D3D9_OPTIONS1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_FEATURE_DATA_D3D9_OPTIONS1").field("FullNonPow2TextureSupported", &self.FullNonPow2TextureSupported).field("DepthAsTextureWithLessEqualComparisonFilterSupported", &self.DepthAsTextureWithLessEqualComparisonFilterSupported).field("SimpleInstancingSupported", &self.SimpleInstancingSupported).field("TextureCubeFaceRenderTargetWithNonCubeDepthStencilSupported", &self.TextureCubeFaceRenderTargetWithNonCubeDepthStencilSupported).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_FEATURE_DATA_D3D9_OPTIONS1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_FEATURE_DATA_D3D9_OPTIONS1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.FullNonPow2TextureSupported == other.FullNonPow2TextureSupported && self.DepthAsTextureWithLessEqualComparisonFilterSupported == other.DepthAsTextureWithLessEqualComparisonFilterSupported && self.SimpleInstancingSupported == other.SimpleInstancingSupported && self.TextureCubeFaceRenderTargetWithNonCubeDepthStencilSupported == other.TextureCubeFaceRenderTargetWithNonCubeDepthStencilSupported
-    }
-}
-impl Eq for D3D11_FEATURE_DATA_D3D9_OPTIONS1 {}
 impl Default for D3D11_FEATURE_DATA_D3D9_OPTIONS1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_D3D9_SHADOW_SUPPORT {
     pub SupportsDepthAsTextureWithLessEqualComparisonFilter: super::super::Foundation::BOOL,
-}
-impl Copy for D3D11_FEATURE_DATA_D3D9_SHADOW_SUPPORT {}
-impl Clone for D3D11_FEATURE_DATA_D3D9_SHADOW_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_FEATURE_DATA_D3D9_SHADOW_SUPPORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_FEATURE_DATA_D3D9_SHADOW_SUPPORT").field("SupportsDepthAsTextureWithLessEqualComparisonFilter", &self.SupportsDepthAsTextureWithLessEqualComparisonFilter).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_FEATURE_DATA_D3D9_SHADOW_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_FEATURE_DATA_D3D9_SHADOW_SUPPORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.SupportsDepthAsTextureWithLessEqualComparisonFilter == other.SupportsDepthAsTextureWithLessEqualComparisonFilter
-    }
-}
-impl Eq for D3D11_FEATURE_DATA_D3D9_SHADOW_SUPPORT {}
 impl Default for D3D11_FEATURE_DATA_D3D9_SHADOW_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_D3D9_SIMPLE_INSTANCING_SUPPORT {
     pub SimpleInstancingSupported: super::super::Foundation::BOOL,
-}
-impl Copy for D3D11_FEATURE_DATA_D3D9_SIMPLE_INSTANCING_SUPPORT {}
-impl Clone for D3D11_FEATURE_DATA_D3D9_SIMPLE_INSTANCING_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_FEATURE_DATA_D3D9_SIMPLE_INSTANCING_SUPPORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_FEATURE_DATA_D3D9_SIMPLE_INSTANCING_SUPPORT").field("SimpleInstancingSupported", &self.SimpleInstancingSupported).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_FEATURE_DATA_D3D9_SIMPLE_INSTANCING_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_FEATURE_DATA_D3D9_SIMPLE_INSTANCING_SUPPORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.SimpleInstancingSupported == other.SimpleInstancingSupported
-    }
-}
-impl Eq for D3D11_FEATURE_DATA_D3D9_SIMPLE_INSTANCING_SUPPORT {}
 impl Default for D3D11_FEATURE_DATA_D3D9_SIMPLE_INSTANCING_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_DISPLAYABLE {
     pub DisplayableTexture: super::super::Foundation::BOOL,
     pub SharedResourceTier: D3D11_SHARED_RESOURCE_TIER,
 }
-impl Copy for D3D11_FEATURE_DATA_DISPLAYABLE {}
-impl Clone for D3D11_FEATURE_DATA_DISPLAYABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_FEATURE_DATA_DISPLAYABLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_FEATURE_DATA_DISPLAYABLE").field("DisplayableTexture", &self.DisplayableTexture).field("SharedResourceTier", &self.SharedResourceTier).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_FEATURE_DATA_DISPLAYABLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_FEATURE_DATA_DISPLAYABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.DisplayableTexture == other.DisplayableTexture && self.SharedResourceTier == other.SharedResourceTier
-    }
-}
-impl Eq for D3D11_FEATURE_DATA_DISPLAYABLE {}
 impl Default for D3D11_FEATURE_DATA_DISPLAYABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_DOUBLES {
     pub DoublePrecisionFloatShaderOps: super::super::Foundation::BOOL,
-}
-impl Copy for D3D11_FEATURE_DATA_DOUBLES {}
-impl Clone for D3D11_FEATURE_DATA_DOUBLES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_FEATURE_DATA_DOUBLES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_FEATURE_DATA_DOUBLES").field("DoublePrecisionFloatShaderOps", &self.DoublePrecisionFloatShaderOps).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_FEATURE_DATA_DOUBLES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_FEATURE_DATA_DOUBLES {
-    fn eq(&self, other: &Self) -> bool {
-        self.DoublePrecisionFloatShaderOps == other.DoublePrecisionFloatShaderOps
-    }
-}
-impl Eq for D3D11_FEATURE_DATA_DOUBLES {}
 impl Default for D3D11_FEATURE_DATA_DOUBLES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10763,36 +9755,15 @@ impl Default for D3D11_FEATURE_DATA_DOUBLES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_FORMAT_SUPPORT {
     pub InFormat: super::Dxgi::Common::DXGI_FORMAT,
     pub OutFormatSupport: u32,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D11_FEATURE_DATA_FORMAT_SUPPORT {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D11_FEATURE_DATA_FORMAT_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D11_FEATURE_DATA_FORMAT_SUPPORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_FEATURE_DATA_FORMAT_SUPPORT").field("InFormat", &self.InFormat).field("OutFormatSupport", &self.OutFormatSupport).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D11_FEATURE_DATA_FORMAT_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D11_FEATURE_DATA_FORMAT_SUPPORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.InFormat == other.InFormat && self.OutFormatSupport == other.OutFormatSupport
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D11_FEATURE_DATA_FORMAT_SUPPORT {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D11_FEATURE_DATA_FORMAT_SUPPORT {
     fn default() -> Self {
@@ -10801,36 +9772,15 @@ impl Default for D3D11_FEATURE_DATA_FORMAT_SUPPORT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_FORMAT_SUPPORT2 {
     pub InFormat: super::Dxgi::Common::DXGI_FORMAT,
     pub OutFormatSupport2: u32,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D11_FEATURE_DATA_FORMAT_SUPPORT2 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D11_FEATURE_DATA_FORMAT_SUPPORT2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D11_FEATURE_DATA_FORMAT_SUPPORT2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_FEATURE_DATA_FORMAT_SUPPORT2").field("InFormat", &self.InFormat).field("OutFormatSupport2", &self.OutFormatSupport2).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D11_FEATURE_DATA_FORMAT_SUPPORT2 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D11_FEATURE_DATA_FORMAT_SUPPORT2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.InFormat == other.InFormat && self.OutFormatSupport2 == other.OutFormatSupport2
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D11_FEATURE_DATA_FORMAT_SUPPORT2 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D11_FEATURE_DATA_FORMAT_SUPPORT2 {
     fn default() -> Self {
@@ -10838,148 +9788,68 @@ impl Default for D3D11_FEATURE_DATA_FORMAT_SUPPORT2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {
     pub MaxGPUVirtualAddressBitsPerResource: u32,
     pub MaxGPUVirtualAddressBitsPerProcess: u32,
 }
-impl Copy for D3D11_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {}
-impl Clone for D3D11_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT").field("MaxGPUVirtualAddressBitsPerResource", &self.MaxGPUVirtualAddressBitsPerResource).field("MaxGPUVirtualAddressBitsPerProcess", &self.MaxGPUVirtualAddressBitsPerProcess).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.MaxGPUVirtualAddressBitsPerResource == other.MaxGPUVirtualAddressBitsPerResource && self.MaxGPUVirtualAddressBitsPerProcess == other.MaxGPUVirtualAddressBitsPerProcess
-    }
-}
-impl Eq for D3D11_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {}
 impl Default for D3D11_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_MARKER_SUPPORT {
     pub Profile: super::super::Foundation::BOOL,
-}
-impl Copy for D3D11_FEATURE_DATA_MARKER_SUPPORT {}
-impl Clone for D3D11_FEATURE_DATA_MARKER_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_FEATURE_DATA_MARKER_SUPPORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_FEATURE_DATA_MARKER_SUPPORT").field("Profile", &self.Profile).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_FEATURE_DATA_MARKER_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_FEATURE_DATA_MARKER_SUPPORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Profile == other.Profile
-    }
-}
-impl Eq for D3D11_FEATURE_DATA_MARKER_SUPPORT {}
 impl Default for D3D11_FEATURE_DATA_MARKER_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_SHADER_CACHE {
     pub SupportFlags: u32,
-}
-impl Copy for D3D11_FEATURE_DATA_SHADER_CACHE {}
-impl Clone for D3D11_FEATURE_DATA_SHADER_CACHE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_FEATURE_DATA_SHADER_CACHE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_FEATURE_DATA_SHADER_CACHE").field("SupportFlags", &self.SupportFlags).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_FEATURE_DATA_SHADER_CACHE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_FEATURE_DATA_SHADER_CACHE {
-    fn eq(&self, other: &Self) -> bool {
-        self.SupportFlags == other.SupportFlags
-    }
-}
-impl Eq for D3D11_FEATURE_DATA_SHADER_CACHE {}
 impl Default for D3D11_FEATURE_DATA_SHADER_CACHE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_SHADER_MIN_PRECISION_SUPPORT {
     pub PixelShaderMinPrecision: u32,
     pub AllOtherShaderStagesMinPrecision: u32,
 }
-impl Copy for D3D11_FEATURE_DATA_SHADER_MIN_PRECISION_SUPPORT {}
-impl Clone for D3D11_FEATURE_DATA_SHADER_MIN_PRECISION_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_FEATURE_DATA_SHADER_MIN_PRECISION_SUPPORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_FEATURE_DATA_SHADER_MIN_PRECISION_SUPPORT").field("PixelShaderMinPrecision", &self.PixelShaderMinPrecision).field("AllOtherShaderStagesMinPrecision", &self.AllOtherShaderStagesMinPrecision).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_FEATURE_DATA_SHADER_MIN_PRECISION_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_FEATURE_DATA_SHADER_MIN_PRECISION_SUPPORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.PixelShaderMinPrecision == other.PixelShaderMinPrecision && self.AllOtherShaderStagesMinPrecision == other.AllOtherShaderStagesMinPrecision
-    }
-}
-impl Eq for D3D11_FEATURE_DATA_SHADER_MIN_PRECISION_SUPPORT {}
 impl Default for D3D11_FEATURE_DATA_SHADER_MIN_PRECISION_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_THREADING {
     pub DriverConcurrentCreates: super::super::Foundation::BOOL,
     pub DriverCommandLists: super::super::Foundation::BOOL,
 }
-impl Copy for D3D11_FEATURE_DATA_THREADING {}
-impl Clone for D3D11_FEATURE_DATA_THREADING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_FEATURE_DATA_THREADING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_FEATURE_DATA_THREADING").field("DriverConcurrentCreates", &self.DriverConcurrentCreates).field("DriverCommandLists", &self.DriverCommandLists).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_FEATURE_DATA_THREADING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_FEATURE_DATA_THREADING {
-    fn eq(&self, other: &Self) -> bool {
-        self.DriverConcurrentCreates == other.DriverConcurrentCreates && self.DriverCommandLists == other.DriverCommandLists
-    }
-}
-impl Eq for D3D11_FEATURE_DATA_THREADING {}
 impl Default for D3D11_FEATURE_DATA_THREADING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10987,6 +9857,7 @@ impl Default for D3D11_FEATURE_DATA_THREADING {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_VIDEO_DECODER_HISTOGRAM {
     pub DecoderDesc: D3D11_VIDEO_DECODER_DESC,
     pub Components: D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS,
@@ -10994,31 +9865,9 @@ pub struct D3D11_FEATURE_DATA_VIDEO_DECODER_HISTOGRAM {
     pub CounterBitDepth: u32,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D11_FEATURE_DATA_VIDEO_DECODER_HISTOGRAM {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D11_FEATURE_DATA_VIDEO_DECODER_HISTOGRAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D11_FEATURE_DATA_VIDEO_DECODER_HISTOGRAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_FEATURE_DATA_VIDEO_DECODER_HISTOGRAM").field("DecoderDesc", &self.DecoderDesc).field("Components", &self.Components).field("BinCount", &self.BinCount).field("CounterBitDepth", &self.CounterBitDepth).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D11_FEATURE_DATA_VIDEO_DECODER_HISTOGRAM {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D11_FEATURE_DATA_VIDEO_DECODER_HISTOGRAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.DecoderDesc == other.DecoderDesc && self.Components == other.Components && self.BinCount == other.BinCount && self.CounterBitDepth == other.CounterBitDepth
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D11_FEATURE_DATA_VIDEO_DECODER_HISTOGRAM {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D11_FEATURE_DATA_VIDEO_DECODER_HISTOGRAM {
     fn default() -> Self {
@@ -11027,6 +9876,7 @@ impl Default for D3D11_FEATURE_DATA_VIDEO_DECODER_HISTOGRAM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_FUNCTION_DESC {
     pub Version: u32,
     pub Creator: windows_core::PCSTR,
@@ -11063,97 +9913,9 @@ pub struct D3D11_FUNCTION_DESC {
     pub Has10Level9PixelShader: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Copy for D3D11_FUNCTION_DESC {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Clone for D3D11_FUNCTION_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl core::fmt::Debug for D3D11_FUNCTION_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_FUNCTION_DESC")
-            .field("Version", &self.Version)
-            .field("Creator", &self.Creator)
-            .field("Flags", &self.Flags)
-            .field("ConstantBuffers", &self.ConstantBuffers)
-            .field("BoundResources", &self.BoundResources)
-            .field("InstructionCount", &self.InstructionCount)
-            .field("TempRegisterCount", &self.TempRegisterCount)
-            .field("TempArrayCount", &self.TempArrayCount)
-            .field("DefCount", &self.DefCount)
-            .field("DclCount", &self.DclCount)
-            .field("TextureNormalInstructions", &self.TextureNormalInstructions)
-            .field("TextureLoadInstructions", &self.TextureLoadInstructions)
-            .field("TextureCompInstructions", &self.TextureCompInstructions)
-            .field("TextureBiasInstructions", &self.TextureBiasInstructions)
-            .field("TextureGradientInstructions", &self.TextureGradientInstructions)
-            .field("FloatInstructionCount", &self.FloatInstructionCount)
-            .field("IntInstructionCount", &self.IntInstructionCount)
-            .field("UintInstructionCount", &self.UintInstructionCount)
-            .field("StaticFlowControlCount", &self.StaticFlowControlCount)
-            .field("DynamicFlowControlCount", &self.DynamicFlowControlCount)
-            .field("MacroInstructionCount", &self.MacroInstructionCount)
-            .field("ArrayInstructionCount", &self.ArrayInstructionCount)
-            .field("MovInstructionCount", &self.MovInstructionCount)
-            .field("MovcInstructionCount", &self.MovcInstructionCount)
-            .field("ConversionInstructionCount", &self.ConversionInstructionCount)
-            .field("BitwiseInstructionCount", &self.BitwiseInstructionCount)
-            .field("MinFeatureLevel", &self.MinFeatureLevel)
-            .field("RequiredFeatureFlags", &self.RequiredFeatureFlags)
-            .field("Name", &self.Name)
-            .field("FunctionParameterCount", &self.FunctionParameterCount)
-            .field("HasReturn", &self.HasReturn)
-            .field("Has10Level9VertexShader", &self.Has10Level9VertexShader)
-            .field("Has10Level9PixelShader", &self.Has10Level9PixelShader)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::TypeKind for D3D11_FUNCTION_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl PartialEq for D3D11_FUNCTION_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Creator == other.Creator
-            && self.Flags == other.Flags
-            && self.ConstantBuffers == other.ConstantBuffers
-            && self.BoundResources == other.BoundResources
-            && self.InstructionCount == other.InstructionCount
-            && self.TempRegisterCount == other.TempRegisterCount
-            && self.TempArrayCount == other.TempArrayCount
-            && self.DefCount == other.DefCount
-            && self.DclCount == other.DclCount
-            && self.TextureNormalInstructions == other.TextureNormalInstructions
-            && self.TextureLoadInstructions == other.TextureLoadInstructions
-            && self.TextureCompInstructions == other.TextureCompInstructions
-            && self.TextureBiasInstructions == other.TextureBiasInstructions
-            && self.TextureGradientInstructions == other.TextureGradientInstructions
-            && self.FloatInstructionCount == other.FloatInstructionCount
-            && self.IntInstructionCount == other.IntInstructionCount
-            && self.UintInstructionCount == other.UintInstructionCount
-            && self.StaticFlowControlCount == other.StaticFlowControlCount
-            && self.DynamicFlowControlCount == other.DynamicFlowControlCount
-            && self.MacroInstructionCount == other.MacroInstructionCount
-            && self.ArrayInstructionCount == other.ArrayInstructionCount
-            && self.MovInstructionCount == other.MovInstructionCount
-            && self.MovcInstructionCount == other.MovcInstructionCount
-            && self.ConversionInstructionCount == other.ConversionInstructionCount
-            && self.BitwiseInstructionCount == other.BitwiseInstructionCount
-            && self.MinFeatureLevel == other.MinFeatureLevel
-            && self.RequiredFeatureFlags == other.RequiredFeatureFlags
-            && self.Name == other.Name
-            && self.FunctionParameterCount == other.FunctionParameterCount
-            && self.HasReturn == other.HasReturn
-            && self.Has10Level9VertexShader == other.Has10Level9VertexShader
-            && self.Has10Level9PixelShader == other.Has10Level9PixelShader
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Eq for D3D11_FUNCTION_DESC {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl Default for D3D11_FUNCTION_DESC {
     fn default() -> Self {
@@ -11161,94 +9923,47 @@ impl Default for D3D11_FUNCTION_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_GEOMETRY_SHADER_TRACE_DESC {
     pub Invocation: u64,
-}
-impl Copy for D3D11_GEOMETRY_SHADER_TRACE_DESC {}
-impl Clone for D3D11_GEOMETRY_SHADER_TRACE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_GEOMETRY_SHADER_TRACE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_GEOMETRY_SHADER_TRACE_DESC").field("Invocation", &self.Invocation).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_GEOMETRY_SHADER_TRACE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_GEOMETRY_SHADER_TRACE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Invocation == other.Invocation
-    }
-}
-impl Eq for D3D11_GEOMETRY_SHADER_TRACE_DESC {}
 impl Default for D3D11_GEOMETRY_SHADER_TRACE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_HULL_SHADER_TRACE_DESC {
     pub Invocation: u64,
-}
-impl Copy for D3D11_HULL_SHADER_TRACE_DESC {}
-impl Clone for D3D11_HULL_SHADER_TRACE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_HULL_SHADER_TRACE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_HULL_SHADER_TRACE_DESC").field("Invocation", &self.Invocation).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_HULL_SHADER_TRACE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_HULL_SHADER_TRACE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Invocation == other.Invocation
-    }
-}
-impl Eq for D3D11_HULL_SHADER_TRACE_DESC {}
 impl Default for D3D11_HULL_SHADER_TRACE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_INFO_QUEUE_FILTER {
     pub AllowList: D3D11_INFO_QUEUE_FILTER_DESC,
     pub DenyList: D3D11_INFO_QUEUE_FILTER_DESC,
 }
-impl Copy for D3D11_INFO_QUEUE_FILTER {}
-impl Clone for D3D11_INFO_QUEUE_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_INFO_QUEUE_FILTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_INFO_QUEUE_FILTER").field("AllowList", &self.AllowList).field("DenyList", &self.DenyList).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_INFO_QUEUE_FILTER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_INFO_QUEUE_FILTER {
-    fn eq(&self, other: &Self) -> bool {
-        self.AllowList == other.AllowList && self.DenyList == other.DenyList
-    }
-}
-impl Eq for D3D11_INFO_QUEUE_FILTER {}
 impl Default for D3D11_INFO_QUEUE_FILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_INFO_QUEUE_FILTER_DESC {
     pub NumCategories: u32,
     pub pCategoryList: *mut D3D11_MESSAGE_CATEGORY,
@@ -11257,26 +9972,9 @@ pub struct D3D11_INFO_QUEUE_FILTER_DESC {
     pub NumIDs: u32,
     pub pIDList: *mut D3D11_MESSAGE_ID,
 }
-impl Copy for D3D11_INFO_QUEUE_FILTER_DESC {}
-impl Clone for D3D11_INFO_QUEUE_FILTER_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_INFO_QUEUE_FILTER_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_INFO_QUEUE_FILTER_DESC").field("NumCategories", &self.NumCategories).field("pCategoryList", &self.pCategoryList).field("NumSeverities", &self.NumSeverities).field("pSeverityList", &self.pSeverityList).field("NumIDs", &self.NumIDs).field("pIDList", &self.pIDList).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_INFO_QUEUE_FILTER_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_INFO_QUEUE_FILTER_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumCategories == other.NumCategories && self.pCategoryList == other.pCategoryList && self.NumSeverities == other.NumSeverities && self.pSeverityList == other.pSeverityList && self.NumIDs == other.NumIDs && self.pIDList == other.pIDList
-    }
-}
-impl Eq for D3D11_INFO_QUEUE_FILTER_DESC {}
 impl Default for D3D11_INFO_QUEUE_FILTER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11284,6 +9982,7 @@ impl Default for D3D11_INFO_QUEUE_FILTER_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_INPUT_ELEMENT_DESC {
     pub SemanticName: windows_core::PCSTR,
     pub SemanticIndex: u32,
@@ -11294,31 +9993,9 @@ pub struct D3D11_INPUT_ELEMENT_DESC {
     pub InstanceDataStepRate: u32,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D11_INPUT_ELEMENT_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D11_INPUT_ELEMENT_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D11_INPUT_ELEMENT_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_INPUT_ELEMENT_DESC").field("SemanticName", &self.SemanticName).field("SemanticIndex", &self.SemanticIndex).field("Format", &self.Format).field("InputSlot", &self.InputSlot).field("AlignedByteOffset", &self.AlignedByteOffset).field("InputSlotClass", &self.InputSlotClass).field("InstanceDataStepRate", &self.InstanceDataStepRate).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D11_INPUT_ELEMENT_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D11_INPUT_ELEMENT_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.SemanticName == other.SemanticName && self.SemanticIndex == other.SemanticIndex && self.Format == other.Format && self.InputSlot == other.InputSlot && self.AlignedByteOffset == other.AlignedByteOffset && self.InputSlotClass == other.InputSlotClass && self.InstanceDataStepRate == other.InstanceDataStepRate
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D11_INPUT_ELEMENT_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D11_INPUT_ELEMENT_DESC {
     fn default() -> Self {
@@ -11326,69 +10003,38 @@ impl Default for D3D11_INPUT_ELEMENT_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA {
     pub HWProtectionFunctionID: u32,
     pub pInputData: *mut D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA,
     pub pOutputData: *mut D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA,
     pub Status: windows_core::HRESULT,
 }
-impl Copy for D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA {}
-impl Clone for D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA").field("HWProtectionFunctionID", &self.HWProtectionFunctionID).field("pInputData", &self.pInputData).field("pOutputData", &self.pOutputData).field("Status", &self.Status).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.HWProtectionFunctionID == other.HWProtectionFunctionID && self.pInputData == other.pInputData && self.pOutputData == other.pOutputData && self.Status == other.Status
-    }
-}
-impl Eq for D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA {}
 impl Default for D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA {
     pub PrivateDataSize: u32,
     pub HWProtectionDataSize: u32,
     pub pbInput: [u8; 4],
 }
-impl Copy for D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA {}
-impl Clone for D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA").field("PrivateDataSize", &self.PrivateDataSize).field("HWProtectionDataSize", &self.HWProtectionDataSize).field("pbInput", &self.pbInput).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.PrivateDataSize == other.PrivateDataSize && self.HWProtectionDataSize == other.HWProtectionDataSize && self.pbInput == other.pbInput
-    }
-}
-impl Eq for D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA {}
 impl Default for D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA {
     pub PrivateDataSize: u32,
     pub MaxHWProtectionDataSize: u32,
@@ -11397,94 +10043,46 @@ pub struct D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA {
     pub ExecutionTime: u64,
     pub pbOutput: [u8; 4],
 }
-impl Copy for D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA {}
-impl Clone for D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA").field("PrivateDataSize", &self.PrivateDataSize).field("MaxHWProtectionDataSize", &self.MaxHWProtectionDataSize).field("HWProtectionDataSize", &self.HWProtectionDataSize).field("TransportTime", &self.TransportTime).field("ExecutionTime", &self.ExecutionTime).field("pbOutput", &self.pbOutput).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.PrivateDataSize == other.PrivateDataSize && self.MaxHWProtectionDataSize == other.MaxHWProtectionDataSize && self.HWProtectionDataSize == other.HWProtectionDataSize && self.TransportTime == other.TransportTime && self.ExecutionTime == other.ExecutionTime && self.pbOutput == other.pbOutput
-    }
-}
-impl Eq for D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA {}
 impl Default for D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_LIBRARY_DESC {
     pub Creator: windows_core::PCSTR,
     pub Flags: u32,
     pub FunctionCount: u32,
 }
-impl Copy for D3D11_LIBRARY_DESC {}
-impl Clone for D3D11_LIBRARY_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_LIBRARY_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_LIBRARY_DESC").field("Creator", &self.Creator).field("Flags", &self.Flags).field("FunctionCount", &self.FunctionCount).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_LIBRARY_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_LIBRARY_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Creator == other.Creator && self.Flags == other.Flags && self.FunctionCount == other.FunctionCount
-    }
-}
-impl Eq for D3D11_LIBRARY_DESC {}
 impl Default for D3D11_LIBRARY_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_MAPPED_SUBRESOURCE {
     pub pData: *mut core::ffi::c_void,
     pub RowPitch: u32,
     pub DepthPitch: u32,
 }
-impl Copy for D3D11_MAPPED_SUBRESOURCE {}
-impl Clone for D3D11_MAPPED_SUBRESOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_MAPPED_SUBRESOURCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_MAPPED_SUBRESOURCE").field("pData", &self.pData).field("RowPitch", &self.RowPitch).field("DepthPitch", &self.DepthPitch).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_MAPPED_SUBRESOURCE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_MAPPED_SUBRESOURCE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pData == other.pData && self.RowPitch == other.RowPitch && self.DepthPitch == other.DepthPitch
-    }
-}
-impl Eq for D3D11_MAPPED_SUBRESOURCE {}
 impl Default for D3D11_MAPPED_SUBRESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_MESSAGE {
     pub Category: D3D11_MESSAGE_CATEGORY,
     pub Severity: D3D11_MESSAGE_SEVERITY,
@@ -11492,87 +10090,38 @@ pub struct D3D11_MESSAGE {
     pub pDescription: *const u8,
     pub DescriptionByteLength: usize,
 }
-impl Copy for D3D11_MESSAGE {}
-impl Clone for D3D11_MESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_MESSAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_MESSAGE").field("Category", &self.Category).field("Severity", &self.Severity).field("ID", &self.ID).field("pDescription", &self.pDescription).field("DescriptionByteLength", &self.DescriptionByteLength).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_MESSAGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_MESSAGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Category == other.Category && self.Severity == other.Severity && self.ID == other.ID && self.pDescription == other.pDescription && self.DescriptionByteLength == other.DescriptionByteLength
-    }
-}
-impl Eq for D3D11_MESSAGE {}
 impl Default for D3D11_MESSAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_OMAC {
     pub Omac: [u8; 16],
-}
-impl Copy for D3D11_OMAC {}
-impl Clone for D3D11_OMAC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_OMAC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_OMAC").field("Omac", &self.Omac).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_OMAC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_OMAC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Omac == other.Omac
-    }
-}
-impl Eq for D3D11_OMAC {}
 impl Default for D3D11_OMAC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_PACKED_MIP_DESC {
     pub NumStandardMips: u8,
     pub NumPackedMips: u8,
     pub NumTilesForPackedMips: u32,
     pub StartTileIndexInOverallResource: u32,
 }
-impl Copy for D3D11_PACKED_MIP_DESC {}
-impl Clone for D3D11_PACKED_MIP_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_PACKED_MIP_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_PACKED_MIP_DESC").field("NumStandardMips", &self.NumStandardMips).field("NumPackedMips", &self.NumPackedMips).field("NumTilesForPackedMips", &self.NumTilesForPackedMips).field("StartTileIndexInOverallResource", &self.StartTileIndexInOverallResource).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_PACKED_MIP_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_PACKED_MIP_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumStandardMips == other.NumStandardMips && self.NumPackedMips == other.NumPackedMips && self.NumTilesForPackedMips == other.NumTilesForPackedMips && self.StartTileIndexInOverallResource == other.StartTileIndexInOverallResource
-    }
-}
-impl Eq for D3D11_PACKED_MIP_DESC {}
 impl Default for D3D11_PACKED_MIP_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11580,6 +10129,7 @@ impl Default for D3D11_PACKED_MIP_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_PARAMETER_DESC {
     pub Name: windows_core::PCSTR,
     pub SemanticName: windows_core::PCSTR,
@@ -11595,44 +10145,9 @@ pub struct D3D11_PARAMETER_DESC {
     pub FirstOutComponent: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Copy for D3D11_PARAMETER_DESC {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Clone for D3D11_PARAMETER_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl core::fmt::Debug for D3D11_PARAMETER_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_PARAMETER_DESC")
-            .field("Name", &self.Name)
-            .field("SemanticName", &self.SemanticName)
-            .field("Type", &self.Type)
-            .field("Class", &self.Class)
-            .field("Rows", &self.Rows)
-            .field("Columns", &self.Columns)
-            .field("InterpolationMode", &self.InterpolationMode)
-            .field("Flags", &self.Flags)
-            .field("FirstInRegister", &self.FirstInRegister)
-            .field("FirstInComponent", &self.FirstInComponent)
-            .field("FirstOutRegister", &self.FirstOutRegister)
-            .field("FirstOutComponent", &self.FirstOutComponent)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::TypeKind for D3D11_PARAMETER_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl PartialEq for D3D11_PARAMETER_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Name == other.Name && self.SemanticName == other.SemanticName && self.Type == other.Type && self.Class == other.Class && self.Rows == other.Rows && self.Columns == other.Columns && self.InterpolationMode == other.InterpolationMode && self.Flags == other.Flags && self.FirstInRegister == other.FirstInRegister && self.FirstInComponent == other.FirstInComponent && self.FirstOutRegister == other.FirstOutRegister && self.FirstOutComponent == other.FirstOutComponent
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Eq for D3D11_PARAMETER_DESC {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl Default for D3D11_PARAMETER_DESC {
     fn default() -> Self {
@@ -11640,38 +10155,23 @@ impl Default for D3D11_PARAMETER_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_PIXEL_SHADER_TRACE_DESC {
     pub Invocation: u64,
     pub X: i32,
     pub Y: i32,
     pub SampleMask: u64,
 }
-impl Copy for D3D11_PIXEL_SHADER_TRACE_DESC {}
-impl Clone for D3D11_PIXEL_SHADER_TRACE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_PIXEL_SHADER_TRACE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_PIXEL_SHADER_TRACE_DESC").field("Invocation", &self.Invocation).field("X", &self.X).field("Y", &self.Y).field("SampleMask", &self.SampleMask).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_PIXEL_SHADER_TRACE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_PIXEL_SHADER_TRACE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Invocation == other.Invocation && self.X == other.X && self.Y == other.Y && self.SampleMask == other.SampleMask
-    }
-}
-impl Eq for D3D11_PIXEL_SHADER_TRACE_DESC {}
 impl Default for D3D11_PIXEL_SHADER_TRACE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_QUERY_DATA_PIPELINE_STATISTICS {
     pub IAVertices: u64,
     pub IAPrimitives: u64,
@@ -11685,165 +10185,73 @@ pub struct D3D11_QUERY_DATA_PIPELINE_STATISTICS {
     pub DSInvocations: u64,
     pub CSInvocations: u64,
 }
-impl Copy for D3D11_QUERY_DATA_PIPELINE_STATISTICS {}
-impl Clone for D3D11_QUERY_DATA_PIPELINE_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_QUERY_DATA_PIPELINE_STATISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_QUERY_DATA_PIPELINE_STATISTICS")
-            .field("IAVertices", &self.IAVertices)
-            .field("IAPrimitives", &self.IAPrimitives)
-            .field("VSInvocations", &self.VSInvocations)
-            .field("GSInvocations", &self.GSInvocations)
-            .field("GSPrimitives", &self.GSPrimitives)
-            .field("CInvocations", &self.CInvocations)
-            .field("CPrimitives", &self.CPrimitives)
-            .field("PSInvocations", &self.PSInvocations)
-            .field("HSInvocations", &self.HSInvocations)
-            .field("DSInvocations", &self.DSInvocations)
-            .field("CSInvocations", &self.CSInvocations)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_QUERY_DATA_PIPELINE_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_QUERY_DATA_PIPELINE_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.IAVertices == other.IAVertices && self.IAPrimitives == other.IAPrimitives && self.VSInvocations == other.VSInvocations && self.GSInvocations == other.GSInvocations && self.GSPrimitives == other.GSPrimitives && self.CInvocations == other.CInvocations && self.CPrimitives == other.CPrimitives && self.PSInvocations == other.PSInvocations && self.HSInvocations == other.HSInvocations && self.DSInvocations == other.DSInvocations && self.CSInvocations == other.CSInvocations
-    }
-}
-impl Eq for D3D11_QUERY_DATA_PIPELINE_STATISTICS {}
 impl Default for D3D11_QUERY_DATA_PIPELINE_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_QUERY_DATA_SO_STATISTICS {
     pub NumPrimitivesWritten: u64,
     pub PrimitivesStorageNeeded: u64,
 }
-impl Copy for D3D11_QUERY_DATA_SO_STATISTICS {}
-impl Clone for D3D11_QUERY_DATA_SO_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_QUERY_DATA_SO_STATISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_QUERY_DATA_SO_STATISTICS").field("NumPrimitivesWritten", &self.NumPrimitivesWritten).field("PrimitivesStorageNeeded", &self.PrimitivesStorageNeeded).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_QUERY_DATA_SO_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_QUERY_DATA_SO_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumPrimitivesWritten == other.NumPrimitivesWritten && self.PrimitivesStorageNeeded == other.PrimitivesStorageNeeded
-    }
-}
-impl Eq for D3D11_QUERY_DATA_SO_STATISTICS {}
 impl Default for D3D11_QUERY_DATA_SO_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_QUERY_DATA_TIMESTAMP_DISJOINT {
     pub Frequency: u64,
     pub Disjoint: super::super::Foundation::BOOL,
 }
-impl Copy for D3D11_QUERY_DATA_TIMESTAMP_DISJOINT {}
-impl Clone for D3D11_QUERY_DATA_TIMESTAMP_DISJOINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_QUERY_DATA_TIMESTAMP_DISJOINT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_QUERY_DATA_TIMESTAMP_DISJOINT").field("Frequency", &self.Frequency).field("Disjoint", &self.Disjoint).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_QUERY_DATA_TIMESTAMP_DISJOINT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_QUERY_DATA_TIMESTAMP_DISJOINT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Frequency == other.Frequency && self.Disjoint == other.Disjoint
-    }
-}
-impl Eq for D3D11_QUERY_DATA_TIMESTAMP_DISJOINT {}
 impl Default for D3D11_QUERY_DATA_TIMESTAMP_DISJOINT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_QUERY_DESC {
     pub Query: D3D11_QUERY,
     pub MiscFlags: u32,
 }
-impl Copy for D3D11_QUERY_DESC {}
-impl Clone for D3D11_QUERY_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_QUERY_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_QUERY_DESC").field("Query", &self.Query).field("MiscFlags", &self.MiscFlags).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_QUERY_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_QUERY_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Query == other.Query && self.MiscFlags == other.MiscFlags
-    }
-}
-impl Eq for D3D11_QUERY_DESC {}
 impl Default for D3D11_QUERY_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_QUERY_DESC1 {
     pub Query: D3D11_QUERY,
     pub MiscFlags: u32,
     pub ContextType: D3D11_CONTEXT_TYPE,
 }
-impl Copy for D3D11_QUERY_DESC1 {}
-impl Clone for D3D11_QUERY_DESC1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_QUERY_DESC1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_QUERY_DESC1").field("Query", &self.Query).field("MiscFlags", &self.MiscFlags).field("ContextType", &self.ContextType).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_QUERY_DESC1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_QUERY_DESC1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Query == other.Query && self.MiscFlags == other.MiscFlags && self.ContextType == other.ContextType
-    }
-}
-impl Eq for D3D11_QUERY_DESC1 {}
 impl Default for D3D11_QUERY_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D11_RASTERIZER_DESC {
     pub FillMode: D3D11_FILL_MODE,
     pub CullMode: D3D11_CULL_MODE,
@@ -11856,43 +10264,16 @@ pub struct D3D11_RASTERIZER_DESC {
     pub MultisampleEnable: super::super::Foundation::BOOL,
     pub AntialiasedLineEnable: super::super::Foundation::BOOL,
 }
-impl Copy for D3D11_RASTERIZER_DESC {}
-impl Clone for D3D11_RASTERIZER_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_RASTERIZER_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_RASTERIZER_DESC")
-            .field("FillMode", &self.FillMode)
-            .field("CullMode", &self.CullMode)
-            .field("FrontCounterClockwise", &self.FrontCounterClockwise)
-            .field("DepthBias", &self.DepthBias)
-            .field("DepthBiasClamp", &self.DepthBiasClamp)
-            .field("SlopeScaledDepthBias", &self.SlopeScaledDepthBias)
-            .field("DepthClipEnable", &self.DepthClipEnable)
-            .field("ScissorEnable", &self.ScissorEnable)
-            .field("MultisampleEnable", &self.MultisampleEnable)
-            .field("AntialiasedLineEnable", &self.AntialiasedLineEnable)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_RASTERIZER_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_RASTERIZER_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.FillMode == other.FillMode && self.CullMode == other.CullMode && self.FrontCounterClockwise == other.FrontCounterClockwise && self.DepthBias == other.DepthBias && self.DepthBiasClamp == other.DepthBiasClamp && self.SlopeScaledDepthBias == other.SlopeScaledDepthBias && self.DepthClipEnable == other.DepthClipEnable && self.ScissorEnable == other.ScissorEnable && self.MultisampleEnable == other.MultisampleEnable && self.AntialiasedLineEnable == other.AntialiasedLineEnable
-    }
-}
-impl Eq for D3D11_RASTERIZER_DESC {}
 impl Default for D3D11_RASTERIZER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D11_RASTERIZER_DESC1 {
     pub FillMode: D3D11_FILL_MODE,
     pub CullMode: D3D11_CULL_MODE,
@@ -11906,44 +10287,16 @@ pub struct D3D11_RASTERIZER_DESC1 {
     pub AntialiasedLineEnable: super::super::Foundation::BOOL,
     pub ForcedSampleCount: u32,
 }
-impl Copy for D3D11_RASTERIZER_DESC1 {}
-impl Clone for D3D11_RASTERIZER_DESC1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_RASTERIZER_DESC1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_RASTERIZER_DESC1")
-            .field("FillMode", &self.FillMode)
-            .field("CullMode", &self.CullMode)
-            .field("FrontCounterClockwise", &self.FrontCounterClockwise)
-            .field("DepthBias", &self.DepthBias)
-            .field("DepthBiasClamp", &self.DepthBiasClamp)
-            .field("SlopeScaledDepthBias", &self.SlopeScaledDepthBias)
-            .field("DepthClipEnable", &self.DepthClipEnable)
-            .field("ScissorEnable", &self.ScissorEnable)
-            .field("MultisampleEnable", &self.MultisampleEnable)
-            .field("AntialiasedLineEnable", &self.AntialiasedLineEnable)
-            .field("ForcedSampleCount", &self.ForcedSampleCount)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_RASTERIZER_DESC1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_RASTERIZER_DESC1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.FillMode == other.FillMode && self.CullMode == other.CullMode && self.FrontCounterClockwise == other.FrontCounterClockwise && self.DepthBias == other.DepthBias && self.DepthBiasClamp == other.DepthBiasClamp && self.SlopeScaledDepthBias == other.SlopeScaledDepthBias && self.DepthClipEnable == other.DepthClipEnable && self.ScissorEnable == other.ScissorEnable && self.MultisampleEnable == other.MultisampleEnable && self.AntialiasedLineEnable == other.AntialiasedLineEnable && self.ForcedSampleCount == other.ForcedSampleCount
-    }
-}
-impl Eq for D3D11_RASTERIZER_DESC1 {}
 impl Default for D3D11_RASTERIZER_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D11_RASTERIZER_DESC2 {
     pub FillMode: D3D11_FILL_MODE,
     pub CullMode: D3D11_CULL_MODE,
@@ -11958,45 +10311,16 @@ pub struct D3D11_RASTERIZER_DESC2 {
     pub ForcedSampleCount: u32,
     pub ConservativeRaster: D3D11_CONSERVATIVE_RASTERIZATION_MODE,
 }
-impl Copy for D3D11_RASTERIZER_DESC2 {}
-impl Clone for D3D11_RASTERIZER_DESC2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_RASTERIZER_DESC2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_RASTERIZER_DESC2")
-            .field("FillMode", &self.FillMode)
-            .field("CullMode", &self.CullMode)
-            .field("FrontCounterClockwise", &self.FrontCounterClockwise)
-            .field("DepthBias", &self.DepthBias)
-            .field("DepthBiasClamp", &self.DepthBiasClamp)
-            .field("SlopeScaledDepthBias", &self.SlopeScaledDepthBias)
-            .field("DepthClipEnable", &self.DepthClipEnable)
-            .field("ScissorEnable", &self.ScissorEnable)
-            .field("MultisampleEnable", &self.MultisampleEnable)
-            .field("AntialiasedLineEnable", &self.AntialiasedLineEnable)
-            .field("ForcedSampleCount", &self.ForcedSampleCount)
-            .field("ConservativeRaster", &self.ConservativeRaster)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_RASTERIZER_DESC2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_RASTERIZER_DESC2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.FillMode == other.FillMode && self.CullMode == other.CullMode && self.FrontCounterClockwise == other.FrontCounterClockwise && self.DepthBias == other.DepthBias && self.DepthBiasClamp == other.DepthBiasClamp && self.SlopeScaledDepthBias == other.SlopeScaledDepthBias && self.DepthClipEnable == other.DepthClipEnable && self.ScissorEnable == other.ScissorEnable && self.MultisampleEnable == other.MultisampleEnable && self.AntialiasedLineEnable == other.AntialiasedLineEnable && self.ForcedSampleCount == other.ForcedSampleCount && self.ConservativeRaster == other.ConservativeRaster
-    }
-}
-impl Eq for D3D11_RASTERIZER_DESC2 {}
 impl Default for D3D11_RASTERIZER_DESC2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_RENDER_TARGET_BLEND_DESC {
     pub BlendEnable: super::super::Foundation::BOOL,
     pub SrcBlend: D3D11_BLEND,
@@ -12007,32 +10331,16 @@ pub struct D3D11_RENDER_TARGET_BLEND_DESC {
     pub BlendOpAlpha: D3D11_BLEND_OP,
     pub RenderTargetWriteMask: u8,
 }
-impl Copy for D3D11_RENDER_TARGET_BLEND_DESC {}
-impl Clone for D3D11_RENDER_TARGET_BLEND_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_RENDER_TARGET_BLEND_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_RENDER_TARGET_BLEND_DESC").field("BlendEnable", &self.BlendEnable).field("SrcBlend", &self.SrcBlend).field("DestBlend", &self.DestBlend).field("BlendOp", &self.BlendOp).field("SrcBlendAlpha", &self.SrcBlendAlpha).field("DestBlendAlpha", &self.DestBlendAlpha).field("BlendOpAlpha", &self.BlendOpAlpha).field("RenderTargetWriteMask", &self.RenderTargetWriteMask).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_RENDER_TARGET_BLEND_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_RENDER_TARGET_BLEND_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.BlendEnable == other.BlendEnable && self.SrcBlend == other.SrcBlend && self.DestBlend == other.DestBlend && self.BlendOp == other.BlendOp && self.SrcBlendAlpha == other.SrcBlendAlpha && self.DestBlendAlpha == other.DestBlendAlpha && self.BlendOpAlpha == other.BlendOpAlpha && self.RenderTargetWriteMask == other.RenderTargetWriteMask
-    }
-}
-impl Eq for D3D11_RENDER_TARGET_BLEND_DESC {}
 impl Default for D3D11_RENDER_TARGET_BLEND_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_RENDER_TARGET_BLEND_DESC1 {
     pub BlendEnable: super::super::Foundation::BOOL,
     pub LogicOpEnable: super::super::Foundation::BOOL,
@@ -12045,26 +10353,9 @@ pub struct D3D11_RENDER_TARGET_BLEND_DESC1 {
     pub LogicOp: D3D11_LOGIC_OP,
     pub RenderTargetWriteMask: u8,
 }
-impl Copy for D3D11_RENDER_TARGET_BLEND_DESC1 {}
-impl Clone for D3D11_RENDER_TARGET_BLEND_DESC1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_RENDER_TARGET_BLEND_DESC1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_RENDER_TARGET_BLEND_DESC1").field("BlendEnable", &self.BlendEnable).field("LogicOpEnable", &self.LogicOpEnable).field("SrcBlend", &self.SrcBlend).field("DestBlend", &self.DestBlend).field("BlendOp", &self.BlendOp).field("SrcBlendAlpha", &self.SrcBlendAlpha).field("DestBlendAlpha", &self.DestBlendAlpha).field("BlendOpAlpha", &self.BlendOpAlpha).field("LogicOp", &self.LogicOp).field("RenderTargetWriteMask", &self.RenderTargetWriteMask).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_RENDER_TARGET_BLEND_DESC1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_RENDER_TARGET_BLEND_DESC1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.BlendEnable == other.BlendEnable && self.LogicOpEnable == other.LogicOpEnable && self.SrcBlend == other.SrcBlend && self.DestBlend == other.DestBlend && self.BlendOp == other.BlendOp && self.SrcBlendAlpha == other.SrcBlendAlpha && self.DestBlendAlpha == other.DestBlendAlpha && self.BlendOpAlpha == other.BlendOpAlpha && self.LogicOp == other.LogicOp && self.RenderTargetWriteMask == other.RenderTargetWriteMask
-    }
-}
-impl Eq for D3D11_RENDER_TARGET_BLEND_DESC1 {}
 impl Default for D3D11_RENDER_TARGET_BLEND_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -12072,18 +10363,11 @@ impl Default for D3D11_RENDER_TARGET_BLEND_DESC1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
 pub struct D3D11_RENDER_TARGET_VIEW_DESC {
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub ViewDimension: D3D11_RTV_DIMENSION,
     pub Anonymous: D3D11_RENDER_TARGET_VIEW_DESC_0,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D11_RENDER_TARGET_VIEW_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D11_RENDER_TARGET_VIEW_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D11_RENDER_TARGET_VIEW_DESC {
@@ -12097,6 +10381,7 @@ impl Default for D3D11_RENDER_TARGET_VIEW_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
 pub union D3D11_RENDER_TARGET_VIEW_DESC_0 {
     pub Buffer: D3D11_BUFFER_RTV,
     pub Texture1D: D3D11_TEX1D_RTV,
@@ -12106,14 +10391,6 @@ pub union D3D11_RENDER_TARGET_VIEW_DESC_0 {
     pub Texture2DMS: D3D11_TEX2DMS_RTV,
     pub Texture2DMSArray: D3D11_TEX2DMS_ARRAY_RTV,
     pub Texture3D: D3D11_TEX3D_RTV,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D11_RENDER_TARGET_VIEW_DESC_0 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D11_RENDER_TARGET_VIEW_DESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D11_RENDER_TARGET_VIEW_DESC_0 {
@@ -12127,18 +10404,11 @@ impl Default for D3D11_RENDER_TARGET_VIEW_DESC_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
 pub struct D3D11_RENDER_TARGET_VIEW_DESC1 {
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub ViewDimension: D3D11_RTV_DIMENSION,
     pub Anonymous: D3D11_RENDER_TARGET_VIEW_DESC1_0,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D11_RENDER_TARGET_VIEW_DESC1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D11_RENDER_TARGET_VIEW_DESC1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D11_RENDER_TARGET_VIEW_DESC1 {
@@ -12152,6 +10422,7 @@ impl Default for D3D11_RENDER_TARGET_VIEW_DESC1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
 pub union D3D11_RENDER_TARGET_VIEW_DESC1_0 {
     pub Buffer: D3D11_BUFFER_RTV,
     pub Texture1D: D3D11_TEX1D_RTV,
@@ -12161,14 +10432,6 @@ pub union D3D11_RENDER_TARGET_VIEW_DESC1_0 {
     pub Texture2DMS: D3D11_TEX2DMS_RTV,
     pub Texture2DMSArray: D3D11_TEX2DMS_ARRAY_RTV,
     pub Texture3D: D3D11_TEX3D_RTV,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D11_RENDER_TARGET_VIEW_DESC1_0 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D11_RENDER_TARGET_VIEW_DESC1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D11_RENDER_TARGET_VIEW_DESC1_0 {
@@ -12181,6 +10444,7 @@ impl Default for D3D11_RENDER_TARGET_VIEW_DESC1_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D11_SAMPLER_DESC {
     pub Filter: D3D11_FILTER,
     pub AddressU: D3D11_TEXTURE_ADDRESS_MODE,
@@ -12193,26 +10457,9 @@ pub struct D3D11_SAMPLER_DESC {
     pub MinLOD: f32,
     pub MaxLOD: f32,
 }
-impl Copy for D3D11_SAMPLER_DESC {}
-impl Clone for D3D11_SAMPLER_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_SAMPLER_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_SAMPLER_DESC").field("Filter", &self.Filter).field("AddressU", &self.AddressU).field("AddressV", &self.AddressV).field("AddressW", &self.AddressW).field("MipLODBias", &self.MipLODBias).field("MaxAnisotropy", &self.MaxAnisotropy).field("ComparisonFunc", &self.ComparisonFunc).field("BorderColor", &self.BorderColor).field("MinLOD", &self.MinLOD).field("MaxLOD", &self.MaxLOD).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_SAMPLER_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_SAMPLER_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Filter == other.Filter && self.AddressU == other.AddressU && self.AddressV == other.AddressV && self.AddressW == other.AddressW && self.MipLODBias == other.MipLODBias && self.MaxAnisotropy == other.MaxAnisotropy && self.ComparisonFunc == other.ComparisonFunc && self.BorderColor == other.BorderColor && self.MinLOD == other.MinLOD && self.MaxLOD == other.MaxLOD
-    }
-}
-impl Eq for D3D11_SAMPLER_DESC {}
 impl Default for D3D11_SAMPLER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -12220,6 +10467,7 @@ impl Default for D3D11_SAMPLER_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_SHADER_BUFFER_DESC {
     pub Name: windows_core::PCSTR,
     pub Type: super::Direct3D::D3D_CBUFFER_TYPE,
@@ -12228,31 +10476,9 @@ pub struct D3D11_SHADER_BUFFER_DESC {
     pub uFlags: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Copy for D3D11_SHADER_BUFFER_DESC {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Clone for D3D11_SHADER_BUFFER_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl core::fmt::Debug for D3D11_SHADER_BUFFER_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_SHADER_BUFFER_DESC").field("Name", &self.Name).field("Type", &self.Type).field("Variables", &self.Variables).field("Size", &self.Size).field("uFlags", &self.uFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::TypeKind for D3D11_SHADER_BUFFER_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl PartialEq for D3D11_SHADER_BUFFER_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Name == other.Name && self.Type == other.Type && self.Variables == other.Variables && self.Size == other.Size && self.uFlags == other.uFlags
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Eq for D3D11_SHADER_BUFFER_DESC {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl Default for D3D11_SHADER_BUFFER_DESC {
     fn default() -> Self {
@@ -12261,6 +10487,7 @@ impl Default for D3D11_SHADER_BUFFER_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_SHADER_DESC {
     pub Version: u32,
     pub Creator: windows_core::PCSTR,
@@ -12302,107 +10529,9 @@ pub struct D3D11_SHADER_DESC {
     pub cTextureStoreInstructions: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Copy for D3D11_SHADER_DESC {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Clone for D3D11_SHADER_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl core::fmt::Debug for D3D11_SHADER_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_SHADER_DESC")
-            .field("Version", &self.Version)
-            .field("Creator", &self.Creator)
-            .field("Flags", &self.Flags)
-            .field("ConstantBuffers", &self.ConstantBuffers)
-            .field("BoundResources", &self.BoundResources)
-            .field("InputParameters", &self.InputParameters)
-            .field("OutputParameters", &self.OutputParameters)
-            .field("InstructionCount", &self.InstructionCount)
-            .field("TempRegisterCount", &self.TempRegisterCount)
-            .field("TempArrayCount", &self.TempArrayCount)
-            .field("DefCount", &self.DefCount)
-            .field("DclCount", &self.DclCount)
-            .field("TextureNormalInstructions", &self.TextureNormalInstructions)
-            .field("TextureLoadInstructions", &self.TextureLoadInstructions)
-            .field("TextureCompInstructions", &self.TextureCompInstructions)
-            .field("TextureBiasInstructions", &self.TextureBiasInstructions)
-            .field("TextureGradientInstructions", &self.TextureGradientInstructions)
-            .field("FloatInstructionCount", &self.FloatInstructionCount)
-            .field("IntInstructionCount", &self.IntInstructionCount)
-            .field("UintInstructionCount", &self.UintInstructionCount)
-            .field("StaticFlowControlCount", &self.StaticFlowControlCount)
-            .field("DynamicFlowControlCount", &self.DynamicFlowControlCount)
-            .field("MacroInstructionCount", &self.MacroInstructionCount)
-            .field("ArrayInstructionCount", &self.ArrayInstructionCount)
-            .field("CutInstructionCount", &self.CutInstructionCount)
-            .field("EmitInstructionCount", &self.EmitInstructionCount)
-            .field("GSOutputTopology", &self.GSOutputTopology)
-            .field("GSMaxOutputVertexCount", &self.GSMaxOutputVertexCount)
-            .field("InputPrimitive", &self.InputPrimitive)
-            .field("PatchConstantParameters", &self.PatchConstantParameters)
-            .field("cGSInstanceCount", &self.cGSInstanceCount)
-            .field("cControlPoints", &self.cControlPoints)
-            .field("HSOutputPrimitive", &self.HSOutputPrimitive)
-            .field("HSPartitioning", &self.HSPartitioning)
-            .field("TessellatorDomain", &self.TessellatorDomain)
-            .field("cBarrierInstructions", &self.cBarrierInstructions)
-            .field("cInterlockedInstructions", &self.cInterlockedInstructions)
-            .field("cTextureStoreInstructions", &self.cTextureStoreInstructions)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::TypeKind for D3D11_SHADER_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl PartialEq for D3D11_SHADER_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Creator == other.Creator
-            && self.Flags == other.Flags
-            && self.ConstantBuffers == other.ConstantBuffers
-            && self.BoundResources == other.BoundResources
-            && self.InputParameters == other.InputParameters
-            && self.OutputParameters == other.OutputParameters
-            && self.InstructionCount == other.InstructionCount
-            && self.TempRegisterCount == other.TempRegisterCount
-            && self.TempArrayCount == other.TempArrayCount
-            && self.DefCount == other.DefCount
-            && self.DclCount == other.DclCount
-            && self.TextureNormalInstructions == other.TextureNormalInstructions
-            && self.TextureLoadInstructions == other.TextureLoadInstructions
-            && self.TextureCompInstructions == other.TextureCompInstructions
-            && self.TextureBiasInstructions == other.TextureBiasInstructions
-            && self.TextureGradientInstructions == other.TextureGradientInstructions
-            && self.FloatInstructionCount == other.FloatInstructionCount
-            && self.IntInstructionCount == other.IntInstructionCount
-            && self.UintInstructionCount == other.UintInstructionCount
-            && self.StaticFlowControlCount == other.StaticFlowControlCount
-            && self.DynamicFlowControlCount == other.DynamicFlowControlCount
-            && self.MacroInstructionCount == other.MacroInstructionCount
-            && self.ArrayInstructionCount == other.ArrayInstructionCount
-            && self.CutInstructionCount == other.CutInstructionCount
-            && self.EmitInstructionCount == other.EmitInstructionCount
-            && self.GSOutputTopology == other.GSOutputTopology
-            && self.GSMaxOutputVertexCount == other.GSMaxOutputVertexCount
-            && self.InputPrimitive == other.InputPrimitive
-            && self.PatchConstantParameters == other.PatchConstantParameters
-            && self.cGSInstanceCount == other.cGSInstanceCount
-            && self.cControlPoints == other.cControlPoints
-            && self.HSOutputPrimitive == other.HSOutputPrimitive
-            && self.HSPartitioning == other.HSPartitioning
-            && self.TessellatorDomain == other.TessellatorDomain
-            && self.cBarrierInstructions == other.cBarrierInstructions
-            && self.cInterlockedInstructions == other.cInterlockedInstructions
-            && self.cTextureStoreInstructions == other.cTextureStoreInstructions
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Eq for D3D11_SHADER_DESC {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl Default for D3D11_SHADER_DESC {
     fn default() -> Self {
@@ -12411,6 +10540,7 @@ impl Default for D3D11_SHADER_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_SHADER_INPUT_BIND_DESC {
     pub Name: windows_core::PCSTR,
     pub Type: super::Direct3D::D3D_SHADER_INPUT_TYPE,
@@ -12422,31 +10552,9 @@ pub struct D3D11_SHADER_INPUT_BIND_DESC {
     pub NumSamples: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Copy for D3D11_SHADER_INPUT_BIND_DESC {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Clone for D3D11_SHADER_INPUT_BIND_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl core::fmt::Debug for D3D11_SHADER_INPUT_BIND_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_SHADER_INPUT_BIND_DESC").field("Name", &self.Name).field("Type", &self.Type).field("BindPoint", &self.BindPoint).field("BindCount", &self.BindCount).field("uFlags", &self.uFlags).field("ReturnType", &self.ReturnType).field("Dimension", &self.Dimension).field("NumSamples", &self.NumSamples).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::TypeKind for D3D11_SHADER_INPUT_BIND_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl PartialEq for D3D11_SHADER_INPUT_BIND_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Name == other.Name && self.Type == other.Type && self.BindPoint == other.BindPoint && self.BindCount == other.BindCount && self.uFlags == other.uFlags && self.ReturnType == other.ReturnType && self.Dimension == other.Dimension && self.NumSamples == other.NumSamples
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Eq for D3D11_SHADER_INPUT_BIND_DESC {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl Default for D3D11_SHADER_INPUT_BIND_DESC {
     fn default() -> Self {
@@ -12455,18 +10563,11 @@ impl Default for D3D11_SHADER_INPUT_BIND_DESC {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[derive(Clone, Copy)]
 pub struct D3D11_SHADER_RESOURCE_VIEW_DESC {
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub ViewDimension: super::Direct3D::D3D_SRV_DIMENSION,
     pub Anonymous: D3D11_SHADER_RESOURCE_VIEW_DESC_0,
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Copy for D3D11_SHADER_RESOURCE_VIEW_DESC {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Clone for D3D11_SHADER_RESOURCE_VIEW_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::TypeKind for D3D11_SHADER_RESOURCE_VIEW_DESC {
@@ -12480,6 +10581,7 @@ impl Default for D3D11_SHADER_RESOURCE_VIEW_DESC {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[derive(Clone, Copy)]
 pub union D3D11_SHADER_RESOURCE_VIEW_DESC_0 {
     pub Buffer: D3D11_BUFFER_SRV,
     pub Texture1D: D3D11_TEX1D_SRV,
@@ -12494,14 +10596,6 @@ pub union D3D11_SHADER_RESOURCE_VIEW_DESC_0 {
     pub BufferEx: D3D11_BUFFEREX_SRV,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Copy for D3D11_SHADER_RESOURCE_VIEW_DESC_0 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Clone for D3D11_SHADER_RESOURCE_VIEW_DESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::TypeKind for D3D11_SHADER_RESOURCE_VIEW_DESC_0 {
     type TypeKind = windows_core::CopyType;
 }
@@ -12513,18 +10607,11 @@ impl Default for D3D11_SHADER_RESOURCE_VIEW_DESC_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[derive(Clone, Copy)]
 pub struct D3D11_SHADER_RESOURCE_VIEW_DESC1 {
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub ViewDimension: super::Direct3D::D3D_SRV_DIMENSION,
     pub Anonymous: D3D11_SHADER_RESOURCE_VIEW_DESC1_0,
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Copy for D3D11_SHADER_RESOURCE_VIEW_DESC1 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Clone for D3D11_SHADER_RESOURCE_VIEW_DESC1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::TypeKind for D3D11_SHADER_RESOURCE_VIEW_DESC1 {
@@ -12538,6 +10625,7 @@ impl Default for D3D11_SHADER_RESOURCE_VIEW_DESC1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+#[derive(Clone, Copy)]
 pub union D3D11_SHADER_RESOURCE_VIEW_DESC1_0 {
     pub Buffer: D3D11_BUFFER_SRV,
     pub Texture1D: D3D11_TEX1D_SRV,
@@ -12552,14 +10640,6 @@ pub union D3D11_SHADER_RESOURCE_VIEW_DESC1_0 {
     pub BufferEx: D3D11_BUFFEREX_SRV,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Copy for D3D11_SHADER_RESOURCE_VIEW_DESC1_0 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Clone for D3D11_SHADER_RESOURCE_VIEW_DESC1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::TypeKind for D3D11_SHADER_RESOURCE_VIEW_DESC1_0 {
     type TypeKind = windows_core::CopyType;
 }
@@ -12570,16 +10650,11 @@ impl Default for D3D11_SHADER_RESOURCE_VIEW_DESC1_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D11_SHADER_TRACE_DESC {
     pub Type: D3D11_SHADER_TYPE,
     pub Flags: u32,
     pub Anonymous: D3D11_SHADER_TRACE_DESC_0,
-}
-impl Copy for D3D11_SHADER_TRACE_DESC {}
-impl Clone for D3D11_SHADER_TRACE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D11_SHADER_TRACE_DESC {
     type TypeKind = windows_core::CopyType;
@@ -12590,6 +10665,7 @@ impl Default for D3D11_SHADER_TRACE_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D11_SHADER_TRACE_DESC_0 {
     pub VertexShaderTraceDesc: D3D11_VERTEX_SHADER_TRACE_DESC,
     pub HullShaderTraceDesc: D3D11_HULL_SHADER_TRACE_DESC,
@@ -12597,12 +10673,6 @@ pub union D3D11_SHADER_TRACE_DESC_0 {
     pub GeometryShaderTraceDesc: D3D11_GEOMETRY_SHADER_TRACE_DESC,
     pub PixelShaderTraceDesc: D3D11_PIXEL_SHADER_TRACE_DESC,
     pub ComputeShaderTraceDesc: D3D11_COMPUTE_SHADER_TRACE_DESC,
-}
-impl Copy for D3D11_SHADER_TRACE_DESC_0 {}
-impl Clone for D3D11_SHADER_TRACE_DESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D11_SHADER_TRACE_DESC_0 {
     type TypeKind = windows_core::CopyType;
@@ -12614,6 +10684,7 @@ impl Default for D3D11_SHADER_TRACE_DESC_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_SHADER_TYPE_DESC {
     pub Class: super::Direct3D::D3D_SHADER_VARIABLE_CLASS,
     pub Type: super::Direct3D::D3D_SHADER_VARIABLE_TYPE,
@@ -12625,31 +10696,9 @@ pub struct D3D11_SHADER_TYPE_DESC {
     pub Name: windows_core::PCSTR,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Copy for D3D11_SHADER_TYPE_DESC {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Clone for D3D11_SHADER_TYPE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl core::fmt::Debug for D3D11_SHADER_TYPE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_SHADER_TYPE_DESC").field("Class", &self.Class).field("Type", &self.Type).field("Rows", &self.Rows).field("Columns", &self.Columns).field("Elements", &self.Elements).field("Members", &self.Members).field("Offset", &self.Offset).field("Name", &self.Name).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::TypeKind for D3D11_SHADER_TYPE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl PartialEq for D3D11_SHADER_TYPE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Class == other.Class && self.Type == other.Type && self.Rows == other.Rows && self.Columns == other.Columns && self.Elements == other.Elements && self.Members == other.Members && self.Offset == other.Offset && self.Name == other.Name
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Eq for D3D11_SHADER_TYPE_DESC {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl Default for D3D11_SHADER_TYPE_DESC {
     fn default() -> Self {
@@ -12657,6 +10706,7 @@ impl Default for D3D11_SHADER_TYPE_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_SHADER_VARIABLE_DESC {
     pub Name: windows_core::PCSTR,
     pub StartOffset: u32,
@@ -12668,26 +10718,9 @@ pub struct D3D11_SHADER_VARIABLE_DESC {
     pub StartSampler: u32,
     pub SamplerSize: u32,
 }
-impl Copy for D3D11_SHADER_VARIABLE_DESC {}
-impl Clone for D3D11_SHADER_VARIABLE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_SHADER_VARIABLE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_SHADER_VARIABLE_DESC").field("Name", &self.Name).field("StartOffset", &self.StartOffset).field("Size", &self.Size).field("uFlags", &self.uFlags).field("DefaultValue", &self.DefaultValue).field("StartTexture", &self.StartTexture).field("TextureSize", &self.TextureSize).field("StartSampler", &self.StartSampler).field("SamplerSize", &self.SamplerSize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_SHADER_VARIABLE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_SHADER_VARIABLE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Name == other.Name && self.StartOffset == other.StartOffset && self.Size == other.Size && self.uFlags == other.uFlags && self.DefaultValue == other.DefaultValue && self.StartTexture == other.StartTexture && self.TextureSize == other.TextureSize && self.StartSampler == other.StartSampler && self.SamplerSize == other.SamplerSize
-    }
-}
-impl Eq for D3D11_SHADER_VARIABLE_DESC {}
 impl Default for D3D11_SHADER_VARIABLE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -12695,6 +10728,7 @@ impl Default for D3D11_SHADER_VARIABLE_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_SIGNATURE_PARAMETER_DESC {
     pub SemanticName: windows_core::PCSTR,
     pub SemanticIndex: u32,
@@ -12707,31 +10741,9 @@ pub struct D3D11_SIGNATURE_PARAMETER_DESC {
     pub MinPrecision: super::Direct3D::D3D_MIN_PRECISION,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Copy for D3D11_SIGNATURE_PARAMETER_DESC {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Clone for D3D11_SIGNATURE_PARAMETER_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl core::fmt::Debug for D3D11_SIGNATURE_PARAMETER_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_SIGNATURE_PARAMETER_DESC").field("SemanticName", &self.SemanticName).field("SemanticIndex", &self.SemanticIndex).field("Register", &self.Register).field("SystemValueType", &self.SystemValueType).field("ComponentType", &self.ComponentType).field("Mask", &self.Mask).field("ReadWriteMask", &self.ReadWriteMask).field("Stream", &self.Stream).field("MinPrecision", &self.MinPrecision).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::TypeKind for D3D11_SIGNATURE_PARAMETER_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl PartialEq for D3D11_SIGNATURE_PARAMETER_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.SemanticName == other.SemanticName && self.SemanticIndex == other.SemanticIndex && self.Register == other.Register && self.SystemValueType == other.SystemValueType && self.ComponentType == other.ComponentType && self.Mask == other.Mask && self.ReadWriteMask == other.ReadWriteMask && self.Stream == other.Stream && self.MinPrecision == other.MinPrecision
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Eq for D3D11_SIGNATURE_PARAMETER_DESC {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl Default for D3D11_SIGNATURE_PARAMETER_DESC {
     fn default() -> Self {
@@ -12739,6 +10751,7 @@ impl Default for D3D11_SIGNATURE_PARAMETER_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_SO_DECLARATION_ENTRY {
     pub Stream: u32,
     pub SemanticName: windows_core::PCSTR,
@@ -12747,640 +10760,304 @@ pub struct D3D11_SO_DECLARATION_ENTRY {
     pub ComponentCount: u8,
     pub OutputSlot: u8,
 }
-impl Copy for D3D11_SO_DECLARATION_ENTRY {}
-impl Clone for D3D11_SO_DECLARATION_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_SO_DECLARATION_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_SO_DECLARATION_ENTRY").field("Stream", &self.Stream).field("SemanticName", &self.SemanticName).field("SemanticIndex", &self.SemanticIndex).field("StartComponent", &self.StartComponent).field("ComponentCount", &self.ComponentCount).field("OutputSlot", &self.OutputSlot).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_SO_DECLARATION_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_SO_DECLARATION_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Stream == other.Stream && self.SemanticName == other.SemanticName && self.SemanticIndex == other.SemanticIndex && self.StartComponent == other.StartComponent && self.ComponentCount == other.ComponentCount && self.OutputSlot == other.OutputSlot
-    }
-}
-impl Eq for D3D11_SO_DECLARATION_ENTRY {}
 impl Default for D3D11_SO_DECLARATION_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_SUBRESOURCE_DATA {
     pub pSysMem: *const core::ffi::c_void,
     pub SysMemPitch: u32,
     pub SysMemSlicePitch: u32,
 }
-impl Copy for D3D11_SUBRESOURCE_DATA {}
-impl Clone for D3D11_SUBRESOURCE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_SUBRESOURCE_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_SUBRESOURCE_DATA").field("pSysMem", &self.pSysMem).field("SysMemPitch", &self.SysMemPitch).field("SysMemSlicePitch", &self.SysMemSlicePitch).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_SUBRESOURCE_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_SUBRESOURCE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pSysMem == other.pSysMem && self.SysMemPitch == other.SysMemPitch && self.SysMemSlicePitch == other.SysMemSlicePitch
-    }
-}
-impl Eq for D3D11_SUBRESOURCE_DATA {}
 impl Default for D3D11_SUBRESOURCE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_SUBRESOURCE_TILING {
     pub WidthInTiles: u32,
     pub HeightInTiles: u16,
     pub DepthInTiles: u16,
     pub StartTileIndexInOverallResource: u32,
 }
-impl Copy for D3D11_SUBRESOURCE_TILING {}
-impl Clone for D3D11_SUBRESOURCE_TILING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_SUBRESOURCE_TILING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_SUBRESOURCE_TILING").field("WidthInTiles", &self.WidthInTiles).field("HeightInTiles", &self.HeightInTiles).field("DepthInTiles", &self.DepthInTiles).field("StartTileIndexInOverallResource", &self.StartTileIndexInOverallResource).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_SUBRESOURCE_TILING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_SUBRESOURCE_TILING {
-    fn eq(&self, other: &Self) -> bool {
-        self.WidthInTiles == other.WidthInTiles && self.HeightInTiles == other.HeightInTiles && self.DepthInTiles == other.DepthInTiles && self.StartTileIndexInOverallResource == other.StartTileIndexInOverallResource
-    }
-}
-impl Eq for D3D11_SUBRESOURCE_TILING {}
 impl Default for D3D11_SUBRESOURCE_TILING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX1D_ARRAY_DSV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Copy for D3D11_TEX1D_ARRAY_DSV {}
-impl Clone for D3D11_TEX1D_ARRAY_DSV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX1D_ARRAY_DSV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX1D_ARRAY_DSV").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEX1D_ARRAY_DSV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX1D_ARRAY_DSV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice && self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
-    }
-}
-impl Eq for D3D11_TEX1D_ARRAY_DSV {}
 impl Default for D3D11_TEX1D_ARRAY_DSV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX1D_ARRAY_RTV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Copy for D3D11_TEX1D_ARRAY_RTV {}
-impl Clone for D3D11_TEX1D_ARRAY_RTV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX1D_ARRAY_RTV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX1D_ARRAY_RTV").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEX1D_ARRAY_RTV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX1D_ARRAY_RTV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice && self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
-    }
-}
-impl Eq for D3D11_TEX1D_ARRAY_RTV {}
 impl Default for D3D11_TEX1D_ARRAY_RTV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX1D_ARRAY_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Copy for D3D11_TEX1D_ARRAY_SRV {}
-impl Clone for D3D11_TEX1D_ARRAY_SRV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX1D_ARRAY_SRV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX1D_ARRAY_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEX1D_ARRAY_SRV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX1D_ARRAY_SRV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MostDetailedMip == other.MostDetailedMip && self.MipLevels == other.MipLevels && self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
-    }
-}
-impl Eq for D3D11_TEX1D_ARRAY_SRV {}
 impl Default for D3D11_TEX1D_ARRAY_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX1D_ARRAY_UAV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Copy for D3D11_TEX1D_ARRAY_UAV {}
-impl Clone for D3D11_TEX1D_ARRAY_UAV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX1D_ARRAY_UAV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX1D_ARRAY_UAV").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEX1D_ARRAY_UAV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX1D_ARRAY_UAV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice && self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
-    }
-}
-impl Eq for D3D11_TEX1D_ARRAY_UAV {}
 impl Default for D3D11_TEX1D_ARRAY_UAV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX1D_DSV {
     pub MipSlice: u32,
-}
-impl Copy for D3D11_TEX1D_DSV {}
-impl Clone for D3D11_TEX1D_DSV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX1D_DSV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX1D_DSV").field("MipSlice", &self.MipSlice).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_TEX1D_DSV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX1D_DSV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice
-    }
-}
-impl Eq for D3D11_TEX1D_DSV {}
 impl Default for D3D11_TEX1D_DSV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX1D_RTV {
     pub MipSlice: u32,
-}
-impl Copy for D3D11_TEX1D_RTV {}
-impl Clone for D3D11_TEX1D_RTV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX1D_RTV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX1D_RTV").field("MipSlice", &self.MipSlice).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_TEX1D_RTV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX1D_RTV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice
-    }
-}
-impl Eq for D3D11_TEX1D_RTV {}
 impl Default for D3D11_TEX1D_RTV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX1D_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
 }
-impl Copy for D3D11_TEX1D_SRV {}
-impl Clone for D3D11_TEX1D_SRV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX1D_SRV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX1D_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEX1D_SRV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX1D_SRV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MostDetailedMip == other.MostDetailedMip && self.MipLevels == other.MipLevels
-    }
-}
-impl Eq for D3D11_TEX1D_SRV {}
 impl Default for D3D11_TEX1D_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX1D_UAV {
     pub MipSlice: u32,
-}
-impl Copy for D3D11_TEX1D_UAV {}
-impl Clone for D3D11_TEX1D_UAV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX1D_UAV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX1D_UAV").field("MipSlice", &self.MipSlice).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_TEX1D_UAV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX1D_UAV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice
-    }
-}
-impl Eq for D3D11_TEX1D_UAV {}
 impl Default for D3D11_TEX1D_UAV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX2DMS_ARRAY_DSV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Copy for D3D11_TEX2DMS_ARRAY_DSV {}
-impl Clone for D3D11_TEX2DMS_ARRAY_DSV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX2DMS_ARRAY_DSV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX2DMS_ARRAY_DSV").field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEX2DMS_ARRAY_DSV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX2DMS_ARRAY_DSV {
-    fn eq(&self, other: &Self) -> bool {
-        self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
-    }
-}
-impl Eq for D3D11_TEX2DMS_ARRAY_DSV {}
 impl Default for D3D11_TEX2DMS_ARRAY_DSV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX2DMS_ARRAY_RTV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Copy for D3D11_TEX2DMS_ARRAY_RTV {}
-impl Clone for D3D11_TEX2DMS_ARRAY_RTV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX2DMS_ARRAY_RTV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX2DMS_ARRAY_RTV").field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEX2DMS_ARRAY_RTV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX2DMS_ARRAY_RTV {
-    fn eq(&self, other: &Self) -> bool {
-        self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
-    }
-}
-impl Eq for D3D11_TEX2DMS_ARRAY_RTV {}
 impl Default for D3D11_TEX2DMS_ARRAY_RTV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX2DMS_ARRAY_SRV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Copy for D3D11_TEX2DMS_ARRAY_SRV {}
-impl Clone for D3D11_TEX2DMS_ARRAY_SRV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX2DMS_ARRAY_SRV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX2DMS_ARRAY_SRV").field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEX2DMS_ARRAY_SRV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX2DMS_ARRAY_SRV {
-    fn eq(&self, other: &Self) -> bool {
-        self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
-    }
-}
-impl Eq for D3D11_TEX2DMS_ARRAY_SRV {}
 impl Default for D3D11_TEX2DMS_ARRAY_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX2DMS_DSV {
     pub UnusedField_NothingToDefine: u32,
-}
-impl Copy for D3D11_TEX2DMS_DSV {}
-impl Clone for D3D11_TEX2DMS_DSV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX2DMS_DSV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX2DMS_DSV").field("UnusedField_NothingToDefine", &self.UnusedField_NothingToDefine).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_TEX2DMS_DSV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX2DMS_DSV {
-    fn eq(&self, other: &Self) -> bool {
-        self.UnusedField_NothingToDefine == other.UnusedField_NothingToDefine
-    }
-}
-impl Eq for D3D11_TEX2DMS_DSV {}
 impl Default for D3D11_TEX2DMS_DSV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX2DMS_RTV {
     pub UnusedField_NothingToDefine: u32,
-}
-impl Copy for D3D11_TEX2DMS_RTV {}
-impl Clone for D3D11_TEX2DMS_RTV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX2DMS_RTV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX2DMS_RTV").field("UnusedField_NothingToDefine", &self.UnusedField_NothingToDefine).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_TEX2DMS_RTV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX2DMS_RTV {
-    fn eq(&self, other: &Self) -> bool {
-        self.UnusedField_NothingToDefine == other.UnusedField_NothingToDefine
-    }
-}
-impl Eq for D3D11_TEX2DMS_RTV {}
 impl Default for D3D11_TEX2DMS_RTV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX2DMS_SRV {
     pub UnusedField_NothingToDefine: u32,
-}
-impl Copy for D3D11_TEX2DMS_SRV {}
-impl Clone for D3D11_TEX2DMS_SRV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX2DMS_SRV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX2DMS_SRV").field("UnusedField_NothingToDefine", &self.UnusedField_NothingToDefine).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_TEX2DMS_SRV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX2DMS_SRV {
-    fn eq(&self, other: &Self) -> bool {
-        self.UnusedField_NothingToDefine == other.UnusedField_NothingToDefine
-    }
-}
-impl Eq for D3D11_TEX2DMS_SRV {}
 impl Default for D3D11_TEX2DMS_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX2D_ARRAY_DSV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Copy for D3D11_TEX2D_ARRAY_DSV {}
-impl Clone for D3D11_TEX2D_ARRAY_DSV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX2D_ARRAY_DSV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX2D_ARRAY_DSV").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEX2D_ARRAY_DSV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX2D_ARRAY_DSV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice && self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
-    }
-}
-impl Eq for D3D11_TEX2D_ARRAY_DSV {}
 impl Default for D3D11_TEX2D_ARRAY_DSV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX2D_ARRAY_RTV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Copy for D3D11_TEX2D_ARRAY_RTV {}
-impl Clone for D3D11_TEX2D_ARRAY_RTV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX2D_ARRAY_RTV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX2D_ARRAY_RTV").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEX2D_ARRAY_RTV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX2D_ARRAY_RTV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice && self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
-    }
-}
-impl Eq for D3D11_TEX2D_ARRAY_RTV {}
 impl Default for D3D11_TEX2D_ARRAY_RTV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX2D_ARRAY_RTV1 {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
     pub PlaneSlice: u32,
 }
-impl Copy for D3D11_TEX2D_ARRAY_RTV1 {}
-impl Clone for D3D11_TEX2D_ARRAY_RTV1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX2D_ARRAY_RTV1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX2D_ARRAY_RTV1").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).field("PlaneSlice", &self.PlaneSlice).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEX2D_ARRAY_RTV1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX2D_ARRAY_RTV1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice && self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize && self.PlaneSlice == other.PlaneSlice
-    }
-}
-impl Eq for D3D11_TEX2D_ARRAY_RTV1 {}
 impl Default for D3D11_TEX2D_ARRAY_RTV1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX2D_ARRAY_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Copy for D3D11_TEX2D_ARRAY_SRV {}
-impl Clone for D3D11_TEX2D_ARRAY_SRV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX2D_ARRAY_SRV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX2D_ARRAY_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEX2D_ARRAY_SRV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX2D_ARRAY_SRV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MostDetailedMip == other.MostDetailedMip && self.MipLevels == other.MipLevels && self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
-    }
-}
-impl Eq for D3D11_TEX2D_ARRAY_SRV {}
 impl Default for D3D11_TEX2D_ARRAY_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX2D_ARRAY_SRV1 {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
@@ -13388,570 +11065,265 @@ pub struct D3D11_TEX2D_ARRAY_SRV1 {
     pub ArraySize: u32,
     pub PlaneSlice: u32,
 }
-impl Copy for D3D11_TEX2D_ARRAY_SRV1 {}
-impl Clone for D3D11_TEX2D_ARRAY_SRV1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX2D_ARRAY_SRV1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX2D_ARRAY_SRV1").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).field("PlaneSlice", &self.PlaneSlice).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEX2D_ARRAY_SRV1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX2D_ARRAY_SRV1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.MostDetailedMip == other.MostDetailedMip && self.MipLevels == other.MipLevels && self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize && self.PlaneSlice == other.PlaneSlice
-    }
-}
-impl Eq for D3D11_TEX2D_ARRAY_SRV1 {}
 impl Default for D3D11_TEX2D_ARRAY_SRV1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX2D_ARRAY_UAV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Copy for D3D11_TEX2D_ARRAY_UAV {}
-impl Clone for D3D11_TEX2D_ARRAY_UAV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX2D_ARRAY_UAV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX2D_ARRAY_UAV").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEX2D_ARRAY_UAV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX2D_ARRAY_UAV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice && self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
-    }
-}
-impl Eq for D3D11_TEX2D_ARRAY_UAV {}
 impl Default for D3D11_TEX2D_ARRAY_UAV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX2D_ARRAY_UAV1 {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
     pub PlaneSlice: u32,
 }
-impl Copy for D3D11_TEX2D_ARRAY_UAV1 {}
-impl Clone for D3D11_TEX2D_ARRAY_UAV1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX2D_ARRAY_UAV1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX2D_ARRAY_UAV1").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).field("PlaneSlice", &self.PlaneSlice).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEX2D_ARRAY_UAV1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX2D_ARRAY_UAV1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice && self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize && self.PlaneSlice == other.PlaneSlice
-    }
-}
-impl Eq for D3D11_TEX2D_ARRAY_UAV1 {}
 impl Default for D3D11_TEX2D_ARRAY_UAV1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX2D_ARRAY_VPOV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Copy for D3D11_TEX2D_ARRAY_VPOV {}
-impl Clone for D3D11_TEX2D_ARRAY_VPOV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX2D_ARRAY_VPOV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX2D_ARRAY_VPOV").field("MipSlice", &self.MipSlice).field("FirstArraySlice", &self.FirstArraySlice).field("ArraySize", &self.ArraySize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEX2D_ARRAY_VPOV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX2D_ARRAY_VPOV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice && self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
-    }
-}
-impl Eq for D3D11_TEX2D_ARRAY_VPOV {}
 impl Default for D3D11_TEX2D_ARRAY_VPOV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX2D_DSV {
     pub MipSlice: u32,
-}
-impl Copy for D3D11_TEX2D_DSV {}
-impl Clone for D3D11_TEX2D_DSV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX2D_DSV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX2D_DSV").field("MipSlice", &self.MipSlice).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_TEX2D_DSV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX2D_DSV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice
-    }
-}
-impl Eq for D3D11_TEX2D_DSV {}
 impl Default for D3D11_TEX2D_DSV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX2D_RTV {
     pub MipSlice: u32,
-}
-impl Copy for D3D11_TEX2D_RTV {}
-impl Clone for D3D11_TEX2D_RTV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX2D_RTV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX2D_RTV").field("MipSlice", &self.MipSlice).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_TEX2D_RTV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX2D_RTV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice
-    }
-}
-impl Eq for D3D11_TEX2D_RTV {}
 impl Default for D3D11_TEX2D_RTV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX2D_RTV1 {
     pub MipSlice: u32,
     pub PlaneSlice: u32,
 }
-impl Copy for D3D11_TEX2D_RTV1 {}
-impl Clone for D3D11_TEX2D_RTV1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX2D_RTV1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX2D_RTV1").field("MipSlice", &self.MipSlice).field("PlaneSlice", &self.PlaneSlice).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEX2D_RTV1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX2D_RTV1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice && self.PlaneSlice == other.PlaneSlice
-    }
-}
-impl Eq for D3D11_TEX2D_RTV1 {}
 impl Default for D3D11_TEX2D_RTV1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX2D_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
 }
-impl Copy for D3D11_TEX2D_SRV {}
-impl Clone for D3D11_TEX2D_SRV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX2D_SRV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX2D_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEX2D_SRV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX2D_SRV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MostDetailedMip == other.MostDetailedMip && self.MipLevels == other.MipLevels
-    }
-}
-impl Eq for D3D11_TEX2D_SRV {}
 impl Default for D3D11_TEX2D_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX2D_SRV1 {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
     pub PlaneSlice: u32,
 }
-impl Copy for D3D11_TEX2D_SRV1 {}
-impl Clone for D3D11_TEX2D_SRV1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX2D_SRV1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX2D_SRV1").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).field("PlaneSlice", &self.PlaneSlice).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEX2D_SRV1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX2D_SRV1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.MostDetailedMip == other.MostDetailedMip && self.MipLevels == other.MipLevels && self.PlaneSlice == other.PlaneSlice
-    }
-}
-impl Eq for D3D11_TEX2D_SRV1 {}
 impl Default for D3D11_TEX2D_SRV1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX2D_UAV {
     pub MipSlice: u32,
-}
-impl Copy for D3D11_TEX2D_UAV {}
-impl Clone for D3D11_TEX2D_UAV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX2D_UAV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX2D_UAV").field("MipSlice", &self.MipSlice).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_TEX2D_UAV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX2D_UAV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice
-    }
-}
-impl Eq for D3D11_TEX2D_UAV {}
 impl Default for D3D11_TEX2D_UAV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX2D_UAV1 {
     pub MipSlice: u32,
     pub PlaneSlice: u32,
 }
-impl Copy for D3D11_TEX2D_UAV1 {}
-impl Clone for D3D11_TEX2D_UAV1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX2D_UAV1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX2D_UAV1").field("MipSlice", &self.MipSlice).field("PlaneSlice", &self.PlaneSlice).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEX2D_UAV1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX2D_UAV1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice && self.PlaneSlice == other.PlaneSlice
-    }
-}
-impl Eq for D3D11_TEX2D_UAV1 {}
 impl Default for D3D11_TEX2D_UAV1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX2D_VDOV {
     pub ArraySlice: u32,
-}
-impl Copy for D3D11_TEX2D_VDOV {}
-impl Clone for D3D11_TEX2D_VDOV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX2D_VDOV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX2D_VDOV").field("ArraySlice", &self.ArraySlice).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_TEX2D_VDOV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX2D_VDOV {
-    fn eq(&self, other: &Self) -> bool {
-        self.ArraySlice == other.ArraySlice
-    }
-}
-impl Eq for D3D11_TEX2D_VDOV {}
 impl Default for D3D11_TEX2D_VDOV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX2D_VPIV {
     pub MipSlice: u32,
     pub ArraySlice: u32,
 }
-impl Copy for D3D11_TEX2D_VPIV {}
-impl Clone for D3D11_TEX2D_VPIV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX2D_VPIV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX2D_VPIV").field("MipSlice", &self.MipSlice).field("ArraySlice", &self.ArraySlice).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEX2D_VPIV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX2D_VPIV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice && self.ArraySlice == other.ArraySlice
-    }
-}
-impl Eq for D3D11_TEX2D_VPIV {}
 impl Default for D3D11_TEX2D_VPIV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX2D_VPOV {
     pub MipSlice: u32,
-}
-impl Copy for D3D11_TEX2D_VPOV {}
-impl Clone for D3D11_TEX2D_VPOV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX2D_VPOV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX2D_VPOV").field("MipSlice", &self.MipSlice).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_TEX2D_VPOV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX2D_VPOV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice
-    }
-}
-impl Eq for D3D11_TEX2D_VPOV {}
 impl Default for D3D11_TEX2D_VPOV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX3D_RTV {
     pub MipSlice: u32,
     pub FirstWSlice: u32,
     pub WSize: u32,
 }
-impl Copy for D3D11_TEX3D_RTV {}
-impl Clone for D3D11_TEX3D_RTV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX3D_RTV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX3D_RTV").field("MipSlice", &self.MipSlice).field("FirstWSlice", &self.FirstWSlice).field("WSize", &self.WSize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEX3D_RTV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX3D_RTV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice && self.FirstWSlice == other.FirstWSlice && self.WSize == other.WSize
-    }
-}
-impl Eq for D3D11_TEX3D_RTV {}
 impl Default for D3D11_TEX3D_RTV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX3D_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
 }
-impl Copy for D3D11_TEX3D_SRV {}
-impl Clone for D3D11_TEX3D_SRV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX3D_SRV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX3D_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEX3D_SRV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX3D_SRV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MostDetailedMip == other.MostDetailedMip && self.MipLevels == other.MipLevels
-    }
-}
-impl Eq for D3D11_TEX3D_SRV {}
 impl Default for D3D11_TEX3D_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEX3D_UAV {
     pub MipSlice: u32,
     pub FirstWSlice: u32,
     pub WSize: u32,
 }
-impl Copy for D3D11_TEX3D_UAV {}
-impl Clone for D3D11_TEX3D_UAV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEX3D_UAV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEX3D_UAV").field("MipSlice", &self.MipSlice).field("FirstWSlice", &self.FirstWSlice).field("WSize", &self.WSize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEX3D_UAV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEX3D_UAV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MipSlice == other.MipSlice && self.FirstWSlice == other.FirstWSlice && self.WSize == other.WSize
-    }
-}
-impl Eq for D3D11_TEX3D_UAV {}
 impl Default for D3D11_TEX3D_UAV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEXCUBE_ARRAY_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
     pub First2DArrayFace: u32,
     pub NumCubes: u32,
 }
-impl Copy for D3D11_TEXCUBE_ARRAY_SRV {}
-impl Clone for D3D11_TEXCUBE_ARRAY_SRV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEXCUBE_ARRAY_SRV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEXCUBE_ARRAY_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).field("First2DArrayFace", &self.First2DArrayFace).field("NumCubes", &self.NumCubes).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEXCUBE_ARRAY_SRV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEXCUBE_ARRAY_SRV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MostDetailedMip == other.MostDetailedMip && self.MipLevels == other.MipLevels && self.First2DArrayFace == other.First2DArrayFace && self.NumCubes == other.NumCubes
-    }
-}
-impl Eq for D3D11_TEXCUBE_ARRAY_SRV {}
 impl Default for D3D11_TEXCUBE_ARRAY_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEXCUBE_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
 }
-impl Copy for D3D11_TEXCUBE_SRV {}
-impl Clone for D3D11_TEXCUBE_SRV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TEXCUBE_SRV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEXCUBE_SRV").field("MostDetailedMip", &self.MostDetailedMip).field("MipLevels", &self.MipLevels).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TEXCUBE_SRV {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TEXCUBE_SRV {
-    fn eq(&self, other: &Self) -> bool {
-        self.MostDetailedMip == other.MostDetailedMip && self.MipLevels == other.MipLevels
-    }
-}
-impl Eq for D3D11_TEXCUBE_SRV {}
 impl Default for D3D11_TEXCUBE_SRV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13959,6 +11331,7 @@ impl Default for D3D11_TEXCUBE_SRV {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEXTURE1D_DESC {
     pub Width: u32,
     pub MipLevels: u32,
@@ -13970,31 +11343,9 @@ pub struct D3D11_TEXTURE1D_DESC {
     pub MiscFlags: u32,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D11_TEXTURE1D_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D11_TEXTURE1D_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D11_TEXTURE1D_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEXTURE1D_DESC").field("Width", &self.Width).field("MipLevels", &self.MipLevels).field("ArraySize", &self.ArraySize).field("Format", &self.Format).field("Usage", &self.Usage).field("BindFlags", &self.BindFlags).field("CPUAccessFlags", &self.CPUAccessFlags).field("MiscFlags", &self.MiscFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D11_TEXTURE1D_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D11_TEXTURE1D_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.MipLevels == other.MipLevels && self.ArraySize == other.ArraySize && self.Format == other.Format && self.Usage == other.Usage && self.BindFlags == other.BindFlags && self.CPUAccessFlags == other.CPUAccessFlags && self.MiscFlags == other.MiscFlags
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D11_TEXTURE1D_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D11_TEXTURE1D_DESC {
     fn default() -> Self {
@@ -14003,6 +11354,7 @@ impl Default for D3D11_TEXTURE1D_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEXTURE2D_DESC {
     pub Width: u32,
     pub Height: u32,
@@ -14016,31 +11368,9 @@ pub struct D3D11_TEXTURE2D_DESC {
     pub MiscFlags: u32,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D11_TEXTURE2D_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D11_TEXTURE2D_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D11_TEXTURE2D_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEXTURE2D_DESC").field("Width", &self.Width).field("Height", &self.Height).field("MipLevels", &self.MipLevels).field("ArraySize", &self.ArraySize).field("Format", &self.Format).field("SampleDesc", &self.SampleDesc).field("Usage", &self.Usage).field("BindFlags", &self.BindFlags).field("CPUAccessFlags", &self.CPUAccessFlags).field("MiscFlags", &self.MiscFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D11_TEXTURE2D_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D11_TEXTURE2D_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height && self.MipLevels == other.MipLevels && self.ArraySize == other.ArraySize && self.Format == other.Format && self.SampleDesc == other.SampleDesc && self.Usage == other.Usage && self.BindFlags == other.BindFlags && self.CPUAccessFlags == other.CPUAccessFlags && self.MiscFlags == other.MiscFlags
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D11_TEXTURE2D_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D11_TEXTURE2D_DESC {
     fn default() -> Self {
@@ -14049,6 +11379,7 @@ impl Default for D3D11_TEXTURE2D_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEXTURE2D_DESC1 {
     pub Width: u32,
     pub Height: u32,
@@ -14063,31 +11394,9 @@ pub struct D3D11_TEXTURE2D_DESC1 {
     pub TextureLayout: D3D11_TEXTURE_LAYOUT,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D11_TEXTURE2D_DESC1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D11_TEXTURE2D_DESC1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D11_TEXTURE2D_DESC1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEXTURE2D_DESC1").field("Width", &self.Width).field("Height", &self.Height).field("MipLevels", &self.MipLevels).field("ArraySize", &self.ArraySize).field("Format", &self.Format).field("SampleDesc", &self.SampleDesc).field("Usage", &self.Usage).field("BindFlags", &self.BindFlags).field("CPUAccessFlags", &self.CPUAccessFlags).field("MiscFlags", &self.MiscFlags).field("TextureLayout", &self.TextureLayout).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D11_TEXTURE2D_DESC1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D11_TEXTURE2D_DESC1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height && self.MipLevels == other.MipLevels && self.ArraySize == other.ArraySize && self.Format == other.Format && self.SampleDesc == other.SampleDesc && self.Usage == other.Usage && self.BindFlags == other.BindFlags && self.CPUAccessFlags == other.CPUAccessFlags && self.MiscFlags == other.MiscFlags && self.TextureLayout == other.TextureLayout
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D11_TEXTURE2D_DESC1 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D11_TEXTURE2D_DESC1 {
     fn default() -> Self {
@@ -14096,6 +11405,7 @@ impl Default for D3D11_TEXTURE2D_DESC1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEXTURE3D_DESC {
     pub Width: u32,
     pub Height: u32,
@@ -14108,31 +11418,9 @@ pub struct D3D11_TEXTURE3D_DESC {
     pub MiscFlags: u32,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D11_TEXTURE3D_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D11_TEXTURE3D_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D11_TEXTURE3D_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEXTURE3D_DESC").field("Width", &self.Width).field("Height", &self.Height).field("Depth", &self.Depth).field("MipLevels", &self.MipLevels).field("Format", &self.Format).field("Usage", &self.Usage).field("BindFlags", &self.BindFlags).field("CPUAccessFlags", &self.CPUAccessFlags).field("MiscFlags", &self.MiscFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D11_TEXTURE3D_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D11_TEXTURE3D_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height && self.Depth == other.Depth && self.MipLevels == other.MipLevels && self.Format == other.Format && self.Usage == other.Usage && self.BindFlags == other.BindFlags && self.CPUAccessFlags == other.CPUAccessFlags && self.MiscFlags == other.MiscFlags
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D11_TEXTURE3D_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D11_TEXTURE3D_DESC {
     fn default() -> Self {
@@ -14141,6 +11429,7 @@ impl Default for D3D11_TEXTURE3D_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TEXTURE3D_DESC1 {
     pub Width: u32,
     pub Height: u32,
@@ -14154,31 +11443,9 @@ pub struct D3D11_TEXTURE3D_DESC1 {
     pub TextureLayout: D3D11_TEXTURE_LAYOUT,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D11_TEXTURE3D_DESC1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D11_TEXTURE3D_DESC1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D11_TEXTURE3D_DESC1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TEXTURE3D_DESC1").field("Width", &self.Width).field("Height", &self.Height).field("Depth", &self.Depth).field("MipLevels", &self.MipLevels).field("Format", &self.Format).field("Usage", &self.Usage).field("BindFlags", &self.BindFlags).field("CPUAccessFlags", &self.CPUAccessFlags).field("MiscFlags", &self.MiscFlags).field("TextureLayout", &self.TextureLayout).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D11_TEXTURE3D_DESC1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D11_TEXTURE3D_DESC1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height && self.Depth == other.Depth && self.MipLevels == other.MipLevels && self.Format == other.Format && self.Usage == other.Usage && self.BindFlags == other.BindFlags && self.CPUAccessFlags == other.CPUAccessFlags && self.MiscFlags == other.MiscFlags && self.TextureLayout == other.TextureLayout
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D11_TEXTURE3D_DESC1 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D11_TEXTURE3D_DESC1 {
     fn default() -> Self {
@@ -14186,38 +11453,23 @@ impl Default for D3D11_TEXTURE3D_DESC1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TILED_RESOURCE_COORDINATE {
     pub X: u32,
     pub Y: u32,
     pub Z: u32,
     pub Subresource: u32,
 }
-impl Copy for D3D11_TILED_RESOURCE_COORDINATE {}
-impl Clone for D3D11_TILED_RESOURCE_COORDINATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TILED_RESOURCE_COORDINATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TILED_RESOURCE_COORDINATE").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).field("Subresource", &self.Subresource).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TILED_RESOURCE_COORDINATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TILED_RESOURCE_COORDINATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y && self.Z == other.Z && self.Subresource == other.Subresource
-    }
-}
-impl Eq for D3D11_TILED_RESOURCE_COORDINATE {}
 impl Default for D3D11_TILED_RESOURCE_COORDINATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TILE_REGION_SIZE {
     pub NumTiles: u32,
     pub bUseBox: super::super::Foundation::BOOL,
@@ -14225,74 +11477,36 @@ pub struct D3D11_TILE_REGION_SIZE {
     pub Height: u16,
     pub Depth: u16,
 }
-impl Copy for D3D11_TILE_REGION_SIZE {}
-impl Clone for D3D11_TILE_REGION_SIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TILE_REGION_SIZE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TILE_REGION_SIZE").field("NumTiles", &self.NumTiles).field("bUseBox", &self.bUseBox).field("Width", &self.Width).field("Height", &self.Height).field("Depth", &self.Depth).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TILE_REGION_SIZE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TILE_REGION_SIZE {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumTiles == other.NumTiles && self.bUseBox == other.bUseBox && self.Width == other.Width && self.Height == other.Height && self.Depth == other.Depth
-    }
-}
-impl Eq for D3D11_TILE_REGION_SIZE {}
 impl Default for D3D11_TILE_REGION_SIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TILE_SHAPE {
     pub WidthInTexels: u32,
     pub HeightInTexels: u32,
     pub DepthInTexels: u32,
 }
-impl Copy for D3D11_TILE_SHAPE {}
-impl Clone for D3D11_TILE_SHAPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TILE_SHAPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TILE_SHAPE").field("WidthInTexels", &self.WidthInTexels).field("HeightInTexels", &self.HeightInTexels).field("DepthInTexels", &self.DepthInTexels).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TILE_SHAPE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TILE_SHAPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.WidthInTexels == other.WidthInTexels && self.HeightInTexels == other.HeightInTexels && self.DepthInTexels == other.DepthInTexels
-    }
-}
-impl Eq for D3D11_TILE_SHAPE {}
 impl Default for D3D11_TILE_SHAPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D11_TRACE_REGISTER {
     pub RegType: D3D11_TRACE_REGISTER_TYPE,
     pub Anonymous: D3D11_TRACE_REGISTER_0,
     pub OperandIndex: u8,
     pub Flags: u8,
-}
-impl Copy for D3D11_TRACE_REGISTER {}
-impl Clone for D3D11_TRACE_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D11_TRACE_REGISTER {
     type TypeKind = windows_core::CopyType;
@@ -14303,15 +11517,10 @@ impl Default for D3D11_TRACE_REGISTER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D11_TRACE_REGISTER_0 {
     pub Index1D: u16,
     pub Index2D: [u16; 2],
-}
-impl Copy for D3D11_TRACE_REGISTER_0 {}
-impl Clone for D3D11_TRACE_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D11_TRACE_REGISTER_0 {
     type TypeKind = windows_core::CopyType;
@@ -14322,6 +11531,7 @@ impl Default for D3D11_TRACE_REGISTER_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D11_TRACE_STATS {
     pub TraceDesc: D3D11_SHADER_TRACE_DESC,
     pub NumInvocationsInStamp: u8,
@@ -14347,12 +11557,6 @@ pub struct D3D11_TRACE_STATS {
     pub HSOutputPatchConstantMask: [u8; 32],
     pub DSInputPatchConstantMask: [u8; 32],
 }
-impl Copy for D3D11_TRACE_STATS {}
-impl Clone for D3D11_TRACE_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for D3D11_TRACE_STATS {
     type TypeKind = windows_core::CopyType;
 }
@@ -14362,6 +11566,7 @@ impl Default for D3D11_TRACE_STATS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TRACE_STEP {
     pub ID: u32,
     pub InstructionActive: super::super::Foundation::BOOL,
@@ -14371,56 +11576,23 @@ pub struct D3D11_TRACE_STEP {
     pub OpcodeType: u32,
     pub CurrentGlobalCycle: u64,
 }
-impl Copy for D3D11_TRACE_STEP {}
-impl Clone for D3D11_TRACE_STEP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TRACE_STEP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TRACE_STEP").field("ID", &self.ID).field("InstructionActive", &self.InstructionActive).field("NumRegistersWritten", &self.NumRegistersWritten).field("NumRegistersRead", &self.NumRegistersRead).field("MiscOperations", &self.MiscOperations).field("OpcodeType", &self.OpcodeType).field("CurrentGlobalCycle", &self.CurrentGlobalCycle).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TRACE_STEP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TRACE_STEP {
-    fn eq(&self, other: &Self) -> bool {
-        self.ID == other.ID && self.InstructionActive == other.InstructionActive && self.NumRegistersWritten == other.NumRegistersWritten && self.NumRegistersRead == other.NumRegistersRead && self.MiscOperations == other.MiscOperations && self.OpcodeType == other.OpcodeType && self.CurrentGlobalCycle == other.CurrentGlobalCycle
-    }
-}
-impl Eq for D3D11_TRACE_STEP {}
 impl Default for D3D11_TRACE_STEP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TRACE_VALUE {
     pub Bits: [u32; 4],
     pub ValidMask: u8,
 }
-impl Copy for D3D11_TRACE_VALUE {}
-impl Clone for D3D11_TRACE_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_TRACE_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_TRACE_VALUE").field("Bits", &self.Bits).field("ValidMask", &self.ValidMask).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_TRACE_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_TRACE_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Bits == other.Bits && self.ValidMask == other.ValidMask
-    }
-}
-impl Eq for D3D11_TRACE_VALUE {}
 impl Default for D3D11_TRACE_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -14428,18 +11600,11 @@ impl Default for D3D11_TRACE_VALUE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
 pub struct D3D11_UNORDERED_ACCESS_VIEW_DESC {
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub ViewDimension: D3D11_UAV_DIMENSION,
     pub Anonymous: D3D11_UNORDERED_ACCESS_VIEW_DESC_0,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D11_UNORDERED_ACCESS_VIEW_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D11_UNORDERED_ACCESS_VIEW_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D11_UNORDERED_ACCESS_VIEW_DESC {
@@ -14453,6 +11618,7 @@ impl Default for D3D11_UNORDERED_ACCESS_VIEW_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
 pub union D3D11_UNORDERED_ACCESS_VIEW_DESC_0 {
     pub Buffer: D3D11_BUFFER_UAV,
     pub Texture1D: D3D11_TEX1D_UAV,
@@ -14460,14 +11626,6 @@ pub union D3D11_UNORDERED_ACCESS_VIEW_DESC_0 {
     pub Texture2D: D3D11_TEX2D_UAV,
     pub Texture2DArray: D3D11_TEX2D_ARRAY_UAV,
     pub Texture3D: D3D11_TEX3D_UAV,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D11_UNORDERED_ACCESS_VIEW_DESC_0 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D11_UNORDERED_ACCESS_VIEW_DESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D11_UNORDERED_ACCESS_VIEW_DESC_0 {
@@ -14481,18 +11639,11 @@ impl Default for D3D11_UNORDERED_ACCESS_VIEW_DESC_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
 pub struct D3D11_UNORDERED_ACCESS_VIEW_DESC1 {
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub ViewDimension: D3D11_UAV_DIMENSION,
     pub Anonymous: D3D11_UNORDERED_ACCESS_VIEW_DESC1_0,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D11_UNORDERED_ACCESS_VIEW_DESC1 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D11_UNORDERED_ACCESS_VIEW_DESC1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D11_UNORDERED_ACCESS_VIEW_DESC1 {
@@ -14506,6 +11657,7 @@ impl Default for D3D11_UNORDERED_ACCESS_VIEW_DESC1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
 pub union D3D11_UNORDERED_ACCESS_VIEW_DESC1_0 {
     pub Buffer: D3D11_BUFFER_UAV,
     pub Texture1D: D3D11_TEX1D_UAV,
@@ -14513,14 +11665,6 @@ pub union D3D11_UNORDERED_ACCESS_VIEW_DESC1_0 {
     pub Texture2D: D3D11_TEX2D_UAV1,
     pub Texture2DArray: D3D11_TEX2D_ARRAY_UAV1,
     pub Texture3D: D3D11_TEX3D_UAV,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D11_UNORDERED_ACCESS_VIEW_DESC1_0 {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D11_UNORDERED_ACCESS_VIEW_DESC1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D11_UNORDERED_ACCESS_VIEW_DESC1_0 {
@@ -14533,43 +11677,22 @@ impl Default for D3D11_UNORDERED_ACCESS_VIEW_DESC1_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_VERTEX_SHADER_TRACE_DESC {
     pub Invocation: u64,
-}
-impl Copy for D3D11_VERTEX_SHADER_TRACE_DESC {}
-impl Clone for D3D11_VERTEX_SHADER_TRACE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_VERTEX_SHADER_TRACE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_VERTEX_SHADER_TRACE_DESC").field("Invocation", &self.Invocation).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_VERTEX_SHADER_TRACE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_VERTEX_SHADER_TRACE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Invocation == other.Invocation
-    }
-}
-impl Eq for D3D11_VERTEX_SHADER_TRACE_DESC {}
 impl Default for D3D11_VERTEX_SHADER_TRACE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D11_VIDEO_COLOR {
     pub Anonymous: D3D11_VIDEO_COLOR_0,
-}
-impl Copy for D3D11_VIDEO_COLOR {}
-impl Clone for D3D11_VIDEO_COLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D11_VIDEO_COLOR {
     type TypeKind = windows_core::CopyType;
@@ -14580,15 +11703,10 @@ impl Default for D3D11_VIDEO_COLOR {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D11_VIDEO_COLOR_0 {
     pub YCbCr: D3D11_VIDEO_COLOR_YCbCrA,
     pub RGBA: D3D11_VIDEO_COLOR_RGBA,
-}
-impl Copy for D3D11_VIDEO_COLOR_0 {}
-impl Clone for D3D11_VIDEO_COLOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D11_VIDEO_COLOR_0 {
     type TypeKind = windows_core::CopyType;
@@ -14599,102 +11717,55 @@ impl Default for D3D11_VIDEO_COLOR_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D11_VIDEO_COLOR_RGBA {
     pub R: f32,
     pub G: f32,
     pub B: f32,
     pub A: f32,
 }
-impl Copy for D3D11_VIDEO_COLOR_RGBA {}
-impl Clone for D3D11_VIDEO_COLOR_RGBA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_VIDEO_COLOR_RGBA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_VIDEO_COLOR_RGBA").field("R", &self.R).field("G", &self.G).field("B", &self.B).field("A", &self.A).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_VIDEO_COLOR_RGBA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_VIDEO_COLOR_RGBA {
-    fn eq(&self, other: &Self) -> bool {
-        self.R == other.R && self.G == other.G && self.B == other.B && self.A == other.A
-    }
-}
-impl Eq for D3D11_VIDEO_COLOR_RGBA {}
 impl Default for D3D11_VIDEO_COLOR_RGBA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D11_VIDEO_COLOR_YCbCrA {
     pub Y: f32,
     pub Cb: f32,
     pub Cr: f32,
     pub A: f32,
 }
-impl Copy for D3D11_VIDEO_COLOR_YCbCrA {}
-impl Clone for D3D11_VIDEO_COLOR_YCbCrA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_VIDEO_COLOR_YCbCrA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_VIDEO_COLOR_YCbCrA").field("Y", &self.Y).field("Cb", &self.Cb).field("Cr", &self.Cr).field("A", &self.A).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_VIDEO_COLOR_YCbCrA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_VIDEO_COLOR_YCbCrA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Y == other.Y && self.Cb == other.Cb && self.Cr == other.Cr && self.A == other.A
-    }
-}
-impl Eq for D3D11_VIDEO_COLOR_YCbCrA {}
 impl Default for D3D11_VIDEO_COLOR_YCbCrA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_VIDEO_CONTENT_PROTECTION_CAPS {
     pub Caps: u32,
     pub KeyExchangeTypeCount: u32,
     pub BlockAlignmentSize: u32,
     pub ProtectedMemorySize: u64,
 }
-impl Copy for D3D11_VIDEO_CONTENT_PROTECTION_CAPS {}
-impl Clone for D3D11_VIDEO_CONTENT_PROTECTION_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_VIDEO_CONTENT_PROTECTION_CAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_VIDEO_CONTENT_PROTECTION_CAPS").field("Caps", &self.Caps).field("KeyExchangeTypeCount", &self.KeyExchangeTypeCount).field("BlockAlignmentSize", &self.BlockAlignmentSize).field("ProtectedMemorySize", &self.ProtectedMemorySize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_VIDEO_CONTENT_PROTECTION_CAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_VIDEO_CONTENT_PROTECTION_CAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Caps == other.Caps && self.KeyExchangeTypeCount == other.KeyExchangeTypeCount && self.BlockAlignmentSize == other.BlockAlignmentSize && self.ProtectedMemorySize == other.ProtectedMemorySize
-    }
-}
-impl Eq for D3D11_VIDEO_CONTENT_PROTECTION_CAPS {}
 impl Default for D3D11_VIDEO_CONTENT_PROTECTION_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
     pub pCryptoSession: std::mem::ManuallyDrop<Option<ID3D11CryptoSession>>,
     pub BlobSize: u32,
@@ -14708,26 +11779,16 @@ impl Clone for D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION").field("pCryptoSession", &self.pCryptoSession).field("BlobSize", &self.BlobSize).field("pBlob", &self.pBlob).field("pKeyInfoId", &self.pKeyInfoId).field("PrivateDataSize", &self.PrivateDataSize).field("pPrivateData", &self.pPrivateData).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
-    fn eq(&self, other: &Self) -> bool {
-        self.pCryptoSession == other.pCryptoSession && self.BlobSize == other.BlobSize && self.pBlob == other.pBlob && self.pKeyInfoId == other.pKeyInfoId && self.PrivateDataSize == other.PrivateDataSize && self.pPrivateData == other.pPrivateData
-    }
-}
-impl Eq for D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {}
 impl Default for D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_VIDEO_DECODER_BUFFER_DESC {
     pub BufferType: D3D11_VIDEO_DECODER_BUFFER_TYPE,
     pub BufferIndex: u32,
@@ -14744,47 +11805,16 @@ pub struct D3D11_VIDEO_DECODER_BUFFER_DESC {
     pub PartialEncryption: super::super::Foundation::BOOL,
     pub EncryptedBlockInfo: D3D11_ENCRYPTED_BLOCK_INFO,
 }
-impl Copy for D3D11_VIDEO_DECODER_BUFFER_DESC {}
-impl Clone for D3D11_VIDEO_DECODER_BUFFER_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_VIDEO_DECODER_BUFFER_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_VIDEO_DECODER_BUFFER_DESC")
-            .field("BufferType", &self.BufferType)
-            .field("BufferIndex", &self.BufferIndex)
-            .field("DataOffset", &self.DataOffset)
-            .field("DataSize", &self.DataSize)
-            .field("FirstMBaddress", &self.FirstMBaddress)
-            .field("NumMBsInBuffer", &self.NumMBsInBuffer)
-            .field("Width", &self.Width)
-            .field("Height", &self.Height)
-            .field("Stride", &self.Stride)
-            .field("ReservedBits", &self.ReservedBits)
-            .field("pIV", &self.pIV)
-            .field("IVSize", &self.IVSize)
-            .field("PartialEncryption", &self.PartialEncryption)
-            .field("EncryptedBlockInfo", &self.EncryptedBlockInfo)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_VIDEO_DECODER_BUFFER_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_VIDEO_DECODER_BUFFER_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.BufferType == other.BufferType && self.BufferIndex == other.BufferIndex && self.DataOffset == other.DataOffset && self.DataSize == other.DataSize && self.FirstMBaddress == other.FirstMBaddress && self.NumMBsInBuffer == other.NumMBsInBuffer && self.Width == other.Width && self.Height == other.Height && self.Stride == other.Stride && self.ReservedBits == other.ReservedBits && self.pIV == other.pIV && self.IVSize == other.IVSize && self.PartialEncryption == other.PartialEncryption && self.EncryptedBlockInfo == other.EncryptedBlockInfo
-    }
-}
-impl Eq for D3D11_VIDEO_DECODER_BUFFER_DESC {}
 impl Default for D3D11_VIDEO_DECODER_BUFFER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_VIDEO_DECODER_BUFFER_DESC1 {
     pub BufferType: D3D11_VIDEO_DECODER_BUFFER_TYPE,
     pub DataOffset: u32,
@@ -14794,32 +11824,16 @@ pub struct D3D11_VIDEO_DECODER_BUFFER_DESC1 {
     pub pSubSampleMappingBlock: *mut D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK,
     pub SubSampleMappingCount: u32,
 }
-impl Copy for D3D11_VIDEO_DECODER_BUFFER_DESC1 {}
-impl Clone for D3D11_VIDEO_DECODER_BUFFER_DESC1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_VIDEO_DECODER_BUFFER_DESC1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_VIDEO_DECODER_BUFFER_DESC1").field("BufferType", &self.BufferType).field("DataOffset", &self.DataOffset).field("DataSize", &self.DataSize).field("pIV", &self.pIV).field("IVSize", &self.IVSize).field("pSubSampleMappingBlock", &self.pSubSampleMappingBlock).field("SubSampleMappingCount", &self.SubSampleMappingCount).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_VIDEO_DECODER_BUFFER_DESC1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_VIDEO_DECODER_BUFFER_DESC1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.BufferType == other.BufferType && self.DataOffset == other.DataOffset && self.DataSize == other.DataSize && self.pIV == other.pIV && self.IVSize == other.IVSize && self.pSubSampleMappingBlock == other.pSubSampleMappingBlock && self.SubSampleMappingCount == other.SubSampleMappingCount
-    }
-}
-impl Eq for D3D11_VIDEO_DECODER_BUFFER_DESC1 {}
 impl Default for D3D11_VIDEO_DECODER_BUFFER_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_VIDEO_DECODER_BUFFER_DESC2 {
     pub BufferType: D3D11_VIDEO_DECODER_BUFFER_TYPE,
     pub DataOffset: u32,
@@ -14831,32 +11845,16 @@ pub struct D3D11_VIDEO_DECODER_BUFFER_DESC2 {
     pub cBlocksStripeEncrypted: u32,
     pub cBlocksStripeClear: u32,
 }
-impl Copy for D3D11_VIDEO_DECODER_BUFFER_DESC2 {}
-impl Clone for D3D11_VIDEO_DECODER_BUFFER_DESC2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_VIDEO_DECODER_BUFFER_DESC2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_VIDEO_DECODER_BUFFER_DESC2").field("BufferType", &self.BufferType).field("DataOffset", &self.DataOffset).field("DataSize", &self.DataSize).field("pIV", &self.pIV).field("IVSize", &self.IVSize).field("pSubSampleMappingBlock", &self.pSubSampleMappingBlock).field("SubSampleMappingCount", &self.SubSampleMappingCount).field("cBlocksStripeEncrypted", &self.cBlocksStripeEncrypted).field("cBlocksStripeClear", &self.cBlocksStripeClear).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_VIDEO_DECODER_BUFFER_DESC2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_VIDEO_DECODER_BUFFER_DESC2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.BufferType == other.BufferType && self.DataOffset == other.DataOffset && self.DataSize == other.DataSize && self.pIV == other.pIV && self.IVSize == other.IVSize && self.pSubSampleMappingBlock == other.pSubSampleMappingBlock && self.SubSampleMappingCount == other.SubSampleMappingCount && self.cBlocksStripeEncrypted == other.cBlocksStripeEncrypted && self.cBlocksStripeClear == other.cBlocksStripeClear
-    }
-}
-impl Eq for D3D11_VIDEO_DECODER_BUFFER_DESC2 {}
 impl Default for D3D11_VIDEO_DECODER_BUFFER_DESC2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_VIDEO_DECODER_CONFIG {
     pub guidConfigBitstreamEncryption: windows_core::GUID,
     pub guidConfigMBcontrolEncryption: windows_core::GUID,
@@ -14876,60 +11874,9 @@ pub struct D3D11_VIDEO_DECODER_CONFIG {
     pub ConfigMinRenderTargetBuffCount: u16,
     pub ConfigDecoderSpecific: u16,
 }
-impl Copy for D3D11_VIDEO_DECODER_CONFIG {}
-impl Clone for D3D11_VIDEO_DECODER_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_VIDEO_DECODER_CONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_VIDEO_DECODER_CONFIG")
-            .field("guidConfigBitstreamEncryption", &self.guidConfigBitstreamEncryption)
-            .field("guidConfigMBcontrolEncryption", &self.guidConfigMBcontrolEncryption)
-            .field("guidConfigResidDiffEncryption", &self.guidConfigResidDiffEncryption)
-            .field("ConfigBitstreamRaw", &self.ConfigBitstreamRaw)
-            .field("ConfigMBcontrolRasterOrder", &self.ConfigMBcontrolRasterOrder)
-            .field("ConfigResidDiffHost", &self.ConfigResidDiffHost)
-            .field("ConfigSpatialResid8", &self.ConfigSpatialResid8)
-            .field("ConfigResid8Subtraction", &self.ConfigResid8Subtraction)
-            .field("ConfigSpatialHost8or9Clipping", &self.ConfigSpatialHost8or9Clipping)
-            .field("ConfigSpatialResidInterleaved", &self.ConfigSpatialResidInterleaved)
-            .field("ConfigIntraResidUnsigned", &self.ConfigIntraResidUnsigned)
-            .field("ConfigResidDiffAccelerator", &self.ConfigResidDiffAccelerator)
-            .field("ConfigHostInverseScan", &self.ConfigHostInverseScan)
-            .field("ConfigSpecificIDCT", &self.ConfigSpecificIDCT)
-            .field("Config4GroupedCoefs", &self.Config4GroupedCoefs)
-            .field("ConfigMinRenderTargetBuffCount", &self.ConfigMinRenderTargetBuffCount)
-            .field("ConfigDecoderSpecific", &self.ConfigDecoderSpecific)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_VIDEO_DECODER_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_VIDEO_DECODER_CONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.guidConfigBitstreamEncryption == other.guidConfigBitstreamEncryption
-            && self.guidConfigMBcontrolEncryption == other.guidConfigMBcontrolEncryption
-            && self.guidConfigResidDiffEncryption == other.guidConfigResidDiffEncryption
-            && self.ConfigBitstreamRaw == other.ConfigBitstreamRaw
-            && self.ConfigMBcontrolRasterOrder == other.ConfigMBcontrolRasterOrder
-            && self.ConfigResidDiffHost == other.ConfigResidDiffHost
-            && self.ConfigSpatialResid8 == other.ConfigSpatialResid8
-            && self.ConfigResid8Subtraction == other.ConfigResid8Subtraction
-            && self.ConfigSpatialHost8or9Clipping == other.ConfigSpatialHost8or9Clipping
-            && self.ConfigSpatialResidInterleaved == other.ConfigSpatialResidInterleaved
-            && self.ConfigIntraResidUnsigned == other.ConfigIntraResidUnsigned
-            && self.ConfigResidDiffAccelerator == other.ConfigResidDiffAccelerator
-            && self.ConfigHostInverseScan == other.ConfigHostInverseScan
-            && self.ConfigSpecificIDCT == other.ConfigSpecificIDCT
-            && self.Config4GroupedCoefs == other.Config4GroupedCoefs
-            && self.ConfigMinRenderTargetBuffCount == other.ConfigMinRenderTargetBuffCount
-            && self.ConfigDecoderSpecific == other.ConfigDecoderSpecific
-    }
-}
-impl Eq for D3D11_VIDEO_DECODER_CONFIG {}
 impl Default for D3D11_VIDEO_DECODER_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -14937,6 +11884,7 @@ impl Default for D3D11_VIDEO_DECODER_CONFIG {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_VIDEO_DECODER_DESC {
     pub Guid: windows_core::GUID,
     pub SampleWidth: u32,
@@ -14944,31 +11892,9 @@ pub struct D3D11_VIDEO_DECODER_DESC {
     pub OutputFormat: super::Dxgi::Common::DXGI_FORMAT,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D11_VIDEO_DECODER_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D11_VIDEO_DECODER_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D11_VIDEO_DECODER_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_VIDEO_DECODER_DESC").field("Guid", &self.Guid).field("SampleWidth", &self.SampleWidth).field("SampleHeight", &self.SampleHeight).field("OutputFormat", &self.OutputFormat).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D11_VIDEO_DECODER_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D11_VIDEO_DECODER_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Guid == other.Guid && self.SampleWidth == other.SampleWidth && self.SampleHeight == other.SampleHeight && self.OutputFormat == other.OutputFormat
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D11_VIDEO_DECODER_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D11_VIDEO_DECODER_DESC {
     fn default() -> Self {
@@ -14976,6 +11902,7 @@ impl Default for D3D11_VIDEO_DECODER_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_VIDEO_DECODER_EXTENSION {
     pub Function: u32,
     pub pPrivateInputData: *mut core::ffi::c_void,
@@ -14985,42 +11912,20 @@ pub struct D3D11_VIDEO_DECODER_EXTENSION {
     pub ResourceCount: u32,
     pub ppResourceList: *mut Option<ID3D11Resource>,
 }
-impl Copy for D3D11_VIDEO_DECODER_EXTENSION {}
-impl Clone for D3D11_VIDEO_DECODER_EXTENSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_VIDEO_DECODER_EXTENSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_VIDEO_DECODER_EXTENSION").field("Function", &self.Function).field("pPrivateInputData", &self.pPrivateInputData).field("PrivateInputDataSize", &self.PrivateInputDataSize).field("pPrivateOutputData", &self.pPrivateOutputData).field("PrivateOutputDataSize", &self.PrivateOutputDataSize).field("ResourceCount", &self.ResourceCount).field("ppResourceList", &self.ppResourceList).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_VIDEO_DECODER_EXTENSION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_VIDEO_DECODER_EXTENSION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Function == other.Function && self.pPrivateInputData == other.pPrivateInputData && self.PrivateInputDataSize == other.PrivateInputDataSize && self.pPrivateOutputData == other.pPrivateOutputData && self.PrivateOutputDataSize == other.PrivateOutputDataSize && self.ResourceCount == other.ResourceCount && self.ppResourceList == other.ppResourceList
-    }
-}
-impl Eq for D3D11_VIDEO_DECODER_EXTENSION {}
 impl Default for D3D11_VIDEO_DECODER_EXTENSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC {
     pub DecodeProfile: windows_core::GUID,
     pub ViewDimension: D3D11_VDOV_DIMENSION,
     pub Anonymous: D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC_0,
-}
-impl Copy for D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC {}
-impl Clone for D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC {
     type TypeKind = windows_core::CopyType;
@@ -15031,14 +11936,9 @@ impl Default for D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC_0 {
     pub Texture2D: D3D11_TEX2D_VDOV,
-}
-impl Copy for D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC_0 {}
-impl Clone for D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC_0 {
     type TypeKind = windows_core::CopyType;
@@ -15049,36 +11949,21 @@ impl Default for D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK {
     pub ClearSize: u32,
     pub EncryptedSize: u32,
 }
-impl Copy for D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK {}
-impl Clone for D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK").field("ClearSize", &self.ClearSize).field("EncryptedSize", &self.EncryptedSize).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClearSize == other.ClearSize && self.EncryptedSize == other.EncryptedSize
-    }
-}
-impl Eq for D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK {}
 impl Default for D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_VIDEO_PROCESSOR_CAPS {
     pub DeviceCaps: u32,
     pub FeatureCaps: u32,
@@ -15090,55 +11975,22 @@ pub struct D3D11_VIDEO_PROCESSOR_CAPS {
     pub MaxInputStreams: u32,
     pub MaxStreamStates: u32,
 }
-impl Copy for D3D11_VIDEO_PROCESSOR_CAPS {}
-impl Clone for D3D11_VIDEO_PROCESSOR_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_VIDEO_PROCESSOR_CAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_VIDEO_PROCESSOR_CAPS").field("DeviceCaps", &self.DeviceCaps).field("FeatureCaps", &self.FeatureCaps).field("FilterCaps", &self.FilterCaps).field("InputFormatCaps", &self.InputFormatCaps).field("AutoStreamCaps", &self.AutoStreamCaps).field("StereoCaps", &self.StereoCaps).field("RateConversionCapsCount", &self.RateConversionCapsCount).field("MaxInputStreams", &self.MaxInputStreams).field("MaxStreamStates", &self.MaxStreamStates).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_CAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_VIDEO_PROCESSOR_CAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.DeviceCaps == other.DeviceCaps && self.FeatureCaps == other.FeatureCaps && self.FilterCaps == other.FilterCaps && self.InputFormatCaps == other.InputFormatCaps && self.AutoStreamCaps == other.AutoStreamCaps && self.StereoCaps == other.StereoCaps && self.RateConversionCapsCount == other.RateConversionCapsCount && self.MaxInputStreams == other.MaxInputStreams && self.MaxStreamStates == other.MaxStreamStates
-    }
-}
-impl Eq for D3D11_VIDEO_PROCESSOR_CAPS {}
 impl Default for D3D11_VIDEO_PROCESSOR_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_VIDEO_PROCESSOR_COLOR_SPACE {
     pub _bitfield: u32,
-}
-impl Copy for D3D11_VIDEO_PROCESSOR_COLOR_SPACE {}
-impl Clone for D3D11_VIDEO_PROCESSOR_COLOR_SPACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_VIDEO_PROCESSOR_COLOR_SPACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_VIDEO_PROCESSOR_COLOR_SPACE").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_COLOR_SPACE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_VIDEO_PROCESSOR_COLOR_SPACE {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for D3D11_VIDEO_PROCESSOR_COLOR_SPACE {}
 impl Default for D3D11_VIDEO_PROCESSOR_COLOR_SPACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -15146,6 +11998,7 @@ impl Default for D3D11_VIDEO_PROCESSOR_COLOR_SPACE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_VIDEO_PROCESSOR_CONTENT_DESC {
     pub InputFrameFormat: D3D11_VIDEO_FRAME_FORMAT,
     pub InputFrameRate: super::Dxgi::Common::DXGI_RATIONAL,
@@ -15157,31 +12010,9 @@ pub struct D3D11_VIDEO_PROCESSOR_CONTENT_DESC {
     pub Usage: D3D11_VIDEO_USAGE,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D11_VIDEO_PROCESSOR_CONTENT_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D11_VIDEO_PROCESSOR_CONTENT_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D11_VIDEO_PROCESSOR_CONTENT_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_VIDEO_PROCESSOR_CONTENT_DESC").field("InputFrameFormat", &self.InputFrameFormat).field("InputFrameRate", &self.InputFrameRate).field("InputWidth", &self.InputWidth).field("InputHeight", &self.InputHeight).field("OutputFrameRate", &self.OutputFrameRate).field("OutputWidth", &self.OutputWidth).field("OutputHeight", &self.OutputHeight).field("Usage", &self.Usage).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_CONTENT_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D11_VIDEO_PROCESSOR_CONTENT_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.InputFrameFormat == other.InputFrameFormat && self.InputFrameRate == other.InputFrameRate && self.InputWidth == other.InputWidth && self.InputHeight == other.InputHeight && self.OutputFrameRate == other.OutputFrameRate && self.OutputWidth == other.OutputWidth && self.OutputHeight == other.OutputHeight && self.Usage == other.Usage
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D11_VIDEO_PROCESSOR_CONTENT_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D11_VIDEO_PROCESSOR_CONTENT_DESC {
     fn default() -> Self {
@@ -15190,6 +12021,7 @@ impl Default for D3D11_VIDEO_PROCESSOR_CONTENT_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_VIDEO_PROCESSOR_CUSTOM_RATE {
     pub CustomRate: super::Dxgi::Common::DXGI_RATIONAL,
     pub OutputFrames: u32,
@@ -15197,31 +12029,9 @@ pub struct D3D11_VIDEO_PROCESSOR_CUSTOM_RATE {
     pub InputFramesOrFields: u32,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D11_VIDEO_PROCESSOR_CUSTOM_RATE {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D11_VIDEO_PROCESSOR_CUSTOM_RATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D11_VIDEO_PROCESSOR_CUSTOM_RATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_VIDEO_PROCESSOR_CUSTOM_RATE").field("CustomRate", &self.CustomRate).field("OutputFrames", &self.OutputFrames).field("InputInterlaced", &self.InputInterlaced).field("InputFramesOrFields", &self.InputFramesOrFields).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_CUSTOM_RATE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D11_VIDEO_PROCESSOR_CUSTOM_RATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.CustomRate == other.CustomRate && self.OutputFrames == other.OutputFrames && self.InputInterlaced == other.InputInterlaced && self.InputFramesOrFields == other.InputFramesOrFields
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D11_VIDEO_PROCESSOR_CUSTOM_RATE {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D11_VIDEO_PROCESSOR_CUSTOM_RATE {
     fn default() -> Self {
@@ -15229,48 +12039,27 @@ impl Default for D3D11_VIDEO_PROCESSOR_CUSTOM_RATE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D11_VIDEO_PROCESSOR_FILTER_RANGE {
     pub Minimum: i32,
     pub Maximum: i32,
     pub Default: i32,
     pub Multiplier: f32,
 }
-impl Copy for D3D11_VIDEO_PROCESSOR_FILTER_RANGE {}
-impl Clone for D3D11_VIDEO_PROCESSOR_FILTER_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_VIDEO_PROCESSOR_FILTER_RANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_VIDEO_PROCESSOR_FILTER_RANGE").field("Minimum", &self.Minimum).field("Maximum", &self.Maximum).field("Default", &self.Default).field("Multiplier", &self.Multiplier).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_FILTER_RANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_VIDEO_PROCESSOR_FILTER_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Minimum == other.Minimum && self.Maximum == other.Maximum && self.Default == other.Default && self.Multiplier == other.Multiplier
-    }
-}
-impl Eq for D3D11_VIDEO_PROCESSOR_FILTER_RANGE {}
 impl Default for D3D11_VIDEO_PROCESSOR_FILTER_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC {
     pub FourCC: u32,
     pub ViewDimension: D3D11_VPIV_DIMENSION,
     pub Anonymous: D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC_0,
-}
-impl Copy for D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC {}
-impl Clone for D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC {
     type TypeKind = windows_core::CopyType;
@@ -15281,14 +12070,9 @@ impl Default for D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC_0 {
     pub Texture2D: D3D11_TEX2D_VPIV,
-}
-impl Copy for D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC_0 {}
-impl Clone for D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC_0 {
     type TypeKind = windows_core::CopyType;
@@ -15299,15 +12083,10 @@ impl Default for D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC {
     pub ViewDimension: D3D11_VPOV_DIMENSION,
     pub Anonymous: D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC_0,
-}
-impl Copy for D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC {}
-impl Clone for D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC {
     type TypeKind = windows_core::CopyType;
@@ -15318,15 +12097,10 @@ impl Default for D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC_0 {
     pub Texture2D: D3D11_TEX2D_VPOV,
     pub Texture2DArray: D3D11_TEX2D_ARRAY_VPOV,
-}
-impl Copy for D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC_0 {}
-impl Clone for D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC_0 {
     type TypeKind = windows_core::CopyType;
@@ -15337,6 +12111,7 @@ impl Default for D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS {
     pub PastFrames: u32,
     pub FutureFrames: u32,
@@ -15344,32 +12119,16 @@ pub struct D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS {
     pub ITelecineCaps: u32,
     pub CustomRateCount: u32,
 }
-impl Copy for D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS {}
-impl Clone for D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS").field("PastFrames", &self.PastFrames).field("FutureFrames", &self.FutureFrames).field("ProcessorCaps", &self.ProcessorCaps).field("ITelecineCaps", &self.ITelecineCaps).field("CustomRateCount", &self.CustomRateCount).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.PastFrames == other.PastFrames && self.FutureFrames == other.FutureFrames && self.ProcessorCaps == other.ProcessorCaps && self.ITelecineCaps == other.ITelecineCaps && self.CustomRateCount == other.CustomRateCount
-    }
-}
-impl Eq for D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS {}
 impl Default for D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3D11_VIDEO_PROCESSOR_STREAM {
     pub Enable: super::super::Foundation::BOOL,
     pub OutputIndex: u32,
@@ -15388,32 +12147,9 @@ impl Clone for D3D11_VIDEO_PROCESSOR_STREAM {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for D3D11_VIDEO_PROCESSOR_STREAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_VIDEO_PROCESSOR_STREAM")
-            .field("Enable", &self.Enable)
-            .field("OutputIndex", &self.OutputIndex)
-            .field("InputFrameOrField", &self.InputFrameOrField)
-            .field("PastFrames", &self.PastFrames)
-            .field("FutureFrames", &self.FutureFrames)
-            .field("ppPastSurfaces", &self.ppPastSurfaces)
-            .field("pInputSurface", &self.pInputSurface)
-            .field("ppFutureSurfaces", &self.ppFutureSurfaces)
-            .field("ppPastSurfacesRight", &self.ppPastSurfacesRight)
-            .field("pInputSurfaceRight", &self.pInputSurfaceRight)
-            .field("ppFutureSurfacesRight", &self.ppFutureSurfacesRight)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_STREAM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_VIDEO_PROCESSOR_STREAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.Enable == other.Enable && self.OutputIndex == other.OutputIndex && self.InputFrameOrField == other.InputFrameOrField && self.PastFrames == other.PastFrames && self.FutureFrames == other.FutureFrames && self.ppPastSurfaces == other.ppPastSurfaces && self.pInputSurface == other.pInputSurface && self.ppFutureSurfaces == other.ppFutureSurfaces && self.ppPastSurfacesRight == other.ppPastSurfacesRight && self.pInputSurfaceRight == other.pInputSurfaceRight && self.ppFutureSurfacesRight == other.ppFutureSurfacesRight
-    }
-}
-impl Eq for D3D11_VIDEO_PROCESSOR_STREAM {}
 impl Default for D3D11_VIDEO_PROCESSOR_STREAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -15421,6 +12157,7 @@ impl Default for D3D11_VIDEO_PROCESSOR_STREAM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT {
     pub Enable: super::super::Foundation::BOOL,
     pub Width: u32,
@@ -15428,31 +12165,9 @@ pub struct D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT {
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT").field("Enable", &self.Enable).field("Width", &self.Width).field("Height", &self.Height).field("Format", &self.Format).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Enable == other.Enable && self.Width == other.Width && self.Height == other.Height && self.Format == other.Format
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT {
     fn default() -> Self {
@@ -15461,6 +12176,7 @@ impl Default for D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_VIDEO_SAMPLE_DESC {
     pub Width: u32,
     pub Height: u32,
@@ -15468,31 +12184,9 @@ pub struct D3D11_VIDEO_SAMPLE_DESC {
     pub ColorSpace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for D3D11_VIDEO_SAMPLE_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for D3D11_VIDEO_SAMPLE_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for D3D11_VIDEO_SAMPLE_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_VIDEO_SAMPLE_DESC").field("Width", &self.Width).field("Height", &self.Height).field("Format", &self.Format).field("ColorSpace", &self.ColorSpace).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for D3D11_VIDEO_SAMPLE_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for D3D11_VIDEO_SAMPLE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height && self.Format == other.Format && self.ColorSpace == other.ColorSpace
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for D3D11_VIDEO_SAMPLE_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D11_VIDEO_SAMPLE_DESC {
     fn default() -> Self {
@@ -15500,6 +12194,7 @@ impl Default for D3D11_VIDEO_SAMPLE_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D11_VIEWPORT {
     pub TopLeftX: f32,
     pub TopLeftY: f32,
@@ -15508,90 +12203,41 @@ pub struct D3D11_VIEWPORT {
     pub MinDepth: f32,
     pub MaxDepth: f32,
 }
-impl Copy for D3D11_VIEWPORT {}
-impl Clone for D3D11_VIEWPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3D11_VIEWPORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3D11_VIEWPORT").field("TopLeftX", &self.TopLeftX).field("TopLeftY", &self.TopLeftY).field("Width", &self.Width).field("Height", &self.Height).field("MinDepth", &self.MinDepth).field("MaxDepth", &self.MaxDepth).finish()
-    }
-}
 impl windows_core::TypeKind for D3D11_VIEWPORT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3D11_VIEWPORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.TopLeftX == other.TopLeftX && self.TopLeftY == other.TopLeftY && self.Width == other.Width && self.Height == other.Height && self.MinDepth == other.MinDepth && self.MaxDepth == other.MaxDepth
-    }
-}
-impl Eq for D3D11_VIEWPORT {}
 impl Default for D3D11_VIEWPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DX11_FFT_BUFFER_INFO {
     pub NumTempBufferSizes: u32,
     pub TempBufferFloatSizes: [u32; 4],
     pub NumPrecomputeBufferSizes: u32,
     pub PrecomputeBufferFloatSizes: [u32; 4],
 }
-impl Copy for D3DX11_FFT_BUFFER_INFO {}
-impl Clone for D3DX11_FFT_BUFFER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3DX11_FFT_BUFFER_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3DX11_FFT_BUFFER_INFO").field("NumTempBufferSizes", &self.NumTempBufferSizes).field("TempBufferFloatSizes", &self.TempBufferFloatSizes).field("NumPrecomputeBufferSizes", &self.NumPrecomputeBufferSizes).field("PrecomputeBufferFloatSizes", &self.PrecomputeBufferFloatSizes).finish()
-    }
-}
 impl windows_core::TypeKind for D3DX11_FFT_BUFFER_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3DX11_FFT_BUFFER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumTempBufferSizes == other.NumTempBufferSizes && self.TempBufferFloatSizes == other.TempBufferFloatSizes && self.NumPrecomputeBufferSizes == other.NumPrecomputeBufferSizes && self.PrecomputeBufferFloatSizes == other.PrecomputeBufferFloatSizes
-    }
-}
-impl Eq for D3DX11_FFT_BUFFER_INFO {}
 impl Default for D3DX11_FFT_BUFFER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DX11_FFT_DESC {
     pub NumDimensions: u32,
     pub ElementLengths: [u32; 32],
     pub DimensionMask: u32,
     pub Type: D3DX11_FFT_DATA_TYPE,
 }
-impl Copy for D3DX11_FFT_DESC {}
-impl Clone for D3DX11_FFT_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for D3DX11_FFT_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("D3DX11_FFT_DESC").field("NumDimensions", &self.NumDimensions).field("ElementLengths", &self.ElementLengths).field("DimensionMask", &self.DimensionMask).field("Type", &self.Type).finish()
-    }
-}
 impl windows_core::TypeKind for D3DX11_FFT_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for D3DX11_FFT_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumDimensions == other.NumDimensions && self.ElementLengths == other.ElementLengths && self.DimensionMask == other.DimensionMask && self.Type == other.Type
-    }
-}
-impl Eq for D3DX11_FFT_DESC {}
 impl Default for D3DX11_FFT_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

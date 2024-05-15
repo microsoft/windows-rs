@@ -84,17 +84,13 @@ pub const szOID_CATALOG_LIST_MEMBER2: windows_sys::core::PCSTR = windows_sys::co
 pub type CRYPTCAT_OPEN_FLAGS = u32;
 pub type CRYPTCAT_VERSION = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CATALOG_INFO {
     pub cbStruct: u32,
     pub wszCatalogFile: [u16; 260],
 }
-impl Copy for CATALOG_INFO {}
-impl Clone for CATALOG_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPTCATATTRIBUTE {
     pub cbStruct: u32,
     pub pwszReferenceTag: windows_sys::core::PWSTR,
@@ -103,13 +99,8 @@ pub struct CRYPTCATATTRIBUTE {
     pub pbValue: *mut u8,
     pub dwReserved: u32,
 }
-impl Copy for CRYPTCATATTRIBUTE {}
-impl Clone for CRYPTCATATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPTCATCDF {
     pub cbStruct: u32,
     pub hFile: super::super::super::Foundation::HANDLE,
@@ -119,14 +110,9 @@ pub struct CRYPTCATCDF {
     pub pwszResultDir: windows_sys::core::PWSTR,
     pub hCATStore: super::super::super::Foundation::HANDLE,
 }
-impl Copy for CRYPTCATCDF {}
-impl Clone for CRYPTCATCDF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
+#[derive(Clone, Copy)]
 pub struct CRYPTCATMEMBER {
     pub cbStruct: u32,
     pub pwszReferenceTag: windows_sys::core::PWSTR,
@@ -140,15 +126,8 @@ pub struct CRYPTCATMEMBER {
     pub sEncodedIndirectData: super::CRYPT_INTEGER_BLOB,
     pub sEncodedMemberInfo: super::CRYPT_INTEGER_BLOB,
 }
-#[cfg(feature = "Win32_Security_Cryptography_Sip")]
-impl Copy for CRYPTCATMEMBER {}
-#[cfg(feature = "Win32_Security_Cryptography_Sip")]
-impl Clone for CRYPTCATMEMBER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPTCATSTORE {
     pub cbStruct: u32,
     pub dwPublicVersion: u32,
@@ -161,25 +140,12 @@ pub struct CRYPTCATSTORE {
     pub hCryptMsg: *mut core::ffi::c_void,
     pub hSorted: super::super::super::Foundation::HANDLE,
 }
-impl Copy for CRYPTCATSTORE {}
-impl Clone for CRYPTCATSTORE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
+#[derive(Clone, Copy)]
 pub struct MS_ADDINFO_CATALOGMEMBER {
     pub cbStruct: u32,
     pub pStore: *mut CRYPTCATSTORE,
     pub pMember: *mut CRYPTCATMEMBER,
-}
-#[cfg(feature = "Win32_Security_Cryptography_Sip")]
-impl Copy for MS_ADDINFO_CATALOGMEMBER {}
-#[cfg(feature = "Win32_Security_Cryptography_Sip")]
-impl Clone for MS_ADDINFO_CATALOGMEMBER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type PFN_CDF_PARSE_ERROR_CALLBACK = Option<unsafe extern "system" fn(dwerrorarea: u32, dwlocalerror: u32, pwszline: windows_sys::core::PCWSTR)>;

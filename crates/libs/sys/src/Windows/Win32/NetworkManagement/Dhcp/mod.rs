@@ -663,17 +663,13 @@ pub type FSM_STATE = i32;
 pub type QuarantineStatus = i32;
 pub type StatusCode = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DATE_TIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,
 }
-impl Copy for DATE_TIME {}
-impl Clone for DATE_TIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCPAPI_PARAMS {
     pub Flags: u32,
     pub OptionId: u32,
@@ -681,36 +677,21 @@ pub struct DHCPAPI_PARAMS {
     pub Data: *mut u8,
     pub nBytesData: u32,
 }
-impl Copy for DHCPAPI_PARAMS {}
-impl Clone for DHCPAPI_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCPCAPI_CLASSID {
     pub Flags: u32,
     pub Data: *mut u8,
     pub nBytesData: u32,
 }
-impl Copy for DHCPCAPI_CLASSID {}
-impl Clone for DHCPCAPI_CLASSID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCPCAPI_PARAMS_ARRAY {
     pub nParams: u32,
     pub Params: *mut DHCPAPI_PARAMS,
 }
-impl Copy for DHCPCAPI_PARAMS_ARRAY {}
-impl Clone for DHCPCAPI_PARAMS_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCPDS_SERVER {
     pub Version: u32,
     pub ServerName: windows_sys::core::PWSTR,
@@ -720,25 +701,15 @@ pub struct DHCPDS_SERVER {
     pub DsLocation: windows_sys::core::PWSTR,
     pub DsLocType: u32,
 }
-impl Copy for DHCPDS_SERVER {}
-impl Clone for DHCPDS_SERVER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCPDS_SERVERS {
     pub Flags: u32,
     pub NumElements: u32,
     pub Servers: *mut DHCPDS_SERVER,
 }
-impl Copy for DHCPDS_SERVERS {}
-impl Clone for DHCPDS_SERVERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCPV4_FAILOVER_CLIENT_INFO {
     pub ClientIpAddress: u32,
     pub SubnetMask: u32,
@@ -762,24 +733,14 @@ pub struct DHCPV4_FAILOVER_CLIENT_INFO {
     pub PolicyName: windows_sys::core::PWSTR,
     pub Flags: u8,
 }
-impl Copy for DHCPV4_FAILOVER_CLIENT_INFO {}
-impl Clone for DHCPV4_FAILOVER_CLIENT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCPV4_FAILOVER_CLIENT_INFO,
 }
-impl Copy for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {}
-impl Clone for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCPV4_FAILOVER_CLIENT_INFO_EX {
     pub ClientIpAddress: u32,
     pub SubnetMask: u32,
@@ -804,25 +765,15 @@ pub struct DHCPV4_FAILOVER_CLIENT_INFO_EX {
     pub Flags: u8,
     pub AddressStateEx: u32,
 }
-impl Copy for DHCPV4_FAILOVER_CLIENT_INFO_EX {}
-impl Clone for DHCPV4_FAILOVER_CLIENT_INFO_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCPV6CAPI_CLASSID {
     pub Flags: u32,
     pub Data: *mut u8,
     pub nBytesData: u32,
 }
-impl Copy for DHCPV6CAPI_CLASSID {}
-impl Clone for DHCPV6CAPI_CLASSID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCPV6CAPI_PARAMS {
     pub Flags: u32,
     pub OptionId: u32,
@@ -830,24 +781,14 @@ pub struct DHCPV6CAPI_PARAMS {
     pub Data: *mut u8,
     pub nBytesData: u32,
 }
-impl Copy for DHCPV6CAPI_PARAMS {}
-impl Clone for DHCPV6CAPI_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCPV6CAPI_PARAMS_ARRAY {
     pub nParams: u32,
     pub Params: *mut DHCPV6CAPI_PARAMS,
 }
-impl Copy for DHCPV6CAPI_PARAMS_ARRAY {}
-impl Clone for DHCPV6CAPI_PARAMS_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCPV6Prefix {
     pub prefix: [u8; 16],
     pub prefixLength: u32,
@@ -855,13 +796,8 @@ pub struct DHCPV6Prefix {
     pub validLifeTime: u32,
     pub status: StatusCode,
 }
-impl Copy for DHCPV6Prefix {}
-impl Clone for DHCPV6Prefix {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCPV6PrefixLeaseInformation {
     pub nPrefixes: u32,
     pub prefixArray: *mut DHCPV6Prefix,
@@ -874,13 +810,8 @@ pub struct DHCPV6PrefixLeaseInformation {
     pub ServerId: *mut u8,
     pub ServerIdLen: u32,
 }
-impl Copy for DHCPV6PrefixLeaseInformation {}
-impl Clone for DHCPV6PrefixLeaseInformation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCPV6_BIND_ELEMENT {
     pub Flags: u32,
     pub fBoundToDHCPServer: super::super::Foundation::BOOL,
@@ -891,69 +822,39 @@ pub struct DHCPV6_BIND_ELEMENT {
     pub IfIdSize: u32,
     pub IfId: *mut u8,
 }
-impl Copy for DHCPV6_BIND_ELEMENT {}
-impl Clone for DHCPV6_BIND_ELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCPV6_BIND_ELEMENT_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCPV6_BIND_ELEMENT,
 }
-impl Copy for DHCPV6_BIND_ELEMENT_ARRAY {}
-impl Clone for DHCPV6_BIND_ELEMENT_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCPV6_IP_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_IPV6_ADDRESS,
 }
-impl Copy for DHCPV6_IP_ARRAY {}
-impl Clone for DHCPV6_IP_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCPV6_STATELESS_PARAMS {
     pub Status: super::super::Foundation::BOOL,
     pub PurgeInterval: u32,
 }
-impl Copy for DHCPV6_STATELESS_PARAMS {}
-impl Clone for DHCPV6_STATELESS_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCPV6_STATELESS_SCOPE_STATS {
     pub SubnetAddress: DHCP_IPV6_ADDRESS,
     pub NumStatelessClientsAdded: u64,
     pub NumStatelessClientsRemoved: u64,
 }
-impl Copy for DHCPV6_STATELESS_SCOPE_STATS {}
-impl Clone for DHCPV6_STATELESS_SCOPE_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCPV6_STATELESS_STATS {
     pub NumScopes: u32,
     pub ScopeStats: *mut DHCPV6_STATELESS_SCOPE_STATS,
 }
-impl Copy for DHCPV6_STATELESS_STATS {}
-impl Clone for DHCPV6_STATELESS_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_ADDR_PATTERN {
     pub MatchHWType: super::super::Foundation::BOOL,
     pub HWType: u8,
@@ -961,133 +862,78 @@ pub struct DHCP_ADDR_PATTERN {
     pub Length: u8,
     pub Pattern: [u8; 255],
 }
-impl Copy for DHCP_ADDR_PATTERN {}
-impl Clone for DHCP_ADDR_PATTERN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_ALL_OPTIONS {
     pub Flags: u32,
     pub NonVendorOptions: *mut DHCP_OPTION_ARRAY,
     pub NumVendorOptions: u32,
     pub VendorOptions: *mut DHCP_ALL_OPTIONS_0,
 }
-impl Copy for DHCP_ALL_OPTIONS {}
-impl Clone for DHCP_ALL_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_ALL_OPTIONS_0 {
     pub Option: DHCP_OPTION,
     pub VendorName: windows_sys::core::PWSTR,
     pub ClassName: windows_sys::core::PWSTR,
 }
-impl Copy for DHCP_ALL_OPTIONS_0 {}
-impl Clone for DHCP_ALL_OPTIONS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_ALL_OPTION_VALUES {
     pub Flags: u32,
     pub NumElements: u32,
     pub Options: *mut DHCP_ALL_OPTION_VALUES_0,
 }
-impl Copy for DHCP_ALL_OPTION_VALUES {}
-impl Clone for DHCP_ALL_OPTION_VALUES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_ALL_OPTION_VALUES_0 {
     pub ClassName: windows_sys::core::PWSTR,
     pub VendorName: windows_sys::core::PWSTR,
     pub IsVendor: super::super::Foundation::BOOL,
     pub OptionsArray: *mut DHCP_OPTION_VALUE_ARRAY,
 }
-impl Copy for DHCP_ALL_OPTION_VALUES_0 {}
-impl Clone for DHCP_ALL_OPTION_VALUES_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_ALL_OPTION_VALUES_PB {
     pub Flags: u32,
     pub NumElements: u32,
     pub Options: *mut DHCP_ALL_OPTION_VALUES_PB_0,
 }
-impl Copy for DHCP_ALL_OPTION_VALUES_PB {}
-impl Clone for DHCP_ALL_OPTION_VALUES_PB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_ALL_OPTION_VALUES_PB_0 {
     pub PolicyName: windows_sys::core::PWSTR,
     pub VendorName: windows_sys::core::PWSTR,
     pub IsVendor: super::super::Foundation::BOOL,
     pub OptionsArray: *mut DHCP_OPTION_VALUE_ARRAY,
 }
-impl Copy for DHCP_ALL_OPTION_VALUES_PB_0 {}
-impl Clone for DHCP_ALL_OPTION_VALUES_PB_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_ATTRIB {
     pub DhcpAttribId: u32,
     pub DhcpAttribType: u32,
     pub Anonymous: DHCP_ATTRIB_0,
 }
-impl Copy for DHCP_ATTRIB {}
-impl Clone for DHCP_ATTRIB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DHCP_ATTRIB_0 {
     pub DhcpAttribBool: super::super::Foundation::BOOL,
     pub DhcpAttribUlong: u32,
 }
-impl Copy for DHCP_ATTRIB_0 {}
-impl Clone for DHCP_ATTRIB_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_ATTRIB_ARRAY {
     pub NumElements: u32,
     pub DhcpAttribs: *mut DHCP_ATTRIB,
 }
-impl Copy for DHCP_ATTRIB_ARRAY {}
-impl Clone for DHCP_ATTRIB_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_BINARY_DATA {
     pub DataLength: u32,
     pub Data: *mut u8,
 }
-impl Copy for DHCP_BINARY_DATA {}
-impl Clone for DHCP_BINARY_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_BIND_ELEMENT {
     pub Flags: u32,
     pub fBoundToDHCPServer: super::super::Foundation::BOOL,
@@ -1097,37 +943,22 @@ pub struct DHCP_BIND_ELEMENT {
     pub IfIdSize: u32,
     pub IfId: *mut u8,
 }
-impl Copy for DHCP_BIND_ELEMENT {}
-impl Clone for DHCP_BIND_ELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_BIND_ELEMENT_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_BIND_ELEMENT,
 }
-impl Copy for DHCP_BIND_ELEMENT_ARRAY {}
-impl Clone for DHCP_BIND_ELEMENT_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_BOOTP_IP_RANGE {
     pub StartAddress: u32,
     pub EndAddress: u32,
     pub BootpAllocated: u32,
     pub MaxBootpAllowed: u32,
 }
-impl Copy for DHCP_BOOTP_IP_RANGE {}
-impl Clone for DHCP_BOOTP_IP_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CALLOUT_TABLE {
     pub DhcpControlHook: LPDHCP_CONTROL,
     pub DhcpNewPktHook: LPDHCP_NEWPKT,
@@ -1140,13 +971,8 @@ pub struct DHCP_CALLOUT_TABLE {
     pub DhcpExtensionHook: *mut core::ffi::c_void,
     pub DhcpReservedHook: *mut core::ffi::c_void,
 }
-impl Copy for DHCP_CALLOUT_TABLE {}
-impl Clone for DHCP_CALLOUT_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLASS_INFO {
     pub ClassName: windows_sys::core::PWSTR,
     pub ClassComment: windows_sys::core::PWSTR,
@@ -1155,35 +981,20 @@ pub struct DHCP_CLASS_INFO {
     pub Flags: u32,
     pub ClassData: *mut u8,
 }
-impl Copy for DHCP_CLASS_INFO {}
-impl Clone for DHCP_CLASS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLASS_INFO_ARRAY {
     pub NumElements: u32,
     pub Classes: *mut DHCP_CLASS_INFO,
 }
-impl Copy for DHCP_CLASS_INFO_ARRAY {}
-impl Clone for DHCP_CLASS_INFO_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLASS_INFO_ARRAY_V6 {
     pub NumElements: u32,
     pub Classes: *mut DHCP_CLASS_INFO_V6,
 }
-impl Copy for DHCP_CLASS_INFO_ARRAY_V6 {}
-impl Clone for DHCP_CLASS_INFO_ARRAY_V6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLASS_INFO_V6 {
     pub ClassName: windows_sys::core::PWSTR,
     pub ClassComment: windows_sys::core::PWSTR,
@@ -1193,13 +1004,8 @@ pub struct DHCP_CLASS_INFO_V6 {
     pub Flags: u32,
     pub ClassData: *mut u8,
 }
-impl Copy for DHCP_CLASS_INFO_V6 {}
-impl Clone for DHCP_CLASS_INFO_V6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_FILTER_STATUS_INFO {
     pub ClientIpAddress: u32,
     pub SubnetMask: u32,
@@ -1215,24 +1021,14 @@ pub struct DHCP_CLIENT_FILTER_STATUS_INFO {
     pub QuarantineCapable: super::super::Foundation::BOOL,
     pub FilterStatus: u32,
 }
-impl Copy for DHCP_CLIENT_FILTER_STATUS_INFO {}
-impl Clone for DHCP_CLIENT_FILTER_STATUS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCP_CLIENT_FILTER_STATUS_INFO,
 }
-impl Copy for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {}
-impl Clone for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO {
     pub ClientIpAddress: u32,
     pub SubnetMask: u32,
@@ -1242,68 +1038,38 @@ pub struct DHCP_CLIENT_INFO {
     pub ClientLeaseExpires: DATE_TIME,
     pub OwnerHost: DHCP_HOST_INFO,
 }
-impl Copy for DHCP_CLIENT_INFO {}
-impl Clone for DHCP_CLIENT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_ARRAY {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCP_CLIENT_INFO,
 }
-impl Copy for DHCP_CLIENT_INFO_ARRAY {}
-impl Clone for DHCP_CLIENT_INFO_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_ARRAY_V4 {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCP_CLIENT_INFO_V4,
 }
-impl Copy for DHCP_CLIENT_INFO_ARRAY_V4 {}
-impl Clone for DHCP_CLIENT_INFO_ARRAY_V4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_ARRAY_V5 {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCP_CLIENT_INFO_V5,
 }
-impl Copy for DHCP_CLIENT_INFO_ARRAY_V5 {}
-impl Clone for DHCP_CLIENT_INFO_ARRAY_V5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_ARRAY_V6 {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCP_CLIENT_INFO_V6,
 }
-impl Copy for DHCP_CLIENT_INFO_ARRAY_V6 {}
-impl Clone for DHCP_CLIENT_INFO_ARRAY_V6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_ARRAY_VQ {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCP_CLIENT_INFO_VQ,
 }
-impl Copy for DHCP_CLIENT_INFO_ARRAY_VQ {}
-impl Clone for DHCP_CLIENT_INFO_ARRAY_VQ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_EX {
     pub ClientIpAddress: u32,
     pub SubnetMask: u32,
@@ -1321,24 +1087,14 @@ pub struct DHCP_CLIENT_INFO_EX {
     pub PolicyName: windows_sys::core::PWSTR,
     pub Properties: *mut DHCP_PROPERTY_ARRAY,
 }
-impl Copy for DHCP_CLIENT_INFO_EX {}
-impl Clone for DHCP_CLIENT_INFO_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_EX_ARRAY {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCP_CLIENT_INFO_EX,
 }
-impl Copy for DHCP_CLIENT_INFO_EX_ARRAY {}
-impl Clone for DHCP_CLIENT_INFO_EX_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_PB {
     pub ClientIpAddress: u32,
     pub SubnetMask: u32,
@@ -1355,24 +1111,14 @@ pub struct DHCP_CLIENT_INFO_PB {
     pub FilterStatus: u32,
     pub PolicyName: windows_sys::core::PWSTR,
 }
-impl Copy for DHCP_CLIENT_INFO_PB {}
-impl Clone for DHCP_CLIENT_INFO_PB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_PB_ARRAY {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCP_CLIENT_INFO_PB,
 }
-impl Copy for DHCP_CLIENT_INFO_PB_ARRAY {}
-impl Clone for DHCP_CLIENT_INFO_PB_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_V4 {
     pub ClientIpAddress: u32,
     pub SubnetMask: u32,
@@ -1383,13 +1129,8 @@ pub struct DHCP_CLIENT_INFO_V4 {
     pub OwnerHost: DHCP_HOST_INFO,
     pub bClientType: u8,
 }
-impl Copy for DHCP_CLIENT_INFO_V4 {}
-impl Clone for DHCP_CLIENT_INFO_V4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_V5 {
     pub ClientIpAddress: u32,
     pub SubnetMask: u32,
@@ -1401,13 +1142,8 @@ pub struct DHCP_CLIENT_INFO_V5 {
     pub bClientType: u8,
     pub AddressState: u8,
 }
-impl Copy for DHCP_CLIENT_INFO_V5 {}
-impl Clone for DHCP_CLIENT_INFO_V5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_V6 {
     pub ClientIpAddress: DHCP_IPV6_ADDRESS,
     pub ClientDUID: DHCP_BINARY_DATA,
@@ -1419,13 +1155,8 @@ pub struct DHCP_CLIENT_INFO_V6 {
     pub ClientPrefLeaseExpires: DATE_TIME,
     pub OwnerHost: DHCP_HOST_INFO_V6,
 }
-impl Copy for DHCP_CLIENT_INFO_V6 {}
-impl Clone for DHCP_CLIENT_INFO_V6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_CLIENT_INFO_VQ {
     pub ClientIpAddress: u32,
     pub SubnetMask: u32,
@@ -1440,13 +1171,8 @@ pub struct DHCP_CLIENT_INFO_VQ {
     pub ProbationEnds: DATE_TIME,
     pub QuarantineCapable: super::super::Foundation::BOOL,
 }
-impl Copy for DHCP_CLIENT_INFO_VQ {}
-impl Clone for DHCP_CLIENT_INFO_VQ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_FAILOVER_RELATIONSHIP {
     pub PrimaryServer: u32,
     pub SecondaryServer: u32,
@@ -1463,24 +1189,14 @@ pub struct DHCP_FAILOVER_RELATIONSHIP {
     pub Percentage: u8,
     pub SharedSecret: windows_sys::core::PWSTR,
 }
-impl Copy for DHCP_FAILOVER_RELATIONSHIP {}
-impl Clone for DHCP_FAILOVER_RELATIONSHIP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_FAILOVER_RELATIONSHIP_ARRAY {
     pub NumElements: u32,
     pub pRelationships: *mut DHCP_FAILOVER_RELATIONSHIP,
 }
-impl Copy for DHCP_FAILOVER_RELATIONSHIP_ARRAY {}
-impl Clone for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_FAILOVER_STATISTICS {
     pub NumAddr: u32,
     pub AddrFree: u32,
@@ -1490,159 +1206,89 @@ pub struct DHCP_FAILOVER_STATISTICS {
     pub PartnerAddrInUse: u32,
     pub ThisAddrInUse: u32,
 }
-impl Copy for DHCP_FAILOVER_STATISTICS {}
-impl Clone for DHCP_FAILOVER_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_FILTER_ADD_INFO {
     pub AddrPatt: DHCP_ADDR_PATTERN,
     pub Comment: windows_sys::core::PWSTR,
     pub ListType: DHCP_FILTER_LIST_TYPE,
 }
-impl Copy for DHCP_FILTER_ADD_INFO {}
-impl Clone for DHCP_FILTER_ADD_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_FILTER_ENUM_INFO {
     pub NumElements: u32,
     pub pEnumRecords: *mut DHCP_FILTER_RECORD,
 }
-impl Copy for DHCP_FILTER_ENUM_INFO {}
-impl Clone for DHCP_FILTER_ENUM_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_FILTER_GLOBAL_INFO {
     pub EnforceAllowList: super::super::Foundation::BOOL,
     pub EnforceDenyList: super::super::Foundation::BOOL,
 }
-impl Copy for DHCP_FILTER_GLOBAL_INFO {}
-impl Clone for DHCP_FILTER_GLOBAL_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_FILTER_RECORD {
     pub AddrPatt: DHCP_ADDR_PATTERN,
     pub Comment: windows_sys::core::PWSTR,
 }
-impl Copy for DHCP_FILTER_RECORD {}
-impl Clone for DHCP_FILTER_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_HOST_INFO {
     pub IpAddress: u32,
     pub NetBiosName: windows_sys::core::PWSTR,
     pub HostName: windows_sys::core::PWSTR,
 }
-impl Copy for DHCP_HOST_INFO {}
-impl Clone for DHCP_HOST_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_HOST_INFO_V6 {
     pub IpAddress: DHCP_IPV6_ADDRESS,
     pub NetBiosName: windows_sys::core::PWSTR,
     pub HostName: windows_sys::core::PWSTR,
 }
-impl Copy for DHCP_HOST_INFO_V6 {}
-impl Clone for DHCP_HOST_INFO_V6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_IPV6_ADDRESS {
     pub HighOrderBits: u64,
     pub LowOrderBits: u64,
 }
-impl Copy for DHCP_IPV6_ADDRESS {}
-impl Clone for DHCP_IPV6_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_IP_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut u32,
 }
-impl Copy for DHCP_IP_ARRAY {}
-impl Clone for DHCP_IP_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_IP_CLUSTER {
     pub ClusterAddress: u32,
     pub ClusterMask: u32,
 }
-impl Copy for DHCP_IP_CLUSTER {}
-impl Clone for DHCP_IP_CLUSTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_IP_RANGE {
     pub StartAddress: u32,
     pub EndAddress: u32,
 }
-impl Copy for DHCP_IP_RANGE {}
-impl Clone for DHCP_IP_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_IP_RANGE_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_IP_RANGE,
 }
-impl Copy for DHCP_IP_RANGE_ARRAY {}
-impl Clone for DHCP_IP_RANGE_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_IP_RANGE_V6 {
     pub StartAddress: DHCP_IPV6_ADDRESS,
     pub EndAddress: DHCP_IPV6_ADDRESS,
 }
-impl Copy for DHCP_IP_RANGE_V6 {}
-impl Clone for DHCP_IP_RANGE_V6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_IP_RESERVATION {
     pub ReservedIpAddress: u32,
     pub ReservedForClient: *mut DHCP_BINARY_DATA,
 }
-impl Copy for DHCP_IP_RESERVATION {}
-impl Clone for DHCP_IP_RESERVATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_IP_RESERVATION_INFO {
     pub ReservedIpAddress: u32,
     pub ReservedForClient: DHCP_BINARY_DATA,
@@ -1651,37 +1297,22 @@ pub struct DHCP_IP_RESERVATION_INFO {
     pub bAllowedClientTypes: u8,
     pub fOptionsPresent: u8,
 }
-impl Copy for DHCP_IP_RESERVATION_INFO {}
-impl Clone for DHCP_IP_RESERVATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_IP_RESERVATION_V4 {
     pub ReservedIpAddress: u32,
     pub ReservedForClient: *mut DHCP_BINARY_DATA,
     pub bAllowedClientTypes: u8,
 }
-impl Copy for DHCP_IP_RESERVATION_V4 {}
-impl Clone for DHCP_IP_RESERVATION_V4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_IP_RESERVATION_V6 {
     pub ReservedIpAddress: DHCP_IPV6_ADDRESS,
     pub ReservedForClient: *mut DHCP_BINARY_DATA,
     pub InterfaceId: u32,
 }
-impl Copy for DHCP_IP_RESERVATION_V6 {}
-impl Clone for DHCP_IP_RESERVATION_V6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_MIB_INFO {
     pub Discovers: u32,
     pub Offers: u32,
@@ -1694,13 +1325,8 @@ pub struct DHCP_MIB_INFO {
     pub Scopes: u32,
     pub ScopeInfo: *mut SCOPE_MIB_INFO,
 }
-impl Copy for DHCP_MIB_INFO {}
-impl Clone for DHCP_MIB_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_MIB_INFO_V5 {
     pub Discovers: u32,
     pub Offers: u32,
@@ -1722,13 +1348,8 @@ pub struct DHCP_MIB_INFO_V5 {
     pub Scopes: u32,
     pub ScopeInfo: *mut SCOPE_MIB_INFO_V5,
 }
-impl Copy for DHCP_MIB_INFO_V5 {}
-impl Clone for DHCP_MIB_INFO_V5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_MIB_INFO_V6 {
     pub Solicits: u32,
     pub Advertises: u32,
@@ -1744,13 +1365,8 @@ pub struct DHCP_MIB_INFO_V6 {
     pub Scopes: u32,
     pub ScopeInfo: *mut SCOPE_MIB_INFO_V6,
 }
-impl Copy for DHCP_MIB_INFO_V6 {}
-impl Clone for DHCP_MIB_INFO_V6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_MIB_INFO_VQ {
     pub Discovers: u32,
     pub Offers: u32,
@@ -1770,13 +1386,8 @@ pub struct DHCP_MIB_INFO_VQ {
     pub Scopes: u32,
     pub ScopeInfo: *mut SCOPE_MIB_INFO_VQ,
 }
-impl Copy for DHCP_MIB_INFO_VQ {}
-impl Clone for DHCP_MIB_INFO_VQ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_OPTION {
     pub OptionID: u32,
     pub OptionName: windows_sys::core::PWSTR,
@@ -1784,46 +1395,26 @@ pub struct DHCP_OPTION {
     pub DefaultValue: DHCP_OPTION_DATA,
     pub OptionType: DHCP_OPTION_TYPE,
 }
-impl Copy for DHCP_OPTION {}
-impl Clone for DHCP_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_OPTION_ARRAY {
     pub NumElements: u32,
     pub Options: *mut DHCP_OPTION,
 }
-impl Copy for DHCP_OPTION_ARRAY {}
-impl Clone for DHCP_OPTION_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_OPTION_DATA {
     pub NumElements: u32,
     pub Elements: *mut DHCP_OPTION_DATA_ELEMENT,
 }
-impl Copy for DHCP_OPTION_DATA {}
-impl Clone for DHCP_OPTION_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_OPTION_DATA_ELEMENT {
     pub OptionType: DHCP_OPTION_DATA_TYPE,
     pub Element: DHCP_OPTION_DATA_ELEMENT_0,
 }
-impl Copy for DHCP_OPTION_DATA_ELEMENT {}
-impl Clone for DHCP_OPTION_DATA_ELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DHCP_OPTION_DATA_ELEMENT_0 {
     pub ByteOption: u8,
     pub WordOption: u16,
@@ -1835,35 +1426,20 @@ pub union DHCP_OPTION_DATA_ELEMENT_0 {
     pub EncapsulatedDataOption: DHCP_BINARY_DATA,
     pub Ipv6AddressDataOption: windows_sys::core::PWSTR,
 }
-impl Copy for DHCP_OPTION_DATA_ELEMENT_0 {}
-impl Clone for DHCP_OPTION_DATA_ELEMENT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_OPTION_LIST {
     pub NumOptions: u32,
     pub Options: *mut DHCP_OPTION_VALUE,
 }
-impl Copy for DHCP_OPTION_LIST {}
-impl Clone for DHCP_OPTION_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_OPTION_SCOPE_INFO {
     pub ScopeType: DHCP_OPTION_SCOPE_TYPE,
     pub ScopeInfo: DHCP_OPTION_SCOPE_INFO_0,
 }
-impl Copy for DHCP_OPTION_SCOPE_INFO {}
-impl Clone for DHCP_OPTION_SCOPE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DHCP_OPTION_SCOPE_INFO_0 {
     pub DefaultScopeInfo: *mut core::ffi::c_void,
     pub GlobalScopeInfo: *mut core::ffi::c_void,
@@ -1871,58 +1447,33 @@ pub union DHCP_OPTION_SCOPE_INFO_0 {
     pub ReservedScopeInfo: DHCP_RESERVED_SCOPE,
     pub MScopeInfo: windows_sys::core::PWSTR,
 }
-impl Copy for DHCP_OPTION_SCOPE_INFO_0 {}
-impl Clone for DHCP_OPTION_SCOPE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_OPTION_SCOPE_INFO6 {
     pub ScopeType: DHCP_OPTION_SCOPE_TYPE6,
     pub ScopeInfo: DHCP_OPTION_SCOPE_INFO6_0,
 }
-impl Copy for DHCP_OPTION_SCOPE_INFO6 {}
-impl Clone for DHCP_OPTION_SCOPE_INFO6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DHCP_OPTION_SCOPE_INFO6_0 {
     pub DefaultScopeInfo: *mut core::ffi::c_void,
     pub SubnetScopeInfo: DHCP_IPV6_ADDRESS,
     pub ReservedScopeInfo: DHCP_RESERVED_SCOPE6,
 }
-impl Copy for DHCP_OPTION_SCOPE_INFO6_0 {}
-impl Clone for DHCP_OPTION_SCOPE_INFO6_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_OPTION_VALUE {
     pub OptionID: u32,
     pub Value: DHCP_OPTION_DATA,
 }
-impl Copy for DHCP_OPTION_VALUE {}
-impl Clone for DHCP_OPTION_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_OPTION_VALUE_ARRAY {
     pub NumElements: u32,
     pub Values: *mut DHCP_OPTION_VALUE,
 }
-impl Copy for DHCP_OPTION_VALUE_ARRAY {}
-impl Clone for DHCP_OPTION_VALUE_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_PERF_STATS {
     pub dwNumPacketsReceived: u32,
     pub dwNumPacketsDuplicate: u32,
@@ -1944,13 +1495,8 @@ pub struct DHCP_PERF_STATS {
     pub dwNumPacketsInQuarReadyQueue: u32,
     pub dwNumPacketsInQuarDecisionQueue: u32,
 }
-impl Copy for DHCP_PERF_STATS {}
-impl Clone for DHCP_PERF_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_POLICY {
     pub PolicyName: windows_sys::core::PWSTR,
     pub IsGlobalPolicy: super::super::Foundation::BOOL,
@@ -1962,24 +1508,14 @@ pub struct DHCP_POLICY {
     pub Description: windows_sys::core::PWSTR,
     pub Enabled: super::super::Foundation::BOOL,
 }
-impl Copy for DHCP_POLICY {}
-impl Clone for DHCP_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_POLICY_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_POLICY,
 }
-impl Copy for DHCP_POLICY_ARRAY {}
-impl Clone for DHCP_POLICY_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_POLICY_EX {
     pub PolicyName: windows_sys::core::PWSTR,
     pub IsGlobalPolicy: super::super::Foundation::BOOL,
@@ -1992,24 +1528,14 @@ pub struct DHCP_POLICY_EX {
     pub Enabled: super::super::Foundation::BOOL,
     pub Properties: *mut DHCP_PROPERTY_ARRAY,
 }
-impl Copy for DHCP_POLICY_EX {}
-impl Clone for DHCP_POLICY_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_POLICY_EX_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_POLICY_EX,
 }
-impl Copy for DHCP_POLICY_EX_ARRAY {}
-impl Clone for DHCP_POLICY_EX_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_POL_COND {
     pub ParentExpr: u32,
     pub Type: DHCP_POL_ATTR_TYPE,
@@ -2020,58 +1546,33 @@ pub struct DHCP_POL_COND {
     pub Value: *mut u8,
     pub ValueLength: u32,
 }
-impl Copy for DHCP_POL_COND {}
-impl Clone for DHCP_POL_COND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_POL_COND_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_POL_COND,
 }
-impl Copy for DHCP_POL_COND_ARRAY {}
-impl Clone for DHCP_POL_COND_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_POL_EXPR {
     pub ParentExpr: u32,
     pub Operator: DHCP_POL_LOGIC_OPER,
 }
-impl Copy for DHCP_POL_EXPR {}
-impl Clone for DHCP_POL_EXPR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_POL_EXPR_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_POL_EXPR,
 }
-impl Copy for DHCP_POL_EXPR_ARRAY {}
-impl Clone for DHCP_POL_EXPR_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_PROPERTY {
     pub ID: DHCP_PROPERTY_ID,
     pub Type: DHCP_PROPERTY_TYPE,
     pub Value: DHCP_PROPERTY_0,
 }
-impl Copy for DHCP_PROPERTY {}
-impl Clone for DHCP_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DHCP_PROPERTY_0 {
     pub ByteValue: u8,
     pub WordValue: u16,
@@ -2079,125 +1580,70 @@ pub union DHCP_PROPERTY_0 {
     pub StringValue: windows_sys::core::PWSTR,
     pub BinaryValue: DHCP_BINARY_DATA,
 }
-impl Copy for DHCP_PROPERTY_0 {}
-impl Clone for DHCP_PROPERTY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_PROPERTY_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_PROPERTY,
 }
-impl Copy for DHCP_PROPERTY_ARRAY {}
-impl Clone for DHCP_PROPERTY_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_RESERVATION_INFO_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut *mut DHCP_IP_RESERVATION_INFO,
 }
-impl Copy for DHCP_RESERVATION_INFO_ARRAY {}
-impl Clone for DHCP_RESERVATION_INFO_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_RESERVED_SCOPE {
     pub ReservedIpAddress: u32,
     pub ReservedIpSubnetAddress: u32,
 }
-impl Copy for DHCP_RESERVED_SCOPE {}
-impl Clone for DHCP_RESERVED_SCOPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_RESERVED_SCOPE6 {
     pub ReservedIpAddress: DHCP_IPV6_ADDRESS,
     pub ReservedIpSubnetAddress: DHCP_IPV6_ADDRESS,
 }
-impl Copy for DHCP_RESERVED_SCOPE6 {}
-impl Clone for DHCP_RESERVED_SCOPE6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SCAN_ITEM {
     pub IpAddress: u32,
     pub ScanFlag: DHCP_SCAN_FLAG,
 }
-impl Copy for DHCP_SCAN_ITEM {}
-impl Clone for DHCP_SCAN_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SCAN_LIST {
     pub NumScanItems: u32,
     pub ScanItems: *mut DHCP_SCAN_ITEM,
 }
-impl Copy for DHCP_SCAN_LIST {}
-impl Clone for DHCP_SCAN_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SEARCH_INFO {
     pub SearchType: DHCP_SEARCH_INFO_TYPE,
     pub SearchInfo: DHCP_SEARCH_INFO_0,
 }
-impl Copy for DHCP_SEARCH_INFO {}
-impl Clone for DHCP_SEARCH_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DHCP_SEARCH_INFO_0 {
     pub ClientIpAddress: u32,
     pub ClientHardwareAddress: DHCP_BINARY_DATA,
     pub ClientName: windows_sys::core::PWSTR,
 }
-impl Copy for DHCP_SEARCH_INFO_0 {}
-impl Clone for DHCP_SEARCH_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SEARCH_INFO_V6 {
     pub SearchType: DHCP_SEARCH_INFO_TYPE_V6,
     pub SearchInfo: DHCP_SEARCH_INFO_V6_0,
 }
-impl Copy for DHCP_SEARCH_INFO_V6 {}
-impl Clone for DHCP_SEARCH_INFO_V6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DHCP_SEARCH_INFO_V6_0 {
     pub ClientIpAddress: DHCP_IPV6_ADDRESS,
     pub ClientDUID: DHCP_BINARY_DATA,
     pub ClientName: windows_sys::core::PWSTR,
 }
-impl Copy for DHCP_SEARCH_INFO_V6_0 {}
-impl Clone for DHCP_SEARCH_INFO_V6_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SERVER_CONFIG_INFO {
     pub APIProtocolSupport: u32,
     pub DatabaseName: windows_sys::core::PWSTR,
@@ -2209,13 +1655,8 @@ pub struct DHCP_SERVER_CONFIG_INFO {
     pub DatabaseCleanupInterval: u32,
     pub DebugFlag: u32,
 }
-impl Copy for DHCP_SERVER_CONFIG_INFO {}
-impl Clone for DHCP_SERVER_CONFIG_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SERVER_CONFIG_INFO_V4 {
     pub APIProtocolSupport: u32,
     pub DatabaseName: windows_sys::core::PWSTR,
@@ -2231,13 +1672,8 @@ pub struct DHCP_SERVER_CONFIG_INFO_V4 {
     pub wszBootTableString: windows_sys::core::PWSTR,
     pub fAuditLog: super::super::Foundation::BOOL,
 }
-impl Copy for DHCP_SERVER_CONFIG_INFO_V4 {}
-impl Clone for DHCP_SERVER_CONFIG_INFO_V4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SERVER_CONFIG_INFO_V6 {
     pub UnicastFlag: super::super::Foundation::BOOL,
     pub RapidCommitFlag: super::super::Foundation::BOOL,
@@ -2249,13 +1685,8 @@ pub struct DHCP_SERVER_CONFIG_INFO_V6 {
     pub ValidLifetimeIATA: u32,
     pub fAuditLog: super::super::Foundation::BOOL,
 }
-impl Copy for DHCP_SERVER_CONFIG_INFO_V6 {}
-impl Clone for DHCP_SERVER_CONFIG_INFO_V6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SERVER_CONFIG_INFO_VQ {
     pub APIProtocolSupport: u32,
     pub DatabaseName: windows_sys::core::PWSTR,
@@ -2274,13 +1705,8 @@ pub struct DHCP_SERVER_CONFIG_INFO_VQ {
     pub QuarDefFail: u32,
     pub QuarRuntimeStatus: super::super::Foundation::BOOL,
 }
-impl Copy for DHCP_SERVER_CONFIG_INFO_VQ {}
-impl Clone for DHCP_SERVER_CONFIG_INFO_VQ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SERVER_OPTIONS {
     pub MessageType: *mut u8,
     pub SubnetMask: *mut u32,
@@ -2308,35 +1734,20 @@ pub struct DHCP_SERVER_OPTIONS {
     pub DSDomainNameLen: u32,
     pub ScopeId: *mut u32,
 }
-impl Copy for DHCP_SERVER_OPTIONS {}
-impl Clone for DHCP_SERVER_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SERVER_SPECIFIC_STRINGS {
     pub DefaultVendorClassName: windows_sys::core::PWSTR,
     pub DefaultUserClassName: windows_sys::core::PWSTR,
 }
-impl Copy for DHCP_SERVER_SPECIFIC_STRINGS {}
-impl Clone for DHCP_SERVER_SPECIFIC_STRINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_DATA {
     pub ElementType: DHCP_SUBNET_ELEMENT_TYPE,
     pub Element: DHCP_SUBNET_ELEMENT_DATA_0,
 }
-impl Copy for DHCP_SUBNET_ELEMENT_DATA {}
-impl Clone for DHCP_SUBNET_ELEMENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DHCP_SUBNET_ELEMENT_DATA_0 {
     pub IpRange: *mut DHCP_IP_RANGE,
     pub SecondaryHost: *mut DHCP_HOST_INFO,
@@ -2344,24 +1755,14 @@ pub union DHCP_SUBNET_ELEMENT_DATA_0 {
     pub ExcludeIpRange: *mut DHCP_IP_RANGE,
     pub IpUsedCluster: *mut DHCP_IP_CLUSTER,
 }
-impl Copy for DHCP_SUBNET_ELEMENT_DATA_0 {}
-impl Clone for DHCP_SUBNET_ELEMENT_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_DATA_V4 {
     pub ElementType: DHCP_SUBNET_ELEMENT_TYPE,
     pub Element: DHCP_SUBNET_ELEMENT_DATA_V4_0,
 }
-impl Copy for DHCP_SUBNET_ELEMENT_DATA_V4 {}
-impl Clone for DHCP_SUBNET_ELEMENT_DATA_V4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DHCP_SUBNET_ELEMENT_DATA_V4_0 {
     pub IpRange: *mut DHCP_IP_RANGE,
     pub SecondaryHost: *mut DHCP_HOST_INFO,
@@ -2369,24 +1770,14 @@ pub union DHCP_SUBNET_ELEMENT_DATA_V4_0 {
     pub ExcludeIpRange: *mut DHCP_IP_RANGE,
     pub IpUsedCluster: *mut DHCP_IP_CLUSTER,
 }
-impl Copy for DHCP_SUBNET_ELEMENT_DATA_V4_0 {}
-impl Clone for DHCP_SUBNET_ELEMENT_DATA_V4_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_DATA_V5 {
     pub ElementType: DHCP_SUBNET_ELEMENT_TYPE,
     pub Element: DHCP_SUBNET_ELEMENT_DATA_V5_0,
 }
-impl Copy for DHCP_SUBNET_ELEMENT_DATA_V5 {}
-impl Clone for DHCP_SUBNET_ELEMENT_DATA_V5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DHCP_SUBNET_ELEMENT_DATA_V5_0 {
     pub IpRange: *mut DHCP_BOOTP_IP_RANGE,
     pub SecondaryHost: *mut DHCP_HOST_INFO,
@@ -2394,80 +1785,45 @@ pub union DHCP_SUBNET_ELEMENT_DATA_V5_0 {
     pub ExcludeIpRange: *mut DHCP_IP_RANGE,
     pub IpUsedCluster: *mut DHCP_IP_CLUSTER,
 }
-impl Copy for DHCP_SUBNET_ELEMENT_DATA_V5_0 {}
-impl Clone for DHCP_SUBNET_ELEMENT_DATA_V5_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_DATA_V6 {
     pub ElementType: DHCP_SUBNET_ELEMENT_TYPE_V6,
     pub Element: DHCP_SUBNET_ELEMENT_DATA_V6_0,
 }
-impl Copy for DHCP_SUBNET_ELEMENT_DATA_V6 {}
-impl Clone for DHCP_SUBNET_ELEMENT_DATA_V6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DHCP_SUBNET_ELEMENT_DATA_V6_0 {
     pub IpRange: *mut DHCP_IP_RANGE_V6,
     pub ReservedIp: *mut DHCP_IP_RESERVATION_V6,
     pub ExcludeIpRange: *mut DHCP_IP_RANGE_V6,
 }
-impl Copy for DHCP_SUBNET_ELEMENT_DATA_V6_0 {}
-impl Clone for DHCP_SUBNET_ELEMENT_DATA_V6_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_SUBNET_ELEMENT_DATA,
 }
-impl Copy for DHCP_SUBNET_ELEMENT_INFO_ARRAY {}
-impl Clone for DHCP_SUBNET_ELEMENT_INFO_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
     pub NumElements: u32,
     pub Elements: *mut DHCP_SUBNET_ELEMENT_DATA_V4,
 }
-impl Copy for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {}
-impl Clone for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
     pub NumElements: u32,
     pub Elements: *mut DHCP_SUBNET_ELEMENT_DATA_V5,
 }
-impl Copy for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {}
-impl Clone for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
     pub NumElements: u32,
     pub Elements: *mut DHCP_SUBNET_ELEMENT_DATA_V6,
 }
-impl Copy for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {}
-impl Clone for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_INFO {
     pub SubnetAddress: u32,
     pub SubnetMask: u32,
@@ -2476,13 +1832,8 @@ pub struct DHCP_SUBNET_INFO {
     pub PrimaryHost: DHCP_HOST_INFO,
     pub SubnetState: DHCP_SUBNET_STATE,
 }
-impl Copy for DHCP_SUBNET_INFO {}
-impl Clone for DHCP_SUBNET_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_INFO_V6 {
     pub SubnetAddress: DHCP_IPV6_ADDRESS,
     pub Prefix: u32,
@@ -2492,13 +1843,8 @@ pub struct DHCP_SUBNET_INFO_V6 {
     pub State: u32,
     pub ScopeId: u32,
 }
-impl Copy for DHCP_SUBNET_INFO_V6 {}
-impl Clone for DHCP_SUBNET_INFO_V6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_INFO_VQ {
     pub SubnetAddress: u32,
     pub SubnetMask: u32,
@@ -2512,87 +1858,52 @@ pub struct DHCP_SUBNET_INFO_VQ {
     pub Reserved3: i64,
     pub Reserved4: i64,
 }
-impl Copy for DHCP_SUBNET_INFO_VQ {}
-impl Clone for DHCP_SUBNET_INFO_VQ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUPER_SCOPE_TABLE {
     pub cEntries: u32,
     pub pEntries: *mut DHCP_SUPER_SCOPE_TABLE_ENTRY,
 }
-impl Copy for DHCP_SUPER_SCOPE_TABLE {}
-impl Clone for DHCP_SUPER_SCOPE_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUPER_SCOPE_TABLE_ENTRY {
     pub SubnetAddress: u32,
     pub SuperScopeNumber: u32,
     pub NextInSuperScope: u32,
     pub SuperScopeName: windows_sys::core::PWSTR,
 }
-impl Copy for DHCP_SUPER_SCOPE_TABLE_ENTRY {}
-impl Clone for DHCP_SUPER_SCOPE_TABLE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DWORD_DWORD {
     pub DWord1: u32,
     pub DWord2: u32,
 }
-impl Copy for DWORD_DWORD {}
-impl Clone for DWORD_DWORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCOPE_MIB_INFO {
     pub Subnet: u32,
     pub NumAddressesInuse: u32,
     pub NumAddressesFree: u32,
     pub NumPendingOffers: u32,
 }
-impl Copy for SCOPE_MIB_INFO {}
-impl Clone for SCOPE_MIB_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCOPE_MIB_INFO_V5 {
     pub Subnet: u32,
     pub NumAddressesInuse: u32,
     pub NumAddressesFree: u32,
     pub NumPendingOffers: u32,
 }
-impl Copy for SCOPE_MIB_INFO_V5 {}
-impl Clone for SCOPE_MIB_INFO_V5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCOPE_MIB_INFO_V6 {
     pub Subnet: DHCP_IPV6_ADDRESS,
     pub NumAddressesInuse: u64,
     pub NumAddressesFree: u64,
     pub NumPendingAdvertises: u64,
 }
-impl Copy for SCOPE_MIB_INFO_V6 {}
-impl Clone for SCOPE_MIB_INFO_V6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCOPE_MIB_INFO_VQ {
     pub Subnet: u32,
     pub NumAddressesInuse: u32,
@@ -2604,12 +1915,6 @@ pub struct SCOPE_MIB_INFO_VQ {
     pub QtnNonQtnLeases: u32,
     pub QtnExemptLeases: u32,
     pub QtnCapableClients: u32,
-}
-impl Copy for SCOPE_MIB_INFO_VQ {}
-impl Clone for SCOPE_MIB_INFO_VQ {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type LPDHCP_CONTROL = Option<unsafe extern "system" fn(dwcontrolcode: u32, lpreserved: *mut core::ffi::c_void) -> u32>;
 pub type LPDHCP_DELETE_CLIENT = Option<unsafe extern "system" fn(ipaddress: u32, hwaddress: *mut u8, hwaddresslength: u32, reserved: u32, clienttype: u32) -> u32>;

@@ -41,18 +41,14 @@ pub type REGISTER_TOUCH_WINDOW_FLAGS = u32;
 pub type TOUCHEVENTF_FLAGS = u32;
 pub type TOUCHINPUTMASKF_MASK = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GESTURECONFIG {
     pub dwID: GESTURECONFIG_ID,
     pub dwWant: u32,
     pub dwBlock: u32,
 }
-impl Copy for GESTURECONFIG {}
-impl Clone for GESTURECONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GESTUREINFO {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -64,13 +60,8 @@ pub struct GESTUREINFO {
     pub ullArguments: u64,
     pub cbExtraArgs: u32,
 }
-impl Copy for GESTUREINFO {}
-impl Clone for GESTUREINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GESTURENOTIFYSTRUCT {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -78,17 +69,12 @@ pub struct GESTURENOTIFYSTRUCT {
     pub ptsLocation: super::super::super::Foundation::POINTS,
     pub dwInstanceID: u32,
 }
-impl Copy for GESTURENOTIFYSTRUCT {}
-impl Clone for GESTURENOTIFYSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type HGESTUREINFO = isize;
 pub type HTOUCHINPUT = isize;
 pub const InertiaProcessor: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xabb27087_4ce0_4e58_a0cb_e24df96814be);
 pub const ManipulationProcessor: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x597d4fb0_47fd_4aff_89b9_c6cfae8cf08e);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TOUCHINPUT {
     pub x: i32,
     pub y: i32,
@@ -100,10 +86,4 @@ pub struct TOUCHINPUT {
     pub dwExtraInfo: usize,
     pub cxContact: u32,
     pub cyContact: u32,
-}
-impl Copy for TOUCHINPUT {}
-impl Clone for TOUCHINPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

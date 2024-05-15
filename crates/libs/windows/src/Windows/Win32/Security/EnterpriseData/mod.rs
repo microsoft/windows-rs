@@ -341,59 +341,27 @@ impl core::fmt::Debug for SRPHOSTING_VERSION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_UNPROTECT_OPTIONS {
     pub audit: u8,
-}
-impl Copy for FILE_UNPROTECT_OPTIONS {}
-impl Clone for FILE_UNPROTECT_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FILE_UNPROTECT_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FILE_UNPROTECT_OPTIONS").field("audit", &self.audit).finish()
-    }
 }
 impl windows_core::TypeKind for FILE_UNPROTECT_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FILE_UNPROTECT_OPTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.audit == other.audit
-    }
-}
-impl Eq for FILE_UNPROTECT_OPTIONS {}
 impl Default for FILE_UNPROTECT_OPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTHREAD_NETWORK_CONTEXT {
     pub ThreadId: u32,
     pub ThreadContext: super::super::Foundation::HANDLE,
 }
-impl Copy for HTHREAD_NETWORK_CONTEXT {}
-impl Clone for HTHREAD_NETWORK_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HTHREAD_NETWORK_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HTHREAD_NETWORK_CONTEXT").field("ThreadId", &self.ThreadId).field("ThreadContext", &self.ThreadContext).finish()
-    }
-}
 impl windows_core::TypeKind for HTHREAD_NETWORK_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HTHREAD_NETWORK_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.ThreadId == other.ThreadId && self.ThreadContext == other.ThreadContext
-    }
-}
-impl Eq for HTHREAD_NETWORK_CONTEXT {}
 impl Default for HTHREAD_NETWORK_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

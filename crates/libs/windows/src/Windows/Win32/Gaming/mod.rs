@@ -732,30 +732,14 @@ impl core::fmt::Debug for XBL_IDP_AUTH_TOKEN_STATUS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GAMING_DEVICE_MODEL_INFORMATION {
     pub vendorId: GAMING_DEVICE_VENDOR_ID,
     pub deviceId: GAMING_DEVICE_DEVICE_ID,
 }
-impl Copy for GAMING_DEVICE_MODEL_INFORMATION {}
-impl Clone for GAMING_DEVICE_MODEL_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GAMING_DEVICE_MODEL_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GAMING_DEVICE_MODEL_INFORMATION").field("vendorId", &self.vendorId).field("deviceId", &self.deviceId).finish()
-    }
-}
 impl windows_core::TypeKind for GAMING_DEVICE_MODEL_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GAMING_DEVICE_MODEL_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.vendorId == other.vendorId && self.deviceId == other.deviceId
-    }
-}
-impl Eq for GAMING_DEVICE_MODEL_INFORMATION {}
 impl Default for GAMING_DEVICE_MODEL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

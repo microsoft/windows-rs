@@ -94,6 +94,7 @@ pub const VDM_KGDT_R3_CODE: u32 = 24u32;
 pub const VDM_MAXIMUM_SUPPORTED_EXTENSION: u32 = 512u32;
 pub const WOW_SYSTEM: u32 = 1u32;
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct GLOBALENTRY {
     pub dwSize: u32,
     pub dwAddress: u32,
@@ -109,12 +110,6 @@ pub struct GLOBALENTRY {
     pub dwNext: u32,
     pub dwNextAlt: u32,
 }
-impl Copy for GLOBALENTRY {}
-impl Clone for GLOBALENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for GLOBALENTRY {
     type TypeKind = windows_core::CopyType;
 }
@@ -124,38 +119,23 @@ impl Default for GLOBALENTRY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_NOTE {
     pub Module: [i8; 10],
     pub FileName: [i8; 256],
     pub hModule: u16,
     pub hTask: u16,
 }
-impl Copy for IMAGE_NOTE {}
-impl Clone for IMAGE_NOTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_NOTE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_NOTE").field("Module", &self.Module).field("FileName", &self.FileName).field("hModule", &self.hModule).field("hTask", &self.hTask).finish()
-    }
-}
 impl windows_core::TypeKind for IMAGE_NOTE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_NOTE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Module == other.Module && self.FileName == other.FileName && self.hModule == other.hModule && self.hTask == other.hTask
-    }
-}
-impl Eq for IMAGE_NOTE {}
 impl Default for IMAGE_NOTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct MODULEENTRY {
     pub dwSize: u32,
     pub szModule: [i8; 10],
@@ -163,12 +143,6 @@ pub struct MODULEENTRY {
     pub wcUsage: u16,
     pub szExePath: [i8; 256],
     pub wNext: u16,
-}
-impl Copy for MODULEENTRY {}
-impl Clone for MODULEENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MODULEENTRY {
     type TypeKind = windows_core::CopyType;
@@ -179,6 +153,7 @@ impl Default for MODULEENTRY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEGMENT_NOTE {
     pub Selector1: u16,
     pub Selector2: u16,
@@ -188,57 +163,24 @@ pub struct SEGMENT_NOTE {
     pub Type: u16,
     pub Length: u32,
 }
-impl Copy for SEGMENT_NOTE {}
-impl Clone for SEGMENT_NOTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SEGMENT_NOTE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SEGMENT_NOTE").field("Selector1", &self.Selector1).field("Selector2", &self.Selector2).field("Segment", &self.Segment).field("Module", &self.Module).field("FileName", &self.FileName).field("Type", &self.Type).field("Length", &self.Length).finish()
-    }
-}
 impl windows_core::TypeKind for SEGMENT_NOTE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SEGMENT_NOTE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Selector1 == other.Selector1 && self.Selector2 == other.Selector2 && self.Segment == other.Segment && self.Module == other.Module && self.FileName == other.FileName && self.Type == other.Type && self.Length == other.Length
-    }
-}
-impl Eq for SEGMENT_NOTE {}
 impl Default for SEGMENT_NOTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TEMP_BP_NOTE {
     pub Seg: u16,
     pub Offset: u32,
     pub bPM: super::super::Foundation::BOOL,
 }
-impl Copy for TEMP_BP_NOTE {}
-impl Clone for TEMP_BP_NOTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TEMP_BP_NOTE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TEMP_BP_NOTE").field("Seg", &self.Seg).field("Offset", &self.Offset).field("bPM", &self.bPM).finish()
-    }
-}
 impl windows_core::TypeKind for TEMP_BP_NOTE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TEMP_BP_NOTE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Seg == other.Seg && self.Offset == other.Offset && self.bPM == other.bPM
-    }
-}
-impl Eq for TEMP_BP_NOTE {}
 impl Default for TEMP_BP_NOTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -247,6 +189,7 @@ impl Default for TEMP_BP_NOTE {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDMCONTEXT {
     pub ContextFlags: u32,
     pub Dr0: u32,
@@ -276,62 +219,9 @@ pub struct VDMCONTEXT {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
-impl Copy for VDMCONTEXT {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for VDMCONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-impl core::fmt::Debug for VDMCONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDMCONTEXT")
-            .field("ContextFlags", &self.ContextFlags)
-            .field("Dr0", &self.Dr0)
-            .field("Dr1", &self.Dr1)
-            .field("Dr2", &self.Dr2)
-            .field("Dr3", &self.Dr3)
-            .field("Dr6", &self.Dr6)
-            .field("Dr7", &self.Dr7)
-            .field("FloatSave", &self.FloatSave)
-            .field("SegGs", &self.SegGs)
-            .field("SegFs", &self.SegFs)
-            .field("SegEs", &self.SegEs)
-            .field("SegDs", &self.SegDs)
-            .field("Edi", &self.Edi)
-            .field("Esi", &self.Esi)
-            .field("Ebx", &self.Ebx)
-            .field("Edx", &self.Edx)
-            .field("Ecx", &self.Ecx)
-            .field("Eax", &self.Eax)
-            .field("Ebp", &self.Ebp)
-            .field("Eip", &self.Eip)
-            .field("SegCs", &self.SegCs)
-            .field("EFlags", &self.EFlags)
-            .field("Esp", &self.Esp)
-            .field("SegSs", &self.SegSs)
-            .field("ExtendedRegisters", &self.ExtendedRegisters)
-            .finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
 impl windows_core::TypeKind for VDMCONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-impl PartialEq for VDMCONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.ContextFlags == other.ContextFlags && self.Dr0 == other.Dr0 && self.Dr1 == other.Dr1 && self.Dr2 == other.Dr2 && self.Dr3 == other.Dr3 && self.Dr6 == other.Dr6 && self.Dr7 == other.Dr7 && self.FloatSave == other.FloatSave && self.SegGs == other.SegGs && self.SegFs == other.SegFs && self.SegEs == other.SegEs && self.SegDs == other.SegDs && self.Edi == other.Edi && self.Esi == other.Esi && self.Ebx == other.Ebx && self.Edx == other.Edx && self.Ecx == other.Ecx && self.Eax == other.Eax && self.Ebp == other.Ebp && self.Eip == other.Eip && self.SegCs == other.SegCs && self.EFlags == other.EFlags && self.Esp == other.Esp && self.SegSs == other.SegSs && self.ExtendedRegisters == other.ExtendedRegisters
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-impl Eq for VDMCONTEXT {}
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for VDMCONTEXT {
@@ -341,6 +231,7 @@ impl Default for VDMCONTEXT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDMCONTEXT_WITHOUT_XSAVE {
     pub ContextFlags: u32,
     pub Dr0: u32,
@@ -368,56 +259,9 @@ pub struct VDMCONTEXT_WITHOUT_XSAVE {
     pub SegSs: u32,
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl Copy for VDMCONTEXT_WITHOUT_XSAVE {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for VDMCONTEXT_WITHOUT_XSAVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl core::fmt::Debug for VDMCONTEXT_WITHOUT_XSAVE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDMCONTEXT_WITHOUT_XSAVE")
-            .field("ContextFlags", &self.ContextFlags)
-            .field("Dr0", &self.Dr0)
-            .field("Dr1", &self.Dr1)
-            .field("Dr2", &self.Dr2)
-            .field("Dr3", &self.Dr3)
-            .field("Dr6", &self.Dr6)
-            .field("Dr7", &self.Dr7)
-            .field("FloatSave", &self.FloatSave)
-            .field("SegGs", &self.SegGs)
-            .field("SegFs", &self.SegFs)
-            .field("SegEs", &self.SegEs)
-            .field("SegDs", &self.SegDs)
-            .field("Edi", &self.Edi)
-            .field("Esi", &self.Esi)
-            .field("Ebx", &self.Ebx)
-            .field("Edx", &self.Edx)
-            .field("Ecx", &self.Ecx)
-            .field("Eax", &self.Eax)
-            .field("Ebp", &self.Ebp)
-            .field("Eip", &self.Eip)
-            .field("SegCs", &self.SegCs)
-            .field("EFlags", &self.EFlags)
-            .field("Esp", &self.Esp)
-            .field("SegSs", &self.SegSs)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_System_Kernel")]
 impl windows_core::TypeKind for VDMCONTEXT_WITHOUT_XSAVE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl PartialEq for VDMCONTEXT_WITHOUT_XSAVE {
-    fn eq(&self, other: &Self) -> bool {
-        self.ContextFlags == other.ContextFlags && self.Dr0 == other.Dr0 && self.Dr1 == other.Dr1 && self.Dr2 == other.Dr2 && self.Dr3 == other.Dr3 && self.Dr6 == other.Dr6 && self.Dr7 == other.Dr7 && self.FloatSave == other.FloatSave && self.SegGs == other.SegGs && self.SegFs == other.SegFs && self.SegEs == other.SegEs && self.SegDs == other.SegDs && self.Edi == other.Edi && self.Esi == other.Esi && self.Ebx == other.Ebx && self.Edx == other.Edx && self.Ecx == other.Ecx && self.Eax == other.Eax && self.Ebp == other.Ebp && self.Eip == other.Eip && self.SegCs == other.SegCs && self.EFlags == other.EFlags && self.Esp == other.Esp && self.SegSs == other.SegSs
-    }
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Eq for VDMCONTEXT_WITHOUT_XSAVE {}
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for VDMCONTEXT_WITHOUT_XSAVE {
     fn default() -> Self {
@@ -426,18 +270,11 @@ impl Default for VDMCONTEXT_WITHOUT_XSAVE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct VDMLDT_ENTRY {
     pub LimitLow: u16,
     pub BaseLow: u16,
     pub HighWord: VDMLDT_ENTRY_0,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for VDMLDT_ENTRY {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for VDMLDT_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for VDMLDT_ENTRY {
@@ -451,17 +288,10 @@ impl Default for VDMLDT_ENTRY {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub union VDMLDT_ENTRY_0 {
     pub Bytes: VDMLDT_ENTRY_0_1,
     pub Bits: VDMLDT_ENTRY_0_0,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for VDMLDT_ENTRY_0 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for VDMLDT_ENTRY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for VDMLDT_ENTRY_0 {
@@ -475,35 +305,14 @@ impl Default for VDMLDT_ENTRY_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDMLDT_ENTRY_0_0 {
     pub _bitfield: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for VDMLDT_ENTRY_0_0 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for VDMLDT_ENTRY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl core::fmt::Debug for VDMLDT_ENTRY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDMLDT_ENTRY_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for VDMLDT_ENTRY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl PartialEq for VDMLDT_ENTRY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Eq for VDMLDT_ENTRY_0_0 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for VDMLDT_ENTRY_0_0 {
     fn default() -> Self {
@@ -512,6 +321,7 @@ impl Default for VDMLDT_ENTRY_0_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDMLDT_ENTRY_0_1 {
     pub BaseMid: u8,
     pub Flags1: u8,
@@ -519,31 +329,9 @@ pub struct VDMLDT_ENTRY_0_1 {
     pub BaseHi: u8,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for VDMLDT_ENTRY_0_1 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for VDMLDT_ENTRY_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl core::fmt::Debug for VDMLDT_ENTRY_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDMLDT_ENTRY_0_1").field("BaseMid", &self.BaseMid).field("Flags1", &self.Flags1).field("Flags2", &self.Flags2).field("BaseHi", &self.BaseHi).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for VDMLDT_ENTRY_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl PartialEq for VDMLDT_ENTRY_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.BaseMid == other.BaseMid && self.Flags1 == other.Flags1 && self.Flags2 == other.Flags2 && self.BaseHi == other.BaseHi
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Eq for VDMLDT_ENTRY_0_1 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for VDMLDT_ENTRY_0_1 {
     fn default() -> Self {
@@ -551,6 +339,7 @@ impl Default for VDMLDT_ENTRY_0_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDM_SEGINFO {
     pub Selector: u16,
     pub SegNumber: u16,
@@ -559,26 +348,9 @@ pub struct VDM_SEGINFO {
     pub ModuleName: [i8; 9],
     pub FileName: [i8; 255],
 }
-impl Copy for VDM_SEGINFO {}
-impl Clone for VDM_SEGINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VDM_SEGINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VDM_SEGINFO").field("Selector", &self.Selector).field("SegNumber", &self.SegNumber).field("Length", &self.Length).field("Type", &self.Type).field("ModuleName", &self.ModuleName).field("FileName", &self.FileName).finish()
-    }
-}
 impl windows_core::TypeKind for VDM_SEGINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VDM_SEGINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Selector == other.Selector && self.SegNumber == other.SegNumber && self.Length == other.Length && self.Type == other.Type && self.ModuleName == other.ModuleName && self.FileName == other.FileName
-    }
-}
-impl Eq for VDM_SEGINFO {}
 impl Default for VDM_SEGINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

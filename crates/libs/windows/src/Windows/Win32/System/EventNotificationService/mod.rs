@@ -254,32 +254,16 @@ impl core::fmt::Debug for SENS_CONNECTION_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QOCINFO {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwInSpeed: u32,
     pub dwOutSpeed: u32,
 }
-impl Copy for QOCINFO {}
-impl Clone for QOCINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for QOCINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("QOCINFO").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwInSpeed", &self.dwInSpeed).field("dwOutSpeed", &self.dwOutSpeed).finish()
-    }
-}
 impl windows_core::TypeKind for QOCINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for QOCINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwInSpeed == other.dwInSpeed && self.dwOutSpeed == other.dwOutSpeed
-    }
-}
-impl Eq for QOCINFO {}
 impl Default for QOCINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -287,32 +271,16 @@ impl Default for QOCINFO {
 }
 pub const SENS: windows_core::GUID = windows_core::GUID::from_u128(0xd597cafe_5b9f_11d1_8dd2_00aa004abd5e);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SENS_QOCINFO {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwOutSpeed: u32,
     pub dwInSpeed: u32,
 }
-impl Copy for SENS_QOCINFO {}
-impl Clone for SENS_QOCINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SENS_QOCINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SENS_QOCINFO").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwOutSpeed", &self.dwOutSpeed).field("dwInSpeed", &self.dwInSpeed).finish()
-    }
-}
 impl windows_core::TypeKind for SENS_QOCINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SENS_QOCINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwOutSpeed == other.dwOutSpeed && self.dwInSpeed == other.dwInSpeed
-    }
-}
-impl Eq for SENS_QOCINFO {}
 impl Default for SENS_QOCINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

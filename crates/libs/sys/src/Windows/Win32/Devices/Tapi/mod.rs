@@ -1894,6 +1894,7 @@ pub type TERMINAL_MEDIA_STATE = i32;
 pub type TERMINAL_STATE = i32;
 pub type TERMINAL_TYPE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ADDRALIAS {
     pub rgchName: [i8; 41],
     pub rgchEName: [i8; 11],
@@ -1901,13 +1902,8 @@ pub struct ADDRALIAS {
     pub dibDetail: u32,
     pub r#type: u16,
 }
-impl Copy for ADDRALIAS {}
-impl Clone for ADDRALIAS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DTR {
     pub wYear: u16,
     pub wMonth: u16,
@@ -1916,12 +1912,6 @@ pub struct DTR {
     pub wMinute: u16,
     pub wSecond: u16,
     pub wDayOfWeek: u16,
-}
-impl Copy for DTR {}
-impl Clone for DTR {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const DispatchMapper: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe9225296_c759_11d1_a02b_00c04fb6809f);
 pub type HDRVCALL = isize;
@@ -1934,6 +1924,7 @@ pub type HTAPICALL = isize;
 pub type HTAPILINE = isize;
 pub type HTAPIPHONE = isize;
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEADDRESSCAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -1993,13 +1984,8 @@ pub struct LINEADDRESSCAPS {
     pub dwOfferingModes: u32,
     pub dwAvailableMediaModes: u32,
 }
-impl Copy for LINEADDRESSCAPS {}
-impl Clone for LINEADDRESSCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEADDRESSSTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -2018,25 +2004,15 @@ pub struct LINEADDRESSSTATUS {
     pub dwDevSpecificSize: u32,
     pub dwDevSpecificOffset: u32,
 }
-impl Copy for LINEADDRESSSTATUS {}
-impl Clone for LINEADDRESSSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTACTIVITYENTRY {
     pub dwID: u32,
     pub dwNameSize: u32,
     pub dwNameOffset: u32,
 }
-impl Copy for LINEAGENTACTIVITYENTRY {}
-impl Clone for LINEAGENTACTIVITYENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTACTIVITYLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -2045,13 +2021,8 @@ pub struct LINEAGENTACTIVITYLIST {
     pub dwListSize: u32,
     pub dwListOffset: u32,
 }
-impl Copy for LINEAGENTACTIVITYLIST {}
-impl Clone for LINEAGENTACTIVITYLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTCAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -2069,13 +2040,8 @@ pub struct LINEAGENTCAPS {
     pub dwAgentExtensionIDListOffset: u32,
     pub ProxyGUID: windows_sys::core::GUID,
 }
-impl Copy for LINEAGENTCAPS {}
-impl Clone for LINEAGENTCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTENTRY {
     pub hAgent: u32,
     pub dwNameSize: u32,
@@ -2085,38 +2051,23 @@ pub struct LINEAGENTENTRY {
     pub dwPINSize: u32,
     pub dwPINOffset: u32,
 }
-impl Copy for LINEAGENTENTRY {}
-impl Clone for LINEAGENTENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTGROUPENTRY {
     pub GroupID: LINEAGENTGROUPENTRY_0,
     pub dwNameSize: u32,
     pub dwNameOffset: u32,
 }
-impl Copy for LINEAGENTGROUPENTRY {}
-impl Clone for LINEAGENTGROUPENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTGROUPENTRY_0 {
     pub dwGroupID1: u32,
     pub dwGroupID2: u32,
     pub dwGroupID3: u32,
     pub dwGroupID4: u32,
 }
-impl Copy for LINEAGENTGROUPENTRY_0 {}
-impl Clone for LINEAGENTGROUPENTRY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTGROUPLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -2125,14 +2076,9 @@ pub struct LINEAGENTGROUPLIST {
     pub dwListSize: u32,
     pub dwListOffset: u32,
 }
-impl Copy for LINEAGENTGROUPLIST {}
-impl Clone for LINEAGENTGROUPLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTINFO {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -2148,15 +2094,8 @@ pub struct LINEAGENTINFO {
     pub dwTotalACDCallTime: u32,
     pub dwTotalACDWrapUpTime: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEAGENTINFO {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEAGENTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -2165,27 +2104,17 @@ pub struct LINEAGENTLIST {
     pub dwListSize: u32,
     pub dwListOffset: u32,
 }
-impl Copy for LINEAGENTLIST {}
-impl Clone for LINEAGENTLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTSESSIONENTRY {
     pub hAgentSession: u32,
     pub hAgent: u32,
     pub GroupID: windows_sys::core::GUID,
     pub dwWorkingAddressID: u32,
 }
-impl Copy for LINEAGENTSESSIONENTRY {}
-impl Clone for LINEAGENTSESSIONENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTSESSIONINFO {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -2205,15 +2134,8 @@ pub struct LINEAGENTSESSIONINFO {
     pub dwLongestTimeToAnswer: u32,
     pub dwAverageTimeToAnswer: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEAGENTSESSIONINFO {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEAGENTSESSIONINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTSESSIONLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -2222,13 +2144,8 @@ pub struct LINEAGENTSESSIONLIST {
     pub dwListSize: u32,
     pub dwListOffset: u32,
 }
-impl Copy for LINEAGENTSESSIONLIST {}
-impl Clone for LINEAGENTSESSIONLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEAGENTSTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -2245,13 +2162,8 @@ pub struct LINEAGENTSTATUS {
     pub dwValidStates: u32,
     pub dwValidNextStates: u32,
 }
-impl Copy for LINEAGENTSTATUS {}
-impl Clone for LINEAGENTSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEAPPINFO {
     pub dwMachineNameSize: u32,
     pub dwMachineNameOffset: u32,
@@ -2264,13 +2176,8 @@ pub struct LINEAPPINFO {
     pub dwMediaModes: u32,
     pub dwAddressID: u32,
 }
-impl Copy for LINEAPPINFO {}
-impl Clone for LINEAPPINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINECALLINFO {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -2351,13 +2258,8 @@ pub struct LINECALLINFO {
     pub dwReceivingFlowspecSize: u32,
     pub dwReceivingFlowspecOffset: u32,
 }
-impl Copy for LINECALLINFO {}
-impl Clone for LINECALLINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINECALLLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -2366,13 +2268,8 @@ pub struct LINECALLLIST {
     pub dwCallsSize: u32,
     pub dwCallsOffset: u32,
 }
-impl Copy for LINECALLLIST {}
-impl Clone for LINECALLLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINECALLPARAMS {
     pub dwTotalSize: u32,
     pub dwBearerMode: u32,
@@ -2416,13 +2313,8 @@ pub struct LINECALLPARAMS {
     pub dwCallingPartyIDSize: u32,
     pub dwCallingPartyIDOffset: u32,
 }
-impl Copy for LINECALLPARAMS {}
-impl Clone for LINECALLPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINECALLSTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -2436,25 +2328,15 @@ pub struct LINECALLSTATUS {
     pub dwCallFeatures2: u32,
     pub tStateEntryTime: super::super::Foundation::SYSTEMTIME,
 }
-impl Copy for LINECALLSTATUS {}
-impl Clone for LINECALLSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINECALLTREATMENTENTRY {
     pub dwCallTreatmentID: u32,
     pub dwCallTreatmentNameSize: u32,
     pub dwCallTreatmentNameOffset: u32,
 }
-impl Copy for LINECALLTREATMENTENTRY {}
-impl Clone for LINECALLTREATMENTENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINECARDENTRY {
     pub dwPermanentCardID: u32,
     pub dwCardNameSize: u32,
@@ -2468,13 +2350,8 @@ pub struct LINECARDENTRY {
     pub dwInternationalRuleOffset: u32,
     pub dwOptions: u32,
 }
-impl Copy for LINECARDENTRY {}
-impl Clone for LINECARDENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINECOUNTRYENTRY {
     pub dwCountryID: u32,
     pub dwCountryCode: u32,
@@ -2488,13 +2365,8 @@ pub struct LINECOUNTRYENTRY {
     pub dwInternationalRuleSize: u32,
     pub dwInternationalRuleOffset: u32,
 }
-impl Copy for LINECOUNTRYENTRY {}
-impl Clone for LINECOUNTRYENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINECOUNTRYLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -2503,13 +2375,8 @@ pub struct LINECOUNTRYLIST {
     pub dwCountryListSize: u32,
     pub dwCountryListOffset: u32,
 }
-impl Copy for LINECOUNTRYLIST {}
-impl Clone for LINECOUNTRYLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEDEVCAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -2567,13 +2434,8 @@ pub struct LINEDEVCAPS {
     pub dwDeviceClassesOffset: u32,
     pub PermanentLineGuid: windows_sys::core::GUID,
 }
-impl Copy for LINEDEVCAPS {}
-impl Clone for LINEDEVCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEDEVSTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -2598,39 +2460,24 @@ pub struct LINEDEVSTATUS {
     pub dwAppInfoSize: u32,
     pub dwAppInfoOffset: u32,
 }
-impl Copy for LINEDEVSTATUS {}
-impl Clone for LINEDEVSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEDIALPARAMS {
     pub dwDialPause: u32,
     pub dwDialSpeed: u32,
     pub dwDigitDuration: u32,
     pub dwWaitForDialtone: u32,
 }
-impl Copy for LINEDIALPARAMS {}
-impl Clone for LINEDIALPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEEXTENSIONID {
     pub dwExtensionID0: u32,
     pub dwExtensionID1: u32,
     pub dwExtensionID2: u32,
     pub dwExtensionID3: u32,
 }
-impl Copy for LINEEXTENSIONID {}
-impl Clone for LINEEXTENSIONID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEFORWARD {
     pub dwForwardMode: u32,
     pub dwCallerAddressSize: u32,
@@ -2639,38 +2486,23 @@ pub struct LINEFORWARD {
     pub dwDestAddressSize: u32,
     pub dwDestAddressOffset: u32,
 }
-impl Copy for LINEFORWARD {}
-impl Clone for LINEFORWARD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEFORWARDLIST {
     pub dwTotalSize: u32,
     pub dwNumEntries: u32,
     pub ForwardList: [LINEFORWARD; 1],
 }
-impl Copy for LINEFORWARDLIST {}
-impl Clone for LINEFORWARDLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEGENERATETONE {
     pub dwFrequency: u32,
     pub dwCadenceOn: u32,
     pub dwCadenceOff: u32,
     pub dwVolume: u32,
 }
-impl Copy for LINEGENERATETONE {}
-impl Clone for LINEGENERATETONE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEINITIALIZEEXPARAMS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -2679,24 +2511,14 @@ pub struct LINEINITIALIZEEXPARAMS {
     pub Handles: LINEINITIALIZEEXPARAMS_0,
     pub dwCompletionKey: u32,
 }
-impl Copy for LINEINITIALIZEEXPARAMS {}
-impl Clone for LINEINITIALIZEEXPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union LINEINITIALIZEEXPARAMS_0 {
     pub hEvent: super::super::Foundation::HANDLE,
     pub hCompletionPort: super::super::Foundation::HANDLE,
 }
-impl Copy for LINEINITIALIZEEXPARAMS_0 {}
-impl Clone for LINEINITIALIZEEXPARAMS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINELOCATIONENTRY {
     pub dwPermanentLocationID: u32,
     pub dwLocationNameSize: u32,
@@ -2716,48 +2538,28 @@ pub struct LINELOCATIONENTRY {
     pub dwCancelCallWaitingSize: u32,
     pub dwCancelCallWaitingOffset: u32,
 }
-impl Copy for LINELOCATIONENTRY {}
-impl Clone for LINELOCATIONENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEMEDIACONTROLCALLSTATE {
     pub dwCallStates: u32,
     pub dwMediaControl: u32,
 }
-impl Copy for LINEMEDIACONTROLCALLSTATE {}
-impl Clone for LINEMEDIACONTROLCALLSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEMEDIACONTROLDIGIT {
     pub dwDigit: u32,
     pub dwDigitModes: u32,
     pub dwMediaControl: u32,
 }
-impl Copy for LINEMEDIACONTROLDIGIT {}
-impl Clone for LINEMEDIACONTROLDIGIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEMEDIACONTROLMEDIA {
     pub dwMediaModes: u32,
     pub dwDuration: u32,
     pub dwMediaControl: u32,
 }
-impl Copy for LINEMEDIACONTROLMEDIA {}
-impl Clone for LINEMEDIACONTROLMEDIA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEMEDIACONTROLTONE {
     pub dwAppSpecific: u32,
     pub dwDuration: u32,
@@ -2766,13 +2568,8 @@ pub struct LINEMEDIACONTROLTONE {
     pub dwFrequency3: u32,
     pub dwMediaControl: u32,
 }
-impl Copy for LINEMEDIACONTROLTONE {}
-impl Clone for LINEMEDIACONTROLTONE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEMESSAGE {
     pub hDevice: u32,
     pub dwMessageID: u32,
@@ -2781,13 +2578,8 @@ pub struct LINEMESSAGE {
     pub dwParam2: usize,
     pub dwParam3: usize,
 }
-impl Copy for LINEMESSAGE {}
-impl Clone for LINEMESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEMONITORTONE {
     pub dwAppSpecific: u32,
     pub dwDuration: u32,
@@ -2795,25 +2587,15 @@ pub struct LINEMONITORTONE {
     pub dwFrequency2: u32,
     pub dwFrequency3: u32,
 }
-impl Copy for LINEMONITORTONE {}
-impl Clone for LINEMONITORTONE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEPROVIDERENTRY {
     pub dwPermanentProviderID: u32,
     pub dwProviderFilenameSize: u32,
     pub dwProviderFilenameOffset: u32,
 }
-impl Copy for LINEPROVIDERENTRY {}
-impl Clone for LINEPROVIDERENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEPROVIDERLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -2822,14 +2604,9 @@ pub struct LINEPROVIDERLIST {
     pub dwProviderListSize: u32,
     pub dwProviderListOffset: u32,
 }
-impl Copy for LINEPROVIDERLIST {}
-impl Clone for LINEPROVIDERLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST {
     pub dwSize: u32,
     pub dwClientMachineNameSize: u32,
@@ -2840,16 +2617,9 @@ pub struct LINEPROXYREQUEST {
     pub dwRequestType: u32,
     pub Anonymous: LINEPROXYREQUEST_0,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub union LINEPROXYREQUEST_0 {
     pub SetAgentGroup: LINEPROXYREQUEST_0_14,
     pub SetAgentState: LINEPROXYREQUEST_0_18,
@@ -2872,32 +2642,18 @@ pub union LINEPROXYREQUEST_0 {
     pub GetQueueInfo: LINEPROXYREQUEST_0_11,
     pub GetGroupList: LINEPROXYREQUEST_0_10,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_0 {
     pub dwAddressID: u32,
     pub dwAgentExtensionIDIndex: u32,
     pub dwSize: u32,
     pub Params: [u8; 1],
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_0 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_1 {
     pub hAgentSession: u32,
     pub dwAgentPINSize: u32,
@@ -2906,16 +2662,9 @@ pub struct LINEPROXYREQUEST_0_1 {
     pub GroupID: windows_sys::core::GUID,
     pub dwWorkingAddressID: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_1 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_2 {
     pub hAgent: u32,
     pub dwAgentIDSize: u32,
@@ -2923,255 +2672,129 @@ pub struct LINEPROXYREQUEST_0_2 {
     pub dwAgentPINSize: u32,
     pub dwAgentPINOffset: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_3 {
     pub dwAddressID: u32,
     pub ActivityList: LINEAGENTACTIVITYLIST,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_3 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_4 {
     pub dwAddressID: u32,
     pub AgentCaps: LINEAGENTCAPS,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_4 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_5 {
     pub dwAddressID: u32,
     pub GroupList: LINEAGENTGROUPLIST,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_5 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_6 {
     pub hAgent: u32,
     pub AgentInfo: LINEAGENTINFO,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_6 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_7 {
     pub hAgentSession: u32,
     pub SessionInfo: LINEAGENTSESSIONINFO,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_7 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_8 {
     pub hAgent: u32,
     pub SessionList: LINEAGENTSESSIONLIST,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_8 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_9 {
     pub dwAddressID: u32,
     pub AgentStatus: LINEAGENTSTATUS,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_9 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_10 {
     pub GroupList: LINEAGENTGROUPLIST,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_10 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_10 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_11 {
     pub dwQueueID: u32,
     pub QueueInfo: LINEQUEUEINFO,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_11 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_11 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_12 {
     pub GroupID: windows_sys::core::GUID,
     pub QueueList: LINEQUEUELIST,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_12 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_12 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_13 {
     pub dwAddressID: u32,
     pub dwActivityID: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_13 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_13 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_14 {
     pub dwAddressID: u32,
     pub GroupList: LINEAGENTGROUPLIST,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_14 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_14 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_15 {
     pub hAgent: u32,
     pub dwMeasurementPeriod: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_15 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_15 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_16 {
     pub hAgentSession: u32,
     pub dwAgentSessionState: u32,
     pub dwNextAgentSessionState: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_16 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_16 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_17 {
     pub hAgent: u32,
     pub dwAgentState: u32,
     pub dwNextAgentState: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_17 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_17 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_18 {
     pub dwAddressID: u32,
     pub dwAgentState: u32,
     pub dwNextAgentState: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_18 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_18 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_19 {
     pub dwQueueID: u32,
     pub dwMeasurementPeriod: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for LINEPROXYREQUEST_0_19 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for LINEPROXYREQUEST_0_19 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUESTLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -3180,25 +2803,15 @@ pub struct LINEPROXYREQUESTLIST {
     pub dwListSize: u32,
     pub dwListOffset: u32,
 }
-impl Copy for LINEPROXYREQUESTLIST {}
-impl Clone for LINEPROXYREQUESTLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEQUEUEENTRY {
     pub dwQueueID: u32,
     pub dwNameSize: u32,
     pub dwNameOffset: u32,
 }
-impl Copy for LINEQUEUEENTRY {}
-impl Clone for LINEQUEUEENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEQUEUEINFO {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -3214,13 +2827,8 @@ pub struct LINEQUEUEINFO {
     pub dwAverageWaitTime: u32,
     pub dwFinalDisposition: u32,
 }
-impl Copy for LINEQUEUEINFO {}
-impl Clone for LINEQUEUEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEQUEUELIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -3229,39 +2837,24 @@ pub struct LINEQUEUELIST {
     pub dwListSize: u32,
     pub dwListOffset: u32,
 }
-impl Copy for LINEQUEUELIST {}
-impl Clone for LINEQUEUELIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LINEREQMAKECALL {
     pub szDestAddress: [i8; 80],
     pub szAppName: [i8; 40],
     pub szCalledParty: [i8; 40],
     pub szComment: [i8; 80],
 }
-impl Copy for LINEREQMAKECALL {}
-impl Clone for LINEREQMAKECALL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEREQMAKECALLW {
     pub szDestAddress: [u16; 80],
     pub szAppName: [u16; 40],
     pub szCalledParty: [u16; 40],
     pub szComment: [u16; 80],
 }
-impl Copy for LINEREQMAKECALLW {}
-impl Clone for LINEREQMAKECALLW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEREQMEDIACALL {
     pub hWnd: super::super::Foundation::HWND,
     pub wRequestID: super::super::Foundation::WPARAM,
@@ -3274,13 +2867,8 @@ pub struct LINEREQMEDIACALL {
     pub szCalledParty: [i8; 40],
     pub szComment: [i8; 80],
 }
-impl Copy for LINEREQMEDIACALL {}
-impl Clone for LINEREQMEDIACALL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEREQMEDIACALLW {
     pub hWnd: super::super::Foundation::HWND,
     pub wRequestID: super::super::Foundation::WPARAM,
@@ -3293,25 +2881,15 @@ pub struct LINEREQMEDIACALLW {
     pub szCalledParty: [u16; 40],
     pub szComment: [u16; 80],
 }
-impl Copy for LINEREQMEDIACALLW {}
-impl Clone for LINEREQMEDIACALLW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINETERMCAPS {
     pub dwTermDev: u32,
     pub dwTermModes: u32,
     pub dwTermSharing: u32,
 }
-impl Copy for LINETERMCAPS {}
-impl Clone for LINETERMCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINETRANSLATECAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -3325,13 +2903,8 @@ pub struct LINETRANSLATECAPS {
     pub dwCardListOffset: u32,
     pub dwCurrentPreferredCardID: u32,
 }
-impl Copy for LINETRANSLATECAPS {}
-impl Clone for LINETRANSLATECAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINETRANSLATEOUTPUT {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -3344,26 +2917,16 @@ pub struct LINETRANSLATEOUTPUT {
     pub dwDestCountry: u32,
     pub dwTranslateResults: u32,
 }
-impl Copy for LINETRANSLATEOUTPUT {}
-impl Clone for LINETRANSLATEOUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MSP_EVENT_INFO {
     pub dwSize: u32,
     pub Event: MSP_EVENT,
     pub hCall: *mut i32,
     pub Anonymous: MSP_EVENT_INFO_0,
 }
-impl Copy for MSP_EVENT_INFO {}
-impl Clone for MSP_EVENT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MSP_EVENT_INFO_0 {
     pub MSP_ADDRESS_EVENT_INFO: MSP_EVENT_INFO_0_0,
     pub MSP_CALL_EVENT_INFO: MSP_EVENT_INFO_0_2,
@@ -3374,35 +2937,20 @@ pub union MSP_EVENT_INFO_0 {
     pub MSP_TTS_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_7,
     pub MSP_TONE_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_5,
 }
-impl Copy for MSP_EVENT_INFO_0 {}
-impl Clone for MSP_EVENT_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MSP_EVENT_INFO_0_0 {
     pub Type: MSP_ADDRESS_EVENT,
     pub pTerminal: *mut core::ffi::c_void,
 }
-impl Copy for MSP_EVENT_INFO_0_0 {}
-impl Clone for MSP_EVENT_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MSP_EVENT_INFO_0_1 {
     pub pASRTerminal: *mut core::ffi::c_void,
     pub hrErrorCode: windows_sys::core::HRESULT,
 }
-impl Copy for MSP_EVENT_INFO_0_1 {}
-impl Clone for MSP_EVENT_INFO_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MSP_EVENT_INFO_0_2 {
     pub Type: MSP_CALL_EVENT,
     pub Cause: MSP_CALL_EVENT_CAUSE,
@@ -3410,13 +2958,8 @@ pub struct MSP_EVENT_INFO_0_2 {
     pub pTerminal: *mut core::ffi::c_void,
     pub hrError: windows_sys::core::HRESULT,
 }
-impl Copy for MSP_EVENT_INFO_0_2 {}
-impl Clone for MSP_EVENT_INFO_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MSP_EVENT_INFO_0_3 {
     pub pParentFileTerminal: *mut core::ffi::c_void,
     pub pFileTrack: *mut core::ffi::c_void,
@@ -3424,58 +2967,33 @@ pub struct MSP_EVENT_INFO_0_3 {
     pub ftecEventCause: FT_STATE_EVENT_CAUSE,
     pub hrErrorCode: windows_sys::core::HRESULT,
 }
-impl Copy for MSP_EVENT_INFO_0_3 {}
-impl Clone for MSP_EVENT_INFO_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MSP_EVENT_INFO_0_4 {
     pub pEvent: *mut core::ffi::c_void,
     pub lEventCode: i32,
 }
-impl Copy for MSP_EVENT_INFO_0_4 {}
-impl Clone for MSP_EVENT_INFO_0_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MSP_EVENT_INFO_0_5 {
     pub pToneTerminal: *mut core::ffi::c_void,
     pub hrErrorCode: windows_sys::core::HRESULT,
 }
-impl Copy for MSP_EVENT_INFO_0_5 {}
-impl Clone for MSP_EVENT_INFO_0_5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MSP_EVENT_INFO_0_6 {
     pub dwBufferSize: u32,
     pub pBuffer: [u8; 1],
 }
-impl Copy for MSP_EVENT_INFO_0_6 {}
-impl Clone for MSP_EVENT_INFO_0_6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MSP_EVENT_INFO_0_7 {
     pub pTTSTerminal: *mut core::ffi::c_void,
     pub hrErrorCode: windows_sys::core::HRESULT,
 }
-impl Copy for MSP_EVENT_INFO_0_7 {}
-impl Clone for MSP_EVENT_INFO_0_7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const McastAddressAllocation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdf0daef2_a289_11d1_8697_006008b0e5d2);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NSID {
     pub dwSize: u32,
     pub uchType: [u8; 16],
@@ -3483,24 +3001,14 @@ pub struct NSID {
     pub lTime: i32,
     pub address: NSID_0,
 }
-impl Copy for NSID {}
-impl Clone for NSID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union NSID_0 {
     pub alias: ADDRALIAS,
     pub rgchInterNet: [i8; 1],
 }
-impl Copy for NSID_0 {}
-impl Clone for NSID_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PHONEBUTTONINFO {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -3513,13 +3021,8 @@ pub struct PHONEBUTTONINFO {
     pub dwDevSpecificOffset: u32,
     pub dwButtonState: u32,
 }
-impl Copy for PHONEBUTTONINFO {}
-impl Clone for PHONEBUTTONINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PHONECAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -3568,26 +3071,16 @@ pub struct PHONECAPS {
     pub dwMonitoredHeadsetHookSwitchModes: u32,
     pub PermanentPhoneGuid: windows_sys::core::GUID,
 }
-impl Copy for PHONECAPS {}
-impl Clone for PHONECAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PHONEEXTENSIONID {
     pub dwExtensionID0: u32,
     pub dwExtensionID1: u32,
     pub dwExtensionID2: u32,
     pub dwExtensionID3: u32,
 }
-impl Copy for PHONEEXTENSIONID {}
-impl Clone for PHONEEXTENSIONID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PHONEINITIALIZEEXPARAMS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -3596,24 +3089,14 @@ pub struct PHONEINITIALIZEEXPARAMS {
     pub Handles: PHONEINITIALIZEEXPARAMS_0,
     pub dwCompletionKey: u32,
 }
-impl Copy for PHONEINITIALIZEEXPARAMS {}
-impl Clone for PHONEINITIALIZEEXPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union PHONEINITIALIZEEXPARAMS_0 {
     pub hEvent: super::super::Foundation::HANDLE,
     pub hCompletionPort: super::super::Foundation::HANDLE,
 }
-impl Copy for PHONEINITIALIZEEXPARAMS_0 {}
-impl Clone for PHONEINITIALIZEEXPARAMS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PHONEMESSAGE {
     pub hDevice: u32,
     pub dwMessageID: u32,
@@ -3622,13 +3105,8 @@ pub struct PHONEMESSAGE {
     pub dwParam2: usize,
     pub dwParam3: usize,
 }
-impl Copy for PHONEMESSAGE {}
-impl Clone for PHONEMESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PHONESTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -3657,13 +3135,8 @@ pub struct PHONESTATUS {
     pub dwDevSpecificOffset: u32,
     pub dwPhoneFeatures: u32,
 }
-impl Copy for PHONESTATUS {}
-impl Clone for PHONESTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RENDDATA {
     pub atyp: u16,
     pub ulPosition: u32,
@@ -3671,53 +3144,33 @@ pub struct RENDDATA {
     pub dyHeight: u16,
     pub dwFlags: u32,
 }
-impl Copy for RENDDATA {}
-impl Clone for RENDDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const Rendezvous: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf1029e5b_cb5b_11d0_8d59_00c04fd91ac0);
 pub const RequestMakeCall: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xac48ffe0_f8c4_11d1_a030_00c04fb6809f);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STnefProblem {
     pub ulComponent: u32,
     pub ulAttribute: u32,
     pub ulPropTag: u32,
     pub scode: i32,
 }
-impl Copy for STnefProblem {}
-impl Clone for STnefProblem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STnefProblemArray {
     pub cProblem: u32,
     pub aProblem: [STnefProblem; 1],
 }
-impl Copy for STnefProblemArray {}
-impl Clone for STnefProblemArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const TAPI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x21d6d48e_a88b_11d0_83dd_00aa003ccabd);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TAPI_CUSTOMTONE {
     pub dwFrequency: u32,
     pub dwCadenceOn: u32,
     pub dwCadenceOff: u32,
     pub dwVolume: u32,
 }
-impl Copy for TAPI_CUSTOMTONE {}
-impl Clone for TAPI_CUSTOMTONE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TAPI_DETECTTONE {
     pub dwAppSpecific: u32,
     pub dwDuration: u32,
@@ -3725,26 +3178,16 @@ pub struct TAPI_DETECTTONE {
     pub dwFrequency2: u32,
     pub dwFrequency3: u32,
 }
-impl Copy for TAPI_DETECTTONE {}
-impl Clone for TAPI_DETECTTONE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRP {
     pub trpid: u16,
     pub cbgrtrp: u16,
     pub cch: u16,
     pub cbRgb: u16,
 }
-impl Copy for TRP {}
-impl Clone for TRP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TUISPICREATEDIALOGINSTANCEPARAMS {
     pub dwRequestID: u32,
     pub hdDlgInst: HDRVDIALOGINSTANCE,
@@ -3753,13 +3196,8 @@ pub struct TUISPICREATEDIALOGINSTANCEPARAMS {
     pub lpParams: *mut core::ffi::c_void,
     pub dwSize: u32,
 }
-impl Copy for TUISPICREATEDIALOGINSTANCEPARAMS {}
-impl Clone for TUISPICREATEDIALOGINSTANCEPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct VARSTRING {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -3767,12 +3205,6 @@ pub struct VARSTRING {
     pub dwStringFormat: u32,
     pub dwStringSize: u32,
     pub dwStringOffset: u32,
-}
-impl Copy for VARSTRING {}
-impl Clone for VARSTRING {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type ASYNC_COMPLETION = Option<unsafe extern "system" fn(dwrequestid: u32, lresult: i32)>;
 pub type LINECALLBACK = Option<unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;

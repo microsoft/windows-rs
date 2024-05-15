@@ -95,19 +95,15 @@ pub const SerenumWhole: SERENUM_PORTION = 2i32;
 pub type SERENUM_PORTION = i32;
 pub type HCOMDB = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERENUM_PORT_DESC {
     pub Size: u32,
     pub PortHandle: *mut core::ffi::c_void,
     pub PortAddress: i64,
     pub Reserved: [u16; 1],
 }
-impl Copy for SERENUM_PORT_DESC {}
-impl Clone for SERENUM_PORT_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERENUM_PORT_PARAMETERS {
     pub Size: u32,
     pub ReadAccessor: PSERENUM_READPORT,
@@ -118,13 +114,8 @@ pub struct SERENUM_PORT_PARAMETERS {
     pub NumberAxis: u16,
     pub Reserved: [u16; 3],
 }
-impl Copy for SERENUM_PORT_PARAMETERS {}
-impl Clone for SERENUM_PORT_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERIALCONFIG {
     pub Size: u32,
     pub Version: u16,
@@ -133,13 +124,8 @@ pub struct SERIALCONFIG {
     pub ProviderSize: u32,
     pub ProviderData: [u16; 1],
 }
-impl Copy for SERIALCONFIG {}
-impl Clone for SERIALCONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERIALPERF_STATS {
     pub ReceivedCount: u32,
     pub TransmittedCount: u32,
@@ -148,36 +134,21 @@ pub struct SERIALPERF_STATS {
     pub BufferOverrunErrorCount: u32,
     pub ParityErrorCount: u32,
 }
-impl Copy for SERIALPERF_STATS {}
-impl Clone for SERIALPERF_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERIAL_BASIC_SETTINGS {
     pub Timeouts: SERIAL_TIMEOUTS,
     pub HandFlow: SERIAL_HANDFLOW,
     pub RxFifo: u32,
     pub TxFifo: u32,
 }
-impl Copy for SERIAL_BASIC_SETTINGS {}
-impl Clone for SERIAL_BASIC_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERIAL_BAUD_RATE {
     pub BaudRate: u32,
 }
-impl Copy for SERIAL_BAUD_RATE {}
-impl Clone for SERIAL_BAUD_RATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERIAL_CHARS {
     pub EofChar: u8,
     pub ErrorChar: u8,
@@ -186,13 +157,8 @@ pub struct SERIAL_CHARS {
     pub XonChar: u8,
     pub XoffChar: u8,
 }
-impl Copy for SERIAL_CHARS {}
-impl Clone for SERIAL_CHARS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERIAL_COMMPROP {
     pub PacketLength: u16,
     pub PacketVersion: u16,
@@ -213,49 +179,29 @@ pub struct SERIAL_COMMPROP {
     pub ProvSpec2: u32,
     pub ProvChar: [u16; 1],
 }
-impl Copy for SERIAL_COMMPROP {}
-impl Clone for SERIAL_COMMPROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERIAL_HANDFLOW {
     pub ControlHandShake: u32,
     pub FlowReplace: u32,
     pub XonLimit: i32,
     pub XoffLimit: i32,
 }
-impl Copy for SERIAL_HANDFLOW {}
-impl Clone for SERIAL_HANDFLOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERIAL_LINE_CONTROL {
     pub StopBits: u8,
     pub Parity: u8,
     pub WordLength: u8,
 }
-impl Copy for SERIAL_LINE_CONTROL {}
-impl Clone for SERIAL_LINE_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERIAL_QUEUE_SIZE {
     pub InSize: u32,
     pub OutSize: u32,
 }
-impl Copy for SERIAL_QUEUE_SIZE {}
-impl Clone for SERIAL_QUEUE_SIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERIAL_STATUS {
     pub Errors: u32,
     pub HoldReasons: u32,
@@ -264,13 +210,8 @@ pub struct SERIAL_STATUS {
     pub EofReceived: super::super::Foundation::BOOLEAN,
     pub WaitForImmediate: super::super::Foundation::BOOLEAN,
 }
-impl Copy for SERIAL_STATUS {}
-impl Clone for SERIAL_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERIAL_TIMEOUTS {
     pub ReadIntervalTimeout: u32,
     pub ReadTotalTimeoutMultiplier: u32,
@@ -278,23 +219,12 @@ pub struct SERIAL_TIMEOUTS {
     pub WriteTotalTimeoutMultiplier: u32,
     pub WriteTotalTimeoutConstant: u32,
 }
-impl Copy for SERIAL_TIMEOUTS {}
-impl Clone for SERIAL_TIMEOUTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SERIAL_XOFF_COUNTER {
     pub Timeout: u32,
     pub Counter: i32,
     pub XoffChar: u8,
-}
-impl Copy for SERIAL_XOFF_COUNTER {}
-impl Clone for SERIAL_XOFF_COUNTER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type PSERENUM_READPORT = Option<unsafe extern "system" fn(serportaddress: *const core::ffi::c_void) -> u8>;
 pub type PSERENUM_WRITEPORT = Option<unsafe extern "system" fn(serportaddress: *const core::ffi::c_void, value: u8)>;

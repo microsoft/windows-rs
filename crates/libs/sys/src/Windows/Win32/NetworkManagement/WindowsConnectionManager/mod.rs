@@ -44,52 +44,33 @@ pub type WCM_CONNECTION_COST_SOURCE = i32;
 pub type WCM_MEDIA_TYPE = i32;
 pub type WCM_PROPERTY = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NET_INTERFACE_CONTEXT {
     pub InterfaceIndex: u32,
     pub ConfigurationName: windows_sys::core::PWSTR,
 }
-impl Copy for NET_INTERFACE_CONTEXT {}
-impl Clone for NET_INTERFACE_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NET_INTERFACE_CONTEXT_TABLE {
     pub InterfaceContextHandle: super::super::Foundation::HANDLE,
     pub NumberOfEntries: u32,
     pub InterfaceContextArray: *mut NET_INTERFACE_CONTEXT,
 }
-impl Copy for NET_INTERFACE_CONTEXT_TABLE {}
-impl Clone for NET_INTERFACE_CONTEXT_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WCM_BILLING_CYCLE_INFO {
     pub StartDate: super::super::Foundation::FILETIME,
     pub Duration: WCM_TIME_INTERVAL,
     pub Reset: super::super::Foundation::BOOL,
 }
-impl Copy for WCM_BILLING_CYCLE_INFO {}
-impl Clone for WCM_BILLING_CYCLE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WCM_CONNECTION_COST_DATA {
     pub ConnectionCost: u32,
     pub CostSource: WCM_CONNECTION_COST_SOURCE,
 }
-impl Copy for WCM_CONNECTION_COST_DATA {}
-impl Clone for WCM_CONNECTION_COST_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WCM_DATAPLAN_STATUS {
     pub UsageData: WCM_USAGE_DATA,
     pub DataLimitInMegabytes: u32,
@@ -99,47 +80,27 @@ pub struct WCM_DATAPLAN_STATUS {
     pub MaxTransferSizeInMegabytes: u32,
     pub Reserved: u32,
 }
-impl Copy for WCM_DATAPLAN_STATUS {}
-impl Clone for WCM_DATAPLAN_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WCM_POLICY_VALUE {
     pub fValue: super::super::Foundation::BOOL,
     pub fIsGroupPolicy: super::super::Foundation::BOOL,
 }
-impl Copy for WCM_POLICY_VALUE {}
-impl Clone for WCM_POLICY_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WCM_PROFILE_INFO {
     pub strProfileName: [u16; 256],
     pub AdapterGUID: windows_sys::core::GUID,
     pub Media: WCM_MEDIA_TYPE,
 }
-impl Copy for WCM_PROFILE_INFO {}
-impl Clone for WCM_PROFILE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WCM_PROFILE_INFO_LIST {
     pub dwNumberOfItems: u32,
     pub ProfileInfo: [WCM_PROFILE_INFO; 1],
 }
-impl Copy for WCM_PROFILE_INFO_LIST {}
-impl Clone for WCM_PROFILE_INFO_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WCM_TIME_INTERVAL {
     pub wYear: u16,
     pub wMonth: u16,
@@ -149,21 +110,10 @@ pub struct WCM_TIME_INTERVAL {
     pub wSecond: u16,
     pub wMilliseconds: u16,
 }
-impl Copy for WCM_TIME_INTERVAL {}
-impl Clone for WCM_TIME_INTERVAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WCM_USAGE_DATA {
     pub UsageInMegabytes: u32,
     pub LastSyncTime: super::super::Foundation::FILETIME,
-}
-impl Copy for WCM_USAGE_DATA {}
-impl Clone for WCM_USAGE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type ONDEMAND_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(param0: *const core::ffi::c_void)>;

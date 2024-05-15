@@ -4612,18 +4612,14 @@ pub type WHEA_RECOVERY_TYPE = i32;
 pub type WHEA_THROTTLE_TYPE = i32;
 pub type WORK_QUEUE_TYPE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACPI_DEBUGGING_DEVICE_IN_USE {
     pub NameSpacePathLength: u32,
     pub NameSpacePath: [u16; 1],
 }
-impl Copy for ACPI_DEBUGGING_DEVICE_IN_USE {}
-impl Clone for ACPI_DEBUGGING_DEVICE_IN_USE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct ACPI_INTERFACE_STANDARD {
     pub Size: u16,
     pub Version: u16,
@@ -4638,15 +4634,8 @@ pub struct ACPI_INTERFACE_STANDARD {
     pub RegisterForDeviceNotifications: PREGISTER_FOR_DEVICE_NOTIFICATIONS,
     pub UnregisterForDeviceNotifications: PUNREGISTER_FOR_DEVICE_NOTIFICATIONS,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for ACPI_INTERFACE_STANDARD {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for ACPI_INTERFACE_STANDARD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACPI_INTERFACE_STANDARD2 {
     pub Size: u16,
     pub Version: u16,
@@ -4661,13 +4650,8 @@ pub struct ACPI_INTERFACE_STANDARD2 {
     pub RegisterForDeviceNotifications: PREGISTER_FOR_DEVICE_NOTIFICATIONS2,
     pub UnregisterForDeviceNotifications: PUNREGISTER_FOR_DEVICE_NOTIFICATIONS2,
 }
-impl Copy for ACPI_INTERFACE_STANDARD2 {}
-impl Clone for ACPI_INTERFACE_STANDARD2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AGP_TARGET_BUS_INTERFACE_STANDARD {
     pub Size: u16,
     pub Version: u16,
@@ -4678,125 +4662,69 @@ pub struct AGP_TARGET_BUS_INTERFACE_STANDARD {
     pub GetBusData: PGET_SET_DEVICE_DATA,
     pub CapabilityID: u8,
 }
-impl Copy for AGP_TARGET_BUS_INTERFACE_STANDARD {}
-impl Clone for AGP_TARGET_BUS_INTERFACE_STANDARD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union AMD_L1_CACHE_INFO {
     pub Ulong: u32,
     pub Anonymous: AMD_L1_CACHE_INFO_0,
 }
-impl Copy for AMD_L1_CACHE_INFO {}
-impl Clone for AMD_L1_CACHE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AMD_L1_CACHE_INFO_0 {
     pub LineSize: u8,
     pub LinesPerTag: u8,
     pub Associativity: u8,
     pub Size: u8,
 }
-impl Copy for AMD_L1_CACHE_INFO_0 {}
-impl Clone for AMD_L1_CACHE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union AMD_L2_CACHE_INFO {
     pub Ulong: u32,
     pub Anonymous: AMD_L2_CACHE_INFO_0,
 }
-impl Copy for AMD_L2_CACHE_INFO {}
-impl Clone for AMD_L2_CACHE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AMD_L2_CACHE_INFO_0 {
     pub LineSize: u8,
     pub _bitfield: u8,
     pub Size: u16,
 }
-impl Copy for AMD_L2_CACHE_INFO_0 {}
-impl Clone for AMD_L2_CACHE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union AMD_L3_CACHE_INFO {
     pub Ulong: u32,
     pub Anonymous: AMD_L3_CACHE_INFO_0,
 }
-impl Copy for AMD_L3_CACHE_INFO {}
-impl Clone for AMD_L3_CACHE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AMD_L3_CACHE_INFO_0 {
     pub LineSize: u8,
     pub _bitfield1: u8,
     pub _bitfield2: u16,
 }
-impl Copy for AMD_L3_CACHE_INFO_0 {}
-impl Clone for AMD_L3_CACHE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct ARBITER_ADD_RESERVED_PARAMETERS {
     pub ReserveDevice: *mut super::super::Foundation::DEVICE_OBJECT,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for ARBITER_ADD_RESERVED_PARAMETERS {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for ARBITER_ADD_RESERVED_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct ARBITER_BOOT_ALLOCATION_PARAMETERS {
     pub ArbitrationList: *mut super::super::super::Win32::System::Kernel::LIST_ENTRY,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for ARBITER_BOOT_ALLOCATION_PARAMETERS {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for ARBITER_BOOT_ALLOCATION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct ARBITER_CONFLICT_INFO {
     pub OwningObject: *mut super::super::Foundation::DEVICE_OBJECT,
     pub Start: u64,
     pub End: u64,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for ARBITER_CONFLICT_INFO {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for ARBITER_CONFLICT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct ARBITER_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -4806,16 +4734,9 @@ pub struct ARBITER_INTERFACE {
     pub ArbiterHandler: PARBITER_HANDLER,
     pub Flags: u32,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for ARBITER_INTERFACE {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for ARBITER_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct ARBITER_LIST_ENTRY {
     pub ListEntry: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub AlternativeCount: u32,
@@ -4831,29 +4752,15 @@ pub struct ARBITER_LIST_ENTRY {
     pub SelectedAlternative: *mut IO_RESOURCE_DESCRIPTOR,
     pub Result: ARBITER_RESULT,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for ARBITER_LIST_ENTRY {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for ARBITER_LIST_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct ARBITER_PARAMETERS {
     pub Parameters: ARBITER_PARAMETERS_0,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for ARBITER_PARAMETERS {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for ARBITER_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub union ARBITER_PARAMETERS_0 {
     pub TestAllocation: ARBITER_TEST_ALLOCATION_PARAMETERS,
     pub RetestAllocation: ARBITER_RETEST_ALLOCATION_PARAMETERS,
@@ -4863,85 +4770,45 @@ pub union ARBITER_PARAMETERS_0 {
     pub QueryArbitrate: ARBITER_QUERY_ARBITRATE_PARAMETERS,
     pub AddReserved: ARBITER_ADD_RESERVED_PARAMETERS,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for ARBITER_PARAMETERS_0 {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for ARBITER_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ARBITER_QUERY_ALLOCATED_RESOURCES_PARAMETERS {
     pub AllocatedResources: *mut *mut CM_PARTIAL_RESOURCE_LIST,
 }
-impl Copy for ARBITER_QUERY_ALLOCATED_RESOURCES_PARAMETERS {}
-impl Clone for ARBITER_QUERY_ALLOCATED_RESOURCES_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct ARBITER_QUERY_ARBITRATE_PARAMETERS {
     pub ArbitrationList: *mut super::super::super::Win32::System::Kernel::LIST_ENTRY,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for ARBITER_QUERY_ARBITRATE_PARAMETERS {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for ARBITER_QUERY_ARBITRATE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct ARBITER_QUERY_CONFLICT_PARAMETERS {
     pub PhysicalDeviceObject: *mut super::super::Foundation::DEVICE_OBJECT,
     pub ConflictingResource: *mut IO_RESOURCE_DESCRIPTOR,
     pub ConflictCount: *mut u32,
     pub Conflicts: *mut *mut ARBITER_CONFLICT_INFO,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for ARBITER_QUERY_CONFLICT_PARAMETERS {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for ARBITER_QUERY_CONFLICT_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct ARBITER_RETEST_ALLOCATION_PARAMETERS {
     pub ArbitrationList: *mut super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub AllocateFromCount: u32,
     pub AllocateFrom: *mut CM_PARTIAL_RESOURCE_DESCRIPTOR,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for ARBITER_RETEST_ALLOCATION_PARAMETERS {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for ARBITER_RETEST_ALLOCATION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct ARBITER_TEST_ALLOCATION_PARAMETERS {
     pub ArbitrationList: *mut super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub AllocateFromCount: u32,
     pub AllocateFrom: *mut CM_PARTIAL_RESOURCE_DESCRIPTOR,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for ARBITER_TEST_ALLOCATION_PARAMETERS {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for ARBITER_TEST_ALLOCATION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
 pub struct ARM64_NT_CONTEXT {
     pub ContextFlags: u32,
     pub Cpsr: u32,
@@ -4956,30 +4823,16 @@ pub struct ARM64_NT_CONTEXT {
     pub Wcr: [u32; 2],
     pub Wvr: [u64; 2],
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Copy for ARM64_NT_CONTEXT {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Clone for ARM64_NT_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
 pub union ARM64_NT_CONTEXT_0 {
     pub Anonymous: ARM64_NT_CONTEXT_0_0,
     pub X: [u64; 31],
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Copy for ARM64_NT_CONTEXT_0 {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Clone for ARM64_NT_CONTEXT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
 pub struct ARM64_NT_CONTEXT_0_0 {
     pub X0: u64,
     pub X1: u64,
@@ -5013,15 +4866,8 @@ pub struct ARM64_NT_CONTEXT_0_0 {
     pub Fp: u64,
     pub Lr: u64,
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Copy for ARM64_NT_CONTEXT_0_0 {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Clone for ARM64_NT_CONTEXT_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BDCB_IMAGE_INFORMATION {
     pub Classification: BDCB_CLASSIFICATION,
     pub ImageFlags: u32,
@@ -5036,36 +4882,21 @@ pub struct BDCB_IMAGE_INFORMATION {
     pub ImageHashLength: u32,
     pub CertificateThumbprintLength: u32,
 }
-impl Copy for BDCB_IMAGE_INFORMATION {}
-impl Clone for BDCB_IMAGE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BDCB_STATUS_UPDATE_CONTEXT {
     pub StatusType: BDCB_STATUS_UPDATE_TYPE,
 }
-impl Copy for BDCB_STATUS_UPDATE_CONTEXT {}
-impl Clone for BDCB_STATUS_UPDATE_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BOOTDISK_INFORMATION {
     pub BootPartitionOffset: i64,
     pub SystemPartitionOffset: i64,
     pub BootDeviceSignature: u32,
     pub SystemDeviceSignature: u32,
 }
-impl Copy for BOOTDISK_INFORMATION {}
-impl Clone for BOOTDISK_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BOOTDISK_INFORMATION_EX {
     pub BootPartitionOffset: i64,
     pub SystemPartitionOffset: i64,
@@ -5076,25 +4907,15 @@ pub struct BOOTDISK_INFORMATION_EX {
     pub BootDeviceIsGpt: super::super::super::Win32::Foundation::BOOLEAN,
     pub SystemDeviceIsGpt: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for BOOTDISK_INFORMATION_EX {}
-impl Clone for BOOTDISK_INFORMATION_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BOOTDISK_INFORMATION_LITE {
     pub NumberEntries: u32,
     pub Entries: [LOADER_PARTITION_INFORMATION_EX; 1],
 }
-impl Copy for BOOTDISK_INFORMATION_LITE {}
-impl Clone for BOOTDISK_INFORMATION_LITE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct BUS_INTERFACE_STANDARD {
     pub Size: u16,
     pub Version: u16,
@@ -5106,15 +4927,8 @@ pub struct BUS_INTERFACE_STANDARD {
     pub SetBusData: PGET_SET_DEVICE_DATA,
     pub GetBusData: PGET_SET_DEVICE_DATA,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for BUS_INTERFACE_STANDARD {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for BUS_INTERFACE_STANDARD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BUS_RESOURCE_UPDATE_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -5123,35 +4937,20 @@ pub struct BUS_RESOURCE_UPDATE_INTERFACE {
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
     pub GetUpdatedBusResource: PGET_UPDATED_BUS_RESOURCE,
 }
-impl Copy for BUS_RESOURCE_UPDATE_INTERFACE {}
-impl Clone for BUS_RESOURCE_UPDATE_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union BUS_SPECIFIC_RESET_FLAGS {
     pub u: BUS_SPECIFIC_RESET_FLAGS_0,
     pub AsUlonglong: u64,
 }
-impl Copy for BUS_SPECIFIC_RESET_FLAGS {}
-impl Clone for BUS_SPECIFIC_RESET_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BUS_SPECIFIC_RESET_FLAGS_0 {
     pub _bitfield: u64,
 }
-impl Copy for BUS_SPECIFIC_RESET_FLAGS_0 {}
-impl Clone for BUS_SPECIFIC_RESET_FLAGS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct CLFS_MGMT_CLIENT_REGISTRATION {
     pub Version: u32,
     pub AdvanceTailCallback: PCLFS_CLIENT_ADVANCE_TAIL_CALLBACK,
@@ -5161,56 +4960,32 @@ pub struct CLFS_MGMT_CLIENT_REGISTRATION {
     pub LogUnpinnedCallback: PCLFS_CLIENT_LOG_UNPINNED_CALLBACK,
     pub LogUnpinnedCallbackData: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for CLFS_MGMT_CLIENT_REGISTRATION {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for CLFS_MGMT_CLIENT_REGISTRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct CMC_DRIVER_INFO {
     pub ExceptionCallback: PDRIVER_CMC_EXCEPTION_CALLBACK,
     pub DpcCallback: super::super::Foundation::PKDEFERRED_ROUTINE,
     pub DeviceContext: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for CMC_DRIVER_INFO {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for CMC_DRIVER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_COMPONENT_INFORMATION {
     pub Flags: DEVICE_FLAGS,
     pub Version: u32,
     pub Key: u32,
     pub AffinityMask: usize,
 }
-impl Copy for CM_COMPONENT_INFORMATION {}
-impl Clone for CM_COMPONENT_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_DISK_GEOMETRY_DEVICE_DATA {
     pub BytesPerSector: u32,
     pub NumberOfCylinders: u32,
     pub SectorsPerTrack: u32,
     pub NumberOfHeads: u32,
 }
-impl Copy for CM_DISK_GEOMETRY_DEVICE_DATA {}
-impl Clone for CM_DISK_GEOMETRY_DEVICE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct CM_EISA_FUNCTION_INFORMATION {
     pub CompressedId: u32,
     pub IdSlotFlags1: u8,
@@ -5226,13 +5001,8 @@ pub struct CM_EISA_FUNCTION_INFORMATION {
     pub EisaPort: [EISA_PORT_CONFIGURATION; 20],
     pub InitializationData: [u8; 60],
 }
-impl Copy for CM_EISA_FUNCTION_INFORMATION {}
-impl Clone for CM_EISA_FUNCTION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct CM_EISA_SLOT_INFORMATION {
     pub ReturnCode: u8,
     pub ReturnFlags: u8,
@@ -5243,13 +5013,8 @@ pub struct CM_EISA_SLOT_INFORMATION {
     pub FunctionInformation: u8,
     pub CompressedId: u32,
 }
-impl Copy for CM_EISA_SLOT_INFORMATION {}
-impl Clone for CM_EISA_SLOT_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_FLOPPY_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
@@ -5270,25 +5035,15 @@ pub struct CM_FLOPPY_DEVICE_DATA {
     pub MaximumTrackValue: u8,
     pub DataTransferRate: u8,
 }
-impl Copy for CM_FLOPPY_DEVICE_DATA {}
-impl Clone for CM_FLOPPY_DEVICE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_FULL_RESOURCE_DESCRIPTOR {
     pub InterfaceType: INTERFACE_TYPE,
     pub BusNumber: u32,
     pub PartialResourceList: CM_PARTIAL_RESOURCE_LIST,
 }
-impl Copy for CM_FULL_RESOURCE_DESCRIPTOR {}
-impl Clone for CM_FULL_RESOURCE_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct CM_INT13_DRIVE_PARAMETER {
     pub DriveSelect: u16,
     pub MaxCylinders: u32,
@@ -5296,13 +5051,8 @@ pub struct CM_INT13_DRIVE_PARAMETER {
     pub MaxHeads: u16,
     pub NumberDrives: u16,
 }
-impl Copy for CM_INT13_DRIVE_PARAMETER {}
-impl Clone for CM_INT13_DRIVE_PARAMETER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_KEYBOARD_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
@@ -5310,13 +5060,8 @@ pub struct CM_KEYBOARD_DEVICE_DATA {
     pub Subtype: u8,
     pub KeyboardFlags: u16,
 }
-impl Copy for CM_KEYBOARD_DEVICE_DATA {}
-impl Clone for CM_KEYBOARD_DEVICE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct CM_MCA_POS_DATA {
     pub AdapterId: u16,
     pub PosData1: u8,
@@ -5324,13 +5069,8 @@ pub struct CM_MCA_POS_DATA {
     pub PosData3: u8,
     pub PosData4: u8,
 }
-impl Copy for CM_MCA_POS_DATA {}
-impl Clone for CM_MCA_POS_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_MONITOR_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
@@ -5360,26 +5100,16 @@ pub struct CM_MONITOR_DEVICE_DATA {
     pub VerticalSync: u16,
     pub VerticalSyncHigh: u16,
 }
-impl Copy for CM_MONITOR_DEVICE_DATA {}
-impl Clone for CM_MONITOR_DEVICE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR {
     pub Type: u8,
     pub ShareDisposition: u8,
     pub Flags: u16,
     pub u: CM_PARTIAL_RESOURCE_DESCRIPTOR_0,
 }
-impl Copy for CM_PARTIAL_RESOURCE_DESCRIPTOR {}
-impl Clone for CM_PARTIAL_RESOURCE_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
     pub Generic: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6,
     pub Port: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13,
@@ -5396,25 +5126,15 @@ pub union CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
     pub Memory64: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_10,
     pub Connection: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1,
 }
-impl Copy for CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {}
-impl Clone for CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0 {
     pub Start: u32,
     pub Length: u32,
     pub Reserved: u32,
 }
-impl Copy for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0 {}
-impl Clone for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
     pub Class: u8,
     pub Type: u8,
@@ -5423,35 +5143,20 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
     pub IdLowPart: u32,
     pub IdHighPart: u32,
 }
-impl Copy for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {}
-impl Clone for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {
     pub Data: [u32; 3],
 }
-impl Copy for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {}
-impl Clone for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3 {
     pub DataSize: u32,
     pub Reserved1: u32,
     pub Reserved2: u32,
 }
-impl Copy for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3 {}
-impl Clone for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
     pub Channel: u32,
     pub RequestLine: u32,
@@ -5460,162 +5165,92 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
     pub Reserved2: u8,
     pub Reserved3: u8,
 }
-impl Copy for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {}
-impl Clone for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
     pub Channel: u32,
     pub Port: u32,
     pub Reserved1: u32,
 }
-impl Copy for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {}
-impl Clone for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
     pub Start: i64,
     pub Length: u32,
 }
-impl Copy for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {}
-impl Clone for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
     pub Level: u32,
     pub Vector: u32,
     pub Affinity: usize,
 }
-impl Copy for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {}
-impl Clone for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
     pub Start: i64,
     pub Length40: u32,
 }
-impl Copy for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {}
-impl Clone for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
     pub Start: i64,
     pub Length48: u32,
 }
-impl Copy for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {}
-impl Clone for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_10 {
     pub Start: i64,
     pub Length64: u32,
 }
-impl Copy for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_10 {}
-impl Clone for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_10 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_11 {
     pub Start: i64,
     pub Length: u32,
 }
-impl Copy for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_11 {}
-impl Clone for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_11 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12 {
     pub Anonymous: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12_0,
 }
-impl Copy for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12 {}
-impl Clone for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12_0 {
     pub Raw: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12_0_0,
     pub Translated: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12_0_1,
 }
-impl Copy for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12_0 {}
-impl Clone for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12_0_0 {
     pub Reserved: u16,
     pub MessageCount: u16,
     pub Vector: u32,
     pub Affinity: usize,
 }
-impl Copy for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12_0_0 {}
-impl Clone for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12_0_1 {
     pub Level: u32,
     pub Vector: u32,
     pub Affinity: usize,
 }
-impl Copy for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12_0_1 {}
-impl Clone for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
     pub Start: i64,
     pub Length: u32,
 }
-impl Copy for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {}
-impl Clone for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_LIST {
     pub Version: u16,
     pub Revision: u16,
     pub Count: u32,
     pub PartialDescriptors: [CM_PARTIAL_RESOURCE_DESCRIPTOR; 1],
 }
-impl Copy for CM_PARTIAL_RESOURCE_LIST {}
-impl Clone for CM_PARTIAL_RESOURCE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_PCCARD_DEVICE_DATA {
     pub Flags: u8,
     pub ErrorCode: u8,
@@ -5625,13 +5260,8 @@ pub struct CM_PCCARD_DEVICE_DATA {
     pub LegacyBaseAddress: u32,
     pub IRQMap: [u8; 16],
 }
-impl Copy for CM_PCCARD_DEVICE_DATA {}
-impl Clone for CM_PCCARD_DEVICE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct CM_PNP_BIOS_DEVICE_NODE {
     pub Size: u16,
     pub Node: u8,
@@ -5639,13 +5269,8 @@ pub struct CM_PNP_BIOS_DEVICE_NODE {
     pub DeviceType: [u8; 3],
     pub DeviceAttributes: u16,
 }
-impl Copy for CM_PNP_BIOS_DEVICE_NODE {}
-impl Clone for CM_PNP_BIOS_DEVICE_NODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct CM_PNP_BIOS_INSTALLATION_CHECK {
     pub Signature: [u8; 4],
     pub Revision: u8,
@@ -5661,14 +5286,9 @@ pub struct CM_PNP_BIOS_INSTALLATION_CHECK {
     pub RealModeDataBaseAddress: u16,
     pub ProtectedModeDataBaseAddress: u32,
 }
-impl Copy for CM_PNP_BIOS_INSTALLATION_CHECK {}
-impl Clone for CM_PNP_BIOS_INSTALLATION_CHECK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Power")]
+#[derive(Clone, Copy)]
 pub struct CM_POWER_DATA {
     pub PD_Size: u32,
     pub PD_MostRecentPowerState: super::super::super::Win32::System::Power::DEVICE_POWER_STATE,
@@ -5679,86 +5299,49 @@ pub struct CM_POWER_DATA {
     pub PD_PowerStateMapping: [super::super::super::Win32::System::Power::DEVICE_POWER_STATE; 7],
     pub PD_DeepestSystemWake: super::super::super::Win32::System::Power::SYSTEM_POWER_STATE,
 }
-#[cfg(feature = "Win32_System_Power")]
-impl Copy for CM_POWER_DATA {}
-#[cfg(feature = "Win32_System_Power")]
-impl Clone for CM_POWER_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_RESOURCE_LIST {
     pub Count: u32,
     pub List: [CM_FULL_RESOURCE_DESCRIPTOR; 1],
 }
-impl Copy for CM_RESOURCE_LIST {}
-impl Clone for CM_RESOURCE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_ROM_BLOCK {
     pub Address: u32,
     pub Size: u32,
 }
-impl Copy for CM_ROM_BLOCK {}
-impl Clone for CM_ROM_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_SCSI_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
     pub HostIdentifier: u8,
 }
-impl Copy for CM_SCSI_DEVICE_DATA {}
-impl Clone for CM_SCSI_DEVICE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_SERIAL_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
     pub BaudClock: u32,
 }
-impl Copy for CM_SERIAL_DEVICE_DATA {}
-impl Clone for CM_SERIAL_DEVICE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_SONIC_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
     pub DataConfigurationRegister: u16,
     pub EthernetAddress: [u8; 8],
 }
-impl Copy for CM_SONIC_DEVICE_DATA {}
-impl Clone for CM_SONIC_DEVICE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_VIDEO_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
     pub VideoClock: u32,
 }
-impl Copy for CM_VIDEO_DEVICE_DATA {}
-impl Clone for CM_VIDEO_DEVICE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CONFIGURATION_INFORMATION {
     pub DiskCount: u32,
     pub FloppyCount: u32,
@@ -5772,14 +5355,9 @@ pub struct CONFIGURATION_INFORMATION {
     pub Version: u32,
     pub MediumChangerCount: u32,
 }
-impl Copy for CONFIGURATION_INFORMATION {}
-impl Clone for CONFIGURATION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub struct CONTROLLER_OBJECT {
     pub Type: i16,
     pub Size: i16,
@@ -5788,66 +5366,37 @@ pub struct CONTROLLER_OBJECT {
     pub Spare1: u32,
     pub Spare2: i64,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Copy for CONTROLLER_OBJECT {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Clone for CONTROLLER_OBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COUNTED_REASON_CONTEXT {
     pub Version: u32,
     pub Flags: u32,
     pub Anonymous: COUNTED_REASON_CONTEXT_0,
 }
-impl Copy for COUNTED_REASON_CONTEXT {}
-impl Clone for COUNTED_REASON_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union COUNTED_REASON_CONTEXT_0 {
     pub Anonymous: COUNTED_REASON_CONTEXT_0_0,
     pub SimpleString: super::super::super::Win32::Foundation::UNICODE_STRING,
 }
-impl Copy for COUNTED_REASON_CONTEXT_0 {}
-impl Clone for COUNTED_REASON_CONTEXT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COUNTED_REASON_CONTEXT_0_0 {
     pub ResourceFileName: super::super::super::Win32::Foundation::UNICODE_STRING,
     pub ResourceReasonId: u16,
     pub StringCount: u32,
     pub ReasonStrings: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
 }
-impl Copy for COUNTED_REASON_CONTEXT_0_0 {}
-impl Clone for COUNTED_REASON_CONTEXT_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct CPE_DRIVER_INFO {
     pub ExceptionCallback: PDRIVER_CPE_EXCEPTION_CALLBACK,
     pub DpcCallback: super::super::Foundation::PKDEFERRED_ROUTINE,
     pub DeviceContext: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for CPE_DRIVER_INFO {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for CPE_DRIVER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRASHDUMP_FUNCTIONS_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -5856,25 +5405,15 @@ pub struct CRASHDUMP_FUNCTIONS_INTERFACE {
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
     pub PowerOn: PCRASHDUMP_POWER_ON,
 }
-impl Copy for CRASHDUMP_FUNCTIONS_INTERFACE {}
-impl Clone for CRASHDUMP_FUNCTIONS_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CREATE_USER_PROCESS_ECP_CONTEXT {
     pub Size: u16,
     pub Reserved: u16,
     pub AccessToken: *mut core::ffi::c_void,
 }
-impl Copy for CREATE_USER_PROCESS_ECP_CONTEXT {}
-impl Clone for CREATE_USER_PROCESS_ECP_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3COLD_AUX_POWER_AND_TIMING_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -5885,13 +5424,8 @@ pub struct D3COLD_AUX_POWER_AND_TIMING_INTERFACE {
     pub RequestAuxPower: PD3COLD_REQUEST_AUX_POWER,
     pub RequestPerstDelay: PD3COLD_REQUEST_PERST_DELAY,
 }
-impl Copy for D3COLD_AUX_POWER_AND_TIMING_INTERFACE {}
-impl Clone for D3COLD_AUX_POWER_AND_TIMING_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3COLD_SUPPORT_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -5904,47 +5438,27 @@ pub struct D3COLD_SUPPORT_INTERFACE {
     pub GetBusDriverD3ColdSupport: PGET_D3COLD_CAPABILITY,
     pub GetLastTransitionStatus: PGET_D3COLD_LAST_TRANSITION_STATUS,
 }
-impl Copy for D3COLD_SUPPORT_INTERFACE {}
-impl Clone for D3COLD_SUPPORT_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUGGING_DEVICE_IN_USE {
     pub NameSpace: KD_NAMESPACE_ENUM,
     pub StructureLength: u32,
     pub Anonymous: DEBUGGING_DEVICE_IN_USE_0,
 }
-impl Copy for DEBUGGING_DEVICE_IN_USE {}
-impl Clone for DEBUGGING_DEVICE_IN_USE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DEBUGGING_DEVICE_IN_USE_0 {
     pub AcpiDevice: ACPI_DEBUGGING_DEVICE_IN_USE,
     pub PciDevice: PCI_DEBUGGING_DEVICE_IN_USE,
 }
-impl Copy for DEBUGGING_DEVICE_IN_USE_0 {}
-impl Clone for DEBUGGING_DEVICE_IN_USE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUGGING_DEVICE_IN_USE_INFORMATION {
     pub DeviceCount: u32,
     pub Device: [DEBUGGING_DEVICE_IN_USE; 1],
 }
-impl Copy for DEBUGGING_DEVICE_IN_USE_INFORMATION {}
-impl Clone for DEBUGGING_DEVICE_IN_USE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_DEVICE_ADDRESS {
     pub Type: u8,
     pub Valid: super::super::super::Win32::Foundation::BOOLEAN,
@@ -5952,35 +5466,20 @@ pub struct DEBUG_DEVICE_ADDRESS {
     pub TranslatedAddress: *mut u8,
     pub Length: u32,
 }
-impl Copy for DEBUG_DEVICE_ADDRESS {}
-impl Clone for DEBUG_DEVICE_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DEBUG_DEVICE_ADDRESS_0 {
     pub Reserved: [u8; 2],
     pub Anonymous: DEBUG_DEVICE_ADDRESS_0_0,
 }
-impl Copy for DEBUG_DEVICE_ADDRESS_0 {}
-impl Clone for DEBUG_DEVICE_ADDRESS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_DEVICE_ADDRESS_0_0 {
     pub BitWidth: u8,
     pub AccessSize: u8,
 }
-impl Copy for DEBUG_DEVICE_ADDRESS_0_0 {}
-impl Clone for DEBUG_DEVICE_ADDRESS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_DEVICE_DESCRIPTOR {
     pub Bus: u32,
     pub Slot: u32,
@@ -6007,45 +5506,25 @@ pub struct DEBUG_DEVICE_DESCRIPTOR {
     pub TransportData: DEBUG_TRANSPORT_DATA,
     pub EfiIoMmuData: DEBUG_EFI_IOMMU_DATA,
 }
-impl Copy for DEBUG_DEVICE_DESCRIPTOR {}
-impl Clone for DEBUG_DEVICE_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DEBUG_DEVICE_DESCRIPTOR_0 {
     pub Flags: u8,
     pub Anonymous: DEBUG_DEVICE_DESCRIPTOR_0_0,
 }
-impl Copy for DEBUG_DEVICE_DESCRIPTOR_0 {}
-impl Clone for DEBUG_DEVICE_DESCRIPTOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_DEVICE_DESCRIPTOR_0_0 {
     pub _bitfield: u8,
 }
-impl Copy for DEBUG_DEVICE_DESCRIPTOR_0_0 {}
-impl Clone for DEBUG_DEVICE_DESCRIPTOR_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_EFI_IOMMU_DATA {
     pub PciIoProtocolHandle: *mut core::ffi::c_void,
     pub Mapping: *mut core::ffi::c_void,
 }
-impl Copy for DEBUG_EFI_IOMMU_DATA {}
-impl Clone for DEBUG_EFI_IOMMU_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_MEMORY_REQUIREMENTS {
     pub Start: i64,
     pub MaxEnd: i64,
@@ -6054,13 +5533,8 @@ pub struct DEBUG_MEMORY_REQUIREMENTS {
     pub Cached: super::super::super::Win32::Foundation::BOOLEAN,
     pub Aligned: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for DEBUG_MEMORY_REQUIREMENTS {}
-impl Clone for DEBUG_MEMORY_REQUIREMENTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_TRANSPORT_DATA {
     pub HwContextSize: u32,
     pub SharedVisibleDataSize: u32,
@@ -6068,57 +5542,32 @@ pub struct DEBUG_TRANSPORT_DATA {
     pub ValidUSBCoreId: super::super::super::Win32::Foundation::BOOLEAN,
     pub USBCoreId: u8,
 }
-impl Copy for DEBUG_TRANSPORT_DATA {}
-impl Clone for DEBUG_TRANSPORT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVICE_BUS_SPECIFIC_RESET_INFO {
     pub BusTypeGuid: windows_sys::core::GUID,
     pub ResetTypeSupported: DEVICE_BUS_SPECIFIC_RESET_TYPE,
 }
-impl Copy for DEVICE_BUS_SPECIFIC_RESET_INFO {}
-impl Clone for DEVICE_BUS_SPECIFIC_RESET_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DEVICE_BUS_SPECIFIC_RESET_TYPE {
     pub Pci: DEVICE_BUS_SPECIFIC_RESET_TYPE_1,
     pub Acpi: DEVICE_BUS_SPECIFIC_RESET_TYPE_0,
     pub AsULONGLONG: u64,
 }
-impl Copy for DEVICE_BUS_SPECIFIC_RESET_TYPE {}
-impl Clone for DEVICE_BUS_SPECIFIC_RESET_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVICE_BUS_SPECIFIC_RESET_TYPE_0 {
     pub _bitfield: u64,
 }
-impl Copy for DEVICE_BUS_SPECIFIC_RESET_TYPE_0 {}
-impl Clone for DEVICE_BUS_SPECIFIC_RESET_TYPE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVICE_BUS_SPECIFIC_RESET_TYPE_1 {
     pub _bitfield: u64,
 }
-impl Copy for DEVICE_BUS_SPECIFIC_RESET_TYPE_1 {}
-impl Clone for DEVICE_BUS_SPECIFIC_RESET_TYPE_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Power")]
+#[derive(Clone, Copy)]
 pub struct DEVICE_CAPABILITIES {
     pub Size: u16,
     pub Version: u16,
@@ -6132,15 +5581,8 @@ pub struct DEVICE_CAPABILITIES {
     pub D2Latency: u32,
     pub D3Latency: u32,
 }
-#[cfg(feature = "Win32_System_Power")]
-impl Copy for DEVICE_CAPABILITIES {}
-#[cfg(feature = "Win32_System_Power")]
-impl Clone for DEVICE_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVICE_DESCRIPTION {
     pub Version: u32,
     pub Master: super::super::super::Win32::Foundation::BOOLEAN,
@@ -6163,34 +5605,19 @@ pub struct DEVICE_DESCRIPTION {
     pub DmaRequestLine: u32,
     pub DeviceAddress: i64,
 }
-impl Copy for DEVICE_DESCRIPTION {}
-impl Clone for DEVICE_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVICE_FAULT_CONFIGURATION {
     pub FaultHandler: PIOMMU_DEVICE_FAULT_HANDLER,
     pub FaultContext: *mut core::ffi::c_void,
 }
-impl Copy for DEVICE_FAULT_CONFIGURATION {}
-impl Clone for DEVICE_FAULT_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVICE_FLAGS {
     pub _bitfield: u32,
 }
-impl Copy for DEVICE_FLAGS {}
-impl Clone for DEVICE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVICE_INTERFACE_CHANGE_NOTIFICATION {
     pub Version: u16,
     pub Size: u16,
@@ -6198,27 +5625,15 @@ pub struct DEVICE_INTERFACE_CHANGE_NOTIFICATION {
     pub InterfaceClassGuid: windows_sys::core::GUID,
     pub SymbolicLinkName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
 }
-impl Copy for DEVICE_INTERFACE_CHANGE_NOTIFICATION {}
-impl Clone for DEVICE_INTERFACE_CHANGE_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct DEVICE_RELATIONS {
     pub Count: u32,
     pub Objects: [*mut super::super::Foundation::DEVICE_OBJECT; 1],
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for DEVICE_RELATIONS {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for DEVICE_RELATIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVICE_RESET_INTERFACE_STANDARD {
     pub Size: u16,
     pub Version: u16,
@@ -6232,126 +5647,69 @@ pub struct DEVICE_RESET_INTERFACE_STANDARD {
     pub DeviceBusSpecificReset: PDEVICE_BUS_SPECIFIC_RESET_HANDLER,
     pub GetDeviceResetStatus: PGET_DEVICE_RESET_STATUS,
 }
-impl Copy for DEVICE_RESET_INTERFACE_STANDARD {}
-impl Clone for DEVICE_RESET_INTERFACE_STANDARD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DEVICE_RESET_STATUS_FLAGS {
     pub u: DEVICE_RESET_STATUS_FLAGS_0,
     pub AsUlonglong: u64,
 }
-impl Copy for DEVICE_RESET_STATUS_FLAGS {}
-impl Clone for DEVICE_RESET_STATUS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVICE_RESET_STATUS_FLAGS_0 {
     pub _bitfield: u64,
 }
-impl Copy for DEVICE_RESET_STATUS_FLAGS_0 {}
-impl Clone for DEVICE_RESET_STATUS_FLAGS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DISK_SIGNATURE {
     pub PartitionStyle: u32,
     pub Anonymous: DISK_SIGNATURE_0,
 }
-impl Copy for DISK_SIGNATURE {}
-impl Clone for DISK_SIGNATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DISK_SIGNATURE_0 {
     pub Mbr: DISK_SIGNATURE_0_1,
     pub Gpt: DISK_SIGNATURE_0_0,
 }
-impl Copy for DISK_SIGNATURE_0 {}
-impl Clone for DISK_SIGNATURE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DISK_SIGNATURE_0_0 {
     pub DiskId: windows_sys::core::GUID,
 }
-impl Copy for DISK_SIGNATURE_0_0 {}
-impl Clone for DISK_SIGNATURE_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DISK_SIGNATURE_0_1 {
     pub Signature: u32,
     pub CheckSum: u32,
 }
-impl Copy for DISK_SIGNATURE_0_1 {}
-impl Clone for DISK_SIGNATURE_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct DMA_ADAPTER {
     pub Version: u16,
     pub Size: u16,
     pub DmaOperations: *mut DMA_OPERATIONS,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for DMA_ADAPTER {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for DMA_ADAPTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DMA_ADAPTER_INFO {
     pub Version: u32,
     pub Anonymous: DMA_ADAPTER_INFO_0,
 }
-impl Copy for DMA_ADAPTER_INFO {}
-impl Clone for DMA_ADAPTER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DMA_ADAPTER_INFO_0 {
     pub V1: DMA_ADAPTER_INFO_V1,
     pub Crashdump: DMA_ADAPTER_INFO_CRASHDUMP,
 }
-impl Copy for DMA_ADAPTER_INFO_0 {}
-impl Clone for DMA_ADAPTER_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DMA_ADAPTER_INFO_CRASHDUMP {
     pub DeviceDescription: DEVICE_DESCRIPTION,
     pub DeviceIdSize: usize,
     pub DeviceId: *mut core::ffi::c_void,
 }
-impl Copy for DMA_ADAPTER_INFO_CRASHDUMP {}
-impl Clone for DMA_ADAPTER_INFO_CRASHDUMP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DMA_ADAPTER_INFO_V1 {
     pub ReadDmaCounterAvailable: u32,
     pub ScatterGatherLimit: u32,
@@ -6359,79 +5717,44 @@ pub struct DMA_ADAPTER_INFO_V1 {
     pub Flags: u32,
     pub MinimumTransferUnit: u32,
 }
-impl Copy for DMA_ADAPTER_INFO_V1 {}
-impl Clone for DMA_ADAPTER_INFO_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION {
     pub ConfigType: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE,
     pub Anonymous: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0,
 }
-impl Copy for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION {}
-impl Clone for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0 {
     pub LogicalAddressLimits: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_0,
     pub SubSection: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_1,
     pub HardwareAccessType: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE,
     pub Reserved: [u64; 4],
 }
-impl Copy for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0 {}
-impl Clone for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_0 {
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
-impl Copy for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_0 {}
-impl Clone for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_1 {
     pub Offset: u64,
     pub Length: u32,
 }
-impl Copy for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_1 {}
-impl Clone for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DMA_CONFIGURATION_BYTE0 {
     pub _bitfield: u8,
 }
-impl Copy for DMA_CONFIGURATION_BYTE0 {}
-impl Clone for DMA_CONFIGURATION_BYTE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DMA_CONFIGURATION_BYTE1 {
     pub _bitfield: u8,
 }
-impl Copy for DMA_CONFIGURATION_BYTE1 {}
-impl Clone for DMA_CONFIGURATION_BYTE1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DMA_IOMMU_INTERFACE {
     pub Version: u32,
     pub CreateDomain: PIOMMU_DOMAIN_CREATE,
@@ -6448,36 +5771,21 @@ pub struct DMA_IOMMU_INTERFACE {
     pub SetDeviceFaultReporting: PIOMMU_SET_DEVICE_FAULT_REPORTING,
     pub ConfigureDomain: PIOMMU_DOMAIN_CONFIGURE,
 }
-impl Copy for DMA_IOMMU_INTERFACE {}
-impl Clone for DMA_IOMMU_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DMA_IOMMU_INTERFACE_EX {
     pub Size: usize,
     pub Version: u32,
     pub Anonymous: DMA_IOMMU_INTERFACE_EX_0,
 }
-impl Copy for DMA_IOMMU_INTERFACE_EX {}
-impl Clone for DMA_IOMMU_INTERFACE_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DMA_IOMMU_INTERFACE_EX_0 {
     pub V1: DMA_IOMMU_INTERFACE_V1,
     pub V2: DMA_IOMMU_INTERFACE_V2,
 }
-impl Copy for DMA_IOMMU_INTERFACE_EX_0 {}
-impl Clone for DMA_IOMMU_INTERFACE_EX_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DMA_IOMMU_INTERFACE_V1 {
     pub CreateDomain: PIOMMU_DOMAIN_CREATE,
     pub DeleteDomain: PIOMMU_DOMAIN_DELETE,
@@ -6493,13 +5801,8 @@ pub struct DMA_IOMMU_INTERFACE_V1 {
     pub SetDeviceFaultReporting: PIOMMU_SET_DEVICE_FAULT_REPORTING,
     pub ConfigureDomain: PIOMMU_DOMAIN_CONFIGURE,
 }
-impl Copy for DMA_IOMMU_INTERFACE_V1 {}
-impl Clone for DMA_IOMMU_INTERFACE_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DMA_IOMMU_INTERFACE_V2 {
     pub CreateDomainEx: PIOMMU_DOMAIN_CREATE_EX,
     pub DeleteDomain: PIOMMU_DOMAIN_DELETE,
@@ -6524,14 +5827,9 @@ pub struct DMA_IOMMU_INTERFACE_V2 {
     pub CreateDevice: PIOMMU_DEVICE_CREATE,
     pub DeleteDevice: PIOMMU_DEVICE_DELETE,
 }
-impl Copy for DMA_IOMMU_INTERFACE_V2 {}
-impl Clone for DMA_IOMMU_INTERFACE_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct DMA_OPERATIONS {
     pub Size: u32,
     pub PutDmaAdapter: PPUT_DMA_ADAPTER,
@@ -6574,84 +5872,47 @@ pub struct DMA_OPERATIONS {
     pub FreeCommonBufferVector: PFREE_COMMON_BUFFER_VECTOR,
     pub CreateCommonBufferFromMdl: PCREATE_COMMON_BUFFER_FROM_MDL,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for DMA_OPERATIONS {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for DMA_OPERATIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DMA_TRANSFER_INFO {
     pub Version: u32,
     pub Anonymous: DMA_TRANSFER_INFO_0,
 }
-impl Copy for DMA_TRANSFER_INFO {}
-impl Clone for DMA_TRANSFER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DMA_TRANSFER_INFO_0 {
     pub V1: DMA_TRANSFER_INFO_V1,
     pub V2: DMA_TRANSFER_INFO_V2,
 }
-impl Copy for DMA_TRANSFER_INFO_0 {}
-impl Clone for DMA_TRANSFER_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DMA_TRANSFER_INFO_V1 {
     pub MapRegisterCount: u32,
     pub ScatterGatherElementCount: u32,
     pub ScatterGatherListSize: u32,
 }
-impl Copy for DMA_TRANSFER_INFO_V1 {}
-impl Clone for DMA_TRANSFER_INFO_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DMA_TRANSFER_INFO_V2 {
     pub MapRegisterCount: u32,
     pub ScatterGatherElementCount: u32,
     pub ScatterGatherListSize: u32,
     pub LogicalPageCount: u32,
 }
-impl Copy for DMA_TRANSFER_INFO_V2 {}
-impl Clone for DMA_TRANSFER_INFO_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DOMAIN_CONFIGURATION {
     pub Type: DOMAIN_CONFIGURATION_ARCH,
     pub Anonymous: DOMAIN_CONFIGURATION_0,
 }
-impl Copy for DOMAIN_CONFIGURATION {}
-impl Clone for DOMAIN_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DOMAIN_CONFIGURATION_0 {
     pub Arm64: DOMAIN_CONFIGURATION_ARM64,
     pub X64: DOMAIN_CONFIGURATION_X64,
 }
-impl Copy for DOMAIN_CONFIGURATION_0 {}
-impl Clone for DOMAIN_CONFIGURATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DOMAIN_CONFIGURATION_ARM64 {
     pub Ttbr0: i64,
     pub Ttbr1: i64,
@@ -6662,24 +5923,14 @@ pub struct DOMAIN_CONFIGURATION_ARM64 {
     pub CoherentTableWalks: super::super::super::Win32::Foundation::BOOLEAN,
     pub TranslationEnabled: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for DOMAIN_CONFIGURATION_ARM64 {}
-impl Clone for DOMAIN_CONFIGURATION_ARM64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DOMAIN_CONFIGURATION_X64 {
     pub FirstLevelPageTableRoot: i64,
     pub TranslationEnabled: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for DOMAIN_CONFIGURATION_X64 {}
-impl Clone for DOMAIN_CONFIGURATION_X64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK {
     pub Signature: u32,
     pub Revision: u16,
@@ -6687,68 +5938,38 @@ pub struct DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK {
     pub DpcWatchdogProfileOffset: u16,
     pub DpcWatchdogProfileLength: u32,
 }
-impl Copy for DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK {}
-impl Clone for DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_VERIFIER_THUNK_PAIRS {
     pub PristineRoutine: PDRIVER_VERIFIER_THUNK_ROUTINE,
     pub NewRoutine: PDRIVER_VERIFIER_THUNK_ROUTINE,
 }
-impl Copy for DRIVER_VERIFIER_THUNK_PAIRS {}
-impl Clone for DRIVER_VERIFIER_THUNK_PAIRS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct EFI_ACPI_RAS_SIGNAL_TABLE {
     pub Header: WHEA_ACPI_HEADER,
     pub NumberRecord: u32,
     pub Entries: [SIGNAL_REG_VALUE; 1],
 }
-impl Copy for EFI_ACPI_RAS_SIGNAL_TABLE {}
-impl Clone for EFI_ACPI_RAS_SIGNAL_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EISA_DMA_CONFIGURATION {
     pub ConfigurationByte0: DMA_CONFIGURATION_BYTE0,
     pub ConfigurationByte1: DMA_CONFIGURATION_BYTE1,
 }
-impl Copy for EISA_DMA_CONFIGURATION {}
-impl Clone for EISA_DMA_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EISA_IRQ_CONFIGURATION {
     pub ConfigurationByte: EISA_IRQ_DESCRIPTOR,
     pub Reserved: u8,
 }
-impl Copy for EISA_IRQ_CONFIGURATION {}
-impl Clone for EISA_IRQ_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EISA_IRQ_DESCRIPTOR {
     pub _bitfield: u8,
 }
-impl Copy for EISA_IRQ_DESCRIPTOR {}
-impl Clone for EISA_IRQ_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct EISA_MEMORY_CONFIGURATION {
     pub ConfigurationByte: EISA_MEMORY_TYPE,
     pub DataSize: u8,
@@ -6756,44 +5977,24 @@ pub struct EISA_MEMORY_CONFIGURATION {
     pub AddressHighByte: u8,
     pub MemorySize: u16,
 }
-impl Copy for EISA_MEMORY_CONFIGURATION {}
-impl Clone for EISA_MEMORY_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EISA_MEMORY_TYPE {
     pub _bitfield: u8,
 }
-impl Copy for EISA_MEMORY_TYPE {}
-impl Clone for EISA_MEMORY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct EISA_PORT_CONFIGURATION {
     pub Configuration: EISA_PORT_DESCRIPTOR,
     pub PortAddress: u16,
 }
-impl Copy for EISA_PORT_CONFIGURATION {}
-impl Clone for EISA_PORT_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EISA_PORT_DESCRIPTOR {
     pub _bitfield: u8,
 }
-impl Copy for EISA_PORT_DESCRIPTOR {}
-impl Clone for EISA_PORT_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ETW_TRACE_SESSION_SETTINGS {
     pub Version: u32,
     pub BufferSize: u32,
@@ -6804,101 +6005,57 @@ pub struct ETW_TRACE_SESSION_SETTINGS {
     pub FlushThreshold: u32,
     pub ClockType: u32,
 }
-impl Copy for ETW_TRACE_SESSION_SETTINGS {}
-impl Clone for ETW_TRACE_SESSION_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXTENDED_CREATE_INFORMATION {
     pub ExtendedCreateFlags: i64,
     pub EaBuffer: *mut core::ffi::c_void,
     pub EaLength: u32,
 }
-impl Copy for EXTENDED_CREATE_INFORMATION {}
-impl Clone for EXTENDED_CREATE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXTENDED_CREATE_INFORMATION_32 {
     pub ExtendedCreateFlags: i64,
     pub EaBuffer: *mut core::ffi::c_void,
     pub EaLength: u32,
 }
-impl Copy for EXTENDED_CREATE_INFORMATION_32 {}
-impl Clone for EXTENDED_CREATE_INFORMATION_32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXT_DELETE_PARAMETERS {
     pub Version: u32,
     pub Reserved: u32,
     pub DeleteCallback: PEXT_DELETE_CALLBACK,
     pub DeleteContext: *mut core::ffi::c_void,
 }
-impl Copy for EXT_DELETE_PARAMETERS {}
-impl Clone for EXT_DELETE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EX_RUNDOWN_REF {
     pub Anonymous: EX_RUNDOWN_REF_0,
 }
-impl Copy for EX_RUNDOWN_REF {}
-impl Clone for EX_RUNDOWN_REF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union EX_RUNDOWN_REF_0 {
     pub Count: usize,
     pub Ptr: *mut core::ffi::c_void,
 }
-impl Copy for EX_RUNDOWN_REF_0 {}
-impl Clone for EX_RUNDOWN_REF_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct FAULT_INFORMATION {
     pub Type: FAULT_INFORMATION_ARCH,
     pub IsStage1: super::super::super::Win32::Foundation::BOOLEAN,
     pub Anonymous: FAULT_INFORMATION_0,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for FAULT_INFORMATION {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for FAULT_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub union FAULT_INFORMATION_0 {
     pub Arm64: FAULT_INFORMATION_ARM64,
     pub X64: FAULT_INFORMATION_X64,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for FAULT_INFORMATION_0 {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for FAULT_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct FAULT_INFORMATION_ARM64 {
     pub DomainHandle: *mut core::ffi::c_void,
     pub FaultAddress: *mut core::ffi::c_void,
@@ -6908,25 +6065,13 @@ pub struct FAULT_INFORMATION_ARM64 {
     pub Type: FAULT_INFORMATION_ARM64_TYPE,
     pub IommuBaseAddress: u64,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for FAULT_INFORMATION_ARM64 {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for FAULT_INFORMATION_ARM64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAULT_INFORMATION_ARM64_FLAGS {
     pub _bitfield: u32,
 }
-impl Copy for FAULT_INFORMATION_ARM64_FLAGS {}
-impl Clone for FAULT_INFORMATION_ARM64_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAULT_INFORMATION_X64 {
     pub DomainHandle: *mut core::ffi::c_void,
     pub FaultAddress: *mut core::ffi::c_void,
@@ -6935,55 +6080,30 @@ pub struct FAULT_INFORMATION_X64 {
     pub IommuBaseAddress: u64,
     pub PciSegment: u32,
 }
-impl Copy for FAULT_INFORMATION_X64 {}
-impl Clone for FAULT_INFORMATION_X64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FAULT_INFORMATION_X64_FLAGS {
     pub _bitfield: u32,
 }
-impl Copy for FAULT_INFORMATION_X64_FLAGS {}
-impl Clone for FAULT_INFORMATION_X64_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_ATTRIBUTE_TAG_INFORMATION {
     pub FileAttributes: u32,
     pub ReparseTag: u32,
 }
-impl Copy for FILE_ATTRIBUTE_TAG_INFORMATION {}
-impl Clone for FILE_ATTRIBUTE_TAG_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_END_OF_FILE_INFORMATION {
     pub EndOfFile: i64,
 }
-impl Copy for FILE_END_OF_FILE_INFORMATION {}
-impl Clone for FILE_END_OF_FILE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_FS_DEVICE_INFORMATION {
     pub DeviceType: u32,
     pub Characteristics: u32,
 }
-impl Copy for FILE_FS_DEVICE_INFORMATION {}
-impl Clone for FILE_FS_DEVICE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_FS_FULL_SIZE_INFORMATION {
     pub TotalAllocationUnits: i64,
     pub CallerAvailableAllocationUnits: i64,
@@ -6991,13 +6111,8 @@ pub struct FILE_FS_FULL_SIZE_INFORMATION {
     pub SectorsPerAllocationUnit: u32,
     pub BytesPerSector: u32,
 }
-impl Copy for FILE_FS_FULL_SIZE_INFORMATION {}
-impl Clone for FILE_FS_FULL_SIZE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_FS_FULL_SIZE_INFORMATION_EX {
     pub ActualTotalAllocationUnits: u64,
     pub ActualAvailableAllocationUnits: u64,
@@ -7013,60 +6128,35 @@ pub struct FILE_FS_FULL_SIZE_INFORMATION_EX {
     pub SectorsPerAllocationUnit: u32,
     pub BytesPerSector: u32,
 }
-impl Copy for FILE_FS_FULL_SIZE_INFORMATION_EX {}
-impl Clone for FILE_FS_FULL_SIZE_INFORMATION_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_FS_LABEL_INFORMATION {
     pub VolumeLabelLength: u32,
     pub VolumeLabel: [u16; 1],
 }
-impl Copy for FILE_FS_LABEL_INFORMATION {}
-impl Clone for FILE_FS_LABEL_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_FS_METADATA_SIZE_INFORMATION {
     pub TotalMetadataAllocationUnits: i64,
     pub SectorsPerAllocationUnit: u32,
     pub BytesPerSector: u32,
 }
-impl Copy for FILE_FS_METADATA_SIZE_INFORMATION {}
-impl Clone for FILE_FS_METADATA_SIZE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_FS_OBJECTID_INFORMATION {
     pub ObjectId: [u8; 16],
     pub ExtendedInfo: [u8; 48],
 }
-impl Copy for FILE_FS_OBJECTID_INFORMATION {}
-impl Clone for FILE_FS_OBJECTID_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_FS_SIZE_INFORMATION {
     pub TotalAllocationUnits: i64,
     pub AvailableAllocationUnits: i64,
     pub SectorsPerAllocationUnit: u32,
     pub BytesPerSector: u32,
 }
-impl Copy for FILE_FS_SIZE_INFORMATION {}
-impl Clone for FILE_FS_SIZE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_FS_VOLUME_INFORMATION {
     pub VolumeCreationTime: i64,
     pub VolumeSerialNumber: u32,
@@ -7074,125 +6164,66 @@ pub struct FILE_FS_VOLUME_INFORMATION {
     pub SupportsObjects: super::super::super::Win32::Foundation::BOOLEAN,
     pub VolumeLabel: [u16; 1],
 }
-impl Copy for FILE_FS_VOLUME_INFORMATION {}
-impl Clone for FILE_FS_VOLUME_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_IOSTATUSBLOCK_RANGE_INFORMATION {
     pub IoStatusBlockRange: *mut u8,
     pub Length: u32,
 }
-impl Copy for FILE_IOSTATUSBLOCK_RANGE_INFORMATION {}
-impl Clone for FILE_IOSTATUSBLOCK_RANGE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_IO_COMPLETION_NOTIFICATION_INFORMATION {
     pub Flags: u32,
 }
-impl Copy for FILE_IO_COMPLETION_NOTIFICATION_INFORMATION {}
-impl Clone for FILE_IO_COMPLETION_NOTIFICATION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct FILE_IO_PRIORITY_HINT_INFORMATION {
     pub PriorityHint: super::super::Foundation::IO_PRIORITY_HINT,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for FILE_IO_PRIORITY_HINT_INFORMATION {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for FILE_IO_PRIORITY_HINT_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct FILE_IO_PRIORITY_HINT_INFORMATION_EX {
     pub PriorityHint: super::super::Foundation::IO_PRIORITY_HINT,
     pub BoostOutstanding: super::super::super::Win32::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for FILE_IO_PRIORITY_HINT_INFORMATION_EX {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for FILE_IO_PRIORITY_HINT_INFORMATION_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_IS_REMOTE_DEVICE_INFORMATION {
     pub IsRemote: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for FILE_IS_REMOTE_DEVICE_INFORMATION {}
-impl Clone for FILE_IS_REMOTE_DEVICE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_MEMORY_PARTITION_INFORMATION {
     pub OwnerPartitionHandle: usize,
     pub Flags: FILE_MEMORY_PARTITION_INFORMATION_0,
 }
-impl Copy for FILE_MEMORY_PARTITION_INFORMATION {}
-impl Clone for FILE_MEMORY_PARTITION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union FILE_MEMORY_PARTITION_INFORMATION_0 {
     pub Anonymous: FILE_MEMORY_PARTITION_INFORMATION_0_0,
     pub AllFlags: u32,
 }
-impl Copy for FILE_MEMORY_PARTITION_INFORMATION_0 {}
-impl Clone for FILE_MEMORY_PARTITION_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_MEMORY_PARTITION_INFORMATION_0_0 {
     pub NoCrossPartitionAccess: u8,
     pub Spare: [u8; 3],
 }
-impl Copy for FILE_MEMORY_PARTITION_INFORMATION_0_0 {}
-impl Clone for FILE_MEMORY_PARTITION_INFORMATION_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_NUMA_NODE_INFORMATION {
     pub NodeNumber: u16,
 }
-impl Copy for FILE_NUMA_NODE_INFORMATION {}
-impl Clone for FILE_NUMA_NODE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_PROCESS_IDS_USING_FILE_INFORMATION {
     pub NumberOfProcessIdsInList: u32,
     pub ProcessIdList: [usize; 1],
 }
-impl Copy for FILE_PROCESS_IDS_USING_FILE_INFORMATION {}
-impl Clone for FILE_PROCESS_IDS_USING_FILE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_SFIO_RESERVE_INFORMATION {
     pub RequestsPerPeriod: u32,
     pub Period: u32,
@@ -7201,25 +6232,15 @@ pub struct FILE_SFIO_RESERVE_INFORMATION {
     pub RequestSize: u32,
     pub NumOutstandingRequests: u32,
 }
-impl Copy for FILE_SFIO_RESERVE_INFORMATION {}
-impl Clone for FILE_SFIO_RESERVE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_SFIO_VOLUME_INFORMATION {
     pub MaximumRequestsPerPeriod: u32,
     pub MinimumPeriod: u32,
     pub MinimumTransferSize: u32,
 }
-impl Copy for FILE_SFIO_VOLUME_INFORMATION {}
-impl Clone for FILE_SFIO_VOLUME_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_STANDARD_INFORMATION_EX {
     pub AllocationSize: i64,
     pub EndOfFile: i64,
@@ -7229,23 +6250,13 @@ pub struct FILE_STANDARD_INFORMATION_EX {
     pub AlternateStream: super::super::super::Win32::Foundation::BOOLEAN,
     pub MetadataAttribute: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for FILE_STANDARD_INFORMATION_EX {}
-impl Clone for FILE_STANDARD_INFORMATION_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_VALID_DATA_LENGTH_INFORMATION {
     pub ValidDataLength: i64,
 }
-impl Copy for FILE_VALID_DATA_LENGTH_INFORMATION {}
-impl Clone for FILE_VALID_DATA_LENGTH_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FLOATING_SAVE_AREA {
     pub ControlWord: u32,
     pub StatusWord: u32,
@@ -7257,13 +6268,8 @@ pub struct FLOATING_SAVE_AREA {
     pub RegisterArea: [u8; 80],
     pub Spare0: u32,
 }
-impl Copy for FLOATING_SAVE_AREA {}
-impl Clone for FLOATING_SAVE_AREA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FPGA_CONTROL_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -7275,66 +6281,39 @@ pub struct FPGA_CONTROL_INTERFACE {
     pub ControlConfigSpace: PFPGA_CONTROL_CONFIG_SPACE,
     pub ControlErrorReporting: PFPGA_CONTROL_ERROR_REPORTING,
 }
-impl Copy for FPGA_CONTROL_INTERFACE {}
-impl Clone for FPGA_CONTROL_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FUNCTION_LEVEL_DEVICE_RESET_PARAMETERS {
     pub Size: u32,
     pub DeviceResetCompletion: PDEVICE_RESET_COMPLETION,
     pub CompletionContext: *mut core::ffi::c_void,
 }
-impl Copy for FUNCTION_LEVEL_DEVICE_RESET_PARAMETERS {}
-impl Clone for FUNCTION_LEVEL_DEVICE_RESET_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HAL_AMLI_BAD_IO_ADDRESS_LIST {
     pub BadAddrBegin: u32,
     pub BadAddrSize: u32,
     pub OSVersionTrigger: u32,
     pub IOHandler: PHALIOREADWRITEHANDLER,
 }
-impl Copy for HAL_AMLI_BAD_IO_ADDRESS_LIST {}
-impl Clone for HAL_AMLI_BAD_IO_ADDRESS_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HAL_BUS_INFORMATION {
     pub BusType: INTERFACE_TYPE,
     pub ConfigurationType: BUS_DATA_TYPE,
     pub BusNumber: u32,
     pub Reserved: u32,
 }
-impl Copy for HAL_BUS_INFORMATION {}
-impl Clone for HAL_BUS_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct HAL_CALLBACKS {
     pub SetSystemInformation: super::super::Foundation::PCALLBACK_OBJECT,
     pub BusCheck: super::super::Foundation::PCALLBACK_OBJECT,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for HAL_CALLBACKS {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for HAL_CALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Ioctl", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct HAL_DISPATCH {
     pub Version: u32,
     pub HalQuerySystemInformation: pHalQuerySystemInformation,
@@ -7361,15 +6340,8 @@ pub struct HAL_DISPATCH {
     pub HalSetPciErrorHandlerCallback: pHalSetPciErrorHandlerCallback,
     pub HalGetPrmCache: pHalGetPrmCache,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Ioctl", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for HAL_DISPATCH {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Ioctl", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for HAL_DISPATCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HAL_ERROR_INFO {
     pub Version: u32,
     pub InitMaxSize: u32,
@@ -7399,89 +6371,49 @@ pub struct HAL_ERROR_INFO {
     pub CpeLogId: u64,
     pub KernelReserved: [u64; 4],
 }
-impl Copy for HAL_ERROR_INFO {}
-impl Clone for HAL_ERROR_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HAL_MCA_INTERFACE {
     pub Lock: PHALMCAINTERFACELOCK,
     pub Unlock: PHALMCAINTERFACEUNLOCK,
     pub ReadRegister: PHALMCAINTERFACEREADREGISTER,
 }
-impl Copy for HAL_MCA_INTERFACE {}
-impl Clone for HAL_MCA_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HAL_PLATFORM_INFORMATION {
     pub PlatformFlags: u32,
 }
-impl Copy for HAL_PLATFORM_INFORMATION {}
-impl Clone for HAL_PLATFORM_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HAL_POWER_INFORMATION {
     pub TBD: u32,
 }
-impl Copy for HAL_POWER_INFORMATION {}
-impl Clone for HAL_POWER_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HAL_PROCESSOR_FEATURE {
     pub UsableFeatureBits: u32,
 }
-impl Copy for HAL_PROCESSOR_FEATURE {}
-impl Clone for HAL_PROCESSOR_FEATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HAL_PROCESSOR_SPEED_INFORMATION {
     pub ProcessorSpeed: u32,
 }
-impl Copy for HAL_PROCESSOR_SPEED_INFORMATION {}
-impl Clone for HAL_PROCESSOR_SPEED_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HARDWARE_COUNTER {
     pub Type: HARDWARE_COUNTER_TYPE,
     pub Reserved: u32,
     pub Index: u64,
 }
-impl Copy for HARDWARE_COUNTER {}
-impl Clone for HARDWARE_COUNTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HWPROFILE_CHANGE_NOTIFICATION {
     pub Version: u16,
     pub Size: u16,
     pub Event: windows_sys::core::GUID,
 }
-impl Copy for HWPROFILE_CHANGE_NOTIFICATION {}
-impl Clone for HWPROFILE_CHANGE_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_INFO {
     pub Anonymous: IMAGE_INFO_0,
     pub ImageBase: *mut core::ffi::c_void,
@@ -7489,116 +6421,62 @@ pub struct IMAGE_INFO {
     pub ImageSize: usize,
     pub ImageSectionNumber: u32,
 }
-impl Copy for IMAGE_INFO {}
-impl Clone for IMAGE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IMAGE_INFO_0 {
     pub Properties: u32,
     pub Anonymous: IMAGE_INFO_0_0,
 }
-impl Copy for IMAGE_INFO_0 {}
-impl Clone for IMAGE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_INFO_0_0 {
     pub _bitfield: u32,
 }
-impl Copy for IMAGE_INFO_0_0 {}
-impl Clone for IMAGE_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_INFO_EX {
     pub Size: usize,
     pub ImageInfo: IMAGE_INFO,
     pub FileObject: *mut super::super::Foundation::FILE_OBJECT,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for IMAGE_INFO_EX {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for IMAGE_INFO_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct INITIAL_PRIVILEGE_SET {
     pub PrivilegeCount: u32,
     pub Control: u32,
     pub Privilege: [super::super::super::Win32::Security::LUID_AND_ATTRIBUTES; 3],
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for INITIAL_PRIVILEGE_SET {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for INITIAL_PRIVILEGE_SET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INPUT_MAPPING_ELEMENT {
     pub InputMappingId: u32,
 }
-impl Copy for INPUT_MAPPING_ELEMENT {}
-impl Clone for INPUT_MAPPING_ELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union INTEL_CACHE_INFO_EAX {
     pub Ulong: u32,
     pub Anonymous: INTEL_CACHE_INFO_EAX_0,
 }
-impl Copy for INTEL_CACHE_INFO_EAX {}
-impl Clone for INTEL_CACHE_INFO_EAX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTEL_CACHE_INFO_EAX_0 {
     pub _bitfield: i32,
 }
-impl Copy for INTEL_CACHE_INFO_EAX_0 {}
-impl Clone for INTEL_CACHE_INFO_EAX_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union INTEL_CACHE_INFO_EBX {
     pub Ulong: u32,
     pub Anonymous: INTEL_CACHE_INFO_EBX_0,
 }
-impl Copy for INTEL_CACHE_INFO_EBX {}
-impl Clone for INTEL_CACHE_INFO_EBX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTEL_CACHE_INFO_EBX_0 {
     pub _bitfield: u32,
 }
-impl Copy for INTEL_CACHE_INFO_EBX_0 {}
-impl Clone for INTEL_CACHE_INFO_EBX_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -7606,243 +6484,129 @@ pub struct INTERFACE {
     pub InterfaceReference: PINTERFACE_REFERENCE,
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
 }
-impl Copy for INTERFACE {}
-impl Clone for INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct IOMMU_DEVICE_CREATION_CONFIGURATION {
     pub NextConfiguration: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub ConfigType: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE,
     pub Anonymous: IOMMU_DEVICE_CREATION_CONFIGURATION_0,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for IOMMU_DEVICE_CREATION_CONFIGURATION {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for IOMMU_DEVICE_CREATION_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub union IOMMU_DEVICE_CREATION_CONFIGURATION_0 {
     pub Acpi: IOMMU_DEVICE_CREATION_CONFIGURATION_ACPI,
     pub DeviceId: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for IOMMU_DEVICE_CREATION_CONFIGURATION_0 {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for IOMMU_DEVICE_CREATION_CONFIGURATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IOMMU_DEVICE_CREATION_CONFIGURATION_ACPI {
     pub InputMappingBase: u32,
     pub MappingsCount: u32,
 }
-impl Copy for IOMMU_DEVICE_CREATION_CONFIGURATION_ACPI {}
-impl Clone for IOMMU_DEVICE_CREATION_CONFIGURATION_ACPI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IOMMU_DMA_DOMAIN_CREATION_FLAGS {
     pub Anonymous: IOMMU_DMA_DOMAIN_CREATION_FLAGS_0,
     pub AsUlonglong: u64,
 }
-impl Copy for IOMMU_DMA_DOMAIN_CREATION_FLAGS {}
-impl Clone for IOMMU_DMA_DOMAIN_CREATION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IOMMU_DMA_DOMAIN_CREATION_FLAGS_0 {
     pub _bitfield: u64,
 }
-impl Copy for IOMMU_DMA_DOMAIN_CREATION_FLAGS_0 {}
-impl Clone for IOMMU_DMA_DOMAIN_CREATION_FLAGS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IOMMU_DMA_LOGICAL_ADDRESS_TOKEN {
     pub LogicalAddressBase: u64,
     pub Size: usize,
 }
-impl Copy for IOMMU_DMA_LOGICAL_ADDRESS_TOKEN {}
-impl Clone for IOMMU_DMA_LOGICAL_ADDRESS_TOKEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT {
     pub OwningToken: *mut IOMMU_DMA_LOGICAL_ADDRESS_TOKEN,
     pub Offset: usize,
     pub Size: usize,
 }
-impl Copy for IOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT {}
-impl Clone for IOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG {
     pub LogicalAllocatorType: IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE,
     pub Anonymous: IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG_0,
 }
-impl Copy for IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG {}
-impl Clone for IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG_0 {
     pub BuddyAllocatorConfig: IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG_0_0,
 }
-impl Copy for IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG_0 {}
-impl Clone for IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG_0_0 {
     pub AddressWidth: u32,
 }
-impl Copy for IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG_0_0 {}
-impl Clone for IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IOMMU_DMA_RESERVED_REGION {
     pub RegionNext: *mut IOMMU_DMA_RESERVED_REGION,
     pub Base: u64,
     pub NumberOfPages: usize,
     pub ShouldMap: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for IOMMU_DMA_RESERVED_REGION {}
-impl Clone for IOMMU_DMA_RESERVED_REGION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IOMMU_INTERFACE_STATE_CHANGE {
     pub PresentFields: IOMMU_INTERFACE_STATE_CHANGE_FIELDS,
     pub AvailableDomainTypes: u32,
 }
-impl Copy for IOMMU_INTERFACE_STATE_CHANGE {}
-impl Clone for IOMMU_INTERFACE_STATE_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IOMMU_INTERFACE_STATE_CHANGE_FIELDS {
     pub Anonymous: IOMMU_INTERFACE_STATE_CHANGE_FIELDS_0,
     pub AsULONG: u32,
 }
-impl Copy for IOMMU_INTERFACE_STATE_CHANGE_FIELDS {}
-impl Clone for IOMMU_INTERFACE_STATE_CHANGE_FIELDS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IOMMU_INTERFACE_STATE_CHANGE_FIELDS_0 {
     pub _bitfield: u32,
 }
-impl Copy for IOMMU_INTERFACE_STATE_CHANGE_FIELDS_0 {}
-impl Clone for IOMMU_INTERFACE_STATE_CHANGE_FIELDS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct IOMMU_MAP_PHYSICAL_ADDRESS {
     pub MapType: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE,
     pub Anonymous: IOMMU_MAP_PHYSICAL_ADDRESS_0,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for IOMMU_MAP_PHYSICAL_ADDRESS {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for IOMMU_MAP_PHYSICAL_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub union IOMMU_MAP_PHYSICAL_ADDRESS_0 {
     pub Mdl: IOMMU_MAP_PHYSICAL_ADDRESS_0_1,
     pub ContiguousRange: IOMMU_MAP_PHYSICAL_ADDRESS_0_0,
     pub PfnArray: IOMMU_MAP_PHYSICAL_ADDRESS_0_2,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for IOMMU_MAP_PHYSICAL_ADDRESS_0 {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for IOMMU_MAP_PHYSICAL_ADDRESS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_0 {
     pub Base: i64,
     pub Size: usize,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for IOMMU_MAP_PHYSICAL_ADDRESS_0_0 {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for IOMMU_MAP_PHYSICAL_ADDRESS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_1 {
     pub Mdl: *mut super::super::Foundation::MDL,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for IOMMU_MAP_PHYSICAL_ADDRESS_0_1 {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for IOMMU_MAP_PHYSICAL_ADDRESS_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_2 {
     pub PageFrame: *mut u32,
     pub NumberOfPages: usize,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for IOMMU_MAP_PHYSICAL_ADDRESS_0_2 {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for IOMMU_MAP_PHYSICAL_ADDRESS_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_ATTRIBUTION_INFORMATION {
     pub Version: u32,
     pub Flags: IO_ATTRIBUTION_INFORMATION_0,
@@ -7850,35 +6614,20 @@ pub struct IO_ATTRIBUTION_INFORMATION {
     pub ServiceStartTime: u64,
     pub CurrentTime: u64,
 }
-impl Copy for IO_ATTRIBUTION_INFORMATION {}
-impl Clone for IO_ATTRIBUTION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IO_ATTRIBUTION_INFORMATION_0 {
     pub Anonymous: IO_ATTRIBUTION_INFORMATION_0_0,
     pub AllFlags: u32,
 }
-impl Copy for IO_ATTRIBUTION_INFORMATION_0 {}
-impl Clone for IO_ATTRIBUTION_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_ATTRIBUTION_INFORMATION_0_0 {
     pub _bitfield: u32,
 }
-impl Copy for IO_ATTRIBUTION_INFORMATION_0_0 {}
-impl Clone for IO_ATTRIBUTION_INFORMATION_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct IO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS {
     pub PhysicalDeviceObject: *mut super::super::Foundation::DEVICE_OBJECT,
     pub InterruptObject: *mut super::super::Foundation::PKINTERRUPT,
@@ -7894,16 +6643,9 @@ pub struct IO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS {
     pub ProcessorEnableMask: usize,
     pub Group: u16,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for IO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for IO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct IO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS {
     pub PhysicalDeviceObject: *mut super::super::Foundation::DEVICE_OBJECT,
     pub InterruptObject: *mut super::super::Foundation::PKINTERRUPT,
@@ -7913,16 +6655,9 @@ pub struct IO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS {
     pub SynchronizeIrql: u8,
     pub FloatingSave: super::super::super::Win32::Foundation::BOOLEAN,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for IO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for IO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS {
     pub PhysicalDeviceObject: *mut super::super::Foundation::DEVICE_OBJECT,
     pub ConnectionContext: IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS_0,
@@ -7933,60 +6668,32 @@ pub struct IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS {
     pub FloatingSave: super::super::super::Win32::Foundation::BOOLEAN,
     pub FallBackServiceRoutine: PKSERVICE_ROUTINE,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub union IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS_0 {
     pub Generic: *mut *mut core::ffi::c_void,
     pub InterruptMessageTable: *mut *mut IO_INTERRUPT_MESSAGE_INFO,
     pub InterruptObject: *mut super::super::Foundation::PKINTERRUPT,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS_0 {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct IO_CONNECT_INTERRUPT_PARAMETERS {
     pub Version: u32,
     pub Anonymous: IO_CONNECT_INTERRUPT_PARAMETERS_0,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for IO_CONNECT_INTERRUPT_PARAMETERS {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for IO_CONNECT_INTERRUPT_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub union IO_CONNECT_INTERRUPT_PARAMETERS_0 {
     pub FullySpecified: IO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS,
     pub LineBased: IO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS,
     pub MessageBased: IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for IO_CONNECT_INTERRUPT_PARAMETERS_0 {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for IO_CONNECT_INTERRUPT_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct IO_CSQ {
     pub Type: u32,
     pub CsqInsertIrp: PIO_CSQ_INSERT_IRP,
@@ -7997,60 +6704,32 @@ pub struct IO_CSQ {
     pub CsqCompleteCanceledIrp: PIO_CSQ_COMPLETE_CANCELED_IRP,
     pub ReservePointer: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for IO_CSQ {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for IO_CSQ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct IO_CSQ_IRP_CONTEXT {
     pub Type: u32,
     pub Irp: *mut super::super::Foundation::IRP,
     pub Csq: *mut IO_CSQ,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for IO_CSQ_IRP_CONTEXT {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for IO_CSQ_IRP_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct IO_DISCONNECT_INTERRUPT_PARAMETERS {
     pub Version: u32,
     pub ConnectionContext: IO_DISCONNECT_INTERRUPT_PARAMETERS_0,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for IO_DISCONNECT_INTERRUPT_PARAMETERS {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for IO_DISCONNECT_INTERRUPT_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub union IO_DISCONNECT_INTERRUPT_PARAMETERS_0 {
     pub Generic: *mut core::ffi::c_void,
     pub InterruptObject: super::super::Foundation::PKINTERRUPT,
     pub InterruptMessageTable: *mut IO_INTERRUPT_MESSAGE_INFO,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for IO_DISCONNECT_INTERRUPT_PARAMETERS_0 {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for IO_DISCONNECT_INTERRUPT_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct IO_DRIVER_CREATE_CONTEXT {
     pub Size: i16,
     pub ExtraCreateParameter: *mut isize,
@@ -8058,15 +6737,8 @@ pub struct IO_DRIVER_CREATE_CONTEXT {
     pub TxnParameters: *mut TXN_PARAMETER_BLOCK,
     pub SiloContext: super::super::Foundation::PESILO,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for IO_DRIVER_CREATE_CONTEXT {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for IO_DRIVER_CREATE_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_ERROR_LOG_MESSAGE {
     pub Type: u16,
     pub Size: u16,
@@ -8075,13 +6747,8 @@ pub struct IO_ERROR_LOG_MESSAGE {
     pub DriverNameOffset: u32,
     pub EntryData: IO_ERROR_LOG_PACKET,
 }
-impl Copy for IO_ERROR_LOG_MESSAGE {}
-impl Clone for IO_ERROR_LOG_MESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_ERROR_LOG_PACKET {
     pub MajorFunctionCode: u8,
     pub RetryCount: u8,
@@ -8097,85 +6764,45 @@ pub struct IO_ERROR_LOG_PACKET {
     pub DeviceOffset: i64,
     pub DumpData: [u32; 1],
 }
-impl Copy for IO_ERROR_LOG_PACKET {}
-impl Clone for IO_ERROR_LOG_PACKET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct IO_FOEXT_SHADOW_FILE {
     pub BackingFileObject: *mut super::super::Foundation::FILE_OBJECT,
     pub BackingFltInstance: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for IO_FOEXT_SHADOW_FILE {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for IO_FOEXT_SHADOW_FILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct IO_FOEXT_SILO_PARAMETERS {
     pub Length: u32,
     pub Anonymous: IO_FOEXT_SILO_PARAMETERS_0,
     pub SiloContext: super::super::Foundation::PESILO,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for IO_FOEXT_SILO_PARAMETERS {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for IO_FOEXT_SILO_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub union IO_FOEXT_SILO_PARAMETERS_0 {
     pub Anonymous: IO_FOEXT_SILO_PARAMETERS_0_0,
     pub Flags: u32,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for IO_FOEXT_SILO_PARAMETERS_0 {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for IO_FOEXT_SILO_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct IO_FOEXT_SILO_PARAMETERS_0_0 {
     pub _bitfield: u32,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for IO_FOEXT_SILO_PARAMETERS_0_0 {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for IO_FOEXT_SILO_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct IO_INTERRUPT_MESSAGE_INFO {
     pub UnifiedIrql: u8,
     pub MessageCount: u32,
     pub MessageInfo: [IO_INTERRUPT_MESSAGE_INFO_ENTRY; 1],
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for IO_INTERRUPT_MESSAGE_INFO {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for IO_INTERRUPT_MESSAGE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct IO_INTERRUPT_MESSAGE_INFO_ENTRY {
     pub MessageAddress: i64,
     pub TargetProcessorSet: usize,
@@ -8186,45 +6813,24 @@ pub struct IO_INTERRUPT_MESSAGE_INFO_ENTRY {
     pub Mode: KINTERRUPT_MODE,
     pub Polarity: KINTERRUPT_POLARITY,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for IO_INTERRUPT_MESSAGE_INFO_ENTRY {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for IO_INTERRUPT_MESSAGE_INFO_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub struct IO_REMOVE_LOCK {
     pub Common: IO_REMOVE_LOCK_COMMON_BLOCK,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Copy for IO_REMOVE_LOCK {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Clone for IO_REMOVE_LOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub struct IO_REMOVE_LOCK_COMMON_BLOCK {
     pub Removed: super::super::super::Win32::Foundation::BOOLEAN,
     pub Reserved: [super::super::super::Win32::Foundation::BOOLEAN; 3],
     pub IoCount: i32,
     pub RemoveEvent: super::super::Foundation::KEVENT,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Copy for IO_REMOVE_LOCK_COMMON_BLOCK {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Clone for IO_REMOVE_LOCK_COMMON_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub struct IO_REMOVE_LOCK_DBG_BLOCK {
     pub Signature: i32,
     pub HighWatermark: u32,
@@ -8237,44 +6843,23 @@ pub struct IO_REMOVE_LOCK_DBG_BLOCK {
     pub Reserved2: *mut core::ffi::c_void,
     pub Blocks: super::super::Foundation::PIO_REMOVE_LOCK_TRACKING_BLOCK,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Copy for IO_REMOVE_LOCK_DBG_BLOCK {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Clone for IO_REMOVE_LOCK_DBG_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS {
     pub Version: u32,
     pub ConnectionContext: IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS_0,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub union IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS_0 {
     pub Generic: *mut core::ffi::c_void,
     pub InterruptObject: super::super::Foundation::PKINTERRUPT,
     pub InterruptMessageTable: *mut IO_INTERRUPT_MESSAGE_INFO,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS_0 {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE_DESCRIPTOR {
     pub Option: u8,
     pub Type: u8,
@@ -8284,13 +6869,8 @@ pub struct IO_RESOURCE_DESCRIPTOR {
     pub Spare2: u16,
     pub u: IO_RESOURCE_DESCRIPTOR_0,
 }
-impl Copy for IO_RESOURCE_DESCRIPTOR {}
-impl Clone for IO_RESOURCE_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IO_RESOURCE_DESCRIPTOR_0 {
     pub Port: IO_RESOURCE_DESCRIPTOR_0_12,
     pub Memory: IO_RESOURCE_DESCRIPTOR_0_11,
@@ -8306,38 +6886,23 @@ pub union IO_RESOURCE_DESCRIPTOR_0 {
     pub Memory64: IO_RESOURCE_DESCRIPTOR_0_10,
     pub Connection: IO_RESOURCE_DESCRIPTOR_0_2,
 }
-impl Copy for IO_RESOURCE_DESCRIPTOR_0 {}
-impl Clone for IO_RESOURCE_DESCRIPTOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_0 {
     pub Length: u32,
     pub MinBusNumber: u32,
     pub MaxBusNumber: u32,
     pub Reserved: u32,
 }
-impl Copy for IO_RESOURCE_DESCRIPTOR_0_0 {}
-impl Clone for IO_RESOURCE_DESCRIPTOR_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_1 {
     pub Priority: u32,
     pub Reserved1: u32,
     pub Reserved2: u32,
 }
-impl Copy for IO_RESOURCE_DESCRIPTOR_0_1 {}
-impl Clone for IO_RESOURCE_DESCRIPTOR_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_2 {
     pub Class: u8,
     pub Type: u8,
@@ -8346,60 +6911,35 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_2 {
     pub IdLowPart: u32,
     pub IdHighPart: u32,
 }
-impl Copy for IO_RESOURCE_DESCRIPTOR_0_2 {}
-impl Clone for IO_RESOURCE_DESCRIPTOR_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_3 {
     pub Data: [u32; 3],
 }
-impl Copy for IO_RESOURCE_DESCRIPTOR_0_3 {}
-impl Clone for IO_RESOURCE_DESCRIPTOR_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_4 {
     pub RequestLine: u32,
     pub Reserved: u32,
     pub Channel: u32,
     pub TransferWidth: u32,
 }
-impl Copy for IO_RESOURCE_DESCRIPTOR_0_4 {}
-impl Clone for IO_RESOURCE_DESCRIPTOR_0_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_5 {
     pub MinimumChannel: u32,
     pub MaximumChannel: u32,
 }
-impl Copy for IO_RESOURCE_DESCRIPTOR_0_5 {}
-impl Clone for IO_RESOURCE_DESCRIPTOR_0_5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_6 {
     pub Length: u32,
     pub Alignment: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
-impl Copy for IO_RESOURCE_DESCRIPTOR_0_6 {}
-impl Clone for IO_RESOURCE_DESCRIPTOR_0_6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_7 {
     pub MinimumVector: u32,
     pub MaximumVector: u32,
@@ -8407,91 +6947,56 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_7 {
     pub PriorityPolicy: IRQ_PRIORITY,
     pub TargetedProcessors: usize,
 }
-impl Copy for IO_RESOURCE_DESCRIPTOR_0_7 {}
-impl Clone for IO_RESOURCE_DESCRIPTOR_0_7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_8 {
     pub Length40: u32,
     pub Alignment40: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
-impl Copy for IO_RESOURCE_DESCRIPTOR_0_8 {}
-impl Clone for IO_RESOURCE_DESCRIPTOR_0_8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_9 {
     pub Length48: u32,
     pub Alignment48: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
-impl Copy for IO_RESOURCE_DESCRIPTOR_0_9 {}
-impl Clone for IO_RESOURCE_DESCRIPTOR_0_9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_10 {
     pub Length64: u32,
     pub Alignment64: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
-impl Copy for IO_RESOURCE_DESCRIPTOR_0_10 {}
-impl Clone for IO_RESOURCE_DESCRIPTOR_0_10 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_11 {
     pub Length: u32,
     pub Alignment: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
-impl Copy for IO_RESOURCE_DESCRIPTOR_0_11 {}
-impl Clone for IO_RESOURCE_DESCRIPTOR_0_11 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_12 {
     pub Length: u32,
     pub Alignment: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
-impl Copy for IO_RESOURCE_DESCRIPTOR_0_12 {}
-impl Clone for IO_RESOURCE_DESCRIPTOR_0_12 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE_LIST {
     pub Version: u16,
     pub Revision: u16,
     pub Count: u32,
     pub Descriptors: [IO_RESOURCE_DESCRIPTOR; 1],
 }
-impl Copy for IO_RESOURCE_LIST {}
-impl Clone for IO_RESOURCE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE_REQUIREMENTS_LIST {
     pub ListSize: u32,
     pub InterfaceType: INTERFACE_TYPE,
@@ -8501,36 +7006,21 @@ pub struct IO_RESOURCE_REQUIREMENTS_LIST {
     pub AlternativeLists: u32,
     pub List: [IO_RESOURCE_LIST; 1],
 }
-impl Copy for IO_RESOURCE_REQUIREMENTS_LIST {}
-impl Clone for IO_RESOURCE_REQUIREMENTS_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_SESSION_CONNECT_INFO {
     pub SessionId: u32,
     pub LocalSession: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for IO_SESSION_CONNECT_INFO {}
-impl Clone for IO_SESSION_CONNECT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_SESSION_STATE_INFORMATION {
     pub SessionId: u32,
     pub SessionState: IO_SESSION_STATE,
     pub LocalSession: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for IO_SESSION_STATE_INFORMATION {}
-impl Clone for IO_SESSION_STATE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_SESSION_STATE_NOTIFICATION {
     pub Size: u32,
     pub Flags: u32,
@@ -8538,69 +7028,39 @@ pub struct IO_SESSION_STATE_NOTIFICATION {
     pub EventMask: u32,
     pub Context: *mut core::ffi::c_void,
 }
-impl Copy for IO_SESSION_STATE_NOTIFICATION {}
-impl Clone for IO_SESSION_STATE_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_STATUS_BLOCK32 {
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
     pub Information: u32,
 }
-impl Copy for IO_STATUS_BLOCK32 {}
-impl Clone for IO_STATUS_BLOCK32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_STATUS_BLOCK64 {
     pub Anonymous: IO_STATUS_BLOCK64_0,
     pub Information: u64,
 }
-impl Copy for IO_STATUS_BLOCK64 {}
-impl Clone for IO_STATUS_BLOCK64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IO_STATUS_BLOCK64_0 {
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
     pub Pointer: *mut core::ffi::c_void,
 }
-impl Copy for IO_STATUS_BLOCK64_0 {}
-impl Clone for IO_STATUS_BLOCK64_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KADDRESS_RANGE {
     pub Address: *mut core::ffi::c_void,
     pub Size: usize,
 }
-impl Copy for KADDRESS_RANGE {}
-impl Clone for KADDRESS_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KADDRESS_RANGE_DESCRIPTOR {
     pub AddressRanges: *const KADDRESS_RANGE,
     pub AddressRangeCount: usize,
 }
-impl Copy for KADDRESS_RANGE_DESCRIPTOR {}
-impl Clone for KADDRESS_RANGE_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct KAPC {
     pub Type: u8,
     pub AllFlags: u8,
@@ -8617,15 +7077,8 @@ pub struct KAPC {
     pub ApcMode: i8,
     pub Inserted: super::super::super::Win32::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for KAPC {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for KAPC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KBUGCHECK_ADD_PAGES {
     pub Context: *mut core::ffi::c_void,
     pub Flags: u32,
@@ -8633,14 +7086,9 @@ pub struct KBUGCHECK_ADD_PAGES {
     pub Address: usize,
     pub Count: usize,
 }
-impl Copy for KBUGCHECK_ADD_PAGES {}
-impl Clone for KBUGCHECK_ADD_PAGES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct KBUGCHECK_CALLBACK_RECORD {
     pub Entry: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub CallbackRoutine: PKBUGCHECK_CALLBACK_ROUTINE,
@@ -8650,29 +7098,17 @@ pub struct KBUGCHECK_CALLBACK_RECORD {
     pub Checksum: usize,
     pub State: u8,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for KBUGCHECK_CALLBACK_RECORD {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for KBUGCHECK_CALLBACK_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KBUGCHECK_DUMP_IO {
     pub Offset: u64,
     pub Buffer: *mut core::ffi::c_void,
     pub BufferLength: u32,
     pub Type: KBUGCHECK_DUMP_IO_TYPE,
 }
-impl Copy for KBUGCHECK_DUMP_IO {}
-impl Clone for KBUGCHECK_DUMP_IO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct KBUGCHECK_REASON_CALLBACK_RECORD {
     pub Entry: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub CallbackRoutine: PKBUGCHECK_REASON_CALLBACK_ROUTINE,
@@ -8681,15 +7117,8 @@ pub struct KBUGCHECK_REASON_CALLBACK_RECORD {
     pub Reason: KBUGCHECK_CALLBACK_REASON,
     pub State: u8,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for KBUGCHECK_REASON_CALLBACK_RECORD {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for KBUGCHECK_REASON_CALLBACK_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KBUGCHECK_REMOVE_PAGES {
     pub Context: *mut core::ffi::c_void,
     pub Flags: u32,
@@ -8697,13 +7126,8 @@ pub struct KBUGCHECK_REMOVE_PAGES {
     pub Address: usize,
     pub Count: usize,
 }
-impl Copy for KBUGCHECK_REMOVE_PAGES {}
-impl Clone for KBUGCHECK_REMOVE_PAGES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KBUGCHECK_SECONDARY_DUMP_DATA {
     pub InBuffer: *mut core::ffi::c_void,
     pub InBufferLength: u32,
@@ -8712,13 +7136,8 @@ pub struct KBUGCHECK_SECONDARY_DUMP_DATA {
     pub OutBuffer: *mut core::ffi::c_void,
     pub OutBufferLength: u32,
 }
-impl Copy for KBUGCHECK_SECONDARY_DUMP_DATA {}
-impl Clone for KBUGCHECK_SECONDARY_DUMP_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KBUGCHECK_SECONDARY_DUMP_DATA_EX {
     pub InBuffer: *mut core::ffi::c_void,
     pub InBufferLength: u32,
@@ -8735,14 +7154,9 @@ pub struct KBUGCHECK_SECONDARY_DUMP_DATA_EX {
     pub BugCheckParameter3: usize,
     pub BugCheckParameter4: usize,
 }
-impl Copy for KBUGCHECK_SECONDARY_DUMP_DATA_EX {}
-impl Clone for KBUGCHECK_SECONDARY_DUMP_DATA_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct KBUGCHECK_TRIAGE_DUMP_DATA {
     pub DataArray: *mut KTRIAGE_DUMP_DATA_ARRAY,
     pub Flags: u32,
@@ -8753,30 +7167,16 @@ pub struct KBUGCHECK_TRIAGE_DUMP_DATA {
     pub BugCheckParameter3: usize,
     pub BugCheckParameter4: usize,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for KBUGCHECK_TRIAGE_DUMP_DATA {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for KBUGCHECK_TRIAGE_DUMP_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct KDEVICE_QUEUE_ENTRY {
     pub DeviceListEntry: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub SortKey: u32,
     pub Inserted: super::super::super::Win32::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for KDEVICE_QUEUE_ENTRY {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for KDEVICE_QUEUE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KDPC_WATCHDOG_INFORMATION {
     pub DpcTimeLimit: u32,
     pub DpcTimeCount: u32,
@@ -8784,51 +7184,31 @@ pub struct KDPC_WATCHDOG_INFORMATION {
     pub DpcWatchdogCount: u32,
     pub Reserved: u32,
 }
-impl Copy for KDPC_WATCHDOG_INFORMATION {}
-impl Clone for KDPC_WATCHDOG_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KERNEL_SOFT_RESTART_NOTIFICATION {
     pub Version: u16,
     pub Size: u16,
     pub Event: windows_sys::core::GUID,
 }
-impl Copy for KERNEL_SOFT_RESTART_NOTIFICATION {}
-impl Clone for KERNEL_SOFT_RESTART_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KERNEL_USER_TIMES {
     pub CreateTime: i64,
     pub ExitTime: i64,
     pub KernelTime: i64,
     pub UserTime: i64,
 }
-impl Copy for KERNEL_USER_TIMES {}
-impl Clone for KERNEL_USER_TIMES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEY_BASIC_INFORMATION {
     pub LastWriteTime: i64,
     pub TitleIndex: u32,
     pub NameLength: u32,
     pub Name: [u16; 1],
 }
-impl Copy for KEY_BASIC_INFORMATION {}
-impl Clone for KEY_BASIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEY_CACHED_INFORMATION {
     pub LastWriteTime: i64,
     pub TitleIndex: u32,
@@ -8839,23 +7219,13 @@ pub struct KEY_CACHED_INFORMATION {
     pub MaxValueDataLen: u32,
     pub NameLength: u32,
 }
-impl Copy for KEY_CACHED_INFORMATION {}
-impl Clone for KEY_CACHED_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEY_CONTROL_FLAGS_INFORMATION {
     pub ControlFlags: u32,
 }
-impl Copy for KEY_CONTROL_FLAGS_INFORMATION {}
-impl Clone for KEY_CONTROL_FLAGS_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEY_FULL_INFORMATION {
     pub LastWriteTime: i64,
     pub TitleIndex: u32,
@@ -8869,34 +7239,19 @@ pub struct KEY_FULL_INFORMATION {
     pub MaxValueDataLen: u32,
     pub Class: [u16; 1],
 }
-impl Copy for KEY_FULL_INFORMATION {}
-impl Clone for KEY_FULL_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEY_LAYER_INFORMATION {
     pub _bitfield: u32,
 }
-impl Copy for KEY_LAYER_INFORMATION {}
-impl Clone for KEY_LAYER_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEY_NAME_INFORMATION {
     pub NameLength: u32,
     pub Name: [u16; 1],
 }
-impl Copy for KEY_NAME_INFORMATION {}
-impl Clone for KEY_NAME_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEY_NODE_INFORMATION {
     pub LastWriteTime: i64,
     pub TitleIndex: u32,
@@ -8905,46 +7260,26 @@ pub struct KEY_NODE_INFORMATION {
     pub NameLength: u32,
     pub Name: [u16; 1],
 }
-impl Copy for KEY_NODE_INFORMATION {}
-impl Clone for KEY_NODE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEY_SET_VIRTUALIZATION_INFORMATION {
     pub _bitfield: u32,
 }
-impl Copy for KEY_SET_VIRTUALIZATION_INFORMATION {}
-impl Clone for KEY_SET_VIRTUALIZATION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEY_TRUST_INFORMATION {
     pub _bitfield: u32,
 }
-impl Copy for KEY_TRUST_INFORMATION {}
-impl Clone for KEY_TRUST_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEY_VALUE_BASIC_INFORMATION {
     pub TitleIndex: u32,
     pub Type: u32,
     pub NameLength: u32,
     pub Name: [u16; 1],
 }
-impl Copy for KEY_VALUE_BASIC_INFORMATION {}
-impl Clone for KEY_VALUE_BASIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEY_VALUE_FULL_INFORMATION {
     pub TitleIndex: u32,
     pub Type: u32,
@@ -8953,94 +7288,52 @@ pub struct KEY_VALUE_FULL_INFORMATION {
     pub NameLength: u32,
     pub Name: [u16; 1],
 }
-impl Copy for KEY_VALUE_FULL_INFORMATION {}
-impl Clone for KEY_VALUE_FULL_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEY_VALUE_LAYER_INFORMATION {
     pub _bitfield: u32,
 }
-impl Copy for KEY_VALUE_LAYER_INFORMATION {}
-impl Clone for KEY_VALUE_LAYER_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEY_VALUE_PARTIAL_INFORMATION {
     pub TitleIndex: u32,
     pub Type: u32,
     pub DataLength: u32,
     pub Data: [u8; 1],
 }
-impl Copy for KEY_VALUE_PARTIAL_INFORMATION {}
-impl Clone for KEY_VALUE_PARTIAL_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEY_VALUE_PARTIAL_INFORMATION_ALIGN64 {
     pub Type: u32,
     pub DataLength: u32,
     pub Data: [u8; 1],
 }
-impl Copy for KEY_VALUE_PARTIAL_INFORMATION_ALIGN64 {}
-impl Clone for KEY_VALUE_PARTIAL_INFORMATION_ALIGN64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEY_VIRTUALIZATION_INFORMATION {
     pub _bitfield: u32,
 }
-impl Copy for KEY_VIRTUALIZATION_INFORMATION {}
-impl Clone for KEY_VIRTUALIZATION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEY_WOW64_FLAGS_INFORMATION {
     pub UserFlags: u32,
 }
-impl Copy for KEY_WOW64_FLAGS_INFORMATION {}
-impl Clone for KEY_WOW64_FLAGS_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEY_WRITE_TIME_INFORMATION {
     pub LastWriteTime: i64,
 }
-impl Copy for KEY_WRITE_TIME_INFORMATION {}
-impl Clone for KEY_WRITE_TIME_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT {
     pub State: KE_PROCESSOR_CHANGE_NOTIFY_STATE,
     pub NtNumber: u32,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
     pub ProcNumber: super::super::super::Win32::System::Kernel::PROCESSOR_NUMBER,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KFLOATING_SAVE {
     pub ControlWord: u32,
     pub StatusWord: u32,
@@ -9051,75 +7344,41 @@ pub struct KFLOATING_SAVE {
     pub Spare0: u32,
     pub Spare1: u32,
 }
-impl Copy for KFLOATING_SAVE {}
-impl Clone for KFLOATING_SAVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub struct KGATE {
     pub Header: super::super::Foundation::DISPATCHER_HEADER,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Copy for KGATE {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Clone for KGATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KLOCK_QUEUE_HANDLE {
     pub LockQueue: KSPIN_LOCK_QUEUE,
     pub OldIrql: u8,
 }
-impl Copy for KLOCK_QUEUE_HANDLE {}
-impl Clone for KLOCK_QUEUE_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub struct KSEMAPHORE {
     pub Header: super::super::Foundation::DISPATCHER_HEADER,
     pub Limit: i32,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Copy for KSEMAPHORE {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Clone for KSEMAPHORE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSPIN_LOCK_QUEUE {
     pub Next: *mut KSPIN_LOCK_QUEUE,
     pub Lock: *mut usize,
 }
-impl Copy for KSPIN_LOCK_QUEUE {}
-impl Clone for KSPIN_LOCK_QUEUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KSYSTEM_TIME {
     pub LowPart: u32,
     pub High1Time: i32,
     pub High2Time: i32,
 }
-impl Copy for KSYSTEM_TIME {}
-impl Clone for KSYSTEM_TIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub struct KTIMER {
     pub Header: super::super::Foundation::DISPATCHER_HEADER,
     pub DueTime: u64,
@@ -9127,16 +7386,9 @@ pub struct KTIMER {
     pub Dpc: *mut super::super::Foundation::KDPC,
     pub Period: u32,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Copy for KTIMER {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Clone for KTIMER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct KTRIAGE_DUMP_DATA_ARRAY {
     pub List: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub NumBlocksUsed: u32,
@@ -9147,16 +7399,9 @@ pub struct KTRIAGE_DUMP_DATA_ARRAY {
     pub ComponentName: *mut u8,
     pub Blocks: [KADDRESS_RANGE; 1],
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for KTRIAGE_DUMP_DATA_ARRAY {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for KTRIAGE_DUMP_DATA_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub struct KUSER_SHARED_DATA {
     pub TickCountLowDeprecated: u32,
     pub TickCountMultiplier: u32,
@@ -9239,236 +7484,124 @@ pub struct KUSER_SHARED_DATA {
     pub Spare: u32,
     pub UserPointerAuthMask: u64,
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Copy for KUSER_SHARED_DATA {}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Clone for KUSER_SHARED_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub union KUSER_SHARED_DATA_0 {
     pub MitigationPolicies: u8,
     pub Anonymous: KUSER_SHARED_DATA_0_0,
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Copy for KUSER_SHARED_DATA_0 {}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Clone for KUSER_SHARED_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub struct KUSER_SHARED_DATA_0_0 {
     pub _bitfield: u8,
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Copy for KUSER_SHARED_DATA_0_0 {}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Clone for KUSER_SHARED_DATA_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub union KUSER_SHARED_DATA_1 {
     pub VirtualizationFlags: u8,
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Copy for KUSER_SHARED_DATA_1 {}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Clone for KUSER_SHARED_DATA_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub union KUSER_SHARED_DATA_2 {
     pub SharedDataFlags: u32,
     pub Anonymous: KUSER_SHARED_DATA_2_0,
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Copy for KUSER_SHARED_DATA_2 {}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Clone for KUSER_SHARED_DATA_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub struct KUSER_SHARED_DATA_2_0 {
     pub _bitfield: u32,
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Copy for KUSER_SHARED_DATA_2_0 {}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Clone for KUSER_SHARED_DATA_2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub union KUSER_SHARED_DATA_3 {
     pub TickCount: KSYSTEM_TIME,
     pub TickCountQuad: u64,
     pub Anonymous: KUSER_SHARED_DATA_3_0,
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Copy for KUSER_SHARED_DATA_3 {}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Clone for KUSER_SHARED_DATA_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub struct KUSER_SHARED_DATA_3_0 {
     pub ReservedTickCountOverlay: [u32; 3],
     pub TickCountPad: [u32; 1],
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Copy for KUSER_SHARED_DATA_3_0 {}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Clone for KUSER_SHARED_DATA_3_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub union KUSER_SHARED_DATA_4 {
     pub QpcData: u16,
     pub Anonymous: KUSER_SHARED_DATA_4_0,
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Copy for KUSER_SHARED_DATA_4 {}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Clone for KUSER_SHARED_DATA_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub struct KUSER_SHARED_DATA_4_0 {
     pub QpcBypassEnabled: u8,
     pub QpcShift: u8,
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Copy for KUSER_SHARED_DATA_4_0 {}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Clone for KUSER_SHARED_DATA_4_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KWAIT_CHAIN {
     pub Head: *mut core::ffi::c_void,
 }
-impl Copy for KWAIT_CHAIN {}
-impl Clone for KWAIT_CHAIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LEGACY_BUS_INFORMATION {
     pub BusTypeGuid: windows_sys::core::GUID,
     pub LegacyBusType: INTERFACE_TYPE,
     pub BusNumber: u32,
 }
-impl Copy for LEGACY_BUS_INFORMATION {}
-impl Clone for LEGACY_BUS_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LINK_SHARE_ACCESS {
     pub OpenCount: u32,
     pub Deleters: u32,
     pub SharedDelete: u32,
 }
-impl Copy for LINK_SHARE_ACCESS {}
-impl Clone for LINK_SHARE_ACCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LOADER_PARTITION_INFORMATION_EX {
     pub PartitionStyle: u32,
     pub PartitionNumber: u32,
     pub Anonymous: LOADER_PARTITION_INFORMATION_EX_0,
     pub Flags: u32,
 }
-impl Copy for LOADER_PARTITION_INFORMATION_EX {}
-impl Clone for LOADER_PARTITION_INFORMATION_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union LOADER_PARTITION_INFORMATION_EX_0 {
     pub Signature: u32,
     pub DeviceId: windows_sys::core::GUID,
 }
-impl Copy for LOADER_PARTITION_INFORMATION_EX_0 {}
-impl Clone for LOADER_PARTITION_INFORMATION_EX_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MAILSLOT_CREATE_PARAMETERS {
     pub MailslotQuota: u32,
     pub MaximumMessageSize: u32,
     pub ReadTimeout: i64,
     pub TimeoutSpecified: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for MAILSLOT_CREATE_PARAMETERS {}
-impl Clone for MAILSLOT_CREATE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MAP_REGISTER_ENTRY {
     pub MapRegister: *mut core::ffi::c_void,
     pub WriteToDevice: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for MAP_REGISTER_ENTRY {}
-impl Clone for MAP_REGISTER_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct MCA_DRIVER_INFO {
     pub ExceptionCallback: isize,
     pub DpcCallback: super::super::Foundation::PKDEFERRED_ROUTINE,
     pub DeviceContext: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for MCA_DRIVER_INFO {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for MCA_DRIVER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MCA_EXCEPTION {
     pub VersionNumber: u32,
     pub ExceptionType: MCA_EXCEPTION_TYPE,
@@ -9480,24 +7613,14 @@ pub struct MCA_EXCEPTION {
     pub Reserved3: u32,
     pub ExtReg: [u64; 24],
 }
-impl Copy for MCA_EXCEPTION {}
-impl Clone for MCA_EXCEPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MCA_EXCEPTION_0 {
     pub Mca: MCA_EXCEPTION_0_0,
     pub Mce: MCA_EXCEPTION_0_1,
 }
-impl Copy for MCA_EXCEPTION_0 {}
-impl Clone for MCA_EXCEPTION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MCA_EXCEPTION_0_0 {
     pub BankNumber: u8,
     pub Reserved2: [u8; 7],
@@ -9505,200 +7628,110 @@ pub struct MCA_EXCEPTION_0_0 {
     pub Address: MCI_ADDR,
     pub Misc: u64,
 }
-impl Copy for MCA_EXCEPTION_0_0 {}
-impl Clone for MCA_EXCEPTION_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MCA_EXCEPTION_0_1 {
     pub Address: u64,
     pub Type: u64,
 }
-impl Copy for MCA_EXCEPTION_0_1 {}
-impl Clone for MCA_EXCEPTION_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union MCG_CAP {
     pub Anonymous: MCG_CAP_0,
     pub QuadPart: u64,
 }
-impl Copy for MCG_CAP {}
-impl Clone for MCG_CAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCG_CAP_0 {
     pub _bitfield: u64,
 }
-impl Copy for MCG_CAP_0 {}
-impl Clone for MCG_CAP_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union MCG_STATUS {
     pub Anonymous: MCG_STATUS_0,
     pub QuadPart: u64,
 }
-impl Copy for MCG_STATUS {}
-impl Clone for MCG_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCG_STATUS_0 {
     pub _bitfield: u32,
     pub Reserved2: u32,
 }
-impl Copy for MCG_STATUS_0 {}
-impl Clone for MCG_STATUS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MCI_ADDR {
     pub Anonymous: MCI_ADDR_0,
     pub QuadPart: u64,
 }
-impl Copy for MCI_ADDR {}
-impl Clone for MCI_ADDR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MCI_ADDR_0 {
     pub Address: u32,
     pub Reserved: u32,
 }
-impl Copy for MCI_ADDR_0 {}
-impl Clone for MCI_ADDR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MCI_STATS {
     pub MciStats: MCI_STATS_0,
     pub QuadPart: u64,
 }
-impl Copy for MCI_STATS {}
-impl Clone for MCI_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MCI_STATS_0 {
     pub McaCod: u16,
     pub MsCod: u16,
     pub _bitfield: u32,
 }
-impl Copy for MCI_STATS_0 {}
-impl Clone for MCI_STATS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union MCI_STATUS {
     pub CommonBits: MCI_STATUS_BITS_COMMON,
     pub AmdBits: MCI_STATUS_AMD_BITS,
     pub IntelBits: MCI_STATUS_INTEL_BITS,
     pub QuadPart: u64,
 }
-impl Copy for MCI_STATUS {}
-impl Clone for MCI_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_STATUS_AMD_BITS {
     pub _bitfield: u64,
 }
-impl Copy for MCI_STATUS_AMD_BITS {}
-impl Clone for MCI_STATUS_AMD_BITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_STATUS_BITS_COMMON {
     pub _bitfield: u64,
 }
-impl Copy for MCI_STATUS_BITS_COMMON {}
-impl Clone for MCI_STATUS_BITS_COMMON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_STATUS_INTEL_BITS {
     pub _bitfield: u64,
 }
-impl Copy for MCI_STATUS_INTEL_BITS {}
-impl Clone for MCI_STATUS_INTEL_BITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION {
     pub DedicatedMemoryTypeId: u64,
     pub HandleAttributes: u32,
     pub DesiredAccess: u32,
     pub DedicatedMemoryPartitionHandle: super::super::super::Win32::Foundation::HANDLE,
 }
-impl Copy for MEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION {}
-impl Clone for MEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MM_COPY_ADDRESS {
     pub Anonymous: MM_COPY_ADDRESS_0,
 }
-impl Copy for MM_COPY_ADDRESS {}
-impl Clone for MM_COPY_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MM_COPY_ADDRESS_0 {
     pub VirtualAddress: *mut core::ffi::c_void,
     pub PhysicalAddress: i64,
 }
-impl Copy for MM_COPY_ADDRESS_0 {}
-impl Clone for MM_COPY_ADDRESS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MM_PHYSICAL_ADDRESS_LIST {
     pub PhysicalAddress: i64,
     pub NumberOfBytes: usize,
 }
-impl Copy for MM_PHYSICAL_ADDRESS_LIST {}
-impl Clone for MM_PHYSICAL_ADDRESS_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MU_TELEMETRY_SECTION {
     pub ComponentID: windows_sys::core::GUID,
     pub SubComponentID: windows_sys::core::GUID,
@@ -9707,13 +7740,8 @@ pub struct MU_TELEMETRY_SECTION {
     pub AdditionalInfo1: u64,
     pub AdditionalInfo2: u64,
 }
-impl Copy for MU_TELEMETRY_SECTION {}
-impl Clone for MU_TELEMETRY_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NAMED_PIPE_CREATE_PARAMETERS {
     pub NamedPipeType: u32,
     pub ReadMode: u32,
@@ -9724,34 +7752,19 @@ pub struct NAMED_PIPE_CREATE_PARAMETERS {
     pub DefaultTimeout: i64,
     pub TimeoutSpecified: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for NAMED_PIPE_CREATE_PARAMETERS {}
-impl Clone for NAMED_PIPE_CREATE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union NPEM_CAPABILITY_STANDARD {
     pub Anonymous: NPEM_CAPABILITY_STANDARD_0,
     pub AsULONG: u32,
 }
-impl Copy for NPEM_CAPABILITY_STANDARD {}
-impl Clone for NPEM_CAPABILITY_STANDARD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NPEM_CAPABILITY_STANDARD_0 {
     pub _bitfield: u32,
 }
-impl Copy for NPEM_CAPABILITY_STANDARD_0 {}
-impl Clone for NPEM_CAPABILITY_STANDARD_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NPEM_CONTROL_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -9763,13 +7776,8 @@ pub struct NPEM_CONTROL_INTERFACE {
     pub SetStandardControl: PNPEM_CONTROL_SET_STANDARD_CONTROL,
     pub QueryNpemControl: PNPEM_CONTROL_QUERY_CONTROL,
 }
-impl Copy for NPEM_CONTROL_INTERFACE {}
-impl Clone for NPEM_CONTROL_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NT_TIB32 {
     pub ExceptionList: u32,
     pub StackBase: u32,
@@ -9779,36 +7787,21 @@ pub struct NT_TIB32 {
     pub ArbitraryUserPointer: u32,
     pub Self_: u32,
 }
-impl Copy for NT_TIB32 {}
-impl Clone for NT_TIB32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union NT_TIB32_0 {
     pub FiberData: u32,
     pub Version: u32,
 }
-impl Copy for NT_TIB32_0 {}
-impl Clone for NT_TIB32_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OBJECT_HANDLE_INFORMATION {
     pub HandleAttributes: u32,
     pub GrantedAccess: u32,
 }
-impl Copy for OBJECT_HANDLE_INFORMATION {}
-impl Clone for OBJECT_HANDLE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct OB_CALLBACK_REGISTRATION {
     pub Version: u16,
     pub OperationRegistrationCount: u16,
@@ -9816,52 +7809,28 @@ pub struct OB_CALLBACK_REGISTRATION {
     pub RegistrationContext: *mut core::ffi::c_void,
     pub OperationRegistration: *mut OB_OPERATION_REGISTRATION,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for OB_CALLBACK_REGISTRATION {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for OB_CALLBACK_REGISTRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct OB_OPERATION_REGISTRATION {
     pub ObjectType: *mut super::super::Foundation::POBJECT_TYPE,
     pub Operations: u32,
     pub PreOperation: POB_PRE_OPERATION_CALLBACK,
     pub PostOperation: POB_POST_OPERATION_CALLBACK,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for OB_OPERATION_REGISTRATION {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for OB_OPERATION_REGISTRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OB_POST_CREATE_HANDLE_INFORMATION {
     pub GrantedAccess: u32,
 }
-impl Copy for OB_POST_CREATE_HANDLE_INFORMATION {}
-impl Clone for OB_POST_CREATE_HANDLE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OB_POST_DUPLICATE_HANDLE_INFORMATION {
     pub GrantedAccess: u32,
 }
-impl Copy for OB_POST_DUPLICATE_HANDLE_INFORMATION {}
-impl Clone for OB_POST_DUPLICATE_HANDLE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct OB_POST_OPERATION_INFORMATION {
     pub Operation: u32,
     pub Anonymous: OB_POST_OPERATION_INFORMATION_0,
@@ -9871,78 +7840,42 @@ pub struct OB_POST_OPERATION_INFORMATION {
     pub ReturnStatus: super::super::super::Win32::Foundation::NTSTATUS,
     pub Parameters: *mut OB_POST_OPERATION_PARAMETERS,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for OB_POST_OPERATION_INFORMATION {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for OB_POST_OPERATION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub union OB_POST_OPERATION_INFORMATION_0 {
     pub Flags: u32,
     pub Anonymous: OB_POST_OPERATION_INFORMATION_0_0,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for OB_POST_OPERATION_INFORMATION_0 {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for OB_POST_OPERATION_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct OB_POST_OPERATION_INFORMATION_0_0 {
     pub _bitfield: u32,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for OB_POST_OPERATION_INFORMATION_0_0 {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for OB_POST_OPERATION_INFORMATION_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union OB_POST_OPERATION_PARAMETERS {
     pub CreateHandleInformation: OB_POST_CREATE_HANDLE_INFORMATION,
     pub DuplicateHandleInformation: OB_POST_DUPLICATE_HANDLE_INFORMATION,
 }
-impl Copy for OB_POST_OPERATION_PARAMETERS {}
-impl Clone for OB_POST_OPERATION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OB_PRE_CREATE_HANDLE_INFORMATION {
     pub DesiredAccess: u32,
     pub OriginalDesiredAccess: u32,
 }
-impl Copy for OB_PRE_CREATE_HANDLE_INFORMATION {}
-impl Clone for OB_PRE_CREATE_HANDLE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OB_PRE_DUPLICATE_HANDLE_INFORMATION {
     pub DesiredAccess: u32,
     pub OriginalDesiredAccess: u32,
     pub SourceProcess: *mut core::ffi::c_void,
     pub TargetProcess: *mut core::ffi::c_void,
 }
-impl Copy for OB_PRE_DUPLICATE_HANDLE_INFORMATION {}
-impl Clone for OB_PRE_DUPLICATE_HANDLE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct OB_PRE_OPERATION_INFORMATION {
     pub Operation: u32,
     pub Anonymous: OB_PRE_OPERATION_INFORMATION_0,
@@ -9951,63 +7884,32 @@ pub struct OB_PRE_OPERATION_INFORMATION {
     pub CallContext: *mut core::ffi::c_void,
     pub Parameters: *mut OB_PRE_OPERATION_PARAMETERS,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for OB_PRE_OPERATION_INFORMATION {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for OB_PRE_OPERATION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub union OB_PRE_OPERATION_INFORMATION_0 {
     pub Flags: u32,
     pub Anonymous: OB_PRE_OPERATION_INFORMATION_0_0,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for OB_PRE_OPERATION_INFORMATION_0 {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for OB_PRE_OPERATION_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct OB_PRE_OPERATION_INFORMATION_0_0 {
     pub _bitfield: u32,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for OB_PRE_OPERATION_INFORMATION_0_0 {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for OB_PRE_OPERATION_INFORMATION_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union OB_PRE_OPERATION_PARAMETERS {
     pub CreateHandleInformation: OB_PRE_CREATE_HANDLE_INFORMATION,
     pub DuplicateHandleInformation: OB_PRE_DUPLICATE_HANDLE_INFORMATION,
 }
-impl Copy for OB_PRE_OPERATION_PARAMETERS {}
-impl Clone for OB_PRE_OPERATION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PAGE_PRIORITY_INFORMATION {
     pub PagePriority: u32,
 }
-impl Copy for PAGE_PRIORITY_INFORMATION {}
-impl Clone for PAGE_PRIORITY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCIBUSDATA {
     pub Tag: u32,
     pub Version: u32,
@@ -10018,13 +7920,8 @@ pub struct PCIBUSDATA {
     pub ParentSlot: PCI_SLOT_NUMBER,
     pub Reserved: [*mut core::ffi::c_void; 4],
 }
-impl Copy for PCIBUSDATA {}
-impl Clone for PCIBUSDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCIX_BRIDGE_CAPABILITY {
     pub Header: PCI_CAPABILITIES_HEADER,
     pub SecondaryStatus: PCIX_BRIDGE_CAPABILITY_2,
@@ -10038,76 +7935,41 @@ pub struct PCIX_BRIDGE_CAPABILITY {
     pub EccSecondAddress: u32,
     pub EccAttribute: u32,
 }
-impl Copy for PCIX_BRIDGE_CAPABILITY {}
-impl Clone for PCIX_BRIDGE_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCIX_BRIDGE_CAPABILITY_0 {
     pub Anonymous: PCIX_BRIDGE_CAPABILITY_0_0,
     pub AsULONG: u32,
 }
-impl Copy for PCIX_BRIDGE_CAPABILITY_0 {}
-impl Clone for PCIX_BRIDGE_CAPABILITY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCIX_BRIDGE_CAPABILITY_0_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCIX_BRIDGE_CAPABILITY_0_0 {}
-impl Clone for PCIX_BRIDGE_CAPABILITY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCIX_BRIDGE_CAPABILITY_1 {
     pub Anonymous: PCIX_BRIDGE_CAPABILITY_1_0,
     pub AsULONG: u32,
 }
-impl Copy for PCIX_BRIDGE_CAPABILITY_1 {}
-impl Clone for PCIX_BRIDGE_CAPABILITY_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCIX_BRIDGE_CAPABILITY_1_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCIX_BRIDGE_CAPABILITY_1_0 {}
-impl Clone for PCIX_BRIDGE_CAPABILITY_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCIX_BRIDGE_CAPABILITY_2 {
     pub Anonymous: PCIX_BRIDGE_CAPABILITY_2_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCIX_BRIDGE_CAPABILITY_2 {}
-impl Clone for PCIX_BRIDGE_CAPABILITY_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCIX_BRIDGE_CAPABILITY_2_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCIX_BRIDGE_CAPABILITY_2_0 {}
-impl Clone for PCIX_BRIDGE_CAPABILITY_2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_ADVANCED_FEATURES_CAPABILITY {
     pub Header: PCI_CAPABILITIES_HEADER,
     pub Length: u8,
@@ -10115,129 +7977,69 @@ pub struct PCI_ADVANCED_FEATURES_CAPABILITY {
     pub Control: PCI_ADVANCED_FEATURES_CAPABILITY_1,
     pub Status: PCI_ADVANCED_FEATURES_CAPABILITY_2,
 }
-impl Copy for PCI_ADVANCED_FEATURES_CAPABILITY {}
-impl Clone for PCI_ADVANCED_FEATURES_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_ADVANCED_FEATURES_CAPABILITY_0 {
     pub Anonymous: PCI_ADVANCED_FEATURES_CAPABILITY_0_0,
     pub AsUCHAR: u8,
 }
-impl Copy for PCI_ADVANCED_FEATURES_CAPABILITY_0 {}
-impl Clone for PCI_ADVANCED_FEATURES_CAPABILITY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_ADVANCED_FEATURES_CAPABILITY_0_0 {
     pub _bitfield: u8,
 }
-impl Copy for PCI_ADVANCED_FEATURES_CAPABILITY_0_0 {}
-impl Clone for PCI_ADVANCED_FEATURES_CAPABILITY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_ADVANCED_FEATURES_CAPABILITY_1 {
     pub Anonymous: PCI_ADVANCED_FEATURES_CAPABILITY_1_0,
     pub AsUCHAR: u8,
 }
-impl Copy for PCI_ADVANCED_FEATURES_CAPABILITY_1 {}
-impl Clone for PCI_ADVANCED_FEATURES_CAPABILITY_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_ADVANCED_FEATURES_CAPABILITY_1_0 {
     pub _bitfield: u8,
 }
-impl Copy for PCI_ADVANCED_FEATURES_CAPABILITY_1_0 {}
-impl Clone for PCI_ADVANCED_FEATURES_CAPABILITY_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_ADVANCED_FEATURES_CAPABILITY_2 {
     pub Anonymous: PCI_ADVANCED_FEATURES_CAPABILITY_2_0,
     pub AsUCHAR: u8,
 }
-impl Copy for PCI_ADVANCED_FEATURES_CAPABILITY_2 {}
-impl Clone for PCI_ADVANCED_FEATURES_CAPABILITY_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_ADVANCED_FEATURES_CAPABILITY_2_0 {
     pub _bitfield: u8,
 }
-impl Copy for PCI_ADVANCED_FEATURES_CAPABILITY_2_0 {}
-impl Clone for PCI_ADVANCED_FEATURES_CAPABILITY_2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_AGP_APERTURE_PAGE_SIZE {
     pub _bitfield: u16,
 }
-impl Copy for PCI_AGP_APERTURE_PAGE_SIZE {}
-impl Clone for PCI_AGP_APERTURE_PAGE_SIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_AGP_CAPABILITY {
     pub Header: PCI_CAPABILITIES_HEADER,
     pub _bitfield: u16,
     pub AGPStatus: PCI_AGP_CAPABILITY_1,
     pub AGPCommand: PCI_AGP_CAPABILITY_0,
 }
-impl Copy for PCI_AGP_CAPABILITY {}
-impl Clone for PCI_AGP_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_AGP_CAPABILITY_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_AGP_CAPABILITY_0 {}
-impl Clone for PCI_AGP_CAPABILITY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_AGP_CAPABILITY_1 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_AGP_CAPABILITY_1 {}
-impl Clone for PCI_AGP_CAPABILITY_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_AGP_CONTROL {
     pub _bitfield: u32,
 }
-impl Copy for PCI_AGP_CONTROL {}
-impl Clone for PCI_AGP_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_AGP_EXTENDED_CAPABILITY {
     pub IsochStatus: PCI_AGP_ISOCH_STATUS,
     pub AgpControl: PCI_AGP_CONTROL,
@@ -10247,33 +8049,18 @@ pub struct PCI_AGP_EXTENDED_CAPABILITY {
     pub GartHigh: u32,
     pub IsochCommand: PCI_AGP_ISOCH_COMMAND,
 }
-impl Copy for PCI_AGP_EXTENDED_CAPABILITY {}
-impl Clone for PCI_AGP_EXTENDED_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_AGP_ISOCH_COMMAND {
     pub _bitfield: u16,
 }
-impl Copy for PCI_AGP_ISOCH_COMMAND {}
-impl Clone for PCI_AGP_ISOCH_COMMAND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_AGP_ISOCH_STATUS {
     pub _bitfield: u32,
 }
-impl Copy for PCI_AGP_ISOCH_STATUS {}
-impl Clone for PCI_AGP_ISOCH_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_ATS_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -10283,13 +8070,8 @@ pub struct PCI_ATS_INTERFACE {
     pub SetAddressTranslationServices: PPCI_SET_ATS,
     pub InvalidateQueueDepth: u8,
 }
-impl Copy for PCI_ATS_INTERFACE {}
-impl Clone for PCI_ATS_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_BUS_INTERFACE_STANDARD {
     pub Size: u16,
     pub Version: u16,
@@ -10304,35 +8086,20 @@ pub struct PCI_BUS_INTERFACE_STANDARD {
     pub ExpressWakeControl: PPCI_EXPRESS_WAKE_CONTROL,
     pub PrepareMultistageResume: PPCI_PREPARE_MULTISTAGE_RESUME,
 }
-impl Copy for PCI_BUS_INTERFACE_STANDARD {}
-impl Clone for PCI_BUS_INTERFACE_STANDARD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_CAPABILITIES_HEADER {
     pub CapabilityID: u8,
     pub Next: u8,
 }
-impl Copy for PCI_CAPABILITIES_HEADER {}
-impl Clone for PCI_CAPABILITIES_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_COMMON_CONFIG {
     pub Base: PCI_COMMON_HEADER,
     pub DeviceSpecific: [u8; 192],
 }
-impl Copy for PCI_COMMON_CONFIG {}
-impl Clone for PCI_COMMON_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_COMMON_HEADER {
     pub VendorID: u16,
     pub DeviceID: u16,
@@ -10348,25 +8115,15 @@ pub struct PCI_COMMON_HEADER {
     pub BIST: u8,
     pub u: PCI_COMMON_HEADER_0,
 }
-impl Copy for PCI_COMMON_HEADER {}
-impl Clone for PCI_COMMON_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_COMMON_HEADER_0 {
     pub type0: PCI_COMMON_HEADER_0_0,
     pub type1: PCI_COMMON_HEADER_0_1,
     pub type2: PCI_COMMON_HEADER_0_2,
 }
-impl Copy for PCI_COMMON_HEADER_0 {}
-impl Clone for PCI_COMMON_HEADER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_COMMON_HEADER_0_0 {
     pub BaseAddresses: [u32; 6],
     pub CIS: u32,
@@ -10381,13 +8138,8 @@ pub struct PCI_COMMON_HEADER_0_0 {
     pub MinimumGrant: u8,
     pub MaximumLatency: u8,
 }
-impl Copy for PCI_COMMON_HEADER_0_0 {}
-impl Clone for PCI_COMMON_HEADER_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_COMMON_HEADER_0_1 {
     pub BaseAddresses: [u32; 2],
     pub PrimaryBus: u8,
@@ -10412,13 +8164,8 @@ pub struct PCI_COMMON_HEADER_0_1 {
     pub InterruptPin: u8,
     pub BridgeControl: u16,
 }
-impl Copy for PCI_COMMON_HEADER_0_1 {}
-impl Clone for PCI_COMMON_HEADER_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_COMMON_HEADER_0_2 {
     pub SocketRegistersBaseAddress: u32,
     pub CapabilitiesPtr: u8,
@@ -10433,36 +8180,21 @@ pub struct PCI_COMMON_HEADER_0_2 {
     pub InterruptPin: u8,
     pub BridgeControl: u16,
 }
-impl Copy for PCI_COMMON_HEADER_0_2 {}
-impl Clone for PCI_COMMON_HEADER_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_COMMON_HEADER_0_2_0 {
     pub Base: u32,
     pub Limit: u32,
 }
-impl Copy for PCI_COMMON_HEADER_0_2_0 {}
-impl Clone for PCI_COMMON_HEADER_0_2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_DEBUGGING_DEVICE_IN_USE {
     pub Segment: u16,
     pub Bus: u32,
     pub Slot: u32,
 }
-impl Copy for PCI_DEBUGGING_DEVICE_IN_USE {}
-impl Clone for PCI_DEBUGGING_DEVICE_IN_USE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_DEVICE_PRESENCE_PARAMETERS {
     pub Size: u32,
     pub Flags: u32,
@@ -10475,13 +8207,8 @@ pub struct PCI_DEVICE_PRESENCE_PARAMETERS {
     pub SubClass: u8,
     pub ProgIf: u8,
 }
-impl Copy for PCI_DEVICE_PRESENCE_PARAMETERS {}
-impl Clone for PCI_DEVICE_PRESENCE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_DEVICE_PRESENT_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -10491,89 +8218,49 @@ pub struct PCI_DEVICE_PRESENT_INTERFACE {
     pub IsDevicePresent: PPCI_IS_DEVICE_PRESENT,
     pub IsDevicePresentEx: PPCI_IS_DEVICE_PRESENT_EX,
 }
-impl Copy for PCI_DEVICE_PRESENT_INTERFACE {}
-impl Clone for PCI_DEVICE_PRESENT_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ACS_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub Capability: PCI_EXPRESS_ACS_CAPABILITY_REGISTER,
     pub Control: PCI_EXPRESS_ACS_CONTROL,
     pub EgressControl: [u32; 1],
 }
-impl Copy for PCI_EXPRESS_ACS_CAPABILITY {}
-impl Clone for PCI_EXPRESS_ACS_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ACS_CAPABILITY_REGISTER {
     pub Anonymous: PCI_EXPRESS_ACS_CAPABILITY_REGISTER_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_ACS_CAPABILITY_REGISTER {}
-impl Clone for PCI_EXPRESS_ACS_CAPABILITY_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ACS_CAPABILITY_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_ACS_CAPABILITY_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_ACS_CAPABILITY_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ACS_CONTROL {
     pub Anonymous: PCI_EXPRESS_ACS_CONTROL_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_ACS_CONTROL {}
-impl Clone for PCI_EXPRESS_ACS_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ACS_CONTROL_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_ACS_CONTROL_0 {}
-impl Clone for PCI_EXPRESS_ACS_CONTROL_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_AER_CAPABILITIES {
     pub Anonymous: PCI_EXPRESS_AER_CAPABILITIES_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_AER_CAPABILITIES {}
-impl Clone for PCI_EXPRESS_AER_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_AER_CAPABILITIES_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_AER_CAPABILITIES_0 {}
-impl Clone for PCI_EXPRESS_AER_CAPABILITIES_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_AER_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub UncorrectableErrorStatus: PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS,
@@ -10589,88 +8276,48 @@ pub struct PCI_EXPRESS_AER_CAPABILITY {
     pub SecCapabilitiesAndControl: PCI_EXPRESS_SEC_AER_CAPABILITIES,
     pub SecHeaderLog: [u32; 4],
 }
-impl Copy for PCI_EXPRESS_AER_CAPABILITY {}
-impl Clone for PCI_EXPRESS_AER_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ARI_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub Capability: PCI_EXPRESS_ARI_CAPABILITY_REGISTER,
     pub Control: PCI_EXPRESS_ARI_CONTROL_REGISTER,
 }
-impl Copy for PCI_EXPRESS_ARI_CAPABILITY {}
-impl Clone for PCI_EXPRESS_ARI_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ARI_CAPABILITY_REGISTER {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_ARI_CAPABILITY_REGISTER {}
-impl Clone for PCI_EXPRESS_ARI_CAPABILITY_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ARI_CONTROL_REGISTER {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_ARI_CONTROL_REGISTER {}
-impl Clone for PCI_EXPRESS_ARI_CONTROL_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ATS_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub Capability: PCI_EXPRESS_ATS_CAPABILITY_REGISTER,
     pub Control: PCI_EXPRESS_ATS_CONTROL_REGISTER,
 }
-impl Copy for PCI_EXPRESS_ATS_CAPABILITY {}
-impl Clone for PCI_EXPRESS_ATS_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ATS_CAPABILITY_REGISTER {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_ATS_CAPABILITY_REGISTER {}
-impl Clone for PCI_EXPRESS_ATS_CAPABILITY_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ATS_CONTROL_REGISTER {
     pub Anonymous: PCI_EXPRESS_ATS_CONTROL_REGISTER_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_ATS_CONTROL_REGISTER {}
-impl Clone for PCI_EXPRESS_ATS_CONTROL_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ATS_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_ATS_CONTROL_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_ATS_CONTROL_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_BRIDGE_AER_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub UncorrectableErrorStatus: PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS,
@@ -10686,34 +8333,19 @@ pub struct PCI_EXPRESS_BRIDGE_AER_CAPABILITY {
     pub SecCapabilitiesAndControl: PCI_EXPRESS_SEC_AER_CAPABILITIES,
     pub SecHeaderLog: [u32; 4],
 }
-impl Copy for PCI_EXPRESS_BRIDGE_AER_CAPABILITY {}
-impl Clone for PCI_EXPRESS_BRIDGE_AER_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_CAPABILITIES_REGISTER {
     pub Anonymous: PCI_EXPRESS_CAPABILITIES_REGISTER_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_CAPABILITIES_REGISTER {}
-impl Clone for PCI_EXPRESS_CAPABILITIES_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_CAPABILITIES_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_CAPABILITIES_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_CAPABILITIES_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_CAPABILITY {
     pub Header: PCI_CAPABILITIES_HEADER,
     pub ExpressCapabilities: PCI_EXPRESS_CAPABILITIES_REGISTER,
@@ -10736,89 +8368,49 @@ pub struct PCI_EXPRESS_CAPABILITY {
     pub LinkControl2: PCI_EXPRESS_LINK_CONTROL_2_REGISTER,
     pub LinkStatus2: PCI_EXPRESS_LINK_STATUS_2_REGISTER,
 }
-impl Copy for PCI_EXPRESS_CAPABILITY {}
-impl Clone for PCI_EXPRESS_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_CORRECTABLE_ERROR_MASK {
     pub Anonymous: PCI_EXPRESS_CORRECTABLE_ERROR_MASK_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_CORRECTABLE_ERROR_MASK {}
-impl Clone for PCI_EXPRESS_CORRECTABLE_ERROR_MASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_CORRECTABLE_ERROR_MASK_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_CORRECTABLE_ERROR_MASK_0 {}
-impl Clone for PCI_EXPRESS_CORRECTABLE_ERROR_MASK_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_CORRECTABLE_ERROR_STATUS {
     pub Anonymous: PCI_EXPRESS_CORRECTABLE_ERROR_STATUS_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_CORRECTABLE_ERROR_STATUS {}
-impl Clone for PCI_EXPRESS_CORRECTABLE_ERROR_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_CORRECTABLE_ERROR_STATUS_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_CORRECTABLE_ERROR_STATUS_0 {}
-impl Clone for PCI_EXPRESS_CORRECTABLE_ERROR_STATUS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_CXL_DVSEC_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub DvsecHeader1: PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1,
     pub DvsecHeader2: PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_2,
     pub Reserved: [u8; 46],
 }
-impl Copy for PCI_EXPRESS_CXL_DVSEC_CAPABILITY {}
-impl Clone for PCI_EXPRESS_CXL_DVSEC_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_CXL_DVSEC_CAPABILITY_REGISTER_V11 {
     pub Anonymous: PCI_EXPRESS_CXL_DVSEC_CAPABILITY_REGISTER_V11_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_CXL_DVSEC_CAPABILITY_REGISTER_V11 {}
-impl Clone for PCI_EXPRESS_CXL_DVSEC_CAPABILITY_REGISTER_V11 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_CXL_DVSEC_CAPABILITY_REGISTER_V11_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_CXL_DVSEC_CAPABILITY_REGISTER_V11_0 {}
-impl Clone for PCI_EXPRESS_CXL_DVSEC_CAPABILITY_REGISTER_V11_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_CXL_DVSEC_CAPABILITY_V11 {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub DvsecHeader1: PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1,
@@ -10839,330 +8431,175 @@ pub struct PCI_EXPRESS_CXL_DVSEC_CAPABILITY_V11 {
     pub Range2BaseHigh: PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_HIGH_REGISTER,
     pub Range2BaseLow: PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_LOW_REGISTER,
 }
-impl Copy for PCI_EXPRESS_CXL_DVSEC_CAPABILITY_V11 {}
-impl Clone for PCI_EXPRESS_CXL_DVSEC_CAPABILITY_V11 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_CXL_DVSEC_CONTROL_REGISTER {
     pub Anonymous: PCI_EXPRESS_CXL_DVSEC_CONTROL_REGISTER_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_CXL_DVSEC_CONTROL_REGISTER {}
-impl Clone for PCI_EXPRESS_CXL_DVSEC_CONTROL_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_CXL_DVSEC_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_CXL_DVSEC_CONTROL_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_CXL_DVSEC_CONTROL_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_CXL_DVSEC_LOCK_REGISTER {
     pub Anonymous: PCI_EXPRESS_CXL_DVSEC_LOCK_REGISTER_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_CXL_DVSEC_LOCK_REGISTER {}
-impl Clone for PCI_EXPRESS_CXL_DVSEC_LOCK_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_CXL_DVSEC_LOCK_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_CXL_DVSEC_LOCK_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_CXL_DVSEC_LOCK_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_HIGH_REGISTER {
     pub MemBaseHigh: u32,
 }
-impl Copy for PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_HIGH_REGISTER {}
-impl Clone for PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_HIGH_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_LOW_REGISTER {
     pub Anonymous: PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_LOW_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_LOW_REGISTER {}
-impl Clone for PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_LOW_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_LOW_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_LOW_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_LOW_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_HIGH_REGISTER {
     pub MemSizeHigh: u32,
 }
-impl Copy for PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_HIGH_REGISTER {}
-impl Clone for PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_HIGH_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_LOW_REGISTER_V11 {
     pub Anonymous: PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_LOW_REGISTER_V11_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_LOW_REGISTER_V11 {}
-impl Clone for PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_LOW_REGISTER_V11 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_LOW_REGISTER_V11_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_LOW_REGISTER_V11_0 {}
-impl Clone for PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_LOW_REGISTER_V11_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_CXL_DVSEC_STATUS_REGISTER {
     pub Anonymous: PCI_EXPRESS_CXL_DVSEC_STATUS_REGISTER_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_CXL_DVSEC_STATUS_REGISTER {}
-impl Clone for PCI_EXPRESS_CXL_DVSEC_STATUS_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_CXL_DVSEC_STATUS_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_CXL_DVSEC_STATUS_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_CXL_DVSEC_STATUS_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub DvsecHeader1: PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1,
     pub DvsecHeader2: PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_2,
     pub DvsecRegisters: [u16; 1],
 }
-impl Copy for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_CAPABILITY {}
-impl Clone for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1 {
     pub Anonymous: PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1 {}
-impl Clone for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1_0 {}
-impl Clone for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_2 {
     pub Anonymous: PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_2_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_2 {}
-impl Clone for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_2_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_2_0 {}
-impl Clone for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DEVICE_CAPABILITIES_2_REGISTER {
     pub Anonymous: PCI_EXPRESS_DEVICE_CAPABILITIES_2_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_DEVICE_CAPABILITIES_2_REGISTER {}
-impl Clone for PCI_EXPRESS_DEVICE_CAPABILITIES_2_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DEVICE_CAPABILITIES_2_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_DEVICE_CAPABILITIES_2_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_DEVICE_CAPABILITIES_2_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DEVICE_CAPABILITIES_REGISTER {
     pub Anonymous: PCI_EXPRESS_DEVICE_CAPABILITIES_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_DEVICE_CAPABILITIES_REGISTER {}
-impl Clone for PCI_EXPRESS_DEVICE_CAPABILITIES_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DEVICE_CAPABILITIES_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_DEVICE_CAPABILITIES_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_DEVICE_CAPABILITIES_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DEVICE_CONTROL_2_REGISTER {
     pub Anonymous: PCI_EXPRESS_DEVICE_CONTROL_2_REGISTER_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_DEVICE_CONTROL_2_REGISTER {}
-impl Clone for PCI_EXPRESS_DEVICE_CONTROL_2_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DEVICE_CONTROL_2_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_DEVICE_CONTROL_2_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_DEVICE_CONTROL_2_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DEVICE_CONTROL_REGISTER {
     pub Anonymous1: PCI_EXPRESS_DEVICE_CONTROL_REGISTER_0,
     pub Anonymous2: PCI_EXPRESS_DEVICE_CONTROL_REGISTER_1,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_DEVICE_CONTROL_REGISTER {}
-impl Clone for PCI_EXPRESS_DEVICE_CONTROL_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DEVICE_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_DEVICE_CONTROL_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_DEVICE_CONTROL_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DEVICE_CONTROL_REGISTER_1 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_DEVICE_CONTROL_REGISTER_1 {}
-impl Clone for PCI_EXPRESS_DEVICE_CONTROL_REGISTER_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DEVICE_STATUS_2_REGISTER {
     pub Anonymous: PCI_EXPRESS_DEVICE_STATUS_2_REGISTER_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_DEVICE_STATUS_2_REGISTER {}
-impl Clone for PCI_EXPRESS_DEVICE_STATUS_2_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DEVICE_STATUS_2_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_DEVICE_STATUS_2_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_DEVICE_STATUS_2_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DEVICE_STATUS_REGISTER {
     pub Anonymous: PCI_EXPRESS_DEVICE_STATUS_REGISTER_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_DEVICE_STATUS_REGISTER {}
-impl Clone for PCI_EXPRESS_DEVICE_STATUS_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DEVICE_STATUS_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_DEVICE_STATUS_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_DEVICE_STATUS_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DPC_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub DpcCapabilities: PCI_EXPRESS_DPC_CAPS_REGISTER,
@@ -11178,477 +8615,252 @@ pub struct PCI_EXPRESS_DPC_CAPABILITY {
     pub RpPioImpSpecLog: PCI_EXPRESS_DPC_RP_PIO_IMPSPECLOG_REGISTER,
     pub RpPioPrefixLog: PCI_EXPRESS_DPC_RP_PIO_TLPPREFIXLOG_REGISTER,
 }
-impl Copy for PCI_EXPRESS_DPC_CAPABILITY {}
-impl Clone for PCI_EXPRESS_DPC_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DPC_CAPS_REGISTER {
     pub Anonymous: PCI_EXPRESS_DPC_CAPS_REGISTER_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_DPC_CAPS_REGISTER {}
-impl Clone for PCI_EXPRESS_DPC_CAPS_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DPC_CAPS_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_DPC_CAPS_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_DPC_CAPS_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DPC_CONTROL_REGISTER {
     pub Anonymous: PCI_EXPRESS_DPC_CONTROL_REGISTER_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_DPC_CONTROL_REGISTER {}
-impl Clone for PCI_EXPRESS_DPC_CONTROL_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DPC_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_DPC_CONTROL_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_DPC_CONTROL_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DPC_ERROR_SOURCE_ID {
     pub Anonymous: PCI_EXPRESS_DPC_ERROR_SOURCE_ID_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_DPC_ERROR_SOURCE_ID {}
-impl Clone for PCI_EXPRESS_DPC_ERROR_SOURCE_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DPC_ERROR_SOURCE_ID_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_DPC_ERROR_SOURCE_ID_0 {}
-impl Clone for PCI_EXPRESS_DPC_ERROR_SOURCE_ID_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DPC_RP_PIO_EXCEPTION_REGISTER {
     pub Anonymous: PCI_EXPRESS_DPC_RP_PIO_EXCEPTION_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_DPC_RP_PIO_EXCEPTION_REGISTER {}
-impl Clone for PCI_EXPRESS_DPC_RP_PIO_EXCEPTION_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DPC_RP_PIO_EXCEPTION_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_DPC_RP_PIO_EXCEPTION_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_DPC_RP_PIO_EXCEPTION_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DPC_RP_PIO_HEADERLOG_REGISTER {
     pub PioHeaderLogRegister: [u32; 4],
 }
-impl Copy for PCI_EXPRESS_DPC_RP_PIO_HEADERLOG_REGISTER {}
-impl Clone for PCI_EXPRESS_DPC_RP_PIO_HEADERLOG_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DPC_RP_PIO_IMPSPECLOG_REGISTER {
     pub PioImpSpecLog: u32,
 }
-impl Copy for PCI_EXPRESS_DPC_RP_PIO_IMPSPECLOG_REGISTER {}
-impl Clone for PCI_EXPRESS_DPC_RP_PIO_IMPSPECLOG_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DPC_RP_PIO_MASK_REGISTER {
     pub Anonymous: PCI_EXPRESS_DPC_RP_PIO_MASK_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_DPC_RP_PIO_MASK_REGISTER {}
-impl Clone for PCI_EXPRESS_DPC_RP_PIO_MASK_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DPC_RP_PIO_MASK_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_DPC_RP_PIO_MASK_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_DPC_RP_PIO_MASK_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DPC_RP_PIO_SEVERITY_REGISTER {
     pub Anonymous: PCI_EXPRESS_DPC_RP_PIO_SEVERITY_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_DPC_RP_PIO_SEVERITY_REGISTER {}
-impl Clone for PCI_EXPRESS_DPC_RP_PIO_SEVERITY_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DPC_RP_PIO_SEVERITY_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_DPC_RP_PIO_SEVERITY_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_DPC_RP_PIO_SEVERITY_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DPC_RP_PIO_STATUS_REGISTER {
     pub Anonymous: PCI_EXPRESS_DPC_RP_PIO_STATUS_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_DPC_RP_PIO_STATUS_REGISTER {}
-impl Clone for PCI_EXPRESS_DPC_RP_PIO_STATUS_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DPC_RP_PIO_STATUS_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_DPC_RP_PIO_STATUS_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_DPC_RP_PIO_STATUS_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DPC_RP_PIO_SYSERR_REGISTER {
     pub Anonymous: PCI_EXPRESS_DPC_RP_PIO_SYSERR_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_DPC_RP_PIO_SYSERR_REGISTER {}
-impl Clone for PCI_EXPRESS_DPC_RP_PIO_SYSERR_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DPC_RP_PIO_SYSERR_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_DPC_RP_PIO_SYSERR_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_DPC_RP_PIO_SYSERR_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DPC_RP_PIO_TLPPREFIXLOG_REGISTER {
     pub PioTlpPrefixLogRegister: [u32; 4],
 }
-impl Copy for PCI_EXPRESS_DPC_RP_PIO_TLPPREFIXLOG_REGISTER {}
-impl Clone for PCI_EXPRESS_DPC_RP_PIO_TLPPREFIXLOG_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DPC_STATUS_REGISTER {
     pub Anonymous: PCI_EXPRESS_DPC_STATUS_REGISTER_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_DPC_STATUS_REGISTER {}
-impl Clone for PCI_EXPRESS_DPC_STATUS_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DPC_STATUS_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_DPC_STATUS_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_DPC_STATUS_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER {
     pub CapabilityID: u16,
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER {}
-impl Clone for PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ERROR_SOURCE_ID {
     pub Anonymous: PCI_EXPRESS_ERROR_SOURCE_ID_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_ERROR_SOURCE_ID {}
-impl Clone for PCI_EXPRESS_ERROR_SOURCE_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ERROR_SOURCE_ID_0 {
     pub _bitfield1: u16,
     pub _bitfield2: u16,
 }
-impl Copy for PCI_EXPRESS_ERROR_SOURCE_ID_0 {}
-impl Clone for PCI_EXPRESS_ERROR_SOURCE_ID_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_EVENT_COLLECTOR_ENDPOINT_ASSOCIATION_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub AssociationBitmap: u32,
 }
-impl Copy for PCI_EXPRESS_EVENT_COLLECTOR_ENDPOINT_ASSOCIATION_CAPABILITY {}
-impl Clone for PCI_EXPRESS_EVENT_COLLECTOR_ENDPOINT_ASSOCIATION_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER {
     pub Anonymous: PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER {}
-impl Clone for PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_L1_PM_SS_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub L1PmSsCapabilities: PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER,
     pub L1PmSsControl1: PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER,
     pub L1PmSsControl2: PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER,
 }
-impl Copy for PCI_EXPRESS_L1_PM_SS_CAPABILITY {}
-impl Clone for PCI_EXPRESS_L1_PM_SS_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER {
     pub Anonymous: PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER {}
-impl Clone for PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER {
     pub Anonymous: PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER {}
-impl Clone for PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_LANE_ERROR_STATUS {
     pub LaneBitmap: u32,
 }
-impl Copy for PCI_EXPRESS_LANE_ERROR_STATUS {}
-impl Clone for PCI_EXPRESS_LANE_ERROR_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_LINK_CAPABILITIES_2_REGISTER {
     pub Anonymous: PCI_EXPRESS_LINK_CAPABILITIES_2_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_LINK_CAPABILITIES_2_REGISTER {}
-impl Clone for PCI_EXPRESS_LINK_CAPABILITIES_2_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_LINK_CAPABILITIES_2_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_LINK_CAPABILITIES_2_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_LINK_CAPABILITIES_2_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_LINK_CAPABILITIES_REGISTER {
     pub Anonymous: PCI_EXPRESS_LINK_CAPABILITIES_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_LINK_CAPABILITIES_REGISTER {}
-impl Clone for PCI_EXPRESS_LINK_CAPABILITIES_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_LINK_CAPABILITIES_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_LINK_CAPABILITIES_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_LINK_CAPABILITIES_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_LINK_CONTROL3 {
     pub Anonymous: PCI_EXPRESS_LINK_CONTROL3_0,
 }
-impl Copy for PCI_EXPRESS_LINK_CONTROL3 {}
-impl Clone for PCI_EXPRESS_LINK_CONTROL3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_LINK_CONTROL3_0 {
     pub Anonymous: PCI_EXPRESS_LINK_CONTROL3_0_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_LINK_CONTROL3_0 {}
-impl Clone for PCI_EXPRESS_LINK_CONTROL3_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_LINK_CONTROL3_0_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_LINK_CONTROL3_0_0 {}
-impl Clone for PCI_EXPRESS_LINK_CONTROL3_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_LINK_CONTROL_2_REGISTER {
     pub Anonymous: PCI_EXPRESS_LINK_CONTROL_2_REGISTER_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_LINK_CONTROL_2_REGISTER {}
-impl Clone for PCI_EXPRESS_LINK_CONTROL_2_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_LINK_CONTROL_2_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_LINK_CONTROL_2_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_LINK_CONTROL_2_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_LINK_CONTROL_REGISTER {
     pub Anonymous: PCI_EXPRESS_LINK_CONTROL_REGISTER_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_LINK_CONTROL_REGISTER {}
-impl Clone for PCI_EXPRESS_LINK_CONTROL_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_LINK_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_LINK_CONTROL_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_LINK_CONTROL_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_LINK_QUIESCENT_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -11658,238 +8870,128 @@ pub struct PCI_EXPRESS_LINK_QUIESCENT_INTERFACE {
     pub PciExpressEnterLinkQuiescentMode: PPCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE,
     pub PciExpressExitLinkQuiescentMode: PPCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE,
 }
-impl Copy for PCI_EXPRESS_LINK_QUIESCENT_INTERFACE {}
-impl Clone for PCI_EXPRESS_LINK_QUIESCENT_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_LINK_STATUS_2_REGISTER {
     pub Anonymous: PCI_EXPRESS_LINK_STATUS_2_REGISTER_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_LINK_STATUS_2_REGISTER {}
-impl Clone for PCI_EXPRESS_LINK_STATUS_2_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_LINK_STATUS_2_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_LINK_STATUS_2_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_LINK_STATUS_2_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_LINK_STATUS_REGISTER {
     pub Anonymous: PCI_EXPRESS_LINK_STATUS_REGISTER_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_LINK_STATUS_REGISTER {}
-impl Clone for PCI_EXPRESS_LINK_STATUS_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_LINK_STATUS_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_LINK_STATUS_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_LINK_STATUS_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_LTR_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub Latency: PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER,
 }
-impl Copy for PCI_EXPRESS_LTR_CAPABILITY {}
-impl Clone for PCI_EXPRESS_LTR_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER {
     pub Anonymous: PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER {}
-impl Clone for PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_NPEM_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub Capability: PCI_EXPRESS_NPEM_CAPABILITY_REGISTER,
     pub Control: PCI_EXPRESS_NPEM_CONTROL_REGISTER,
     pub Status: PCI_EXPRESS_NPEM_STATUS_REGISTER,
 }
-impl Copy for PCI_EXPRESS_NPEM_CAPABILITY {}
-impl Clone for PCI_EXPRESS_NPEM_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_NPEM_CAPABILITY_REGISTER {
     pub Anonymous: PCI_EXPRESS_NPEM_CAPABILITY_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_NPEM_CAPABILITY_REGISTER {}
-impl Clone for PCI_EXPRESS_NPEM_CAPABILITY_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_NPEM_CAPABILITY_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_NPEM_CAPABILITY_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_NPEM_CAPABILITY_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_NPEM_CONTROL_REGISTER {
     pub Anonymous: PCI_EXPRESS_NPEM_CONTROL_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_NPEM_CONTROL_REGISTER {}
-impl Clone for PCI_EXPRESS_NPEM_CONTROL_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_NPEM_CONTROL_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_NPEM_CONTROL_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_NPEM_CONTROL_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_NPEM_STATUS_REGISTER {
     pub Anonymous: PCI_EXPRESS_NPEM_STATUS_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_NPEM_STATUS_REGISTER {}
-impl Clone for PCI_EXPRESS_NPEM_STATUS_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_NPEM_STATUS_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_NPEM_STATUS_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_NPEM_STATUS_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_PASID_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub Capability: PCI_EXPRESS_PASID_CAPABILITY_REGISTER,
     pub Control: PCI_EXPRESS_PASID_CONTROL_REGISTER,
 }
-impl Copy for PCI_EXPRESS_PASID_CAPABILITY {}
-impl Clone for PCI_EXPRESS_PASID_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_PASID_CAPABILITY_REGISTER {
     pub Anonymous: PCI_EXPRESS_PASID_CAPABILITY_REGISTER_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_PASID_CAPABILITY_REGISTER {}
-impl Clone for PCI_EXPRESS_PASID_CAPABILITY_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_PASID_CAPABILITY_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_PASID_CAPABILITY_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_PASID_CAPABILITY_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_PASID_CONTROL_REGISTER {
     pub Anonymous: PCI_EXPRESS_PASID_CONTROL_REGISTER_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_PASID_CONTROL_REGISTER {}
-impl Clone for PCI_EXPRESS_PASID_CONTROL_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_PASID_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_PASID_CONTROL_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_PASID_CONTROL_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_PME_REQUESTOR_ID {
     pub Anonymous: PCI_EXPRESS_PME_REQUESTOR_ID_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_PME_REQUESTOR_ID {}
-impl Clone for PCI_EXPRESS_PME_REQUESTOR_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_PME_REQUESTOR_ID_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_PME_REQUESTOR_ID_0 {}
-impl Clone for PCI_EXPRESS_PME_REQUESTOR_ID_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_PRI_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub Control: PCI_EXPRESS_PRI_CONTROL_REGISTER,
@@ -11897,173 +8999,93 @@ pub struct PCI_EXPRESS_PRI_CAPABILITY {
     pub PRCapacity: u32,
     pub PRAllocation: u32,
 }
-impl Copy for PCI_EXPRESS_PRI_CAPABILITY {}
-impl Clone for PCI_EXPRESS_PRI_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_PRI_CONTROL_REGISTER {
     pub Anonymous: PCI_EXPRESS_PRI_CONTROL_REGISTER_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_PRI_CONTROL_REGISTER {}
-impl Clone for PCI_EXPRESS_PRI_CONTROL_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_PRI_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_PRI_CONTROL_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_PRI_CONTROL_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_PRI_STATUS_REGISTER {
     pub Anonymous: PCI_EXPRESS_PRI_STATUS_REGISTER_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_PRI_STATUS_REGISTER {}
-impl Clone for PCI_EXPRESS_PRI_STATUS_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_PRI_STATUS_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_PRI_STATUS_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_PRI_STATUS_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_PTM_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub PtmCapability: PCI_EXPRESS_PTM_CAPABILITY_REGISTER,
     pub PtmControl: PCI_EXPRESS_PTM_CONTROL_REGISTER,
 }
-impl Copy for PCI_EXPRESS_PTM_CAPABILITY {}
-impl Clone for PCI_EXPRESS_PTM_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_PTM_CAPABILITY_REGISTER {
     pub Anonymous: PCI_EXPRESS_PTM_CAPABILITY_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_PTM_CAPABILITY_REGISTER {}
-impl Clone for PCI_EXPRESS_PTM_CAPABILITY_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_PTM_CAPABILITY_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_PTM_CAPABILITY_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_PTM_CAPABILITY_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_PTM_CONTROL_REGISTER {
     pub Anonymous: PCI_EXPRESS_PTM_CONTROL_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_PTM_CONTROL_REGISTER {}
-impl Clone for PCI_EXPRESS_PTM_CONTROL_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_PTM_CONTROL_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_PTM_CONTROL_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_PTM_CONTROL_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub Entry: [PCI_EXPRESS_RESIZABLE_BAR_ENTRY; 6],
 }
-impl Copy for PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY {}
-impl Clone for PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER {
     pub Anonymous: PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER {}
-impl Clone for PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER {
     pub Anonymous: PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER {}
-impl Clone for PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_RESIZABLE_BAR_ENTRY {
     pub Capability: PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER,
     pub Control: PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER,
 }
-impl Copy for PCI_EXPRESS_RESIZABLE_BAR_ENTRY {}
-impl Clone for PCI_EXPRESS_RESIZABLE_BAR_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ROOTPORT_AER_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub UncorrectableErrorStatus: PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS,
@@ -12077,97 +9099,52 @@ pub struct PCI_EXPRESS_ROOTPORT_AER_CAPABILITY {
     pub RootErrorStatus: PCI_EXPRESS_ROOT_ERROR_STATUS,
     pub ErrorSourceId: PCI_EXPRESS_ERROR_SOURCE_ID,
 }
-impl Copy for PCI_EXPRESS_ROOTPORT_AER_CAPABILITY {}
-impl Clone for PCI_EXPRESS_ROOTPORT_AER_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ROOT_CAPABILITIES_REGISTER {
     pub Anonymous: PCI_EXPRESS_ROOT_CAPABILITIES_REGISTER_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_ROOT_CAPABILITIES_REGISTER {}
-impl Clone for PCI_EXPRESS_ROOT_CAPABILITIES_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ROOT_CAPABILITIES_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_ROOT_CAPABILITIES_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_ROOT_CAPABILITIES_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ROOT_CONTROL_REGISTER {
     pub Anonymous: PCI_EXPRESS_ROOT_CONTROL_REGISTER_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_ROOT_CONTROL_REGISTER {}
-impl Clone for PCI_EXPRESS_ROOT_CONTROL_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ROOT_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_ROOT_CONTROL_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_ROOT_CONTROL_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ROOT_ERROR_COMMAND {
     pub Anonymous: PCI_EXPRESS_ROOT_ERROR_COMMAND_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_ROOT_ERROR_COMMAND {}
-impl Clone for PCI_EXPRESS_ROOT_ERROR_COMMAND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ROOT_ERROR_COMMAND_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_ROOT_ERROR_COMMAND_0 {}
-impl Clone for PCI_EXPRESS_ROOT_ERROR_COMMAND_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ROOT_ERROR_STATUS {
     pub Anonymous: PCI_EXPRESS_ROOT_ERROR_STATUS_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_ROOT_ERROR_STATUS {}
-impl Clone for PCI_EXPRESS_ROOT_ERROR_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ROOT_ERROR_STATUS_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_ROOT_ERROR_STATUS_0 {}
-impl Clone for PCI_EXPRESS_ROOT_ERROR_STATUS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ROOT_PORT_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -12177,205 +9154,110 @@ pub struct PCI_EXPRESS_ROOT_PORT_INTERFACE {
     pub ReadConfigSpace: PPCI_EXPRESS_ROOT_PORT_READ_CONFIG_SPACE,
     pub WriteConfigSpace: PPCI_EXPRESS_ROOT_PORT_WRITE_CONFIG_SPACE,
 }
-impl Copy for PCI_EXPRESS_ROOT_PORT_INTERFACE {}
-impl Clone for PCI_EXPRESS_ROOT_PORT_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ROOT_STATUS_REGISTER {
     pub Anonymous: PCI_EXPRESS_ROOT_STATUS_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_ROOT_STATUS_REGISTER {}
-impl Clone for PCI_EXPRESS_ROOT_STATUS_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ROOT_STATUS_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_ROOT_STATUS_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_ROOT_STATUS_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_SECONDARY_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub LinkControl3: PCI_EXPRESS_LINK_CONTROL3,
     pub LaneErrorStatus: PCI_EXPRESS_LANE_ERROR_STATUS,
 }
-impl Copy for PCI_EXPRESS_SECONDARY_CAPABILITY {}
-impl Clone for PCI_EXPRESS_SECONDARY_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SEC_AER_CAPABILITIES {
     pub Anonymous: PCI_EXPRESS_SEC_AER_CAPABILITIES_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_SEC_AER_CAPABILITIES {}
-impl Clone for PCI_EXPRESS_SEC_AER_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_SEC_AER_CAPABILITIES_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_SEC_AER_CAPABILITIES_0 {}
-impl Clone for PCI_EXPRESS_SEC_AER_CAPABILITIES_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK {
     pub Anonymous: PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK {}
-impl Clone for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK_0 {}
-impl Clone for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY {
     pub Anonymous: PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY {}
-impl Clone for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY_0 {}
-impl Clone for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS {
     pub Anonymous: PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS {}
-impl Clone for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS_0 {}
-impl Clone for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_SERIAL_NUMBER_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub LowSerialNumber: u32,
     pub HighSerialNumber: u32,
 }
-impl Copy for PCI_EXPRESS_SERIAL_NUMBER_CAPABILITY {}
-impl Clone for PCI_EXPRESS_SERIAL_NUMBER_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER {
     pub Anonymous: PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER {}
-impl Clone for PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SLOT_CONTROL_REGISTER {
     pub Anonymous: PCI_EXPRESS_SLOT_CONTROL_REGISTER_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_SLOT_CONTROL_REGISTER {}
-impl Clone for PCI_EXPRESS_SLOT_CONTROL_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_SLOT_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_SLOT_CONTROL_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_SLOT_CONTROL_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SLOT_STATUS_REGISTER {
     pub Anonymous: PCI_EXPRESS_SLOT_STATUS_REGISTER_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_SLOT_STATUS_REGISTER {}
-impl Clone for PCI_EXPRESS_SLOT_STATUS_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_SLOT_STATUS_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_SLOT_STATUS_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_SLOT_STATUS_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_SRIOV_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub SRIOVCapabilities: PCI_EXPRESS_SRIOV_CAPS,
@@ -12395,247 +9277,132 @@ pub struct PCI_EXPRESS_SRIOV_CAPABILITY {
     pub BaseAddresses: [u32; 6],
     pub VFMigrationStateArrayOffset: PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY,
 }
-impl Copy for PCI_EXPRESS_SRIOV_CAPABILITY {}
-impl Clone for PCI_EXPRESS_SRIOV_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SRIOV_CAPS {
     pub Anonymous: PCI_EXPRESS_SRIOV_CAPS_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_SRIOV_CAPS {}
-impl Clone for PCI_EXPRESS_SRIOV_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_SRIOV_CAPS_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_SRIOV_CAPS_0 {}
-impl Clone for PCI_EXPRESS_SRIOV_CAPS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SRIOV_CONTROL {
     pub Anonymous: PCI_EXPRESS_SRIOV_CONTROL_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_SRIOV_CONTROL {}
-impl Clone for PCI_EXPRESS_SRIOV_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_SRIOV_CONTROL_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_SRIOV_CONTROL_0 {}
-impl Clone for PCI_EXPRESS_SRIOV_CONTROL_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY {
     pub Anonymous: PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY {}
-impl Clone for PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY_0 {}
-impl Clone for PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SRIOV_STATUS {
     pub Anonymous: PCI_EXPRESS_SRIOV_STATUS_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_SRIOV_STATUS {}
-impl Clone for PCI_EXPRESS_SRIOV_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_SRIOV_STATUS_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_SRIOV_STATUS_0 {}
-impl Clone for PCI_EXPRESS_SRIOV_STATUS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_TPH_REQUESTER_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub RequesterCapability: PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER,
     pub RequesterControl: PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER,
 }
-impl Copy for PCI_EXPRESS_TPH_REQUESTER_CAPABILITY {}
-impl Clone for PCI_EXPRESS_TPH_REQUESTER_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER {
     pub Anonymous: PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER {}
-impl Clone for PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER {
     pub Anonymous: PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER {}
-impl Clone for PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER_0 {}
-impl Clone for PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_TPH_ST_TABLE_ENTRY {
     pub Anonymous: PCI_EXPRESS_TPH_ST_TABLE_ENTRY_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_EXPRESS_TPH_ST_TABLE_ENTRY {}
-impl Clone for PCI_EXPRESS_TPH_ST_TABLE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_TPH_ST_TABLE_ENTRY_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_TPH_ST_TABLE_ENTRY_0 {}
-impl Clone for PCI_EXPRESS_TPH_ST_TABLE_ENTRY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK {
     pub Anonymous: PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK {}
-impl Clone for PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK_0 {}
-impl Clone for PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY {
     pub Anonymous: PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY {}
-impl Clone for PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY_0 {}
-impl Clone for PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS {
     pub Anonymous: PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS {}
-impl Clone for PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS_0 {}
-impl Clone for PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub VsecId: u16,
     pub _bitfield: u16,
 }
-impl Copy for PCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY {}
-impl Clone for PCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_VIRTUAL_CHANNEL_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub Capabilities1: VIRTUAL_CHANNEL_CAPABILITIES1,
@@ -12644,13 +9411,8 @@ pub struct PCI_EXPRESS_VIRTUAL_CHANNEL_CAPABILITY {
     pub Status: VIRTUAL_CHANNEL_STATUS,
     pub Resource: [VIRTUAL_RESOURCE; 8],
 }
-impl Copy for PCI_EXPRESS_VIRTUAL_CHANNEL_CAPABILITY {}
-impl Clone for PCI_EXPRESS_VIRTUAL_CHANNEL_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_FIRMWARE_BUS_CAPS {
     pub Type: u16,
     pub Length: u16,
@@ -12661,57 +9423,32 @@ pub struct PCI_FIRMWARE_BUS_CAPS {
     pub Voltage: u8,
     pub Reserved2: [u8; 7],
 }
-impl Copy for PCI_FIRMWARE_BUS_CAPS {}
-impl Clone for PCI_FIRMWARE_BUS_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_FIRMWARE_BUS_CAPS_0 {
     pub _bitfield: u8,
 }
-impl Copy for PCI_FIRMWARE_BUS_CAPS_0 {}
-impl Clone for PCI_FIRMWARE_BUS_CAPS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_FIRMWARE_BUS_CAPS_RETURN_BUFFER {
     pub Version: u16,
     pub Status: u16,
     pub Length: u32,
     pub Caps: PCI_FIRMWARE_BUS_CAPS,
 }
-impl Copy for PCI_FIRMWARE_BUS_CAPS_RETURN_BUFFER {}
-impl Clone for PCI_FIRMWARE_BUS_CAPS_RETURN_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_FPB_CAPABILITIES_REGISTER {
     pub Anonymous: PCI_FPB_CAPABILITIES_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_FPB_CAPABILITIES_REGISTER {}
-impl Clone for PCI_FPB_CAPABILITIES_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_FPB_CAPABILITIES_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_FPB_CAPABILITIES_REGISTER_0 {}
-impl Clone for PCI_FPB_CAPABILITIES_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_FPB_CAPABILITY {
     pub Header: PCI_FPB_CAPABILITY_HEADER,
     pub CapabilitiesRegister: PCI_FPB_CAPABILITIES_REGISTER,
@@ -12723,149 +9460,79 @@ pub struct PCI_FPB_CAPABILITY {
     pub VectorAccessControlRegister: PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER,
     pub VectorAccessDataRegister: PCI_FPB_VECTOR_ACCESS_DATA_REGISTER,
 }
-impl Copy for PCI_FPB_CAPABILITY {}
-impl Clone for PCI_FPB_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_FPB_CAPABILITY_HEADER {
     pub Header: PCI_CAPABILITIES_HEADER,
     pub Reserved: u16,
 }
-impl Copy for PCI_FPB_CAPABILITY_HEADER {}
-impl Clone for PCI_FPB_CAPABILITY_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER {
     pub Anonymous: PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER {}
-impl Clone for PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER_0 {}
-impl Clone for PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_FPB_MEM_HIGH_VECTOR_CONTROL2_REGISTER {
     pub MemHighVectorStartUpper: u32,
 }
-impl Copy for PCI_FPB_MEM_HIGH_VECTOR_CONTROL2_REGISTER {}
-impl Clone for PCI_FPB_MEM_HIGH_VECTOR_CONTROL2_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER {
     pub Anonymous: PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER {}
-impl Clone for PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER_0 {}
-impl Clone for PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_FPB_RID_VECTOR_CONTROL1_REGISTER {
     pub Anonymous: PCI_FPB_RID_VECTOR_CONTROL1_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_FPB_RID_VECTOR_CONTROL1_REGISTER {}
-impl Clone for PCI_FPB_RID_VECTOR_CONTROL1_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_FPB_RID_VECTOR_CONTROL1_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_FPB_RID_VECTOR_CONTROL1_REGISTER_0 {}
-impl Clone for PCI_FPB_RID_VECTOR_CONTROL1_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_FPB_RID_VECTOR_CONTROL2_REGISTER {
     pub Anonymous: PCI_FPB_RID_VECTOR_CONTROL2_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_FPB_RID_VECTOR_CONTROL2_REGISTER {}
-impl Clone for PCI_FPB_RID_VECTOR_CONTROL2_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_FPB_RID_VECTOR_CONTROL2_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_FPB_RID_VECTOR_CONTROL2_REGISTER_0 {}
-impl Clone for PCI_FPB_RID_VECTOR_CONTROL2_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER {
     pub Anonymous: PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER {}
-impl Clone for PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER_0 {}
-impl Clone for PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_FPB_VECTOR_ACCESS_DATA_REGISTER {
     pub VectorAccessData: u32,
 }
-impl Copy for PCI_FPB_VECTOR_ACCESS_DATA_REGISTER {}
-impl Clone for PCI_FPB_VECTOR_ACCESS_DATA_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_MSIX_TABLE_CONFIG_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -12878,54 +9545,29 @@ pub struct PCI_MSIX_TABLE_CONFIG_INTERFACE {
     pub GetTableEntry: PPCI_MSIX_GET_ENTRY,
     pub GetTableSize: PPCI_MSIX_GET_TABLE_SIZE,
 }
-impl Copy for PCI_MSIX_TABLE_CONFIG_INTERFACE {}
-impl Clone for PCI_MSIX_TABLE_CONFIG_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_PMC {
     pub _bitfield: u8,
     pub Support: PCI_PMC_0,
 }
-impl Copy for PCI_PMC {}
-impl Clone for PCI_PMC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_PMC_0 {
     pub _bitfield: u8,
 }
-impl Copy for PCI_PMC_0 {}
-impl Clone for PCI_PMC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_PMCSR {
     pub _bitfield: u16,
 }
-impl Copy for PCI_PMCSR {}
-impl Clone for PCI_PMCSR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_PMCSR_BSE {
     pub _bitfield: u8,
 }
-impl Copy for PCI_PMCSR_BSE {}
-impl Clone for PCI_PMCSR_BSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_PM_CAPABILITY {
     pub Header: PCI_CAPABILITIES_HEADER,
     pub PMC: PCI_PM_CAPABILITY_2,
@@ -12933,46 +9575,26 @@ pub struct PCI_PM_CAPABILITY {
     pub PMCSR_BSE: PCI_PM_CAPABILITY_0,
     pub Data: u8,
 }
-impl Copy for PCI_PM_CAPABILITY {}
-impl Clone for PCI_PM_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_PM_CAPABILITY_0 {
     pub BridgeSupport: PCI_PMCSR_BSE,
     pub AsUCHAR: u8,
 }
-impl Copy for PCI_PM_CAPABILITY_0 {}
-impl Clone for PCI_PM_CAPABILITY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_PM_CAPABILITY_1 {
     pub ControlStatus: PCI_PMCSR,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_PM_CAPABILITY_1 {}
-impl Clone for PCI_PM_CAPABILITY_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_PM_CAPABILITY_2 {
     pub Capabilities: PCI_PMC,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_PM_CAPABILITY_2 {}
-impl Clone for PCI_PM_CAPABILITY_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_ROOT_BUS_HARDWARE_CAPABILITY {
     pub SecondaryInterface: PCI_HARDWARE_INTERFACE,
     pub Anonymous: PCI_ROOT_BUS_HARDWARE_CAPABILITY_0,
@@ -12980,13 +9602,8 @@ pub struct PCI_ROOT_BUS_HARDWARE_CAPABILITY {
     pub OscControlRequest: PCI_ROOT_BUS_OSC_CONTROL_FIELD,
     pub OscControlGranted: PCI_ROOT_BUS_OSC_CONTROL_FIELD,
 }
-impl Copy for PCI_ROOT_BUS_HARDWARE_CAPABILITY {}
-impl Clone for PCI_ROOT_BUS_HARDWARE_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_ROOT_BUS_HARDWARE_CAPABILITY_0 {
     pub BusCapabilitiesFound: super::super::super::Win32::Foundation::BOOLEAN,
     pub CurrentSpeedAndMode: u32,
@@ -12994,75 +9611,40 @@ pub struct PCI_ROOT_BUS_HARDWARE_CAPABILITY_0 {
     pub DeviceIDMessagingCapable: super::super::super::Win32::Foundation::BOOLEAN,
     pub SecondaryBusWidth: PCI_BUS_WIDTH,
 }
-impl Copy for PCI_ROOT_BUS_HARDWARE_CAPABILITY_0 {}
-impl Clone for PCI_ROOT_BUS_HARDWARE_CAPABILITY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_ROOT_BUS_OSC_CONTROL_FIELD {
     pub u: PCI_ROOT_BUS_OSC_CONTROL_FIELD_0,
 }
-impl Copy for PCI_ROOT_BUS_OSC_CONTROL_FIELD {}
-impl Clone for PCI_ROOT_BUS_OSC_CONTROL_FIELD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_ROOT_BUS_OSC_CONTROL_FIELD_0 {
     pub Anonymous: PCI_ROOT_BUS_OSC_CONTROL_FIELD_0_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_ROOT_BUS_OSC_CONTROL_FIELD_0 {}
-impl Clone for PCI_ROOT_BUS_OSC_CONTROL_FIELD_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_ROOT_BUS_OSC_CONTROL_FIELD_0_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_ROOT_BUS_OSC_CONTROL_FIELD_0_0 {}
-impl Clone for PCI_ROOT_BUS_OSC_CONTROL_FIELD_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_ROOT_BUS_OSC_SUPPORT_FIELD {
     pub u: PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0,
 }
-impl Copy for PCI_ROOT_BUS_OSC_SUPPORT_FIELD {}
-impl Clone for PCI_ROOT_BUS_OSC_SUPPORT_FIELD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0 {
     pub Anonymous: PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0 {}
-impl Clone for PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0_0 {}
-impl Clone for PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_SECURITY_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -13071,13 +9653,8 @@ pub struct PCI_SECURITY_INTERFACE {
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
     pub SetAccessControlServices: PPCI_SET_ACS,
 }
-impl Copy for PCI_SECURITY_INTERFACE {}
-impl Clone for PCI_SECURITY_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_SECURITY_INTERFACE2 {
     pub Size: u16,
     pub Version: u16,
@@ -13088,100 +9665,55 @@ pub struct PCI_SECURITY_INTERFACE2 {
     pub SupportedScenarios: u32,
     pub SetAccessControlServices: PPCI_SET_ACS2,
 }
-impl Copy for PCI_SECURITY_INTERFACE2 {}
-impl Clone for PCI_SECURITY_INTERFACE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_SEGMENT_BUS_NUMBER {
     pub u: PCI_SEGMENT_BUS_NUMBER_0,
 }
-impl Copy for PCI_SEGMENT_BUS_NUMBER {}
-impl Clone for PCI_SEGMENT_BUS_NUMBER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_SEGMENT_BUS_NUMBER_0 {
     pub bits: PCI_SEGMENT_BUS_NUMBER_0_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_SEGMENT_BUS_NUMBER_0 {}
-impl Clone for PCI_SEGMENT_BUS_NUMBER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_SEGMENT_BUS_NUMBER_0_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_SEGMENT_BUS_NUMBER_0_0 {}
-impl Clone for PCI_SEGMENT_BUS_NUMBER_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_SLOT_NUMBER {
     pub u: PCI_SLOT_NUMBER_0,
 }
-impl Copy for PCI_SLOT_NUMBER {}
-impl Clone for PCI_SLOT_NUMBER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_SLOT_NUMBER_0 {
     pub bits: PCI_SLOT_NUMBER_0_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_SLOT_NUMBER_0 {}
-impl Clone for PCI_SLOT_NUMBER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_SLOT_NUMBER_0_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_SLOT_NUMBER_0_0 {}
-impl Clone for PCI_SLOT_NUMBER_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_SUBSYSTEM_IDS_CAPABILITY {
     pub Header: PCI_CAPABILITIES_HEADER,
     pub Reserved: u16,
     pub SubVendorID: u16,
     pub SubSystemID: u16,
 }
-impl Copy for PCI_SUBSYSTEM_IDS_CAPABILITY {}
-impl Clone for PCI_SUBSYSTEM_IDS_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_VENDOR_SPECIFIC_CAPABILITY {
     pub Header: PCI_CAPABILITIES_HEADER,
     pub VscLength: u8,
     pub VendorSpecific: u8,
 }
-impl Copy for PCI_VENDOR_SPECIFIC_CAPABILITY {}
-impl Clone for PCI_VENDOR_SPECIFIC_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_VIRTUALIZATION_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -13195,119 +9727,67 @@ pub struct PCI_VIRTUALIZATION_INTERFACE {
     pub EnableVirtualization: PENABLE_VIRTUALIZATION,
     pub GetVirtualFunctionProbedBars: PGET_VIRTUAL_FUNCTION_PROBED_BARS,
 }
-impl Copy for PCI_VIRTUALIZATION_INTERFACE {}
-impl Clone for PCI_VIRTUALIZATION_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_X_CAPABILITY {
     pub Header: PCI_CAPABILITIES_HEADER,
     pub Command: PCI_X_CAPABILITY_0,
     pub Status: PCI_X_CAPABILITY_1,
 }
-impl Copy for PCI_X_CAPABILITY {}
-impl Clone for PCI_X_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_X_CAPABILITY_0 {
     pub bits: PCI_X_CAPABILITY_0_0,
     pub AsUSHORT: u16,
 }
-impl Copy for PCI_X_CAPABILITY_0 {}
-impl Clone for PCI_X_CAPABILITY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_X_CAPABILITY_0_0 {
     pub _bitfield: u16,
 }
-impl Copy for PCI_X_CAPABILITY_0_0 {}
-impl Clone for PCI_X_CAPABILITY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCI_X_CAPABILITY_1 {
     pub bits: PCI_X_CAPABILITY_1_0,
     pub AsULONG: u32,
 }
-impl Copy for PCI_X_CAPABILITY_1 {}
-impl Clone for PCI_X_CAPABILITY_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCI_X_CAPABILITY_1_0 {
     pub _bitfield: u32,
 }
-impl Copy for PCI_X_CAPABILITY_1_0 {}
-impl Clone for PCI_X_CAPABILITY_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub union PCW_CALLBACK_INFORMATION {
     pub AddCounter: PCW_COUNTER_INFORMATION,
     pub RemoveCounter: PCW_COUNTER_INFORMATION,
     pub EnumerateInstances: PCW_MASK_INFORMATION,
     pub CollectData: PCW_MASK_INFORMATION,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Copy for PCW_CALLBACK_INFORMATION {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Clone for PCW_CALLBACK_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCW_COUNTER_DESCRIPTOR {
     pub Id: u16,
     pub StructIndex: u16,
     pub Offset: u16,
     pub Size: u16,
 }
-impl Copy for PCW_COUNTER_DESCRIPTOR {}
-impl Clone for PCW_COUNTER_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCW_COUNTER_INFORMATION {
     pub CounterMask: u64,
     pub InstanceMask: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
 }
-impl Copy for PCW_COUNTER_INFORMATION {}
-impl Clone for PCW_COUNTER_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCW_DATA {
     pub Data: *const core::ffi::c_void,
     pub Size: u32,
 }
-impl Copy for PCW_DATA {}
-impl Clone for PCW_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub struct PCW_MASK_INFORMATION {
     pub CounterMask: u64,
     pub InstanceMask: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
@@ -13316,15 +9796,8 @@ pub struct PCW_MASK_INFORMATION {
     pub Buffer: super::super::Foundation::PPCW_BUFFER,
     pub CancelEvent: *mut super::super::Foundation::KEVENT,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Copy for PCW_MASK_INFORMATION {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Clone for PCW_MASK_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PCW_REGISTRATION_INFORMATION {
     pub Version: u32,
     pub Name: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
@@ -13334,37 +9807,22 @@ pub struct PCW_REGISTRATION_INFORMATION {
     pub CallbackContext: *mut core::ffi::c_void,
     pub Flags: PCW_REGISTRATION_FLAGS,
 }
-impl Copy for PCW_REGISTRATION_INFORMATION {}
-impl Clone for PCW_REGISTRATION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PHYSICAL_COUNTER_EVENT_BUFFER_CONFIGURATION {
     pub OverflowHandler: PPHYSICAL_COUNTER_EVENT_BUFFER_OVERFLOW_HANDLER,
     pub CustomEventBufferEntrySize: u32,
     pub EventThreshold: u32,
 }
-impl Copy for PHYSICAL_COUNTER_EVENT_BUFFER_CONFIGURATION {}
-impl Clone for PHYSICAL_COUNTER_EVENT_BUFFER_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR {
     pub Type: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE,
     pub Flags: u32,
     pub u: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0,
 }
-impl Copy for PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR {}
-impl Clone for PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0 {
     pub CounterIndex: u32,
     pub Range: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0_0,
@@ -13372,82 +9830,47 @@ pub union PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0 {
     pub EventBufferConfiguration: PHYSICAL_COUNTER_EVENT_BUFFER_CONFIGURATION,
     pub IdentificationTag: u32,
 }
-impl Copy for PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0 {}
-impl Clone for PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0_0 {
     pub Begin: u32,
     pub End: u32,
 }
-impl Copy for PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0_0 {}
-impl Clone for PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PHYSICAL_COUNTER_RESOURCE_LIST {
     pub Count: u32,
     pub Descriptors: [PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR; 1],
 }
-impl Copy for PHYSICAL_COUNTER_RESOURCE_LIST {}
-impl Clone for PHYSICAL_COUNTER_RESOURCE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PHYSICAL_MEMORY_RANGE {
     pub BaseAddress: i64,
     pub NumberOfBytes: i64,
 }
-impl Copy for PHYSICAL_MEMORY_RANGE {}
-impl Clone for PHYSICAL_MEMORY_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PLUGPLAY_NOTIFICATION_HEADER {
     pub Version: u16,
     pub Size: u16,
     pub Event: windows_sys::core::GUID,
 }
-impl Copy for PLUGPLAY_NOTIFICATION_HEADER {}
-impl Clone for PLUGPLAY_NOTIFICATION_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PM_DISPATCH_TABLE {
     pub Signature: u32,
     pub Version: u32,
     pub Function: [*mut core::ffi::c_void; 1],
 }
-impl Copy for PM_DISPATCH_TABLE {}
-impl Clone for PM_DISPATCH_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PNP_BUS_INFORMATION {
     pub BusTypeGuid: windows_sys::core::GUID,
     pub LegacyBusType: INTERFACE_TYPE,
     pub BusNumber: u32,
 }
-impl Copy for PNP_BUS_INFORMATION {}
-impl Clone for PNP_BUS_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PNP_EXTENDED_ADDRESS_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -13456,13 +9879,8 @@ pub struct PNP_EXTENDED_ADDRESS_INTERFACE {
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
     pub QueryExtendedAddress: PQUERYEXTENDEDADDRESS,
 }
-impl Copy for PNP_EXTENDED_ADDRESS_INTERFACE {}
-impl Clone for PNP_EXTENDED_ADDRESS_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PNP_LOCATION_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -13471,13 +9889,8 @@ pub struct PNP_LOCATION_INTERFACE {
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
     pub GetLocationString: PGET_LOCATION_STRING,
 }
-impl Copy for PNP_LOCATION_INTERFACE {}
-impl Clone for PNP_LOCATION_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PNP_REPLACE_DRIVER_INTERFACE {
     pub Size: u32,
     pub Version: u32,
@@ -13493,37 +9906,22 @@ pub struct PNP_REPLACE_DRIVER_INTERFACE {
     pub GetMemoryDestination: PREPLACE_GET_MEMORY_DESTINATION,
     pub EnableDisableHardwareQuiesce: PREPLACE_ENABLE_DISABLE_HARDWARE_QUIESCE,
 }
-impl Copy for PNP_REPLACE_DRIVER_INTERFACE {}
-impl Clone for PNP_REPLACE_DRIVER_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PNP_REPLACE_MEMORY_LIST {
     pub AllocatedCount: u32,
     pub Count: u32,
     pub TotalLength: u64,
     pub Ranges: [PNP_REPLACE_MEMORY_LIST_0; 1],
 }
-impl Copy for PNP_REPLACE_MEMORY_LIST {}
-impl Clone for PNP_REPLACE_MEMORY_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PNP_REPLACE_MEMORY_LIST_0 {
     pub Address: i64,
     pub Length: u64,
 }
-impl Copy for PNP_REPLACE_MEMORY_LIST_0 {}
-impl Clone for PNP_REPLACE_MEMORY_LIST_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PNP_REPLACE_PARAMETERS {
     pub Size: u32,
     pub Version: u32,
@@ -13535,13 +9933,8 @@ pub struct PNP_REPLACE_PARAMETERS {
     pub SpareMemory: *mut PNP_REPLACE_MEMORY_LIST,
     pub MapMemory: PREPLACE_MAP_MEMORY,
 }
-impl Copy for PNP_REPLACE_PARAMETERS {}
-impl Clone for PNP_REPLACE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PNP_REPLACE_PROCESSOR_LIST {
     pub Affinity: *mut usize,
     pub GroupCount: u32,
@@ -13549,26 +9942,16 @@ pub struct PNP_REPLACE_PROCESSOR_LIST {
     pub Count: u32,
     pub ApicIds: [u32; 1],
 }
-impl Copy for PNP_REPLACE_PROCESSOR_LIST {}
-impl Clone for PNP_REPLACE_PROCESSOR_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PNP_REPLACE_PROCESSOR_LIST_V1 {
     pub AffinityMask: usize,
     pub AllocatedCount: u32,
     pub Count: u32,
     pub ApicIds: [u32; 1],
 }
-impl Copy for PNP_REPLACE_PROCESSOR_LIST_V1 {}
-impl Clone for PNP_REPLACE_PROCESSOR_LIST_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POOLED_USAGE_AND_LIMITS {
     pub PeakPagedPoolUsage: usize,
     pub PagedPoolUsage: usize,
@@ -13580,44 +9963,24 @@ pub struct POOLED_USAGE_AND_LIMITS {
     pub PagefileUsage: usize,
     pub PagefileLimit: usize,
 }
-impl Copy for POOLED_USAGE_AND_LIMITS {}
-impl Clone for POOLED_USAGE_AND_LIMITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POOL_CREATE_EXTENDED_PARAMS {
     pub Version: u32,
 }
-impl Copy for POOL_CREATE_EXTENDED_PARAMS {}
-impl Clone for POOL_CREATE_EXTENDED_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POOL_EXTENDED_PARAMETER {
     pub Anonymous1: POOL_EXTENDED_PARAMETER_0,
     pub Anonymous2: POOL_EXTENDED_PARAMETER_1,
 }
-impl Copy for POOL_EXTENDED_PARAMETER {}
-impl Clone for POOL_EXTENDED_PARAMETER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POOL_EXTENDED_PARAMETER_0 {
     pub _bitfield: u64,
 }
-impl Copy for POOL_EXTENDED_PARAMETER_0 {}
-impl Clone for POOL_EXTENDED_PARAMETER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union POOL_EXTENDED_PARAMETER_1 {
     pub Reserved2: u64,
     pub Reserved3: *mut core::ffi::c_void,
@@ -13625,165 +9988,93 @@ pub union POOL_EXTENDED_PARAMETER_1 {
     pub SecurePoolParams: *mut POOL_EXTENDED_PARAMS_SECURE_POOL,
     pub PreferredNode: u32,
 }
-impl Copy for POOL_EXTENDED_PARAMETER_1 {}
-impl Clone for POOL_EXTENDED_PARAMETER_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POOL_EXTENDED_PARAMS_SECURE_POOL {
     pub SecurePoolHandle: super::super::super::Win32::Foundation::HANDLE,
     pub Buffer: *mut core::ffi::c_void,
     pub Cookie: usize,
     pub SecurePoolFlags: u32,
 }
-impl Copy for POOL_EXTENDED_PARAMS_SECURE_POOL {}
-impl Clone for POOL_EXTENDED_PARAMS_SECURE_POOL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POWER_MONITOR_INVOCATION {
     pub Console: super::super::super::Win32::Foundation::BOOLEAN,
     pub RequestReason: POWER_MONITOR_REQUEST_REASON,
 }
-impl Copy for POWER_MONITOR_INVOCATION {}
-impl Clone for POWER_MONITOR_INVOCATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POWER_PLATFORM_INFORMATION {
     pub AoAc: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for POWER_PLATFORM_INFORMATION {}
-impl Clone for POWER_PLATFORM_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POWER_SEQUENCE {
     pub SequenceD1: u32,
     pub SequenceD2: u32,
     pub SequenceD3: u32,
 }
-impl Copy for POWER_SEQUENCE {}
-impl Clone for POWER_SEQUENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POWER_SESSION_CONNECT {
     pub Connected: super::super::super::Win32::Foundation::BOOLEAN,
     pub Console: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for POWER_SESSION_CONNECT {}
-impl Clone for POWER_SESSION_CONNECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POWER_SESSION_RIT_STATE {
     pub Active: super::super::super::Win32::Foundation::BOOLEAN,
     pub LastInputTime: u64,
 }
-impl Copy for POWER_SESSION_RIT_STATE {}
-impl Clone for POWER_SESSION_RIT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POWER_SESSION_TIMEOUTS {
     pub InputTimeout: u32,
     pub DisplayTimeout: u32,
 }
-impl Copy for POWER_SESSION_TIMEOUTS {}
-impl Clone for POWER_SESSION_TIMEOUTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POWER_SESSION_WINLOGON {
     pub SessionId: u32,
     pub Console: super::super::super::Win32::Foundation::BOOLEAN,
     pub Locked: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for POWER_SESSION_WINLOGON {}
-impl Clone for POWER_SESSION_WINLOGON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Power")]
+#[derive(Clone, Copy)]
 pub union POWER_STATE {
     pub SystemState: super::super::super::Win32::System::Power::SYSTEM_POWER_STATE,
     pub DeviceState: super::super::super::Win32::System::Power::DEVICE_POWER_STATE,
 }
-#[cfg(feature = "Win32_System_Power")]
-impl Copy for POWER_STATE {}
-#[cfg(feature = "Win32_System_Power")]
-impl Clone for POWER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POWER_THROTTLING_PROCESS_STATE {
     pub Version: u32,
     pub ControlMask: u32,
     pub StateMask: u32,
 }
-impl Copy for POWER_THROTTLING_PROCESS_STATE {}
-impl Clone for POWER_THROTTLING_PROCESS_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POWER_THROTTLING_THREAD_STATE {
     pub Version: u32,
     pub ControlMask: u32,
     pub StateMask: u32,
 }
-impl Copy for POWER_THROTTLING_THREAD_STATE {}
-impl Clone for POWER_THROTTLING_THREAD_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PO_FX_COMPONENT_IDLE_STATE {
     pub TransitionLatency: u64,
     pub ResidencyRequirement: u64,
     pub NominalPower: u32,
 }
-impl Copy for PO_FX_COMPONENT_IDLE_STATE {}
-impl Clone for PO_FX_COMPONENT_IDLE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PO_FX_COMPONENT_PERF_INFO {
     pub PerfStateSetsCount: u32,
     pub PerfStateSets: [PO_FX_COMPONENT_PERF_SET; 1],
 }
-impl Copy for PO_FX_COMPONENT_PERF_INFO {}
-impl Clone for PO_FX_COMPONENT_PERF_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PO_FX_COMPONENT_PERF_SET {
     pub Name: super::super::super::Win32::Foundation::UNICODE_STRING,
     pub Flags: u64,
@@ -13791,59 +10082,34 @@ pub struct PO_FX_COMPONENT_PERF_SET {
     pub Type: PO_FX_PERF_STATE_TYPE,
     pub Anonymous: PO_FX_COMPONENT_PERF_SET_0,
 }
-impl Copy for PO_FX_COMPONENT_PERF_SET {}
-impl Clone for PO_FX_COMPONENT_PERF_SET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PO_FX_COMPONENT_PERF_SET_0 {
     pub Discrete: PO_FX_COMPONENT_PERF_SET_0_0,
     pub Range: PO_FX_COMPONENT_PERF_SET_0_1,
 }
-impl Copy for PO_FX_COMPONENT_PERF_SET_0 {}
-impl Clone for PO_FX_COMPONENT_PERF_SET_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PO_FX_COMPONENT_PERF_SET_0_0 {
     pub Count: u32,
     pub States: *mut PO_FX_PERF_STATE,
 }
-impl Copy for PO_FX_COMPONENT_PERF_SET_0_0 {}
-impl Clone for PO_FX_COMPONENT_PERF_SET_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PO_FX_COMPONENT_PERF_SET_0_1 {
     pub Minimum: u64,
     pub Maximum: u64,
 }
-impl Copy for PO_FX_COMPONENT_PERF_SET_0_1 {}
-impl Clone for PO_FX_COMPONENT_PERF_SET_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PO_FX_COMPONENT_V1 {
     pub Id: windows_sys::core::GUID,
     pub IdleStateCount: u32,
     pub DeepestWakeableIdleState: u32,
     pub IdleStates: *mut PO_FX_COMPONENT_IDLE_STATE,
 }
-impl Copy for PO_FX_COMPONENT_V1 {}
-impl Clone for PO_FX_COMPONENT_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PO_FX_COMPONENT_V2 {
     pub Id: windows_sys::core::GUID,
     pub Flags: u64,
@@ -13853,13 +10119,8 @@ pub struct PO_FX_COMPONENT_V2 {
     pub ProviderCount: u32,
     pub Providers: *mut u32,
 }
-impl Copy for PO_FX_COMPONENT_V2 {}
-impl Clone for PO_FX_COMPONENT_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PO_FX_DEVICE_V1 {
     pub Version: u32,
     pub ComponentCount: u32,
@@ -13872,13 +10133,8 @@ pub struct PO_FX_DEVICE_V1 {
     pub DeviceContext: *mut core::ffi::c_void,
     pub Components: [PO_FX_COMPONENT_V1; 1],
 }
-impl Copy for PO_FX_DEVICE_V1 {}
-impl Clone for PO_FX_DEVICE_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PO_FX_DEVICE_V2 {
     pub Version: u32,
     pub Flags: u64,
@@ -13892,13 +10148,8 @@ pub struct PO_FX_DEVICE_V2 {
     pub ComponentCount: u32,
     pub Components: [PO_FX_COMPONENT_V2; 1],
 }
-impl Copy for PO_FX_DEVICE_V2 {}
-impl Clone for PO_FX_DEVICE_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PO_FX_DEVICE_V3 {
     pub Version: u32,
     pub Flags: u64,
@@ -13915,311 +10166,166 @@ pub struct PO_FX_DEVICE_V3 {
     pub ComponentCount: u32,
     pub Components: [PO_FX_COMPONENT_V2; 1],
 }
-impl Copy for PO_FX_DEVICE_V3 {}
-impl Clone for PO_FX_DEVICE_V3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PO_FX_PERF_STATE {
     pub Value: u64,
     pub Context: *mut core::ffi::c_void,
 }
-impl Copy for PO_FX_PERF_STATE {}
-impl Clone for PO_FX_PERF_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PO_FX_PERF_STATE_CHANGE {
     pub Set: u32,
     pub Anonymous: PO_FX_PERF_STATE_CHANGE_0,
 }
-impl Copy for PO_FX_PERF_STATE_CHANGE {}
-impl Clone for PO_FX_PERF_STATE_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PO_FX_PERF_STATE_CHANGE_0 {
     pub StateIndex: u32,
     pub StateValue: u64,
 }
-impl Copy for PO_FX_PERF_STATE_CHANGE_0 {}
-impl Clone for PO_FX_PERF_STATE_CHANGE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_ACCESS_TOKEN {
     pub Token: super::super::super::Win32::Foundation::HANDLE,
     pub Thread: super::super::super::Win32::Foundation::HANDLE,
 }
-impl Copy for PROCESS_ACCESS_TOKEN {}
-impl Clone for PROCESS_ACCESS_TOKEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_DEVICEMAP_INFORMATION {
     pub Anonymous: PROCESS_DEVICEMAP_INFORMATION_0,
 }
-impl Copy for PROCESS_DEVICEMAP_INFORMATION {}
-impl Clone for PROCESS_DEVICEMAP_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESS_DEVICEMAP_INFORMATION_0 {
     pub Set: PROCESS_DEVICEMAP_INFORMATION_0_1,
     pub Query: PROCESS_DEVICEMAP_INFORMATION_0_0,
 }
-impl Copy for PROCESS_DEVICEMAP_INFORMATION_0 {}
-impl Clone for PROCESS_DEVICEMAP_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_DEVICEMAP_INFORMATION_0_0 {
     pub DriveMap: u32,
     pub DriveType: [u8; 32],
 }
-impl Copy for PROCESS_DEVICEMAP_INFORMATION_0_0 {}
-impl Clone for PROCESS_DEVICEMAP_INFORMATION_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_DEVICEMAP_INFORMATION_0_1 {
     pub DirectoryHandle: super::super::super::Win32::Foundation::HANDLE,
 }
-impl Copy for PROCESS_DEVICEMAP_INFORMATION_0_1 {}
-impl Clone for PROCESS_DEVICEMAP_INFORMATION_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_DEVICEMAP_INFORMATION_EX {
     pub Anonymous: PROCESS_DEVICEMAP_INFORMATION_EX_0,
     pub Flags: u32,
 }
-impl Copy for PROCESS_DEVICEMAP_INFORMATION_EX {}
-impl Clone for PROCESS_DEVICEMAP_INFORMATION_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESS_DEVICEMAP_INFORMATION_EX_0 {
     pub Set: PROCESS_DEVICEMAP_INFORMATION_EX_0_1,
     pub Query: PROCESS_DEVICEMAP_INFORMATION_EX_0_0,
 }
-impl Copy for PROCESS_DEVICEMAP_INFORMATION_EX_0 {}
-impl Clone for PROCESS_DEVICEMAP_INFORMATION_EX_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_DEVICEMAP_INFORMATION_EX_0_0 {
     pub DriveMap: u32,
     pub DriveType: [u8; 32],
 }
-impl Copy for PROCESS_DEVICEMAP_INFORMATION_EX_0_0 {}
-impl Clone for PROCESS_DEVICEMAP_INFORMATION_EX_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_DEVICEMAP_INFORMATION_EX_0_1 {
     pub DirectoryHandle: super::super::super::Win32::Foundation::HANDLE,
 }
-impl Copy for PROCESS_DEVICEMAP_INFORMATION_EX_0_1 {}
-impl Clone for PROCESS_DEVICEMAP_INFORMATION_EX_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_EXCEPTION_PORT {
     pub ExceptionPortHandle: super::super::super::Win32::Foundation::HANDLE,
     pub StateFlags: u32,
 }
-impl Copy for PROCESS_EXCEPTION_PORT {}
-impl Clone for PROCESS_EXCEPTION_PORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
+#[derive(Clone, Copy)]
 pub struct PROCESS_EXTENDED_BASIC_INFORMATION {
     pub Size: usize,
     pub BasicInfo: super::super::super::Win32::System::Threading::PROCESS_BASIC_INFORMATION,
     pub Anonymous: PROCESS_EXTENDED_BASIC_INFORMATION_0,
 }
-#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
-impl Copy for PROCESS_EXTENDED_BASIC_INFORMATION {}
-#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
-impl Clone for PROCESS_EXTENDED_BASIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
+#[derive(Clone, Copy)]
 pub union PROCESS_EXTENDED_BASIC_INFORMATION_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_EXTENDED_BASIC_INFORMATION_0_0,
 }
-#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
-impl Copy for PROCESS_EXTENDED_BASIC_INFORMATION_0 {}
-#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
-impl Clone for PROCESS_EXTENDED_BASIC_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
+#[derive(Clone, Copy)]
 pub struct PROCESS_EXTENDED_BASIC_INFORMATION_0_0 {
     pub _bitfield: u32,
 }
-#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
-impl Copy for PROCESS_EXTENDED_BASIC_INFORMATION_0_0 {}
-#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
-impl Clone for PROCESS_EXTENDED_BASIC_INFORMATION_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_HANDLE_TRACING_ENABLE {
     pub Flags: u32,
 }
-impl Copy for PROCESS_HANDLE_TRACING_ENABLE {}
-impl Clone for PROCESS_HANDLE_TRACING_ENABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_HANDLE_TRACING_ENABLE_EX {
     pub Flags: u32,
     pub TotalSlots: u32,
 }
-impl Copy for PROCESS_HANDLE_TRACING_ENABLE_EX {}
-impl Clone for PROCESS_HANDLE_TRACING_ENABLE_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
+#[derive(Clone, Copy)]
 pub struct PROCESS_HANDLE_TRACING_ENTRY {
     pub Handle: super::super::super::Win32::Foundation::HANDLE,
     pub ClientId: super::super::super::Win32::System::WindowsProgramming::CLIENT_ID,
     pub Type: u32,
     pub Stacks: [*mut core::ffi::c_void; 16],
 }
-#[cfg(feature = "Win32_System_WindowsProgramming")]
-impl Copy for PROCESS_HANDLE_TRACING_ENTRY {}
-#[cfg(feature = "Win32_System_WindowsProgramming")]
-impl Clone for PROCESS_HANDLE_TRACING_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
+#[derive(Clone, Copy)]
 pub struct PROCESS_HANDLE_TRACING_QUERY {
     pub Handle: super::super::super::Win32::Foundation::HANDLE,
     pub TotalTraces: u32,
     pub HandleTrace: [PROCESS_HANDLE_TRACING_ENTRY; 1],
 }
-#[cfg(feature = "Win32_System_WindowsProgramming")]
-impl Copy for PROCESS_HANDLE_TRACING_QUERY {}
-#[cfg(feature = "Win32_System_WindowsProgramming")]
-impl Clone for PROCESS_HANDLE_TRACING_QUERY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_KEEPALIVE_COUNT_INFORMATION {
     pub WakeCount: u32,
     pub NoWakeCount: u32,
 }
-impl Copy for PROCESS_KEEPALIVE_COUNT_INFORMATION {}
-impl Clone for PROCESS_KEEPALIVE_COUNT_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_MEMBERSHIP_INFORMATION {
     pub ServerSiloId: u32,
 }
-impl Copy for PROCESS_MEMBERSHIP_INFORMATION {}
-impl Clone for PROCESS_MEMBERSHIP_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_REVOKE_FILE_HANDLES_INFORMATION {
     pub TargetDevicePath: super::super::super::Win32::Foundation::UNICODE_STRING,
 }
-impl Copy for PROCESS_REVOKE_FILE_HANDLES_INFORMATION {}
-impl Clone for PROCESS_REVOKE_FILE_HANDLES_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_SESSION_INFORMATION {
     pub SessionId: u32,
 }
-impl Copy for PROCESS_SESSION_INFORMATION {}
-impl Clone for PROCESS_SESSION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_SYSCALL_PROVIDER_INFORMATION {
     pub ProviderId: windows_sys::core::GUID,
     pub Level: u8,
 }
-impl Copy for PROCESS_SYSCALL_PROVIDER_INFORMATION {}
-impl Clone for PROCESS_SYSCALL_PROVIDER_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_WS_WATCH_INFORMATION {
     pub FaultingPc: *mut core::ffi::c_void,
     pub FaultingVa: *mut core::ffi::c_void,
 }
-impl Copy for PROCESS_WS_WATCH_INFORMATION {}
-impl Clone for PROCESS_WS_WATCH_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[derive(Clone, Copy)]
 pub struct PS_CREATE_NOTIFY_INFO {
     pub Size: usize,
     pub Anonymous: PS_CREATE_NOTIFY_INFO_0,
@@ -14230,42 +10336,21 @@ pub struct PS_CREATE_NOTIFY_INFO {
     pub CommandLine: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
     pub CreationStatus: super::super::super::Win32::Foundation::NTSTATUS,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl Copy for PS_CREATE_NOTIFY_INFO {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl Clone for PS_CREATE_NOTIFY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[derive(Clone, Copy)]
 pub union PS_CREATE_NOTIFY_INFO_0 {
     pub Flags: u32,
     pub Anonymous: PS_CREATE_NOTIFY_INFO_0_0,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl Copy for PS_CREATE_NOTIFY_INFO_0 {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl Clone for PS_CREATE_NOTIFY_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[derive(Clone, Copy)]
 pub struct PS_CREATE_NOTIFY_INFO_0_0 {
     pub _bitfield: u32,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl Copy for PS_CREATE_NOTIFY_INFO_0_0 {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl Clone for PS_CREATE_NOTIFY_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PTM_CONTROL_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -14277,13 +10362,8 @@ pub struct PTM_CONTROL_INTERFACE {
     pub Enable: PPTM_DEVICE_ENABLE,
     pub Disable: PPTM_DEVICE_DISABLE,
 }
-impl Copy for PTM_CONTROL_INTERFACE {}
-impl Clone for PTM_CONTROL_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REENUMERATE_SELF_INTERFACE_STANDARD {
     pub Size: u16,
     pub Version: u16,
@@ -14292,25 +10372,15 @@ pub struct REENUMERATE_SELF_INTERFACE_STANDARD {
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
     pub SurpriseRemoveAndReenumerateSelf: PREENUMERATE_SELF,
 }
-impl Copy for REENUMERATE_SELF_INTERFACE_STANDARD {}
-impl Clone for REENUMERATE_SELF_INTERFACE_STANDARD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REG_CALLBACK_CONTEXT_CLEANUP_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl Copy for REG_CALLBACK_CONTEXT_CLEANUP_INFORMATION {}
-impl Clone for REG_CALLBACK_CONTEXT_CLEANUP_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REG_CREATE_KEY_INFORMATION {
     pub CompleteName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
     pub RootObject: *mut core::ffi::c_void,
@@ -14328,13 +10398,8 @@ pub struct REG_CREATE_KEY_INFORMATION {
     pub Transaction: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl Copy for REG_CREATE_KEY_INFORMATION {}
-impl Clone for REG_CREATE_KEY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REG_CREATE_KEY_INFORMATION_V1 {
     pub CompleteName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
     pub RootObject: *mut core::ffi::c_void,
@@ -14356,26 +10421,16 @@ pub struct REG_CREATE_KEY_INFORMATION_V1 {
     pub Attributes: u32,
     pub CheckAccessMode: i8,
 }
-impl Copy for REG_CREATE_KEY_INFORMATION_V1 {}
-impl Clone for REG_CREATE_KEY_INFORMATION_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REG_DELETE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub CallContext: *mut core::ffi::c_void,
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl Copy for REG_DELETE_KEY_INFORMATION {}
-impl Clone for REG_DELETE_KEY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REG_DELETE_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub ValueName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
@@ -14383,13 +10438,8 @@ pub struct REG_DELETE_VALUE_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl Copy for REG_DELETE_VALUE_KEY_INFORMATION {}
-impl Clone for REG_DELETE_VALUE_KEY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REG_ENUMERATE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub Index: u32,
@@ -14401,13 +10451,8 @@ pub struct REG_ENUMERATE_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl Copy for REG_ENUMERATE_KEY_INFORMATION {}
-impl Clone for REG_ENUMERATE_KEY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REG_ENUMERATE_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub Index: u32,
@@ -14419,26 +10464,16 @@ pub struct REG_ENUMERATE_VALUE_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl Copy for REG_ENUMERATE_VALUE_KEY_INFORMATION {}
-impl Clone for REG_ENUMERATE_VALUE_KEY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REG_KEY_HANDLE_CLOSE_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub CallContext: *mut core::ffi::c_void,
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl Copy for REG_KEY_HANDLE_CLOSE_INFORMATION {}
-impl Clone for REG_KEY_HANDLE_CLOSE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REG_LOAD_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub KeyName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
@@ -14452,13 +10487,8 @@ pub struct REG_LOAD_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl Copy for REG_LOAD_KEY_INFORMATION {}
-impl Clone for REG_LOAD_KEY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REG_LOAD_KEY_INFORMATION_V2 {
     pub Object: *mut core::ffi::c_void,
     pub KeyName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
@@ -14473,25 +10503,15 @@ pub struct REG_LOAD_KEY_INFORMATION_V2 {
     pub Version: usize,
     pub FileAccessToken: *mut core::ffi::c_void,
 }
-impl Copy for REG_LOAD_KEY_INFORMATION_V2 {}
-impl Clone for REG_LOAD_KEY_INFORMATION_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REG_POST_CREATE_KEY_INFORMATION {
     pub CompleteName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
     pub Object: *mut core::ffi::c_void,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
 }
-impl Copy for REG_POST_CREATE_KEY_INFORMATION {}
-impl Clone for REG_POST_CREATE_KEY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REG_POST_OPERATION_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
@@ -14501,23 +10521,13 @@ pub struct REG_POST_OPERATION_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl Copy for REG_POST_OPERATION_INFORMATION {}
-impl Clone for REG_POST_OPERATION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REG_PRE_CREATE_KEY_INFORMATION {
     pub CompleteName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
 }
-impl Copy for REG_PRE_CREATE_KEY_INFORMATION {}
-impl Clone for REG_PRE_CREATE_KEY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REG_QUERY_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub KeyInformationClass: KEY_INFORMATION_CLASS,
@@ -14528,14 +10538,9 @@ pub struct REG_QUERY_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl Copy for REG_QUERY_KEY_INFORMATION {}
-impl Clone for REG_QUERY_KEY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct REG_QUERY_KEY_NAME {
     pub Object: *mut core::ffi::c_void,
     pub ObjectNameInfo: *mut super::super::Foundation::OBJECT_NAME_INFORMATION,
@@ -14545,16 +10550,9 @@ pub struct REG_QUERY_KEY_NAME {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for REG_QUERY_KEY_NAME {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for REG_QUERY_KEY_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct REG_QUERY_KEY_SECURITY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub SecurityInformation: *mut u32,
@@ -14564,15 +10562,8 @@ pub struct REG_QUERY_KEY_SECURITY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for REG_QUERY_KEY_SECURITY_INFORMATION {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for REG_QUERY_KEY_SECURITY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REG_QUERY_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub ValueName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
@@ -14584,13 +10575,8 @@ pub struct REG_QUERY_VALUE_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl Copy for REG_QUERY_VALUE_KEY_INFORMATION {}
-impl Clone for REG_QUERY_VALUE_KEY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REG_RENAME_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub NewName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
@@ -14598,13 +10584,8 @@ pub struct REG_RENAME_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl Copy for REG_RENAME_KEY_INFORMATION {}
-impl Clone for REG_RENAME_KEY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REG_REPLACE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub OldFileName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
@@ -14613,13 +10594,8 @@ pub struct REG_REPLACE_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl Copy for REG_REPLACE_KEY_INFORMATION {}
-impl Clone for REG_REPLACE_KEY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REG_RESTORE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub FileHandle: super::super::super::Win32::Foundation::HANDLE,
@@ -14628,13 +10604,8 @@ pub struct REG_RESTORE_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl Copy for REG_RESTORE_KEY_INFORMATION {}
-impl Clone for REG_RESTORE_KEY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REG_SAVE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub FileHandle: super::super::super::Win32::Foundation::HANDLE,
@@ -14643,13 +10614,8 @@ pub struct REG_SAVE_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl Copy for REG_SAVE_KEY_INFORMATION {}
-impl Clone for REG_SAVE_KEY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REG_SAVE_MERGED_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub FileHandle: super::super::super::Win32::Foundation::HANDLE,
@@ -14659,14 +10625,9 @@ pub struct REG_SAVE_MERGED_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl Copy for REG_SAVE_MERGED_KEY_INFORMATION {}
-impl Clone for REG_SAVE_MERGED_KEY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct REG_SET_KEY_SECURITY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub SecurityInformation: *mut u32,
@@ -14675,15 +10636,8 @@ pub struct REG_SET_KEY_SECURITY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for REG_SET_KEY_SECURITY_INFORMATION {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for REG_SET_KEY_SECURITY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REG_SET_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub ValueName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
@@ -14695,13 +10649,8 @@ pub struct REG_SET_VALUE_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl Copy for REG_SET_VALUE_KEY_INFORMATION {}
-impl Clone for REG_SET_VALUE_KEY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REG_UNLOAD_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub UserEvent: *mut core::ffi::c_void,
@@ -14709,30 +10658,18 @@ pub struct REG_UNLOAD_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl Copy for REG_UNLOAD_KEY_INFORMATION {}
-impl Clone for REG_UNLOAD_KEY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct RESOURCE_HASH_ENTRY {
     pub ListEntry: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub Address: *mut core::ffi::c_void,
     pub ContentionCount: u32,
     pub Number: u32,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for RESOURCE_HASH_ENTRY {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for RESOURCE_HASH_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct RESOURCE_PERFORMANCE_DATA {
     pub ActiveResourceCount: u32,
     pub TotalResourceCount: u32,
@@ -14746,15 +10683,8 @@ pub struct RESOURCE_PERFORMANCE_DATA {
     pub MaximumTableExpand: u32,
     pub HashTable: [super::super::super::Win32::System::Kernel::LIST_ENTRY; 64],
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for RESOURCE_PERFORMANCE_DATA {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for RESOURCE_PERFORMANCE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTL_AVL_TABLE {
     pub BalancedRoot: RTL_BALANCED_LINKS,
     pub OrderedPointer: *mut core::ffi::c_void,
@@ -14768,13 +10698,8 @@ pub struct RTL_AVL_TABLE {
     pub FreeRoutine: PRTL_AVL_FREE_ROUTINE,
     pub TableContext: *mut core::ffi::c_void,
 }
-impl Copy for RTL_AVL_TABLE {}
-impl Clone for RTL_AVL_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTL_BALANCED_LINKS {
     pub Parent: *mut RTL_BALANCED_LINKS,
     pub LeftChild: *mut RTL_BALANCED_LINKS,
@@ -14782,35 +10707,20 @@ pub struct RTL_BALANCED_LINKS {
     pub Balance: i8,
     pub Reserved: [u8; 3],
 }
-impl Copy for RTL_BALANCED_LINKS {}
-impl Clone for RTL_BALANCED_LINKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTL_BITMAP {
     pub SizeOfBitMap: u32,
     pub Buffer: *mut u32,
 }
-impl Copy for RTL_BITMAP {}
-impl Clone for RTL_BITMAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTL_BITMAP_RUN {
     pub StartingIndex: u32,
     pub NumberOfBits: u32,
 }
-impl Copy for RTL_BITMAP_RUN {}
-impl Clone for RTL_BITMAP_RUN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTL_DYNAMIC_HASH_TABLE {
     pub Flags: u32,
     pub Shift: u32,
@@ -14822,72 +10732,39 @@ pub struct RTL_DYNAMIC_HASH_TABLE {
     pub NumEnumerators: u32,
     pub Directory: *mut core::ffi::c_void,
 }
-impl Copy for RTL_DYNAMIC_HASH_TABLE {}
-impl Clone for RTL_DYNAMIC_HASH_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct RTL_DYNAMIC_HASH_TABLE_CONTEXT {
     pub ChainHead: *mut super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub PrevLinkage: *mut super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub Signature: usize,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for RTL_DYNAMIC_HASH_TABLE_CONTEXT {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for RTL_DYNAMIC_HASH_TABLE_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct RTL_DYNAMIC_HASH_TABLE_ENTRY {
     pub Linkage: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub Signature: usize,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for RTL_DYNAMIC_HASH_TABLE_ENTRY {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for RTL_DYNAMIC_HASH_TABLE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct RTL_DYNAMIC_HASH_TABLE_ENUMERATOR {
     pub Anonymous: RTL_DYNAMIC_HASH_TABLE_ENUMERATOR_0,
     pub ChainHead: *mut super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub BucketIndex: u32,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for RTL_DYNAMIC_HASH_TABLE_ENUMERATOR {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for RTL_DYNAMIC_HASH_TABLE_ENUMERATOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub union RTL_DYNAMIC_HASH_TABLE_ENUMERATOR_0 {
     pub HashEntry: RTL_DYNAMIC_HASH_TABLE_ENTRY,
     pub CurEntry: *mut super::super::super::Win32::System::Kernel::LIST_ENTRY,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for RTL_DYNAMIC_HASH_TABLE_ENUMERATOR_0 {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for RTL_DYNAMIC_HASH_TABLE_ENUMERATOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub struct RTL_GENERIC_TABLE {
     pub TableRoot: *mut super::super::Foundation::RTL_SPLAY_LINKS,
     pub InsertOrderList: super::super::super::Win32::System::Kernel::LIST_ENTRY,
@@ -14899,15 +10776,8 @@ pub struct RTL_GENERIC_TABLE {
     pub FreeRoutine: PRTL_GENERIC_FREE_ROUTINE,
     pub TableContext: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Copy for RTL_GENERIC_TABLE {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Clone for RTL_GENERIC_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RTL_QUERY_REGISTRY_TABLE {
     pub QueryRoutine: PRTL_QUERY_REGISTRY_ROUTINE,
     pub Flags: u32,
@@ -14917,65 +10787,38 @@ pub struct RTL_QUERY_REGISTRY_TABLE {
     pub DefaultData: *mut core::ffi::c_void,
     pub DefaultLength: u32,
 }
-impl Copy for RTL_QUERY_REGISTRY_TABLE {}
-impl Clone for RTL_QUERY_REGISTRY_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCATTER_GATHER_ELEMENT {
     pub Address: i64,
     pub Length: u32,
     pub Reserved: usize,
 }
-impl Copy for SCATTER_GATHER_ELEMENT {}
-impl Clone for SCATTER_GATHER_ELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCATTER_GATHER_LIST {
     pub NumberOfElements: u32,
     pub Reserved: usize,
     pub Elements: [SCATTER_GATHER_ELEMENT; 1],
 }
-impl Copy for SCATTER_GATHER_LIST {}
-impl Clone for SCATTER_GATHER_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SDEV_IDENTIFIER_INTERFACE {
     pub InterfaceHeader: INTERFACE,
     pub GetIdentifier: PGET_SDEV_IDENTIFIER,
 }
-impl Copy for SDEV_IDENTIFIER_INTERFACE {}
-impl Clone for SDEV_IDENTIFIER_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct SECURE_DRIVER_INTERFACE {
     pub InterfaceHeader: INTERFACE,
     pub ProcessReference: PSECURE_DRIVER_PROCESS_REFERENCE,
     pub ProcessDereference: PSECURE_DRIVER_PROCESS_DEREFERENCE,
     pub Reserved: u32,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for SECURE_DRIVER_INTERFACE {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for SECURE_DRIVER_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type SECURITY_CONTEXT_TRACKING_MODE = u8;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SHARE_ACCESS {
     pub OpenCount: u32,
     pub Readers: u32,
@@ -14985,26 +10828,16 @@ pub struct SHARE_ACCESS {
     pub SharedWrite: u32,
     pub SharedDelete: u32,
 }
-impl Copy for SHARE_ACCESS {}
-impl Clone for SHARE_ACCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct SIGNAL_REG_VALUE {
     pub RegName: [u8; 32],
     pub MsrAddr: u32,
     pub Value: u64,
 }
-impl Copy for SIGNAL_REG_VALUE {}
-impl Clone for SIGNAL_REG_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub struct SILO_MONITOR_REGISTRATION {
     pub Version: u8,
     pub MonitorHost: super::super::super::Win32::Foundation::BOOLEAN,
@@ -15014,29 +10847,15 @@ pub struct SILO_MONITOR_REGISTRATION {
     pub CreateCallback: SILO_MONITOR_CREATE_CALLBACK,
     pub TerminateCallback: SILO_MONITOR_TERMINATE_CALLBACK,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for SILO_MONITOR_REGISTRATION {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for SILO_MONITOR_REGISTRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy)]
 pub union SILO_MONITOR_REGISTRATION_0 {
     pub DriverObjectName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
     pub ComponentName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Copy for SILO_MONITOR_REGISTRATION_0 {}
-#[cfg(feature = "Wdk_Foundation")]
-impl Clone for SILO_MONITOR_REGISTRATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SOC_SUBSYSTEM_FAILURE_DETAILS {
     pub SubsysType: SOC_SUBSYSTEM_TYPE,
     pub FirmwareVersion: u64,
@@ -15044,26 +10863,16 @@ pub struct SOC_SUBSYSTEM_FAILURE_DETAILS {
     pub UnifiedFailureRegionSize: u32,
     pub UnifiedFailureRegion: [i8; 1],
 }
-impl Copy for SOC_SUBSYSTEM_FAILURE_DETAILS {}
-impl Clone for SOC_SUBSYSTEM_FAILURE_DETAILS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_FIRMWARE_TABLE_HANDLER {
     pub ProviderSignature: u32,
     pub Register: super::super::super::Win32::Foundation::BOOLEAN,
     pub FirmwareTableHandler: PFNFTH,
     pub DriverObject: *mut core::ffi::c_void,
 }
-impl Copy for SYSTEM_FIRMWARE_TABLE_HANDLER {}
-impl Clone for SYSTEM_FIRMWARE_TABLE_HANDLER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_FIRMWARE_TABLE_INFORMATION {
     pub ProviderSignature: u32,
     pub Action: SYSTEM_FIRMWARE_TABLE_ACTION,
@@ -15071,60 +10880,33 @@ pub struct SYSTEM_FIRMWARE_TABLE_INFORMATION {
     pub TableBufferLength: u32,
     pub TableBuffer: [u8; 1],
 }
-impl Copy for SYSTEM_FIRMWARE_TABLE_INFORMATION {}
-impl Clone for SYSTEM_FIRMWARE_TABLE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_POWER_STATE_CONTEXT {
     pub Anonymous: SYSTEM_POWER_STATE_CONTEXT_0,
 }
-impl Copy for SYSTEM_POWER_STATE_CONTEXT {}
-impl Clone for SYSTEM_POWER_STATE_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SYSTEM_POWER_STATE_CONTEXT_0 {
     pub Anonymous: SYSTEM_POWER_STATE_CONTEXT_0_0,
     pub ContextAsUlong: u32,
 }
-impl Copy for SYSTEM_POWER_STATE_CONTEXT_0 {}
-impl Clone for SYSTEM_POWER_STATE_CONTEXT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_POWER_STATE_CONTEXT_0_0 {
     pub _bitfield: u32,
 }
-impl Copy for SYSTEM_POWER_STATE_CONTEXT_0_0 {}
-impl Clone for SYSTEM_POWER_STATE_CONTEXT_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct TARGET_DEVICE_REMOVAL_NOTIFICATION {
     pub Version: u16,
     pub Size: u16,
     pub Event: windows_sys::core::GUID,
     pub FileObject: *mut super::super::Foundation::FILE_OBJECT,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for TARGET_DEVICE_REMOVAL_NOTIFICATION {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for TARGET_DEVICE_REMOVAL_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TIMER_SET_COALESCABLE_TIMER_INFO {
     pub DueTime: i64,
     pub TimerApcRoutine: PTIMER_APC_ROUTINE,
@@ -15134,13 +10916,8 @@ pub struct TIMER_SET_COALESCABLE_TIMER_INFO {
     pub TolerableDelay: u32,
     pub PreviousState: *mut super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for TIMER_SET_COALESCABLE_TIMER_INFO {}
-impl Clone for TIMER_SET_COALESCABLE_TIMER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TIME_FIELDS {
     pub Year: i16,
     pub Month: i16,
@@ -15151,14 +10928,9 @@ pub struct TIME_FIELDS {
     pub Milliseconds: i16,
     pub Weekday: i16,
 }
-impl Copy for TIME_FIELDS {}
-impl Clone for TIME_FIELDS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct TRANSLATOR_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -15168,187 +10940,100 @@ pub struct TRANSLATOR_INTERFACE {
     pub TranslateResources: PTRANSLATE_RESOURCE_HANDLER,
     pub TranslateResourceRequirements: PTRANSLATE_RESOURCE_REQUIREMENTS_HANDLER,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for TRANSLATOR_INTERFACE {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for TRANSLATOR_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TXN_PARAMETER_BLOCK {
     pub Length: u16,
     pub TxFsContext: u16,
     pub TransactionObject: *mut core::ffi::c_void,
 }
-impl Copy for TXN_PARAMETER_BLOCK {}
-impl Clone for TXN_PARAMETER_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VIRTUAL_CHANNEL_CAPABILITIES1 {
     pub Anonymous: VIRTUAL_CHANNEL_CAPABILITIES1_0,
     pub AsULONG: u32,
 }
-impl Copy for VIRTUAL_CHANNEL_CAPABILITIES1 {}
-impl Clone for VIRTUAL_CHANNEL_CAPABILITIES1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VIRTUAL_CHANNEL_CAPABILITIES1_0 {
     pub _bitfield: u32,
 }
-impl Copy for VIRTUAL_CHANNEL_CAPABILITIES1_0 {}
-impl Clone for VIRTUAL_CHANNEL_CAPABILITIES1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VIRTUAL_CHANNEL_CAPABILITIES2 {
     pub Anonymous: VIRTUAL_CHANNEL_CAPABILITIES2_0,
     pub AsULONG: u32,
 }
-impl Copy for VIRTUAL_CHANNEL_CAPABILITIES2 {}
-impl Clone for VIRTUAL_CHANNEL_CAPABILITIES2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VIRTUAL_CHANNEL_CAPABILITIES2_0 {
     pub _bitfield: u32,
 }
-impl Copy for VIRTUAL_CHANNEL_CAPABILITIES2_0 {}
-impl Clone for VIRTUAL_CHANNEL_CAPABILITIES2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VIRTUAL_CHANNEL_CONTROL {
     pub Anonymous: VIRTUAL_CHANNEL_CONTROL_0,
     pub AsUSHORT: u16,
 }
-impl Copy for VIRTUAL_CHANNEL_CONTROL {}
-impl Clone for VIRTUAL_CHANNEL_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VIRTUAL_CHANNEL_CONTROL_0 {
     pub _bitfield: u16,
 }
-impl Copy for VIRTUAL_CHANNEL_CONTROL_0 {}
-impl Clone for VIRTUAL_CHANNEL_CONTROL_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VIRTUAL_CHANNEL_STATUS {
     pub Anonymous: VIRTUAL_CHANNEL_STATUS_0,
     pub AsUSHORT: u16,
 }
-impl Copy for VIRTUAL_CHANNEL_STATUS {}
-impl Clone for VIRTUAL_CHANNEL_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VIRTUAL_CHANNEL_STATUS_0 {
     pub _bitfield: u16,
 }
-impl Copy for VIRTUAL_CHANNEL_STATUS_0 {}
-impl Clone for VIRTUAL_CHANNEL_STATUS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VIRTUAL_RESOURCE {
     pub Capability: VIRTUAL_RESOURCE_CAPABILITY,
     pub Control: VIRTUAL_RESOURCE_CONTROL,
     pub RsvdP: u16,
     pub Status: VIRTUAL_RESOURCE_STATUS,
 }
-impl Copy for VIRTUAL_RESOURCE {}
-impl Clone for VIRTUAL_RESOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VIRTUAL_RESOURCE_CAPABILITY {
     pub Anonymous: VIRTUAL_RESOURCE_CAPABILITY_0,
     pub AsULONG: u32,
 }
-impl Copy for VIRTUAL_RESOURCE_CAPABILITY {}
-impl Clone for VIRTUAL_RESOURCE_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VIRTUAL_RESOURCE_CAPABILITY_0 {
     pub _bitfield: u32,
 }
-impl Copy for VIRTUAL_RESOURCE_CAPABILITY_0 {}
-impl Clone for VIRTUAL_RESOURCE_CAPABILITY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VIRTUAL_RESOURCE_CONTROL {
     pub Anonymous: VIRTUAL_RESOURCE_CONTROL_0,
     pub AsULONG: u32,
 }
-impl Copy for VIRTUAL_RESOURCE_CONTROL {}
-impl Clone for VIRTUAL_RESOURCE_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VIRTUAL_RESOURCE_CONTROL_0 {
     pub _bitfield: u32,
 }
-impl Copy for VIRTUAL_RESOURCE_CONTROL_0 {}
-impl Clone for VIRTUAL_RESOURCE_CONTROL_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VIRTUAL_RESOURCE_STATUS {
     pub Anonymous: VIRTUAL_RESOURCE_STATUS_0,
     pub AsUSHORT: u16,
 }
-impl Copy for VIRTUAL_RESOURCE_STATUS {}
-impl Clone for VIRTUAL_RESOURCE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VIRTUAL_RESOURCE_STATUS_0 {
     pub _bitfield: u16,
 }
-impl Copy for VIRTUAL_RESOURCE_STATUS_0 {}
-impl Clone for VIRTUAL_RESOURCE_STATUS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VM_COUNTERS {
     pub PeakVirtualSize: usize,
     pub VirtualSize: usize,
@@ -15362,13 +11047,8 @@ pub struct VM_COUNTERS {
     pub PagefileUsage: usize,
     pub PeakPagefileUsage: usize,
 }
-impl Copy for VM_COUNTERS {}
-impl Clone for VM_COUNTERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VM_COUNTERS_EX {
     pub PeakVirtualSize: usize,
     pub VirtualSize: usize,
@@ -15383,26 +11063,16 @@ pub struct VM_COUNTERS_EX {
     pub PeakPagefileUsage: usize,
     pub PrivateUsage: usize,
 }
-impl Copy for VM_COUNTERS_EX {}
-impl Clone for VM_COUNTERS_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VM_COUNTERS_EX2 {
     pub CountersEx: VM_COUNTERS_EX,
     pub PrivateWorkingSetSize: usize,
     pub SharedCommitUsage: u64,
 }
-impl Copy for VM_COUNTERS_EX2 {}
-impl Clone for VM_COUNTERS_EX2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct WAIT_CONTEXT_BLOCK {
     pub Anonymous: WAIT_CONTEXT_BLOCK_0,
     pub DeviceRoutine: *mut super::super::Foundation::DRIVER_CONTROL,
@@ -15412,83 +11082,45 @@ pub struct WAIT_CONTEXT_BLOCK {
     pub CurrentIrp: *mut core::ffi::c_void,
     pub BufferChainingDpc: *mut super::super::Foundation::KDPC,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for WAIT_CONTEXT_BLOCK {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for WAIT_CONTEXT_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub union WAIT_CONTEXT_BLOCK_0 {
     pub WaitQueueEntry: KDEVICE_QUEUE_ENTRY,
     pub Anonymous: WAIT_CONTEXT_BLOCK_0_0,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for WAIT_CONTEXT_BLOCK_0 {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for WAIT_CONTEXT_BLOCK_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct WAIT_CONTEXT_BLOCK_0_0 {
     pub DmaWaitEntry: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub NumberOfChannels: u32,
     pub _bitfield: u32,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Copy for WAIT_CONTEXT_BLOCK_0_0 {}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Clone for WAIT_CONTEXT_BLOCK_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA128A {
     pub Low: u64,
     pub High: i64,
 }
-impl Copy for WHEA128A {}
-impl Clone for WHEA128A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_ACPI_TIMEOUT_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub TableType: [i8; 32],
     pub TableRequest: [i8; 32],
 }
-impl Copy for WHEAP_ACPI_TIMEOUT_EVENT {}
-impl Clone for WHEAP_ACPI_TIMEOUT_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
 pub struct WHEAP_ADD_REMOVE_ERROR_SOURCE_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Descriptor: super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
     pub IsRemove: super::super::super::Win32::Foundation::BOOLEAN,
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Copy for WHEAP_ADD_REMOVE_ERROR_SOURCE_EVENT {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Clone for WHEAP_ADD_REMOVE_ERROR_SOURCE_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEAP_ATTEMPT_RECOVERY_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub ErrorHeader: WHEA_ERROR_RECORD_HEADER,
@@ -15496,51 +11128,29 @@ pub struct WHEAP_ATTEMPT_RECOVERY_EVENT {
     pub PshedRecovery: super::super::super::Win32::Foundation::BOOLEAN,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
 }
-impl Copy for WHEAP_ATTEMPT_RECOVERY_EVENT {}
-impl Clone for WHEAP_ATTEMPT_RECOVERY_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
 pub struct WHEAP_BAD_HEST_NOTIFY_DATA_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub SourceId: u16,
     pub Reserved: u16,
     pub NotifyDesc: super::super::super::Win32::System::Diagnostics::Debug::WHEA_NOTIFICATION_DESCRIPTOR,
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Copy for WHEAP_BAD_HEST_NOTIFY_DATA_EVENT {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Clone for WHEAP_BAD_HEST_NOTIFY_DATA_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEAP_CLEARED_POISON_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub PhysicalAddress: u64,
 }
-impl Copy for WHEAP_CLEARED_POISON_EVENT {}
-impl Clone for WHEAP_CLEARED_POISON_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_CMCI_IMPLEMENTED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub CmciAvailable: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for WHEAP_CMCI_IMPLEMENTED_EVENT {}
-impl Clone for WHEAP_CMCI_IMPLEMENTED_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEAP_CMCI_INITERR_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Msr: u64,
@@ -15548,13 +11158,8 @@ pub struct WHEAP_CMCI_INITERR_EVENT {
     pub Bank: u32,
     pub EpIndex: u32,
 }
-impl Copy for WHEAP_CMCI_INITERR_EVENT {}
-impl Clone for WHEAP_CMCI_INITERR_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEAP_CMCI_RESTART_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub CmciRestoreAttempts: u32,
@@ -15562,51 +11167,29 @@ pub struct WHEAP_CMCI_RESTART_EVENT {
     pub MaxCorrectedErrorsFound: u32,
     pub MaxCorrectedErrorLimit: u32,
 }
-impl Copy for WHEAP_CMCI_RESTART_EVENT {}
-impl Clone for WHEAP_CMCI_RESTART_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEAP_CREATE_GENERIC_RECORD_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Error: [i8; 32],
     pub EntryCount: u32,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
 }
-impl Copy for WHEAP_CREATE_GENERIC_RECORD_EVENT {}
-impl Clone for WHEAP_CREATE_GENERIC_RECORD_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct WHEAP_DEFERRED_EVENT {
     pub ListEntry: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for WHEAP_DEFERRED_EVENT {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for WHEAP_DEFERRED_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_DEVICE_DRV_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Function: [i8; 32],
 }
-impl Copy for WHEAP_DEVICE_DRV_EVENT {}
-impl Clone for WHEAP_DEVICE_DRV_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEAP_DPC_ERROR_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub ErrType: WHEAP_DPC_ERROR_EVENT_TYPE,
@@ -15616,91 +11199,52 @@ pub struct WHEAP_DPC_ERROR_EVENT {
     pub DeviceId: u16,
     pub VendorId: u16,
 }
-impl Copy for WHEAP_DPC_ERROR_EVENT {}
-impl Clone for WHEAP_DPC_ERROR_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
 pub struct WHEAP_DROPPED_CORRECTED_ERROR_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub ErrorSourceType: super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_TYPE,
     pub ErrorSourceId: u32,
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Copy for WHEAP_DROPPED_CORRECTED_ERROR_EVENT {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Clone for WHEAP_DROPPED_CORRECTED_ERROR_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_EDPC_ENABLED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub eDPCEnabled: super::super::super::Win32::Foundation::BOOLEAN,
     pub eDPCRecovEnabled: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for WHEAP_EDPC_ENABLED_EVENT {}
-impl Clone for WHEAP_EDPC_ENABLED_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEAP_ERROR_CLEARED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub EpIndex: u32,
     pub Bank: u32,
 }
-impl Copy for WHEAP_ERROR_CLEARED_EVENT {}
-impl Clone for WHEAP_ERROR_CLEARED_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEAP_ERROR_RECORD_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Record: *mut WHEA_ERROR_RECORD,
 }
-impl Copy for WHEAP_ERROR_RECORD_EVENT {}
-impl Clone for WHEAP_ERROR_RECORD_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEAP_ERR_SRC_ARRAY_INVALID_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub ErrorSourceCount: u32,
     pub ReportedLength: u32,
     pub ExpectedLength: u32,
 }
-impl Copy for WHEAP_ERR_SRC_ARRAY_INVALID_EVENT {}
-impl Clone for WHEAP_ERR_SRC_ARRAY_INVALID_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
 pub struct WHEAP_ERR_SRC_INVALID_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub ErrDescriptor: super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR,
     pub Error: [i8; 32],
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Copy for WHEAP_ERR_SRC_INVALID_EVENT {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Clone for WHEAP_ERR_SRC_INVALID_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEAP_FOUND_ERROR_IN_BANK_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub EpIndex: u32,
@@ -15708,38 +11252,23 @@ pub struct WHEAP_FOUND_ERROR_IN_BANK_EVENT {
     pub MciStatus: u64,
     pub ErrorType: u32,
 }
-impl Copy for WHEAP_FOUND_ERROR_IN_BANK_EVENT {}
-impl Clone for WHEAP_FOUND_ERROR_IN_BANK_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEAP_GENERIC_ERR_MEM_MAP_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub MapReason: [i8; 32],
     pub PhysicalAddress: u64,
     pub Length: u64,
 }
-impl Copy for WHEAP_GENERIC_ERR_MEM_MAP_EVENT {}
-impl Clone for WHEAP_GENERIC_ERR_MEM_MAP_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_OSC_IMPLEMENTED {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub OscImplemented: super::super::super::Win32::Foundation::BOOLEAN,
     pub DebugChecked: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for WHEAP_OSC_IMPLEMENTED {}
-impl Clone for WHEAP_OSC_IMPLEMENTED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PCIE_CONFIG_INFO {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Segment: u32,
@@ -15752,13 +11281,8 @@ pub struct WHEAP_PCIE_CONFIG_INFO {
     pub Succeeded: u8,
     pub Reserved: [u8; 3],
 }
-impl Copy for WHEAP_PCIE_CONFIG_INFO {}
-impl Clone for WHEAP_PCIE_CONFIG_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PCIE_OVERRIDE_INFO {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Segment: u32,
@@ -15772,38 +11296,23 @@ pub struct WHEAP_PCIE_OVERRIDE_INFO {
     pub CorrectableErrorMask: u32,
     pub CapAndControl: u32,
 }
-impl Copy for WHEAP_PCIE_OVERRIDE_INFO {}
-impl Clone for WHEAP_PCIE_OVERRIDE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PCIE_READ_OVERRIDES_ERR {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub FailureReason: u32,
     pub FailureStatus: super::super::super::Win32::Foundation::NTSTATUS,
 }
-impl Copy for WHEAP_PCIE_READ_OVERRIDES_ERR {}
-impl Clone for WHEAP_PCIE_READ_OVERRIDES_ERR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PFA_MEMORY_OFFLINED {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub DecisionType: WHEAP_PFA_OFFLINE_DECISION_TYPE,
     pub ImmediateSuccess: super::super::super::Win32::Foundation::BOOLEAN,
     pub Page: u32,
 }
-impl Copy for WHEAP_PFA_MEMORY_OFFLINED {}
-impl Clone for WHEAP_PFA_MEMORY_OFFLINED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PFA_MEMORY_POLICY {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub RegistryKeysPresent: u32,
@@ -15814,13 +11323,8 @@ pub struct WHEAP_PFA_MEMORY_POLICY {
     pub ErrorThreshold: u32,
     pub TimeOut: u32,
 }
-impl Copy for WHEAP_PFA_MEMORY_POLICY {}
-impl Clone for WHEAP_PFA_MEMORY_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PFA_MEMORY_REMOVE_MONITOR {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub RemoveTrigger: WHEA_PFA_REMOVE_TRIGGER,
@@ -15828,54 +11332,29 @@ pub struct WHEAP_PFA_MEMORY_REMOVE_MONITOR {
     pub ErrorCount: u32,
     pub Page: u32,
 }
-impl Copy for WHEAP_PFA_MEMORY_REMOVE_MONITOR {}
-impl Clone for WHEAP_PFA_MEMORY_REMOVE_MONITOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PLUGIN_DEFECT_LIST_CORRUPT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
 }
-impl Copy for WHEAP_PLUGIN_DEFECT_LIST_CORRUPT {}
-impl Clone for WHEAP_PLUGIN_DEFECT_LIST_CORRUPT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PLUGIN_DEFECT_LIST_FULL_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
 }
-impl Copy for WHEAP_PLUGIN_DEFECT_LIST_FULL_EVENT {}
-impl Clone for WHEAP_PLUGIN_DEFECT_LIST_FULL_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PLUGIN_DEFECT_LIST_UEFI_VAR_FAILED {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
 }
-impl Copy for WHEAP_PLUGIN_DEFECT_LIST_UEFI_VAR_FAILED {}
-impl Clone for WHEAP_PLUGIN_DEFECT_LIST_UEFI_VAR_FAILED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PLUGIN_PFA_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub NoFurtherPfa: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for WHEAP_PLUGIN_PFA_EVENT {}
-impl Clone for WHEAP_PLUGIN_PFA_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PROCESS_EINJ_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Error: [i8; 32],
@@ -15891,13 +11370,8 @@ pub struct WHEAP_PROCESS_EINJ_EVENT {
     pub SetErrorTypeWithAddressInstructionCount: u32,
     pub GetExecuteOperationTimingsInstructionCount: u32,
 }
-impl Copy for WHEAP_PROCESS_EINJ_EVENT {}
-impl Clone for WHEAP_PROCESS_EINJ_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PROCESS_HEST_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Error: [i8; 32],
@@ -15913,13 +11387,8 @@ pub struct WHEAP_PROCESS_HEST_EVENT {
     pub GenericV1Count: u32,
     pub GenericV2Count: u32,
 }
-impl Copy for WHEAP_PROCESS_HEST_EVENT {}
-impl Clone for WHEAP_PROCESS_HEST_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PSHED_INJECT_ERROR {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub ErrorType: u32,
@@ -15931,13 +11400,8 @@ pub struct WHEAP_PSHED_INJECT_ERROR {
     pub InjectionAttempted: super::super::super::Win32::Foundation::BOOLEAN,
     pub InjectionByPlugin: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for WHEAP_PSHED_INJECT_ERROR {}
-impl Clone for WHEAP_PSHED_INJECT_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PSHED_PLUGIN_REGISTER {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Version: u32,
@@ -15945,25 +11409,15 @@ pub struct WHEAP_PSHED_PLUGIN_REGISTER {
     pub FunctionalAreaMask: u32,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
 }
-impl Copy for WHEAP_PSHED_PLUGIN_REGISTER {}
-impl Clone for WHEAP_PSHED_PLUGIN_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEAP_ROW_FAILURE_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub LowOrderPage: u32,
     pub HighOrderPage: u32,
 }
-impl Copy for WHEAP_ROW_FAILURE_EVENT {}
-impl Clone for WHEAP_ROW_FAILURE_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEAP_SPURIOUS_AER_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub ErrorSeverity: WHEA_ERROR_SEVERITY,
@@ -15973,40 +11427,23 @@ pub struct WHEAP_SPURIOUS_AER_EVENT {
     pub RootErrorStatus: u32,
     pub DeviceAssociationBitmap: u32,
 }
-impl Copy for WHEAP_SPURIOUS_AER_EVENT {}
-impl Clone for WHEAP_SPURIOUS_AER_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
 pub struct WHEAP_STARTED_REPORT_HW_ERROR {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub ErrorPacket: *mut WHEA_ERROR_PACKET_V2,
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Copy for WHEAP_STARTED_REPORT_HW_ERROR {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Clone for WHEAP_STARTED_REPORT_HW_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEAP_STUCK_ERROR_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub EpIndex: u32,
     pub Bank: u32,
     pub MciStatus: u64,
 }
-impl Copy for WHEAP_STUCK_ERROR_EVENT {}
-impl Clone for WHEAP_STUCK_ERROR_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ACPI_HEADER {
     pub Signature: u32,
     pub Length: u32,
@@ -16018,13 +11455,8 @@ pub struct WHEA_ACPI_HEADER {
     pub CreatorId: u32,
     pub CreatorRevision: u32,
 }
-impl Copy for WHEA_ACPI_HEADER {}
-impl Clone for WHEA_ACPI_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_AMD_EXTENDED_REGISTERS {
     pub IPID: u64,
     pub SYND: u64,
@@ -16038,13 +11470,8 @@ pub struct WHEA_AMD_EXTENDED_REGISTERS {
     pub RasCap: u64,
     pub Reserved: [u64; 14],
 }
-impl Copy for WHEA_AMD_EXTENDED_REGISTERS {}
-impl Clone for WHEA_AMD_EXTENDED_REGISTERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARMV8_AARCH32_GPRS {
     pub R0: u32,
     pub R1: u32,
@@ -16063,13 +11490,8 @@ pub struct WHEA_ARMV8_AARCH32_GPRS {
     pub R14: u32,
     pub R15: u32,
 }
-impl Copy for WHEA_ARMV8_AARCH32_GPRS {}
-impl Clone for WHEA_ARMV8_AARCH32_GPRS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARMV8_AARCH64_EL3_CSR {
     pub ELR_EL3: u64,
     pub ESR_EL3: u64,
@@ -16082,13 +11504,8 @@ pub struct WHEA_ARMV8_AARCH64_EL3_CSR {
     pub TPIDR_EL3: u64,
     pub TTBR0_EL3: u64,
 }
-impl Copy for WHEA_ARMV8_AARCH64_EL3_CSR {}
-impl Clone for WHEA_ARMV8_AARCH64_EL3_CSR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARMV8_AARCH64_GPRS {
     pub X0: u64,
     pub X1: u64,
@@ -16123,13 +11540,8 @@ pub struct WHEA_ARMV8_AARCH64_GPRS {
     pub X30: u64,
     pub SP: u64,
 }
-impl Copy for WHEA_ARMV8_AARCH64_GPRS {}
-impl Clone for WHEA_ARMV8_AARCH64_GPRS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_AARCH32_EL1_CSR {
     pub DFAR: u32,
     pub DFSR: u32,
@@ -16156,13 +11568,8 @@ pub struct WHEA_ARM_AARCH32_EL1_CSR {
     pub TTBR1: u32,
     pub DACR: u32,
 }
-impl Copy for WHEA_ARM_AARCH32_EL1_CSR {}
-impl Clone for WHEA_ARM_AARCH32_EL1_CSR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_AARCH32_EL2_CSR {
     pub ELR_hyp: u32,
     pub HAMAIR0: u32,
@@ -16181,24 +11588,14 @@ pub struct WHEA_ARM_AARCH32_EL2_CSR {
     pub VTTBR: u32,
     pub DACR32_EL2: u32,
 }
-impl Copy for WHEA_ARM_AARCH32_EL2_CSR {}
-impl Clone for WHEA_ARM_AARCH32_EL2_CSR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_AARCH32_SECURE_CSR {
     pub SCTLR: u32,
     pub SPSR_mon: u32,
 }
-impl Copy for WHEA_ARM_AARCH32_SECURE_CSR {}
-impl Clone for WHEA_ARM_AARCH32_SECURE_CSR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_AARCH64_EL1_CSR {
     pub ELR_EL1: u64,
     pub ESR_EL2: u64,
@@ -16218,13 +11615,8 @@ pub struct WHEA_ARM_AARCH64_EL1_CSR {
     pub TTBR0_EL1: u64,
     pub TTBR1_EL1: u64,
 }
-impl Copy for WHEA_ARM_AARCH64_EL1_CSR {}
-impl Clone for WHEA_ARM_AARCH64_EL1_CSR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_AARCH64_EL2_CSR {
     pub ELR_EL2: u64,
     pub ESR_EL2: u64,
@@ -16242,13 +11634,8 @@ pub struct WHEA_ARM_AARCH64_EL2_CSR {
     pub VTCR_EL2: u64,
     pub VTTBR_EL2: u64,
 }
-impl Copy for WHEA_ARM_AARCH64_EL2_CSR {}
-impl Clone for WHEA_ARM_AARCH64_EL2_CSR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_BUS_ERROR {
     pub ValidationBit: WHEA_ARM_BUS_ERROR_VALID_BITS,
     pub _bitfield1: u8,
@@ -16258,126 +11645,71 @@ pub struct WHEA_ARM_BUS_ERROR {
     pub _bitfield5: u8,
     pub _bitfield6: u32,
 }
-impl Copy for WHEA_ARM_BUS_ERROR {}
-impl Clone for WHEA_ARM_BUS_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_ARM_BUS_ERROR_VALID_BITS {
     pub Anonymous: WHEA_ARM_BUS_ERROR_VALID_BITS_0,
     pub AsUSHORT: u16,
 }
-impl Copy for WHEA_ARM_BUS_ERROR_VALID_BITS {}
-impl Clone for WHEA_ARM_BUS_ERROR_VALID_BITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_BUS_ERROR_VALID_BITS_0 {
     pub _bitfield: u16,
 }
-impl Copy for WHEA_ARM_BUS_ERROR_VALID_BITS_0 {}
-impl Clone for WHEA_ARM_BUS_ERROR_VALID_BITS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_CACHE_ERROR {
     pub ValidationBit: WHEA_ARM_CACHE_ERROR_VALID_BITS,
     pub _bitfield1: u8,
     pub _bitfield2: u8,
     pub _bitfield3: u64,
 }
-impl Copy for WHEA_ARM_CACHE_ERROR {}
-impl Clone for WHEA_ARM_CACHE_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_ARM_CACHE_ERROR_VALID_BITS {
     pub Anonymous: WHEA_ARM_CACHE_ERROR_VALID_BITS_0,
     pub AsUSHORT: u16,
 }
-impl Copy for WHEA_ARM_CACHE_ERROR_VALID_BITS {}
-impl Clone for WHEA_ARM_CACHE_ERROR_VALID_BITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_CACHE_ERROR_VALID_BITS_0 {
     pub _bitfield: u16,
 }
-impl Copy for WHEA_ARM_CACHE_ERROR_VALID_BITS_0 {}
-impl Clone for WHEA_ARM_CACHE_ERROR_VALID_BITS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_MISC_CSR {
     pub MRSEncoding: u16,
     pub Value: u64,
 }
-impl Copy for WHEA_ARM_MISC_CSR {}
-impl Clone for WHEA_ARM_MISC_CSR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_ARM_PROCESSOR_ERROR {
     pub CacheError: WHEA_ARM_CACHE_ERROR,
     pub TlbError: WHEA_ARM_TLB_ERROR,
     pub BusError: WHEA_ARM_BUS_ERROR,
     pub AsULONGLONG: u64,
 }
-impl Copy for WHEA_ARM_PROCESSOR_ERROR {}
-impl Clone for WHEA_ARM_PROCESSOR_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER {
     pub Version: u16,
     pub RegisterContextType: u16,
     pub RegisterArraySize: u32,
     pub RegisterArray: [u8; 1],
 }
-impl Copy for WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER {}
-impl Clone for WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS {
     pub Anonymous: WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS_0,
     pub AsULONG: u32,
 }
-impl Copy for WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS {}
-impl Clone for WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS_0 {
     pub _bitfield: u32,
 }
-impl Copy for WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS_0 {}
-impl Clone for WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_PROCESSOR_ERROR_INFORMATION {
     pub Version: u8,
     pub Length: u8,
@@ -16389,34 +11721,19 @@ pub struct WHEA_ARM_PROCESSOR_ERROR_INFORMATION {
     pub VirtualFaultAddress: u64,
     pub PhysicalFaultAddress: u64,
 }
-impl Copy for WHEA_ARM_PROCESSOR_ERROR_INFORMATION {}
-impl Clone for WHEA_ARM_PROCESSOR_ERROR_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS {
     pub Anonymous: WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS_0,
     pub AsUSHORT: u16,
 }
-impl Copy for WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS {}
-impl Clone for WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS_0 {
     pub _bitfield: u16,
 }
-impl Copy for WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS_0 {}
-impl Clone for WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_PROCESSOR_ERROR_SECTION {
     pub ValidBits: WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS,
     pub ErrorInformationStructures: u16,
@@ -16430,92 +11747,52 @@ pub struct WHEA_ARM_PROCESSOR_ERROR_SECTION {
     pub PSCIState: u32,
     pub Data: [u8; 1],
 }
-impl Copy for WHEA_ARM_PROCESSOR_ERROR_SECTION {}
-impl Clone for WHEA_ARM_PROCESSOR_ERROR_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS {
     pub Anonymous: WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS_0,
     pub AsULONG: u32,
 }
-impl Copy for WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS {}
-impl Clone for WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS_0 {
     pub _bitfield: u32,
 }
-impl Copy for WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS_0 {}
-impl Clone for WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_TLB_ERROR {
     pub ValidationBit: WHEA_ARM_TLB_ERROR_VALID_BITS,
     pub _bitfield1: u8,
     pub _bitfield2: u8,
     pub _bitfield3: u64,
 }
-impl Copy for WHEA_ARM_TLB_ERROR {}
-impl Clone for WHEA_ARM_TLB_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_ARM_TLB_ERROR_VALID_BITS {
     pub Anonymous: WHEA_ARM_TLB_ERROR_VALID_BITS_0,
     pub AsUSHORT: u16,
 }
-impl Copy for WHEA_ARM_TLB_ERROR_VALID_BITS {}
-impl Clone for WHEA_ARM_TLB_ERROR_VALID_BITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_TLB_ERROR_VALID_BITS_0 {
     pub _bitfield: u16,
 }
-impl Copy for WHEA_ARM_TLB_ERROR_VALID_BITS_0 {}
-impl Clone for WHEA_ARM_TLB_ERROR_VALID_BITS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_AZCC_ROOT_BUS_ERR_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub MaxBusCountPassed: super::super::super::Win32::Foundation::BOOLEAN,
     pub InvalidBusMSR: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for WHEA_AZCC_ROOT_BUS_ERR_EVENT {}
-impl Clone for WHEA_AZCC_ROOT_BUS_ERR_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_AZCC_ROOT_BUS_LIST_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub RootBusCount: u32,
     pub RootBuses: [u32; 8],
 }
-impl Copy for WHEA_AZCC_ROOT_BUS_LIST_EVENT {}
-impl Clone for WHEA_AZCC_ROOT_BUS_LIST_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_AZCC_SET_POISON_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Bus: u32,
@@ -16523,56 +11800,31 @@ pub struct WHEA_AZCC_SET_POISON_EVENT {
     pub WriteSuccess: super::super::super::Win32::Foundation::BOOLEAN,
     pub IsEnable: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for WHEA_AZCC_SET_POISON_EVENT {}
-impl Clone for WHEA_AZCC_SET_POISON_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHEA_ERROR_INJECTION_CAPABILITIES {
     pub Anonymous: WHEA_ERROR_INJECTION_CAPABILITIES_0,
     pub AsULONG: u32,
 }
-impl Copy for WHEA_ERROR_INJECTION_CAPABILITIES {}
-impl Clone for WHEA_ERROR_INJECTION_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_INJECTION_CAPABILITIES_0 {
     pub _bitfield: u32,
 }
-impl Copy for WHEA_ERROR_INJECTION_CAPABILITIES_0 {}
-impl Clone for WHEA_ERROR_INJECTION_CAPABILITIES_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_ERROR_PACKET_FLAGS {
     pub Anonymous: WHEA_ERROR_PACKET_FLAGS_0,
     pub AsULONG: u32,
 }
-impl Copy for WHEA_ERROR_PACKET_FLAGS {}
-impl Clone for WHEA_ERROR_PACKET_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_PACKET_FLAGS_0 {
     pub _bitfield: u32,
 }
-impl Copy for WHEA_ERROR_PACKET_FLAGS_0 {}
-impl Clone for WHEA_ERROR_PACKET_FLAGS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_PACKET_V1 {
     pub Signature: u32,
     pub Flags: WHEA_ERROR_PACKET_FLAGS,
@@ -16592,16 +11844,9 @@ pub struct WHEA_ERROR_PACKET_V1 {
     pub RawDataOffset: u32,
     pub RawData: [u8; 1],
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Copy for WHEA_ERROR_PACKET_V1 {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Clone for WHEA_ERROR_PACKET_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
 pub union WHEA_ERROR_PACKET_V1_0 {
     pub ProcessorError: WHEA_PROCESSOR_GENERIC_ERROR_SECTION,
     pub MemoryError: WHEA_MEMORY_ERROR_SECTION,
@@ -16611,16 +11856,9 @@ pub union WHEA_ERROR_PACKET_V1_0 {
     pub PciXDeviceError: WHEA_PCIXDEVICE_ERROR_SECTION,
     pub PmemError: WHEA_PMEM_ERROR_SECTION,
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Copy for WHEA_ERROR_PACKET_V1_0 {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Clone for WHEA_ERROR_PACKET_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_PACKET_V2 {
     pub Signature: u32,
     pub Version: u32,
@@ -16639,26 +11877,14 @@ pub struct WHEA_ERROR_PACKET_V2 {
     pub PshedDataOffset: u32,
     pub PshedDataLength: u32,
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Copy for WHEA_ERROR_PACKET_V2 {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Clone for WHEA_ERROR_PACKET_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECORD {
     pub Header: WHEA_ERROR_RECORD_HEADER,
     pub SectionDescriptor: [WHEA_ERROR_RECORD_SECTION_DESCRIPTOR; 1],
 }
-impl Copy for WHEA_ERROR_RECORD {}
-impl Clone for WHEA_ERROR_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECORD_HEADER {
     pub Signature: u32,
     pub Revision: WHEA_REVISION,
@@ -16677,77 +11903,42 @@ pub struct WHEA_ERROR_RECORD_HEADER {
     pub PersistenceInfo: WHEA_PERSISTENCE_INFO,
     pub Anonymous: WHEA_ERROR_RECORD_HEADER_0,
 }
-impl Copy for WHEA_ERROR_RECORD_HEADER {}
-impl Clone for WHEA_ERROR_RECORD_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHEA_ERROR_RECORD_HEADER_0 {
     pub Anonymous: WHEA_ERROR_RECORD_HEADER_0_0,
     pub Reserved: [u8; 12],
 }
-impl Copy for WHEA_ERROR_RECORD_HEADER_0 {}
-impl Clone for WHEA_ERROR_RECORD_HEADER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECORD_HEADER_0_0 {
     pub OsBuildNumber: u32,
     pub Reserved2: [u8; 8],
 }
-impl Copy for WHEA_ERROR_RECORD_HEADER_0_0 {}
-impl Clone for WHEA_ERROR_RECORD_HEADER_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_ERROR_RECORD_HEADER_FLAGS {
     pub Anonymous: WHEA_ERROR_RECORD_HEADER_FLAGS_0,
     pub AsULONG: u32,
 }
-impl Copy for WHEA_ERROR_RECORD_HEADER_FLAGS {}
-impl Clone for WHEA_ERROR_RECORD_HEADER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECORD_HEADER_FLAGS_0 {
     pub _bitfield: u32,
 }
-impl Copy for WHEA_ERROR_RECORD_HEADER_FLAGS_0 {}
-impl Clone for WHEA_ERROR_RECORD_HEADER_FLAGS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_ERROR_RECORD_HEADER_VALIDBITS {
     pub Anonymous: WHEA_ERROR_RECORD_HEADER_VALIDBITS_0,
     pub AsULONG: u32,
 }
-impl Copy for WHEA_ERROR_RECORD_HEADER_VALIDBITS {}
-impl Clone for WHEA_ERROR_RECORD_HEADER_VALIDBITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECORD_HEADER_VALIDBITS_0 {
     pub _bitfield: u32,
 }
-impl Copy for WHEA_ERROR_RECORD_HEADER_VALIDBITS_0 {}
-impl Clone for WHEA_ERROR_RECORD_HEADER_VALIDBITS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECORD_SECTION_DESCRIPTOR {
     pub SectionOffset: u32,
     pub SectionLength: u32,
@@ -16760,55 +11951,30 @@ pub struct WHEA_ERROR_RECORD_SECTION_DESCRIPTOR {
     pub SectionSeverity: WHEA_ERROR_SEVERITY,
     pub FRUText: [i8; 20],
 }
-impl Copy for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR {}
-impl Clone for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS {
     pub Anonymous: WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS_0,
     pub AsULONG: u32,
 }
-impl Copy for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS {}
-impl Clone for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS_0 {
     pub _bitfield: u32,
 }
-impl Copy for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS_0 {}
-impl Clone for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS {
     pub Anonymous: WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS_0,
     pub AsUCHAR: u8,
 }
-impl Copy for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS {}
-impl Clone for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS_0 {
     pub _bitfield: u8,
 }
-impl Copy for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS_0 {}
-impl Clone for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECOVERY_INFO_SECTION {
     pub RecoveryKernel: super::super::super::Win32::Foundation::BOOLEAN,
     pub RecoveryAction: WHEA_RECOVERY_ACTION,
@@ -16818,13 +11984,8 @@ pub struct WHEA_ERROR_RECOVERY_INFO_SECTION {
     pub FailureReason: WHEA_RECOVERY_FAILURE_REASON,
     pub ProcessName: [i8; 20],
 }
-impl Copy for WHEA_ERROR_RECOVERY_INFO_SECTION {}
-impl Clone for WHEA_ERROR_RECOVERY_INFO_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION {
     pub Flags: u32,
     pub Correct: WHEA_ERROR_SOURCE_CORRECT,
@@ -16834,92 +11995,50 @@ pub struct WHEA_ERROR_SOURCE_CONFIGURATION {
     pub Uninitialize: WHEA_ERROR_SOURCE_UNINITIALIZE,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl Copy for WHEA_ERROR_SOURCE_CONFIGURATION {}
-impl Clone for WHEA_ERROR_SOURCE_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_SOURCE_OVERRIDE_SETTINGS {
     pub Type: super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_TYPE,
     pub MaxRawDataLength: u32,
     pub NumRecordsToPreallocate: u32,
     pub MaxSectionsPerRecord: u32,
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Copy for WHEA_ERROR_SOURCE_OVERRIDE_SETTINGS {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Clone for WHEA_ERROR_SOURCE_OVERRIDE_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_ERROR_STATUS {
     pub ErrorStatus: u64,
     pub Anonymous: WHEA_ERROR_STATUS_0,
 }
-impl Copy for WHEA_ERROR_STATUS {}
-impl Clone for WHEA_ERROR_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_STATUS_0 {
     pub _bitfield: u64,
 }
-impl Copy for WHEA_ERROR_STATUS_0 {}
-impl Clone for WHEA_ERROR_STATUS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_ETW_OVERFLOW_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub RecordId: u64,
 }
-impl Copy for WHEA_ETW_OVERFLOW_EVENT {}
-impl Clone for WHEA_ETW_OVERFLOW_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_EVENT_LOG_ENTRY {
     pub Header: WHEA_EVENT_LOG_ENTRY_HEADER,
 }
-impl Copy for WHEA_EVENT_LOG_ENTRY {}
-impl Clone for WHEA_EVENT_LOG_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_EVENT_LOG_ENTRY_FLAGS {
     pub Anonymous: WHEA_EVENT_LOG_ENTRY_FLAGS_0,
     pub AsULONG: u32,
 }
-impl Copy for WHEA_EVENT_LOG_ENTRY_FLAGS {}
-impl Clone for WHEA_EVENT_LOG_ENTRY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_EVENT_LOG_ENTRY_FLAGS_0 {
     pub _bitfield: u32,
 }
-impl Copy for WHEA_EVENT_LOG_ENTRY_FLAGS_0 {}
-impl Clone for WHEA_EVENT_LOG_ENTRY_FLAGS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_EVENT_LOG_ENTRY_HEADER {
     pub Signature: u32,
     pub Version: u32,
@@ -16930,35 +12049,20 @@ pub struct WHEA_EVENT_LOG_ENTRY_HEADER {
     pub Flags: WHEA_EVENT_LOG_ENTRY_FLAGS,
     pub PayloadLength: u32,
 }
-impl Copy for WHEA_EVENT_LOG_ENTRY_HEADER {}
-impl Clone for WHEA_EVENT_LOG_ENTRY_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_FAILED_ADD_DEFECT_LIST_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
 }
-impl Copy for WHEA_FAILED_ADD_DEFECT_LIST_EVENT {}
-impl Clone for WHEA_FAILED_ADD_DEFECT_LIST_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_FIRMWARE_ERROR_RECORD_REFERENCE {
     pub Type: u8,
     pub Reserved: [u8; 7],
     pub FirmwareRecordId: u64,
 }
-impl Copy for WHEA_FIRMWARE_ERROR_RECORD_REFERENCE {}
-impl Clone for WHEA_FIRMWARE_ERROR_RECORD_REFERENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_GENERIC_ERROR {
     pub BlockStatus: WHEA_GENERIC_ERROR_BLOCKSTATUS,
     pub RawDataOffset: u32,
@@ -16967,34 +12071,19 @@ pub struct WHEA_GENERIC_ERROR {
     pub ErrorSeverity: WHEA_ERROR_SEVERITY,
     pub Data: [u8; 1],
 }
-impl Copy for WHEA_GENERIC_ERROR {}
-impl Clone for WHEA_GENERIC_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_GENERIC_ERROR_BLOCKSTATUS {
     pub Anonymous: WHEA_GENERIC_ERROR_BLOCKSTATUS_0,
     pub AsULONG: u32,
 }
-impl Copy for WHEA_GENERIC_ERROR_BLOCKSTATUS {}
-impl Clone for WHEA_GENERIC_ERROR_BLOCKSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_GENERIC_ERROR_BLOCKSTATUS_0 {
     pub _bitfield: u32,
 }
-impl Copy for WHEA_GENERIC_ERROR_BLOCKSTATUS_0 {}
-impl Clone for WHEA_GENERIC_ERROR_BLOCKSTATUS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_GENERIC_ERROR_DATA_ENTRY_V1 {
     pub SectionType: windows_sys::core::GUID,
     pub ErrorSeverity: WHEA_ERROR_SEVERITY,
@@ -17006,13 +12095,8 @@ pub struct WHEA_GENERIC_ERROR_DATA_ENTRY_V1 {
     pub FRUText: [u8; 20],
     pub Data: [u8; 1],
 }
-impl Copy for WHEA_GENERIC_ERROR_DATA_ENTRY_V1 {}
-impl Clone for WHEA_GENERIC_ERROR_DATA_ENTRY_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_GENERIC_ERROR_DATA_ENTRY_V2 {
     pub SectionType: windows_sys::core::GUID,
     pub ErrorSeverity: WHEA_ERROR_SEVERITY,
@@ -17025,34 +12109,19 @@ pub struct WHEA_GENERIC_ERROR_DATA_ENTRY_V2 {
     pub Timestamp: WHEA_TIMESTAMP,
     pub Data: [u8; 1],
 }
-impl Copy for WHEA_GENERIC_ERROR_DATA_ENTRY_V2 {}
-impl Clone for WHEA_GENERIC_ERROR_DATA_ENTRY_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHEA_IN_USE_PAGE_NOTIFY_FLAGS {
     pub Bits: WHEA_IN_USE_PAGE_NOTIFY_FLAGS_0,
     pub AsUCHAR: u8,
 }
-impl Copy for WHEA_IN_USE_PAGE_NOTIFY_FLAGS {}
-impl Clone for WHEA_IN_USE_PAGE_NOTIFY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_IN_USE_PAGE_NOTIFY_FLAGS_0 {
     pub _bitfield: u8,
 }
-impl Copy for WHEA_IN_USE_PAGE_NOTIFY_FLAGS_0 {}
-impl Clone for WHEA_IN_USE_PAGE_NOTIFY_FLAGS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_MEMORY_CORRECTABLE_ERROR_DATA {
     pub ValidBits: WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS,
     pub SocketId: u32,
@@ -17060,56 +12129,31 @@ pub struct WHEA_MEMORY_CORRECTABLE_ERROR_DATA {
     pub DimmSlot: u32,
     pub CorrectableErrorCount: u32,
 }
-impl Copy for WHEA_MEMORY_CORRECTABLE_ERROR_DATA {}
-impl Clone for WHEA_MEMORY_CORRECTABLE_ERROR_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_MEMORY_CORRECTABLE_ERROR_HEADER {
     pub Version: u16,
     pub Count: u16,
 }
-impl Copy for WHEA_MEMORY_CORRECTABLE_ERROR_HEADER {}
-impl Clone for WHEA_MEMORY_CORRECTABLE_ERROR_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_MEMORY_CORRECTABLE_ERROR_SECTION {
     pub Header: WHEA_MEMORY_CORRECTABLE_ERROR_HEADER,
     pub Data: [WHEA_MEMORY_CORRECTABLE_ERROR_DATA; 1],
 }
-impl Copy for WHEA_MEMORY_CORRECTABLE_ERROR_SECTION {}
-impl Clone for WHEA_MEMORY_CORRECTABLE_ERROR_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS {
     pub Anonymous: WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS_0,
     pub ValidBits: u64,
 }
-impl Copy for WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS {}
-impl Clone for WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
-impl Copy for WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS_0 {}
-impl Clone for WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_MEMORY_ERROR_SECTION {
     pub ValidBits: WHEA_MEMORY_ERROR_SECTION_VALIDBITS,
     pub ErrorStatus: WHEA_ERROR_STATUS,
@@ -17132,100 +12176,55 @@ pub struct WHEA_MEMORY_ERROR_SECTION {
     pub CardHandle: u16,
     pub ModuleHandle: u16,
 }
-impl Copy for WHEA_MEMORY_ERROR_SECTION {}
-impl Clone for WHEA_MEMORY_ERROR_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_MEMORY_ERROR_SECTION_VALIDBITS {
     pub Anonymous: WHEA_MEMORY_ERROR_SECTION_VALIDBITS_0,
     pub ValidBits: u64,
 }
-impl Copy for WHEA_MEMORY_ERROR_SECTION_VALIDBITS {}
-impl Clone for WHEA_MEMORY_ERROR_SECTION_VALIDBITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_MEMORY_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
-impl Copy for WHEA_MEMORY_ERROR_SECTION_VALIDBITS_0 {}
-impl Clone for WHEA_MEMORY_ERROR_SECTION_VALIDBITS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_MEMORY_THROTTLE_SUMMARY_FAILED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
 }
-impl Copy for WHEA_MEMORY_THROTTLE_SUMMARY_FAILED_EVENT {}
-impl Clone for WHEA_MEMORY_THROTTLE_SUMMARY_FAILED_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_MSR_DUMP_SECTION {
     pub MsrDumpBuffer: u8,
     pub MsrDumpLength: u32,
     pub MsrDumpData: [u8; 1],
 }
-impl Copy for WHEA_MSR_DUMP_SECTION {}
-impl Clone for WHEA_MSR_DUMP_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_NMI_ERROR_SECTION {
     pub Data: [u8; 8],
     pub Flags: WHEA_NMI_ERROR_SECTION_FLAGS,
 }
-impl Copy for WHEA_NMI_ERROR_SECTION {}
-impl Clone for WHEA_NMI_ERROR_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_NMI_ERROR_SECTION_FLAGS {
     pub Anonymous: WHEA_NMI_ERROR_SECTION_FLAGS_0,
     pub AsULONG: u32,
 }
-impl Copy for WHEA_NMI_ERROR_SECTION_FLAGS {}
-impl Clone for WHEA_NMI_ERROR_SECTION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_NMI_ERROR_SECTION_FLAGS_0 {
     pub _bitfield: u32,
 }
-impl Copy for WHEA_NMI_ERROR_SECTION_FLAGS_0 {}
-impl Clone for WHEA_NMI_ERROR_SECTION_FLAGS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_OFFLINE_DONE_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Address: u64,
 }
-impl Copy for WHEA_OFFLINE_DONE_EVENT {}
-impl Clone for WHEA_OFFLINE_DONE_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PACKET_LOG_DATA {
     pub LogData: [u8; 36],
     pub ExtraBytes: [u8; 36],
@@ -17236,57 +12235,32 @@ pub struct WHEA_PACKET_LOG_DATA {
     pub Reserved: u16,
     pub Flags: WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS,
 }
-impl Copy for WHEA_PACKET_LOG_DATA {}
-impl Clone for WHEA_PACKET_LOG_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_PCIEXPRESS_BRIDGE_CONTROL_STATUS {
     pub Anonymous: WHEA_PCIEXPRESS_BRIDGE_CONTROL_STATUS_0,
     pub AsULONG: u32,
 }
-impl Copy for WHEA_PCIEXPRESS_BRIDGE_CONTROL_STATUS {}
-impl Clone for WHEA_PCIEXPRESS_BRIDGE_CONTROL_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIEXPRESS_BRIDGE_CONTROL_STATUS_0 {
     pub BridgeSecondaryStatus: u16,
     pub BridgeControl: u16,
 }
-impl Copy for WHEA_PCIEXPRESS_BRIDGE_CONTROL_STATUS_0 {}
-impl Clone for WHEA_PCIEXPRESS_BRIDGE_CONTROL_STATUS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_PCIEXPRESS_COMMAND_STATUS {
     pub Anonymous: WHEA_PCIEXPRESS_COMMAND_STATUS_0,
     pub AsULONG: u32,
 }
-impl Copy for WHEA_PCIEXPRESS_COMMAND_STATUS {}
-impl Clone for WHEA_PCIEXPRESS_COMMAND_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIEXPRESS_COMMAND_STATUS_0 {
     pub Command: u16,
     pub Status: u16,
 }
-impl Copy for WHEA_PCIEXPRESS_COMMAND_STATUS_0 {}
-impl Clone for WHEA_PCIEXPRESS_COMMAND_STATUS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIEXPRESS_DEVICE_ID {
     pub VendorID: u16,
     pub DeviceID: u16,
@@ -17294,13 +12268,8 @@ pub struct WHEA_PCIEXPRESS_DEVICE_ID {
     pub _bitfield2: u32,
     pub _bitfield3: u32,
 }
-impl Copy for WHEA_PCIEXPRESS_DEVICE_ID {}
-impl Clone for WHEA_PCIEXPRESS_DEVICE_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIEXPRESS_ERROR_SECTION {
     pub ValidBits: WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS,
     pub PortType: WHEA_PCIEXPRESS_DEVICE_TYPE,
@@ -17313,147 +12282,82 @@ pub struct WHEA_PCIEXPRESS_ERROR_SECTION {
     pub ExpressCapability: [u8; 60],
     pub AerInfo: [u8; 96],
 }
-impl Copy for WHEA_PCIEXPRESS_ERROR_SECTION {}
-impl Clone for WHEA_PCIEXPRESS_ERROR_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS {
     pub Anonymous: WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS_0,
     pub ValidBits: u64,
 }
-impl Copy for WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS {}
-impl Clone for WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
-impl Copy for WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS_0 {}
-impl Clone for WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_PCIEXPRESS_VERSION {
     pub Anonymous: WHEA_PCIEXPRESS_VERSION_0,
     pub AsULONG: u32,
 }
-impl Copy for WHEA_PCIEXPRESS_VERSION {}
-impl Clone for WHEA_PCIEXPRESS_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIEXPRESS_VERSION_0 {
     pub MinorVersion: u8,
     pub MajorVersion: u8,
     pub Reserved: u16,
 }
-impl Copy for WHEA_PCIEXPRESS_VERSION_0 {}
-impl Clone for WHEA_PCIEXPRESS_VERSION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIE_ADDRESS {
     pub Segment: u32,
     pub Bus: u32,
     pub Device: u32,
     pub Function: u32,
 }
-impl Copy for WHEA_PCIE_ADDRESS {}
-impl Clone for WHEA_PCIE_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIE_CORRECTABLE_ERROR_DEVICES {
     pub ValidBits: WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS,
     pub Address: WHEA_PCIE_ADDRESS,
     pub Mask: u32,
     pub CorrectableErrorCount: [u32; 32],
 }
-impl Copy for WHEA_PCIE_CORRECTABLE_ERROR_DEVICES {}
-impl Clone for WHEA_PCIE_CORRECTABLE_ERROR_DEVICES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS {
     pub Anonymous: WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS_0,
     pub ValidBits: u64,
 }
-impl Copy for WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS {}
-impl Clone for WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS_0 {
     pub _bitfield: u64,
 }
-impl Copy for WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS_0 {}
-impl Clone for WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIE_CORRECTABLE_ERROR_SECTION {
     pub Header: WHEA_PCIE_CORRECTABLE_ERROR_SECTION_HEADER,
     pub Devices: [WHEA_PCIE_CORRECTABLE_ERROR_DEVICES; 1],
 }
-impl Copy for WHEA_PCIE_CORRECTABLE_ERROR_SECTION {}
-impl Clone for WHEA_PCIE_CORRECTABLE_ERROR_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIE_CORRECTABLE_ERROR_SECTION_HEADER {
     pub Version: u16,
     pub Count: u16,
 }
-impl Copy for WHEA_PCIE_CORRECTABLE_ERROR_SECTION_HEADER {}
-impl Clone for WHEA_PCIE_CORRECTABLE_ERROR_SECTION_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_PCIXBUS_COMMAND {
     pub Anonymous: WHEA_PCIXBUS_COMMAND_0,
     pub AsULONGLONG: u64,
 }
-impl Copy for WHEA_PCIXBUS_COMMAND {}
-impl Clone for WHEA_PCIXBUS_COMMAND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIXBUS_COMMAND_0 {
     pub _bitfield: u64,
 }
-impl Copy for WHEA_PCIXBUS_COMMAND_0 {}
-impl Clone for WHEA_PCIXBUS_COMMAND_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIXBUS_ERROR_SECTION {
     pub ValidBits: WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS,
     pub ErrorStatus: WHEA_ERROR_STATUS,
@@ -17467,56 +12371,31 @@ pub struct WHEA_PCIXBUS_ERROR_SECTION {
     pub CompleterId: u64,
     pub TargetId: u64,
 }
-impl Copy for WHEA_PCIXBUS_ERROR_SECTION {}
-impl Clone for WHEA_PCIXBUS_ERROR_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS {
     pub Anonymous: WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS_0,
     pub ValidBits: u64,
 }
-impl Copy for WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS {}
-impl Clone for WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
-impl Copy for WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS_0 {}
-impl Clone for WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_PCIXBUS_ID {
     pub Anonymous: WHEA_PCIXBUS_ID_0,
     pub AsUSHORT: u16,
 }
-impl Copy for WHEA_PCIXBUS_ID {}
-impl Clone for WHEA_PCIXBUS_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIXBUS_ID_0 {
     pub BusNumber: u8,
     pub BusSegment: u8,
 }
-impl Copy for WHEA_PCIXBUS_ID_0 {}
-impl Clone for WHEA_PCIXBUS_ID_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIXDEVICE_ERROR_SECTION {
     pub ValidBits: WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS,
     pub ErrorStatus: WHEA_ERROR_STATUS,
@@ -17525,34 +12404,19 @@ pub struct WHEA_PCIXDEVICE_ERROR_SECTION {
     pub IoNumber: u32,
     pub RegisterDataPairs: [WHEA_PCIXDEVICE_REGISTER_PAIR; 1],
 }
-impl Copy for WHEA_PCIXDEVICE_ERROR_SECTION {}
-impl Clone for WHEA_PCIXDEVICE_ERROR_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS {
     pub Anonymous: WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS_0,
     pub ValidBits: u64,
 }
-impl Copy for WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS {}
-impl Clone for WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
-impl Copy for WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS_0 {}
-impl Clone for WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIXDEVICE_ID {
     pub VendorId: u16,
     pub DeviceId: u16,
@@ -17560,57 +12424,32 @@ pub struct WHEA_PCIXDEVICE_ID {
     pub _bitfield2: u32,
     pub Reserved2: u32,
 }
-impl Copy for WHEA_PCIXDEVICE_ID {}
-impl Clone for WHEA_PCIXDEVICE_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIXDEVICE_REGISTER_PAIR {
     pub Register: u64,
     pub Data: u64,
 }
-impl Copy for WHEA_PCIXDEVICE_REGISTER_PAIR {}
-impl Clone for WHEA_PCIXDEVICE_REGISTER_PAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCI_RECOVERY_SECTION {
     pub SignalType: u8,
     pub RecoveryAttempted: super::super::super::Win32::Foundation::BOOLEAN,
     pub RecoveryStatus: u8,
 }
-impl Copy for WHEA_PCI_RECOVERY_SECTION {}
-impl Clone for WHEA_PCI_RECOVERY_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_PERSISTENCE_INFO {
     pub Anonymous: WHEA_PERSISTENCE_INFO_0,
     pub AsULONGLONG: u64,
 }
-impl Copy for WHEA_PERSISTENCE_INFO {}
-impl Clone for WHEA_PERSISTENCE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PERSISTENCE_INFO_0 {
     pub _bitfield: u64,
 }
-impl Copy for WHEA_PERSISTENCE_INFO_0 {}
-impl Clone for WHEA_PERSISTENCE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PMEM_ERROR_SECTION {
     pub ValidBits: WHEA_PMEM_ERROR_SECTION_VALIDBITS,
     pub LocationInfo: [u8; 64],
@@ -17619,68 +12458,38 @@ pub struct WHEA_PMEM_ERROR_SECTION {
     pub PageRangeCount: u32,
     pub PageRange: [WHEA_PMEM_PAGE_RANGE; 1],
 }
-impl Copy for WHEA_PMEM_ERROR_SECTION {}
-impl Clone for WHEA_PMEM_ERROR_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_PMEM_ERROR_SECTION_VALIDBITS {
     pub Anonymous: WHEA_PMEM_ERROR_SECTION_VALIDBITS_0,
     pub ValidBits: u64,
 }
-impl Copy for WHEA_PMEM_ERROR_SECTION_VALIDBITS {}
-impl Clone for WHEA_PMEM_ERROR_SECTION_VALIDBITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PMEM_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
-impl Copy for WHEA_PMEM_ERROR_SECTION_VALIDBITS_0 {}
-impl Clone for WHEA_PMEM_ERROR_SECTION_VALIDBITS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PMEM_PAGE_RANGE {
     pub StartingPfn: u64,
     pub PageCount: u64,
     pub MarkedBadBitmap: u64,
 }
-impl Copy for WHEA_PMEM_PAGE_RANGE {}
-impl Clone for WHEA_PMEM_PAGE_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_PROCESSOR_FAMILY_INFO {
     pub Anonymous: WHEA_PROCESSOR_FAMILY_INFO_0,
     pub AsULONGLONG: u64,
 }
-impl Copy for WHEA_PROCESSOR_FAMILY_INFO {}
-impl Clone for WHEA_PROCESSOR_FAMILY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PROCESSOR_FAMILY_INFO_0 {
     pub _bitfield: u32,
     pub NativeModelId: u32,
 }
-impl Copy for WHEA_PROCESSOR_FAMILY_INFO_0 {}
-impl Clone for WHEA_PROCESSOR_FAMILY_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PROCESSOR_GENERIC_ERROR_SECTION {
     pub ValidBits: WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS,
     pub ProcessorType: u8,
@@ -17698,57 +12507,32 @@ pub struct WHEA_PROCESSOR_GENERIC_ERROR_SECTION {
     pub ResponderId: u64,
     pub InstructionPointer: u64,
 }
-impl Copy for WHEA_PROCESSOR_GENERIC_ERROR_SECTION {}
-impl Clone for WHEA_PROCESSOR_GENERIC_ERROR_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS {
     pub Anonymous: WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS_0,
     pub ValidBits: u64,
 }
-impl Copy for WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS {}
-impl Clone for WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
-impl Copy for WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS_0 {}
-impl Clone for WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PI_CPU_BUSES_INIT_FAILED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
 }
-impl Copy for WHEA_PSHED_PI_CPU_BUSES_INIT_FAILED_EVENT {}
-impl Clone for WHEA_PSHED_PI_CPU_BUSES_INIT_FAILED_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PI_TRACE_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Buffer: [i8; 256],
 }
-impl Copy for WHEA_PSHED_PI_TRACE_EVENT {}
-impl Clone for WHEA_PSHED_PI_TRACE_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PLUGIN_CALLBACKS {
     pub GetAllErrorSources: PSHED_PI_GET_ALL_ERROR_SOURCES,
     pub Reserved: *mut core::ffi::c_void,
@@ -17766,15 +12550,8 @@ pub struct WHEA_PSHED_PLUGIN_CALLBACKS {
     pub GetInjectionCapabilities: PSHED_PI_GET_INJECTION_CAPABILITIES,
     pub InjectError: PSHED_PI_INJECT_ERROR,
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Copy for WHEA_PSHED_PLUGIN_CALLBACKS {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Clone for WHEA_PSHED_PLUGIN_CALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PLUGIN_DIMM_MISMATCH {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub FirmwareBank: u16,
@@ -17787,71 +12564,41 @@ pub struct WHEA_PSHED_PLUGIN_DIMM_MISMATCH {
     pub TaCol: u16,
     pub TaRow: u16,
 }
-impl Copy for WHEA_PSHED_PLUGIN_DIMM_MISMATCH {}
-impl Clone for WHEA_PSHED_PLUGIN_DIMM_MISMATCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_FAILED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub EnableError: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS,
 }
-impl Copy for WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_FAILED_EVENT {}
-impl Clone for WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_FAILED_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PLUGIN_HEARTBEAT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
 }
-impl Copy for WHEA_PSHED_PLUGIN_HEARTBEAT {}
-impl Clone for WHEA_PSHED_PLUGIN_HEARTBEAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PLUGIN_INIT_FAILED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
 }
-impl Copy for WHEA_PSHED_PLUGIN_INIT_FAILED_EVENT {}
-impl Clone for WHEA_PSHED_PLUGIN_INIT_FAILED_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PLUGIN_LOAD_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub PluginName: [u16; 32],
     pub MajorVersion: u32,
     pub MinorVersion: u32,
 }
-impl Copy for WHEA_PSHED_PLUGIN_LOAD_EVENT {}
-impl Clone for WHEA_PSHED_PLUGIN_LOAD_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PLUGIN_PLATFORM_SUPPORT_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub PluginName: [u16; 32],
     pub Supported: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for WHEA_PSHED_PLUGIN_PLATFORM_SUPPORT_EVENT {}
-impl Clone for WHEA_PSHED_PLUGIN_PLATFORM_SUPPORT_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PLUGIN_REGISTRATION_PACKET_V1 {
     pub Length: u32,
     pub Version: u32,
@@ -17860,16 +12607,9 @@ pub struct WHEA_PSHED_PLUGIN_REGISTRATION_PACKET_V1 {
     pub Reserved: u32,
     pub Callbacks: WHEA_PSHED_PLUGIN_CALLBACKS,
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Copy for WHEA_PSHED_PLUGIN_REGISTRATION_PACKET_V1 {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Clone for WHEA_PSHED_PLUGIN_REGISTRATION_PACKET_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PLUGIN_REGISTRATION_PACKET_V2 {
     pub Length: u32,
     pub Version: u32,
@@ -17879,72 +12619,40 @@ pub struct WHEA_PSHED_PLUGIN_REGISTRATION_PACKET_V2 {
     pub Callbacks: WHEA_PSHED_PLUGIN_CALLBACKS,
     pub PluginHandle: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Copy for WHEA_PSHED_PLUGIN_REGISTRATION_PACKET_V2 {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Clone for WHEA_PSHED_PLUGIN_REGISTRATION_PACKET_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PLUGIN_UNLOAD_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub PluginName: [u16; 32],
 }
-impl Copy for WHEA_PSHED_PLUGIN_UNLOAD_EVENT {}
-impl Clone for WHEA_PSHED_PLUGIN_UNLOAD_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_RECOVERY_ACTION {
     pub Anonymous: WHEA_RECOVERY_ACTION_0,
     pub AsULONG: u32,
 }
-impl Copy for WHEA_RECOVERY_ACTION {}
-impl Clone for WHEA_RECOVERY_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_RECOVERY_ACTION_0 {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
 }
-impl Copy for WHEA_RECOVERY_ACTION_0 {}
-impl Clone for WHEA_RECOVERY_ACTION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_RECOVERY_CONTEXT {
     pub Anonymous: WHEA_RECOVERY_CONTEXT_0,
     pub PartitionId: u64,
     pub VpIndex: u32,
     pub ErrorType: WHEA_RECOVERY_CONTEXT_ERROR_TYPE,
 }
-impl Copy for WHEA_RECOVERY_CONTEXT {}
-impl Clone for WHEA_RECOVERY_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHEA_RECOVERY_CONTEXT_0 {
     pub MemoryError: WHEA_RECOVERY_CONTEXT_0_0,
     pub PmemError: WHEA_RECOVERY_CONTEXT_0_1,
 }
-impl Copy for WHEA_RECOVERY_CONTEXT_0 {}
-impl Clone for WHEA_RECOVERY_CONTEXT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_RECOVERY_CONTEXT_0_0 {
     pub Address: usize,
     pub Consumed: super::super::super::Win32::Foundation::BOOLEAN,
@@ -17953,125 +12661,70 @@ pub struct WHEA_RECOVERY_CONTEXT_0_0 {
     pub RestartIpValid: super::super::super::Win32::Foundation::BOOLEAN,
     pub ClearPoison: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for WHEA_RECOVERY_CONTEXT_0_0 {}
-impl Clone for WHEA_RECOVERY_CONTEXT_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_RECOVERY_CONTEXT_0_1 {
     pub PmemErrInfo: usize,
 }
-impl Copy for WHEA_RECOVERY_CONTEXT_0_1 {}
-impl Clone for WHEA_RECOVERY_CONTEXT_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_REGISTER_KEY_NOTIFICATION_FAILED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
 }
-impl Copy for WHEA_REGISTER_KEY_NOTIFICATION_FAILED_EVENT {}
-impl Clone for WHEA_REGISTER_KEY_NOTIFICATION_FAILED_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS {
     pub Anonymous: WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS_0,
     pub AsULONG: u32,
 }
-impl Copy for WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS {}
-impl Clone for WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS_0 {
     pub _bitfield: u32,
 }
-impl Copy for WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS_0 {}
-impl Clone for WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_REVISION {
     pub Anonymous: WHEA_REVISION_0,
     pub AsUSHORT: u16,
 }
-impl Copy for WHEA_REVISION {}
-impl Clone for WHEA_REVISION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_REVISION_0 {
     pub MinorRevision: u8,
     pub MajorRevision: u8,
 }
-impl Copy for WHEA_REVISION_0 {}
-impl Clone for WHEA_REVISION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_SEA_SECTION {
     pub Esr: u32,
     pub Far: u64,
     pub Par: u64,
     pub WasKernel: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for WHEA_SEA_SECTION {}
-impl Clone for WHEA_SEA_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_SEI_SECTION {
     pub Esr: u32,
     pub Far: u64,
 }
-impl Copy for WHEA_SEI_SECTION {}
-impl Clone for WHEA_SEI_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_SEL_BUGCHECK_PROGRESS {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub BugCheckCode: u32,
     pub BugCheckProgressSummary: u32,
 }
-impl Copy for WHEA_SEL_BUGCHECK_PROGRESS {}
-impl Clone for WHEA_SEL_BUGCHECK_PROGRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_SEL_BUGCHECK_RECOVERY_STATUS_MULTIPLE_BUGCHECK_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub IsBugcheckOwner: super::super::super::Win32::Foundation::BOOLEAN,
     pub RecursionCount: u8,
     pub IsBugcheckRecoveryOwner: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_MULTIPLE_BUGCHECK_EVENT {}
-impl Clone for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_MULTIPLE_BUGCHECK_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Success: super::super::super::Win32::Foundation::BOOLEAN,
@@ -18079,47 +12732,27 @@ pub struct WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT {
     pub EntryCount: u16,
     pub Data: WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT_0,
 }
-impl Copy for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT {}
-impl Clone for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT_0 {
     pub DumpPolicy: u8,
     pub Reserved: [u8; 3],
 }
-impl Copy for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT_0 {}
-impl Clone for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE2_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub BootId: u32,
     pub Success: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE2_EVENT {}
-impl Clone for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE2_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_SEL_BUGCHECK_RECOVERY_STATUS_START_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub StartingIrql: u8,
 }
-impl Copy for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_START_EVENT {}
-impl Clone for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_START_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_SRAR_DETAIL_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub RecoveryContextFlags: u32,
@@ -18127,69 +12760,39 @@ pub struct WHEA_SRAR_DETAIL_EVENT {
     pub PageOfflineStatus: super::super::super::Win32::Foundation::NTSTATUS,
     pub KernelConsumerError: super::super::super::Win32::Foundation::BOOLEAN,
 }
-impl Copy for WHEA_SRAR_DETAIL_EVENT {}
-impl Clone for WHEA_SRAR_DETAIL_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_SRAS_TABLE_ENTRIES_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub LogNumber: u32,
     pub NumberSignals: u32,
     pub Data: [u8; 1],
 }
-impl Copy for WHEA_SRAS_TABLE_ENTRIES_EVENT {}
-impl Clone for WHEA_SRAS_TABLE_ENTRIES_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_SRAS_TABLE_ERROR {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
 }
-impl Copy for WHEA_SRAS_TABLE_ERROR {}
-impl Clone for WHEA_SRAS_TABLE_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_SRAS_TABLE_NOT_FOUND {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
 }
-impl Copy for WHEA_SRAS_TABLE_NOT_FOUND {}
-impl Clone for WHEA_SRAS_TABLE_NOT_FOUND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_THROTTLE_ADD_ERR_SRC_FAILED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
 }
-impl Copy for WHEA_THROTTLE_ADD_ERR_SRC_FAILED_EVENT {}
-impl Clone for WHEA_THROTTLE_ADD_ERR_SRC_FAILED_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_THROTTLE_MEMORY_ADD_OR_REMOVE_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub SocketId: u32,
     pub ChannelId: u32,
     pub DimmSlot: u32,
 }
-impl Copy for WHEA_THROTTLE_MEMORY_ADD_OR_REMOVE_EVENT {}
-impl Clone for WHEA_THROTTLE_MEMORY_ADD_OR_REMOVE_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_THROTTLE_PCIE_ADD_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Address: WHEA_PCIE_ADDRESS,
@@ -18197,68 +12800,38 @@ pub struct WHEA_THROTTLE_PCIE_ADD_EVENT {
     pub Updated: super::super::super::Win32::Foundation::BOOLEAN,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
 }
-impl Copy for WHEA_THROTTLE_PCIE_ADD_EVENT {}
-impl Clone for WHEA_THROTTLE_PCIE_ADD_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_THROTTLE_PCIE_REMOVE_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Address: WHEA_PCIE_ADDRESS,
     pub Mask: u32,
 }
-impl Copy for WHEA_THROTTLE_PCIE_REMOVE_EVENT {}
-impl Clone for WHEA_THROTTLE_PCIE_REMOVE_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_THROTTLE_REGISTRY_CORRUPT_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub ThrottleType: WHEA_THROTTLE_TYPE,
 }
-impl Copy for WHEA_THROTTLE_REGISTRY_CORRUPT_EVENT {}
-impl Clone for WHEA_THROTTLE_REGISTRY_CORRUPT_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_THROTTLE_REG_DATA_IGNORED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub ThrottleType: WHEA_THROTTLE_TYPE,
 }
-impl Copy for WHEA_THROTTLE_REG_DATA_IGNORED_EVENT {}
-impl Clone for WHEA_THROTTLE_REG_DATA_IGNORED_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_TIMESTAMP {
     pub Anonymous: WHEA_TIMESTAMP_0,
     pub AsLARGE_INTEGER: i64,
 }
-impl Copy for WHEA_TIMESTAMP {}
-impl Clone for WHEA_TIMESTAMP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_TIMESTAMP_0 {
     pub _bitfield: u64,
 }
-impl Copy for WHEA_TIMESTAMP_0 {}
-impl Clone for WHEA_TIMESTAMP_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHEA_X64_REGISTER_STATE {
     pub Rax: u64,
     pub Rbx: u64,
@@ -18296,13 +12869,8 @@ pub struct WHEA_X64_REGISTER_STATE {
     pub Ldtr: u16,
     pub Tr: u16,
 }
-impl Copy for WHEA_X64_REGISTER_STATE {}
-impl Clone for WHEA_X64_REGISTER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_X86_REGISTER_STATE {
     pub Eax: u32,
     pub Ebx: u32,
@@ -18330,68 +12898,38 @@ pub struct WHEA_X86_REGISTER_STATE {
     pub Ldtr: u16,
     pub Tr: u16,
 }
-impl Copy for WHEA_X86_REGISTER_STATE {}
-impl Clone for WHEA_X86_REGISTER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_XPF_BUS_CHECK {
     pub Anonymous: WHEA_XPF_BUS_CHECK_0,
     pub XpfBusCheck: u64,
 }
-impl Copy for WHEA_XPF_BUS_CHECK {}
-impl Clone for WHEA_XPF_BUS_CHECK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_XPF_BUS_CHECK_0 {
     pub _bitfield: u64,
 }
-impl Copy for WHEA_XPF_BUS_CHECK_0 {}
-impl Clone for WHEA_XPF_BUS_CHECK_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_XPF_CACHE_CHECK {
     pub Anonymous: WHEA_XPF_CACHE_CHECK_0,
     pub XpfCacheCheck: u64,
 }
-impl Copy for WHEA_XPF_CACHE_CHECK {}
-impl Clone for WHEA_XPF_CACHE_CHECK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_XPF_CACHE_CHECK_0 {
     pub _bitfield: u64,
 }
-impl Copy for WHEA_XPF_CACHE_CHECK_0 {}
-impl Clone for WHEA_XPF_CACHE_CHECK_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_XPF_CONTEXT_INFO {
     pub RegisterContextType: u16,
     pub RegisterDataSize: u16,
     pub MSRAddress: u32,
     pub MmRegisterAddress: u64,
 }
-impl Copy for WHEA_XPF_CONTEXT_INFO {}
-impl Clone for WHEA_XPF_CONTEXT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_XPF_MCA_SECTION {
     pub VersionNumber: u32,
     pub CpuVendor: WHEA_CPU_VENDOR,
@@ -18409,79 +12947,44 @@ pub struct WHEA_XPF_MCA_SECTION {
     pub GlobalCapability: MCG_CAP,
     pub RecoveryInfo: XPF_RECOVERY_INFO,
 }
-impl Copy for WHEA_XPF_MCA_SECTION {}
-impl Clone for WHEA_XPF_MCA_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_XPF_MCA_SECTION_0 {
     pub ExtendedRegisters: [u64; 24],
     pub AMDExtendedRegisters: WHEA_AMD_EXTENDED_REGISTERS,
 }
-impl Copy for WHEA_XPF_MCA_SECTION_0 {}
-impl Clone for WHEA_XPF_MCA_SECTION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_XPF_MS_CHECK {
     pub Anonymous: WHEA_XPF_MS_CHECK_0,
     pub XpfMsCheck: u64,
 }
-impl Copy for WHEA_XPF_MS_CHECK {}
-impl Clone for WHEA_XPF_MS_CHECK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_XPF_MS_CHECK_0 {
     pub _bitfield: u64,
 }
-impl Copy for WHEA_XPF_MS_CHECK_0 {}
-impl Clone for WHEA_XPF_MS_CHECK_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_XPF_PROCESSOR_ERROR_SECTION {
     pub ValidBits: WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS,
     pub LocalAPICId: u64,
     pub CpuId: [u8; 48],
     pub VariableInfo: [u8; 1],
 }
-impl Copy for WHEA_XPF_PROCESSOR_ERROR_SECTION {}
-impl Clone for WHEA_XPF_PROCESSOR_ERROR_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS {
     pub Anonymous: WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS_0,
     pub ValidBits: u64,
 }
-impl Copy for WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS {}
-impl Clone for WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
-impl Copy for WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS_0 {}
-impl Clone for WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_XPF_PROCINFO {
     pub CheckInfoId: windows_sys::core::GUID,
     pub ValidBits: WHEA_XPF_PROCINFO_VALIDBITS,
@@ -18491,13 +12994,8 @@ pub struct WHEA_XPF_PROCINFO {
     pub ResponderId: u64,
     pub InstructionPointer: u64,
 }
-impl Copy for WHEA_XPF_PROCINFO {}
-impl Clone for WHEA_XPF_PROCINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_XPF_PROCINFO_0 {
     pub CacheCheck: WHEA_XPF_CACHE_CHECK,
     pub TlbCheck: WHEA_XPF_TLB_CHECK,
@@ -18505,55 +13003,30 @@ pub union WHEA_XPF_PROCINFO_0 {
     pub MsCheck: WHEA_XPF_MS_CHECK,
     pub AsULONGLONG: u64,
 }
-impl Copy for WHEA_XPF_PROCINFO_0 {}
-impl Clone for WHEA_XPF_PROCINFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_XPF_PROCINFO_VALIDBITS {
     pub Anonymous: WHEA_XPF_PROCINFO_VALIDBITS_0,
     pub ValidBits: u64,
 }
-impl Copy for WHEA_XPF_PROCINFO_VALIDBITS {}
-impl Clone for WHEA_XPF_PROCINFO_VALIDBITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_XPF_PROCINFO_VALIDBITS_0 {
     pub _bitfield: u64,
 }
-impl Copy for WHEA_XPF_PROCINFO_VALIDBITS_0 {}
-impl Clone for WHEA_XPF_PROCINFO_VALIDBITS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union WHEA_XPF_TLB_CHECK {
     pub Anonymous: WHEA_XPF_TLB_CHECK_0,
     pub XpfTLBCheck: u64,
 }
-impl Copy for WHEA_XPF_TLB_CHECK {}
-impl Clone for WHEA_XPF_TLB_CHECK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_XPF_TLB_CHECK_0 {
     pub _bitfield: u64,
 }
-impl Copy for WHEA_XPF_TLB_CHECK_0 {}
-impl Clone for WHEA_XPF_TLB_CHECK_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct XPF_RECOVERY_INFO {
     pub FailureReason: XPF_RECOVERY_INFO_1,
     pub Action: XPF_RECOVERY_INFO_0,
@@ -18565,34 +13038,19 @@ pub struct XPF_RECOVERY_INFO {
     pub Reserved3: u16,
     pub Reserved4: u32,
 }
-impl Copy for XPF_RECOVERY_INFO {}
-impl Clone for XPF_RECOVERY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct XPF_RECOVERY_INFO_0 {
     pub _bitfield: u32,
 }
-impl Copy for XPF_RECOVERY_INFO_0 {}
-impl Clone for XPF_RECOVERY_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct XPF_RECOVERY_INFO_1 {
     pub _bitfield: u32,
 }
-impl Copy for XPF_RECOVERY_INFO_1 {}
-impl Clone for XPF_RECOVERY_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
 pub struct XSAVE_FORMAT {
     pub ControlWord: u16,
     pub StatusWord: u16,
@@ -18611,16 +13069,9 @@ pub struct XSAVE_FORMAT {
     pub XmmRegisters: [super::super::super::Win32::System::Diagnostics::Debug::M128A; 8],
     pub Reserved4: [u8; 224],
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Copy for XSAVE_FORMAT {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Clone for XSAVE_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
 pub struct XSTATE_CONTEXT {
     pub Mask: u64,
     pub Length: u32,
@@ -18630,43 +13081,22 @@ pub struct XSTATE_CONTEXT {
     pub Buffer: *mut core::ffi::c_void,
     pub Reserved3: u32,
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Copy for XSTATE_CONTEXT {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Clone for XSTATE_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
 pub struct XSTATE_SAVE {
     pub Anonymous: XSTATE_SAVE_0,
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Copy for XSTATE_SAVE {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Clone for XSTATE_SAVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
 pub union XSTATE_SAVE_0 {
     pub Anonymous: XSTATE_SAVE_0_0,
     pub XStateContext: XSTATE_CONTEXT,
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Copy for XSTATE_SAVE_0 {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Clone for XSTATE_SAVE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
 pub struct XSTATE_SAVE_0_0 {
     pub Reserved1: i64,
     pub Reserved2: u32,
@@ -18676,55 +13106,28 @@ pub struct XSTATE_SAVE_0_0 {
     pub Reserved4: *mut core::ffi::c_void,
     pub Level: u8,
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Copy for XSTATE_SAVE_0_0 {}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Clone for XSTATE_SAVE_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct ZONE_HEADER {
     pub FreeList: super::super::super::Win32::System::Kernel::SINGLE_LIST_ENTRY,
     pub SegmentList: super::super::super::Win32::System::Kernel::SINGLE_LIST_ENTRY,
     pub BlockSize: u32,
     pub TotalSegmentSize: u32,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for ZONE_HEADER {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for ZONE_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct ZONE_SEGMENT_HEADER {
     pub SegmentList: super::super::super::Win32::System::Kernel::SINGLE_LIST_ENTRY,
     pub Reserved: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Copy for ZONE_SEGMENT_HEADER {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Clone for ZONE_SEGMENT_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _EXT_SET_PARAMETERS_V0 {
     pub Version: u32,
     pub Reserved: u32,
     pub NoWakeTolerance: i64,
-}
-impl Copy for _EXT_SET_PARAMETERS_V0 {}
-impl Clone for _EXT_SET_PARAMETERS_V0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Wdk_Foundation")]
 pub type ALLOCATE_FUNCTION = Option<unsafe extern "system" fn(pooltype: super::super::Foundation::POOL_TYPE, numberofbytes: usize, tag: u32) -> *mut core::ffi::c_void>;

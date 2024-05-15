@@ -609,146 +609,82 @@ pub type QUEUE_TYPE = i32;
 pub type RELOPS = i32;
 pub type XACT_STATUS = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MQCOLUMNSET {
     pub cCol: u32,
     pub aCol: *mut u32,
 }
-impl Copy for MQCOLUMNSET {}
-impl Clone for MQCOLUMNSET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
 pub struct MQMGMTPROPS {
     pub cProp: u32,
     pub aPropID: *mut u32,
     pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
     pub aStatus: *mut windows_sys::core::HRESULT,
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Copy for MQMGMTPROPS {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Clone for MQMGMTPROPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
 pub struct MQMSGPROPS {
     pub cProp: u32,
     pub aPropID: *mut u32,
     pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
     pub aStatus: *mut windows_sys::core::HRESULT,
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Copy for MQMSGPROPS {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Clone for MQMSGPROPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
 pub struct MQPRIVATEPROPS {
     pub cProp: u32,
     pub aPropID: *mut u32,
     pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
     pub aStatus: *mut windows_sys::core::HRESULT,
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Copy for MQPRIVATEPROPS {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Clone for MQPRIVATEPROPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
 pub struct MQPROPERTYRESTRICTION {
     pub rel: u32,
     pub prop: u32,
     pub prval: super::Com::StructuredStorage::PROPVARIANT,
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Copy for MQPROPERTYRESTRICTION {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Clone for MQPROPERTYRESTRICTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
 pub struct MQQMPROPS {
     pub cProp: u32,
     pub aPropID: *mut u32,
     pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
     pub aStatus: *mut windows_sys::core::HRESULT,
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Copy for MQQMPROPS {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Clone for MQQMPROPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
 pub struct MQQUEUEPROPS {
     pub cProp: u32,
     pub aPropID: *mut u32,
     pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
     pub aStatus: *mut windows_sys::core::HRESULT,
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Copy for MQQUEUEPROPS {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Clone for MQQUEUEPROPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
 pub struct MQRESTRICTION {
     pub cRes: u32,
     pub paPropRes: *mut MQPROPERTYRESTRICTION,
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Copy for MQRESTRICTION {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Clone for MQRESTRICTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MQSORTKEY {
     pub propColumn: u32,
     pub dwOrder: u32,
 }
-impl Copy for MQSORTKEY {}
-impl Clone for MQSORTKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MQSORTSET {
     pub cCol: u32,
     pub aCol: *mut MQSORTKEY,
-}
-impl Copy for MQSORTSET {}
-impl Clone for MQSORTSET {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const MSMQApplication: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7d6e086_dccd_11d0_aa4b_0060970debae);
 pub const MSMQCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf72b9031_2f0c_43e8_924e_e6052cdc493f);
@@ -766,16 +702,11 @@ pub const MSMQQueueManagement: windows_sys::core::GUID = windows_sys::core::GUID
 pub const MSMQTransaction: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7d6e080_dccd_11d0_aa4b_0060970debae);
 pub const MSMQTransactionDispenser: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd7d6e084_dccd_11d0_aa4b_0060970debae);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SEQUENCE_INFO {
     pub SeqID: i64,
     pub SeqNo: u32,
     pub PrevNo: u32,
-}
-impl Copy for SEQUENCE_INFO {}
-impl Clone for SEQUENCE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_IO", feature = "Win32_System_Variant"))]
 pub type PMQRECEIVECALLBACK = Option<unsafe extern "system" fn(hrstatus: windows_sys::core::HRESULT, hsource: isize, dwtimeout: u32, dwaction: u32, pmessageprops: *mut MQMSGPROPS, lpoverlapped: *mut super::IO::OVERLAPPED, hcursor: super::super::Foundation::HANDLE)>;

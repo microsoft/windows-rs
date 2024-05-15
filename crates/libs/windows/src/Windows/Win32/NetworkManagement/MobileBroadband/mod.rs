@@ -2357,6 +2357,7 @@ impl core::fmt::Debug for WWAEXT_SMS_CONSTANTS {
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MBN_CONTEXT {
     pub contextID: u32,
     pub contextType: MBN_CONTEXT_TYPE,
@@ -2371,26 +2372,16 @@ impl Clone for MBN_CONTEXT {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for MBN_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MBN_CONTEXT").field("contextID", &self.contextID).field("contextType", &self.contextType).field("accessString", &self.accessString).field("userName", &self.userName).field("password", &self.password).field("compression", &self.compression).field("authType", &self.authType).finish()
-    }
-}
 impl windows_core::TypeKind for MBN_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MBN_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.contextID == other.contextID && self.contextType == other.contextType && self.accessString == other.accessString && self.userName == other.userName && self.password == other.password && self.compression == other.compression && self.authType == other.authType
-    }
-}
-impl Eq for MBN_CONTEXT {}
 impl Default for MBN_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MBN_DEVICE_SERVICE {
     pub deviceServiceID: std::mem::ManuallyDrop<windows_core::BSTR>,
     pub dataWriteSupported: super::super::Foundation::VARIANT_BOOL,
@@ -2401,26 +2392,16 @@ impl Clone for MBN_DEVICE_SERVICE {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for MBN_DEVICE_SERVICE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MBN_DEVICE_SERVICE").field("deviceServiceID", &self.deviceServiceID).field("dataWriteSupported", &self.dataWriteSupported).field("dataReadSupported", &self.dataReadSupported).finish()
-    }
-}
 impl windows_core::TypeKind for MBN_DEVICE_SERVICE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MBN_DEVICE_SERVICE {
-    fn eq(&self, other: &Self) -> bool {
-        self.deviceServiceID == other.deviceServiceID && self.dataWriteSupported == other.dataWriteSupported && self.dataReadSupported == other.dataReadSupported
-    }
-}
-impl Eq for MBN_DEVICE_SERVICE {}
 impl Default for MBN_DEVICE_SERVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MBN_INTERFACE_CAPS {
     pub cellularClass: MBN_CELLULAR_CLASS,
     pub voiceClass: MBN_VOICE_CLASS,
@@ -2441,71 +2422,31 @@ impl Clone for MBN_INTERFACE_CAPS {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for MBN_INTERFACE_CAPS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MBN_INTERFACE_CAPS")
-            .field("cellularClass", &self.cellularClass)
-            .field("voiceClass", &self.voiceClass)
-            .field("dataClass", &self.dataClass)
-            .field("customDataClass", &self.customDataClass)
-            .field("gsmBandClass", &self.gsmBandClass)
-            .field("cdmaBandClass", &self.cdmaBandClass)
-            .field("customBandClass", &self.customBandClass)
-            .field("smsCaps", &self.smsCaps)
-            .field("controlCaps", &self.controlCaps)
-            .field("deviceID", &self.deviceID)
-            .field("manufacturer", &self.manufacturer)
-            .field("model", &self.model)
-            .field("firmwareInfo", &self.firmwareInfo)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MBN_INTERFACE_CAPS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MBN_INTERFACE_CAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cellularClass == other.cellularClass && self.voiceClass == other.voiceClass && self.dataClass == other.dataClass && self.customDataClass == other.customDataClass && self.gsmBandClass == other.gsmBandClass && self.cdmaBandClass == other.cdmaBandClass && self.customBandClass == other.customBandClass && self.smsCaps == other.smsCaps && self.controlCaps == other.controlCaps && self.deviceID == other.deviceID && self.manufacturer == other.manufacturer && self.model == other.model && self.firmwareInfo == other.firmwareInfo
-    }
-}
-impl Eq for MBN_INTERFACE_CAPS {}
 impl Default for MBN_INTERFACE_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MBN_PIN_INFO {
     pub pinState: MBN_PIN_STATE,
     pub pinType: MBN_PIN_TYPE,
     pub attemptsRemaining: u32,
 }
-impl Copy for MBN_PIN_INFO {}
-impl Clone for MBN_PIN_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MBN_PIN_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MBN_PIN_INFO").field("pinState", &self.pinState).field("pinType", &self.pinType).field("attemptsRemaining", &self.attemptsRemaining).finish()
-    }
-}
 impl windows_core::TypeKind for MBN_PIN_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MBN_PIN_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pinState == other.pinState && self.pinType == other.pinType && self.attemptsRemaining == other.attemptsRemaining
-    }
-}
-impl Eq for MBN_PIN_INFO {}
 impl Default for MBN_PIN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MBN_PROVIDER {
     pub providerID: std::mem::ManuallyDrop<windows_core::BSTR>,
     pub providerState: u32,
@@ -2517,26 +2458,16 @@ impl Clone for MBN_PROVIDER {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for MBN_PROVIDER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MBN_PROVIDER").field("providerID", &self.providerID).field("providerState", &self.providerState).field("providerName", &self.providerName).field("dataClass", &self.dataClass).finish()
-    }
-}
 impl windows_core::TypeKind for MBN_PROVIDER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MBN_PROVIDER {
-    fn eq(&self, other: &Self) -> bool {
-        self.providerID == other.providerID && self.providerState == other.providerState && self.providerName == other.providerName && self.dataClass == other.dataClass
-    }
-}
-impl Eq for MBN_PROVIDER {}
 impl Default for MBN_PROVIDER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MBN_PROVIDER2 {
     pub provider: MBN_PROVIDER,
     pub cellularClass: MBN_CELLULAR_CLASS,
@@ -2548,80 +2479,37 @@ impl Clone for MBN_PROVIDER2 {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for MBN_PROVIDER2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MBN_PROVIDER2").field("provider", &self.provider).field("cellularClass", &self.cellularClass).field("signalStrength", &self.signalStrength).field("signalError", &self.signalError).finish()
-    }
-}
 impl windows_core::TypeKind for MBN_PROVIDER2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MBN_PROVIDER2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.provider == other.provider && self.cellularClass == other.cellularClass && self.signalStrength == other.signalStrength && self.signalError == other.signalError
-    }
-}
-impl Eq for MBN_PROVIDER2 {}
 impl Default for MBN_PROVIDER2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MBN_SMS_FILTER {
     pub flag: MBN_SMS_FLAG,
     pub messageIndex: u32,
 }
-impl Copy for MBN_SMS_FILTER {}
-impl Clone for MBN_SMS_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MBN_SMS_FILTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MBN_SMS_FILTER").field("flag", &self.flag).field("messageIndex", &self.messageIndex).finish()
-    }
-}
 impl windows_core::TypeKind for MBN_SMS_FILTER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MBN_SMS_FILTER {
-    fn eq(&self, other: &Self) -> bool {
-        self.flag == other.flag && self.messageIndex == other.messageIndex
-    }
-}
-impl Eq for MBN_SMS_FILTER {}
 impl Default for MBN_SMS_FILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MBN_SMS_STATUS_INFO {
     pub flag: u32,
     pub messageIndex: u32,
 }
-impl Copy for MBN_SMS_STATUS_INFO {}
-impl Clone for MBN_SMS_STATUS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MBN_SMS_STATUS_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MBN_SMS_STATUS_INFO").field("flag", &self.flag).field("messageIndex", &self.messageIndex).finish()
-    }
-}
 impl windows_core::TypeKind for MBN_SMS_STATUS_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MBN_SMS_STATUS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.flag == other.flag && self.messageIndex == other.messageIndex
-    }
-}
-impl Eq for MBN_SMS_STATUS_INFO {}
 impl Default for MBN_SMS_STATUS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2632,35 +2520,20 @@ pub const MbnConnectionProfileManager: windows_core::GUID = windows_core::GUID::
 pub const MbnDeviceServicesManager: windows_core::GUID = windows_core::GUID::from_u128(0x2269daa3_2a9f_4165_a501_ce00a6f7a75b);
 pub const MbnInterfaceManager: windows_core::GUID = windows_core::GUID::from_u128(0xbdfee05b_4418_11dd_90ed_001c257ccff1);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct __DummyPinType__ {
     pub pinType: u32,
-}
-impl Copy for __DummyPinType__ {}
-impl Clone for __DummyPinType__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for __DummyPinType__ {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("__DummyPinType__").field("pinType", &self.pinType).finish()
-    }
 }
 impl windows_core::TypeKind for __DummyPinType__ {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for __DummyPinType__ {
-    fn eq(&self, other: &Self) -> bool {
-        self.pinType == other.pinType
-    }
-}
-impl Eq for __DummyPinType__ {}
 impl Default for __DummyPinType__ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct __mbnapi_ReferenceRemainingTypes__ {
     pub bandClass: MBN_BAND_CLASS,
     pub contextConstants: MBN_CONTEXT_CONSTANTS,
@@ -2677,41 +2550,9 @@ pub struct __mbnapi_ReferenceRemainingTypes__ {
     pub wwaextSmsConstants: WWAEXT_SMS_CONSTANTS,
     pub smsStatusFlag: MBN_SMS_STATUS_FLAG,
 }
-impl Copy for __mbnapi_ReferenceRemainingTypes__ {}
-impl Clone for __mbnapi_ReferenceRemainingTypes__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for __mbnapi_ReferenceRemainingTypes__ {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("__mbnapi_ReferenceRemainingTypes__")
-            .field("bandClass", &self.bandClass)
-            .field("contextConstants", &self.contextConstants)
-            .field("ctrlCaps", &self.ctrlCaps)
-            .field("dataClass", &self.dataClass)
-            .field("interfaceCapsConstants", &self.interfaceCapsConstants)
-            .field("pinConstants", &self.pinConstants)
-            .field("providerConstants", &self.providerConstants)
-            .field("providerState", &self.providerState)
-            .field("registrationConstants", &self.registrationConstants)
-            .field("signalConstants", &self.signalConstants)
-            .field("smsCaps", &self.smsCaps)
-            .field("smsConstants", &self.smsConstants)
-            .field("wwaextSmsConstants", &self.wwaextSmsConstants)
-            .field("smsStatusFlag", &self.smsStatusFlag)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for __mbnapi_ReferenceRemainingTypes__ {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for __mbnapi_ReferenceRemainingTypes__ {
-    fn eq(&self, other: &Self) -> bool {
-        self.bandClass == other.bandClass && self.contextConstants == other.contextConstants && self.ctrlCaps == other.ctrlCaps && self.dataClass == other.dataClass && self.interfaceCapsConstants == other.interfaceCapsConstants && self.pinConstants == other.pinConstants && self.providerConstants == other.providerConstants && self.providerState == other.providerState && self.registrationConstants == other.registrationConstants && self.signalConstants == other.signalConstants && self.smsCaps == other.smsCaps && self.smsConstants == other.smsConstants && self.wwaextSmsConstants == other.wwaextSmsConstants && self.smsStatusFlag == other.smsStatusFlag
-    }
-}
-impl Eq for __mbnapi_ReferenceRemainingTypes__ {}
 impl Default for __mbnapi_ReferenceRemainingTypes__ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

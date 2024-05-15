@@ -352,6 +352,7 @@ impl core::fmt::Debug for WORDREP_BREAK_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CI_STATE {
     pub cbStruct: u32,
     pub cWordList: u32,
@@ -369,42 +370,9 @@ pub struct CI_STATE {
     pub cSecQDocuments: u32,
     pub dwPropCacheSize: u32,
 }
-impl Copy for CI_STATE {}
-impl Clone for CI_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CI_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CI_STATE")
-            .field("cbStruct", &self.cbStruct)
-            .field("cWordList", &self.cWordList)
-            .field("cPersistentIndex", &self.cPersistentIndex)
-            .field("cQueries", &self.cQueries)
-            .field("cDocuments", &self.cDocuments)
-            .field("cFreshTest", &self.cFreshTest)
-            .field("dwMergeProgress", &self.dwMergeProgress)
-            .field("eState", &self.eState)
-            .field("cFilteredDocuments", &self.cFilteredDocuments)
-            .field("cTotalDocuments", &self.cTotalDocuments)
-            .field("cPendingScans", &self.cPendingScans)
-            .field("dwIndexSize", &self.dwIndexSize)
-            .field("cUniqueKeys", &self.cUniqueKeys)
-            .field("cSecQDocuments", &self.cSecQDocuments)
-            .field("dwPropCacheSize", &self.dwPropCacheSize)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for CI_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CI_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.cWordList == other.cWordList && self.cPersistentIndex == other.cPersistentIndex && self.cQueries == other.cQueries && self.cDocuments == other.cDocuments && self.cFreshTest == other.cFreshTest && self.dwMergeProgress == other.dwMergeProgress && self.eState == other.eState && self.cFilteredDocuments == other.cFilteredDocuments && self.cTotalDocuments == other.cTotalDocuments && self.cPendingScans == other.cPendingScans && self.dwIndexSize == other.dwIndexSize && self.cUniqueKeys == other.cUniqueKeys && self.cSecQDocuments == other.cSecQDocuments && self.dwPropCacheSize == other.dwPropCacheSize
-    }
-}
-impl Eq for CI_STATE {}
 impl Default for CI_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -412,18 +380,11 @@ impl Default for CI_STATE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct DBID {
     pub uGuid: DBID_0,
     pub eKind: u32,
     pub uName: DBID_1,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for DBID {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for DBID {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for DBID {
@@ -437,17 +398,10 @@ impl Default for DBID {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub union DBID_0 {
     pub guid: windows_core::GUID,
     pub pguid: *mut windows_core::GUID,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for DBID_0 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for DBID_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for DBID_0 {
@@ -461,17 +415,10 @@ impl Default for DBID_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub union DBID_1 {
     pub pwszName: windows_core::PWSTR,
     pub ulPropid: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for DBID_1 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for DBID_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for DBID_1 {
@@ -485,18 +432,11 @@ impl Default for DBID_1 {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct DBID {
     pub uGuid: DBID_0,
     pub eKind: u32,
     pub uName: DBID_1,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for DBID {}
-#[cfg(target_arch = "x86")]
-impl Clone for DBID {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for DBID {
@@ -510,17 +450,10 @@ impl Default for DBID {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub union DBID_0 {
     pub guid: windows_core::GUID,
     pub pguid: *mut windows_core::GUID,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for DBID_0 {}
-#[cfg(target_arch = "x86")]
-impl Clone for DBID_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for DBID_0 {
@@ -534,17 +467,10 @@ impl Default for DBID_0 {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub union DBID_1 {
     pub pwszName: windows_core::PWSTR,
     pub ulPropid: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for DBID_1 {}
-#[cfg(target_arch = "x86")]
-impl Clone for DBID_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for DBID_1 {
@@ -557,31 +483,15 @@ impl Default for DBID_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILTERREGION {
     pub idChunk: u32,
     pub cwcStart: u32,
     pub cwcExtent: u32,
 }
-impl Copy for FILTERREGION {}
-impl Clone for FILTERREGION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FILTERREGION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FILTERREGION").field("idChunk", &self.idChunk).field("cwcStart", &self.cwcStart).field("cwcExtent", &self.cwcExtent).finish()
-    }
-}
 impl windows_core::TypeKind for FILTERREGION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FILTERREGION {
-    fn eq(&self, other: &Self) -> bool {
-        self.idChunk == other.idChunk && self.cwcStart == other.cwcStart && self.cwcExtent == other.cwcExtent
-    }
-}
-impl Eq for FILTERREGION {}
 impl Default for FILTERREGION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -589,17 +499,10 @@ impl Default for FILTERREGION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[derive(Clone, Copy)]
 pub struct FULLPROPSPEC {
     pub guidPropSet: windows_core::GUID,
     pub psProperty: super::super::System::Com::StructuredStorage::PROPSPEC,
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl Copy for FULLPROPSPEC {}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl Clone for FULLPROPSPEC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl windows_core::TypeKind for FULLPROPSPEC {
@@ -613,6 +516,7 @@ impl Default for FULLPROPSPEC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[derive(Clone, Copy)]
 pub struct STAT_CHUNK {
     pub idChunk: u32,
     pub breakType: CHUNK_BREAKTYPE,
@@ -622,14 +526,6 @@ pub struct STAT_CHUNK {
     pub idChunkSource: u32,
     pub cwcStartSource: u32,
     pub cwcLenSource: u32,
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl Copy for STAT_CHUNK {}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl Clone for STAT_CHUNK {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl windows_core::TypeKind for STAT_CHUNK {

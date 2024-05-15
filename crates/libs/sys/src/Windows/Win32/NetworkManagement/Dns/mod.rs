@@ -474,37 +474,23 @@ pub type DNS_SECTION = i32;
 pub type DNS_SVCB_PARAM_TYPE = i32;
 pub type DNS_TYPE = u16;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_AAAA_DATA {
     pub Ip6Address: IP6_ADDRESS,
 }
-impl Copy for DNS_AAAA_DATA {}
-impl Clone for DNS_AAAA_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_ADDR {
     pub MaxSa: [i8; 32],
     pub Data: DNS_ADDR_0,
 }
-impl Copy for DNS_ADDR {}
-impl Clone for DNS_ADDR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union DNS_ADDR_0 {
     pub DnsAddrUserDword: [u32; 8],
 }
-impl Copy for DNS_ADDR_0 {}
-impl Clone for DNS_ADDR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DNS_ADDR_ARRAY {
     pub MaxCount: u32,
     pub AddrCount: u32,
@@ -517,88 +503,48 @@ pub struct DNS_ADDR_ARRAY {
     pub Reserved2: u32,
     pub AddrArray: [DNS_ADDR; 1],
 }
-impl Copy for DNS_ADDR_ARRAY {}
-impl Clone for DNS_ADDR_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_APPLICATION_SETTINGS {
     pub Version: u32,
     pub Flags: u64,
 }
-impl Copy for DNS_APPLICATION_SETTINGS {}
-impl Clone for DNS_APPLICATION_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_ATMA_DATA {
     pub AddressType: u8,
     pub Address: [u8; 20],
 }
-impl Copy for DNS_ATMA_DATA {}
-impl Clone for DNS_ATMA_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_A_DATA {
     pub IpAddress: u32,
 }
-impl Copy for DNS_A_DATA {}
-impl Clone for DNS_A_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_IFINDEX_ENTRY {
     pub pwszConnectionName: windows_sys::core::PCWSTR,
     pub dwIfIndex: u32,
 }
-impl Copy for DNS_CONNECTION_IFINDEX_ENTRY {}
-impl Clone for DNS_CONNECTION_IFINDEX_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_IFINDEX_LIST {
     pub pConnectionIfIndexEntries: *mut DNS_CONNECTION_IFINDEX_ENTRY,
     pub nEntries: u32,
 }
-impl Copy for DNS_CONNECTION_IFINDEX_LIST {}
-impl Clone for DNS_CONNECTION_IFINDEX_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_NAME {
     pub wszName: [u16; 65],
 }
-impl Copy for DNS_CONNECTION_NAME {}
-impl Clone for DNS_CONNECTION_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_NAME_LIST {
     pub cNames: u32,
     pub pNames: *mut DNS_CONNECTION_NAME,
 }
-impl Copy for DNS_CONNECTION_NAME_LIST {}
-impl Clone for DNS_CONNECTION_NAME_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_POLICY_ENTRY {
     pub pwszHost: windows_sys::core::PCWSTR,
     pub pwszAppId: windows_sys::core::PCWSTR,
@@ -608,35 +554,20 @@ pub struct DNS_CONNECTION_POLICY_ENTRY {
     pub ppwszConnections: *const windows_sys::core::PCWSTR,
     pub dwPolicyEntryFlags: u32,
 }
-impl Copy for DNS_CONNECTION_POLICY_ENTRY {}
-impl Clone for DNS_CONNECTION_POLICY_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_POLICY_ENTRY_LIST {
     pub pPolicyEntries: *mut DNS_CONNECTION_POLICY_ENTRY,
     pub nEntries: u32,
 }
-impl Copy for DNS_CONNECTION_POLICY_ENTRY_LIST {}
-impl Clone for DNS_CONNECTION_POLICY_ENTRY_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_PROXY_ELEMENT {
     pub Type: DNS_CONNECTION_PROXY_TYPE,
     pub Info: DNS_CONNECTION_PROXY_INFO,
 }
-impl Copy for DNS_CONNECTION_PROXY_ELEMENT {}
-impl Clone for DNS_CONNECTION_PROXY_ELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_PROXY_INFO {
     pub Version: u32,
     pub pwszFriendlyName: windows_sys::core::PWSTR,
@@ -644,24 +575,14 @@ pub struct DNS_CONNECTION_PROXY_INFO {
     pub Switch: DNS_CONNECTION_PROXY_INFO_SWITCH,
     pub Anonymous: DNS_CONNECTION_PROXY_INFO_0,
 }
-impl Copy for DNS_CONNECTION_PROXY_INFO {}
-impl Clone for DNS_CONNECTION_PROXY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_CONNECTION_PROXY_INFO_0 {
     pub Config: DNS_CONNECTION_PROXY_INFO_0_0,
     pub Script: DNS_CONNECTION_PROXY_INFO_0_1,
 }
-impl Copy for DNS_CONNECTION_PROXY_INFO_0 {}
-impl Clone for DNS_CONNECTION_PROXY_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_PROXY_INFO_0_0 {
     pub pwszServer: windows_sys::core::PWSTR,
     pub pwszUsername: windows_sys::core::PWSTR,
@@ -670,25 +591,15 @@ pub struct DNS_CONNECTION_PROXY_INFO_0_0 {
     pub pwszExtraInfo: windows_sys::core::PWSTR,
     pub Port: u16,
 }
-impl Copy for DNS_CONNECTION_PROXY_INFO_0_0 {}
-impl Clone for DNS_CONNECTION_PROXY_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_PROXY_INFO_0_1 {
     pub pwszScript: windows_sys::core::PWSTR,
     pub pwszUsername: windows_sys::core::PWSTR,
     pub pwszPassword: windows_sys::core::PWSTR,
 }
-impl Copy for DNS_CONNECTION_PROXY_INFO_0_1 {}
-impl Clone for DNS_CONNECTION_PROXY_INFO_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_PROXY_INFO_EX {
     pub ProxyInfo: DNS_CONNECTION_PROXY_INFO,
     pub dwInterfaceIndex: u32,
@@ -696,68 +607,38 @@ pub struct DNS_CONNECTION_PROXY_INFO_EX {
     pub fDirectConfiguration: super::super::Foundation::BOOL,
     pub hConnection: super::super::Foundation::HANDLE,
 }
-impl Copy for DNS_CONNECTION_PROXY_INFO_EX {}
-impl Clone for DNS_CONNECTION_PROXY_INFO_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_PROXY_LIST {
     pub cProxies: u32,
     pub pProxies: *mut DNS_CONNECTION_PROXY_ELEMENT,
 }
-impl Copy for DNS_CONNECTION_PROXY_LIST {}
-impl Clone for DNS_CONNECTION_PROXY_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_CUSTOM_SERVER {
     pub dwServerType: u32,
     pub ullFlags: u64,
     pub Anonymous1: DNS_CUSTOM_SERVER_0,
     pub Anonymous2: DNS_CUSTOM_SERVER_1,
 }
-impl Copy for DNS_CUSTOM_SERVER {}
-impl Clone for DNS_CUSTOM_SERVER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_CUSTOM_SERVER_0 {
     pub pwszTemplate: windows_sys::core::PWSTR,
 }
-impl Copy for DNS_CUSTOM_SERVER_0 {}
-impl Clone for DNS_CUSTOM_SERVER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_CUSTOM_SERVER_1 {
     pub MaxSa: [i8; 32],
 }
-impl Copy for DNS_CUSTOM_SERVER_1 {}
-impl Clone for DNS_CUSTOM_SERVER_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_DHCID_DATA {
     pub dwByteCount: u32,
     pub DHCID: [u8; 1],
 }
-impl Copy for DNS_DHCID_DATA {}
-impl Clone for DNS_DHCID_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_DS_DATA {
     pub wKeyTag: u16,
     pub chAlgorithm: u8,
@@ -766,13 +647,8 @@ pub struct DNS_DS_DATA {
     pub wPad: u16,
     pub Digest: [u8; 1],
 }
-impl Copy for DNS_DS_DATA {}
-impl Clone for DNS_DS_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DNS_HEADER {
     pub Xid: u16,
     pub _bitfield1: u8,
@@ -782,25 +658,15 @@ pub struct DNS_HEADER {
     pub NameServerCount: u16,
     pub AdditionalCount: u16,
 }
-impl Copy for DNS_HEADER {}
-impl Clone for DNS_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DNS_HEADER_EXT {
     pub _bitfield: u16,
     pub chRcode: u8,
     pub chVersion: u8,
 }
-impl Copy for DNS_HEADER_EXT {}
-impl Clone for DNS_HEADER_EXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_KEY_DATA {
     pub wFlags: u16,
     pub chProtocol: u8,
@@ -809,13 +675,8 @@ pub struct DNS_KEY_DATA {
     pub wPad: u16,
     pub Key: [u8; 1],
 }
-impl Copy for DNS_KEY_DATA {}
-impl Clone for DNS_KEY_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_LOC_DATA {
     pub wVersion: u16,
     pub wSize: u16,
@@ -825,70 +686,40 @@ pub struct DNS_LOC_DATA {
     pub dwLongitude: u32,
     pub dwAltitude: u32,
 }
-impl Copy for DNS_LOC_DATA {}
-impl Clone for DNS_LOC_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_MESSAGE_BUFFER {
     pub MessageHead: DNS_HEADER,
     pub MessageBody: [i8; 1],
 }
-impl Copy for DNS_MESSAGE_BUFFER {}
-impl Clone for DNS_MESSAGE_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_MINFO_DATAA {
     pub pNameMailbox: windows_sys::core::PSTR,
     pub pNameErrorsMailbox: windows_sys::core::PSTR,
 }
-impl Copy for DNS_MINFO_DATAA {}
-impl Clone for DNS_MINFO_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_MINFO_DATAW {
     pub pNameMailbox: windows_sys::core::PWSTR,
     pub pNameErrorsMailbox: windows_sys::core::PWSTR,
 }
-impl Copy for DNS_MINFO_DATAW {}
-impl Clone for DNS_MINFO_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_MX_DATAA {
     pub pNameExchange: windows_sys::core::PSTR,
     pub wPreference: u16,
     pub Pad: u16,
 }
-impl Copy for DNS_MX_DATAA {}
-impl Clone for DNS_MX_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_MX_DATAW {
     pub pNameExchange: windows_sys::core::PWSTR,
     pub wPreference: u16,
     pub Pad: u16,
 }
-impl Copy for DNS_MX_DATAW {}
-impl Clone for DNS_MX_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_NAPTR_DATAA {
     pub wOrder: u16,
     pub wPreference: u16,
@@ -897,13 +728,8 @@ pub struct DNS_NAPTR_DATAA {
     pub pRegularExpression: windows_sys::core::PSTR,
     pub pReplacement: windows_sys::core::PSTR,
 }
-impl Copy for DNS_NAPTR_DATAA {}
-impl Clone for DNS_NAPTR_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_NAPTR_DATAW {
     pub wOrder: u16,
     pub wPreference: u16,
@@ -912,13 +738,8 @@ pub struct DNS_NAPTR_DATAW {
     pub pRegularExpression: windows_sys::core::PWSTR,
     pub pReplacement: windows_sys::core::PWSTR,
 }
-impl Copy for DNS_NAPTR_DATAW {}
-impl Clone for DNS_NAPTR_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_NSEC3PARAM_DATA {
     pub chAlgorithm: u8,
     pub bFlags: u8,
@@ -927,13 +748,8 @@ pub struct DNS_NSEC3PARAM_DATA {
     pub bPad: [u8; 3],
     pub pbSalt: [u8; 1],
 }
-impl Copy for DNS_NSEC3PARAM_DATA {}
-impl Clone for DNS_NSEC3PARAM_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_NSEC3_DATA {
     pub chAlgorithm: u8,
     pub bFlags: u8,
@@ -943,138 +759,78 @@ pub struct DNS_NSEC3_DATA {
     pub wTypeBitMapsLength: u16,
     pub chData: [u8; 1],
 }
-impl Copy for DNS_NSEC3_DATA {}
-impl Clone for DNS_NSEC3_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_NSEC_DATAA {
     pub pNextDomainName: windows_sys::core::PSTR,
     pub wTypeBitMapsLength: u16,
     pub wPad: u16,
     pub TypeBitMaps: [u8; 1],
 }
-impl Copy for DNS_NSEC_DATAA {}
-impl Clone for DNS_NSEC_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_NSEC_DATAW {
     pub pNextDomainName: windows_sys::core::PWSTR,
     pub wTypeBitMapsLength: u16,
     pub wPad: u16,
     pub TypeBitMaps: [u8; 1],
 }
-impl Copy for DNS_NSEC_DATAW {}
-impl Clone for DNS_NSEC_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_NULL_DATA {
     pub dwByteCount: u32,
     pub Data: [u8; 1],
 }
-impl Copy for DNS_NULL_DATA {}
-impl Clone for DNS_NULL_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_NXT_DATAA {
     pub pNameNext: windows_sys::core::PSTR,
     pub wNumTypes: u16,
     pub wTypes: [u16; 1],
 }
-impl Copy for DNS_NXT_DATAA {}
-impl Clone for DNS_NXT_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_NXT_DATAW {
     pub pNameNext: windows_sys::core::PWSTR,
     pub wNumTypes: u16,
     pub wTypes: [u16; 1],
 }
-impl Copy for DNS_NXT_DATAW {}
-impl Clone for DNS_NXT_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_OPT_DATA {
     pub wDataLength: u16,
     pub wPad: u16,
     pub Data: [u8; 1],
 }
-impl Copy for DNS_OPT_DATA {}
-impl Clone for DNS_OPT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_PROXY_INFORMATION {
     pub version: u32,
     pub proxyInformationType: DNS_PROXY_INFORMATION_TYPE,
     pub proxyName: windows_sys::core::PWSTR,
 }
-impl Copy for DNS_PROXY_INFORMATION {}
-impl Clone for DNS_PROXY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_PTR_DATAA {
     pub pNameHost: windows_sys::core::PSTR,
 }
-impl Copy for DNS_PTR_DATAA {}
-impl Clone for DNS_PTR_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_PTR_DATAW {
     pub pNameHost: windows_sys::core::PWSTR,
 }
-impl Copy for DNS_PTR_DATAW {}
-impl Clone for DNS_PTR_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_QUERY_CANCEL {
     pub Reserved: [i8; 32],
 }
-impl Copy for DNS_QUERY_CANCEL {}
-impl Clone for DNS_QUERY_CANCEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_QUERY_RAW_CANCEL {
     pub reserved: [i8; 32],
 }
-impl Copy for DNS_QUERY_RAW_CANCEL {}
-impl Clone for DNS_QUERY_RAW_CANCEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_QUERY_RAW_REQUEST {
     pub version: u32,
     pub resultsVersion: u32,
@@ -1092,23 +848,13 @@ pub struct DNS_QUERY_RAW_REQUEST {
     pub protocol: u32,
     pub Anonymous: DNS_QUERY_RAW_REQUEST_0,
 }
-impl Copy for DNS_QUERY_RAW_REQUEST {}
-impl Clone for DNS_QUERY_RAW_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_QUERY_RAW_REQUEST_0 {
     pub maxSa: [i8; 32],
 }
-impl Copy for DNS_QUERY_RAW_REQUEST_0 {}
-impl Clone for DNS_QUERY_RAW_REQUEST_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_QUERY_RAW_RESULT {
     pub version: u32,
     pub queryStatus: i32,
@@ -1121,23 +867,13 @@ pub struct DNS_QUERY_RAW_RESULT {
     pub protocol: u32,
     pub Anonymous: DNS_QUERY_RAW_RESULT_0,
 }
-impl Copy for DNS_QUERY_RAW_RESULT {}
-impl Clone for DNS_QUERY_RAW_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_QUERY_RAW_RESULT_0 {
     pub maxSa: [i8; 32],
 }
-impl Copy for DNS_QUERY_RAW_RESULT_0 {}
-impl Clone for DNS_QUERY_RAW_RESULT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_QUERY_REQUEST {
     pub Version: u32,
     pub QueryName: windows_sys::core::PCWSTR,
@@ -1148,13 +884,8 @@ pub struct DNS_QUERY_REQUEST {
     pub pQueryCompletionCallback: PDNS_QUERY_COMPLETION_ROUTINE,
     pub pQueryContext: *mut core::ffi::c_void,
 }
-impl Copy for DNS_QUERY_REQUEST {}
-impl Clone for DNS_QUERY_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_QUERY_REQUEST3 {
     pub Version: u32,
     pub QueryName: windows_sys::core::PCWSTR,
@@ -1169,13 +900,8 @@ pub struct DNS_QUERY_REQUEST3 {
     pub cCustomServers: u32,
     pub pCustomServers: *mut DNS_CUSTOM_SERVER,
 }
-impl Copy for DNS_QUERY_REQUEST3 {}
-impl Clone for DNS_QUERY_REQUEST3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_QUERY_RESULT {
     pub Version: u32,
     pub QueryStatus: i32,
@@ -1183,13 +909,8 @@ pub struct DNS_QUERY_RESULT {
     pub pQueryRecords: *mut DNS_RECORDA,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl Copy for DNS_QUERY_RESULT {}
-impl Clone for DNS_QUERY_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_RECORDA {
     pub pNext: *mut DNS_RECORDA,
     pub pName: windows_sys::core::PSTR,
@@ -1200,13 +921,8 @@ pub struct DNS_RECORDA {
     pub dwReserved: u32,
     pub Data: DNS_RECORDA_0,
 }
-impl Copy for DNS_RECORDA {}
-impl Clone for DNS_RECORDA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_RECORDA_0 {
     pub A: DNS_A_DATA,
     pub SOA: DNS_SOA_DATAA,
@@ -1295,24 +1011,14 @@ pub union DNS_RECORDA_0 {
     pub Unknown: DNS_UNKNOWN_DATA,
     pub pDataPtr: *mut u8,
 }
-impl Copy for DNS_RECORDA_0 {}
-impl Clone for DNS_RECORDA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_RECORDA_1 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
 }
-impl Copy for DNS_RECORDA_1 {}
-impl Clone for DNS_RECORDA_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_RECORDW {
     pub pNext: *mut DNS_RECORDW,
     pub pName: windows_sys::core::PWSTR,
@@ -1323,13 +1029,8 @@ pub struct DNS_RECORDW {
     pub dwReserved: u32,
     pub Data: DNS_RECORDW_0,
 }
-impl Copy for DNS_RECORDW {}
-impl Clone for DNS_RECORDW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_RECORDW_0 {
     pub A: DNS_A_DATA,
     pub SOA: DNS_SOA_DATAW,
@@ -1418,34 +1119,19 @@ pub union DNS_RECORDW_0 {
     pub Unknown: DNS_UNKNOWN_DATA,
     pub pDataPtr: *mut u8,
 }
-impl Copy for DNS_RECORDW_0 {}
-impl Clone for DNS_RECORDW_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_RECORDW_1 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
 }
-impl Copy for DNS_RECORDW_1 {}
-impl Clone for DNS_RECORDW_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_RECORD_FLAGS {
     pub _bitfield: u32,
 }
-impl Copy for DNS_RECORD_FLAGS {}
-impl Clone for DNS_RECORD_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_RECORD_OPTW {
     pub pNext: *mut DNS_RECORDW,
     pub pName: windows_sys::core::PWSTR,
@@ -1457,46 +1143,26 @@ pub struct DNS_RECORD_OPTW {
     pub wReserved: u16,
     pub Data: DNS_RECORD_OPTW_0,
 }
-impl Copy for DNS_RECORD_OPTW {}
-impl Clone for DNS_RECORD_OPTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_RECORD_OPTW_0 {
     pub OPT: DNS_OPT_DATA,
     pub Opt: DNS_OPT_DATA,
 }
-impl Copy for DNS_RECORD_OPTW_0 {}
-impl Clone for DNS_RECORD_OPTW_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_RECORD_OPTW_1 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
 }
-impl Copy for DNS_RECORD_OPTW_1 {}
-impl Clone for DNS_RECORD_OPTW_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_RRSET {
     pub pFirstRR: *mut DNS_RECORDA,
     pub pLastRR: *mut DNS_RECORDA,
 }
-impl Copy for DNS_RRSET {}
-impl Clone for DNS_RRSET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_SERVICE_BROWSE_REQUEST {
     pub Version: u32,
     pub InterfaceIndex: u32,
@@ -1504,34 +1170,19 @@ pub struct DNS_SERVICE_BROWSE_REQUEST {
     pub Anonymous: DNS_SERVICE_BROWSE_REQUEST_0,
     pub pQueryContext: *mut core::ffi::c_void,
 }
-impl Copy for DNS_SERVICE_BROWSE_REQUEST {}
-impl Clone for DNS_SERVICE_BROWSE_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_SERVICE_BROWSE_REQUEST_0 {
     pub pBrowseCallback: PDNS_SERVICE_BROWSE_CALLBACK,
     pub pBrowseCallbackV2: PDNS_QUERY_COMPLETION_ROUTINE,
 }
-impl Copy for DNS_SERVICE_BROWSE_REQUEST_0 {}
-impl Clone for DNS_SERVICE_BROWSE_REQUEST_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_SERVICE_CANCEL {
     pub reserved: *mut core::ffi::c_void,
 }
-impl Copy for DNS_SERVICE_CANCEL {}
-impl Clone for DNS_SERVICE_CANCEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_SERVICE_INSTANCE {
     pub pszInstanceName: windows_sys::core::PWSTR,
     pub pszHostName: windows_sys::core::PWSTR,
@@ -1545,13 +1196,8 @@ pub struct DNS_SERVICE_INSTANCE {
     pub values: *mut windows_sys::core::PWSTR,
     pub dwInterfaceIndex: u32,
 }
-impl Copy for DNS_SERVICE_INSTANCE {}
-impl Clone for DNS_SERVICE_INSTANCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_SERVICE_REGISTER_REQUEST {
     pub Version: u32,
     pub InterfaceIndex: u32,
@@ -1561,13 +1207,8 @@ pub struct DNS_SERVICE_REGISTER_REQUEST {
     pub hCredentials: super::super::Foundation::HANDLE,
     pub unicastEnabled: super::super::Foundation::BOOL,
 }
-impl Copy for DNS_SERVICE_REGISTER_REQUEST {}
-impl Clone for DNS_SERVICE_REGISTER_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_SERVICE_RESOLVE_REQUEST {
     pub Version: u32,
     pub InterfaceIndex: u32,
@@ -1575,13 +1216,8 @@ pub struct DNS_SERVICE_RESOLVE_REQUEST {
     pub pResolveCompletionCallback: PDNS_SERVICE_RESOLVE_COMPLETE,
     pub pQueryContext: *mut core::ffi::c_void,
 }
-impl Copy for DNS_SERVICE_RESOLVE_REQUEST {}
-impl Clone for DNS_SERVICE_RESOLVE_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_SIG_DATAA {
     pub wTypeCovered: u16,
     pub chAlgorithm: u8,
@@ -1594,13 +1230,8 @@ pub struct DNS_SIG_DATAA {
     pub pNameSigner: windows_sys::core::PSTR,
     pub Signature: [u8; 1],
 }
-impl Copy for DNS_SIG_DATAA {}
-impl Clone for DNS_SIG_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_SIG_DATAW {
     pub wTypeCovered: u16,
     pub chAlgorithm: u8,
@@ -1613,13 +1244,8 @@ pub struct DNS_SIG_DATAW {
     pub pNameSigner: windows_sys::core::PWSTR,
     pub Signature: [u8; 1],
 }
-impl Copy for DNS_SIG_DATAW {}
-impl Clone for DNS_SIG_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_SOA_DATAA {
     pub pNamePrimaryServer: windows_sys::core::PSTR,
     pub pNameAdministrator: windows_sys::core::PSTR,
@@ -1629,13 +1255,8 @@ pub struct DNS_SOA_DATAA {
     pub dwExpire: u32,
     pub dwDefaultTtl: u32,
 }
-impl Copy for DNS_SOA_DATAA {}
-impl Clone for DNS_SOA_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_SOA_DATAW {
     pub pNamePrimaryServer: windows_sys::core::PWSTR,
     pub pNameAdministrator: windows_sys::core::PWSTR,
@@ -1645,13 +1266,8 @@ pub struct DNS_SOA_DATAW {
     pub dwExpire: u32,
     pub dwDefaultTtl: u32,
 }
-impl Copy for DNS_SOA_DATAW {}
-impl Clone for DNS_SOA_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_SRV_DATAA {
     pub pNameTarget: windows_sys::core::PSTR,
     pub wPriority: u16,
@@ -1659,13 +1275,8 @@ pub struct DNS_SRV_DATAA {
     pub wPort: u16,
     pub Pad: u16,
 }
-impl Copy for DNS_SRV_DATAA {}
-impl Clone for DNS_SRV_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_SRV_DATAW {
     pub pNameTarget: windows_sys::core::PWSTR,
     pub wPriority: u16,
@@ -1673,37 +1284,22 @@ pub struct DNS_SRV_DATAW {
     pub wPort: u16,
     pub Pad: u16,
 }
-impl Copy for DNS_SRV_DATAW {}
-impl Clone for DNS_SRV_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_SVCB_DATA {
     pub wSvcPriority: u16,
     pub pszTargetName: windows_sys::core::PSTR,
     pub cSvcParams: u16,
     pub pSvcParams: *mut DNS_SVCB_PARAM,
 }
-impl Copy for DNS_SVCB_DATA {}
-impl Clone for DNS_SVCB_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_SVCB_PARAM {
     pub wSvcParamKey: u16,
     pub Anonymous: DNS_SVCB_PARAM_0,
 }
-impl Copy for DNS_SVCB_PARAM {}
-impl Clone for DNS_SVCB_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_SVCB_PARAM_0 {
     pub pIpv4Hints: *mut DNS_SVCB_PARAM_IPV4,
     pub pIpv6Hints: *mut DNS_SVCB_PARAM_IPV6,
@@ -1714,79 +1310,44 @@ pub union DNS_SVCB_PARAM_0 {
     pub pszDohPath: windows_sys::core::PSTR,
     pub pReserved: *mut core::ffi::c_void,
 }
-impl Copy for DNS_SVCB_PARAM_0 {}
-impl Clone for DNS_SVCB_PARAM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_SVCB_PARAM_ALPN {
     pub cIds: u16,
     pub rgIds: [DNS_SVCB_PARAM_ALPN_ID; 1],
 }
-impl Copy for DNS_SVCB_PARAM_ALPN {}
-impl Clone for DNS_SVCB_PARAM_ALPN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_SVCB_PARAM_ALPN_ID {
     pub cBytes: u8,
     pub pbId: *mut u8,
 }
-impl Copy for DNS_SVCB_PARAM_ALPN_ID {}
-impl Clone for DNS_SVCB_PARAM_ALPN_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_SVCB_PARAM_IPV4 {
     pub cIps: u16,
     pub rgIps: [u32; 1],
 }
-impl Copy for DNS_SVCB_PARAM_IPV4 {}
-impl Clone for DNS_SVCB_PARAM_IPV4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_SVCB_PARAM_IPV6 {
     pub cIps: u16,
     pub rgIps: [IP6_ADDRESS; 1],
 }
-impl Copy for DNS_SVCB_PARAM_IPV6 {}
-impl Clone for DNS_SVCB_PARAM_IPV6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_SVCB_PARAM_MANDATORY {
     pub cMandatoryKeys: u16,
     pub rgwMandatoryKeys: [u16; 1],
 }
-impl Copy for DNS_SVCB_PARAM_MANDATORY {}
-impl Clone for DNS_SVCB_PARAM_MANDATORY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_SVCB_PARAM_UNKNOWN {
     pub cBytes: u16,
     pub pbSvcParamValue: [u8; 1],
 }
-impl Copy for DNS_SVCB_PARAM_UNKNOWN {}
-impl Clone for DNS_SVCB_PARAM_UNKNOWN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_TKEY_DATAA {
     pub pNameAlgorithm: windows_sys::core::PSTR,
     pub pAlgorithmPacket: *mut u8,
@@ -1801,13 +1362,8 @@ pub struct DNS_TKEY_DATAA {
     pub cAlgNameLength: u8,
     pub bPacketPointers: super::super::Foundation::BOOL,
 }
-impl Copy for DNS_TKEY_DATAA {}
-impl Clone for DNS_TKEY_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_TKEY_DATAW {
     pub pNameAlgorithm: windows_sys::core::PWSTR,
     pub pAlgorithmPacket: *mut u8,
@@ -1822,13 +1378,8 @@ pub struct DNS_TKEY_DATAW {
     pub cAlgNameLength: u8,
     pub bPacketPointers: super::super::Foundation::BOOL,
 }
-impl Copy for DNS_TKEY_DATAW {}
-impl Clone for DNS_TKEY_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_TLSA_DATA {
     pub bCertUsage: u8,
     pub bSelector: u8,
@@ -1837,13 +1388,8 @@ pub struct DNS_TLSA_DATA {
     pub bPad: [u8; 3],
     pub bCertificateAssociationData: [u8; 1],
 }
-impl Copy for DNS_TLSA_DATA {}
-impl Clone for DNS_TLSA_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_TSIG_DATAA {
     pub pNameAlgorithm: windows_sys::core::PSTR,
     pub pAlgorithmPacket: *mut u8,
@@ -1858,13 +1404,8 @@ pub struct DNS_TSIG_DATAA {
     pub cAlgNameLength: u8,
     pub bPacketPointers: super::super::Foundation::BOOL,
 }
-impl Copy for DNS_TSIG_DATAA {}
-impl Clone for DNS_TSIG_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_TSIG_DATAW {
     pub pNameAlgorithm: windows_sys::core::PWSTR,
     pub pAlgorithmPacket: *mut u8,
@@ -1879,72 +1420,42 @@ pub struct DNS_TSIG_DATAW {
     pub cAlgNameLength: u8,
     pub bPacketPointers: super::super::Foundation::BOOL,
 }
-impl Copy for DNS_TSIG_DATAW {}
-impl Clone for DNS_TSIG_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_TXT_DATAA {
     pub dwStringCount: u32,
     pub pStringArray: [windows_sys::core::PSTR; 1],
 }
-impl Copy for DNS_TXT_DATAA {}
-impl Clone for DNS_TXT_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_TXT_DATAW {
     pub dwStringCount: u32,
     pub pStringArray: [windows_sys::core::PWSTR; 1],
 }
-impl Copy for DNS_TXT_DATAW {}
-impl Clone for DNS_TXT_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_UNKNOWN_DATA {
     pub dwByteCount: u32,
     pub bData: [u8; 1],
 }
-impl Copy for DNS_UNKNOWN_DATA {}
-impl Clone for DNS_UNKNOWN_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_WINSR_DATAA {
     pub dwMappingFlag: u32,
     pub dwLookupTimeout: u32,
     pub dwCacheTimeout: u32,
     pub pNameResultDomain: windows_sys::core::PSTR,
 }
-impl Copy for DNS_WINSR_DATAA {}
-impl Clone for DNS_WINSR_DATAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_WINSR_DATAW {
     pub dwMappingFlag: u32,
     pub dwLookupTimeout: u32,
     pub dwCacheTimeout: u32,
     pub pNameResultDomain: windows_sys::core::PWSTR,
 }
-impl Copy for DNS_WINSR_DATAW {}
-impl Clone for DNS_WINSR_DATAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_WINS_DATA {
     pub dwMappingFlag: u32,
     pub dwLookupTimeout: u32,
@@ -1952,91 +1463,52 @@ pub struct DNS_WINS_DATA {
     pub cWinsServerCount: u32,
     pub WinsServers: [u32; 1],
 }
-impl Copy for DNS_WINS_DATA {}
-impl Clone for DNS_WINS_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DNS_WIRE_QUESTION {
     pub QuestionType: u16,
     pub QuestionClass: u16,
 }
-impl Copy for DNS_WIRE_QUESTION {}
-impl Clone for DNS_WIRE_QUESTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DNS_WIRE_RECORD {
     pub RecordType: u16,
     pub RecordClass: u16,
     pub TimeToLive: u32,
     pub DataLength: u16,
 }
-impl Copy for DNS_WIRE_RECORD {}
-impl Clone for DNS_WIRE_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_WKS_DATA {
     pub IpAddress: u32,
     pub chProtocol: u8,
     pub BitMask: [u8; 1],
 }
-impl Copy for DNS_WKS_DATA {}
-impl Clone for DNS_WKS_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IP4_ARRAY {
     pub AddrCount: u32,
     pub AddrArray: [u32; 1],
 }
-impl Copy for IP4_ARRAY {}
-impl Clone for IP4_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub union IP6_ADDRESS {
     pub IP6Qword: [u64; 2],
     pub IP6Dword: [u32; 4],
     pub IP6Word: [u16; 8],
     pub IP6Byte: [u8; 16],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for IP6_ADDRESS {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for IP6_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub union IP6_ADDRESS {
     pub IP6Dword: [u32; 4],
     pub IP6Word: [u16; 8],
     pub IP6Byte: [u8; 16],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for IP6_ADDRESS {}
-#[cfg(target_arch = "x86")]
-impl Clone for IP6_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MDNS_QUERY_HANDLE {
     pub nameBuf: [u16; 256],
     pub wType: u16,
@@ -2044,13 +1516,8 @@ pub struct MDNS_QUERY_HANDLE {
     pub pWnfCallbackParams: *mut core::ffi::c_void,
     pub stateNameData: [u32; 2],
 }
-impl Copy for MDNS_QUERY_HANDLE {}
-impl Clone for MDNS_QUERY_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MDNS_QUERY_REQUEST {
     pub Version: u32,
     pub ulRefCount: u32,
@@ -2063,13 +1530,8 @@ pub struct MDNS_QUERY_REQUEST {
     pub fAnswerReceived: super::super::Foundation::BOOL,
     pub ulResendCount: u32,
 }
-impl Copy for MDNS_QUERY_REQUEST {}
-impl Clone for MDNS_QUERY_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _DnsRecordOptA {
     pub pNext: *mut DNS_RECORDA,
     pub pName: windows_sys::core::PSTR,
@@ -2081,33 +1543,17 @@ pub struct _DnsRecordOptA {
     pub wReserved: u16,
     pub Data: _DnsRecordOptA_0,
 }
-impl Copy for _DnsRecordOptA {}
-impl Clone for _DnsRecordOptA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union _DnsRecordOptA_0 {
     pub OPT: DNS_OPT_DATA,
     pub Opt: DNS_OPT_DATA,
 }
-impl Copy for _DnsRecordOptA_0 {}
-impl Clone for _DnsRecordOptA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union _DnsRecordOptA_1 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
-}
-impl Copy for _DnsRecordOptA_1 {}
-impl Clone for _DnsRecordOptA_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type DNS_PROXY_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(completioncontext: *const core::ffi::c_void, status: i32)>;
 pub type DNS_QUERY_RAW_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(querycontext: *const core::ffi::c_void, queryresults: *const DNS_QUERY_RAW_RESULT)>;

@@ -9577,6 +9577,7 @@ impl core::fmt::Debug for VM_RESDLL_CONTEXT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct CLRES_CALLBACK_FUNCTION_TABLE {
     pub LogEvent: PLOG_EVENT_ROUTINE,
     pub SetResourceStatusEx: PSET_RESOURCE_STATUS_ROUTINE_EX,
@@ -9596,17 +9597,6 @@ pub struct CLRES_CALLBACK_FUNCTION_TABLE {
     pub SetResourceWprPolicy: PSET_RESOURCE_WPR_POLICY_ROUTINE,
     pub ArmWprWatchdogForCurrentResourceCall: PARM_WPR_WATCHDOG_FOR_CURRENT_RESOURCE_CALL_ROUTINE,
 }
-impl Copy for CLRES_CALLBACK_FUNCTION_TABLE {}
-impl Clone for CLRES_CALLBACK_FUNCTION_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLRES_CALLBACK_FUNCTION_TABLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLRES_CALLBACK_FUNCTION_TABLE").finish()
-    }
-}
 impl windows_core::TypeKind for CLRES_CALLBACK_FUNCTION_TABLE {
     type TypeKind = windows_core::CopyType;
 }
@@ -9617,18 +9607,11 @@ impl Default for CLRES_CALLBACK_FUNCTION_TABLE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
 pub struct CLRES_FUNCTION_TABLE {
     pub TableSize: u32,
     pub Version: u32,
     pub Anonymous: CLRES_FUNCTION_TABLE_0,
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl Copy for CLRES_FUNCTION_TABLE {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for CLRES_FUNCTION_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Registry")]
 impl windows_core::TypeKind for CLRES_FUNCTION_TABLE {
@@ -9642,19 +9625,12 @@ impl Default for CLRES_FUNCTION_TABLE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
 pub union CLRES_FUNCTION_TABLE_0 {
     pub V1Functions: CLRES_V1_FUNCTIONS,
     pub V2Functions: CLRES_V2_FUNCTIONS,
     pub V3Functions: CLRES_V3_FUNCTIONS,
     pub V4Functions: CLRES_V4_FUNCTIONS,
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl Copy for CLRES_FUNCTION_TABLE_0 {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for CLRES_FUNCTION_TABLE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Registry")]
 impl windows_core::TypeKind for CLRES_FUNCTION_TABLE_0 {
@@ -9668,6 +9644,7 @@ impl Default for CLRES_FUNCTION_TABLE_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy, Debug)]
 pub struct CLRES_V1_FUNCTIONS {
     pub Open: POPEN_ROUTINE,
     pub Close: PCLOSE_ROUTINE,
@@ -9682,20 +9659,6 @@ pub struct CLRES_V1_FUNCTIONS {
     pub ResourceTypeControl: PRESOURCE_TYPE_CONTROL_ROUTINE,
 }
 #[cfg(feature = "Win32_System_Registry")]
-impl Copy for CLRES_V1_FUNCTIONS {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for CLRES_V1_FUNCTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl core::fmt::Debug for CLRES_V1_FUNCTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLRES_V1_FUNCTIONS").finish()
-    }
-}
-#[cfg(feature = "Win32_System_Registry")]
 impl windows_core::TypeKind for CLRES_V1_FUNCTIONS {
     type TypeKind = windows_core::CopyType;
 }
@@ -9707,6 +9670,7 @@ impl Default for CLRES_V1_FUNCTIONS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy, Debug)]
 pub struct CLRES_V2_FUNCTIONS {
     pub Open: POPEN_V2_ROUTINE,
     pub Close: PCLOSE_ROUTINE,
@@ -9722,20 +9686,6 @@ pub struct CLRES_V2_FUNCTIONS {
     pub Cancel: PCANCEL_ROUTINE,
 }
 #[cfg(feature = "Win32_System_Registry")]
-impl Copy for CLRES_V2_FUNCTIONS {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for CLRES_V2_FUNCTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl core::fmt::Debug for CLRES_V2_FUNCTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLRES_V2_FUNCTIONS").finish()
-    }
-}
-#[cfg(feature = "Win32_System_Registry")]
 impl windows_core::TypeKind for CLRES_V2_FUNCTIONS {
     type TypeKind = windows_core::CopyType;
 }
@@ -9747,6 +9697,7 @@ impl Default for CLRES_V2_FUNCTIONS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy, Debug)]
 pub struct CLRES_V3_FUNCTIONS {
     pub Open: POPEN_V2_ROUTINE,
     pub Close: PCLOSE_ROUTINE,
@@ -9762,20 +9713,6 @@ pub struct CLRES_V3_FUNCTIONS {
     pub Cancel: PCANCEL_ROUTINE,
 }
 #[cfg(feature = "Win32_System_Registry")]
-impl Copy for CLRES_V3_FUNCTIONS {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for CLRES_V3_FUNCTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl core::fmt::Debug for CLRES_V3_FUNCTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLRES_V3_FUNCTIONS").finish()
-    }
-}
-#[cfg(feature = "Win32_System_Registry")]
 impl windows_core::TypeKind for CLRES_V3_FUNCTIONS {
     type TypeKind = windows_core::CopyType;
 }
@@ -9787,6 +9724,7 @@ impl Default for CLRES_V3_FUNCTIONS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy, Debug)]
 pub struct CLRES_V4_FUNCTIONS {
     pub Open: POPEN_V2_ROUTINE,
     pub Close: PCLOSE_ROUTINE,
@@ -9804,20 +9742,6 @@ pub struct CLRES_V4_FUNCTIONS {
     pub BeginResourceTypeControlAsUser: PBEGIN_RESTYPECALL_AS_USER_ROUTINE,
 }
 #[cfg(feature = "Win32_System_Registry")]
-impl Copy for CLRES_V4_FUNCTIONS {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for CLRES_V4_FUNCTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl core::fmt::Debug for CLRES_V4_FUNCTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLRES_V4_FUNCTIONS").finish()
-    }
-}
-#[cfg(feature = "Win32_System_Registry")]
 impl windows_core::TypeKind for CLRES_V4_FUNCTIONS {
     type TypeKind = windows_core::CopyType;
 }
@@ -9828,20 +9752,10 @@ impl Default for CLRES_V4_FUNCTIONS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct CLUSAPI_REASON_HANDLER {
     pub lpParameter: *mut core::ffi::c_void,
     pub pfnHandler: PCLUSAPI_PFN_REASON_HANDLER,
-}
-impl Copy for CLUSAPI_REASON_HANDLER {}
-impl Clone for CLUSAPI_REASON_HANDLER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSAPI_REASON_HANDLER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSAPI_REASON_HANDLER").field("lpParameter", &self.lpParameter).finish()
-    }
 }
 impl windows_core::TypeKind for CLUSAPI_REASON_HANDLER {
     type TypeKind = windows_core::CopyType;
@@ -9852,107 +9766,54 @@ impl Default for CLUSAPI_REASON_HANDLER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
     pub GetTickCount64: u64,
     pub GetSystemTime: super::super::Foundation::SYSTEMTIME,
     pub NodeId: u32,
 }
-impl Copy for CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {}
-impl Clone for CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT").field("GetTickCount64", &self.GetTickCount64).field("GetSystemTime", &self.GetSystemTime).field("NodeId", &self.NodeId).finish()
-    }
-}
 impl windows_core::TypeKind for CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.GetTickCount64 == other.GetTickCount64 && self.GetSystemTime == other.GetSystemTime && self.NodeId == other.NodeId
-    }
-}
-impl Eq for CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {}
 impl Default for CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
     pub dwSize: u32,
     pub dwVersion: u32,
     pub eReason: CLUSTER_RESOURCE_STATE_CHANGE_REASON,
 }
-impl Copy for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {}
-impl Clone for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT").field("dwSize", &self.dwSize).field("dwVersion", &self.dwVersion).field("eReason", &self.eReason).finish()
-    }
-}
 impl windows_core::TypeKind for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwVersion == other.dwVersion && self.eReason == other.eReason
-    }
-}
-impl Eq for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {}
 impl Default for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
     pub dwFlags: u32,
     pub guidPoolFilter: windows_core::GUID,
 }
-impl Copy for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {}
-impl Clone for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT").field("dwFlags", &self.dwFlags).field("guidPoolFilter", &self.guidPoolFilter).finish()
-    }
-}
 impl windows_core::TypeKind for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.guidPoolFilter == other.guidPoolFilter
-    }
-}
-impl Eq for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {}
 impl Default for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_BINARY {
     pub Base: CLUSPROP_VALUE,
     pub rgb: [u8; 1],
-}
-impl Copy for CLUSPROP_BINARY {}
-impl Clone for CLUSPROP_BINARY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUSPROP_BINARY {
     type TypeKind = windows_core::CopyType;
@@ -9964,6 +9825,7 @@ impl Default for CLUSPROP_BINARY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union CLUSPROP_BUFFER_HELPER {
     pub pb: *mut u8,
     pub pw: *mut u16,
@@ -9995,14 +9857,6 @@ pub union CLUSPROP_BUFFER_HELPER {
     pub pFileTimeValue: *mut CLUSPROP_FILETIME,
 }
 #[cfg(feature = "Win32_Security")]
-impl Copy for CLUSPROP_BUFFER_HELPER {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for CLUSPROP_BUFFER_HELPER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for CLUSPROP_BUFFER_HELPER {
     type TypeKind = windows_core::CopyType;
 }
@@ -10013,15 +9867,10 @@ impl Default for CLUSPROP_BUFFER_HELPER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_DWORD {
     pub Base: CLUSPROP_VALUE,
     pub dw: u32,
-}
-impl Copy for CLUSPROP_DWORD {}
-impl Clone for CLUSPROP_DWORD {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUSPROP_DWORD {
     type TypeKind = windows_core::CopyType;
@@ -10032,15 +9881,10 @@ impl Default for CLUSPROP_DWORD {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_FILETIME {
     pub Base: CLUSPROP_VALUE,
     pub ft: super::super::Foundation::FILETIME,
-}
-impl Copy for CLUSPROP_FILETIME {}
-impl Clone for CLUSPROP_FILETIME {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUSPROP_FILETIME {
     type TypeKind = windows_core::CopyType;
@@ -10051,15 +9895,10 @@ impl Default for CLUSPROP_FILETIME {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_FTSET_INFO {
     pub Base: CLUSPROP_VALUE,
     pub Base2: CLUS_FTSET_INFO,
-}
-impl Copy for CLUSPROP_FTSET_INFO {}
-impl Clone for CLUSPROP_FTSET_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUSPROP_FTSET_INFO {
     type TypeKind = windows_core::CopyType;
@@ -10070,15 +9909,10 @@ impl Default for CLUSPROP_FTSET_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_LARGE_INTEGER {
     pub Base: CLUSPROP_VALUE,
     pub li: i64,
-}
-impl Copy for CLUSPROP_LARGE_INTEGER {}
-impl Clone for CLUSPROP_LARGE_INTEGER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUSPROP_LARGE_INTEGER {
     type TypeKind = windows_core::CopyType;
@@ -10089,15 +9923,10 @@ impl Default for CLUSPROP_LARGE_INTEGER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_LIST {
     pub nPropertyCount: u32,
     pub PropertyName: CLUSPROP_SZ,
-}
-impl Copy for CLUSPROP_LIST {}
-impl Clone for CLUSPROP_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUSPROP_LIST {
     type TypeKind = windows_core::CopyType;
@@ -10108,15 +9937,10 @@ impl Default for CLUSPROP_LIST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_LONG {
     pub Base: CLUSPROP_VALUE,
     pub l: i32,
-}
-impl Copy for CLUSPROP_LONG {}
-impl Clone for CLUSPROP_LONG {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUSPROP_LONG {
     type TypeKind = windows_core::CopyType;
@@ -10127,15 +9951,10 @@ impl Default for CLUSPROP_LONG {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_PARTITION_INFO {
     pub Base: CLUSPROP_VALUE,
     pub Base2: CLUS_PARTITION_INFO,
-}
-impl Copy for CLUSPROP_PARTITION_INFO {}
-impl Clone for CLUSPROP_PARTITION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUSPROP_PARTITION_INFO {
     type TypeKind = windows_core::CopyType;
@@ -10146,15 +9965,10 @@ impl Default for CLUSPROP_PARTITION_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_PARTITION_INFO_EX {
     pub Base: CLUSPROP_VALUE,
     pub Base2: CLUS_PARTITION_INFO_EX,
-}
-impl Copy for CLUSPROP_PARTITION_INFO_EX {}
-impl Clone for CLUSPROP_PARTITION_INFO_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUSPROP_PARTITION_INFO_EX {
     type TypeKind = windows_core::CopyType;
@@ -10165,15 +9979,10 @@ impl Default for CLUSPROP_PARTITION_INFO_EX {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_PARTITION_INFO_EX2 {
     pub Base: CLUSPROP_PARTITION_INFO_EX,
     pub Base2: CLUS_PARTITION_INFO_EX2,
-}
-impl Copy for CLUSPROP_PARTITION_INFO_EX2 {}
-impl Clone for CLUSPROP_PARTITION_INFO_EX2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUSPROP_PARTITION_INFO_EX2 {
     type TypeKind = windows_core::CopyType;
@@ -10184,16 +9993,11 @@ impl Default for CLUSPROP_PARTITION_INFO_EX2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CLUSPROP_REQUIRED_DEPENDENCY {
     pub Value: CLUSPROP_VALUE,
     pub ResClass: CLUSPROP_RESOURCE_CLASS,
     pub ResTypeName: CLUSPROP_SZ,
-}
-impl Copy for CLUSPROP_REQUIRED_DEPENDENCY {}
-impl Clone for CLUSPROP_REQUIRED_DEPENDENCY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUSPROP_REQUIRED_DEPENDENCY {
     type TypeKind = windows_core::CopyType;
@@ -10204,15 +10008,10 @@ impl Default for CLUSPROP_REQUIRED_DEPENDENCY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_RESOURCE_CLASS {
     pub Base: CLUSPROP_VALUE,
     pub rc: CLUSTER_RESOURCE_CLASS,
-}
-impl Copy for CLUSPROP_RESOURCE_CLASS {}
-impl Clone for CLUSPROP_RESOURCE_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUSPROP_RESOURCE_CLASS {
     type TypeKind = windows_core::CopyType;
@@ -10223,15 +10022,10 @@ impl Default for CLUSPROP_RESOURCE_CLASS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_RESOURCE_CLASS_INFO {
     pub Base: CLUSPROP_VALUE,
     pub Base2: CLUS_RESOURCE_CLASS_INFO,
-}
-impl Copy for CLUSPROP_RESOURCE_CLASS_INFO {}
-impl Clone for CLUSPROP_RESOURCE_CLASS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUSPROP_RESOURCE_CLASS_INFO {
     type TypeKind = windows_core::CopyType;
@@ -10242,15 +10036,10 @@ impl Default for CLUSPROP_RESOURCE_CLASS_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_SCSI_ADDRESS {
     pub Base: CLUSPROP_VALUE,
     pub Base2: CLUS_SCSI_ADDRESS,
-}
-impl Copy for CLUSPROP_SCSI_ADDRESS {}
-impl Clone for CLUSPROP_SCSI_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUSPROP_SCSI_ADDRESS {
     type TypeKind = windows_core::CopyType;
@@ -10262,17 +10051,10 @@ impl Default for CLUSPROP_SCSI_ADDRESS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_SECURITY_DESCRIPTOR {
     pub Base: CLUSPROP_VALUE,
     pub Anonymous: CLUSPROP_SECURITY_DESCRIPTOR_0,
-}
-#[cfg(feature = "Win32_Security")]
-impl Copy for CLUSPROP_SECURITY_DESCRIPTOR {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for CLUSPROP_SECURITY_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for CLUSPROP_SECURITY_DESCRIPTOR {
@@ -10286,17 +10068,10 @@ impl Default for CLUSPROP_SECURITY_DESCRIPTOR {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union CLUSPROP_SECURITY_DESCRIPTOR_0 {
     pub sd: super::super::Security::SECURITY_DESCRIPTOR_RELATIVE,
     pub rgbSecurityDescriptor: [u8; 1],
-}
-#[cfg(feature = "Win32_Security")]
-impl Copy for CLUSPROP_SECURITY_DESCRIPTOR_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for CLUSPROP_SECURITY_DESCRIPTOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for CLUSPROP_SECURITY_DESCRIPTOR_0 {
@@ -10309,15 +10084,10 @@ impl Default for CLUSPROP_SECURITY_DESCRIPTOR_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CLUSPROP_SYNTAX {
     pub dw: u32,
     pub Anonymous: CLUSPROP_SYNTAX_0,
-}
-impl Copy for CLUSPROP_SYNTAX {}
-impl Clone for CLUSPROP_SYNTAX {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUSPROP_SYNTAX {
     type TypeKind = windows_core::CopyType;
@@ -10328,45 +10098,24 @@ impl Default for CLUSPROP_SYNTAX {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSPROP_SYNTAX_0 {
     pub wFormat: u16,
     pub wType: u16,
 }
-impl Copy for CLUSPROP_SYNTAX_0 {}
-impl Clone for CLUSPROP_SYNTAX_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSPROP_SYNTAX_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSPROP_SYNTAX_0").field("wFormat", &self.wFormat).field("wType", &self.wType).finish()
-    }
-}
 impl windows_core::TypeKind for CLUSPROP_SYNTAX_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSPROP_SYNTAX_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.wFormat == other.wFormat && self.wType == other.wType
-    }
-}
-impl Eq for CLUSPROP_SYNTAX_0 {}
 impl Default for CLUSPROP_SYNTAX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_SZ {
     pub Base: CLUSPROP_VALUE,
     pub sz: [u16; 1],
-}
-impl Copy for CLUSPROP_SZ {}
-impl Clone for CLUSPROP_SZ {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUSPROP_SZ {
     type TypeKind = windows_core::CopyType;
@@ -10377,15 +10126,10 @@ impl Default for CLUSPROP_SZ {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_ULARGE_INTEGER {
     pub Base: CLUSPROP_VALUE,
     pub li: u64,
-}
-impl Copy for CLUSPROP_ULARGE_INTEGER {}
-impl Clone for CLUSPROP_ULARGE_INTEGER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUSPROP_ULARGE_INTEGER {
     type TypeKind = windows_core::CopyType;
@@ -10396,15 +10140,10 @@ impl Default for CLUSPROP_ULARGE_INTEGER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_VALUE {
     pub Syntax: CLUSPROP_SYNTAX,
     pub cbLength: u32,
-}
-impl Copy for CLUSPROP_VALUE {}
-impl Clone for CLUSPROP_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUSPROP_VALUE {
     type TypeKind = windows_core::CopyType;
@@ -10415,15 +10154,10 @@ impl Default for CLUSPROP_VALUE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_WORD {
     pub Base: CLUSPROP_VALUE,
     pub w: u16,
-}
-impl Copy for CLUSPROP_WORD {}
-impl Clone for CLUSPROP_WORD {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUSPROP_WORD {
     type TypeKind = windows_core::CopyType;
@@ -10434,6 +10168,7 @@ impl Default for CLUSPROP_WORD {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTERVERSIONINFO {
     pub dwVersionInfoSize: u32,
     pub MajorVersion: u16,
@@ -10446,43 +10181,16 @@ pub struct CLUSTERVERSIONINFO {
     pub dwFlags: u32,
     pub dwReserved: u32,
 }
-impl Copy for CLUSTERVERSIONINFO {}
-impl Clone for CLUSTERVERSIONINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSTERVERSIONINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSTERVERSIONINFO")
-            .field("dwVersionInfoSize", &self.dwVersionInfoSize)
-            .field("MajorVersion", &self.MajorVersion)
-            .field("MinorVersion", &self.MinorVersion)
-            .field("BuildNumber", &self.BuildNumber)
-            .field("szVendorId", &self.szVendorId)
-            .field("szCSDVersion", &self.szCSDVersion)
-            .field("dwClusterHighestVersion", &self.dwClusterHighestVersion)
-            .field("dwClusterLowestVersion", &self.dwClusterLowestVersion)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for CLUSTERVERSIONINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSTERVERSIONINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersionInfoSize == other.dwVersionInfoSize && self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.BuildNumber == other.BuildNumber && self.szVendorId == other.szVendorId && self.szCSDVersion == other.szCSDVersion && self.dwClusterHighestVersion == other.dwClusterHighestVersion && self.dwClusterLowestVersion == other.dwClusterLowestVersion && self.dwFlags == other.dwFlags && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for CLUSTERVERSIONINFO {}
 impl Default for CLUSTERVERSIONINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTERVERSIONINFO_NT4 {
     pub dwVersionInfoSize: u32,
     pub MajorVersion: u16,
@@ -10491,64 +10199,32 @@ pub struct CLUSTERVERSIONINFO_NT4 {
     pub szVendorId: [u16; 64],
     pub szCSDVersion: [u16; 64],
 }
-impl Copy for CLUSTERVERSIONINFO_NT4 {}
-impl Clone for CLUSTERVERSIONINFO_NT4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSTERVERSIONINFO_NT4 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSTERVERSIONINFO_NT4").field("dwVersionInfoSize", &self.dwVersionInfoSize).field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("BuildNumber", &self.BuildNumber).field("szVendorId", &self.szVendorId).field("szCSDVersion", &self.szCSDVersion).finish()
-    }
-}
 impl windows_core::TypeKind for CLUSTERVERSIONINFO_NT4 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSTERVERSIONINFO_NT4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersionInfoSize == other.dwVersionInfoSize && self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.BuildNumber == other.BuildNumber && self.szVendorId == other.szVendorId && self.szCSDVersion == other.szCSDVersion
-    }
-}
-impl Eq for CLUSTERVERSIONINFO_NT4 {}
 impl Default for CLUSTERVERSIONINFO_NT4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_AVAILABILITY_SET_CONFIG {
     pub dwVersion: u32,
     pub dwUpdateDomains: u32,
     pub dwFaultDomains: u32,
     pub bReserveSpareNode: super::super::Foundation::BOOL,
 }
-impl Copy for CLUSTER_AVAILABILITY_SET_CONFIG {}
-impl Clone for CLUSTER_AVAILABILITY_SET_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSTER_AVAILABILITY_SET_CONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSTER_AVAILABILITY_SET_CONFIG").field("dwVersion", &self.dwVersion).field("dwUpdateDomains", &self.dwUpdateDomains).field("dwFaultDomains", &self.dwFaultDomains).field("bReserveSpareNode", &self.bReserveSpareNode).finish()
-    }
-}
 impl windows_core::TypeKind for CLUSTER_AVAILABILITY_SET_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSTER_AVAILABILITY_SET_CONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.dwUpdateDomains == other.dwUpdateDomains && self.dwFaultDomains == other.dwFaultDomains && self.bReserveSpareNode == other.bReserveSpareNode
-    }
-}
-impl Eq for CLUSTER_AVAILABILITY_SET_CONFIG {}
 impl Default for CLUSTER_AVAILABILITY_SET_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_BATCH_COMMAND {
     pub Command: CLUSTER_REG_COMMAND,
     pub dwOptions: u32,
@@ -10556,62 +10232,30 @@ pub struct CLUSTER_BATCH_COMMAND {
     pub lpData: *const u8,
     pub cbData: u32,
 }
-impl Copy for CLUSTER_BATCH_COMMAND {}
-impl Clone for CLUSTER_BATCH_COMMAND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSTER_BATCH_COMMAND {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSTER_BATCH_COMMAND").field("Command", &self.Command).field("dwOptions", &self.dwOptions).field("wzName", &self.wzName).field("lpData", &self.lpData).field("cbData", &self.cbData).finish()
-    }
-}
 impl windows_core::TypeKind for CLUSTER_BATCH_COMMAND {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSTER_BATCH_COMMAND {
-    fn eq(&self, other: &Self) -> bool {
-        self.Command == other.Command && self.dwOptions == other.dwOptions && self.wzName == other.wzName && self.lpData == other.lpData && self.cbData == other.cbData
-    }
-}
-impl Eq for CLUSTER_BATCH_COMMAND {}
 impl Default for CLUSTER_BATCH_COMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_CREATE_GROUP_INFO {
     pub dwVersion: u32,
     pub groupType: CLUSGROUP_TYPE,
 }
-impl Copy for CLUSTER_CREATE_GROUP_INFO {}
-impl Clone for CLUSTER_CREATE_GROUP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSTER_CREATE_GROUP_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSTER_CREATE_GROUP_INFO").field("dwVersion", &self.dwVersion).field("groupType", &self.groupType).finish()
-    }
-}
 impl windows_core::TypeKind for CLUSTER_CREATE_GROUP_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSTER_CREATE_GROUP_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.groupType == other.groupType
-    }
-}
-impl Eq for CLUSTER_CREATE_GROUP_INFO {}
 impl Default for CLUSTER_CREATE_GROUP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_ENUM_ITEM {
     pub dwVersion: u32,
     pub dwType: u32,
@@ -10620,32 +10264,16 @@ pub struct CLUSTER_ENUM_ITEM {
     pub cbName: u32,
     pub lpszName: windows_core::PWSTR,
 }
-impl Copy for CLUSTER_ENUM_ITEM {}
-impl Clone for CLUSTER_ENUM_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSTER_ENUM_ITEM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSTER_ENUM_ITEM").field("dwVersion", &self.dwVersion).field("dwType", &self.dwType).field("cbId", &self.cbId).field("lpszId", &self.lpszId).field("cbName", &self.cbName).field("lpszName", &self.lpszName).finish()
-    }
-}
 impl windows_core::TypeKind for CLUSTER_ENUM_ITEM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSTER_ENUM_ITEM {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.dwType == other.dwType && self.cbId == other.cbId && self.lpszId == other.lpszId && self.cbName == other.cbName && self.lpszName == other.lpszName
-    }
-}
-impl Eq for CLUSTER_ENUM_ITEM {}
 impl Default for CLUSTER_ENUM_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_GROUP_ENUM_ITEM {
     pub dwVersion: u32,
     pub cbId: u32,
@@ -10661,46 +10289,16 @@ pub struct CLUSTER_GROUP_ENUM_ITEM {
     pub cbRoProperties: u32,
     pub pRoProperties: *mut core::ffi::c_void,
 }
-impl Copy for CLUSTER_GROUP_ENUM_ITEM {}
-impl Clone for CLUSTER_GROUP_ENUM_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSTER_GROUP_ENUM_ITEM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSTER_GROUP_ENUM_ITEM")
-            .field("dwVersion", &self.dwVersion)
-            .field("cbId", &self.cbId)
-            .field("lpszId", &self.lpszId)
-            .field("cbName", &self.cbName)
-            .field("lpszName", &self.lpszName)
-            .field("state", &self.state)
-            .field("cbOwnerNode", &self.cbOwnerNode)
-            .field("lpszOwnerNode", &self.lpszOwnerNode)
-            .field("dwFlags", &self.dwFlags)
-            .field("cbProperties", &self.cbProperties)
-            .field("pProperties", &self.pProperties)
-            .field("cbRoProperties", &self.cbRoProperties)
-            .field("pRoProperties", &self.pRoProperties)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for CLUSTER_GROUP_ENUM_ITEM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSTER_GROUP_ENUM_ITEM {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.cbId == other.cbId && self.lpszId == other.lpszId && self.cbName == other.cbName && self.lpszName == other.lpszName && self.state == other.state && self.cbOwnerNode == other.cbOwnerNode && self.lpszOwnerNode == other.lpszOwnerNode && self.dwFlags == other.dwFlags && self.cbProperties == other.cbProperties && self.pProperties == other.pProperties && self.cbRoProperties == other.cbRoProperties && self.pRoProperties == other.pRoProperties
-    }
-}
-impl Eq for CLUSTER_GROUP_ENUM_ITEM {}
 impl Default for CLUSTER_GROUP_ENUM_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_HEALTH_FAULT {
     pub Id: windows_core::PWSTR,
     pub ErrorType: u32,
@@ -10710,123 +10308,59 @@ pub struct CLUSTER_HEALTH_FAULT {
     pub Flags: u32,
     pub Reserved: u32,
 }
-impl Copy for CLUSTER_HEALTH_FAULT {}
-impl Clone for CLUSTER_HEALTH_FAULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSTER_HEALTH_FAULT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSTER_HEALTH_FAULT").field("Id", &self.Id).field("ErrorType", &self.ErrorType).field("ErrorCode", &self.ErrorCode).field("Description", &self.Description).field("Provider", &self.Provider).field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for CLUSTER_HEALTH_FAULT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSTER_HEALTH_FAULT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Id == other.Id && self.ErrorType == other.ErrorType && self.ErrorCode == other.ErrorCode && self.Description == other.Description && self.Provider == other.Provider && self.Flags == other.Flags && self.Reserved == other.Reserved
-    }
-}
-impl Eq for CLUSTER_HEALTH_FAULT {}
 impl Default for CLUSTER_HEALTH_FAULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_HEALTH_FAULT_ARRAY {
     pub numFaults: u32,
     pub faults: *mut CLUSTER_HEALTH_FAULT,
 }
-impl Copy for CLUSTER_HEALTH_FAULT_ARRAY {}
-impl Clone for CLUSTER_HEALTH_FAULT_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSTER_HEALTH_FAULT_ARRAY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSTER_HEALTH_FAULT_ARRAY").field("numFaults", &self.numFaults).field("faults", &self.faults).finish()
-    }
-}
 impl windows_core::TypeKind for CLUSTER_HEALTH_FAULT_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSTER_HEALTH_FAULT_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.numFaults == other.numFaults && self.faults == other.faults
-    }
-}
-impl Eq for CLUSTER_HEALTH_FAULT_ARRAY {}
 impl Default for CLUSTER_HEALTH_FAULT_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_IP_ENTRY {
     pub lpszIpAddress: windows_core::PCWSTR,
     pub dwPrefixLength: u32,
 }
-impl Copy for CLUSTER_IP_ENTRY {}
-impl Clone for CLUSTER_IP_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSTER_IP_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSTER_IP_ENTRY").field("lpszIpAddress", &self.lpszIpAddress).field("dwPrefixLength", &self.dwPrefixLength).finish()
-    }
-}
 impl windows_core::TypeKind for CLUSTER_IP_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSTER_IP_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpszIpAddress == other.lpszIpAddress && self.dwPrefixLength == other.dwPrefixLength
-    }
-}
-impl Eq for CLUSTER_IP_ENTRY {}
 impl Default for CLUSTER_IP_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_MEMBERSHIP_INFO {
     pub HasQuorum: super::super::Foundation::BOOL,
     pub UpnodesSize: u32,
     pub Upnodes: [u8; 1],
 }
-impl Copy for CLUSTER_MEMBERSHIP_INFO {}
-impl Clone for CLUSTER_MEMBERSHIP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSTER_MEMBERSHIP_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSTER_MEMBERSHIP_INFO").field("HasQuorum", &self.HasQuorum).field("UpnodesSize", &self.UpnodesSize).field("Upnodes", &self.Upnodes).finish()
-    }
-}
 impl windows_core::TypeKind for CLUSTER_MEMBERSHIP_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSTER_MEMBERSHIP_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.HasQuorum == other.HasQuorum && self.UpnodesSize == other.UpnodesSize && self.Upnodes == other.Upnodes
-    }
-}
-impl Eq for CLUSTER_MEMBERSHIP_INFO {}
 impl Default for CLUSTER_MEMBERSHIP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_READ_BATCH_COMMAND {
     pub Command: CLUSTER_REG_COMMAND,
     pub dwOptions: u32,
@@ -10835,32 +10369,16 @@ pub struct CLUSTER_READ_BATCH_COMMAND {
     pub lpData: *const u8,
     pub cbData: u32,
 }
-impl Copy for CLUSTER_READ_BATCH_COMMAND {}
-impl Clone for CLUSTER_READ_BATCH_COMMAND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSTER_READ_BATCH_COMMAND {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSTER_READ_BATCH_COMMAND").field("Command", &self.Command).field("dwOptions", &self.dwOptions).field("wzSubkeyName", &self.wzSubkeyName).field("wzValueName", &self.wzValueName).field("lpData", &self.lpData).field("cbData", &self.cbData).finish()
-    }
-}
 impl windows_core::TypeKind for CLUSTER_READ_BATCH_COMMAND {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSTER_READ_BATCH_COMMAND {
-    fn eq(&self, other: &Self) -> bool {
-        self.Command == other.Command && self.dwOptions == other.dwOptions && self.wzSubkeyName == other.wzSubkeyName && self.wzValueName == other.wzValueName && self.lpData == other.lpData && self.cbData == other.cbData
-    }
-}
-impl Eq for CLUSTER_READ_BATCH_COMMAND {}
 impl Default for CLUSTER_READ_BATCH_COMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_RESOURCE_ENUM_ITEM {
     pub dwVersion: u32,
     pub cbId: u32,
@@ -10876,86 +10394,34 @@ pub struct CLUSTER_RESOURCE_ENUM_ITEM {
     pub cbRoProperties: u32,
     pub pRoProperties: *mut core::ffi::c_void,
 }
-impl Copy for CLUSTER_RESOURCE_ENUM_ITEM {}
-impl Clone for CLUSTER_RESOURCE_ENUM_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSTER_RESOURCE_ENUM_ITEM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSTER_RESOURCE_ENUM_ITEM")
-            .field("dwVersion", &self.dwVersion)
-            .field("cbId", &self.cbId)
-            .field("lpszId", &self.lpszId)
-            .field("cbName", &self.cbName)
-            .field("lpszName", &self.lpszName)
-            .field("cbOwnerGroupName", &self.cbOwnerGroupName)
-            .field("lpszOwnerGroupName", &self.lpszOwnerGroupName)
-            .field("cbOwnerGroupId", &self.cbOwnerGroupId)
-            .field("lpszOwnerGroupId", &self.lpszOwnerGroupId)
-            .field("cbProperties", &self.cbProperties)
-            .field("pProperties", &self.pProperties)
-            .field("cbRoProperties", &self.cbRoProperties)
-            .field("pRoProperties", &self.pRoProperties)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for CLUSTER_RESOURCE_ENUM_ITEM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSTER_RESOURCE_ENUM_ITEM {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.cbId == other.cbId && self.lpszId == other.lpszId && self.cbName == other.cbName && self.lpszName == other.lpszName && self.cbOwnerGroupName == other.cbOwnerGroupName && self.lpszOwnerGroupName == other.lpszOwnerGroupName && self.cbOwnerGroupId == other.cbOwnerGroupId && self.lpszOwnerGroupId == other.lpszOwnerGroupId && self.cbProperties == other.cbProperties && self.pProperties == other.pProperties && self.cbRoProperties == other.cbRoProperties && self.pRoProperties == other.pRoProperties
-    }
-}
-impl Eq for CLUSTER_RESOURCE_ENUM_ITEM {}
 impl Default for CLUSTER_RESOURCE_ENUM_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_SET_PASSWORD_STATUS {
     pub NodeId: u32,
     pub SetAttempted: super::super::Foundation::BOOLEAN,
     pub ReturnStatus: u32,
 }
-impl Copy for CLUSTER_SET_PASSWORD_STATUS {}
-impl Clone for CLUSTER_SET_PASSWORD_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSTER_SET_PASSWORD_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSTER_SET_PASSWORD_STATUS").field("NodeId", &self.NodeId).field("SetAttempted", &self.SetAttempted).field("ReturnStatus", &self.ReturnStatus).finish()
-    }
-}
 impl windows_core::TypeKind for CLUSTER_SET_PASSWORD_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSTER_SET_PASSWORD_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeId == other.NodeId && self.SetAttempted == other.SetAttempted && self.ReturnStatus == other.ReturnStatus
-    }
-}
-impl Eq for CLUSTER_SET_PASSWORD_STATUS {}
 impl Default for CLUSTER_SET_PASSWORD_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
     pub Base: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
     pub Base2: CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME,
-}
-impl Copy for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {}
-impl Clone for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
     type TypeKind = windows_core::CopyType;
@@ -10966,15 +10432,10 @@ impl Default for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT {
     pub Base: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
     pub Base2: CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME,
-}
-impl Copy for CLUSTER_SHARED_VOLUME_RENAME_INPUT {}
-impl Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_INPUT {
     type TypeKind = windows_core::CopyType;
@@ -10985,74 +10446,37 @@ impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
     pub NewVolumeName: [u16; 260],
     pub NewVolumeGuid: [u16; 50],
 }
-impl Copy for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {}
-impl Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME").field("NewVolumeName", &self.NewVolumeName).field("NewVolumeGuid", &self.NewVolumeGuid).finish()
-    }
-}
 impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
-    fn eq(&self, other: &Self) -> bool {
-        self.NewVolumeName == other.NewVolumeName && self.NewVolumeGuid == other.NewVolumeGuid
-    }
-}
-impl Eq for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {}
 impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
     pub NewVolumeName: [u16; 260],
-}
-impl Copy for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {}
-impl Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME").field("NewVolumeName", &self.NewVolumeName).finish()
-    }
 }
 impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
-    fn eq(&self, other: &Self) -> bool {
-        self.NewVolumeName == other.NewVolumeName
-    }
-}
-impl Eq for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {}
 impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
     pub InputType: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE,
     pub Anonymous: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0,
-}
-impl Copy for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {}
-impl Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
     type TypeKind = windows_core::CopyType;
@@ -11063,17 +10487,12 @@ impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
     pub VolumeOffset: u64,
     pub VolumeId: [u16; 260],
     pub VolumeName: [u16; 260],
     pub VolumeGuid: [u16; 50],
-}
-impl Copy for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {}
-impl Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
     type TypeKind = windows_core::CopyType;
@@ -11084,37 +10503,22 @@ impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_SHARED_VOLUME_STATE_INFO {
     pub szVolumeName: [u16; 260],
     pub szNodeName: [u16; 260],
     pub VolumeState: CLUSTER_SHARED_VOLUME_STATE,
 }
-impl Copy for CLUSTER_SHARED_VOLUME_STATE_INFO {}
-impl Clone for CLUSTER_SHARED_VOLUME_STATE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSTER_SHARED_VOLUME_STATE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSTER_SHARED_VOLUME_STATE_INFO").field("szVolumeName", &self.szVolumeName).field("szNodeName", &self.szNodeName).field("VolumeState", &self.VolumeState).finish()
-    }
-}
 impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_STATE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSTER_SHARED_VOLUME_STATE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.szVolumeName == other.szVolumeName && self.szNodeName == other.szNodeName && self.VolumeState == other.VolumeState
-    }
-}
-impl Eq for CLUSTER_SHARED_VOLUME_STATE_INFO {}
 impl Default for CLUSTER_SHARED_VOLUME_STATE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
     pub szVolumeName: [u16; 260],
     pub szNodeName: [u16; 260],
@@ -11123,268 +10527,124 @@ pub struct CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
     pub RedirectedIOReason: u64,
     pub VolumeRedirectedIOReason: u64,
 }
-impl Copy for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {}
-impl Clone for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSTER_SHARED_VOLUME_STATE_INFO_EX").field("szVolumeName", &self.szVolumeName).field("szNodeName", &self.szNodeName).field("VolumeState", &self.VolumeState).field("szVolumeFriendlyName", &self.szVolumeFriendlyName).field("RedirectedIOReason", &self.RedirectedIOReason).field("VolumeRedirectedIOReason", &self.VolumeRedirectedIOReason).finish()
-    }
-}
 impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.szVolumeName == other.szVolumeName && self.szNodeName == other.szNodeName && self.VolumeState == other.VolumeState && self.szVolumeFriendlyName == other.szVolumeFriendlyName && self.RedirectedIOReason == other.RedirectedIOReason && self.VolumeRedirectedIOReason == other.VolumeRedirectedIOReason
-    }
-}
-impl Eq for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {}
 impl Default for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_VALIDATE_CSV_FILENAME {
     pub szFileName: [u16; 1],
-}
-impl Copy for CLUSTER_VALIDATE_CSV_FILENAME {}
-impl Clone for CLUSTER_VALIDATE_CSV_FILENAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSTER_VALIDATE_CSV_FILENAME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSTER_VALIDATE_CSV_FILENAME").field("szFileName", &self.szFileName).finish()
-    }
 }
 impl windows_core::TypeKind for CLUSTER_VALIDATE_CSV_FILENAME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSTER_VALIDATE_CSV_FILENAME {
-    fn eq(&self, other: &Self) -> bool {
-        self.szFileName == other.szFileName
-    }
-}
-impl Eq for CLUSTER_VALIDATE_CSV_FILENAME {}
 impl Default for CLUSTER_VALIDATE_CSV_FILENAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_VALIDATE_DIRECTORY {
     pub szPath: [u16; 1],
-}
-impl Copy for CLUSTER_VALIDATE_DIRECTORY {}
-impl Clone for CLUSTER_VALIDATE_DIRECTORY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSTER_VALIDATE_DIRECTORY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSTER_VALIDATE_DIRECTORY").field("szPath", &self.szPath).finish()
-    }
 }
 impl windows_core::TypeKind for CLUSTER_VALIDATE_DIRECTORY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSTER_VALIDATE_DIRECTORY {
-    fn eq(&self, other: &Self) -> bool {
-        self.szPath == other.szPath
-    }
-}
-impl Eq for CLUSTER_VALIDATE_DIRECTORY {}
 impl Default for CLUSTER_VALIDATE_DIRECTORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_VALIDATE_NETNAME {
     pub szNetworkName: [u16; 1],
-}
-impl Copy for CLUSTER_VALIDATE_NETNAME {}
-impl Clone for CLUSTER_VALIDATE_NETNAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSTER_VALIDATE_NETNAME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSTER_VALIDATE_NETNAME").field("szNetworkName", &self.szNetworkName).finish()
-    }
 }
 impl windows_core::TypeKind for CLUSTER_VALIDATE_NETNAME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSTER_VALIDATE_NETNAME {
-    fn eq(&self, other: &Self) -> bool {
-        self.szNetworkName == other.szNetworkName
-    }
-}
-impl Eq for CLUSTER_VALIDATE_NETNAME {}
 impl Default for CLUSTER_VALIDATE_NETNAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_VALIDATE_PATH {
     pub szPath: [u16; 1],
-}
-impl Copy for CLUSTER_VALIDATE_PATH {}
-impl Clone for CLUSTER_VALIDATE_PATH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUSTER_VALIDATE_PATH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUSTER_VALIDATE_PATH").field("szPath", &self.szPath).finish()
-    }
 }
 impl windows_core::TypeKind for CLUSTER_VALIDATE_PATH {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUSTER_VALIDATE_PATH {
-    fn eq(&self, other: &Self) -> bool {
-        self.szPath == other.szPath
-    }
-}
-impl Eq for CLUSTER_VALIDATE_PATH {}
 impl Default for CLUSTER_VALIDATE_PATH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_CHKDSK_INFO {
     pub PartitionNumber: u32,
     pub ChkdskState: u32,
     pub FileIdCount: u32,
     pub FileIdList: [u64; 1],
 }
-impl Copy for CLUS_CHKDSK_INFO {}
-impl Clone for CLUS_CHKDSK_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_CHKDSK_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_CHKDSK_INFO").field("PartitionNumber", &self.PartitionNumber).field("ChkdskState", &self.ChkdskState).field("FileIdCount", &self.FileIdCount).field("FileIdList", &self.FileIdList).finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_CHKDSK_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_CHKDSK_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.PartitionNumber == other.PartitionNumber && self.ChkdskState == other.ChkdskState && self.FileIdCount == other.FileIdCount && self.FileIdList == other.FileIdList
-    }
-}
-impl Eq for CLUS_CHKDSK_INFO {}
 impl Default for CLUS_CHKDSK_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
     pub FileServerName: [u16; 16],
-}
-impl Copy for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {}
-impl Clone for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT").field("FileServerName", &self.FileServerName).finish()
-    }
 }
 impl windows_core::TypeKind for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FileServerName == other.FileServerName
-    }
-}
-impl Eq for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {}
 impl Default for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
     pub FileServerName: [u16; 260],
-}
-impl Copy for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {}
-impl Clone for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT").field("FileServerName", &self.FileServerName).finish()
-    }
 }
 impl windows_core::TypeKind for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FileServerName == other.FileServerName
-    }
-}
-impl Eq for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {}
 impl Default for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_CSV_MAINTENANCE_MODE_INFO {
     pub InMaintenance: super::super::Foundation::BOOL,
     pub VolumeName: [u16; 260],
 }
-impl Copy for CLUS_CSV_MAINTENANCE_MODE_INFO {}
-impl Clone for CLUS_CSV_MAINTENANCE_MODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_CSV_MAINTENANCE_MODE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_CSV_MAINTENANCE_MODE_INFO").field("InMaintenance", &self.InMaintenance).field("VolumeName", &self.VolumeName).finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_CSV_MAINTENANCE_MODE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_CSV_MAINTENANCE_MODE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.InMaintenance == other.InMaintenance && self.VolumeName == other.VolumeName
-    }
-}
-impl Eq for CLUS_CSV_MAINTENANCE_MODE_INFO {}
 impl Default for CLUS_CSV_MAINTENANCE_MODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_CSV_VOLUME_INFO {
     pub VolumeOffset: u64,
     pub PartitionNumber: u32,
@@ -11393,433 +10653,209 @@ pub struct CLUS_CSV_VOLUME_INFO {
     pub szVolumeFriendlyName: [u16; 260],
     pub szVolumeName: [u16; 50],
 }
-impl Copy for CLUS_CSV_VOLUME_INFO {}
-impl Clone for CLUS_CSV_VOLUME_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_CSV_VOLUME_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_CSV_VOLUME_INFO").field("VolumeOffset", &self.VolumeOffset).field("PartitionNumber", &self.PartitionNumber).field("FaultState", &self.FaultState).field("BackupState", &self.BackupState).field("szVolumeFriendlyName", &self.szVolumeFriendlyName).field("szVolumeName", &self.szVolumeName).finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_CSV_VOLUME_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_CSV_VOLUME_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.VolumeOffset == other.VolumeOffset && self.PartitionNumber == other.PartitionNumber && self.FaultState == other.FaultState && self.BackupState == other.BackupState && self.szVolumeFriendlyName == other.szVolumeFriendlyName && self.szVolumeName == other.szVolumeName
-    }
-}
-impl Eq for CLUS_CSV_VOLUME_INFO {}
 impl Default for CLUS_CSV_VOLUME_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_CSV_VOLUME_NAME {
     pub VolumeOffset: i64,
     pub szVolumeName: [u16; 260],
     pub szRootPath: [u16; 263],
 }
-impl Copy for CLUS_CSV_VOLUME_NAME {}
-impl Clone for CLUS_CSV_VOLUME_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_CSV_VOLUME_NAME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_CSV_VOLUME_NAME").field("VolumeOffset", &self.VolumeOffset).field("szVolumeName", &self.szVolumeName).field("szRootPath", &self.szRootPath).finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_CSV_VOLUME_NAME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_CSV_VOLUME_NAME {
-    fn eq(&self, other: &Self) -> bool {
-        self.VolumeOffset == other.VolumeOffset && self.szVolumeName == other.szVolumeName && self.szRootPath == other.szRootPath
-    }
-}
-impl Eq for CLUS_CSV_VOLUME_NAME {}
 impl Default for CLUS_CSV_VOLUME_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_DISK_NUMBER_INFO {
     pub DiskNumber: u32,
     pub BytesPerSector: u32,
 }
-impl Copy for CLUS_DISK_NUMBER_INFO {}
-impl Clone for CLUS_DISK_NUMBER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_DISK_NUMBER_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_DISK_NUMBER_INFO").field("DiskNumber", &self.DiskNumber).field("BytesPerSector", &self.BytesPerSector).finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_DISK_NUMBER_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_DISK_NUMBER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.DiskNumber == other.DiskNumber && self.BytesPerSector == other.BytesPerSector
-    }
-}
-impl Eq for CLUS_DISK_NUMBER_INFO {}
 impl Default for CLUS_DISK_NUMBER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_DNN_LEADER_STATUS {
     pub IsOnline: super::super::Foundation::BOOL,
     pub IsFileServerPresent: super::super::Foundation::BOOL,
 }
-impl Copy for CLUS_DNN_LEADER_STATUS {}
-impl Clone for CLUS_DNN_LEADER_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_DNN_LEADER_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_DNN_LEADER_STATUS").field("IsOnline", &self.IsOnline).field("IsFileServerPresent", &self.IsFileServerPresent).finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_DNN_LEADER_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_DNN_LEADER_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.IsOnline == other.IsOnline && self.IsFileServerPresent == other.IsFileServerPresent
-    }
-}
-impl Eq for CLUS_DNN_LEADER_STATUS {}
 impl Default for CLUS_DNN_LEADER_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_DNN_SODAFS_CLONE_STATUS {
     pub NodeId: u32,
     pub Status: CLUSTER_RESOURCE_STATE,
 }
-impl Copy for CLUS_DNN_SODAFS_CLONE_STATUS {}
-impl Clone for CLUS_DNN_SODAFS_CLONE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_DNN_SODAFS_CLONE_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_DNN_SODAFS_CLONE_STATUS").field("NodeId", &self.NodeId).field("Status", &self.Status).finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_DNN_SODAFS_CLONE_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_DNN_SODAFS_CLONE_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeId == other.NodeId && self.Status == other.Status
-    }
-}
-impl Eq for CLUS_DNN_SODAFS_CLONE_STATUS {}
 impl Default for CLUS_DNN_SODAFS_CLONE_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_FORCE_QUORUM_INFO {
     pub dwSize: u32,
     pub dwNodeBitMask: u32,
     pub dwMaxNumberofNodes: u32,
     pub multiszNodeList: [u16; 1],
 }
-impl Copy for CLUS_FORCE_QUORUM_INFO {}
-impl Clone for CLUS_FORCE_QUORUM_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_FORCE_QUORUM_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_FORCE_QUORUM_INFO").field("dwSize", &self.dwSize).field("dwNodeBitMask", &self.dwNodeBitMask).field("dwMaxNumberofNodes", &self.dwMaxNumberofNodes).field("multiszNodeList", &self.multiszNodeList).finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_FORCE_QUORUM_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_FORCE_QUORUM_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwNodeBitMask == other.dwNodeBitMask && self.dwMaxNumberofNodes == other.dwMaxNumberofNodes && self.multiszNodeList == other.multiszNodeList
-    }
-}
-impl Eq for CLUS_FORCE_QUORUM_INFO {}
 impl Default for CLUS_FORCE_QUORUM_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_FTSET_INFO {
     pub dwRootSignature: u32,
     pub dwFtType: u32,
 }
-impl Copy for CLUS_FTSET_INFO {}
-impl Clone for CLUS_FTSET_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_FTSET_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_FTSET_INFO").field("dwRootSignature", &self.dwRootSignature).field("dwFtType", &self.dwFtType).finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_FTSET_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_FTSET_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwRootSignature == other.dwRootSignature && self.dwFtType == other.dwFtType
-    }
-}
-impl Eq for CLUS_FTSET_INFO {}
 impl Default for CLUS_FTSET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_MAINTENANCE_MODE_INFO {
     pub InMaintenance: super::super::Foundation::BOOL,
-}
-impl Copy for CLUS_MAINTENANCE_MODE_INFO {}
-impl Clone for CLUS_MAINTENANCE_MODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_MAINTENANCE_MODE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_MAINTENANCE_MODE_INFO").field("InMaintenance", &self.InMaintenance).finish()
-    }
 }
 impl windows_core::TypeKind for CLUS_MAINTENANCE_MODE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_MAINTENANCE_MODE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.InMaintenance == other.InMaintenance
-    }
-}
-impl Eq for CLUS_MAINTENANCE_MODE_INFO {}
 impl Default for CLUS_MAINTENANCE_MODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_MAINTENANCE_MODE_INFOEX {
     pub InMaintenance: super::super::Foundation::BOOL,
     pub MaintainenceModeType: MAINTENANCE_MODE_TYPE_ENUM,
     pub InternalState: CLUSTER_RESOURCE_STATE,
     pub Signature: u32,
 }
-impl Copy for CLUS_MAINTENANCE_MODE_INFOEX {}
-impl Clone for CLUS_MAINTENANCE_MODE_INFOEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_MAINTENANCE_MODE_INFOEX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_MAINTENANCE_MODE_INFOEX").field("InMaintenance", &self.InMaintenance).field("MaintainenceModeType", &self.MaintainenceModeType).field("InternalState", &self.InternalState).field("Signature", &self.Signature).finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_MAINTENANCE_MODE_INFOEX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_MAINTENANCE_MODE_INFOEX {
-    fn eq(&self, other: &Self) -> bool {
-        self.InMaintenance == other.InMaintenance && self.MaintainenceModeType == other.MaintainenceModeType && self.InternalState == other.InternalState && self.Signature == other.Signature
-    }
-}
-impl Eq for CLUS_MAINTENANCE_MODE_INFOEX {}
 impl Default for CLUS_MAINTENANCE_MODE_INFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_NETNAME_IP_INFO_ENTRY {
     pub NodeId: u32,
     pub AddressSize: u32,
     pub Address: [u8; 1],
 }
-impl Copy for CLUS_NETNAME_IP_INFO_ENTRY {}
-impl Clone for CLUS_NETNAME_IP_INFO_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_NETNAME_IP_INFO_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_NETNAME_IP_INFO_ENTRY").field("NodeId", &self.NodeId).field("AddressSize", &self.AddressSize).field("Address", &self.Address).finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_NETNAME_IP_INFO_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_NETNAME_IP_INFO_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeId == other.NodeId && self.AddressSize == other.AddressSize && self.Address == other.Address
-    }
-}
-impl Eq for CLUS_NETNAME_IP_INFO_ENTRY {}
 impl Default for CLUS_NETNAME_IP_INFO_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
     pub szName: [u16; 64],
     pub NumEntries: u32,
     pub IpInfo: [CLUS_NETNAME_IP_INFO_ENTRY; 1],
 }
-impl Copy for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {}
-impl Clone for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL").field("szName", &self.szName).field("NumEntries", &self.NumEntries).field("IpInfo", &self.IpInfo).finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
-    fn eq(&self, other: &Self) -> bool {
-        self.szName == other.szName && self.NumEntries == other.NumEntries && self.IpInfo == other.IpInfo
-    }
-}
-impl Eq for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {}
 impl Default for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_NETNAME_PWD_INFO {
     pub Flags: u32,
     pub Password: [u16; 16],
     pub CreatingDC: [u16; 258],
     pub ObjectGuid: [u16; 64],
 }
-impl Copy for CLUS_NETNAME_PWD_INFO {}
-impl Clone for CLUS_NETNAME_PWD_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_NETNAME_PWD_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_NETNAME_PWD_INFO").field("Flags", &self.Flags).field("Password", &self.Password).field("CreatingDC", &self.CreatingDC).field("ObjectGuid", &self.ObjectGuid).finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_NETNAME_PWD_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_NETNAME_PWD_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.Password == other.Password && self.CreatingDC == other.CreatingDC && self.ObjectGuid == other.ObjectGuid
-    }
-}
-impl Eq for CLUS_NETNAME_PWD_INFO {}
 impl Default for CLUS_NETNAME_PWD_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_NETNAME_PWD_INFOEX {
     pub Flags: u32,
     pub Password: [u16; 128],
     pub CreatingDC: [u16; 258],
     pub ObjectGuid: [u16; 64],
 }
-impl Copy for CLUS_NETNAME_PWD_INFOEX {}
-impl Clone for CLUS_NETNAME_PWD_INFOEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_NETNAME_PWD_INFOEX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_NETNAME_PWD_INFOEX").field("Flags", &self.Flags).field("Password", &self.Password).field("CreatingDC", &self.CreatingDC).field("ObjectGuid", &self.ObjectGuid).finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_NETNAME_PWD_INFOEX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_NETNAME_PWD_INFOEX {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.Password == other.Password && self.CreatingDC == other.CreatingDC && self.ObjectGuid == other.ObjectGuid
-    }
-}
-impl Eq for CLUS_NETNAME_PWD_INFOEX {}
 impl Default for CLUS_NETNAME_PWD_INFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_NETNAME_VS_TOKEN_INFO {
     pub ProcessID: u32,
     pub DesiredAccess: u32,
     pub InheritHandle: super::super::Foundation::BOOL,
 }
-impl Copy for CLUS_NETNAME_VS_TOKEN_INFO {}
-impl Clone for CLUS_NETNAME_VS_TOKEN_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_NETNAME_VS_TOKEN_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_NETNAME_VS_TOKEN_INFO").field("ProcessID", &self.ProcessID).field("DesiredAccess", &self.DesiredAccess).field("InheritHandle", &self.InheritHandle).finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_NETNAME_VS_TOKEN_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_NETNAME_VS_TOKEN_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ProcessID == other.ProcessID && self.DesiredAccess == other.DesiredAccess && self.InheritHandle == other.InheritHandle
-    }
-}
-impl Eq for CLUS_NETNAME_VS_TOKEN_INFO {}
 impl Default for CLUS_NETNAME_VS_TOKEN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_PARTITION_INFO {
     pub dwFlags: u32,
     pub szDeviceName: [u16; 260],
@@ -11829,32 +10865,16 @@ pub struct CLUS_PARTITION_INFO {
     pub dwFileSystemFlags: u32,
     pub szFileSystem: [u16; 32],
 }
-impl Copy for CLUS_PARTITION_INFO {}
-impl Clone for CLUS_PARTITION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_PARTITION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_PARTITION_INFO").field("dwFlags", &self.dwFlags).field("szDeviceName", &self.szDeviceName).field("szVolumeLabel", &self.szVolumeLabel).field("dwSerialNumber", &self.dwSerialNumber).field("rgdwMaximumComponentLength", &self.rgdwMaximumComponentLength).field("dwFileSystemFlags", &self.dwFileSystemFlags).field("szFileSystem", &self.szFileSystem).finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_PARTITION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_PARTITION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.szDeviceName == other.szDeviceName && self.szVolumeLabel == other.szVolumeLabel && self.dwSerialNumber == other.dwSerialNumber && self.rgdwMaximumComponentLength == other.rgdwMaximumComponentLength && self.dwFileSystemFlags == other.dwFileSystemFlags && self.szFileSystem == other.szFileSystem
-    }
-}
-impl Eq for CLUS_PARTITION_INFO {}
 impl Default for CLUS_PARTITION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_PARTITION_INFO_EX {
     pub dwFlags: u32,
     pub szDeviceName: [u16; 260],
@@ -11869,115 +10889,48 @@ pub struct CLUS_PARTITION_INFO_EX {
     pub PartitionNumber: u32,
     pub VolumeGuid: windows_core::GUID,
 }
-impl Copy for CLUS_PARTITION_INFO_EX {}
-impl Clone for CLUS_PARTITION_INFO_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_PARTITION_INFO_EX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_PARTITION_INFO_EX")
-            .field("dwFlags", &self.dwFlags)
-            .field("szDeviceName", &self.szDeviceName)
-            .field("szVolumeLabel", &self.szVolumeLabel)
-            .field("dwSerialNumber", &self.dwSerialNumber)
-            .field("rgdwMaximumComponentLength", &self.rgdwMaximumComponentLength)
-            .field("dwFileSystemFlags", &self.dwFileSystemFlags)
-            .field("szFileSystem", &self.szFileSystem)
-            .field("TotalSizeInBytes", &self.TotalSizeInBytes)
-            .field("FreeSizeInBytes", &self.FreeSizeInBytes)
-            .field("DeviceNumber", &self.DeviceNumber)
-            .field("PartitionNumber", &self.PartitionNumber)
-            .field("VolumeGuid", &self.VolumeGuid)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_PARTITION_INFO_EX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_PARTITION_INFO_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.szDeviceName == other.szDeviceName && self.szVolumeLabel == other.szVolumeLabel && self.dwSerialNumber == other.dwSerialNumber && self.rgdwMaximumComponentLength == other.rgdwMaximumComponentLength && self.dwFileSystemFlags == other.dwFileSystemFlags && self.szFileSystem == other.szFileSystem && self.TotalSizeInBytes == other.TotalSizeInBytes && self.FreeSizeInBytes == other.FreeSizeInBytes && self.DeviceNumber == other.DeviceNumber && self.PartitionNumber == other.PartitionNumber && self.VolumeGuid == other.VolumeGuid
-    }
-}
-impl Eq for CLUS_PARTITION_INFO_EX {}
 impl Default for CLUS_PARTITION_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_PARTITION_INFO_EX2 {
     pub GptPartitionId: windows_core::GUID,
     pub szPartitionName: [u16; 260],
     pub EncryptionFlags: u32,
 }
-impl Copy for CLUS_PARTITION_INFO_EX2 {}
-impl Clone for CLUS_PARTITION_INFO_EX2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_PARTITION_INFO_EX2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_PARTITION_INFO_EX2").field("GptPartitionId", &self.GptPartitionId).field("szPartitionName", &self.szPartitionName).field("EncryptionFlags", &self.EncryptionFlags).finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_PARTITION_INFO_EX2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_PARTITION_INFO_EX2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.GptPartitionId == other.GptPartitionId && self.szPartitionName == other.szPartitionName && self.EncryptionFlags == other.EncryptionFlags
-    }
-}
-impl Eq for CLUS_PARTITION_INFO_EX2 {}
 impl Default for CLUS_PARTITION_INFO_EX2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_PROVIDER_STATE_CHANGE_INFO {
     pub dwSize: u32,
     pub resourceState: CLUSTER_RESOURCE_STATE,
     pub szProviderId: [u16; 1],
 }
-impl Copy for CLUS_PROVIDER_STATE_CHANGE_INFO {}
-impl Clone for CLUS_PROVIDER_STATE_CHANGE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_PROVIDER_STATE_CHANGE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_PROVIDER_STATE_CHANGE_INFO").field("dwSize", &self.dwSize).field("resourceState", &self.resourceState).field("szProviderId", &self.szProviderId).finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_PROVIDER_STATE_CHANGE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_PROVIDER_STATE_CHANGE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.resourceState == other.resourceState && self.szProviderId == other.szProviderId
-    }
-}
-impl Eq for CLUS_PROVIDER_STATE_CHANGE_INFO {}
 impl Default for CLUS_PROVIDER_STATE_CHANGE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_RESOURCE_CLASS_INFO {
     pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0,
-}
-impl Copy for CLUS_RESOURCE_CLASS_INFO {}
-impl Clone for CLUS_RESOURCE_CLASS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUS_RESOURCE_CLASS_INFO {
     type TypeKind = windows_core::CopyType;
@@ -11988,15 +10941,10 @@ impl Default for CLUS_RESOURCE_CLASS_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CLUS_RESOURCE_CLASS_INFO_0 {
     pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0_0,
     pub li: u64,
-}
-impl Copy for CLUS_RESOURCE_CLASS_INFO_0 {}
-impl Clone for CLUS_RESOURCE_CLASS_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUS_RESOURCE_CLASS_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -12007,15 +10955,10 @@ impl Default for CLUS_RESOURCE_CLASS_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_RESOURCE_CLASS_INFO_0_0 {
     pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0_0_0,
     pub SubClass: u32,
-}
-impl Copy for CLUS_RESOURCE_CLASS_INFO_0_0 {}
-impl Clone for CLUS_RESOURCE_CLASS_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUS_RESOURCE_CLASS_INFO_0_0 {
     type TypeKind = windows_core::CopyType;
@@ -12026,15 +10969,10 @@ impl Default for CLUS_RESOURCE_CLASS_INFO_0_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CLUS_RESOURCE_CLASS_INFO_0_0_0 {
     pub dw: u32,
     pub rc: CLUSTER_RESOURCE_CLASS,
-}
-impl Copy for CLUS_RESOURCE_CLASS_INFO_0_0_0 {}
-impl Clone for CLUS_RESOURCE_CLASS_INFO_0_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUS_RESOURCE_CLASS_INFO_0_0_0 {
     type TypeKind = windows_core::CopyType;
@@ -12045,14 +10983,9 @@ impl Default for CLUS_RESOURCE_CLASS_INFO_0_0_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_SCSI_ADDRESS {
     pub Anonymous: CLUS_SCSI_ADDRESS_0,
-}
-impl Copy for CLUS_SCSI_ADDRESS {}
-impl Clone for CLUS_SCSI_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUS_SCSI_ADDRESS {
     type TypeKind = windows_core::CopyType;
@@ -12063,15 +10996,10 @@ impl Default for CLUS_SCSI_ADDRESS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CLUS_SCSI_ADDRESS_0 {
     pub Anonymous: CLUS_SCSI_ADDRESS_0_0,
     pub dw: u32,
-}
-impl Copy for CLUS_SCSI_ADDRESS_0 {}
-impl Clone for CLUS_SCSI_ADDRESS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CLUS_SCSI_ADDRESS_0 {
     type TypeKind = windows_core::CopyType;
@@ -12082,250 +11010,123 @@ impl Default for CLUS_SCSI_ADDRESS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_SCSI_ADDRESS_0_0 {
     pub PortNumber: u8,
     pub PathId: u8,
     pub TargetId: u8,
     pub Lun: u8,
 }
-impl Copy for CLUS_SCSI_ADDRESS_0_0 {}
-impl Clone for CLUS_SCSI_ADDRESS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_SCSI_ADDRESS_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_SCSI_ADDRESS_0_0").field("PortNumber", &self.PortNumber).field("PathId", &self.PathId).field("TargetId", &self.TargetId).field("Lun", &self.Lun).finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_SCSI_ADDRESS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_SCSI_ADDRESS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.PortNumber == other.PortNumber && self.PathId == other.PathId && self.TargetId == other.TargetId && self.Lun == other.Lun
-    }
-}
-impl Eq for CLUS_SCSI_ADDRESS_0_0 {}
 impl Default for CLUS_SCSI_ADDRESS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_SET_MAINTENANCE_MODE_INPUT {
     pub InMaintenance: super::super::Foundation::BOOL,
     pub ExtraParameterSize: u32,
     pub ExtraParameter: [u8; 1],
 }
-impl Copy for CLUS_SET_MAINTENANCE_MODE_INPUT {}
-impl Clone for CLUS_SET_MAINTENANCE_MODE_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_SET_MAINTENANCE_MODE_INPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_SET_MAINTENANCE_MODE_INPUT").field("InMaintenance", &self.InMaintenance).field("ExtraParameterSize", &self.ExtraParameterSize).field("ExtraParameter", &self.ExtraParameter).finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_SET_MAINTENANCE_MODE_INPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_SET_MAINTENANCE_MODE_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.InMaintenance == other.InMaintenance && self.ExtraParameterSize == other.ExtraParameterSize && self.ExtraParameter == other.ExtraParameter
-    }
-}
-impl Eq for CLUS_SET_MAINTENANCE_MODE_INPUT {}
 impl Default for CLUS_SET_MAINTENANCE_MODE_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_SHARED_VOLUME_BACKUP_MODE {
     pub BackupState: CLUSTER_SHARED_VOLUME_BACKUP_STATE,
     pub DelayTimerInSecs: u32,
     pub VolumeName: [u16; 260],
 }
-impl Copy for CLUS_SHARED_VOLUME_BACKUP_MODE {}
-impl Clone for CLUS_SHARED_VOLUME_BACKUP_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_SHARED_VOLUME_BACKUP_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_SHARED_VOLUME_BACKUP_MODE").field("BackupState", &self.BackupState).field("DelayTimerInSecs", &self.DelayTimerInSecs).field("VolumeName", &self.VolumeName).finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_SHARED_VOLUME_BACKUP_MODE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_SHARED_VOLUME_BACKUP_MODE {
-    fn eq(&self, other: &Self) -> bool {
-        self.BackupState == other.BackupState && self.DelayTimerInSecs == other.DelayTimerInSecs && self.VolumeName == other.VolumeName
-    }
-}
-impl Eq for CLUS_SHARED_VOLUME_BACKUP_MODE {}
 impl Default for CLUS_SHARED_VOLUME_BACKUP_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_STARTING_PARAMS {
     pub dwSize: u32,
     pub bForm: super::super::Foundation::BOOL,
     pub bFirst: super::super::Foundation::BOOL,
 }
-impl Copy for CLUS_STARTING_PARAMS {}
-impl Clone for CLUS_STARTING_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_STARTING_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_STARTING_PARAMS").field("dwSize", &self.dwSize).field("bForm", &self.bForm).field("bFirst", &self.bFirst).finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_STARTING_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_STARTING_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.bForm == other.bForm && self.bFirst == other.bFirst
-    }
-}
-impl Eq for CLUS_STARTING_PARAMS {}
 impl Default for CLUS_STARTING_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
     pub AvailDrivelettersMask: u32,
-}
-impl Copy for CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {}
-impl Clone for CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS").field("AvailDrivelettersMask", &self.AvailDrivelettersMask).finish()
-    }
 }
 impl windows_core::TypeKind for CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.AvailDrivelettersMask == other.AvailDrivelettersMask
-    }
-}
-impl Eq for CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {}
 impl Default for CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_STORAGE_REMAP_DRIVELETTER {
     pub CurrentDriveLetterMask: u32,
     pub TargetDriveLetterMask: u32,
 }
-impl Copy for CLUS_STORAGE_REMAP_DRIVELETTER {}
-impl Clone for CLUS_STORAGE_REMAP_DRIVELETTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_STORAGE_REMAP_DRIVELETTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_STORAGE_REMAP_DRIVELETTER").field("CurrentDriveLetterMask", &self.CurrentDriveLetterMask).field("TargetDriveLetterMask", &self.TargetDriveLetterMask).finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_STORAGE_REMAP_DRIVELETTER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_STORAGE_REMAP_DRIVELETTER {
-    fn eq(&self, other: &Self) -> bool {
-        self.CurrentDriveLetterMask == other.CurrentDriveLetterMask && self.TargetDriveLetterMask == other.TargetDriveLetterMask
-    }
-}
-impl Eq for CLUS_STORAGE_REMAP_DRIVELETTER {}
 impl Default for CLUS_STORAGE_REMAP_DRIVELETTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_STORAGE_SET_DRIVELETTER {
     pub PartitionNumber: u32,
     pub DriveLetterMask: u32,
 }
-impl Copy for CLUS_STORAGE_SET_DRIVELETTER {}
-impl Clone for CLUS_STORAGE_SET_DRIVELETTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_STORAGE_SET_DRIVELETTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_STORAGE_SET_DRIVELETTER").field("PartitionNumber", &self.PartitionNumber).field("DriveLetterMask", &self.DriveLetterMask).finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_STORAGE_SET_DRIVELETTER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_STORAGE_SET_DRIVELETTER {
-    fn eq(&self, other: &Self) -> bool {
-        self.PartitionNumber == other.PartitionNumber && self.DriveLetterMask == other.DriveLetterMask
-    }
-}
-impl Eq for CLUS_STORAGE_SET_DRIVELETTER {}
 impl Default for CLUS_STORAGE_SET_DRIVELETTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_WORKER {
     pub hThread: super::super::Foundation::HANDLE,
     pub Terminate: super::super::Foundation::BOOL,
 }
-impl Copy for CLUS_WORKER {}
-impl Clone for CLUS_WORKER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLUS_WORKER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLUS_WORKER").field("hThread", &self.hThread).field("Terminate", &self.Terminate).finish()
-    }
-}
 impl windows_core::TypeKind for CLUS_WORKER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLUS_WORKER {
-    fn eq(&self, other: &Self) -> bool {
-        self.hThread == other.hThread && self.Terminate == other.Terminate
-    }
-}
-impl Eq for CLUS_WORKER {}
 impl Default for CLUS_WORKER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREATE_CLUSTER_CONFIG {
     pub dwVersion: u32,
     pub lpszClusterName: windows_core::PCWSTR,
@@ -12337,32 +11138,16 @@ pub struct CREATE_CLUSTER_CONFIG {
     pub managementPointType: CLUSTER_MGMT_POINT_TYPE,
     pub managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
 }
-impl Copy for CREATE_CLUSTER_CONFIG {}
-impl Clone for CREATE_CLUSTER_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CREATE_CLUSTER_CONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CREATE_CLUSTER_CONFIG").field("dwVersion", &self.dwVersion).field("lpszClusterName", &self.lpszClusterName).field("cNodes", &self.cNodes).field("ppszNodeNames", &self.ppszNodeNames).field("cIpEntries", &self.cIpEntries).field("pIpEntries", &self.pIpEntries).field("fEmptyCluster", &self.fEmptyCluster).field("managementPointType", &self.managementPointType).field("managementPointResType", &self.managementPointResType).finish()
-    }
-}
 impl windows_core::TypeKind for CREATE_CLUSTER_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CREATE_CLUSTER_CONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.lpszClusterName == other.lpszClusterName && self.cNodes == other.cNodes && self.ppszNodeNames == other.ppszNodeNames && self.cIpEntries == other.cIpEntries && self.pIpEntries == other.pIpEntries && self.fEmptyCluster == other.fEmptyCluster && self.managementPointType == other.managementPointType && self.managementPointResType == other.managementPointResType
-    }
-}
-impl Eq for CREATE_CLUSTER_CONFIG {}
 impl Default for CREATE_CLUSTER_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREATE_CLUSTER_NAME_ACCOUNT {
     pub dwVersion: u32,
     pub lpszClusterName: windows_core::PCWSTR,
@@ -12374,26 +11159,9 @@ pub struct CREATE_CLUSTER_NAME_ACCOUNT {
     pub managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
     pub bUpgradeVCOs: super::super::Foundation::BOOLEAN,
 }
-impl Copy for CREATE_CLUSTER_NAME_ACCOUNT {}
-impl Clone for CREATE_CLUSTER_NAME_ACCOUNT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CREATE_CLUSTER_NAME_ACCOUNT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CREATE_CLUSTER_NAME_ACCOUNT").field("dwVersion", &self.dwVersion).field("lpszClusterName", &self.lpszClusterName).field("dwFlags", &self.dwFlags).field("pszUserName", &self.pszUserName).field("pszPassword", &self.pszPassword).field("pszDomain", &self.pszDomain).field("managementPointType", &self.managementPointType).field("managementPointResType", &self.managementPointResType).field("bUpgradeVCOs", &self.bUpgradeVCOs).finish()
-    }
-}
 impl windows_core::TypeKind for CREATE_CLUSTER_NAME_ACCOUNT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CREATE_CLUSTER_NAME_ACCOUNT {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.lpszClusterName == other.lpszClusterName && self.dwFlags == other.dwFlags && self.pszUserName == other.pszUserName && self.pszPassword == other.pszPassword && self.pszDomain == other.pszDomain && self.managementPointType == other.managementPointType && self.managementPointResType == other.managementPointResType && self.bUpgradeVCOs == other.bUpgradeVCOs
-    }
-}
-impl Eq for CREATE_CLUSTER_NAME_ACCOUNT {}
 impl Default for CREATE_CLUSTER_NAME_ACCOUNT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -12440,152 +11208,72 @@ pub const Cluster: windows_core::GUID = windows_core::GUID::from_u128(0xf2e606e3
 pub const ClusterNames: windows_core::GUID = windows_core::GUID::from_u128(0xf2e606eb_2631_11d1_89f1_00a0c90d061e);
 pub const DomainNames: windows_core::GUID = windows_core::GUID::from_u128(0xf2e606e1_2631_11d1_89f1_00a0c90d061e);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILESHARE_CHANGE {
     pub Change: FILESHARE_CHANGE_ENUM,
     pub ShareName: [u16; 84],
 }
-impl Copy for FILESHARE_CHANGE {}
-impl Clone for FILESHARE_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FILESHARE_CHANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FILESHARE_CHANGE").field("Change", &self.Change).field("ShareName", &self.ShareName).finish()
-    }
-}
 impl windows_core::TypeKind for FILESHARE_CHANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FILESHARE_CHANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Change == other.Change && self.ShareName == other.ShareName
-    }
-}
-impl Eq for FILESHARE_CHANGE {}
 impl Default for FILESHARE_CHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILESHARE_CHANGE_LIST {
     pub NumEntries: u32,
     pub ChangeEntry: [FILESHARE_CHANGE; 1],
 }
-impl Copy for FILESHARE_CHANGE_LIST {}
-impl Clone for FILESHARE_CHANGE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FILESHARE_CHANGE_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FILESHARE_CHANGE_LIST").field("NumEntries", &self.NumEntries).field("ChangeEntry", &self.ChangeEntry).finish()
-    }
-}
 impl windows_core::TypeKind for FILESHARE_CHANGE_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FILESHARE_CHANGE_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumEntries == other.NumEntries && self.ChangeEntry == other.ChangeEntry
-    }
-}
-impl Eq for FILESHARE_CHANGE_LIST {}
 impl Default for FILESHARE_CHANGE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GET_OPERATION_CONTEXT_PARAMS {
     pub Size: u32,
     pub Version: u32,
     pub Type: RESDLL_CONTEXT_OPERATION_TYPE,
     pub Priority: u32,
 }
-impl Copy for GET_OPERATION_CONTEXT_PARAMS {}
-impl Clone for GET_OPERATION_CONTEXT_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GET_OPERATION_CONTEXT_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GET_OPERATION_CONTEXT_PARAMS").field("Size", &self.Size).field("Version", &self.Version).field("Type", &self.Type).field("Priority", &self.Priority).finish()
-    }
-}
 impl windows_core::TypeKind for GET_OPERATION_CONTEXT_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GET_OPERATION_CONTEXT_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.Type == other.Type && self.Priority == other.Priority
-    }
-}
-impl Eq for GET_OPERATION_CONTEXT_PARAMS {}
 impl Default for GET_OPERATION_CONTEXT_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GROUP_FAILURE_INFO {
     pub dwFailoverAttemptsRemaining: u32,
     pub dwFailoverPeriodRemaining: u32,
 }
-impl Copy for GROUP_FAILURE_INFO {}
-impl Clone for GROUP_FAILURE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GROUP_FAILURE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GROUP_FAILURE_INFO").field("dwFailoverAttemptsRemaining", &self.dwFailoverAttemptsRemaining).field("dwFailoverPeriodRemaining", &self.dwFailoverPeriodRemaining).finish()
-    }
-}
 impl windows_core::TypeKind for GROUP_FAILURE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GROUP_FAILURE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFailoverAttemptsRemaining == other.dwFailoverAttemptsRemaining && self.dwFailoverPeriodRemaining == other.dwFailoverPeriodRemaining
-    }
-}
-impl Eq for GROUP_FAILURE_INFO {}
 impl Default for GROUP_FAILURE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GROUP_FAILURE_INFO_BUFFER {
     pub dwVersion: u32,
     pub Info: GROUP_FAILURE_INFO,
 }
-impl Copy for GROUP_FAILURE_INFO_BUFFER {}
-impl Clone for GROUP_FAILURE_INFO_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GROUP_FAILURE_INFO_BUFFER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GROUP_FAILURE_INFO_BUFFER").field("dwVersion", &self.dwVersion).field("Info", &self.Info).finish()
-    }
-}
 impl windows_core::TypeKind for GROUP_FAILURE_INFO_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GROUP_FAILURE_INFO_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.Info == other.Info
-    }
-}
-impl Eq for GROUP_FAILURE_INFO_BUFFER {}
 impl Default for GROUP_FAILURE_INFO_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -12878,99 +11566,52 @@ impl windows_core::TypeKind for HRESTYPEENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONITOR_STATE {
     pub LastUpdate: i64,
     pub State: RESOURCE_MONITOR_STATE,
     pub ActiveResource: super::super::Foundation::HANDLE,
     pub ResmonStop: super::super::Foundation::BOOL,
 }
-impl Copy for MONITOR_STATE {}
-impl Clone for MONITOR_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MONITOR_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MONITOR_STATE").field("LastUpdate", &self.LastUpdate).field("State", &self.State).field("ActiveResource", &self.ActiveResource).field("ResmonStop", &self.ResmonStop).finish()
-    }
-}
 impl windows_core::TypeKind for MONITOR_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MONITOR_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.LastUpdate == other.LastUpdate && self.State == other.State && self.ActiveResource == other.ActiveResource && self.ResmonStop == other.ResmonStop
-    }
-}
-impl Eq for MONITOR_STATE {}
 impl Default for MONITOR_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NOTIFY_FILTER_AND_TYPE {
     pub dwObjectType: u32,
     pub FilterFlags: i64,
 }
-impl Copy for NOTIFY_FILTER_AND_TYPE {}
-impl Clone for NOTIFY_FILTER_AND_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NOTIFY_FILTER_AND_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NOTIFY_FILTER_AND_TYPE").field("dwObjectType", &self.dwObjectType).field("FilterFlags", &self.FilterFlags).finish()
-    }
-}
 impl windows_core::TypeKind for NOTIFY_FILTER_AND_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NOTIFY_FILTER_AND_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwObjectType == other.dwObjectType && self.FilterFlags == other.FilterFlags
-    }
-}
-impl Eq for NOTIFY_FILTER_AND_TYPE {}
 impl Default for NOTIFY_FILTER_AND_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NodeUtilizationInfoElement {
     pub Id: u64,
     pub AvailableMemory: u64,
     pub AvailableMemoryAfterReclamation: u64,
 }
-impl Copy for NodeUtilizationInfoElement {}
-impl Clone for NodeUtilizationInfoElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NodeUtilizationInfoElement {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NodeUtilizationInfoElement").field("Id", &self.Id).field("AvailableMemory", &self.AvailableMemory).field("AvailableMemoryAfterReclamation", &self.AvailableMemoryAfterReclamation).finish()
-    }
-}
 impl windows_core::TypeKind for NodeUtilizationInfoElement {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NodeUtilizationInfoElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.Id == other.Id && self.AvailableMemory == other.AvailableMemory && self.AvailableMemoryAfterReclamation == other.AvailableMemoryAfterReclamation
-    }
-}
-impl Eq for NodeUtilizationInfoElement {}
 impl Default for NodeUtilizationInfoElement {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POST_UPGRADE_VERSION_INFO {
     pub newMajorVersion: u32,
     pub newUpgradeVersion: u32,
@@ -12978,32 +11619,16 @@ pub struct POST_UPGRADE_VERSION_INFO {
     pub oldUpgradeVersion: u32,
     pub reserved: u32,
 }
-impl Copy for POST_UPGRADE_VERSION_INFO {}
-impl Clone for POST_UPGRADE_VERSION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for POST_UPGRADE_VERSION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("POST_UPGRADE_VERSION_INFO").field("newMajorVersion", &self.newMajorVersion).field("newUpgradeVersion", &self.newUpgradeVersion).field("oldMajorVersion", &self.oldMajorVersion).field("oldUpgradeVersion", &self.oldUpgradeVersion).field("reserved", &self.reserved).finish()
-    }
-}
 impl windows_core::TypeKind for POST_UPGRADE_VERSION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for POST_UPGRADE_VERSION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.newMajorVersion == other.newMajorVersion && self.newUpgradeVersion == other.newUpgradeVersion && self.oldMajorVersion == other.oldMajorVersion && self.oldUpgradeVersion == other.oldUpgradeVersion && self.reserved == other.reserved
-    }
-}
-impl Eq for POST_UPGRADE_VERSION_INFO {}
 impl Default for POST_UPGRADE_VERSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PaxosTagCStruct {
     pub __padding__PaxosTagVtable: u64,
     pub __padding__NextEpochVtable: u64,
@@ -13019,150 +11644,60 @@ pub struct PaxosTagCStruct {
     pub Sequence: i32,
     pub __padding__BoundrySequence: u32,
 }
-impl Copy for PaxosTagCStruct {}
-impl Clone for PaxosTagCStruct {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PaxosTagCStruct {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PaxosTagCStruct")
-            .field("__padding__PaxosTagVtable", &self.__padding__PaxosTagVtable)
-            .field("__padding__NextEpochVtable", &self.__padding__NextEpochVtable)
-            .field("__padding__NextEpoch_DateTimeVtable", &self.__padding__NextEpoch_DateTimeVtable)
-            .field("NextEpoch_DateTime_ticks", &self.NextEpoch_DateTime_ticks)
-            .field("NextEpoch_Value", &self.NextEpoch_Value)
-            .field("__padding__BoundryNextEpoch", &self.__padding__BoundryNextEpoch)
-            .field("__padding__EpochVtable", &self.__padding__EpochVtable)
-            .field("__padding__Epoch_DateTimeVtable", &self.__padding__Epoch_DateTimeVtable)
-            .field("Epoch_DateTime_ticks", &self.Epoch_DateTime_ticks)
-            .field("Epoch_Value", &self.Epoch_Value)
-            .field("__padding__BoundryEpoch", &self.__padding__BoundryEpoch)
-            .field("Sequence", &self.Sequence)
-            .field("__padding__BoundrySequence", &self.__padding__BoundrySequence)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PaxosTagCStruct {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PaxosTagCStruct {
-    fn eq(&self, other: &Self) -> bool {
-        self.__padding__PaxosTagVtable == other.__padding__PaxosTagVtable
-            && self.__padding__NextEpochVtable == other.__padding__NextEpochVtable
-            && self.__padding__NextEpoch_DateTimeVtable == other.__padding__NextEpoch_DateTimeVtable
-            && self.NextEpoch_DateTime_ticks == other.NextEpoch_DateTime_ticks
-            && self.NextEpoch_Value == other.NextEpoch_Value
-            && self.__padding__BoundryNextEpoch == other.__padding__BoundryNextEpoch
-            && self.__padding__EpochVtable == other.__padding__EpochVtable
-            && self.__padding__Epoch_DateTimeVtable == other.__padding__Epoch_DateTimeVtable
-            && self.Epoch_DateTime_ticks == other.Epoch_DateTime_ticks
-            && self.Epoch_Value == other.Epoch_Value
-            && self.__padding__BoundryEpoch == other.__padding__BoundryEpoch
-            && self.Sequence == other.Sequence
-            && self.__padding__BoundrySequence == other.__padding__BoundrySequence
-    }
-}
-impl Eq for PaxosTagCStruct {}
 impl Default for PaxosTagCStruct {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESOURCE_FAILURE_INFO {
     pub dwRestartAttemptsRemaining: u32,
     pub dwRestartPeriodRemaining: u32,
 }
-impl Copy for RESOURCE_FAILURE_INFO {}
-impl Clone for RESOURCE_FAILURE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RESOURCE_FAILURE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RESOURCE_FAILURE_INFO").field("dwRestartAttemptsRemaining", &self.dwRestartAttemptsRemaining).field("dwRestartPeriodRemaining", &self.dwRestartPeriodRemaining).finish()
-    }
-}
 impl windows_core::TypeKind for RESOURCE_FAILURE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RESOURCE_FAILURE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwRestartAttemptsRemaining == other.dwRestartAttemptsRemaining && self.dwRestartPeriodRemaining == other.dwRestartPeriodRemaining
-    }
-}
-impl Eq for RESOURCE_FAILURE_INFO {}
 impl Default for RESOURCE_FAILURE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESOURCE_FAILURE_INFO_BUFFER {
     pub dwVersion: u32,
     pub Info: RESOURCE_FAILURE_INFO,
 }
-impl Copy for RESOURCE_FAILURE_INFO_BUFFER {}
-impl Clone for RESOURCE_FAILURE_INFO_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RESOURCE_FAILURE_INFO_BUFFER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RESOURCE_FAILURE_INFO_BUFFER").field("dwVersion", &self.dwVersion).field("Info", &self.Info).finish()
-    }
-}
 impl windows_core::TypeKind for RESOURCE_FAILURE_INFO_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RESOURCE_FAILURE_INFO_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.Info == other.Info
-    }
-}
-impl Eq for RESOURCE_FAILURE_INFO_BUFFER {}
 impl Default for RESOURCE_FAILURE_INFO_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESOURCE_STATUS {
     pub ResourceState: CLUSTER_RESOURCE_STATE,
     pub CheckPoint: u32,
     pub WaitHint: u32,
     pub EventHandle: super::super::Foundation::HANDLE,
 }
-impl Copy for RESOURCE_STATUS {}
-impl Clone for RESOURCE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RESOURCE_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RESOURCE_STATUS").field("ResourceState", &self.ResourceState).field("CheckPoint", &self.CheckPoint).field("WaitHint", &self.WaitHint).field("EventHandle", &self.EventHandle).finish()
-    }
-}
 impl windows_core::TypeKind for RESOURCE_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RESOURCE_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ResourceState == other.ResourceState && self.CheckPoint == other.CheckPoint && self.WaitHint == other.WaitHint && self.EventHandle == other.EventHandle
-    }
-}
-impl Eq for RESOURCE_STATUS {}
 impl Default for RESOURCE_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESOURCE_STATUS_EX {
     pub ResourceState: CLUSTER_RESOURCE_STATE,
     pub CheckPoint: u32,
@@ -13171,124 +11706,60 @@ pub struct RESOURCE_STATUS_EX {
     pub Flags: u32,
     pub WaitHint: u32,
 }
-impl Copy for RESOURCE_STATUS_EX {}
-impl Clone for RESOURCE_STATUS_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RESOURCE_STATUS_EX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RESOURCE_STATUS_EX").field("ResourceState", &self.ResourceState).field("CheckPoint", &self.CheckPoint).field("EventHandle", &self.EventHandle).field("ApplicationSpecificErrorCode", &self.ApplicationSpecificErrorCode).field("Flags", &self.Flags).field("WaitHint", &self.WaitHint).finish()
-    }
-}
 impl windows_core::TypeKind for RESOURCE_STATUS_EX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RESOURCE_STATUS_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.ResourceState == other.ResourceState && self.CheckPoint == other.CheckPoint && self.EventHandle == other.EventHandle && self.ApplicationSpecificErrorCode == other.ApplicationSpecificErrorCode && self.Flags == other.Flags && self.WaitHint == other.WaitHint
-    }
-}
-impl Eq for RESOURCE_STATUS_EX {}
 impl Default for RESOURCE_STATUS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
     pub isTerminalFailure: super::super::Foundation::BOOL,
     pub restartPeriodRemaining: u32,
 }
-impl Copy for RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {}
-impl Clone for RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RESOURCE_TERMINAL_FAILURE_INFO_BUFFER").field("isTerminalFailure", &self.isTerminalFailure).field("restartPeriodRemaining", &self.restartPeriodRemaining).finish()
-    }
-}
 impl windows_core::TypeKind for RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.isTerminalFailure == other.isTerminalFailure && self.restartPeriodRemaining == other.restartPeriodRemaining
-    }
-}
-impl Eq for RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {}
 impl Default for RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESUTIL_FILETIME_DATA {
     pub Default: super::super::Foundation::FILETIME,
     pub Minimum: super::super::Foundation::FILETIME,
     pub Maximum: super::super::Foundation::FILETIME,
 }
-impl Copy for RESUTIL_FILETIME_DATA {}
-impl Clone for RESUTIL_FILETIME_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RESUTIL_FILETIME_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RESUTIL_FILETIME_DATA").field("Default", &self.Default).field("Minimum", &self.Minimum).field("Maximum", &self.Maximum).finish()
-    }
-}
 impl windows_core::TypeKind for RESUTIL_FILETIME_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RESUTIL_FILETIME_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Default == other.Default && self.Minimum == other.Minimum && self.Maximum == other.Maximum
-    }
-}
-impl Eq for RESUTIL_FILETIME_DATA {}
 impl Default for RESUTIL_FILETIME_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESUTIL_LARGEINT_DATA {
     pub Default: i64,
     pub Minimum: i64,
     pub Maximum: i64,
 }
-impl Copy for RESUTIL_LARGEINT_DATA {}
-impl Clone for RESUTIL_LARGEINT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RESUTIL_LARGEINT_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RESUTIL_LARGEINT_DATA").field("Default", &self.Default).field("Minimum", &self.Minimum).field("Maximum", &self.Maximum).finish()
-    }
-}
 impl windows_core::TypeKind for RESUTIL_LARGEINT_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RESUTIL_LARGEINT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Default == other.Default && self.Minimum == other.Minimum && self.Maximum == other.Maximum
-    }
-}
-impl Eq for RESUTIL_LARGEINT_DATA {}
 impl Default for RESUTIL_LARGEINT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RESUTIL_PROPERTY_ITEM {
     pub Name: windows_core::PWSTR,
     pub KeyName: windows_core::PWSTR,
@@ -13299,12 +11770,6 @@ pub struct RESUTIL_PROPERTY_ITEM {
     pub Flags: u32,
     pub Offset: u32,
 }
-impl Copy for RESUTIL_PROPERTY_ITEM {}
-impl Clone for RESUTIL_PROPERTY_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for RESUTIL_PROPERTY_ITEM {
     type TypeKind = windows_core::CopyType;
 }
@@ -13314,6 +11779,7 @@ impl Default for RESUTIL_PROPERTY_ITEM {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union RESUTIL_PROPERTY_ITEM_0 {
     pub DefaultPtr: usize,
     pub Default: u32,
@@ -13321,12 +11787,6 @@ pub union RESUTIL_PROPERTY_ITEM_0 {
     pub LargeIntData: *mut RESUTIL_LARGEINT_DATA,
     pub ULargeIntData: *mut RESUTIL_ULARGEINT_DATA,
     pub FileTimeData: *mut RESUTIL_FILETIME_DATA,
-}
-impl Copy for RESUTIL_PROPERTY_ITEM_0 {}
-impl Clone for RESUTIL_PROPERTY_ITEM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RESUTIL_PROPERTY_ITEM_0 {
     type TypeKind = windows_core::CopyType;
@@ -13337,67 +11797,36 @@ impl Default for RESUTIL_PROPERTY_ITEM_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESUTIL_ULARGEINT_DATA {
     pub Default: u64,
     pub Minimum: u64,
     pub Maximum: u64,
 }
-impl Copy for RESUTIL_ULARGEINT_DATA {}
-impl Clone for RESUTIL_ULARGEINT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RESUTIL_ULARGEINT_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RESUTIL_ULARGEINT_DATA").field("Default", &self.Default).field("Minimum", &self.Minimum).field("Maximum", &self.Maximum).finish()
-    }
-}
 impl windows_core::TypeKind for RESUTIL_ULARGEINT_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RESUTIL_ULARGEINT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Default == other.Default && self.Minimum == other.Minimum && self.Maximum == other.Maximum
-    }
-}
-impl Eq for RESUTIL_ULARGEINT_DATA {}
 impl Default for RESUTIL_ULARGEINT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ResourceUtilizationInfoElement {
     pub PhysicalNumaId: u64,
     pub CurrentMemory: u64,
 }
-impl Copy for ResourceUtilizationInfoElement {}
-impl Clone for ResourceUtilizationInfoElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ResourceUtilizationInfoElement {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ResourceUtilizationInfoElement").field("PhysicalNumaId", &self.PhysicalNumaId).field("CurrentMemory", &self.CurrentMemory).finish()
-    }
-}
 impl windows_core::TypeKind for ResourceUtilizationInfoElement {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ResourceUtilizationInfoElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.PhysicalNumaId == other.PhysicalNumaId && self.CurrentMemory == other.CurrentMemory
-    }
-}
-impl Eq for ResourceUtilizationInfoElement {}
 impl Default for ResourceUtilizationInfoElement {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
     pub ReplicationGroupName: [u16; 260],
     pub Description: [u16; 260],
@@ -13413,405 +11842,182 @@ pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
     pub VolumeNameCount: u32,
     pub VolumeNames: [u16; 260],
 }
-impl Copy for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {}
-impl Clone for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP")
-            .field("ReplicationGroupName", &self.ReplicationGroupName)
-            .field("Description", &self.Description)
-            .field("LogPath", &self.LogPath)
-            .field("MaxLogSizeInBytes", &self.MaxLogSizeInBytes)
-            .field("LogType", &self.LogType)
-            .field("ReplicationMode", &self.ReplicationMode)
-            .field("MinimumPartnersInSync", &self.MinimumPartnersInSync)
-            .field("EnableWriteConsistency", &self.EnableWriteConsistency)
-            .field("EnableEncryption", &self.EnableEncryption)
-            .field("EnableCompression", &self.EnableCompression)
-            .field("CertificateThumbprint", &self.CertificateThumbprint)
-            .field("VolumeNameCount", &self.VolumeNameCount)
-            .field("VolumeNames", &self.VolumeNames)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
-    fn eq(&self, other: &Self) -> bool {
-        self.ReplicationGroupName == other.ReplicationGroupName && self.Description == other.Description && self.LogPath == other.LogPath && self.MaxLogSizeInBytes == other.MaxLogSizeInBytes && self.LogType == other.LogType && self.ReplicationMode == other.ReplicationMode && self.MinimumPartnersInSync == other.MinimumPartnersInSync && self.EnableWriteConsistency == other.EnableWriteConsistency && self.EnableEncryption == other.EnableEncryption && self.EnableCompression == other.EnableCompression && self.CertificateThumbprint == other.CertificateThumbprint && self.VolumeNameCount == other.VolumeNameCount && self.VolumeNames == other.VolumeNames
-    }
-}
-impl Eq for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {}
 impl Default for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
     pub Result: u32,
     pub ErrorString: [u16; 260],
 }
-impl Copy for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {}
-impl Clone for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT").field("Result", &self.Result).field("ErrorString", &self.ErrorString).finish()
-    }
-}
 impl windows_core::TypeKind for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Result == other.Result && self.ErrorString == other.ErrorString
-    }
-}
-impl Eq for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {}
 impl Default for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_DISK_INFO {
     pub Reason: SR_DISK_REPLICATION_ELIGIBLE,
     pub DiskGuid: windows_core::GUID,
 }
-impl Copy for SR_RESOURCE_TYPE_DISK_INFO {}
-impl Clone for SR_RESOURCE_TYPE_DISK_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SR_RESOURCE_TYPE_DISK_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SR_RESOURCE_TYPE_DISK_INFO").field("Reason", &self.Reason).field("DiskGuid", &self.DiskGuid).finish()
-    }
-}
 impl windows_core::TypeKind for SR_RESOURCE_TYPE_DISK_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SR_RESOURCE_TYPE_DISK_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Reason == other.Reason && self.DiskGuid == other.DiskGuid
-    }
-}
-impl Eq for SR_RESOURCE_TYPE_DISK_INFO {}
 impl Default for SR_RESOURCE_TYPE_DISK_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
     pub Count: u16,
     pub DiskInfo: [SR_RESOURCE_TYPE_DISK_INFO; 1],
 }
-impl Copy for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {}
-impl Clone for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT").field("Count", &self.Count).field("DiskInfo", &self.DiskInfo).finish()
-    }
-}
 impl windows_core::TypeKind for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count && self.DiskInfo == other.DiskInfo
-    }
-}
-impl Eq for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {}
 impl Default for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
     pub DataDiskGuid: windows_core::GUID,
     pub IncludeOfflineDisks: super::super::Foundation::BOOLEAN,
 }
-impl Copy for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {}
-impl Clone for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS").field("DataDiskGuid", &self.DataDiskGuid).field("IncludeOfflineDisks", &self.IncludeOfflineDisks).finish()
-    }
-}
 impl windows_core::TypeKind for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
-    fn eq(&self, other: &Self) -> bool {
-        self.DataDiskGuid == other.DataDiskGuid && self.IncludeOfflineDisks == other.IncludeOfflineDisks
-    }
-}
-impl Eq for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {}
 impl Default for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
     pub DataDiskGuid: windows_core::GUID,
     pub IncludeAvailableStoargeDisks: super::super::Foundation::BOOLEAN,
 }
-impl Copy for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {}
-impl Clone for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS").field("DataDiskGuid", &self.DataDiskGuid).field("IncludeAvailableStoargeDisks", &self.IncludeAvailableStoargeDisks).finish()
-    }
-}
 impl windows_core::TypeKind for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
-    fn eq(&self, other: &Self) -> bool {
-        self.DataDiskGuid == other.DataDiskGuid && self.IncludeAvailableStoargeDisks == other.IncludeAvailableStoargeDisks
-    }
-}
-impl Eq for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {}
 impl Default for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
     pub SourceDataDiskGuid: windows_core::GUID,
     pub TargetReplicationGroupGuid: windows_core::GUID,
     pub SkipConnectivityCheck: super::super::Foundation::BOOLEAN,
     pub IncludeOfflineDisks: super::super::Foundation::BOOLEAN,
 }
-impl Copy for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {}
-impl Clone for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS").field("SourceDataDiskGuid", &self.SourceDataDiskGuid).field("TargetReplicationGroupGuid", &self.TargetReplicationGroupGuid).field("SkipConnectivityCheck", &self.SkipConnectivityCheck).field("IncludeOfflineDisks", &self.IncludeOfflineDisks).finish()
-    }
-}
 impl windows_core::TypeKind for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
-    fn eq(&self, other: &Self) -> bool {
-        self.SourceDataDiskGuid == other.SourceDataDiskGuid && self.TargetReplicationGroupGuid == other.TargetReplicationGroupGuid && self.SkipConnectivityCheck == other.SkipConnectivityCheck && self.IncludeOfflineDisks == other.IncludeOfflineDisks
-    }
-}
-impl Eq for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {}
 impl Default for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_REPLICATED_DISK {
     pub Type: SR_REPLICATED_DISK_TYPE,
     pub ClusterDiskResourceGuid: windows_core::GUID,
     pub ReplicationGroupId: windows_core::GUID,
     pub ReplicationGroupName: [u16; 260],
 }
-impl Copy for SR_RESOURCE_TYPE_REPLICATED_DISK {}
-impl Clone for SR_RESOURCE_TYPE_REPLICATED_DISK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SR_RESOURCE_TYPE_REPLICATED_DISK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SR_RESOURCE_TYPE_REPLICATED_DISK").field("Type", &self.Type).field("ClusterDiskResourceGuid", &self.ClusterDiskResourceGuid).field("ReplicationGroupId", &self.ReplicationGroupId).field("ReplicationGroupName", &self.ReplicationGroupName).finish()
-    }
-}
 impl windows_core::TypeKind for SR_RESOURCE_TYPE_REPLICATED_DISK {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SR_RESOURCE_TYPE_REPLICATED_DISK {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.ClusterDiskResourceGuid == other.ClusterDiskResourceGuid && self.ReplicationGroupId == other.ReplicationGroupId && self.ReplicationGroupName == other.ReplicationGroupName
-    }
-}
-impl Eq for SR_RESOURCE_TYPE_REPLICATED_DISK {}
 impl Default for SR_RESOURCE_TYPE_REPLICATED_DISK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
     pub Count: u16,
     pub ReplicatedDisks: [SR_RESOURCE_TYPE_REPLICATED_DISK; 1],
 }
-impl Copy for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {}
-impl Clone for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT").field("Count", &self.Count).field("ReplicatedDisks", &self.ReplicatedDisks).finish()
-    }
-}
 impl windows_core::TypeKind for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count && self.ReplicatedDisks == other.ReplicatedDisks
-    }
-}
-impl Eq for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {}
 impl Default for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
     pub Count: u32,
     pub PartitionArray: [SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO; 1],
 }
-impl Copy for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {}
-impl Clone for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY").field("Count", &self.Count).field("PartitionArray", &self.PartitionArray).finish()
-    }
-}
 impl windows_core::TypeKind for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count && self.PartitionArray == other.PartitionArray
-    }
-}
-impl Eq for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {}
 impl Default for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
     pub PartitionOffset: u64,
     pub Capabilities: u32,
 }
-impl Copy for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {}
-impl Clone for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO").field("PartitionOffset", &self.PartitionOffset).field("Capabilities", &self.Capabilities).finish()
-    }
-}
 impl windows_core::TypeKind for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.PartitionOffset == other.PartitionOffset && self.Capabilities == other.Capabilities
-    }
-}
-impl Eq for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {}
 impl Default for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WitnessTagHelper {
     pub Version: i32,
     pub paxosToValidate: PaxosTagCStruct,
 }
-impl Copy for WitnessTagHelper {}
-impl Clone for WitnessTagHelper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WitnessTagHelper {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WitnessTagHelper").field("Version", &self.Version).field("paxosToValidate", &self.paxosToValidate).finish()
-    }
-}
 impl windows_core::TypeKind for WitnessTagHelper {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WitnessTagHelper {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.paxosToValidate == other.paxosToValidate
-    }
-}
-impl Eq for WitnessTagHelper {}
 impl Default for WitnessTagHelper {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WitnessTagUpdateHelper {
     pub Version: i32,
     pub paxosToSet: PaxosTagCStruct,
     pub paxosToValidate: PaxosTagCStruct,
 }
-impl Copy for WitnessTagUpdateHelper {}
-impl Clone for WitnessTagUpdateHelper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WitnessTagUpdateHelper {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WitnessTagUpdateHelper").field("Version", &self.Version).field("paxosToSet", &self.paxosToSet).field("paxosToValidate", &self.paxosToValidate).finish()
-    }
-}
 impl windows_core::TypeKind for WitnessTagUpdateHelper {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WitnessTagUpdateHelper {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.paxosToSet == other.paxosToSet && self.paxosToValidate == other.paxosToValidate
-    }
-}
-impl Eq for WitnessTagUpdateHelper {}
 impl Default for WitnessTagUpdateHelper {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

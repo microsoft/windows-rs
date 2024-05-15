@@ -2324,6 +2324,7 @@ pub type SR_DISK_REPLICATION_ELIGIBLE = i32;
 pub type SR_REPLICATED_DISK_TYPE = i32;
 pub type VM_RESDLL_CONTEXT = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLRES_CALLBACK_FUNCTION_TABLE {
     pub LogEvent: PLOG_EVENT_ROUTINE,
     pub SetResourceStatusEx: PSET_RESOURCE_STATUS_ROUTINE_EX,
@@ -2343,45 +2344,26 @@ pub struct CLRES_CALLBACK_FUNCTION_TABLE {
     pub SetResourceWprPolicy: PSET_RESOURCE_WPR_POLICY_ROUTINE,
     pub ArmWprWatchdogForCurrentResourceCall: PARM_WPR_WATCHDOG_FOR_CURRENT_RESOURCE_CALL_ROUTINE,
 }
-impl Copy for CLRES_CALLBACK_FUNCTION_TABLE {}
-impl Clone for CLRES_CALLBACK_FUNCTION_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
 pub struct CLRES_FUNCTION_TABLE {
     pub TableSize: u32,
     pub Version: u32,
     pub Anonymous: CLRES_FUNCTION_TABLE_0,
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl Copy for CLRES_FUNCTION_TABLE {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for CLRES_FUNCTION_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
 pub union CLRES_FUNCTION_TABLE_0 {
     pub V1Functions: CLRES_V1_FUNCTIONS,
     pub V2Functions: CLRES_V2_FUNCTIONS,
     pub V3Functions: CLRES_V3_FUNCTIONS,
     pub V4Functions: CLRES_V4_FUNCTIONS,
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl Copy for CLRES_FUNCTION_TABLE_0 {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for CLRES_FUNCTION_TABLE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
 pub struct CLRES_V1_FUNCTIONS {
     pub Open: POPEN_ROUTINE,
     pub Close: PCLOSE_ROUTINE,
@@ -2395,16 +2377,9 @@ pub struct CLRES_V1_FUNCTIONS {
     pub ResourceControl: PRESOURCE_CONTROL_ROUTINE,
     pub ResourceTypeControl: PRESOURCE_TYPE_CONTROL_ROUTINE,
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl Copy for CLRES_V1_FUNCTIONS {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for CLRES_V1_FUNCTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
 pub struct CLRES_V2_FUNCTIONS {
     pub Open: POPEN_V2_ROUTINE,
     pub Close: PCLOSE_ROUTINE,
@@ -2419,16 +2394,9 @@ pub struct CLRES_V2_FUNCTIONS {
     pub ResourceTypeControl: PRESOURCE_TYPE_CONTROL_ROUTINE,
     pub Cancel: PCANCEL_ROUTINE,
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl Copy for CLRES_V2_FUNCTIONS {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for CLRES_V2_FUNCTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
 pub struct CLRES_V3_FUNCTIONS {
     pub Open: POPEN_V2_ROUTINE,
     pub Close: PCLOSE_ROUTINE,
@@ -2443,16 +2411,9 @@ pub struct CLRES_V3_FUNCTIONS {
     pub BeginResourceTypeControl: PBEGIN_RESTYPECALL_ROUTINE,
     pub Cancel: PCANCEL_ROUTINE,
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl Copy for CLRES_V3_FUNCTIONS {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for CLRES_V3_FUNCTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
 pub struct CLRES_V4_FUNCTIONS {
     pub Open: POPEN_V2_ROUTINE,
     pub Close: PCLOSE_ROUTINE,
@@ -2469,73 +2430,41 @@ pub struct CLRES_V4_FUNCTIONS {
     pub BeginResourceControlAsUser: PBEGIN_RESCALL_AS_USER_ROUTINE,
     pub BeginResourceTypeControlAsUser: PBEGIN_RESTYPECALL_AS_USER_ROUTINE,
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl Copy for CLRES_V4_FUNCTIONS {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for CLRES_V4_FUNCTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSAPI_REASON_HANDLER {
     pub lpParameter: *mut core::ffi::c_void,
     pub pfnHandler: PCLUSAPI_PFN_REASON_HANDLER,
 }
-impl Copy for CLUSAPI_REASON_HANDLER {}
-impl Clone for CLUSAPI_REASON_HANDLER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
     pub GetTickCount64: u64,
     pub GetSystemTime: super::super::Foundation::SYSTEMTIME,
     pub NodeId: u32,
 }
-impl Copy for CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {}
-impl Clone for CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
     pub dwSize: u32,
     pub dwVersion: u32,
     pub eReason: CLUSTER_RESOURCE_STATE_CHANGE_REASON,
 }
-impl Copy for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {}
-impl Clone for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
     pub dwFlags: u32,
     pub guidPoolFilter: windows_sys::core::GUID,
 }
-impl Copy for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {}
-impl Clone for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_BINARY {
     pub Base: CLUSPROP_VALUE,
     pub rgb: [u8; 1],
 }
-impl Copy for CLUSPROP_BINARY {}
-impl Clone for CLUSPROP_BINARY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union CLUSPROP_BUFFER_HELPER {
     pub pb: *mut u8,
     pub pw: *mut u16,
@@ -2566,253 +2495,137 @@ pub union CLUSPROP_BUFFER_HELPER {
     pub pPartitionInfoValueEx2: *mut CLUSPROP_PARTITION_INFO_EX2,
     pub pFileTimeValue: *mut CLUSPROP_FILETIME,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for CLUSPROP_BUFFER_HELPER {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for CLUSPROP_BUFFER_HELPER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_DWORD {
     pub Base: CLUSPROP_VALUE,
     pub dw: u32,
 }
-impl Copy for CLUSPROP_DWORD {}
-impl Clone for CLUSPROP_DWORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_FILETIME {
     pub Base: CLUSPROP_VALUE,
     pub ft: super::super::Foundation::FILETIME,
 }
-impl Copy for CLUSPROP_FILETIME {}
-impl Clone for CLUSPROP_FILETIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_FTSET_INFO {
     pub Base: CLUSPROP_VALUE,
     pub Base2: CLUS_FTSET_INFO,
 }
-impl Copy for CLUSPROP_FTSET_INFO {}
-impl Clone for CLUSPROP_FTSET_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_LARGE_INTEGER {
     pub Base: CLUSPROP_VALUE,
     pub li: i64,
 }
-impl Copy for CLUSPROP_LARGE_INTEGER {}
-impl Clone for CLUSPROP_LARGE_INTEGER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_LIST {
     pub nPropertyCount: u32,
     pub PropertyName: CLUSPROP_SZ,
 }
-impl Copy for CLUSPROP_LIST {}
-impl Clone for CLUSPROP_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_LONG {
     pub Base: CLUSPROP_VALUE,
     pub l: i32,
 }
-impl Copy for CLUSPROP_LONG {}
-impl Clone for CLUSPROP_LONG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_PARTITION_INFO {
     pub Base: CLUSPROP_VALUE,
     pub Base2: CLUS_PARTITION_INFO,
 }
-impl Copy for CLUSPROP_PARTITION_INFO {}
-impl Clone for CLUSPROP_PARTITION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_PARTITION_INFO_EX {
     pub Base: CLUSPROP_VALUE,
     pub Base2: CLUS_PARTITION_INFO_EX,
 }
-impl Copy for CLUSPROP_PARTITION_INFO_EX {}
-impl Clone for CLUSPROP_PARTITION_INFO_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_PARTITION_INFO_EX2 {
     pub Base: CLUSPROP_PARTITION_INFO_EX,
     pub Base2: CLUS_PARTITION_INFO_EX2,
 }
-impl Copy for CLUSPROP_PARTITION_INFO_EX2 {}
-impl Clone for CLUSPROP_PARTITION_INFO_EX2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CLUSPROP_REQUIRED_DEPENDENCY {
     pub Value: CLUSPROP_VALUE,
     pub ResClass: CLUSPROP_RESOURCE_CLASS,
     pub ResTypeName: CLUSPROP_SZ,
 }
-impl Copy for CLUSPROP_REQUIRED_DEPENDENCY {}
-impl Clone for CLUSPROP_REQUIRED_DEPENDENCY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_RESOURCE_CLASS {
     pub Base: CLUSPROP_VALUE,
     pub rc: CLUSTER_RESOURCE_CLASS,
 }
-impl Copy for CLUSPROP_RESOURCE_CLASS {}
-impl Clone for CLUSPROP_RESOURCE_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_RESOURCE_CLASS_INFO {
     pub Base: CLUSPROP_VALUE,
     pub Base2: CLUS_RESOURCE_CLASS_INFO,
 }
-impl Copy for CLUSPROP_RESOURCE_CLASS_INFO {}
-impl Clone for CLUSPROP_RESOURCE_CLASS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_SCSI_ADDRESS {
     pub Base: CLUSPROP_VALUE,
     pub Base2: CLUS_SCSI_ADDRESS,
 }
-impl Copy for CLUSPROP_SCSI_ADDRESS {}
-impl Clone for CLUSPROP_SCSI_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_SECURITY_DESCRIPTOR {
     pub Base: CLUSPROP_VALUE,
     pub Anonymous: CLUSPROP_SECURITY_DESCRIPTOR_0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for CLUSPROP_SECURITY_DESCRIPTOR {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for CLUSPROP_SECURITY_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union CLUSPROP_SECURITY_DESCRIPTOR_0 {
     pub sd: super::super::Security::SECURITY_DESCRIPTOR_RELATIVE,
     pub rgbSecurityDescriptor: [u8; 1],
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for CLUSPROP_SECURITY_DESCRIPTOR_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for CLUSPROP_SECURITY_DESCRIPTOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CLUSPROP_SYNTAX {
     pub dw: u32,
     pub Anonymous: CLUSPROP_SYNTAX_0,
 }
-impl Copy for CLUSPROP_SYNTAX {}
-impl Clone for CLUSPROP_SYNTAX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_SYNTAX_0 {
     pub wFormat: u16,
     pub wType: u16,
 }
-impl Copy for CLUSPROP_SYNTAX_0 {}
-impl Clone for CLUSPROP_SYNTAX_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_SZ {
     pub Base: CLUSPROP_VALUE,
     pub sz: [u16; 1],
 }
-impl Copy for CLUSPROP_SZ {}
-impl Clone for CLUSPROP_SZ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_ULARGE_INTEGER {
     pub Base: CLUSPROP_VALUE,
     pub li: u64,
 }
-impl Copy for CLUSPROP_ULARGE_INTEGER {}
-impl Clone for CLUSPROP_ULARGE_INTEGER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_VALUE {
     pub Syntax: CLUSPROP_SYNTAX,
     pub cbLength: u32,
 }
-impl Copy for CLUSPROP_VALUE {}
-impl Clone for CLUSPROP_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSPROP_WORD {
     pub Base: CLUSPROP_VALUE,
     pub w: u16,
 }
-impl Copy for CLUSPROP_WORD {}
-impl Clone for CLUSPROP_WORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTERVERSIONINFO {
     pub dwVersionInfoSize: u32,
     pub MajorVersion: u16,
@@ -2825,13 +2638,8 @@ pub struct CLUSTERVERSIONINFO {
     pub dwFlags: u32,
     pub dwReserved: u32,
 }
-impl Copy for CLUSTERVERSIONINFO {}
-impl Clone for CLUSTERVERSIONINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTERVERSIONINFO_NT4 {
     pub dwVersionInfoSize: u32,
     pub MajorVersion: u16,
@@ -2840,26 +2648,16 @@ pub struct CLUSTERVERSIONINFO_NT4 {
     pub szVendorId: [u16; 64],
     pub szCSDVersion: [u16; 64],
 }
-impl Copy for CLUSTERVERSIONINFO_NT4 {}
-impl Clone for CLUSTERVERSIONINFO_NT4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_AVAILABILITY_SET_CONFIG {
     pub dwVersion: u32,
     pub dwUpdateDomains: u32,
     pub dwFaultDomains: u32,
     pub bReserveSpareNode: super::super::Foundation::BOOL,
 }
-impl Copy for CLUSTER_AVAILABILITY_SET_CONFIG {}
-impl Clone for CLUSTER_AVAILABILITY_SET_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_BATCH_COMMAND {
     pub Command: CLUSTER_REG_COMMAND,
     pub dwOptions: u32,
@@ -2867,24 +2665,14 @@ pub struct CLUSTER_BATCH_COMMAND {
     pub lpData: *const u8,
     pub cbData: u32,
 }
-impl Copy for CLUSTER_BATCH_COMMAND {}
-impl Clone for CLUSTER_BATCH_COMMAND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_CREATE_GROUP_INFO {
     pub dwVersion: u32,
     pub groupType: CLUSGROUP_TYPE,
 }
-impl Copy for CLUSTER_CREATE_GROUP_INFO {}
-impl Clone for CLUSTER_CREATE_GROUP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_ENUM_ITEM {
     pub dwVersion: u32,
     pub dwType: u32,
@@ -2893,13 +2681,8 @@ pub struct CLUSTER_ENUM_ITEM {
     pub cbName: u32,
     pub lpszName: windows_sys::core::PWSTR,
 }
-impl Copy for CLUSTER_ENUM_ITEM {}
-impl Clone for CLUSTER_ENUM_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_GROUP_ENUM_ITEM {
     pub dwVersion: u32,
     pub cbId: u32,
@@ -2915,13 +2698,8 @@ pub struct CLUSTER_GROUP_ENUM_ITEM {
     pub cbRoProperties: u32,
     pub pRoProperties: *mut core::ffi::c_void,
 }
-impl Copy for CLUSTER_GROUP_ENUM_ITEM {}
-impl Clone for CLUSTER_GROUP_ENUM_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_HEALTH_FAULT {
     pub Id: windows_sys::core::PWSTR,
     pub ErrorType: u32,
@@ -2931,47 +2709,27 @@ pub struct CLUSTER_HEALTH_FAULT {
     pub Flags: u32,
     pub Reserved: u32,
 }
-impl Copy for CLUSTER_HEALTH_FAULT {}
-impl Clone for CLUSTER_HEALTH_FAULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_HEALTH_FAULT_ARRAY {
     pub numFaults: u32,
     pub faults: *mut CLUSTER_HEALTH_FAULT,
 }
-impl Copy for CLUSTER_HEALTH_FAULT_ARRAY {}
-impl Clone for CLUSTER_HEALTH_FAULT_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_IP_ENTRY {
     pub lpszIpAddress: windows_sys::core::PCWSTR,
     pub dwPrefixLength: u32,
 }
-impl Copy for CLUSTER_IP_ENTRY {}
-impl Clone for CLUSTER_IP_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_MEMBERSHIP_INFO {
     pub HasQuorum: super::super::Foundation::BOOL,
     pub UpnodesSize: u32,
     pub Upnodes: [u8; 1],
 }
-impl Copy for CLUSTER_MEMBERSHIP_INFO {}
-impl Clone for CLUSTER_MEMBERSHIP_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_READ_BATCH_COMMAND {
     pub Command: CLUSTER_REG_COMMAND,
     pub dwOptions: u32,
@@ -2980,13 +2738,8 @@ pub struct CLUSTER_READ_BATCH_COMMAND {
     pub lpData: *const u8,
     pub cbData: u32,
 }
-impl Copy for CLUSTER_READ_BATCH_COMMAND {}
-impl Clone for CLUSTER_READ_BATCH_COMMAND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_RESOURCE_ENUM_ITEM {
     pub dwVersion: u32,
     pub cbId: u32,
@@ -3002,104 +2755,59 @@ pub struct CLUSTER_RESOURCE_ENUM_ITEM {
     pub cbRoProperties: u32,
     pub pRoProperties: *mut core::ffi::c_void,
 }
-impl Copy for CLUSTER_RESOURCE_ENUM_ITEM {}
-impl Clone for CLUSTER_RESOURCE_ENUM_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_SET_PASSWORD_STATUS {
     pub NodeId: u32,
     pub SetAttempted: super::super::Foundation::BOOLEAN,
     pub ReturnStatus: u32,
 }
-impl Copy for CLUSTER_SET_PASSWORD_STATUS {}
-impl Clone for CLUSTER_SET_PASSWORD_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
     pub Base: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
     pub Base2: CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME,
 }
-impl Copy for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {}
-impl Clone for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT {
     pub Base: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
     pub Base2: CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME,
 }
-impl Copy for CLUSTER_SHARED_VOLUME_RENAME_INPUT {}
-impl Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
     pub NewVolumeName: [u16; 260],
     pub NewVolumeGuid: [u16; 50],
 }
-impl Copy for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {}
-impl Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
     pub NewVolumeName: [u16; 260],
 }
-impl Copy for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {}
-impl Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
     pub InputType: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE,
     pub Anonymous: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0,
 }
-impl Copy for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {}
-impl Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
     pub VolumeOffset: u64,
     pub VolumeId: [u16; 260],
     pub VolumeName: [u16; 260],
     pub VolumeGuid: [u16; 50],
 }
-impl Copy for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {}
-impl Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_SHARED_VOLUME_STATE_INFO {
     pub szVolumeName: [u16; 260],
     pub szNodeName: [u16; 260],
     pub VolumeState: CLUSTER_SHARED_VOLUME_STATE,
 }
-impl Copy for CLUSTER_SHARED_VOLUME_STATE_INFO {}
-impl Clone for CLUSTER_SHARED_VOLUME_STATE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
     pub szVolumeName: [u16; 260],
     pub szNodeName: [u16; 260],
@@ -3108,97 +2816,52 @@ pub struct CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
     pub RedirectedIOReason: u64,
     pub VolumeRedirectedIOReason: u64,
 }
-impl Copy for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {}
-impl Clone for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_VALIDATE_CSV_FILENAME {
     pub szFileName: [u16; 1],
 }
-impl Copy for CLUSTER_VALIDATE_CSV_FILENAME {}
-impl Clone for CLUSTER_VALIDATE_CSV_FILENAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_VALIDATE_DIRECTORY {
     pub szPath: [u16; 1],
 }
-impl Copy for CLUSTER_VALIDATE_DIRECTORY {}
-impl Clone for CLUSTER_VALIDATE_DIRECTORY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_VALIDATE_NETNAME {
     pub szNetworkName: [u16; 1],
 }
-impl Copy for CLUSTER_VALIDATE_NETNAME {}
-impl Clone for CLUSTER_VALIDATE_NETNAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_VALIDATE_PATH {
     pub szPath: [u16; 1],
 }
-impl Copy for CLUSTER_VALIDATE_PATH {}
-impl Clone for CLUSTER_VALIDATE_PATH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_CHKDSK_INFO {
     pub PartitionNumber: u32,
     pub ChkdskState: u32,
     pub FileIdCount: u32,
     pub FileIdList: [u64; 1],
 }
-impl Copy for CLUS_CHKDSK_INFO {}
-impl Clone for CLUS_CHKDSK_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
     pub FileServerName: [u16; 16],
 }
-impl Copy for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {}
-impl Clone for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
     pub FileServerName: [u16; 260],
 }
-impl Copy for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {}
-impl Clone for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_CSV_MAINTENANCE_MODE_INFO {
     pub InMaintenance: super::super::Foundation::BOOL,
     pub VolumeName: [u16; 260],
 }
-impl Copy for CLUS_CSV_MAINTENANCE_MODE_INFO {}
-impl Clone for CLUS_CSV_MAINTENANCE_MODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_CSV_VOLUME_INFO {
     pub VolumeOffset: u64,
     pub PartitionNumber: u32,
@@ -3207,167 +2870,97 @@ pub struct CLUS_CSV_VOLUME_INFO {
     pub szVolumeFriendlyName: [u16; 260],
     pub szVolumeName: [u16; 50],
 }
-impl Copy for CLUS_CSV_VOLUME_INFO {}
-impl Clone for CLUS_CSV_VOLUME_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_CSV_VOLUME_NAME {
     pub VolumeOffset: i64,
     pub szVolumeName: [u16; 260],
     pub szRootPath: [u16; 263],
 }
-impl Copy for CLUS_CSV_VOLUME_NAME {}
-impl Clone for CLUS_CSV_VOLUME_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_DISK_NUMBER_INFO {
     pub DiskNumber: u32,
     pub BytesPerSector: u32,
 }
-impl Copy for CLUS_DISK_NUMBER_INFO {}
-impl Clone for CLUS_DISK_NUMBER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_DNN_LEADER_STATUS {
     pub IsOnline: super::super::Foundation::BOOL,
     pub IsFileServerPresent: super::super::Foundation::BOOL,
 }
-impl Copy for CLUS_DNN_LEADER_STATUS {}
-impl Clone for CLUS_DNN_LEADER_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_DNN_SODAFS_CLONE_STATUS {
     pub NodeId: u32,
     pub Status: CLUSTER_RESOURCE_STATE,
 }
-impl Copy for CLUS_DNN_SODAFS_CLONE_STATUS {}
-impl Clone for CLUS_DNN_SODAFS_CLONE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_FORCE_QUORUM_INFO {
     pub dwSize: u32,
     pub dwNodeBitMask: u32,
     pub dwMaxNumberofNodes: u32,
     pub multiszNodeList: [u16; 1],
 }
-impl Copy for CLUS_FORCE_QUORUM_INFO {}
-impl Clone for CLUS_FORCE_QUORUM_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_FTSET_INFO {
     pub dwRootSignature: u32,
     pub dwFtType: u32,
 }
-impl Copy for CLUS_FTSET_INFO {}
-impl Clone for CLUS_FTSET_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_MAINTENANCE_MODE_INFO {
     pub InMaintenance: super::super::Foundation::BOOL,
 }
-impl Copy for CLUS_MAINTENANCE_MODE_INFO {}
-impl Clone for CLUS_MAINTENANCE_MODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_MAINTENANCE_MODE_INFOEX {
     pub InMaintenance: super::super::Foundation::BOOL,
     pub MaintainenceModeType: MAINTENANCE_MODE_TYPE_ENUM,
     pub InternalState: CLUSTER_RESOURCE_STATE,
     pub Signature: u32,
 }
-impl Copy for CLUS_MAINTENANCE_MODE_INFOEX {}
-impl Clone for CLUS_MAINTENANCE_MODE_INFOEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_NETNAME_IP_INFO_ENTRY {
     pub NodeId: u32,
     pub AddressSize: u32,
     pub Address: [u8; 1],
 }
-impl Copy for CLUS_NETNAME_IP_INFO_ENTRY {}
-impl Clone for CLUS_NETNAME_IP_INFO_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
     pub szName: [u16; 64],
     pub NumEntries: u32,
     pub IpInfo: [CLUS_NETNAME_IP_INFO_ENTRY; 1],
 }
-impl Copy for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {}
-impl Clone for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_NETNAME_PWD_INFO {
     pub Flags: u32,
     pub Password: [u16; 16],
     pub CreatingDC: [u16; 258],
     pub ObjectGuid: [u16; 64],
 }
-impl Copy for CLUS_NETNAME_PWD_INFO {}
-impl Clone for CLUS_NETNAME_PWD_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_NETNAME_PWD_INFOEX {
     pub Flags: u32,
     pub Password: [u16; 128],
     pub CreatingDC: [u16; 258],
     pub ObjectGuid: [u16; 64],
 }
-impl Copy for CLUS_NETNAME_PWD_INFOEX {}
-impl Clone for CLUS_NETNAME_PWD_INFOEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_NETNAME_VS_TOKEN_INFO {
     pub ProcessID: u32,
     pub DesiredAccess: u32,
     pub InheritHandle: super::super::Foundation::BOOL,
 }
-impl Copy for CLUS_NETNAME_VS_TOKEN_INFO {}
-impl Clone for CLUS_NETNAME_VS_TOKEN_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_PARTITION_INFO {
     pub dwFlags: u32,
     pub szDeviceName: [u16; 260],
@@ -3377,13 +2970,8 @@ pub struct CLUS_PARTITION_INFO {
     pub dwFileSystemFlags: u32,
     pub szFileSystem: [u16; 32],
 }
-impl Copy for CLUS_PARTITION_INFO {}
-impl Clone for CLUS_PARTITION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_PARTITION_INFO_EX {
     pub dwFlags: u32,
     pub szDeviceName: [u16; 260],
@@ -3398,193 +2986,108 @@ pub struct CLUS_PARTITION_INFO_EX {
     pub PartitionNumber: u32,
     pub VolumeGuid: windows_sys::core::GUID,
 }
-impl Copy for CLUS_PARTITION_INFO_EX {}
-impl Clone for CLUS_PARTITION_INFO_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_PARTITION_INFO_EX2 {
     pub GptPartitionId: windows_sys::core::GUID,
     pub szPartitionName: [u16; 260],
     pub EncryptionFlags: u32,
 }
-impl Copy for CLUS_PARTITION_INFO_EX2 {}
-impl Clone for CLUS_PARTITION_INFO_EX2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_PROVIDER_STATE_CHANGE_INFO {
     pub dwSize: u32,
     pub resourceState: CLUSTER_RESOURCE_STATE,
     pub szProviderId: [u16; 1],
 }
-impl Copy for CLUS_PROVIDER_STATE_CHANGE_INFO {}
-impl Clone for CLUS_PROVIDER_STATE_CHANGE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_RESOURCE_CLASS_INFO {
     pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0,
 }
-impl Copy for CLUS_RESOURCE_CLASS_INFO {}
-impl Clone for CLUS_RESOURCE_CLASS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CLUS_RESOURCE_CLASS_INFO_0 {
     pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0_0,
     pub li: u64,
 }
-impl Copy for CLUS_RESOURCE_CLASS_INFO_0 {}
-impl Clone for CLUS_RESOURCE_CLASS_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_RESOURCE_CLASS_INFO_0_0 {
     pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0_0_0,
     pub SubClass: u32,
 }
-impl Copy for CLUS_RESOURCE_CLASS_INFO_0_0 {}
-impl Clone for CLUS_RESOURCE_CLASS_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CLUS_RESOURCE_CLASS_INFO_0_0_0 {
     pub dw: u32,
     pub rc: CLUSTER_RESOURCE_CLASS,
 }
-impl Copy for CLUS_RESOURCE_CLASS_INFO_0_0_0 {}
-impl Clone for CLUS_RESOURCE_CLASS_INFO_0_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_SCSI_ADDRESS {
     pub Anonymous: CLUS_SCSI_ADDRESS_0,
 }
-impl Copy for CLUS_SCSI_ADDRESS {}
-impl Clone for CLUS_SCSI_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CLUS_SCSI_ADDRESS_0 {
     pub Anonymous: CLUS_SCSI_ADDRESS_0_0,
     pub dw: u32,
 }
-impl Copy for CLUS_SCSI_ADDRESS_0 {}
-impl Clone for CLUS_SCSI_ADDRESS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_SCSI_ADDRESS_0_0 {
     pub PortNumber: u8,
     pub PathId: u8,
     pub TargetId: u8,
     pub Lun: u8,
 }
-impl Copy for CLUS_SCSI_ADDRESS_0_0 {}
-impl Clone for CLUS_SCSI_ADDRESS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_SET_MAINTENANCE_MODE_INPUT {
     pub InMaintenance: super::super::Foundation::BOOL,
     pub ExtraParameterSize: u32,
     pub ExtraParameter: [u8; 1],
 }
-impl Copy for CLUS_SET_MAINTENANCE_MODE_INPUT {}
-impl Clone for CLUS_SET_MAINTENANCE_MODE_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_SHARED_VOLUME_BACKUP_MODE {
     pub BackupState: CLUSTER_SHARED_VOLUME_BACKUP_STATE,
     pub DelayTimerInSecs: u32,
     pub VolumeName: [u16; 260],
 }
-impl Copy for CLUS_SHARED_VOLUME_BACKUP_MODE {}
-impl Clone for CLUS_SHARED_VOLUME_BACKUP_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_STARTING_PARAMS {
     pub dwSize: u32,
     pub bForm: super::super::Foundation::BOOL,
     pub bFirst: super::super::Foundation::BOOL,
 }
-impl Copy for CLUS_STARTING_PARAMS {}
-impl Clone for CLUS_STARTING_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
     pub AvailDrivelettersMask: u32,
 }
-impl Copy for CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {}
-impl Clone for CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_STORAGE_REMAP_DRIVELETTER {
     pub CurrentDriveLetterMask: u32,
     pub TargetDriveLetterMask: u32,
 }
-impl Copy for CLUS_STORAGE_REMAP_DRIVELETTER {}
-impl Clone for CLUS_STORAGE_REMAP_DRIVELETTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_STORAGE_SET_DRIVELETTER {
     pub PartitionNumber: u32,
     pub DriveLetterMask: u32,
 }
-impl Copy for CLUS_STORAGE_SET_DRIVELETTER {}
-impl Clone for CLUS_STORAGE_SET_DRIVELETTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLUS_WORKER {
     pub hThread: super::super::Foundation::HANDLE,
     pub Terminate: super::super::Foundation::BOOL,
 }
-impl Copy for CLUS_WORKER {}
-impl Clone for CLUS_WORKER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CREATE_CLUSTER_CONFIG {
     pub dwVersion: u32,
     pub lpszClusterName: windows_sys::core::PCWSTR,
@@ -3596,13 +3099,8 @@ pub struct CREATE_CLUSTER_CONFIG {
     pub managementPointType: CLUSTER_MGMT_POINT_TYPE,
     pub managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
 }
-impl Copy for CREATE_CLUSTER_CONFIG {}
-impl Clone for CREATE_CLUSTER_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CREATE_CLUSTER_NAME_ACCOUNT {
     pub dwVersion: u32,
     pub lpszClusterName: windows_sys::core::PCWSTR,
@@ -3613,12 +3111,6 @@ pub struct CREATE_CLUSTER_NAME_ACCOUNT {
     pub managementPointType: CLUSTER_MGMT_POINT_TYPE,
     pub managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
     pub bUpgradeVCOs: super::super::Foundation::BOOLEAN,
-}
-impl Copy for CREATE_CLUSTER_NAME_ACCOUNT {}
-impl Clone for CREATE_CLUSTER_NAME_ACCOUNT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const ClusApplication: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606e5_2631_11d1_89f1_00a0c90d061e);
 pub const ClusCryptoKeys: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e6072b_2631_11d1_89f1_00a0c90d061e);
@@ -3661,61 +3153,36 @@ pub const Cluster: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(
 pub const ClusterNames: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606eb_2631_11d1_89f1_00a0c90d061e);
 pub const DomainNames: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf2e606e1_2631_11d1_89f1_00a0c90d061e);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILESHARE_CHANGE {
     pub Change: FILESHARE_CHANGE_ENUM,
     pub ShareName: [u16; 84],
 }
-impl Copy for FILESHARE_CHANGE {}
-impl Clone for FILESHARE_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILESHARE_CHANGE_LIST {
     pub NumEntries: u32,
     pub ChangeEntry: [FILESHARE_CHANGE; 1],
 }
-impl Copy for FILESHARE_CHANGE_LIST {}
-impl Clone for FILESHARE_CHANGE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GET_OPERATION_CONTEXT_PARAMS {
     pub Size: u32,
     pub Version: u32,
     pub Type: RESDLL_CONTEXT_OPERATION_TYPE,
     pub Priority: u32,
 }
-impl Copy for GET_OPERATION_CONTEXT_PARAMS {}
-impl Clone for GET_OPERATION_CONTEXT_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GROUP_FAILURE_INFO {
     pub dwFailoverAttemptsRemaining: u32,
     pub dwFailoverPeriodRemaining: u32,
 }
-impl Copy for GROUP_FAILURE_INFO {}
-impl Clone for GROUP_FAILURE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GROUP_FAILURE_INFO_BUFFER {
     pub dwVersion: u32,
     pub Info: GROUP_FAILURE_INFO,
-}
-impl Copy for GROUP_FAILURE_INFO_BUFFER {}
-impl Clone for GROUP_FAILURE_INFO_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type HCHANGE = isize;
 pub type HCLUSCRYPTPROVIDER = isize;
@@ -3744,42 +3211,28 @@ pub type HRESENUMEX = isize;
 pub type HRESOURCE = isize;
 pub type HRESTYPEENUM = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MONITOR_STATE {
     pub LastUpdate: i64,
     pub State: RESOURCE_MONITOR_STATE,
     pub ActiveResource: super::super::Foundation::HANDLE,
     pub ResmonStop: super::super::Foundation::BOOL,
 }
-impl Copy for MONITOR_STATE {}
-impl Clone for MONITOR_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NOTIFY_FILTER_AND_TYPE {
     pub dwObjectType: u32,
     pub FilterFlags: i64,
 }
-impl Copy for NOTIFY_FILTER_AND_TYPE {}
-impl Clone for NOTIFY_FILTER_AND_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NodeUtilizationInfoElement {
     pub Id: u64,
     pub AvailableMemory: u64,
     pub AvailableMemoryAfterReclamation: u64,
 }
-impl Copy for NodeUtilizationInfoElement {}
-impl Clone for NodeUtilizationInfoElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POST_UPGRADE_VERSION_INFO {
     pub newMajorVersion: u32,
     pub newUpgradeVersion: u32,
@@ -3787,13 +3240,8 @@ pub struct POST_UPGRADE_VERSION_INFO {
     pub oldUpgradeVersion: u32,
     pub reserved: u32,
 }
-impl Copy for POST_UPGRADE_VERSION_INFO {}
-impl Clone for POST_UPGRADE_VERSION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PaxosTagCStruct {
     pub __padding__PaxosTagVtable: u64,
     pub __padding__NextEpochVtable: u64,
@@ -3809,48 +3257,28 @@ pub struct PaxosTagCStruct {
     pub Sequence: i32,
     pub __padding__BoundrySequence: u32,
 }
-impl Copy for PaxosTagCStruct {}
-impl Clone for PaxosTagCStruct {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RESOURCE_FAILURE_INFO {
     pub dwRestartAttemptsRemaining: u32,
     pub dwRestartPeriodRemaining: u32,
 }
-impl Copy for RESOURCE_FAILURE_INFO {}
-impl Clone for RESOURCE_FAILURE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RESOURCE_FAILURE_INFO_BUFFER {
     pub dwVersion: u32,
     pub Info: RESOURCE_FAILURE_INFO,
 }
-impl Copy for RESOURCE_FAILURE_INFO_BUFFER {}
-impl Clone for RESOURCE_FAILURE_INFO_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RESOURCE_STATUS {
     pub ResourceState: CLUSTER_RESOURCE_STATE,
     pub CheckPoint: u32,
     pub WaitHint: u32,
     pub EventHandle: super::super::Foundation::HANDLE,
 }
-impl Copy for RESOURCE_STATUS {}
-impl Clone for RESOURCE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RESOURCE_STATUS_EX {
     pub ResourceState: CLUSTER_RESOURCE_STATE,
     pub CheckPoint: u32,
@@ -3859,48 +3287,28 @@ pub struct RESOURCE_STATUS_EX {
     pub Flags: u32,
     pub WaitHint: u32,
 }
-impl Copy for RESOURCE_STATUS_EX {}
-impl Clone for RESOURCE_STATUS_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
     pub isTerminalFailure: super::super::Foundation::BOOL,
     pub restartPeriodRemaining: u32,
 }
-impl Copy for RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {}
-impl Clone for RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RESUTIL_FILETIME_DATA {
     pub Default: super::super::Foundation::FILETIME,
     pub Minimum: super::super::Foundation::FILETIME,
     pub Maximum: super::super::Foundation::FILETIME,
 }
-impl Copy for RESUTIL_FILETIME_DATA {}
-impl Clone for RESUTIL_FILETIME_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RESUTIL_LARGEINT_DATA {
     pub Default: i64,
     pub Minimum: i64,
     pub Maximum: i64,
 }
-impl Copy for RESUTIL_LARGEINT_DATA {}
-impl Clone for RESUTIL_LARGEINT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RESUTIL_PROPERTY_ITEM {
     pub Name: windows_sys::core::PWSTR,
     pub KeyName: windows_sys::core::PWSTR,
@@ -3911,13 +3319,8 @@ pub struct RESUTIL_PROPERTY_ITEM {
     pub Flags: u32,
     pub Offset: u32,
 }
-impl Copy for RESUTIL_PROPERTY_ITEM {}
-impl Clone for RESUTIL_PROPERTY_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union RESUTIL_PROPERTY_ITEM_0 {
     pub DefaultPtr: usize,
     pub Default: u32,
@@ -3926,36 +3329,21 @@ pub union RESUTIL_PROPERTY_ITEM_0 {
     pub ULargeIntData: *mut RESUTIL_ULARGEINT_DATA,
     pub FileTimeData: *mut RESUTIL_FILETIME_DATA,
 }
-impl Copy for RESUTIL_PROPERTY_ITEM_0 {}
-impl Clone for RESUTIL_PROPERTY_ITEM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RESUTIL_ULARGEINT_DATA {
     pub Default: u64,
     pub Minimum: u64,
     pub Maximum: u64,
 }
-impl Copy for RESUTIL_ULARGEINT_DATA {}
-impl Clone for RESUTIL_ULARGEINT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ResourceUtilizationInfoElement {
     pub PhysicalNumaId: u64,
     pub CurrentMemory: u64,
 }
-impl Copy for ResourceUtilizationInfoElement {}
-impl Clone for ResourceUtilizationInfoElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
     pub ReplicationGroupName: [u16; 260],
     pub Description: [u16; 260],
@@ -3971,148 +3359,82 @@ pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
     pub VolumeNameCount: u32,
     pub VolumeNames: [u16; 260],
 }
-impl Copy for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {}
-impl Clone for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
     pub Result: u32,
     pub ErrorString: [u16; 260],
 }
-impl Copy for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {}
-impl Clone for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SR_RESOURCE_TYPE_DISK_INFO {
     pub Reason: SR_DISK_REPLICATION_ELIGIBLE,
     pub DiskGuid: windows_sys::core::GUID,
 }
-impl Copy for SR_RESOURCE_TYPE_DISK_INFO {}
-impl Clone for SR_RESOURCE_TYPE_DISK_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
     pub Count: u16,
     pub DiskInfo: [SR_RESOURCE_TYPE_DISK_INFO; 1],
 }
-impl Copy for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {}
-impl Clone for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
     pub DataDiskGuid: windows_sys::core::GUID,
     pub IncludeOfflineDisks: super::super::Foundation::BOOLEAN,
 }
-impl Copy for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {}
-impl Clone for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
     pub DataDiskGuid: windows_sys::core::GUID,
     pub IncludeAvailableStoargeDisks: super::super::Foundation::BOOLEAN,
 }
-impl Copy for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {}
-impl Clone for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
     pub SourceDataDiskGuid: windows_sys::core::GUID,
     pub TargetReplicationGroupGuid: windows_sys::core::GUID,
     pub SkipConnectivityCheck: super::super::Foundation::BOOLEAN,
     pub IncludeOfflineDisks: super::super::Foundation::BOOLEAN,
 }
-impl Copy for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {}
-impl Clone for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SR_RESOURCE_TYPE_REPLICATED_DISK {
     pub Type: SR_REPLICATED_DISK_TYPE,
     pub ClusterDiskResourceGuid: windows_sys::core::GUID,
     pub ReplicationGroupId: windows_sys::core::GUID,
     pub ReplicationGroupName: [u16; 260],
 }
-impl Copy for SR_RESOURCE_TYPE_REPLICATED_DISK {}
-impl Clone for SR_RESOURCE_TYPE_REPLICATED_DISK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
     pub Count: u16,
     pub ReplicatedDisks: [SR_RESOURCE_TYPE_REPLICATED_DISK; 1],
 }
-impl Copy for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {}
-impl Clone for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
     pub Count: u32,
     pub PartitionArray: [SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO; 1],
 }
-impl Copy for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {}
-impl Clone for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
     pub PartitionOffset: u64,
     pub Capabilities: u32,
 }
-impl Copy for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {}
-impl Clone for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WitnessTagHelper {
     pub Version: i32,
     pub paxosToValidate: PaxosTagCStruct,
 }
-impl Copy for WitnessTagHelper {}
-impl Clone for WitnessTagHelper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WitnessTagUpdateHelper {
     pub Version: i32,
     pub paxosToSet: PaxosTagCStruct,
     pub paxosToValidate: PaxosTagCStruct,
-}
-impl Copy for WitnessTagUpdateHelper {}
-impl Clone for WitnessTagUpdateHelper {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type LPGROUP_CALLBACK_EX = Option<unsafe extern "system" fn(param0: HCLUSTER, param1: HGROUP, param2: HGROUP, param3: *mut core::ffi::c_void) -> u32>;
 pub type LPNODE_CALLBACK = Option<unsafe extern "system" fn(param0: HCLUSTER, param1: HNODE, param2: CLUSTER_NODE_STATE, param3: *mut core::ffi::c_void) -> u32>;

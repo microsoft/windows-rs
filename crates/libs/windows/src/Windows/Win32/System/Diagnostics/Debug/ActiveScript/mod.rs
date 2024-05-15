@@ -5123,6 +5123,7 @@ impl core::fmt::Debug for SCRIPT_INVOCATION_CONTEXT_TYPE {
 pub const CDebugDocumentHelper: windows_core::GUID = windows_core::GUID::from_u128(0x83b8bca6_687c_11d0_a405_00aa0060275c);
 pub const DebugHelper: windows_core::GUID = windows_core::GUID::from_u128(0x0bfcc060_8c1d_11d0_accd_00aa0060275c);
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct DebugStackFrameDescriptor {
     pub pdsf: std::mem::ManuallyDrop<Option<IDebugStackFrame>>,
     pub dwMin: u32,
@@ -5135,26 +5136,16 @@ impl Clone for DebugStackFrameDescriptor {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for DebugStackFrameDescriptor {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DebugStackFrameDescriptor").field("pdsf", &self.pdsf).field("dwMin", &self.dwMin).field("dwLim", &self.dwLim).field("fFinal", &self.fFinal).field("punkFinal", &self.punkFinal).finish()
-    }
-}
 impl windows_core::TypeKind for DebugStackFrameDescriptor {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DebugStackFrameDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.pdsf == other.pdsf && self.dwMin == other.dwMin && self.dwLim == other.dwLim && self.fFinal == other.fFinal && self.punkFinal == other.punkFinal
-    }
-}
-impl Eq for DebugStackFrameDescriptor {}
 impl Default for DebugStackFrameDescriptor {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct DebugStackFrameDescriptor64 {
     pub pdsf: std::mem::ManuallyDrop<Option<IDebugStackFrame>>,
     pub dwMin: u64,
@@ -5167,20 +5158,9 @@ impl Clone for DebugStackFrameDescriptor64 {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for DebugStackFrameDescriptor64 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DebugStackFrameDescriptor64").field("pdsf", &self.pdsf).field("dwMin", &self.dwMin).field("dwLim", &self.dwLim).field("fFinal", &self.fFinal).field("punkFinal", &self.punkFinal).finish()
-    }
-}
 impl windows_core::TypeKind for DebugStackFrameDescriptor64 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DebugStackFrameDescriptor64 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pdsf == other.pdsf && self.dwMin == other.dwMin && self.dwLim == other.dwLim && self.fFinal == other.fFinal && self.punkFinal == other.punkFinal
-    }
-}
-impl Eq for DebugStackFrameDescriptor64 {}
 impl Default for DebugStackFrameDescriptor64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5188,38 +5168,23 @@ impl Default for DebugStackFrameDescriptor64 {
 }
 pub const DefaultDebugSessionProvider: windows_core::GUID = windows_core::GUID::from_u128(0x834128a2_51f4_11d0_8f20_00805f2cd064);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JS_NATIVE_FRAME {
     pub InstructionOffset: u64,
     pub ReturnOffset: u64,
     pub FrameOffset: u64,
     pub StackOffset: u64,
 }
-impl Copy for JS_NATIVE_FRAME {}
-impl Clone for JS_NATIVE_FRAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for JS_NATIVE_FRAME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("JS_NATIVE_FRAME").field("InstructionOffset", &self.InstructionOffset).field("ReturnOffset", &self.ReturnOffset).field("FrameOffset", &self.FrameOffset).field("StackOffset", &self.StackOffset).finish()
-    }
-}
 impl windows_core::TypeKind for JS_NATIVE_FRAME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for JS_NATIVE_FRAME {
-    fn eq(&self, other: &Self) -> bool {
-        self.InstructionOffset == other.InstructionOffset && self.ReturnOffset == other.ReturnOffset && self.FrameOffset == other.FrameOffset && self.StackOffset == other.StackOffset
-    }
-}
-impl Eq for JS_NATIVE_FRAME {}
 impl Default for JS_NATIVE_FRAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct JsDebugPropertyInfo {
     pub name: std::mem::ManuallyDrop<windows_core::BSTR>,
     pub r#type: std::mem::ManuallyDrop<windows_core::BSTR>,
@@ -5232,20 +5197,9 @@ impl Clone for JsDebugPropertyInfo {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for JsDebugPropertyInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("JsDebugPropertyInfo").field("name", &self.name).field("type", &self.r#type).field("value", &self.value).field("fullName", &self.fullName).field("attr", &self.attr).finish()
-    }
-}
 impl windows_core::TypeKind for JsDebugPropertyInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for JsDebugPropertyInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.name == other.name && self.r#type == other.r#type && self.value == other.value && self.fullName == other.fullName && self.attr == other.attr
-    }
-}
-impl Eq for JsDebugPropertyInfo {}
 impl Default for JsDebugPropertyInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5254,6 +5208,7 @@ impl Default for JsDebugPropertyInfo {
 pub const MachineDebugManager_DEBUG: windows_core::GUID = windows_core::GUID::from_u128(0x49769cec_3a55_4bb0_b697_88fede77e8ea);
 pub const MachineDebugManager_RETAIL: windows_core::GUID = windows_core::GUID::from_u128(0x0c0a3666_30c9_11d0_8f20_00805f2cd064);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROFILER_HEAP_OBJECT {
     pub size: u32,
     pub Anonymous: PROFILER_HEAP_OBJECT_0,
@@ -5261,12 +5216,6 @@ pub struct PROFILER_HEAP_OBJECT {
     pub flags: u32,
     pub unused: u16,
     pub optionalInfoCount: u16,
-}
-impl Copy for PROFILER_HEAP_OBJECT {}
-impl Clone for PROFILER_HEAP_OBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROFILER_HEAP_OBJECT {
     type TypeKind = windows_core::CopyType;
@@ -5277,15 +5226,10 @@ impl Default for PROFILER_HEAP_OBJECT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROFILER_HEAP_OBJECT_0 {
     pub objectId: usize,
     pub externalObjectAddress: *mut core::ffi::c_void,
-}
-impl Copy for PROFILER_HEAP_OBJECT_0 {}
-impl Clone for PROFILER_HEAP_OBJECT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_0 {
     type TypeKind = windows_core::CopyType;
@@ -5296,15 +5240,10 @@ impl Default for PROFILER_HEAP_OBJECT_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROFILER_HEAP_OBJECT_OPTIONAL_INFO {
     pub infoType: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE,
     pub Anonymous: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0,
-}
-impl Copy for PROFILER_HEAP_OBJECT_OPTIONAL_INFO {}
-impl Clone for PROFILER_HEAP_OBJECT_OPTIONAL_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_OPTIONAL_INFO {
     type TypeKind = windows_core::CopyType;
@@ -5315,6 +5254,7 @@ impl Default for PROFILER_HEAP_OBJECT_OPTIONAL_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
     pub prototype: usize,
     pub functionName: windows_core::PCWSTR,
@@ -5329,12 +5269,6 @@ pub union PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
     pub weakMapCollectionList: *mut PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST,
     pub mapCollectionList: *mut PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST,
     pub setCollectionList: *mut PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST,
-}
-impl Copy for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {}
-impl Clone for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -5404,90 +5338,42 @@ impl Default for PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROFILER_HEAP_OBJECT_SCOPE_LIST {
     pub count: u32,
     pub scopes: [usize; 1],
 }
-impl Copy for PROFILER_HEAP_OBJECT_SCOPE_LIST {}
-impl Clone for PROFILER_HEAP_OBJECT_SCOPE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROFILER_HEAP_OBJECT_SCOPE_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROFILER_HEAP_OBJECT_SCOPE_LIST").field("count", &self.count).field("scopes", &self.scopes).finish()
-    }
-}
 impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_SCOPE_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROFILER_HEAP_OBJECT_SCOPE_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.count == other.count && self.scopes == other.scopes
-    }
-}
-impl Eq for PROFILER_HEAP_OBJECT_SCOPE_LIST {}
 impl Default for PROFILER_HEAP_OBJECT_SCOPE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROFILER_HEAP_SUMMARY {
     pub version: PROFILER_HEAP_SUMMARY_VERSION,
     pub totalHeapSize: u32,
 }
-impl Copy for PROFILER_HEAP_SUMMARY {}
-impl Clone for PROFILER_HEAP_SUMMARY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROFILER_HEAP_SUMMARY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROFILER_HEAP_SUMMARY").field("version", &self.version).field("totalHeapSize", &self.totalHeapSize).finish()
-    }
-}
 impl windows_core::TypeKind for PROFILER_HEAP_SUMMARY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROFILER_HEAP_SUMMARY {
-    fn eq(&self, other: &Self) -> bool {
-        self.version == other.version && self.totalHeapSize == other.totalHeapSize
-    }
-}
-impl Eq for PROFILER_HEAP_SUMMARY {}
 impl Default for PROFILER_HEAP_SUMMARY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROFILER_PROPERTY_TYPE_SUBSTRING_INFO {
     pub length: u32,
     pub value: windows_core::PCWSTR,
 }
-impl Copy for PROFILER_PROPERTY_TYPE_SUBSTRING_INFO {}
-impl Clone for PROFILER_PROPERTY_TYPE_SUBSTRING_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROFILER_PROPERTY_TYPE_SUBSTRING_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROFILER_PROPERTY_TYPE_SUBSTRING_INFO").field("length", &self.length).field("value", &self.value).finish()
-    }
-}
 impl windows_core::TypeKind for PROFILER_PROPERTY_TYPE_SUBSTRING_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROFILER_PROPERTY_TYPE_SUBSTRING_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.length == other.length && self.value == other.value
-    }
-}
-impl Eq for PROFILER_PROPERTY_TYPE_SUBSTRING_INFO {}
 impl Default for PROFILER_PROPERTY_TYPE_SUBSTRING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5495,30 +5381,14 @@ impl Default for PROFILER_PROPERTY_TYPE_SUBSTRING_INFO {
 }
 pub const ProcessDebugManager: windows_core::GUID = windows_core::GUID::from_u128(0x78a51822_51f4_11d0_8f20_00805f2cd064);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TEXT_DOCUMENT_ARRAY {
     pub dwCount: u32,
     pub Members: *mut Option<IDebugDocumentText>,
 }
-impl Copy for TEXT_DOCUMENT_ARRAY {}
-impl Clone for TEXT_DOCUMENT_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TEXT_DOCUMENT_ARRAY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TEXT_DOCUMENT_ARRAY").field("dwCount", &self.dwCount).field("Members", &self.Members).finish()
-    }
-}
 impl windows_core::TypeKind for TEXT_DOCUMENT_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TEXT_DOCUMENT_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwCount == other.dwCount && self.Members == other.Members
-    }
-}
-impl Eq for TEXT_DOCUMENT_ARRAY {}
 impl Default for TEXT_DOCUMENT_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

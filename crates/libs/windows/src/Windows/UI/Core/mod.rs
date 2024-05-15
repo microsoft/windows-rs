@@ -4123,6 +4123,7 @@ impl windows_core::RuntimeType for CoreWindowFlowDirection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreWindowFlowDirection;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CorePhysicalKeyStatus {
     pub RepeatCount: u32,
     pub ScanCode: u32,
@@ -4131,49 +4132,22 @@ pub struct CorePhysicalKeyStatus {
     pub WasKeyDown: bool,
     pub IsKeyReleased: bool,
 }
-impl Copy for CorePhysicalKeyStatus {}
-impl Clone for CorePhysicalKeyStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CorePhysicalKeyStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CorePhysicalKeyStatus").field("RepeatCount", &self.RepeatCount).field("ScanCode", &self.ScanCode).field("IsExtendedKey", &self.IsExtendedKey).field("IsMenuKeyDown", &self.IsMenuKeyDown).field("WasKeyDown", &self.WasKeyDown).field("IsKeyReleased", &self.IsKeyReleased).finish()
-    }
-}
 impl windows_core::TypeKind for CorePhysicalKeyStatus {
     type TypeKind = windows_core::CopyType;
 }
 impl windows_core::RuntimeType for CorePhysicalKeyStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Core.CorePhysicalKeyStatus;u4;u4;b1;b1;b1;b1)");
 }
-impl PartialEq for CorePhysicalKeyStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.RepeatCount == other.RepeatCount && self.ScanCode == other.ScanCode && self.IsExtendedKey == other.IsExtendedKey && self.IsMenuKeyDown == other.IsMenuKeyDown && self.WasKeyDown == other.WasKeyDown && self.IsKeyReleased == other.IsKeyReleased
-    }
-}
-impl Eq for CorePhysicalKeyStatus {}
 impl Default for CorePhysicalKeyStatus {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CoreProximityEvaluation {
     pub Score: i32,
     pub AdjustedPoint: super::super::Foundation::Point,
-}
-impl Copy for CoreProximityEvaluation {}
-impl Clone for CoreProximityEvaluation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CoreProximityEvaluation {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CoreProximityEvaluation").field("Score", &self.Score).field("AdjustedPoint", &self.AdjustedPoint).finish()
-    }
 }
 impl windows_core::TypeKind for CoreProximityEvaluation {
     type TypeKind = windows_core::CopyType;
@@ -4181,12 +4155,6 @@ impl windows_core::TypeKind for CoreProximityEvaluation {
 impl windows_core::RuntimeType for CoreProximityEvaluation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Core.CoreProximityEvaluation;i4;struct(Windows.Foundation.Point;f4;f4))");
 }
-impl PartialEq for CoreProximityEvaluation {
-    fn eq(&self, other: &Self) -> bool {
-        self.Score == other.Score && self.AdjustedPoint == other.AdjustedPoint
-    }
-}
-impl Eq for CoreProximityEvaluation {}
 impl Default for CoreProximityEvaluation {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

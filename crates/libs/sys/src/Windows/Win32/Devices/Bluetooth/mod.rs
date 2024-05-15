@@ -948,53 +948,34 @@ pub type NodeContainerType = i32;
 pub type SDP_SPECIFICTYPE = i32;
 pub type SDP_TYPE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BLUETOOTH_ADDRESS {
     pub Anonymous: BLUETOOTH_ADDRESS_0,
 }
-impl Copy for BLUETOOTH_ADDRESS {}
-impl Clone for BLUETOOTH_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union BLUETOOTH_ADDRESS_0 {
     pub ullLong: u64,
     pub rgBytes: [u8; 6],
 }
-impl Copy for BLUETOOTH_ADDRESS_0 {}
-impl Clone for BLUETOOTH_ADDRESS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BLUETOOTH_AUTHENTICATE_RESPONSE {
     pub bthAddressRemote: BLUETOOTH_ADDRESS,
     pub authMethod: BLUETOOTH_AUTHENTICATION_METHOD,
     pub Anonymous: BLUETOOTH_AUTHENTICATE_RESPONSE_0,
     pub negativeResponse: u8,
 }
-impl Copy for BLUETOOTH_AUTHENTICATE_RESPONSE {}
-impl Clone for BLUETOOTH_AUTHENTICATE_RESPONSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
     pub pinInfo: BLUETOOTH_PIN_INFO,
     pub oobInfo: BLUETOOTH_OOB_DATA_INFO,
     pub numericCompInfo: BLUETOOTH_NUMERIC_COMPARISON_INFO,
     pub passkeyInfo: BLUETOOTH_PASSKEY_INFO,
 }
-impl Copy for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {}
-impl Clone for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
     pub deviceInfo: BLUETOOTH_DEVICE_INFO,
     pub authenticationMethod: BLUETOOTH_AUTHENTICATION_METHOD,
@@ -1002,35 +983,20 @@ pub struct BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
     pub authenticationRequirements: BLUETOOTH_AUTHENTICATION_REQUIREMENTS,
     pub Anonymous: BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0,
 }
-impl Copy for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {}
-impl Clone for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
     pub Numeric_Value: u32,
     pub Passkey: u32,
 }
-impl Copy for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {}
-impl Clone for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BLUETOOTH_COD_PAIRS {
     pub ulCODMask: u32,
     pub pcszDescription: windows_sys::core::PCWSTR,
 }
-impl Copy for BLUETOOTH_COD_PAIRS {}
-impl Clone for BLUETOOTH_COD_PAIRS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BLUETOOTH_DEVICE_INFO {
     pub dwSize: u32,
     pub Address: BLUETOOTH_ADDRESS,
@@ -1042,13 +1008,8 @@ pub struct BLUETOOTH_DEVICE_INFO {
     pub stLastUsed: super::super::Foundation::SYSTEMTIME,
     pub szName: [u16; 248],
 }
-impl Copy for BLUETOOTH_DEVICE_INFO {}
-impl Clone for BLUETOOTH_DEVICE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BLUETOOTH_DEVICE_SEARCH_PARAMS {
     pub dwSize: u32,
     pub fReturnAuthenticated: super::super::Foundation::BOOL,
@@ -1059,101 +1020,56 @@ pub struct BLUETOOTH_DEVICE_SEARCH_PARAMS {
     pub cTimeoutMultiplier: u8,
     pub hRadio: super::super::Foundation::HANDLE,
 }
-impl Copy for BLUETOOTH_DEVICE_SEARCH_PARAMS {}
-impl Clone for BLUETOOTH_DEVICE_SEARCH_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BLUETOOTH_FIND_RADIO_PARAMS {
     pub dwSize: u32,
 }
-impl Copy for BLUETOOTH_FIND_RADIO_PARAMS {}
-impl Clone for BLUETOOTH_FIND_RADIO_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
     pub ChangedAttributeHandle: u16,
     pub CharacteristicValueDataSize: usize,
     pub CharacteristicValue: *mut BTH_LE_GATT_CHARACTERISTIC_VALUE,
 }
-impl Copy for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {}
-impl Clone for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
     pub NumCharacteristics: u16,
     pub Characteristics: [BTH_LE_GATT_CHARACTERISTIC; 1],
 }
-impl Copy for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {}
-impl Clone for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BLUETOOTH_LOCAL_SERVICE_INFO {
     pub Enabled: super::super::Foundation::BOOL,
     pub btAddr: BLUETOOTH_ADDRESS,
     pub szName: [u16; 256],
     pub szDeviceString: [u16; 256],
 }
-impl Copy for BLUETOOTH_LOCAL_SERVICE_INFO {}
-impl Clone for BLUETOOTH_LOCAL_SERVICE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BLUETOOTH_NUMERIC_COMPARISON_INFO {
     pub NumericValue: u32,
 }
-impl Copy for BLUETOOTH_NUMERIC_COMPARISON_INFO {}
-impl Clone for BLUETOOTH_NUMERIC_COMPARISON_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BLUETOOTH_OOB_DATA_INFO {
     pub C: [u8; 16],
     pub R: [u8; 16],
 }
-impl Copy for BLUETOOTH_OOB_DATA_INFO {}
-impl Clone for BLUETOOTH_OOB_DATA_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BLUETOOTH_PASSKEY_INFO {
     pub passkey: u32,
 }
-impl Copy for BLUETOOTH_PASSKEY_INFO {}
-impl Clone for BLUETOOTH_PASSKEY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BLUETOOTH_PIN_INFO {
     pub pin: [u8; 16],
     pub pinLength: u8,
 }
-impl Copy for BLUETOOTH_PIN_INFO {}
-impl Clone for BLUETOOTH_PIN_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BLUETOOTH_RADIO_INFO {
     pub dwSize: u32,
     pub address: BLUETOOTH_ADDRESS,
@@ -1162,13 +1078,8 @@ pub struct BLUETOOTH_RADIO_INFO {
     pub lmpSubversion: u16,
     pub manufacturer: u16,
 }
-impl Copy for BLUETOOTH_RADIO_INFO {}
-impl Clone for BLUETOOTH_RADIO_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BLUETOOTH_SELECT_DEVICE_PARAMS {
     pub dwSize: u32,
     pub cNumOfClasses: u32,
@@ -1186,85 +1097,50 @@ pub struct BLUETOOTH_SELECT_DEVICE_PARAMS {
     pub cNumDevices: u32,
     pub pDevices: *mut BLUETOOTH_DEVICE_INFO,
 }
-impl Copy for BLUETOOTH_SELECT_DEVICE_PARAMS {}
-impl Clone for BLUETOOTH_SELECT_DEVICE_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BTH_DEVICE_INFO {
     pub flags: u32,
     pub address: u64,
     pub classOfDevice: u32,
     pub name: [i8; 248],
 }
-impl Copy for BTH_DEVICE_INFO {}
-impl Clone for BTH_DEVICE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BTH_HCI_EVENT_INFO {
     pub bthAddress: u64,
     pub connectionType: u8,
     pub connected: u8,
 }
-impl Copy for BTH_HCI_EVENT_INFO {}
-impl Clone for BTH_HCI_EVENT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct BTH_INFO_REQ {
     pub btAddr: u64,
     pub infoType: u16,
 }
-impl Copy for BTH_INFO_REQ {}
-impl Clone for BTH_INFO_REQ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct BTH_INFO_RSP {
     pub result: u16,
     pub dataLen: u8,
     pub Anonymous: BTH_INFO_RSP_0,
 }
-impl Copy for BTH_INFO_RSP {}
-impl Clone for BTH_INFO_RSP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union BTH_INFO_RSP_0 {
     pub connectionlessMTU: u16,
     pub data: [u8; 44],
 }
-impl Copy for BTH_INFO_RSP_0 {}
-impl Clone for BTH_INFO_RSP_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BTH_L2CAP_EVENT_INFO {
     pub bthAddress: u64,
     pub psm: u16,
     pub connected: u8,
     pub initiated: u8,
 }
-impl Copy for BTH_L2CAP_EVENT_INFO {}
-impl Clone for BTH_L2CAP_EVENT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BTH_LE_GATT_CHARACTERISTIC {
     pub ServiceHandle: u16,
     pub CharacteristicUuid: BTH_LE_UUID,
@@ -1279,24 +1155,14 @@ pub struct BTH_LE_GATT_CHARACTERISTIC {
     pub IsIndicatable: super::super::Foundation::BOOLEAN,
     pub HasExtendedProperties: super::super::Foundation::BOOLEAN,
 }
-impl Copy for BTH_LE_GATT_CHARACTERISTIC {}
-impl Clone for BTH_LE_GATT_CHARACTERISTIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BTH_LE_GATT_CHARACTERISTIC_VALUE {
     pub DataSize: u32,
     pub Data: [u8; 1],
 }
-impl Copy for BTH_LE_GATT_CHARACTERISTIC_VALUE {}
-impl Clone for BTH_LE_GATT_CHARACTERISTIC_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BTH_LE_GATT_DESCRIPTOR {
     pub ServiceHandle: u16,
     pub CharacteristicHandle: u16,
@@ -1304,13 +1170,8 @@ pub struct BTH_LE_GATT_DESCRIPTOR {
     pub DescriptorUuid: BTH_LE_UUID,
     pub AttributeHandle: u16,
 }
-impl Copy for BTH_LE_GATT_DESCRIPTOR {}
-impl Clone for BTH_LE_GATT_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE {
     pub DescriptorType: BTH_LE_GATT_DESCRIPTOR_TYPE,
     pub DescriptorUuid: BTH_LE_UUID,
@@ -1318,37 +1179,22 @@ pub struct BTH_LE_GATT_DESCRIPTOR_VALUE {
     pub DataSize: u32,
     pub Data: [u8; 1],
 }
-impl Copy for BTH_LE_GATT_DESCRIPTOR_VALUE {}
-impl Clone for BTH_LE_GATT_DESCRIPTOR_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
     pub CharacteristicExtendedProperties: BTH_LE_GATT_DESCRIPTOR_VALUE_0_0,
     pub ClientCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_VALUE_0_2,
     pub ServerCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_VALUE_0_3,
     pub CharacteristicFormat: BTH_LE_GATT_DESCRIPTOR_VALUE_0_1,
 }
-impl Copy for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {}
-impl Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
     pub IsReliableWriteEnabled: super::super::Foundation::BOOLEAN,
     pub IsAuxiliariesWritable: super::super::Foundation::BOOLEAN,
 }
-impl Copy for BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {}
-impl Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
     pub Format: u8,
     pub Exponent: u8,
@@ -1356,101 +1202,56 @@ pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
     pub NameSpace: u8,
     pub Description: BTH_LE_UUID,
 }
-impl Copy for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {}
-impl Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
     pub IsSubscribeToNotification: super::super::Foundation::BOOLEAN,
     pub IsSubscribeToIndication: super::super::Foundation::BOOLEAN,
 }
-impl Copy for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {}
-impl Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
     pub IsBroadcast: super::super::Foundation::BOOLEAN,
 }
-impl Copy for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {}
-impl Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BTH_LE_GATT_SERVICE {
     pub ServiceUuid: BTH_LE_UUID,
     pub AttributeHandle: u16,
 }
-impl Copy for BTH_LE_GATT_SERVICE {}
-impl Clone for BTH_LE_GATT_SERVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BTH_LE_UUID {
     pub IsShortUuid: super::super::Foundation::BOOLEAN,
     pub Value: BTH_LE_UUID_0,
 }
-impl Copy for BTH_LE_UUID {}
-impl Clone for BTH_LE_UUID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union BTH_LE_UUID_0 {
     pub ShortUuid: u16,
     pub LongUuid: windows_sys::core::GUID,
 }
-impl Copy for BTH_LE_UUID_0 {}
-impl Clone for BTH_LE_UUID_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct BTH_PING_REQ {
     pub btAddr: u64,
     pub dataLen: u8,
     pub data: [u8; 44],
 }
-impl Copy for BTH_PING_REQ {}
-impl Clone for BTH_PING_REQ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BTH_PING_RSP {
     pub dataLen: u8,
     pub data: [u8; 44],
 }
-impl Copy for BTH_PING_RSP {}
-impl Clone for BTH_PING_RSP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct BTH_QUERY_DEVICE {
     pub LAP: u32,
     pub length: u8,
 }
-impl Copy for BTH_QUERY_DEVICE {}
-impl Clone for BTH_QUERY_DEVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct BTH_QUERY_SERVICE {
     pub r#type: u32,
     pub serviceHandle: u32,
@@ -1458,24 +1259,14 @@ pub struct BTH_QUERY_SERVICE {
     pub numRange: u32,
     pub pRange: [SdpAttributeRange; 1],
 }
-impl Copy for BTH_QUERY_SERVICE {}
-impl Clone for BTH_QUERY_SERVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BTH_RADIO_IN_RANGE {
     pub deviceInfo: BTH_DEVICE_INFO,
     pub previousDeviceFlags: u32,
 }
-impl Copy for BTH_RADIO_IN_RANGE {}
-impl Clone for BTH_RADIO_IN_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct BTH_SET_SERVICE {
     pub pSdpVersion: *mut u32,
     pub pRecordHandle: *mut super::super::Foundation::HANDLE,
@@ -1484,60 +1275,35 @@ pub struct BTH_SET_SERVICE {
     pub ulRecordLength: u32,
     pub pRecord: [u8; 1],
 }
-impl Copy for BTH_SET_SERVICE {}
-impl Clone for BTH_SET_SERVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type HANDLE_SDP_TYPE = u64;
 pub type HBLUETOOTH_DEVICE_FIND = isize;
 pub type HBLUETOOTH_RADIO_FIND = isize;
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RFCOMM_COMMAND {
     pub CmdType: u32,
     pub Data: RFCOMM_COMMAND_0,
 }
-impl Copy for RFCOMM_COMMAND {}
-impl Clone for RFCOMM_COMMAND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union RFCOMM_COMMAND_0 {
     pub MSC: RFCOMM_MSC_DATA,
     pub RLS: RFCOMM_RLS_DATA,
     pub RPN: RFCOMM_RPN_DATA,
 }
-impl Copy for RFCOMM_COMMAND_0 {}
-impl Clone for RFCOMM_COMMAND_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RFCOMM_MSC_DATA {
     pub Signals: u8,
     pub Break: u8,
 }
-impl Copy for RFCOMM_MSC_DATA {}
-impl Clone for RFCOMM_MSC_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RFCOMM_RLS_DATA {
     pub LineStatus: u8,
 }
-impl Copy for RFCOMM_RLS_DATA {}
-impl Clone for RFCOMM_RLS_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RFCOMM_RPN_DATA {
     pub Baud: u8,
     pub Data: u8,
@@ -1547,25 +1313,15 @@ pub struct RFCOMM_RPN_DATA {
     pub ParameterMask1: u8,
     pub ParameterMask2: u8,
 }
-impl Copy for RFCOMM_RPN_DATA {}
-impl Clone for RFCOMM_RPN_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SDP_ELEMENT_DATA {
     pub r#type: SDP_TYPE,
     pub specificType: SDP_SPECIFICTYPE,
     pub data: SDP_ELEMENT_DATA_0,
 }
-impl Copy for SDP_ELEMENT_DATA {}
-impl Clone for SDP_ELEMENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SDP_ELEMENT_DATA_0 {
     pub int128: SDP_LARGE_INTEGER_16,
     pub int64: i64,
@@ -1586,136 +1342,75 @@ pub union SDP_ELEMENT_DATA_0 {
     pub sequence: SDP_ELEMENT_DATA_0_1,
     pub alternative: SDP_ELEMENT_DATA_0_0,
 }
-impl Copy for SDP_ELEMENT_DATA_0 {}
-impl Clone for SDP_ELEMENT_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SDP_ELEMENT_DATA_0_0 {
     pub value: *mut u8,
     pub length: u32,
 }
-impl Copy for SDP_ELEMENT_DATA_0_0 {}
-impl Clone for SDP_ELEMENT_DATA_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SDP_ELEMENT_DATA_0_1 {
     pub value: *mut u8,
     pub length: u32,
 }
-impl Copy for SDP_ELEMENT_DATA_0_1 {}
-impl Clone for SDP_ELEMENT_DATA_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SDP_ELEMENT_DATA_0_2 {
     pub value: *mut u8,
     pub length: u32,
 }
-impl Copy for SDP_ELEMENT_DATA_0_2 {}
-impl Clone for SDP_ELEMENT_DATA_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SDP_ELEMENT_DATA_0_3 {
     pub value: *mut u8,
     pub length: u32,
 }
-impl Copy for SDP_ELEMENT_DATA_0_3 {}
-impl Clone for SDP_ELEMENT_DATA_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SDP_LARGE_INTEGER_16 {
     pub LowPart: u64,
     pub HighPart: i64,
 }
-impl Copy for SDP_LARGE_INTEGER_16 {}
-impl Clone for SDP_LARGE_INTEGER_16 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SDP_STRING_TYPE_DATA {
     pub encoding: u16,
     pub mibeNum: u16,
     pub attributeId: u16,
 }
-impl Copy for SDP_STRING_TYPE_DATA {}
-impl Clone for SDP_STRING_TYPE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SDP_ULARGE_INTEGER_16 {
     pub LowPart: u64,
     pub HighPart: u64,
 }
-impl Copy for SDP_ULARGE_INTEGER_16 {}
-impl Clone for SDP_ULARGE_INTEGER_16 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct SOCKADDR_BTH {
     pub addressFamily: u16,
     pub btAddr: u64,
     pub serviceClassId: windows_sys::core::GUID,
     pub port: u32,
 }
-impl Copy for SOCKADDR_BTH {}
-impl Clone for SOCKADDR_BTH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SdpAttributeRange {
     pub minAttribute: u16,
     pub maxAttribute: u16,
 }
-impl Copy for SdpAttributeRange {}
-impl Clone for SdpAttributeRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SdpQueryUuid {
     pub u: SdpQueryUuidUnion,
     pub uuidType: u16,
 }
-impl Copy for SdpQueryUuid {}
-impl Clone for SdpQueryUuid {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SdpQueryUuidUnion {
     pub uuid128: windows_sys::core::GUID,
     pub uuid32: u32,
     pub uuid16: u16,
-}
-impl Copy for SdpQueryUuidUnion {}
-impl Clone for SdpQueryUuidUnion {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type PFNBLUETOOTH_GATT_EVENT_CALLBACK = Option<unsafe extern "system" fn(eventtype: BTH_LE_GATT_EVENT_TYPE, eventoutparameter: *const core::ffi::c_void, context: *const core::ffi::c_void)>;
 pub type PFN_AUTHENTICATION_CALLBACK = Option<unsafe extern "system" fn(pvparam: *mut core::ffi::c_void, pdevice: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL>;

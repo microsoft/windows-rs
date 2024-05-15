@@ -6,18 +6,14 @@ pub const MaxHardwareCounterType: HARDWARE_COUNTER_TYPE = 1i32;
 pub const PMCCounter: HARDWARE_COUNTER_TYPE = 0i32;
 pub type HARDWARE_COUNTER_TYPE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HARDWARE_COUNTER_DATA {
     pub Type: HARDWARE_COUNTER_TYPE,
     pub Reserved: u32,
     pub Value: u64,
 }
-impl Copy for HARDWARE_COUNTER_DATA {}
-impl Clone for HARDWARE_COUNTER_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PERFORMANCE_DATA {
     pub Size: u16,
     pub Version: u8,
@@ -28,10 +24,4 @@ pub struct PERFORMANCE_DATA {
     pub RetryCount: u32,
     pub Reserved: u32,
     pub HwCounters: [HARDWARE_COUNTER_DATA; 16],
-}
-impl Copy for PERFORMANCE_DATA {}
-impl Clone for PERFORMANCE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

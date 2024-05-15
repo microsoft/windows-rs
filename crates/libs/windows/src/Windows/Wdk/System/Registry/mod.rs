@@ -62,38 +62,23 @@ impl core::fmt::Debug for KEY_SET_INFORMATION_CLASS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_VALUE_ENTRY {
     pub ValueName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
     pub DataLength: u32,
     pub DataOffset: u32,
     pub Type: u32,
 }
-impl Copy for KEY_VALUE_ENTRY {}
-impl Clone for KEY_VALUE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for KEY_VALUE_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("KEY_VALUE_ENTRY").field("ValueName", &self.ValueName).field("DataLength", &self.DataLength).field("DataOffset", &self.DataOffset).field("Type", &self.Type).finish()
-    }
-}
 impl windows_core::TypeKind for KEY_VALUE_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for KEY_VALUE_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.ValueName == other.ValueName && self.DataLength == other.DataLength && self.DataOffset == other.DataOffset && self.Type == other.Type
-    }
-}
-impl Eq for KEY_VALUE_ENTRY {}
 impl Default for KEY_VALUE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub ValueEntries: *mut KEY_VALUE_ENTRY,
@@ -105,32 +90,16 @@ pub struct REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl Copy for REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {}
-impl Clone for REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION").field("Object", &self.Object).field("ValueEntries", &self.ValueEntries).field("EntryCount", &self.EntryCount).field("ValueBuffer", &self.ValueBuffer).field("BufferLength", &self.BufferLength).field("RequiredBufferLength", &self.RequiredBufferLength).field("CallContext", &self.CallContext).field("ObjectContext", &self.ObjectContext).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Object == other.Object && self.ValueEntries == other.ValueEntries && self.EntryCount == other.EntryCount && self.ValueBuffer == other.ValueBuffer && self.BufferLength == other.BufferLength && self.RequiredBufferLength == other.RequiredBufferLength && self.CallContext == other.CallContext && self.ObjectContext == other.ObjectContext && self.Reserved == other.Reserved
-    }
-}
-impl Eq for REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {}
 impl Default for REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_SET_INFORMATION_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub KeySetInformationClass: KEY_SET_INFORMATION_CLASS,
@@ -140,26 +109,9 @@ pub struct REG_SET_INFORMATION_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl Copy for REG_SET_INFORMATION_KEY_INFORMATION {}
-impl Clone for REG_SET_INFORMATION_KEY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for REG_SET_INFORMATION_KEY_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REG_SET_INFORMATION_KEY_INFORMATION").field("Object", &self.Object).field("KeySetInformationClass", &self.KeySetInformationClass).field("KeySetInformation", &self.KeySetInformation).field("KeySetInformationLength", &self.KeySetInformationLength).field("CallContext", &self.CallContext).field("ObjectContext", &self.ObjectContext).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for REG_SET_INFORMATION_KEY_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for REG_SET_INFORMATION_KEY_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Object == other.Object && self.KeySetInformationClass == other.KeySetInformationClass && self.KeySetInformation == other.KeySetInformation && self.KeySetInformationLength == other.KeySetInformationLength && self.CallContext == other.CallContext && self.ObjectContext == other.ObjectContext && self.Reserved == other.Reserved
-    }
-}
-impl Eq for REG_SET_INFORMATION_KEY_INFORMATION {}
 impl Default for REG_SET_INFORMATION_KEY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

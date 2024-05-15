@@ -62,6 +62,7 @@ pub const WLX_VERSION_1_4: u32 = 65540u32;
 pub const WLX_WM_SAS: u32 = 1625u32;
 pub type WLX_SHUTDOWN_TYPE = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
     pub dwType: u32,
     pub pszUserName: windows_sys::core::PWSTR,
@@ -69,13 +70,8 @@ pub struct WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
     pub pszPassword: windows_sys::core::PWSTR,
     pub fPromptForPassword: super::super::Foundation::BOOL,
 }
-impl Copy for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {}
-impl Clone for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
     pub dwType: u32,
     pub pszUserName: windows_sys::core::PWSTR,
@@ -84,13 +80,8 @@ pub struct WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
     pub fPromptForPassword: super::super::Foundation::BOOL,
     pub fDisconnectOnLogonFailure: super::super::Foundation::BOOL,
 }
-impl Copy for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {}
-impl Clone for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
     pub dwType: u32,
     pub UserToken: super::super::Foundation::HANDLE,
@@ -120,30 +111,18 @@ pub struct WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
     pub PrivateDataLen: u32,
     pub PrivateData: *mut u8,
 }
-impl Copy for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {}
-impl Clone for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_StationsAndDesktops")]
+#[derive(Clone, Copy)]
 pub struct WLX_DESKTOP {
     pub Size: u32,
     pub Flags: u32,
     pub hDesktop: super::super::System::StationsAndDesktops::HDESK,
     pub pszDesktopName: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_System_StationsAndDesktops")]
-impl Copy for WLX_DESKTOP {}
-#[cfg(feature = "Win32_System_StationsAndDesktops")]
-impl Clone for WLX_DESKTOP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct WLX_DISPATCH_VERSION_1_0 {
     pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
     pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
@@ -159,16 +138,9 @@ pub struct WLX_DISPATCH_VERSION_1_0 {
     pub WlxSwitchDesktopToWinlogon: PWLX_SWITCH_DESKTOP_TO_WINLOGON,
     pub WlxChangePasswordNotify: PWLX_CHANGE_PASSWORD_NOTIFY,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for WLX_DISPATCH_VERSION_1_0 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for WLX_DISPATCH_VERSION_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct WLX_DISPATCH_VERSION_1_1 {
     pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
     pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
@@ -188,16 +160,9 @@ pub struct WLX_DISPATCH_VERSION_1_1 {
     pub WlxCreateUserDesktop: PWLX_CREATE_USER_DESKTOP,
     pub WlxChangePasswordNotifyEx: PWLX_CHANGE_PASSWORD_NOTIFY_EX,
 }
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for WLX_DISPATCH_VERSION_1_1 {}
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for WLX_DISPATCH_VERSION_1_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct WLX_DISPATCH_VERSION_1_2 {
     pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
     pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
@@ -218,16 +183,9 @@ pub struct WLX_DISPATCH_VERSION_1_2 {
     pub WlxChangePasswordNotifyEx: PWLX_CHANGE_PASSWORD_NOTIFY_EX,
     pub WlxCloseUserDesktop: PWLX_CLOSE_USER_DESKTOP,
 }
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for WLX_DISPATCH_VERSION_1_2 {}
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for WLX_DISPATCH_VERSION_1_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct WLX_DISPATCH_VERSION_1_3 {
     pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
     pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
@@ -255,16 +213,9 @@ pub struct WLX_DISPATCH_VERSION_1_3 {
     pub WlxDisconnect: PWLX_DISCONNECT,
     pub WlxQueryTerminalServicesData: PWLX_QUERY_TERMINAL_SERVICES_DATA,
 }
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for WLX_DISPATCH_VERSION_1_3 {}
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for WLX_DISPATCH_VERSION_1_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct WLX_DISPATCH_VERSION_1_4 {
     pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
     pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
@@ -294,29 +245,17 @@ pub struct WLX_DISPATCH_VERSION_1_4 {
     pub WlxQueryConsoleSwitchCredentials: PWLX_QUERY_CONSOLESWITCH_CREDENTIALS,
     pub WlxQueryTsLogonCredentials: PWLX_QUERY_TS_LOGON_CREDENTIALS,
 }
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for WLX_DISPATCH_VERSION_1_4 {}
-#[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for WLX_DISPATCH_VERSION_1_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WLX_MPR_NOTIFY_INFO {
     pub pszUserName: windows_sys::core::PWSTR,
     pub pszDomain: windows_sys::core::PWSTR,
     pub pszPassword: windows_sys::core::PWSTR,
     pub pszOldPassword: windows_sys::core::PWSTR,
 }
-impl Copy for WLX_MPR_NOTIFY_INFO {}
-impl Clone for WLX_MPR_NOTIFY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_StationsAndDesktops")]
+#[derive(Clone, Copy)]
 pub struct WLX_NOTIFICATION_INFO {
     pub Size: u32,
     pub Flags: u32,
@@ -327,26 +266,14 @@ pub struct WLX_NOTIFICATION_INFO {
     pub hDesktop: super::super::System::StationsAndDesktops::HDESK,
     pub pStatusCallback: PFNMSGECALLBACK,
 }
-#[cfg(feature = "Win32_System_StationsAndDesktops")]
-impl Copy for WLX_NOTIFICATION_INFO {}
-#[cfg(feature = "Win32_System_StationsAndDesktops")]
-impl Clone for WLX_NOTIFICATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WLX_PROFILE_V1_0 {
     pub dwType: u32,
     pub pszProfile: windows_sys::core::PWSTR,
 }
-impl Copy for WLX_PROFILE_V1_0 {}
-impl Clone for WLX_PROFILE_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WLX_PROFILE_V2_0 {
     pub dwType: u32,
     pub pszProfile: windows_sys::core::PWSTR,
@@ -355,36 +282,20 @@ pub struct WLX_PROFILE_V2_0 {
     pub pszServerName: windows_sys::core::PWSTR,
     pub pszEnvironment: windows_sys::core::PWSTR,
 }
-impl Copy for WLX_PROFILE_V2_0 {}
-impl Clone for WLX_PROFILE_V2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WLX_SC_NOTIFICATION_INFO {
     pub pszCard: windows_sys::core::PWSTR,
     pub pszReader: windows_sys::core::PWSTR,
     pub pszContainer: windows_sys::core::PWSTR,
     pub pszCryptoProvider: windows_sys::core::PWSTR,
 }
-impl Copy for WLX_SC_NOTIFICATION_INFO {}
-impl Clone for WLX_SC_NOTIFICATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WLX_TERMINAL_SERVICES_DATA {
     pub ProfilePath: [u16; 257],
     pub HomeDir: [u16; 257],
     pub HomeDirDrive: [u16; 4],
-}
-impl Copy for WLX_TERMINAL_SERVICES_DATA {}
-impl Clone for WLX_TERMINAL_SERVICES_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type PFNMSGECALLBACK = Option<unsafe extern "system" fn(bverbose: super::super::Foundation::BOOL, lpmessage: windows_sys::core::PCWSTR) -> u32>;
 pub type PWLX_ASSIGN_SHELL_PROTECTION = Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, htoken: super::super::Foundation::HANDLE, hprocess: super::super::Foundation::HANDLE, hthread: super::super::Foundation::HANDLE) -> i32>;

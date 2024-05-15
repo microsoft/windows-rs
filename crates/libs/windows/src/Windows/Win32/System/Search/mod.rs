@@ -13810,62 +13810,30 @@ impl core::fmt::Debug for WEBCRAWL_RECURSEFLAGS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTHENTICATION_INFO {
     pub dwSize: u32,
     pub atAuthenticationType: AUTH_TYPE,
     pub pcwszUser: windows_core::PCWSTR,
     pub pcwszPassword: windows_core::PCWSTR,
 }
-impl Copy for AUTHENTICATION_INFO {}
-impl Clone for AUTHENTICATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AUTHENTICATION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUTHENTICATION_INFO").field("dwSize", &self.dwSize).field("atAuthenticationType", &self.atAuthenticationType).field("pcwszUser", &self.pcwszUser).field("pcwszPassword", &self.pcwszPassword).finish()
-    }
-}
 impl windows_core::TypeKind for AUTHENTICATION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUTHENTICATION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.atAuthenticationType == other.atAuthenticationType && self.pcwszUser == other.pcwszUser && self.pcwszPassword == other.pcwszPassword
-    }
-}
-impl Eq for AUTHENTICATION_INFO {}
 impl Default for AUTHENTICATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BUCKETCATEGORIZE {
     pub cBuckets: u32,
     pub Distribution: u32,
 }
-impl Copy for BUCKETCATEGORIZE {}
-impl Clone for BUCKETCATEGORIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BUCKETCATEGORIZE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BUCKETCATEGORIZE").field("cBuckets", &self.cBuckets).field("Distribution", &self.Distribution).finish()
-    }
-}
 impl windows_core::TypeKind for BUCKETCATEGORIZE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BUCKETCATEGORIZE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cBuckets == other.cBuckets && self.Distribution == other.Distribution
-    }
-}
-impl Eq for BUCKETCATEGORIZE {}
 impl Default for BUCKETCATEGORIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13873,18 +13841,11 @@ impl Default for BUCKETCATEGORIZE {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[derive(Clone, Copy)]
 pub struct CATEGORIZATION {
     pub ulCatType: u32,
     pub Anonymous: CATEGORIZATION_0,
     pub csColumns: COLUMNSET,
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Copy for CATEGORIZATION {}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Clone for CATEGORIZATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl windows_core::TypeKind for CATEGORIZATION {
@@ -13898,18 +13859,11 @@ impl Default for CATEGORIZATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[derive(Clone, Copy)]
 pub union CATEGORIZATION_0 {
     pub cClusters: u32,
     pub bucket: BUCKETCATEGORIZE,
     pub range: RANGECATEGORIZE,
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Copy for CATEGORIZATION_0 {}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Clone for CATEGORIZATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl windows_core::TypeKind for CATEGORIZATION_0 {
@@ -13923,36 +13877,15 @@ impl Default for CATEGORIZATION_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CATEGORIZATIONSET {
     pub cCat: u32,
     pub aCat: *mut CATEGORIZATION,
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Copy for CATEGORIZATIONSET {}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Clone for CATEGORIZATIONSET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl core::fmt::Debug for CATEGORIZATIONSET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CATEGORIZATIONSET").field("cCat", &self.cCat).field("aCat", &self.aCat).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl windows_core::TypeKind for CATEGORIZATIONSET {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl PartialEq for CATEGORIZATIONSET {
-    fn eq(&self, other: &Self) -> bool {
-        self.cCat == other.cCat && self.aCat == other.aCat
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Eq for CATEGORIZATIONSET {}
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl Default for CATEGORIZATIONSET {
     fn default() -> Self {
@@ -13961,36 +13894,15 @@ impl Default for CATEGORIZATIONSET {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COLUMNSET {
     pub cCol: u32,
     pub aCol: *mut super::super::Storage::IndexServer::FULLPROPSPEC,
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Copy for COLUMNSET {}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Clone for COLUMNSET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl core::fmt::Debug for COLUMNSET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COLUMNSET").field("cCol", &self.cCol).field("aCol", &self.aCol).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl windows_core::TypeKind for COLUMNSET {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl PartialEq for COLUMNSET {
-    fn eq(&self, other: &Self) -> bool {
-        self.cCol == other.cCol && self.aCol == other.aCol
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Eq for COLUMNSET {}
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl Default for COLUMNSET {
     fn default() -> Self {
@@ -13999,19 +13911,12 @@ impl Default for COLUMNSET {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[derive(Clone, Copy)]
 pub struct CONTENTRESTRICTION {
     pub prop: super::super::Storage::IndexServer::FULLPROPSPEC,
     pub pwcsPhrase: windows_core::PWSTR,
     pub lcid: u32,
     pub ulGenerateMethod: u32,
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Copy for CONTENTRESTRICTION {}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Clone for CONTENTRESTRICTION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl windows_core::TypeKind for CONTENTRESTRICTION {
@@ -14030,31 +13935,15 @@ pub const CSearchScopeRule: windows_core::GUID = windows_core::GUID::from_u128(0
 pub const CompoundCondition: windows_core::GUID = windows_core::GUID::from_u128(0x116f8d13_101e_4fa5_84d4_ff8279381935);
 pub const ConditionFactory: windows_core::GUID = windows_core::GUID::from_u128(0xe03e85b0_7be3_4000_ba98_6c13de9fa486);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DATE_STRUCT {
     pub year: i16,
     pub month: u16,
     pub day: u16,
 }
-impl Copy for DATE_STRUCT {}
-impl Clone for DATE_STRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DATE_STRUCT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DATE_STRUCT").field("year", &self.year).field("month", &self.month).field("day", &self.day).finish()
-    }
-}
 impl windows_core::TypeKind for DATE_STRUCT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DATE_STRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.year == other.year && self.month == other.month && self.day == other.day
-    }
-}
-impl Eq for DATE_STRUCT {}
 impl Default for DATE_STRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -14062,17 +13951,10 @@ impl Default for DATE_STRUCT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct DBBINDEXT {
     pub pExtension: *mut u8,
     pub ulExtension: usize,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for DBBINDEXT {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for DBBINDEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for DBBINDEXT {
@@ -14086,17 +13968,10 @@ impl Default for DBBINDEXT {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct DBBINDEXT {
     pub pExtension: *mut u8,
     pub ulExtension: usize,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for DBBINDEXT {}
-#[cfg(target_arch = "x86")]
-impl Clone for DBBINDEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for DBBINDEXT {
@@ -14182,6 +14057,7 @@ impl Default for DBBINDING {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
+#[derive(Clone, Copy)]
 pub struct DBCOLUMNACCESS {
     pub pData: *mut core::ffi::c_void,
     pub columnid: super::super::Storage::IndexServer::DBID,
@@ -14192,16 +14068,6 @@ pub struct DBCOLUMNACCESS {
     pub wType: u16,
     pub bPrecision: u8,
     pub bScale: u8,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Copy for DBCOLUMNACCESS {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Clone for DBCOLUMNACCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -14218,6 +14084,7 @@ impl Default for DBCOLUMNACCESS {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
+#[derive(Clone, Copy)]
 pub struct DBCOLUMNACCESS {
     pub pData: *mut core::ffi::c_void,
     pub columnid: super::super::Storage::IndexServer::DBID,
@@ -14228,16 +14095,6 @@ pub struct DBCOLUMNACCESS {
     pub wType: u16,
     pub bPrecision: u8,
     pub bScale: u8,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Copy for DBCOLUMNACCESS {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Clone for DBCOLUMNACCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -14374,6 +14231,7 @@ impl Default for DBCOLUMNINFO {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
+#[derive(Clone, Copy)]
 pub struct DBCONSTRAINTDESC {
     pub pConstraintID: *mut super::super::Storage::IndexServer::DBID,
     pub ConstraintType: u32,
@@ -14392,16 +14250,6 @@ pub struct DBCONSTRAINTDESC {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl Copy for DBCONSTRAINTDESC {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Clone for DBCONSTRAINTDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
 impl windows_core::TypeKind for DBCONSTRAINTDESC {
     type TypeKind = windows_core::CopyType;
 }
@@ -14415,6 +14263,7 @@ impl Default for DBCONSTRAINTDESC {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
+#[derive(Clone, Copy)]
 pub struct DBCONSTRAINTDESC {
     pub pConstraintID: *mut super::super::Storage::IndexServer::DBID,
     pub ConstraintType: u32,
@@ -14433,16 +14282,6 @@ pub struct DBCONSTRAINTDESC {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl Copy for DBCONSTRAINTDESC {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Clone for DBCONSTRAINTDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
 impl windows_core::TypeKind for DBCONSTRAINTDESC {
     type TypeKind = windows_core::CopyType;
 }
@@ -14455,18 +14294,11 @@ impl Default for DBCONSTRAINTDESC {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct DBCOST {
     pub eKind: u32,
     pub dwUnits: u32,
     pub lValue: i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for DBCOST {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for DBCOST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for DBCOST {
@@ -14480,18 +14312,11 @@ impl Default for DBCOST {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct DBCOST {
     pub eKind: u32,
     pub dwUnits: u32,
     pub lValue: i32,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for DBCOST {}
-#[cfg(target_arch = "x86")]
-impl Clone for DBCOST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for DBCOST {
@@ -14504,91 +14329,43 @@ impl Default for DBCOST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DBDATE {
     pub year: i16,
     pub month: u16,
     pub day: u16,
 }
-impl Copy for DBDATE {}
-impl Clone for DBDATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DBDATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DBDATE").field("year", &self.year).field("month", &self.month).field("day", &self.day).finish()
-    }
-}
 impl windows_core::TypeKind for DBDATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DBDATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.year == other.year && self.month == other.month && self.day == other.day
-    }
-}
-impl Eq for DBDATE {}
 impl Default for DBDATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DBDATETIM4 {
     pub numdays: u16,
     pub nummins: u16,
 }
-impl Copy for DBDATETIM4 {}
-impl Clone for DBDATETIM4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DBDATETIM4 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DBDATETIM4").field("numdays", &self.numdays).field("nummins", &self.nummins).finish()
-    }
-}
 impl windows_core::TypeKind for DBDATETIM4 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DBDATETIM4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.numdays == other.numdays && self.nummins == other.nummins
-    }
-}
-impl Eq for DBDATETIM4 {}
 impl Default for DBDATETIM4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DBDATETIME {
     pub dtdays: i32,
     pub dttime: u32,
 }
-impl Copy for DBDATETIME {}
-impl Clone for DBDATETIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DBDATETIME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DBDATETIME").field("dtdays", &self.dtdays).field("dttime", &self.dttime).finish()
-    }
-}
 impl windows_core::TypeKind for DBDATETIME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DBDATETIME {
-    fn eq(&self, other: &Self) -> bool {
-        self.dtdays == other.dtdays && self.dttime == other.dttime
-    }
-}
-impl Eq for DBDATETIME {}
 impl Default for DBDATETIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -14596,18 +14373,11 @@ impl Default for DBDATETIME {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct DBFAILUREINFO {
     pub hRow: usize,
     pub iColumn: usize,
     pub failure: windows_core::HRESULT,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for DBFAILUREINFO {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for DBFAILUREINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for DBFAILUREINFO {
@@ -14621,18 +14391,11 @@ impl Default for DBFAILUREINFO {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct DBFAILUREINFO {
     pub hRow: usize,
     pub iColumn: usize,
     pub failure: windows_core::HRESULT,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for DBFAILUREINFO {}
-#[cfg(target_arch = "x86")]
-impl Clone for DBFAILUREINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for DBFAILUREINFO {
@@ -14687,19 +14450,10 @@ impl Default for DBIMPLICITSESSION {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
+#[derive(Clone, Copy)]
 pub struct DBINDEXCOLUMNDESC {
     pub pColumnID: *mut super::super::Storage::IndexServer::DBID,
     pub eIndexColOrder: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Copy for DBINDEXCOLUMNDESC {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Clone for DBINDEXCOLUMNDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -14716,19 +14470,10 @@ impl Default for DBINDEXCOLUMNDESC {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
+#[derive(Clone, Copy)]
 pub struct DBINDEXCOLUMNDESC {
     pub pColumnID: *mut super::super::Storage::IndexServer::DBID,
     pub eIndexColOrder: u32,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Copy for DBINDEXCOLUMNDESC {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Clone for DBINDEXCOLUMNDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -14744,6 +14489,7 @@ impl Default for DBINDEXCOLUMNDESC {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct DBLITERALINFO {
     pub pwszLiteralValue: windows_core::PWSTR,
     pub pwszInvalidChars: windows_core::PWSTR,
@@ -14751,14 +14497,6 @@ pub struct DBLITERALINFO {
     pub lt: u32,
     pub fSupported: super::super::Foundation::BOOL,
     pub cchMaxLen: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for DBLITERALINFO {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for DBLITERALINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for DBLITERALINFO {
@@ -14772,6 +14510,7 @@ impl Default for DBLITERALINFO {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct DBLITERALINFO {
     pub pwszLiteralValue: windows_core::PWSTR,
     pub pwszInvalidChars: windows_core::PWSTR,
@@ -14779,14 +14518,6 @@ pub struct DBLITERALINFO {
     pub lt: u32,
     pub fSupported: super::super::Foundation::BOOL,
     pub cchMaxLen: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for DBLITERALINFO {}
-#[cfg(target_arch = "x86")]
-impl Clone for DBLITERALINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for DBLITERALINFO {
@@ -14799,30 +14530,14 @@ impl Default for DBLITERALINFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DBMONEY {
     pub mnyhigh: i32,
     pub mnylow: u32,
 }
-impl Copy for DBMONEY {}
-impl Clone for DBMONEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DBMONEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DBMONEY").field("mnyhigh", &self.mnyhigh).field("mnylow", &self.mnylow).finish()
-    }
-}
 impl windows_core::TypeKind for DBMONEY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DBMONEY {
-    fn eq(&self, other: &Self) -> bool {
-        self.mnyhigh == other.mnyhigh && self.mnylow == other.mnylow
-    }
-}
-impl Eq for DBMONEY {}
 impl Default for DBMONEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -14830,17 +14545,10 @@ impl Default for DBMONEY {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct DBOBJECT {
     pub dwFlags: u32,
     pub iid: windows_core::GUID,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for DBOBJECT {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for DBOBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for DBOBJECT {
@@ -14854,17 +14562,10 @@ impl Default for DBOBJECT {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct DBOBJECT {
     pub dwFlags: u32,
     pub iid: windows_core::GUID,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for DBOBJECT {}
-#[cfg(target_arch = "x86")]
-impl Clone for DBOBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for DBOBJECT {
@@ -14878,6 +14579,7 @@ impl Default for DBOBJECT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct DBPARAMBINDINFO {
     pub pwszDataSourceType: windows_core::PWSTR,
     pub pwszName: windows_core::PWSTR,
@@ -14885,14 +14587,6 @@ pub struct DBPARAMBINDINFO {
     pub dwFlags: u32,
     pub bPrecision: u8,
     pub bScale: u8,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for DBPARAMBINDINFO {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for DBPARAMBINDINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for DBPARAMBINDINFO {
@@ -14906,6 +14600,7 @@ impl Default for DBPARAMBINDINFO {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct DBPARAMBINDINFO {
     pub pwszDataSourceType: windows_core::PWSTR,
     pub pwszName: windows_core::PWSTR,
@@ -14913,14 +14608,6 @@ pub struct DBPARAMBINDINFO {
     pub dwFlags: u32,
     pub bPrecision: u8,
     pub bScale: u8,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for DBPARAMBINDINFO {}
-#[cfg(target_arch = "x86")]
-impl Clone for DBPARAMBINDINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for DBPARAMBINDINFO {
@@ -14991,18 +14678,11 @@ impl Default for DBPARAMINFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct DBPARAMS {
     pub pData: *mut core::ffi::c_void,
     pub cParamSets: usize,
     pub hAccessor: HACCESSOR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for DBPARAMS {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for DBPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for DBPARAMS {
@@ -15016,18 +14696,11 @@ impl Default for DBPARAMS {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct DBPARAMS {
     pub pData: *mut core::ffi::c_void,
     pub cParamSets: usize,
     pub hAccessor: HACCESSOR,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for DBPARAMS {}
-#[cfg(target_arch = "x86")]
-impl Clone for DBPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for DBPARAMS {
@@ -15092,18 +14765,11 @@ impl Default for DBPROP {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct DBPROPIDSET {
     pub rgPropertyIDs: *mut u32,
     pub cPropertyIDs: u32,
     pub guidPropertySet: windows_core::GUID,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for DBPROPIDSET {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for DBPROPIDSET {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for DBPROPIDSET {
@@ -15117,18 +14783,11 @@ impl Default for DBPROPIDSET {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct DBPROPIDSET {
     pub rgPropertyIDs: *mut u32,
     pub cPropertyIDs: u32,
     pub guidPropertySet: windows_core::GUID,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for DBPROPIDSET {}
-#[cfg(target_arch = "x86")]
-impl Clone for DBPROPIDSET {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for DBPROPIDSET {
@@ -15194,20 +14853,11 @@ impl Default for DBPROPINFO {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy)]
 pub struct DBPROPINFOSET {
     pub rgPropertyInfos: *mut DBPROPINFO,
     pub cPropertyInfos: u32,
     pub guidPropertySet: windows_core::GUID,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Variant")]
-impl Copy for DBPROPINFOSET {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Variant")]
-impl Clone for DBPROPINFOSET {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Variant")]
@@ -15224,20 +14874,11 @@ impl Default for DBPROPINFOSET {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy)]
 pub struct DBPROPINFOSET {
     pub rgPropertyInfos: *mut DBPROPINFO,
     pub cPropertyInfos: u32,
     pub guidPropertySet: windows_core::GUID,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Variant")]
-impl Copy for DBPROPINFOSET {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Variant")]
-impl Clone for DBPROPINFOSET {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Variant")]
@@ -15254,20 +14895,11 @@ impl Default for DBPROPINFOSET {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
+#[derive(Clone, Copy)]
 pub struct DBPROPSET {
     pub rgProperties: *mut DBPROP,
     pub cProperties: u32,
     pub guidPropertySet: windows_core::GUID,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Copy for DBPROPSET {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Clone for DBPROPSET {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -15284,20 +14916,11 @@ impl Default for DBPROPSET {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
+#[derive(Clone, Copy)]
 pub struct DBPROPSET {
     pub rgProperties: *mut DBPROP,
     pub cProperties: u32,
     pub guidPropertySet: windows_core::GUID,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Copy for DBPROPSET {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Clone for DBPROPSET {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -15313,19 +14936,12 @@ impl Default for DBPROPSET {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct DBROWWATCHCHANGE {
     pub hRegion: usize,
     pub eChangeKind: u32,
     pub hRow: usize,
     pub iRow: usize,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for DBROWWATCHCHANGE {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for DBROWWATCHCHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for DBROWWATCHCHANGE {
@@ -15339,19 +14955,12 @@ impl Default for DBROWWATCHCHANGE {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct DBROWWATCHCHANGE {
     pub hRegion: usize,
     pub eChangeKind: u32,
     pub hRow: usize,
     pub iRow: usize,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for DBROWWATCHCHANGE {}
-#[cfg(target_arch = "x86")]
-impl Clone for DBROWWATCHCHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for DBROWWATCHCHANGE {
@@ -15364,31 +14973,15 @@ impl Default for DBROWWATCHCHANGE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DBTIME {
     pub hour: u16,
     pub minute: u16,
     pub second: u16,
 }
-impl Copy for DBTIME {}
-impl Clone for DBTIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DBTIME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DBTIME").field("hour", &self.hour).field("minute", &self.minute).field("second", &self.second).finish()
-    }
-}
 impl windows_core::TypeKind for DBTIME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DBTIME {
-    fn eq(&self, other: &Self) -> bool {
-        self.hour == other.hour && self.minute == other.minute && self.second == other.second
-    }
-}
-impl Eq for DBTIME {}
 impl Default for DBTIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -15396,6 +14989,7 @@ impl Default for DBTIME {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct DBTIMESTAMP {
     pub year: i16,
     pub month: u16,
@@ -15404,14 +14998,6 @@ pub struct DBTIMESTAMP {
     pub minute: u16,
     pub second: u16,
     pub fraction: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for DBTIMESTAMP {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for DBTIMESTAMP {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for DBTIMESTAMP {
@@ -15425,6 +15011,7 @@ impl Default for DBTIMESTAMP {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct DBTIMESTAMP {
     pub year: i16,
     pub month: u16,
@@ -15433,14 +15020,6 @@ pub struct DBTIMESTAMP {
     pub minute: u16,
     pub second: u16,
     pub fraction: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for DBTIMESTAMP {}
-#[cfg(target_arch = "x86")]
-impl Clone for DBTIMESTAMP {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for DBTIMESTAMP {
@@ -15453,60 +15032,28 @@ impl Default for DBTIMESTAMP {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DBVARYBIN {
     pub len: i16,
     pub array: [u8; 8001],
 }
-impl Copy for DBVARYBIN {}
-impl Clone for DBVARYBIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DBVARYBIN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DBVARYBIN").field("len", &self.len).field("array", &self.array).finish()
-    }
-}
 impl windows_core::TypeKind for DBVARYBIN {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DBVARYBIN {
-    fn eq(&self, other: &Self) -> bool {
-        self.len == other.len && self.array == other.array
-    }
-}
-impl Eq for DBVARYBIN {}
 impl Default for DBVARYBIN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DBVARYCHAR {
     pub len: i16,
     pub str: [i8; 8001],
 }
-impl Copy for DBVARYCHAR {}
-impl Clone for DBVARYCHAR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DBVARYCHAR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DBVARYCHAR").field("len", &self.len).field("str", &self.str).finish()
-    }
-}
 impl windows_core::TypeKind for DBVARYCHAR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DBVARYCHAR {
-    fn eq(&self, other: &Self) -> bool {
-        self.len == other.len && self.str == other.str
-    }
-}
-impl Eq for DBVARYCHAR {}
 impl Default for DBVARYCHAR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -15514,17 +15061,10 @@ impl Default for DBVARYCHAR {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct DBVECTOR {
     pub size: usize,
     pub ptr: *mut core::ffi::c_void,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for DBVECTOR {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for DBVECTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for DBVECTOR {
@@ -15538,17 +15078,10 @@ impl Default for DBVECTOR {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct DBVECTOR {
     pub size: usize,
     pub ptr: *mut core::ffi::c_void,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for DBVECTOR {}
-#[cfg(target_arch = "x86")]
-impl Clone for DBVECTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for DBVECTOR {
@@ -15561,70 +15094,39 @@ impl Default for DBVECTOR {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DB_NUMERIC {
     pub precision: u8,
     pub scale: u8,
     pub sign: u8,
     pub val: [u8; 16],
 }
-impl Copy for DB_NUMERIC {}
-impl Clone for DB_NUMERIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DB_NUMERIC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DB_NUMERIC").field("precision", &self.precision).field("scale", &self.scale).field("sign", &self.sign).field("val", &self.val).finish()
-    }
-}
 impl windows_core::TypeKind for DB_NUMERIC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DB_NUMERIC {
-    fn eq(&self, other: &Self) -> bool {
-        self.precision == other.precision && self.scale == other.scale && self.sign == other.sign && self.val == other.val
-    }
-}
-impl Eq for DB_NUMERIC {}
 impl Default for DB_NUMERIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DB_VARNUMERIC {
     pub precision: u8,
     pub scale: i8,
     pub sign: u8,
     pub val: [u8; 1],
 }
-impl Copy for DB_VARNUMERIC {}
-impl Clone for DB_VARNUMERIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DB_VARNUMERIC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DB_VARNUMERIC").field("precision", &self.precision).field("scale", &self.scale).field("sign", &self.sign).field("val", &self.val).finish()
-    }
-}
 impl windows_core::TypeKind for DB_VARNUMERIC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DB_VARNUMERIC {
-    fn eq(&self, other: &Self) -> bool {
-        self.precision == other.precision && self.scale == other.scale && self.sign == other.sign && self.val == other.val
-    }
-}
-impl Eq for DB_VARNUMERIC {}
 impl Default for DB_VARNUMERIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct DCINFO {
     pub eInfoType: u32,
     pub vData: std::mem::ManuallyDrop<windows_core::VARIANT>,
@@ -15634,20 +15136,9 @@ impl Clone for DCINFO {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for DCINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DCINFO").field("eInfoType", &self.eInfoType).field("vData", &self.vData).finish()
-    }
-}
 impl windows_core::TypeKind for DCINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DCINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.eInfoType == other.eInfoType && self.vData == other.vData
-    }
-}
-impl Eq for DCINFO {}
 impl Default for DCINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -15656,20 +15147,13 @@ impl Default for DCINFO {
 pub const DataLinks: windows_core::GUID = windows_core::GUID::from_u128(0x2206cdb2_19c1_11d1_89e0_00c04fd7a829);
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct ERRORINFO {
     pub hrError: windows_core::HRESULT,
     pub dwMinor: u32,
     pub clsid: windows_core::GUID,
     pub iid: windows_core::GUID,
     pub dispid: i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for ERRORINFO {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for ERRORINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for ERRORINFO {
@@ -15683,20 +15167,13 @@ impl Default for ERRORINFO {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct ERRORINFO {
     pub hrError: windows_core::HRESULT,
     pub dwMinor: u32,
     pub clsid: windows_core::GUID,
     pub iid: windows_core::GUID,
     pub dispid: i32,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for ERRORINFO {}
-#[cfg(target_arch = "x86")]
-impl Clone for ERRORINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for ERRORINFO {
@@ -15709,32 +15186,16 @@ impl Default for ERRORINFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILTERED_DATA_SOURCES {
     pub pwcsExtension: windows_core::PCWSTR,
     pub pwcsMime: windows_core::PCWSTR,
     pub pClsid: *const windows_core::GUID,
     pub pwcsOverride: windows_core::PCWSTR,
 }
-impl Copy for FILTERED_DATA_SOURCES {}
-impl Clone for FILTERED_DATA_SOURCES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FILTERED_DATA_SOURCES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FILTERED_DATA_SOURCES").field("pwcsExtension", &self.pwcsExtension).field("pwcsMime", &self.pwcsMime).field("pClsid", &self.pClsid).field("pwcsOverride", &self.pwcsOverride).finish()
-    }
-}
 impl windows_core::TypeKind for FILTERED_DATA_SOURCES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FILTERED_DATA_SOURCES {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwcsExtension == other.pwcsExtension && self.pwcsMime == other.pwcsMime && self.pClsid == other.pClsid && self.pwcsOverride == other.pwcsOverride
-    }
-}
-impl Eq for FILTERED_DATA_SOURCES {}
 impl Default for FILTERED_DATA_SOURCES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -15758,66 +15219,35 @@ impl windows_core::TypeKind for HACCESSOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HITRANGE {
     pub iPosition: u32,
     pub cLength: u32,
 }
-impl Copy for HITRANGE {}
-impl Clone for HITRANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HITRANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HITRANGE").field("iPosition", &self.iPosition).field("cLength", &self.cLength).finish()
-    }
-}
 impl windows_core::TypeKind for HITRANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HITRANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.iPosition == other.iPosition && self.cLength == other.cLength
-    }
-}
-impl Eq for HITRANGE {}
 impl Default for HITRANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INCREMENTAL_ACCESS_INFO {
     pub dwSize: u32,
     pub ftLastModifiedTime: super::super::Foundation::FILETIME,
 }
-impl Copy for INCREMENTAL_ACCESS_INFO {}
-impl Clone for INCREMENTAL_ACCESS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INCREMENTAL_ACCESS_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INCREMENTAL_ACCESS_INFO").field("dwSize", &self.dwSize).field("ftLastModifiedTime", &self.ftLastModifiedTime).finish()
-    }
-}
 impl windows_core::TypeKind for INCREMENTAL_ACCESS_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INCREMENTAL_ACCESS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.ftLastModifiedTime == other.ftLastModifiedTime
-    }
-}
-impl Eq for INCREMENTAL_ACCESS_INFO {}
 impl Default for INCREMENTAL_ACCESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct ITEMPROP {
     pub variantValue: std::mem::ManuallyDrop<windows_core::VARIANT>,
     pub pwszName: windows_core::PWSTR,
@@ -15827,26 +15257,16 @@ impl Clone for ITEMPROP {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for ITEMPROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ITEMPROP").field("variantValue", &self.variantValue).field("pwszName", &self.pwszName).finish()
-    }
-}
 impl windows_core::TypeKind for ITEMPROP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ITEMPROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.variantValue == other.variantValue && self.pwszName == other.pwszName
-    }
-}
-impl Eq for ITEMPROP {}
 impl Default for ITEMPROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ITEM_INFO {
     pub dwSize: u32,
     pub pcwszFromEMail: windows_core::PCWSTR,
@@ -15854,26 +15274,9 @@ pub struct ITEM_INFO {
     pub pcwszCatalogName: windows_core::PCWSTR,
     pub pcwszContentClass: windows_core::PCWSTR,
 }
-impl Copy for ITEM_INFO {}
-impl Clone for ITEM_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ITEM_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ITEM_INFO").field("dwSize", &self.dwSize).field("pcwszFromEMail", &self.pcwszFromEMail).field("pcwszApplicationName", &self.pcwszApplicationName).field("pcwszCatalogName", &self.pcwszCatalogName).field("pcwszContentClass", &self.pcwszContentClass).finish()
-    }
-}
 impl windows_core::TypeKind for ITEM_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ITEM_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.pcwszFromEMail == other.pcwszFromEMail && self.pcwszApplicationName == other.pcwszApplicationName && self.pcwszCatalogName == other.pcwszCatalogName && self.pcwszContentClass == other.pcwszContentClass
-    }
-}
-impl Eq for ITEM_INFO {}
 impl Default for ITEM_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -15881,6 +15284,7 @@ impl Default for ITEM_INFO {
 }
 pub const Interval: windows_core::GUID = windows_core::GUID::from_u128(0xd957171f_4bf9_4de2_bcd5_c70a7ca55836);
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct KAGGETDIAG {
     pub ulSize: u32,
     pub vDiagInfo: std::mem::ManuallyDrop<windows_core::VARIANT>,
@@ -15891,20 +15295,9 @@ impl Clone for KAGGETDIAG {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for KAGGETDIAG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("KAGGETDIAG").field("ulSize", &self.ulSize).field("vDiagInfo", &self.vDiagInfo).field("sDiagField", &self.sDiagField).finish()
-    }
-}
 impl windows_core::TypeKind for KAGGETDIAG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for KAGGETDIAG {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulSize == other.ulSize && self.vDiagInfo == other.vDiagInfo && self.sDiagField == other.sDiagField
-    }
-}
-impl Eq for KAGGETDIAG {}
 impl Default for KAGGETDIAG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -15912,37 +15305,16 @@ impl Default for KAGGETDIAG {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KAGREQDIAG {
     pub ulDiagFlags: u32,
     pub vt: super::Variant::VARENUM,
     pub sDiagField: i16,
 }
 #[cfg(feature = "Win32_System_Variant")]
-impl Copy for KAGREQDIAG {}
-#[cfg(feature = "Win32_System_Variant")]
-impl Clone for KAGREQDIAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl core::fmt::Debug for KAGREQDIAG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("KAGREQDIAG").field("ulDiagFlags", &self.ulDiagFlags).field("vt", &self.vt).field("sDiagField", &self.sDiagField).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
 impl windows_core::TypeKind for KAGREQDIAG {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl PartialEq for KAGREQDIAG {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulDiagFlags == other.ulDiagFlags && self.vt == other.vt && self.sDiagField == other.sDiagField
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl Eq for KAGREQDIAG {}
 #[cfg(feature = "Win32_System_Variant")]
 impl Default for KAGREQDIAG {
     fn default() -> Self {
@@ -15952,6 +15324,7 @@ impl Default for KAGREQDIAG {
 pub const LeafCondition: windows_core::GUID = windows_core::GUID::from_u128(0x52f15c89_5a17_48e1_bbcd_46a3f89c7cc2);
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct MDAXISINFO {
     pub cbSize: usize,
     pub iAxis: usize,
@@ -15959,14 +15332,6 @@ pub struct MDAXISINFO {
     pub cCoordinates: usize,
     pub rgcColumns: *mut usize,
     pub rgpwszDimensionNames: *mut windows_core::PWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for MDAXISINFO {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for MDAXISINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for MDAXISINFO {
@@ -15980,6 +15345,7 @@ impl Default for MDAXISINFO {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct MDAXISINFO {
     pub cbSize: usize,
     pub iAxis: usize,
@@ -15987,14 +15353,6 @@ pub struct MDAXISINFO {
     pub cCoordinates: usize,
     pub rgcColumns: *mut usize,
     pub rgpwszDimensionNames: *mut windows_core::PWSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for MDAXISINFO {}
-#[cfg(target_arch = "x86")]
-impl Clone for MDAXISINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for MDAXISINFO {
@@ -16013,18 +15371,11 @@ pub const MSDAORA8_ERROR: windows_core::GUID = windows_core::GUID::from_u128(0x7
 pub const MSDAORA_ERROR: windows_core::GUID = windows_core::GUID::from_u128(0xe8cc4cbf_fdff_11d0_b865_00a0c9081c1d);
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[derive(Clone, Copy)]
 pub struct NATLANGUAGERESTRICTION {
     pub prop: super::super::Storage::IndexServer::FULLPROPSPEC,
     pub pwcsPhrase: windows_core::PWSTR,
     pub lcid: u32,
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Copy for NATLANGUAGERESTRICTION {}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Clone for NATLANGUAGERESTRICTION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl windows_core::TypeKind for NATLANGUAGERESTRICTION {
@@ -16038,37 +15389,16 @@ impl Default for NATLANGUAGERESTRICTION {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NODERESTRICTION {
     pub cRes: u32,
     pub paRes: *mut *mut RESTRICTION,
     pub reserved: u32,
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Copy for NODERESTRICTION {}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Clone for NODERESTRICTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl core::fmt::Debug for NODERESTRICTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NODERESTRICTION").field("cRes", &self.cRes).field("paRes", &self.paRes).field("reserved", &self.reserved).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl windows_core::TypeKind for NODERESTRICTION {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl PartialEq for NODERESTRICTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.cRes == other.cRes && self.paRes == other.paRes && self.reserved == other.reserved
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Eq for NODERESTRICTION {}
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl Default for NODERESTRICTION {
     fn default() -> Self {
@@ -16077,35 +15407,14 @@ impl Default for NODERESTRICTION {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NOTRESTRICTION {
     pub pRes: *mut RESTRICTION,
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Copy for NOTRESTRICTION {}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Clone for NOTRESTRICTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl core::fmt::Debug for NOTRESTRICTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NOTRESTRICTION").field("pRes", &self.pRes).finish()
-    }
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl windows_core::TypeKind for NOTRESTRICTION {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl PartialEq for NOTRESTRICTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.pRes == other.pRes
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Eq for NOTRESTRICTION {}
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl Default for NOTRESTRICTION {
     fn default() -> Self {
@@ -16114,18 +15423,13 @@ impl Default for NOTRESTRICTION {
 }
 pub const NegationCondition: windows_core::GUID = windows_core::GUID::from_u128(0x8de9c74c_605a_4acd_bee3_2b222aa2d23d);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ODBC_VS_ARGS {
     pub pguidEvent: *const windows_core::GUID,
     pub dwFlags: u32,
     pub Anonymous1: ODBC_VS_ARGS_0,
     pub Anonymous2: ODBC_VS_ARGS_1,
     pub RetCode: i16,
-}
-impl Copy for ODBC_VS_ARGS {}
-impl Clone for ODBC_VS_ARGS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for ODBC_VS_ARGS {
     type TypeKind = windows_core::CopyType;
@@ -16136,15 +15440,10 @@ impl Default for ODBC_VS_ARGS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union ODBC_VS_ARGS_0 {
     pub wszArg: windows_core::PWSTR,
     pub szArg: windows_core::PSTR,
-}
-impl Copy for ODBC_VS_ARGS_0 {}
-impl Clone for ODBC_VS_ARGS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for ODBC_VS_ARGS_0 {
     type TypeKind = windows_core::CopyType;
@@ -16155,15 +15454,10 @@ impl Default for ODBC_VS_ARGS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union ODBC_VS_ARGS_1 {
     pub wszCorrelation: windows_core::PWSTR,
     pub szCorrelation: windows_core::PSTR,
-}
-impl Copy for ODBC_VS_ARGS_1 {}
-impl Clone for ODBC_VS_ARGS_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for ODBC_VS_ARGS_1 {
     type TypeKind = windows_core::CopyType;
@@ -16198,6 +15492,7 @@ impl Default for PROPERTYRESTRICTION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROXY_INFO {
     pub dwSize: u32,
     pub pcwszUserAgent: windows_core::PCWSTR,
@@ -16207,26 +15502,9 @@ pub struct PROXY_INFO {
     pub pcwszProxyName: windows_core::PCWSTR,
     pub pcwszBypassList: windows_core::PCWSTR,
 }
-impl Copy for PROXY_INFO {}
-impl Clone for PROXY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROXY_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROXY_INFO").field("dwSize", &self.dwSize).field("pcwszUserAgent", &self.pcwszUserAgent).field("paUseProxy", &self.paUseProxy).field("fLocalBypass", &self.fLocalBypass).field("dwPortNumber", &self.dwPortNumber).field("pcwszProxyName", &self.pcwszProxyName).field("pcwszBypassList", &self.pcwszBypassList).finish()
-    }
-}
 impl windows_core::TypeKind for PROXY_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROXY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.pcwszUserAgent == other.pcwszUserAgent && self.paUseProxy == other.paUseProxy && self.fLocalBypass == other.fLocalBypass && self.dwPortNumber == other.dwPortNumber && self.pcwszProxyName == other.pcwszProxyName && self.pcwszBypassList == other.pcwszBypassList
-    }
-}
-impl Eq for PROXY_INFO {}
 impl Default for PROXY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -16235,30 +15513,14 @@ impl Default for PROXY_INFO {
 pub const QueryParser: windows_core::GUID = windows_core::GUID::from_u128(0xb72f8fd8_0fab_4dd9_bdbf_245a6ce1485b);
 pub const QueryParserManager: windows_core::GUID = windows_core::GUID::from_u128(0x5088b39a_29b4_4d9d_8245_4ee289222f66);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RANGECATEGORIZE {
     pub cRange: u32,
     pub aRangeBegin: *mut windows_core::PROPVARIANT,
 }
-impl Copy for RANGECATEGORIZE {}
-impl Clone for RANGECATEGORIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RANGECATEGORIZE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RANGECATEGORIZE").field("cRange", &self.cRange).field("aRangeBegin", &self.aRangeBegin).finish()
-    }
-}
 impl windows_core::TypeKind for RANGECATEGORIZE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RANGECATEGORIZE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cRange == other.cRange && self.aRangeBegin == other.aRangeBegin
-    }
-}
-impl Eq for RANGECATEGORIZE {}
 impl Default for RANGECATEGORIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -16386,6 +15648,7 @@ impl Default for RMTPACK {
 }
 pub const RootBinder: windows_core::GUID = windows_core::GUID::from_u128(0xff151822_b0bf_11d1_a80d_000000000000);
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct SEARCH_COLUMN_PROPERTIES {
     pub Value: std::mem::ManuallyDrop<windows_core::PROPVARIANT>,
     pub lcid: u32,
@@ -16395,20 +15658,9 @@ impl Clone for SEARCH_COLUMN_PROPERTIES {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for SEARCH_COLUMN_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SEARCH_COLUMN_PROPERTIES").field("Value", &self.Value).field("lcid", &self.lcid).finish()
-    }
-}
 impl windows_core::TypeKind for SEARCH_COLUMN_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SEARCH_COLUMN_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value && self.lcid == other.lcid
-    }
-}
-impl Eq for SEARCH_COLUMN_PROPERTIES {}
 impl Default for SEARCH_COLUMN_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -16416,6 +15668,7 @@ impl Default for SEARCH_COLUMN_PROPERTIES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEARCH_ITEM_CHANGE {
     pub Change: SEARCH_KIND_OF_CHANGE,
     pub Priority: SEARCH_NOTIFICATION_PRIORITY,
@@ -16424,31 +15677,9 @@ pub struct SEARCH_ITEM_CHANGE {
     pub lpwszOldURL: windows_core::PWSTR,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Copy for SEARCH_ITEM_CHANGE {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for SEARCH_ITEM_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl core::fmt::Debug for SEARCH_ITEM_CHANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SEARCH_ITEM_CHANGE").field("Change", &self.Change).field("Priority", &self.Priority).field("pUserData", &self.pUserData).field("lpwszURL", &self.lpwszURL).field("lpwszOldURL", &self.lpwszOldURL).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for SEARCH_ITEM_CHANGE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl PartialEq for SEARCH_ITEM_CHANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Change == other.Change && self.Priority == other.Priority && self.pUserData == other.pUserData && self.lpwszURL == other.lpwszURL && self.lpwszOldURL == other.lpwszOldURL
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Eq for SEARCH_ITEM_CHANGE {}
 #[cfg(feature = "Win32_System_Com")]
 impl Default for SEARCH_ITEM_CHANGE {
     fn default() -> Self {
@@ -16456,62 +15687,30 @@ impl Default for SEARCH_ITEM_CHANGE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEARCH_ITEM_INDEXING_STATUS {
     pub dwDocID: u32,
     pub hrIndexingStatus: windows_core::HRESULT,
 }
-impl Copy for SEARCH_ITEM_INDEXING_STATUS {}
-impl Clone for SEARCH_ITEM_INDEXING_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SEARCH_ITEM_INDEXING_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SEARCH_ITEM_INDEXING_STATUS").field("dwDocID", &self.dwDocID).field("hrIndexingStatus", &self.hrIndexingStatus).finish()
-    }
-}
 impl windows_core::TypeKind for SEARCH_ITEM_INDEXING_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SEARCH_ITEM_INDEXING_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwDocID == other.dwDocID && self.hrIndexingStatus == other.hrIndexingStatus
-    }
-}
-impl Eq for SEARCH_ITEM_INDEXING_STATUS {}
 impl Default for SEARCH_ITEM_INDEXING_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEARCH_ITEM_PERSISTENT_CHANGE {
     pub Change: SEARCH_KIND_OF_CHANGE,
     pub URL: windows_core::PWSTR,
     pub OldURL: windows_core::PWSTR,
     pub Priority: SEARCH_NOTIFICATION_PRIORITY,
 }
-impl Copy for SEARCH_ITEM_PERSISTENT_CHANGE {}
-impl Clone for SEARCH_ITEM_PERSISTENT_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SEARCH_ITEM_PERSISTENT_CHANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SEARCH_ITEM_PERSISTENT_CHANGE").field("Change", &self.Change).field("URL", &self.URL).field("OldURL", &self.OldURL).field("Priority", &self.Priority).finish()
-    }
-}
 impl windows_core::TypeKind for SEARCH_ITEM_PERSISTENT_CHANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SEARCH_ITEM_PERSISTENT_CHANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Change == other.Change && self.URL == other.URL && self.OldURL == other.OldURL && self.Priority == other.Priority
-    }
-}
-impl Eq for SEARCH_ITEM_PERSISTENT_CHANGE {}
 impl Default for SEARCH_ITEM_PERSISTENT_CHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -16520,19 +15719,10 @@ impl Default for SEARCH_ITEM_PERSISTENT_CHANGE {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
+#[derive(Clone, Copy)]
 pub struct SEC_OBJECT {
     pub cObjects: u32,
     pub prgObjects: *mut SEC_OBJECT_ELEMENT,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Copy for SEC_OBJECT {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Clone for SEC_OBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -16549,19 +15739,10 @@ impl Default for SEC_OBJECT {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
+#[derive(Clone, Copy)]
 pub struct SEC_OBJECT {
     pub cObjects: u32,
     pub prgObjects: *mut SEC_OBJECT_ELEMENT,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Copy for SEC_OBJECT {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Clone for SEC_OBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -16578,19 +15759,10 @@ impl Default for SEC_OBJECT {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
+#[derive(Clone, Copy)]
 pub struct SEC_OBJECT_ELEMENT {
     pub guidObjectType: windows_core::GUID,
     pub ObjectID: super::super::Storage::IndexServer::DBID,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Copy for SEC_OBJECT_ELEMENT {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Clone for SEC_OBJECT_ELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -16607,19 +15779,10 @@ impl Default for SEC_OBJECT_ELEMENT {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
+#[derive(Clone, Copy)]
 pub struct SEC_OBJECT_ELEMENT {
     pub guidObjectType: windows_core::GUID,
     pub ObjectID: super::super::Storage::IndexServer::DBID,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Copy for SEC_OBJECT_ELEMENT {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl Clone for SEC_OBJECT_ELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -16635,18 +15798,11 @@ impl Default for SEC_OBJECT_ELEMENT {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[derive(Clone, Copy)]
 pub struct SORTKEY {
     pub propColumn: super::super::Storage::IndexServer::FULLPROPSPEC,
     pub dwOrder: u32,
     pub locale: u32,
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Copy for SORTKEY {}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Clone for SORTKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl windows_core::TypeKind for SORTKEY {
@@ -16660,36 +15816,15 @@ impl Default for SORTKEY {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SORTSET {
     pub cCol: u32,
     pub aCol: *mut SORTKEY,
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Copy for SORTSET {}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Clone for SORTSET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl core::fmt::Debug for SORTSET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SORTSET").field("cCol", &self.cCol).field("aCol", &self.aCol).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl windows_core::TypeKind for SORTSET {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl PartialEq for SORTSET {
-    fn eq(&self, other: &Self) -> bool {
-        self.cCol == other.cCol && self.aCol == other.aCol
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Eq for SORTSET {}
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl Default for SORTSET {
     fn default() -> Self {
@@ -16697,6 +15832,7 @@ impl Default for SORTSET {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SQLPERF {
     pub TimerResolution: u32,
     pub SQLidu: u32,
@@ -16732,98 +15868,16 @@ pub struct SQLPERF {
     pub msExecutionTime: u32,
     pub msNetWorkServerTime: u32,
 }
-impl Copy for SQLPERF {}
-impl Clone for SQLPERF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SQLPERF {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SQLPERF")
-            .field("TimerResolution", &self.TimerResolution)
-            .field("SQLidu", &self.SQLidu)
-            .field("SQLiduRows", &self.SQLiduRows)
-            .field("SQLSelects", &self.SQLSelects)
-            .field("SQLSelectRows", &self.SQLSelectRows)
-            .field("Transactions", &self.Transactions)
-            .field("SQLPrepares", &self.SQLPrepares)
-            .field("ExecDirects", &self.ExecDirects)
-            .field("SQLExecutes", &self.SQLExecutes)
-            .field("CursorOpens", &self.CursorOpens)
-            .field("CursorSize", &self.CursorSize)
-            .field("CursorUsed", &self.CursorUsed)
-            .field("PercentCursorUsed", &self.PercentCursorUsed)
-            .field("AvgFetchTime", &self.AvgFetchTime)
-            .field("AvgCursorSize", &self.AvgCursorSize)
-            .field("AvgCursorUsed", &self.AvgCursorUsed)
-            .field("SQLFetchTime", &self.SQLFetchTime)
-            .field("SQLFetchCount", &self.SQLFetchCount)
-            .field("CurrentStmtCount", &self.CurrentStmtCount)
-            .field("MaxOpenStmt", &self.MaxOpenStmt)
-            .field("SumOpenStmt", &self.SumOpenStmt)
-            .field("CurrentConnectionCount", &self.CurrentConnectionCount)
-            .field("MaxConnectionsOpened", &self.MaxConnectionsOpened)
-            .field("SumConnectionsOpened", &self.SumConnectionsOpened)
-            .field("SumConnectiontime", &self.SumConnectiontime)
-            .field("AvgTimeOpened", &self.AvgTimeOpened)
-            .field("ServerRndTrips", &self.ServerRndTrips)
-            .field("BuffersSent", &self.BuffersSent)
-            .field("BuffersRec", &self.BuffersRec)
-            .field("BytesSent", &self.BytesSent)
-            .field("BytesRec", &self.BytesRec)
-            .field("msExecutionTime", &self.msExecutionTime)
-            .field("msNetWorkServerTime", &self.msNetWorkServerTime)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for SQLPERF {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SQLPERF {
-    fn eq(&self, other: &Self) -> bool {
-        self.TimerResolution == other.TimerResolution
-            && self.SQLidu == other.SQLidu
-            && self.SQLiduRows == other.SQLiduRows
-            && self.SQLSelects == other.SQLSelects
-            && self.SQLSelectRows == other.SQLSelectRows
-            && self.Transactions == other.Transactions
-            && self.SQLPrepares == other.SQLPrepares
-            && self.ExecDirects == other.ExecDirects
-            && self.SQLExecutes == other.SQLExecutes
-            && self.CursorOpens == other.CursorOpens
-            && self.CursorSize == other.CursorSize
-            && self.CursorUsed == other.CursorUsed
-            && self.PercentCursorUsed == other.PercentCursorUsed
-            && self.AvgFetchTime == other.AvgFetchTime
-            && self.AvgCursorSize == other.AvgCursorSize
-            && self.AvgCursorUsed == other.AvgCursorUsed
-            && self.SQLFetchTime == other.SQLFetchTime
-            && self.SQLFetchCount == other.SQLFetchCount
-            && self.CurrentStmtCount == other.CurrentStmtCount
-            && self.MaxOpenStmt == other.MaxOpenStmt
-            && self.SumOpenStmt == other.SumOpenStmt
-            && self.CurrentConnectionCount == other.CurrentConnectionCount
-            && self.MaxConnectionsOpened == other.MaxConnectionsOpened
-            && self.SumConnectionsOpened == other.SumConnectionsOpened
-            && self.SumConnectiontime == other.SumConnectiontime
-            && self.AvgTimeOpened == other.AvgTimeOpened
-            && self.ServerRndTrips == other.ServerRndTrips
-            && self.BuffersSent == other.BuffersSent
-            && self.BuffersRec == other.BuffersRec
-            && self.BytesSent == other.BytesSent
-            && self.BytesRec == other.BytesRec
-            && self.msExecutionTime == other.msExecutionTime
-            && self.msNetWorkServerTime == other.msNetWorkServerTime
-    }
-}
-impl Eq for SQLPERF {}
 impl Default for SQLPERF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SQL_DAY_SECOND_STRUCT {
     pub day: u32,
     pub hour: u32,
@@ -16831,42 +15885,20 @@ pub struct SQL_DAY_SECOND_STRUCT {
     pub second: u32,
     pub fraction: u32,
 }
-impl Copy for SQL_DAY_SECOND_STRUCT {}
-impl Clone for SQL_DAY_SECOND_STRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SQL_DAY_SECOND_STRUCT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SQL_DAY_SECOND_STRUCT").field("day", &self.day).field("hour", &self.hour).field("minute", &self.minute).field("second", &self.second).field("fraction", &self.fraction).finish()
-    }
-}
 impl windows_core::TypeKind for SQL_DAY_SECOND_STRUCT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SQL_DAY_SECOND_STRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.day == other.day && self.hour == other.hour && self.minute == other.minute && self.second == other.second && self.fraction == other.fraction
-    }
-}
-impl Eq for SQL_DAY_SECOND_STRUCT {}
 impl Default for SQL_DAY_SECOND_STRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SQL_INTERVAL_STRUCT {
     pub interval_type: SQLINTERVAL,
     pub interval_sign: i16,
     pub intval: SQL_INTERVAL_STRUCT_0,
-}
-impl Copy for SQL_INTERVAL_STRUCT {}
-impl Clone for SQL_INTERVAL_STRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SQL_INTERVAL_STRUCT {
     type TypeKind = windows_core::CopyType;
@@ -16877,15 +15909,10 @@ impl Default for SQL_INTERVAL_STRUCT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SQL_INTERVAL_STRUCT_0 {
     pub year_month: SQL_YEAR_MONTH_STRUCT,
     pub day_second: SQL_DAY_SECOND_STRUCT,
-}
-impl Copy for SQL_INTERVAL_STRUCT_0 {}
-impl Clone for SQL_INTERVAL_STRUCT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SQL_INTERVAL_STRUCT_0 {
     type TypeKind = windows_core::CopyType;
@@ -16896,68 +15923,37 @@ impl Default for SQL_INTERVAL_STRUCT_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SQL_NUMERIC_STRUCT {
     pub precision: u8,
     pub scale: i8,
     pub sign: u8,
     pub val: [u8; 16],
 }
-impl Copy for SQL_NUMERIC_STRUCT {}
-impl Clone for SQL_NUMERIC_STRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SQL_NUMERIC_STRUCT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SQL_NUMERIC_STRUCT").field("precision", &self.precision).field("scale", &self.scale).field("sign", &self.sign).field("val", &self.val).finish()
-    }
-}
 impl windows_core::TypeKind for SQL_NUMERIC_STRUCT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SQL_NUMERIC_STRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.precision == other.precision && self.scale == other.scale && self.sign == other.sign && self.val == other.val
-    }
-}
-impl Eq for SQL_NUMERIC_STRUCT {}
 impl Default for SQL_NUMERIC_STRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SQL_YEAR_MONTH_STRUCT {
     pub year: u32,
     pub month: u32,
 }
-impl Copy for SQL_YEAR_MONTH_STRUCT {}
-impl Clone for SQL_YEAR_MONTH_STRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SQL_YEAR_MONTH_STRUCT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SQL_YEAR_MONTH_STRUCT").field("year", &self.year).field("month", &self.month).finish()
-    }
-}
 impl windows_core::TypeKind for SQL_YEAR_MONTH_STRUCT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SQL_YEAR_MONTH_STRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.year == other.year && self.month == other.month
-    }
-}
-impl Eq for SQL_YEAR_MONTH_STRUCT {}
 impl Default for SQL_YEAR_MONTH_STRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SSERRORINFO {
     pub pwszMessage: windows_core::PWSTR,
     pub pwszServer: windows_core::PWSTR,
@@ -16967,26 +15963,9 @@ pub struct SSERRORINFO {
     pub bClass: u8,
     pub wLineNumber: u16,
 }
-impl Copy for SSERRORINFO {}
-impl Clone for SSERRORINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SSERRORINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SSERRORINFO").field("pwszMessage", &self.pwszMessage).field("pwszServer", &self.pwszServer).field("pwszProcedure", &self.pwszProcedure).field("lNative", &self.lNative).field("bState", &self.bState).field("bClass", &self.bClass).field("wLineNumber", &self.wLineNumber).finish()
-    }
-}
 impl windows_core::TypeKind for SSERRORINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SSERRORINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszMessage == other.pwszMessage && self.pwszServer == other.pwszServer && self.pwszProcedure == other.pwszProcedure && self.lNative == other.lNative && self.bState == other.bState && self.bClass == other.bClass && self.wLineNumber == other.wLineNumber
-    }
-}
-impl Eq for SSERRORINFO {}
 impl Default for SSERRORINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -17076,6 +16055,7 @@ impl Default for SSVARIANT_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SSVARIANT_0_1 {
     pub sActualLength: i16,
     pub sMaxLength: i16,
@@ -17083,31 +16063,9 @@ pub struct SSVARIANT_0_1 {
     pub dwReserved: u32,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Copy for SSVARIANT_0_1 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for SSVARIANT_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl core::fmt::Debug for SSVARIANT_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SSVARIANT_0_1").field("sActualLength", &self.sActualLength).field("sMaxLength", &self.sMaxLength).field("prgbBinaryVal", &self.prgbBinaryVal).field("dwReserved", &self.dwReserved).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for SSVARIANT_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl PartialEq for SSVARIANT_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.sActualLength == other.sActualLength && self.sMaxLength == other.sMaxLength && self.prgbBinaryVal == other.prgbBinaryVal && self.dwReserved == other.dwReserved
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Eq for SSVARIANT_0_1 {}
 #[cfg(feature = "Win32_System_Com")]
 impl Default for SSVARIANT_0_1 {
     fn default() -> Self {
@@ -17116,6 +16074,7 @@ impl Default for SSVARIANT_0_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SSVARIANT_0_2 {
     pub sActualLength: i16,
     pub sMaxLength: i16,
@@ -17125,31 +16084,9 @@ pub struct SSVARIANT_0_2 {
     pub pwchReserved: windows_core::PWSTR,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Copy for SSVARIANT_0_2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for SSVARIANT_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl core::fmt::Debug for SSVARIANT_0_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SSVARIANT_0_2").field("sActualLength", &self.sActualLength).field("sMaxLength", &self.sMaxLength).field("pchCharVal", &self.pchCharVal).field("rgbReserved", &self.rgbReserved).field("dwReserved", &self.dwReserved).field("pwchReserved", &self.pwchReserved).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for SSVARIANT_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl PartialEq for SSVARIANT_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.sActualLength == other.sActualLength && self.sMaxLength == other.sMaxLength && self.pchCharVal == other.pchCharVal && self.rgbReserved == other.rgbReserved && self.dwReserved == other.dwReserved && self.pwchReserved == other.pwchReserved
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Eq for SSVARIANT_0_2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl Default for SSVARIANT_0_2 {
     fn default() -> Self {
@@ -17158,6 +16095,7 @@ impl Default for SSVARIANT_0_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SSVARIANT_0_3 {
     pub sActualLength: i16,
     pub sMaxLength: i16,
@@ -17167,31 +16105,9 @@ pub struct SSVARIANT_0_3 {
     pub pwchReserved: windows_core::PWSTR,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Copy for SSVARIANT_0_3 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for SSVARIANT_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl core::fmt::Debug for SSVARIANT_0_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SSVARIANT_0_3").field("sActualLength", &self.sActualLength).field("sMaxLength", &self.sMaxLength).field("pwchNCharVal", &self.pwchNCharVal).field("rgbReserved", &self.rgbReserved).field("dwReserved", &self.dwReserved).field("pwchReserved", &self.pwchReserved).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for SSVARIANT_0_3 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl PartialEq for SSVARIANT_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.sActualLength == other.sActualLength && self.sMaxLength == other.sMaxLength && self.pwchNCharVal == other.pwchNCharVal && self.rgbReserved == other.rgbReserved && self.dwReserved == other.dwReserved && self.pwchReserved == other.pwchReserved
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Eq for SSVARIANT_0_3 {}
 #[cfg(feature = "Win32_System_Com")]
 impl Default for SSVARIANT_0_3 {
     fn default() -> Self {
@@ -17200,37 +16116,16 @@ impl Default for SSVARIANT_0_3 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SSVARIANT_0_4 {
     pub dwActualLength: u32,
     pub rgMetadata: [u8; 16],
     pub pUnknownData: *mut u8,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Copy for SSVARIANT_0_4 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for SSVARIANT_0_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl core::fmt::Debug for SSVARIANT_0_4 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SSVARIANT_0_4").field("dwActualLength", &self.dwActualLength).field("rgMetadata", &self.rgMetadata).field("pUnknownData", &self.pUnknownData).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for SSVARIANT_0_4 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl PartialEq for SSVARIANT_0_4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwActualLength == other.dwActualLength && self.rgMetadata == other.rgMetadata && self.pUnknownData == other.pUnknownData
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Eq for SSVARIANT_0_4 {}
 #[cfg(feature = "Win32_System_Com")]
 impl Default for SSVARIANT_0_4 {
     fn default() -> Self {
@@ -17238,6 +16133,7 @@ impl Default for SSVARIANT_0_4 {
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct SUBSCRIPTIONINFO {
     pub cbSize: u32,
     pub fUpdateFlags: u32,
@@ -17264,64 +16160,16 @@ impl Clone for SUBSCRIPTIONINFO {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for SUBSCRIPTIONINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SUBSCRIPTIONINFO")
-            .field("cbSize", &self.cbSize)
-            .field("fUpdateFlags", &self.fUpdateFlags)
-            .field("schedule", &self.schedule)
-            .field("customGroupCookie", &self.customGroupCookie)
-            .field("pTrigger", &self.pTrigger)
-            .field("dwRecurseLevels", &self.dwRecurseLevels)
-            .field("fWebcrawlerFlags", &self.fWebcrawlerFlags)
-            .field("bMailNotification", &self.bMailNotification)
-            .field("bGleam", &self.bGleam)
-            .field("bChangesOnly", &self.bChangesOnly)
-            .field("bNeedPassword", &self.bNeedPassword)
-            .field("fChannelFlags", &self.fChannelFlags)
-            .field("bstrUserName", &self.bstrUserName)
-            .field("bstrPassword", &self.bstrPassword)
-            .field("bstrFriendlyName", &self.bstrFriendlyName)
-            .field("dwMaxSizeKB", &self.dwMaxSizeKB)
-            .field("subType", &self.subType)
-            .field("fTaskFlags", &self.fTaskFlags)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for SUBSCRIPTIONINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SUBSCRIPTIONINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.fUpdateFlags == other.fUpdateFlags
-            && self.schedule == other.schedule
-            && self.customGroupCookie == other.customGroupCookie
-            && self.pTrigger == other.pTrigger
-            && self.dwRecurseLevels == other.dwRecurseLevels
-            && self.fWebcrawlerFlags == other.fWebcrawlerFlags
-            && self.bMailNotification == other.bMailNotification
-            && self.bGleam == other.bGleam
-            && self.bChangesOnly == other.bChangesOnly
-            && self.bNeedPassword == other.bNeedPassword
-            && self.fChannelFlags == other.fChannelFlags
-            && self.bstrUserName == other.bstrUserName
-            && self.bstrPassword == other.bstrPassword
-            && self.bstrFriendlyName == other.bstrFriendlyName
-            && self.dwMaxSizeKB == other.dwMaxSizeKB
-            && self.subType == other.subType
-            && self.fTaskFlags == other.fTaskFlags
-            && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for SUBSCRIPTIONINFO {}
 impl Default for SUBSCRIPTIONINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SUBSCRIPTIONITEMINFO {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -17329,26 +16177,9 @@ pub struct SUBSCRIPTIONITEMINFO {
     pub ScheduleGroup: windows_core::GUID,
     pub clsidAgent: windows_core::GUID,
 }
-impl Copy for SUBSCRIPTIONITEMINFO {}
-impl Clone for SUBSCRIPTIONITEMINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SUBSCRIPTIONITEMINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SUBSCRIPTIONITEMINFO").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("dwPriority", &self.dwPriority).field("ScheduleGroup", &self.ScheduleGroup).field("clsidAgent", &self.clsidAgent).finish()
-    }
-}
 impl windows_core::TypeKind for SUBSCRIPTIONITEMINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SUBSCRIPTIONITEMINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.dwPriority == other.dwPriority && self.ScheduleGroup == other.ScheduleGroup && self.clsidAgent == other.clsidAgent
-    }
-}
-impl Eq for SUBSCRIPTIONITEMINFO {}
 impl Default for SUBSCRIPTIONITEMINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -17356,22 +16187,12 @@ impl Default for SUBSCRIPTIONITEMINFO {
 }
 pub const SubscriptionMgr: windows_core::GUID = windows_core::GUID::from_u128(0xabbe31d0_6dae_11d0_beca_00c04fd940be);
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct TEXT_SOURCE {
     pub pfnFillTextBuffer: PFNFILLTEXTBUFFER,
     pub awcBuffer: windows_core::PCWSTR,
     pub iEnd: u32,
     pub iCur: u32,
-}
-impl Copy for TEXT_SOURCE {}
-impl Clone for TEXT_SOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TEXT_SOURCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TEXT_SOURCE").field("awcBuffer", &self.awcBuffer).field("iEnd", &self.iEnd).field("iCur", &self.iCur).finish()
-    }
 }
 impl windows_core::TypeKind for TEXT_SOURCE {
     type TypeKind = windows_core::CopyType;
@@ -17382,37 +16203,22 @@ impl Default for TEXT_SOURCE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TIMEOUT_INFO {
     pub dwSize: u32,
     pub dwConnectTimeout: u32,
     pub dwDataTimeout: u32,
 }
-impl Copy for TIMEOUT_INFO {}
-impl Clone for TIMEOUT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TIMEOUT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TIMEOUT_INFO").field("dwSize", &self.dwSize).field("dwConnectTimeout", &self.dwConnectTimeout).field("dwDataTimeout", &self.dwDataTimeout).finish()
-    }
-}
 impl windows_core::TypeKind for TIMEOUT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TIMEOUT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwConnectTimeout == other.dwConnectTimeout && self.dwDataTimeout == other.dwDataTimeout
-    }
-}
-impl Eq for TIMEOUT_INFO {}
 impl Default for TIMEOUT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TIMESTAMP_STRUCT {
     pub year: i16,
     pub month: u16,
@@ -17422,57 +16228,24 @@ pub struct TIMESTAMP_STRUCT {
     pub second: u16,
     pub fraction: u32,
 }
-impl Copy for TIMESTAMP_STRUCT {}
-impl Clone for TIMESTAMP_STRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TIMESTAMP_STRUCT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TIMESTAMP_STRUCT").field("year", &self.year).field("month", &self.month).field("day", &self.day).field("hour", &self.hour).field("minute", &self.minute).field("second", &self.second).field("fraction", &self.fraction).finish()
-    }
-}
 impl windows_core::TypeKind for TIMESTAMP_STRUCT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TIMESTAMP_STRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.year == other.year && self.month == other.month && self.day == other.day && self.hour == other.hour && self.minute == other.minute && self.second == other.second && self.fraction == other.fraction
-    }
-}
-impl Eq for TIMESTAMP_STRUCT {}
 impl Default for TIMESTAMP_STRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TIME_STRUCT {
     pub hour: u16,
     pub minute: u16,
     pub second: u16,
 }
-impl Copy for TIME_STRUCT {}
-impl Clone for TIME_STRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TIME_STRUCT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TIME_STRUCT").field("hour", &self.hour).field("minute", &self.minute).field("second", &self.second).finish()
-    }
-}
 impl windows_core::TypeKind for TIME_STRUCT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TIME_STRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.hour == other.hour && self.minute == other.minute && self.second == other.second
-    }
-}
-impl Eq for TIME_STRUCT {}
 impl Default for TIME_STRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -17480,36 +16253,15 @@ impl Default for TIME_STRUCT {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VECTORRESTRICTION {
     pub Node: NODERESTRICTION,
     pub RankMethod: u32,
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Copy for VECTORRESTRICTION {}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Clone for VECTORRESTRICTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl core::fmt::Debug for VECTORRESTRICTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VECTORRESTRICTION").field("Node", &self.Node).field("RankMethod", &self.RankMethod).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl windows_core::TypeKind for VECTORRESTRICTION {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl PartialEq for VECTORRESTRICTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Node == other.Node && self.RankMethod == other.RankMethod
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl Eq for VECTORRESTRICTION {}
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl Default for VECTORRESTRICTION {
     fn default() -> Self {

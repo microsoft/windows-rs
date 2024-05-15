@@ -669,22 +669,12 @@ impl windows_core::RuntimeType for XusbDeviceType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.XusbDeviceType;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GameControllerVersionInfo {
     pub Major: u16,
     pub Minor: u16,
     pub Build: u16,
     pub Revision: u16,
-}
-impl Copy for GameControllerVersionInfo {}
-impl Clone for GameControllerVersionInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GameControllerVersionInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GameControllerVersionInfo").field("Major", &self.Major).field("Minor", &self.Minor).field("Build", &self.Build).field("Revision", &self.Revision).finish()
-    }
 }
 impl windows_core::TypeKind for GameControllerVersionInfo {
     type TypeKind = windows_core::CopyType;
@@ -692,32 +682,16 @@ impl windows_core::TypeKind for GameControllerVersionInfo {
 impl windows_core::RuntimeType for GameControllerVersionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.Custom.GameControllerVersionInfo;u2;u2;u2;u2)");
 }
-impl PartialEq for GameControllerVersionInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.Major == other.Major && self.Minor == other.Minor && self.Build == other.Build && self.Revision == other.Revision
-    }
-}
-impl Eq for GameControllerVersionInfo {}
 impl Default for GameControllerVersionInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GipFirmwareUpdateProgress {
     pub PercentCompleted: f64,
     pub CurrentComponentId: u32,
-}
-impl Copy for GipFirmwareUpdateProgress {}
-impl Clone for GipFirmwareUpdateProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GipFirmwareUpdateProgress {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GipFirmwareUpdateProgress").field("PercentCompleted", &self.PercentCompleted).field("CurrentComponentId", &self.CurrentComponentId).finish()
-    }
 }
 impl windows_core::TypeKind for GipFirmwareUpdateProgress {
     type TypeKind = windows_core::CopyType;
@@ -725,12 +699,6 @@ impl windows_core::TypeKind for GipFirmwareUpdateProgress {
 impl windows_core::RuntimeType for GipFirmwareUpdateProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.Custom.GipFirmwareUpdateProgress;f8;u4)");
 }
-impl PartialEq for GipFirmwareUpdateProgress {
-    fn eq(&self, other: &Self) -> bool {
-        self.PercentCompleted == other.PercentCompleted && self.CurrentComponentId == other.CurrentComponentId
-    }
-}
-impl Eq for GipFirmwareUpdateProgress {}
 impl Default for GipFirmwareUpdateProgress {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

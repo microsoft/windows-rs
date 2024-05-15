@@ -9232,37 +9232,22 @@ impl core::fmt::Debug for SpeechWordType {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPAUDIOBUFFERINFO {
     pub ulMsMinNotification: u32,
     pub ulMsBufferSize: u32,
     pub ulMsEventBias: u32,
 }
-impl Copy for SPAUDIOBUFFERINFO {}
-impl Clone for SPAUDIOBUFFERINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPAUDIOBUFFERINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPAUDIOBUFFERINFO").field("ulMsMinNotification", &self.ulMsMinNotification).field("ulMsBufferSize", &self.ulMsBufferSize).field("ulMsEventBias", &self.ulMsEventBias).finish()
-    }
-}
 impl windows_core::TypeKind for SPAUDIOBUFFERINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPAUDIOBUFFERINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulMsMinNotification == other.ulMsMinNotification && self.ulMsBufferSize == other.ulMsBufferSize && self.ulMsEventBias == other.ulMsEventBias
-    }
-}
-impl Eq for SPAUDIOBUFFERINFO {}
 impl Default for SPAUDIOBUFFERINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPAUDIOSTATUS {
     pub cbFreeBuffSpace: i32,
     pub cbNonBlockingIO: u32,
@@ -9272,122 +9257,58 @@ pub struct SPAUDIOSTATUS {
     pub dwAudioLevel: u32,
     pub dwReserved2: u32,
 }
-impl Copy for SPAUDIOSTATUS {}
-impl Clone for SPAUDIOSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPAUDIOSTATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPAUDIOSTATUS").field("cbFreeBuffSpace", &self.cbFreeBuffSpace).field("cbNonBlockingIO", &self.cbNonBlockingIO).field("State", &self.State).field("CurSeekPos", &self.CurSeekPos).field("CurDevicePos", &self.CurDevicePos).field("dwAudioLevel", &self.dwAudioLevel).field("dwReserved2", &self.dwReserved2).finish()
-    }
-}
 impl windows_core::TypeKind for SPAUDIOSTATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPAUDIOSTATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbFreeBuffSpace == other.cbFreeBuffSpace && self.cbNonBlockingIO == other.cbNonBlockingIO && self.State == other.State && self.CurSeekPos == other.CurSeekPos && self.CurDevicePos == other.CurDevicePos && self.dwAudioLevel == other.dwAudioLevel && self.dwReserved2 == other.dwReserved2
-    }
-}
-impl Eq for SPAUDIOSTATUS {}
 impl Default for SPAUDIOSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPBINARYGRAMMAR {
     pub ulTotalSerializedSize: u32,
-}
-impl Copy for SPBINARYGRAMMAR {}
-impl Clone for SPBINARYGRAMMAR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPBINARYGRAMMAR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPBINARYGRAMMAR").field("ulTotalSerializedSize", &self.ulTotalSerializedSize).finish()
-    }
 }
 impl windows_core::TypeKind for SPBINARYGRAMMAR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPBINARYGRAMMAR {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulTotalSerializedSize == other.ulTotalSerializedSize
-    }
-}
-impl Eq for SPBINARYGRAMMAR {}
 impl Default for SPBINARYGRAMMAR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPDISPLAYPHRASE {
     pub ulNumTokens: u32,
     pub pTokens: *mut SPDISPLAYTOKEN,
 }
-impl Copy for SPDISPLAYPHRASE {}
-impl Clone for SPDISPLAYPHRASE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPDISPLAYPHRASE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPDISPLAYPHRASE").field("ulNumTokens", &self.ulNumTokens).field("pTokens", &self.pTokens).finish()
-    }
-}
 impl windows_core::TypeKind for SPDISPLAYPHRASE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPDISPLAYPHRASE {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulNumTokens == other.ulNumTokens && self.pTokens == other.pTokens
-    }
-}
-impl Eq for SPDISPLAYPHRASE {}
 impl Default for SPDISPLAYPHRASE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPDISPLAYTOKEN {
     pub pszLexical: windows_core::PCWSTR,
     pub pszDisplay: windows_core::PCWSTR,
     pub bDisplayAttributes: u8,
 }
-impl Copy for SPDISPLAYTOKEN {}
-impl Clone for SPDISPLAYTOKEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPDISPLAYTOKEN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPDISPLAYTOKEN").field("pszLexical", &self.pszLexical).field("pszDisplay", &self.pszDisplay).field("bDisplayAttributes", &self.bDisplayAttributes).finish()
-    }
-}
 impl windows_core::TypeKind for SPDISPLAYTOKEN {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPDISPLAYTOKEN {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszLexical == other.pszLexical && self.pszDisplay == other.pszDisplay && self.bDisplayAttributes == other.bDisplayAttributes
-    }
-}
-impl Eq for SPDISPLAYTOKEN {}
 impl Default for SPDISPLAYTOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPEVENT {
     pub _bitfield: i32,
     pub ulStreamNum: u32,
@@ -9395,32 +9316,16 @@ pub struct SPEVENT {
     pub wParam: super::super::Foundation::WPARAM,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl Copy for SPEVENT {}
-impl Clone for SPEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPEVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPEVENT").field("_bitfield", &self._bitfield).field("ulStreamNum", &self.ulStreamNum).field("ullAudioStreamOffset", &self.ullAudioStreamOffset).field("wParam", &self.wParam).field("lParam", &self.lParam).finish()
-    }
-}
 impl windows_core::TypeKind for SPEVENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPEVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield && self.ulStreamNum == other.ulStreamNum && self.ullAudioStreamOffset == other.ullAudioStreamOffset && self.wParam == other.wParam && self.lParam == other.lParam
-    }
-}
-impl Eq for SPEVENT {}
 impl Default for SPEVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPEVENTEX {
     pub _bitfield: i32,
     pub ulStreamNum: u32,
@@ -9429,57 +9334,24 @@ pub struct SPEVENTEX {
     pub lParam: super::super::Foundation::LPARAM,
     pub ullAudioTimeOffset: u64,
 }
-impl Copy for SPEVENTEX {}
-impl Clone for SPEVENTEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPEVENTEX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPEVENTEX").field("_bitfield", &self._bitfield).field("ulStreamNum", &self.ulStreamNum).field("ullAudioStreamOffset", &self.ullAudioStreamOffset).field("wParam", &self.wParam).field("lParam", &self.lParam).field("ullAudioTimeOffset", &self.ullAudioTimeOffset).finish()
-    }
-}
 impl windows_core::TypeKind for SPEVENTEX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPEVENTEX {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield && self.ulStreamNum == other.ulStreamNum && self.ullAudioStreamOffset == other.ullAudioStreamOffset && self.wParam == other.wParam && self.lParam == other.lParam && self.ullAudioTimeOffset == other.ullAudioTimeOffset
-    }
-}
-impl Eq for SPEVENTEX {}
 impl Default for SPEVENTEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPEVENTSOURCEINFO {
     pub ullEventInterest: u64,
     pub ullQueuedInterest: u64,
     pub ulCount: u32,
 }
-impl Copy for SPEVENTSOURCEINFO {}
-impl Clone for SPEVENTSOURCEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPEVENTSOURCEINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPEVENTSOURCEINFO").field("ullEventInterest", &self.ullEventInterest).field("ullQueuedInterest", &self.ullQueuedInterest).field("ulCount", &self.ulCount).finish()
-    }
-}
 impl windows_core::TypeKind for SPEVENTSOURCEINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPEVENTSOURCEINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ullEventInterest == other.ullEventInterest && self.ullQueuedInterest == other.ullQueuedInterest && self.ulCount == other.ulCount
-    }
-}
-impl Eq for SPEVENTSOURCEINFO {}
 impl Default for SPEVENTSOURCEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9502,36 +9374,21 @@ impl windows_core::TypeKind for SPGRAMMARHANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPNORMALIZATIONLIST {
     pub ulSize: u32,
     pub ppszzNormalizedList: *mut *mut u16,
 }
-impl Copy for SPNORMALIZATIONLIST {}
-impl Clone for SPNORMALIZATIONLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPNORMALIZATIONLIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPNORMALIZATIONLIST").field("ulSize", &self.ulSize).field("ppszzNormalizedList", &self.ppszzNormalizedList).finish()
-    }
-}
 impl windows_core::TypeKind for SPNORMALIZATIONLIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPNORMALIZATIONLIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulSize == other.ulSize && self.ppszzNormalizedList == other.ppszzNormalizedList
-    }
-}
-impl Eq for SPNORMALIZATIONLIST {}
 impl Default for SPNORMALIZATIONLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPPARSEINFO {
     pub cbSize: u32,
     pub hRule: SPRULEHANDLE,
@@ -9544,93 +9401,45 @@ pub struct SPPARSEINFO {
     pub pSREnginePrivateData: *const u8,
     pub fHypothesis: super::super::Foundation::BOOL,
 }
-impl Copy for SPPARSEINFO {}
-impl Clone for SPPARSEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPPARSEINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPPARSEINFO").field("cbSize", &self.cbSize).field("hRule", &self.hRule).field("ullAudioStreamPosition", &self.ullAudioStreamPosition).field("ulAudioSize", &self.ulAudioSize).field("cTransitions", &self.cTransitions).field("pPath", &self.pPath).field("SREngineID", &self.SREngineID).field("ulSREnginePrivateDataSize", &self.ulSREnginePrivateDataSize).field("pSREnginePrivateData", &self.pSREnginePrivateData).field("fHypothesis", &self.fHypothesis).finish()
-    }
-}
 impl windows_core::TypeKind for SPPARSEINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPPARSEINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.hRule == other.hRule && self.ullAudioStreamPosition == other.ullAudioStreamPosition && self.ulAudioSize == other.ulAudioSize && self.cTransitions == other.cTransitions && self.pPath == other.pPath && self.SREngineID == other.SREngineID && self.ulSREnginePrivateDataSize == other.ulSREnginePrivateDataSize && self.pSREnginePrivateData == other.pSREnginePrivateData && self.fHypothesis == other.fHypothesis
-    }
-}
-impl Eq for SPPARSEINFO {}
 impl Default for SPPARSEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPPATHENTRY {
     pub hTransition: SPTRANSITIONID,
     pub elem: SPPHRASEELEMENT,
 }
-impl Copy for SPPATHENTRY {}
-impl Clone for SPPATHENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPPATHENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPPATHENTRY").field("hTransition", &self.hTransition).field("elem", &self.elem).finish()
-    }
-}
 impl windows_core::TypeKind for SPPATHENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPPATHENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.hTransition == other.hTransition && self.elem == other.elem
-    }
-}
-impl Eq for SPPATHENTRY {}
 impl Default for SPPATHENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPPHRASE {
     pub Base: SPPHRASE_50,
     pub pSML: windows_core::PWSTR,
     pub pSemanticErrorInfo: *mut SPSEMANTICERRORINFO,
 }
-impl Copy for SPPHRASE {}
-impl Clone for SPPHRASE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPPHRASE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPPHRASE").field("Base", &self.Base).field("pSML", &self.pSML).field("pSemanticErrorInfo", &self.pSemanticErrorInfo).finish()
-    }
-}
 impl windows_core::TypeKind for SPPHRASE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPPHRASE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Base == other.Base && self.pSML == other.pSML && self.pSemanticErrorInfo == other.pSemanticErrorInfo
-    }
-}
-impl Eq for SPPHRASE {}
 impl Default for SPPHRASE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct SPPHRASEALT {
     pub pPhrase: std::mem::ManuallyDrop<Option<ISpPhraseBuilder>>,
     pub ulStartElementInParent: u32,
@@ -9644,26 +9453,16 @@ impl Clone for SPPHRASEALT {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for SPPHRASEALT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPPHRASEALT").field("pPhrase", &self.pPhrase).field("ulStartElementInParent", &self.ulStartElementInParent).field("cElementsInParent", &self.cElementsInParent).field("cElementsInAlternate", &self.cElementsInAlternate).field("pvAltExtra", &self.pvAltExtra).field("cbAltExtra", &self.cbAltExtra).finish()
-    }
-}
 impl windows_core::TypeKind for SPPHRASEALT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPPHRASEALT {
-    fn eq(&self, other: &Self) -> bool {
-        self.pPhrase == other.pPhrase && self.ulStartElementInParent == other.ulStartElementInParent && self.cElementsInParent == other.cElementsInParent && self.cElementsInAlternate == other.cElementsInAlternate && self.pvAltExtra == other.pvAltExtra && self.cbAltExtra == other.cbAltExtra
-    }
-}
-impl Eq for SPPHRASEALT {}
 impl Default for SPPHRASEALT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct SPPHRASEALTREQUEST {
     pub ulStartElement: u32,
     pub cElements: u32,
@@ -9678,26 +9477,16 @@ impl Clone for SPPHRASEALTREQUEST {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for SPPHRASEALTREQUEST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPPHRASEALTREQUEST").field("ulStartElement", &self.ulStartElement).field("cElements", &self.cElements).field("ulRequestAltCount", &self.ulRequestAltCount).field("pvResultExtra", &self.pvResultExtra).field("cbResultExtra", &self.cbResultExtra).field("pPhrase", &self.pPhrase).field("pRecoContext", &self.pRecoContext).finish()
-    }
-}
 impl windows_core::TypeKind for SPPHRASEALTREQUEST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPPHRASEALTREQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulStartElement == other.ulStartElement && self.cElements == other.cElements && self.ulRequestAltCount == other.ulRequestAltCount && self.pvResultExtra == other.pvResultExtra && self.cbResultExtra == other.cbResultExtra && self.pPhrase == other.pPhrase && self.pRecoContext == other.pRecoContext
-    }
-}
-impl Eq for SPPHRASEALTREQUEST {}
 impl Default for SPPHRASEALTREQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPPHRASEELEMENT {
     pub ulAudioTimeOffset: u32,
     pub ulAudioSizeTime: u32,
@@ -9714,41 +9503,9 @@ pub struct SPPHRASEELEMENT {
     pub Reserved: u8,
     pub SREngineConfidence: f32,
 }
-impl Copy for SPPHRASEELEMENT {}
-impl Clone for SPPHRASEELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPPHRASEELEMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPPHRASEELEMENT")
-            .field("ulAudioTimeOffset", &self.ulAudioTimeOffset)
-            .field("ulAudioSizeTime", &self.ulAudioSizeTime)
-            .field("ulAudioStreamOffset", &self.ulAudioStreamOffset)
-            .field("ulAudioSizeBytes", &self.ulAudioSizeBytes)
-            .field("ulRetainedStreamOffset", &self.ulRetainedStreamOffset)
-            .field("ulRetainedSizeBytes", &self.ulRetainedSizeBytes)
-            .field("pszDisplayText", &self.pszDisplayText)
-            .field("pszLexicalForm", &self.pszLexicalForm)
-            .field("pszPronunciation", &self.pszPronunciation)
-            .field("bDisplayAttributes", &self.bDisplayAttributes)
-            .field("RequiredConfidence", &self.RequiredConfidence)
-            .field("ActualConfidence", &self.ActualConfidence)
-            .field("Reserved", &self.Reserved)
-            .field("SREngineConfidence", &self.SREngineConfidence)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for SPPHRASEELEMENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPPHRASEELEMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulAudioTimeOffset == other.ulAudioTimeOffset && self.ulAudioSizeTime == other.ulAudioSizeTime && self.ulAudioStreamOffset == other.ulAudioStreamOffset && self.ulAudioSizeBytes == other.ulAudioSizeBytes && self.ulRetainedStreamOffset == other.ulRetainedStreamOffset && self.ulRetainedSizeBytes == other.ulRetainedSizeBytes && self.pszDisplayText == other.pszDisplayText && self.pszLexicalForm == other.pszLexicalForm && self.pszPronunciation == other.pszPronunciation && self.bDisplayAttributes == other.bDisplayAttributes && self.RequiredConfidence == other.RequiredConfidence && self.ActualConfidence == other.ActualConfidence && self.Reserved == other.Reserved && self.SREngineConfidence == other.SREngineConfidence
-    }
-}
-impl Eq for SPPHRASEELEMENT {}
 impl Default for SPPHRASEELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9781,15 +9538,10 @@ impl Default for SPPHRASEPROPERTY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SPPHRASEPROPERTY_0 {
     pub ulId: u32,
     pub Anonymous: SPPHRASEPROPERTY_0_0,
-}
-impl Copy for SPPHRASEPROPERTY_0 {}
-impl Clone for SPPHRASEPROPERTY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SPPHRASEPROPERTY_0 {
     type TypeKind = windows_core::CopyType;
@@ -9800,31 +9552,15 @@ impl Default for SPPHRASEPROPERTY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPPHRASEPROPERTY_0_0 {
     pub bType: u8,
     pub bReserved: u8,
     pub usArrayIndex: u16,
 }
-impl Copy for SPPHRASEPROPERTY_0_0 {}
-impl Clone for SPPHRASEPROPERTY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPPHRASEPROPERTY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPPHRASEPROPERTY_0_0").field("bType", &self.bType).field("bReserved", &self.bReserved).field("usArrayIndex", &self.usArrayIndex).finish()
-    }
-}
 impl windows_core::TypeKind for SPPHRASEPROPERTY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPPHRASEPROPERTY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.bType == other.bType && self.bReserved == other.bReserved && self.usArrayIndex == other.usArrayIndex
-    }
-}
-impl Eq for SPPHRASEPROPERTY_0_0 {}
 impl Default for SPPHRASEPROPERTY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9847,38 +9583,23 @@ impl windows_core::TypeKind for SPPHRASEPROPERTYHANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPPHRASEREPLACEMENT {
     pub bDisplayAttributes: u8,
     pub pszReplacementText: windows_core::PCWSTR,
     pub ulFirstElement: u32,
     pub ulCountOfElements: u32,
 }
-impl Copy for SPPHRASEREPLACEMENT {}
-impl Clone for SPPHRASEREPLACEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPPHRASEREPLACEMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPPHRASEREPLACEMENT").field("bDisplayAttributes", &self.bDisplayAttributes).field("pszReplacementText", &self.pszReplacementText).field("ulFirstElement", &self.ulFirstElement).field("ulCountOfElements", &self.ulCountOfElements).finish()
-    }
-}
 impl windows_core::TypeKind for SPPHRASEREPLACEMENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPPHRASEREPLACEMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.bDisplayAttributes == other.bDisplayAttributes && self.pszReplacementText == other.pszReplacementText && self.ulFirstElement == other.ulFirstElement && self.ulCountOfElements == other.ulCountOfElements
-    }
-}
-impl Eq for SPPHRASEREPLACEMENT {}
 impl Default for SPPHRASEREPLACEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPPHRASERULE {
     pub pszName: windows_core::PCWSTR,
     pub ulId: u32,
@@ -9889,26 +9610,9 @@ pub struct SPPHRASERULE {
     pub SREngineConfidence: f32,
     pub Confidence: i8,
 }
-impl Copy for SPPHRASERULE {}
-impl Clone for SPPHRASERULE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPPHRASERULE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPPHRASERULE").field("pszName", &self.pszName).field("ulId", &self.ulId).field("ulFirstElement", &self.ulFirstElement).field("ulCountOfElements", &self.ulCountOfElements).field("pNextSibling", &self.pNextSibling).field("pFirstChild", &self.pFirstChild).field("SREngineConfidence", &self.SREngineConfidence).field("Confidence", &self.Confidence).finish()
-    }
-}
 impl windows_core::TypeKind for SPPHRASERULE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPPHRASERULE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszName == other.pszName && self.ulId == other.ulId && self.ulFirstElement == other.ulFirstElement && self.ulCountOfElements == other.ulCountOfElements && self.pNextSibling == other.pNextSibling && self.pFirstChild == other.pFirstChild && self.SREngineConfidence == other.SREngineConfidence && self.Confidence == other.Confidence
-    }
-}
-impl Eq for SPPHRASERULE {}
 impl Default for SPPHRASERULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9931,6 +9635,7 @@ impl windows_core::TypeKind for SPPHRASERULEHANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPPHRASE_50 {
     pub cbSize: u32,
     pub LangID: u16,
@@ -9950,50 +9655,16 @@ pub struct SPPHRASE_50 {
     pub ulSREnginePrivateDataSize: u32,
     pub pSREnginePrivateData: *const u8,
 }
-impl Copy for SPPHRASE_50 {}
-impl Clone for SPPHRASE_50 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPPHRASE_50 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPPHRASE_50")
-            .field("cbSize", &self.cbSize)
-            .field("LangID", &self.LangID)
-            .field("wHomophoneGroupId", &self.wHomophoneGroupId)
-            .field("ullGrammarID", &self.ullGrammarID)
-            .field("ftStartTime", &self.ftStartTime)
-            .field("ullAudioStreamPosition", &self.ullAudioStreamPosition)
-            .field("ulAudioSizeBytes", &self.ulAudioSizeBytes)
-            .field("ulRetainedSizeBytes", &self.ulRetainedSizeBytes)
-            .field("ulAudioSizeTime", &self.ulAudioSizeTime)
-            .field("Rule", &self.Rule)
-            .field("pProperties", &self.pProperties)
-            .field("pElements", &self.pElements)
-            .field("cReplacements", &self.cReplacements)
-            .field("pReplacements", &self.pReplacements)
-            .field("SREngineID", &self.SREngineID)
-            .field("ulSREnginePrivateDataSize", &self.ulSREnginePrivateDataSize)
-            .field("pSREnginePrivateData", &self.pSREnginePrivateData)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for SPPHRASE_50 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPPHRASE_50 {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.LangID == other.LangID && self.wHomophoneGroupId == other.wHomophoneGroupId && self.ullGrammarID == other.ullGrammarID && self.ftStartTime == other.ftStartTime && self.ullAudioStreamPosition == other.ullAudioStreamPosition && self.ulAudioSizeBytes == other.ulAudioSizeBytes && self.ulRetainedSizeBytes == other.ulRetainedSizeBytes && self.ulAudioSizeTime == other.ulAudioSizeTime && self.Rule == other.Rule && self.pProperties == other.pProperties && self.pElements == other.pElements && self.cReplacements == other.cReplacements && self.pReplacements == other.pReplacements && self.SREngineID == other.SREngineID && self.ulSREnginePrivateDataSize == other.ulSREnginePrivateDataSize && self.pSREnginePrivateData == other.pSREnginePrivateData
-    }
-}
-impl Eq for SPPHRASE_50 {}
 impl Default for SPPHRASE_50 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct SPPROPERTYINFO {
     pub pszName: windows_core::PCWSTR,
     pub ulId: u32,
@@ -10005,20 +9676,9 @@ impl Clone for SPPROPERTYINFO {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for SPPROPERTYINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPPROPERTYINFO").field("pszName", &self.pszName).field("ulId", &self.ulId).field("pszValue", &self.pszValue).field("vValue", &self.vValue).finish()
-    }
-}
 impl windows_core::TypeKind for SPPROPERTYINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPPROPERTYINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszName == other.pszName && self.ulId == other.ulId && self.pszValue == other.pszValue && self.vValue == other.vValue
-    }
-}
-impl Eq for SPPROPERTYINFO {}
 impl Default for SPPROPERTYINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10041,38 +9701,23 @@ impl windows_core::TypeKind for SPRECOCONTEXTHANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPRECOCONTEXTSTATUS {
     pub eInterference: SPINTERFERENCE,
     pub szRequestTypeOfUI: [u16; 255],
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
-impl Copy for SPRECOCONTEXTSTATUS {}
-impl Clone for SPRECOCONTEXTSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPRECOCONTEXTSTATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPRECOCONTEXTSTATUS").field("eInterference", &self.eInterference).field("szRequestTypeOfUI", &self.szRequestTypeOfUI).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
-    }
-}
 impl windows_core::TypeKind for SPRECOCONTEXTSTATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPRECOCONTEXTSTATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.eInterference == other.eInterference && self.szRequestTypeOfUI == other.szRequestTypeOfUI && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
-    }
-}
-impl Eq for SPRECOCONTEXTSTATUS {}
 impl Default for SPRECOCONTEXTSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPRECOGNIZERSTATUS {
     pub AudioStatus: SPAUDIOSTATUS,
     pub ullRecognitionStreamPos: u64,
@@ -10083,32 +9728,16 @@ pub struct SPRECOGNIZERSTATUS {
     pub aLangID: [u16; 20],
     pub ullRecognitionStreamTime: u64,
 }
-impl Copy for SPRECOGNIZERSTATUS {}
-impl Clone for SPRECOGNIZERSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPRECOGNIZERSTATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPRECOGNIZERSTATUS").field("AudioStatus", &self.AudioStatus).field("ullRecognitionStreamPos", &self.ullRecognitionStreamPos).field("ulStreamNumber", &self.ulStreamNumber).field("ulNumActive", &self.ulNumActive).field("clsidEngine", &self.clsidEngine).field("cLangIDs", &self.cLangIDs).field("aLangID", &self.aLangID).field("ullRecognitionStreamTime", &self.ullRecognitionStreamTime).finish()
-    }
-}
 impl windows_core::TypeKind for SPRECOGNIZERSTATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPRECOGNIZERSTATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.AudioStatus == other.AudioStatus && self.ullRecognitionStreamPos == other.ullRecognitionStreamPos && self.ulStreamNumber == other.ulStreamNumber && self.ulNumActive == other.ulNumActive && self.clsidEngine == other.clsidEngine && self.cLangIDs == other.cLangIDs && self.aLangID == other.aLangID && self.ullRecognitionStreamTime == other.ullRecognitionStreamTime
-    }
-}
-impl Eq for SPRECOGNIZERSTATUS {}
 impl Default for SPRECOGNIZERSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct SPRECORESULTINFO {
     pub cbSize: u32,
     pub eResultType: SPRESULTTYPE,
@@ -10128,39 +9757,16 @@ impl Clone for SPRECORESULTINFO {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for SPRECORESULTINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPRECORESULTINFO")
-            .field("cbSize", &self.cbSize)
-            .field("eResultType", &self.eResultType)
-            .field("fHypothesis", &self.fHypothesis)
-            .field("fProprietaryAutoPause", &self.fProprietaryAutoPause)
-            .field("ullStreamPosStart", &self.ullStreamPosStart)
-            .field("ullStreamPosEnd", &self.ullStreamPosEnd)
-            .field("hGrammar", &self.hGrammar)
-            .field("ulSizeEngineData", &self.ulSizeEngineData)
-            .field("pvEngineData", &self.pvEngineData)
-            .field("pPhrase", &self.pPhrase)
-            .field("aPhraseAlts", &self.aPhraseAlts)
-            .field("ulNumAlts", &self.ulNumAlts)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for SPRECORESULTINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPRECORESULTINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.eResultType == other.eResultType && self.fHypothesis == other.fHypothesis && self.fProprietaryAutoPause == other.fProprietaryAutoPause && self.ullStreamPosStart == other.ullStreamPosStart && self.ullStreamPosEnd == other.ullStreamPosEnd && self.hGrammar == other.hGrammar && self.ulSizeEngineData == other.ulSizeEngineData && self.pvEngineData == other.pvEngineData && self.pPhrase == other.pPhrase && self.aPhraseAlts == other.aPhraseAlts && self.ulNumAlts == other.ulNumAlts
-    }
-}
-impl Eq for SPRECORESULTINFO {}
 impl Default for SPRECORESULTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct SPRECORESULTINFOEX {
     pub Base: SPRECORESULTINFO,
     pub ullStreamTimeStart: u64,
@@ -10171,89 +9777,47 @@ impl Clone for SPRECORESULTINFOEX {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for SPRECORESULTINFOEX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPRECORESULTINFOEX").field("Base", &self.Base).field("ullStreamTimeStart", &self.ullStreamTimeStart).field("ullStreamTimeEnd", &self.ullStreamTimeEnd).finish()
-    }
-}
 impl windows_core::TypeKind for SPRECORESULTINFOEX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPRECORESULTINFOEX {
-    fn eq(&self, other: &Self) -> bool {
-        self.Base == other.Base && self.ullStreamTimeStart == other.ullStreamTimeStart && self.ullStreamTimeEnd == other.ullStreamTimeEnd
-    }
-}
-impl Eq for SPRECORESULTINFOEX {}
 impl Default for SPRECORESULTINFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPRECORESULTTIMES {
     pub ftStreamTime: super::super::Foundation::FILETIME,
     pub ullLength: u64,
     pub dwTickCount: u32,
     pub ullStart: u64,
 }
-impl Copy for SPRECORESULTTIMES {}
-impl Clone for SPRECORESULTTIMES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPRECORESULTTIMES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPRECORESULTTIMES").field("ftStreamTime", &self.ftStreamTime).field("ullLength", &self.ullLength).field("dwTickCount", &self.dwTickCount).field("ullStart", &self.ullStart).finish()
-    }
-}
 impl windows_core::TypeKind for SPRECORESULTTIMES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPRECORESULTTIMES {
-    fn eq(&self, other: &Self) -> bool {
-        self.ftStreamTime == other.ftStreamTime && self.ullLength == other.ullLength && self.dwTickCount == other.dwTickCount && self.ullStart == other.ullStart
-    }
-}
-impl Eq for SPRECORESULTTIMES {}
 impl Default for SPRECORESULTTIMES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPRULE {
     pub pszRuleName: windows_core::PCWSTR,
     pub ulRuleId: u32,
     pub dwAttributes: u32,
 }
-impl Copy for SPRULE {}
-impl Clone for SPRULE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPRULE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPRULE").field("pszRuleName", &self.pszRuleName).field("ulRuleId", &self.ulRuleId).field("dwAttributes", &self.dwAttributes).finish()
-    }
-}
 impl windows_core::TypeKind for SPRULE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPRULE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszRuleName == other.pszRuleName && self.ulRuleId == other.ulRuleId && self.dwAttributes == other.dwAttributes
-    }
-}
-impl Eq for SPRULE {}
 impl Default for SPRULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPRULEENTRY {
     pub hRule: SPRULEHANDLE,
     pub hInitialState: SPSTATEHANDLE,
@@ -10261,26 +9825,9 @@ pub struct SPRULEENTRY {
     pub pvClientRuleContext: *mut core::ffi::c_void,
     pub pvClientGrammarContext: *mut core::ffi::c_void,
 }
-impl Copy for SPRULEENTRY {}
-impl Clone for SPRULEENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPRULEENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPRULEENTRY").field("hRule", &self.hRule).field("hInitialState", &self.hInitialState).field("Attributes", &self.Attributes).field("pvClientRuleContext", &self.pvClientRuleContext).field("pvClientGrammarContext", &self.pvClientGrammarContext).finish()
-    }
-}
 impl windows_core::TypeKind for SPRULEENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPRULEENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.hRule == other.hRule && self.hInitialState == other.hInitialState && self.Attributes == other.Attributes && self.pvClientRuleContext == other.pvClientRuleContext && self.pvClientGrammarContext == other.pvClientGrammarContext
-    }
-}
-impl Eq for SPRULEENTRY {}
 impl Default for SPRULEENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10303,6 +9850,7 @@ impl windows_core::TypeKind for SPRULEHANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPSEMANTICERRORINFO {
     pub ulLineNumber: u32,
     pub pszScriptLine: windows_core::PWSTR,
@@ -10310,32 +9858,16 @@ pub struct SPSEMANTICERRORINFO {
     pub pszDescription: windows_core::PWSTR,
     pub hrResultCode: windows_core::HRESULT,
 }
-impl Copy for SPSEMANTICERRORINFO {}
-impl Clone for SPSEMANTICERRORINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPSEMANTICERRORINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPSEMANTICERRORINFO").field("ulLineNumber", &self.ulLineNumber).field("pszScriptLine", &self.pszScriptLine).field("pszSource", &self.pszSource).field("pszDescription", &self.pszDescription).field("hrResultCode", &self.hrResultCode).finish()
-    }
-}
 impl windows_core::TypeKind for SPSEMANTICERRORINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPSEMANTICERRORINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulLineNumber == other.ulLineNumber && self.pszScriptLine == other.pszScriptLine && self.pszSource == other.pszSource && self.pszDescription == other.pszDescription && self.hrResultCode == other.hrResultCode
-    }
-}
-impl Eq for SPSEMANTICERRORINFO {}
 impl Default for SPSEMANTICERRORINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPSERIALIZEDEVENT {
     pub _bitfield: i32,
     pub ulStreamNum: u32,
@@ -10343,32 +9875,16 @@ pub struct SPSERIALIZEDEVENT {
     pub SerializedwParam: u32,
     pub SerializedlParam: i32,
 }
-impl Copy for SPSERIALIZEDEVENT {}
-impl Clone for SPSERIALIZEDEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPSERIALIZEDEVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPSERIALIZEDEVENT").field("_bitfield", &self._bitfield).field("ulStreamNum", &self.ulStreamNum).field("ullAudioStreamOffset", &self.ullAudioStreamOffset).field("SerializedwParam", &self.SerializedwParam).field("SerializedlParam", &self.SerializedlParam).finish()
-    }
-}
 impl windows_core::TypeKind for SPSERIALIZEDEVENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPSERIALIZEDEVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield && self.ulStreamNum == other.ulStreamNum && self.ullAudioStreamOffset == other.ullAudioStreamOffset && self.SerializedwParam == other.SerializedwParam && self.SerializedlParam == other.SerializedlParam
-    }
-}
-impl Eq for SPSERIALIZEDEVENT {}
 impl Default for SPSERIALIZEDEVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPSERIALIZEDEVENT64 {
     pub _bitfield: i32,
     pub ulStreamNum: u32,
@@ -10376,90 +9892,42 @@ pub struct SPSERIALIZEDEVENT64 {
     pub SerializedwParam: u64,
     pub SerializedlParam: i64,
 }
-impl Copy for SPSERIALIZEDEVENT64 {}
-impl Clone for SPSERIALIZEDEVENT64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPSERIALIZEDEVENT64 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPSERIALIZEDEVENT64").field("_bitfield", &self._bitfield).field("ulStreamNum", &self.ulStreamNum).field("ullAudioStreamOffset", &self.ullAudioStreamOffset).field("SerializedwParam", &self.SerializedwParam).field("SerializedlParam", &self.SerializedlParam).finish()
-    }
-}
 impl windows_core::TypeKind for SPSERIALIZEDEVENT64 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPSERIALIZEDEVENT64 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield && self.ulStreamNum == other.ulStreamNum && self.ullAudioStreamOffset == other.ullAudioStreamOffset && self.SerializedwParam == other.SerializedwParam && self.SerializedlParam == other.SerializedlParam
-    }
-}
-impl Eq for SPSERIALIZEDEVENT64 {}
 impl Default for SPSERIALIZEDEVENT64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPSERIALIZEDPHRASE {
     pub ulSerializedSize: u32,
-}
-impl Copy for SPSERIALIZEDPHRASE {}
-impl Clone for SPSERIALIZEDPHRASE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPSERIALIZEDPHRASE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPSERIALIZEDPHRASE").field("ulSerializedSize", &self.ulSerializedSize).finish()
-    }
 }
 impl windows_core::TypeKind for SPSERIALIZEDPHRASE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPSERIALIZEDPHRASE {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulSerializedSize == other.ulSerializedSize
-    }
-}
-impl Eq for SPSERIALIZEDPHRASE {}
 impl Default for SPSERIALIZEDPHRASE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPSERIALIZEDRESULT {
     pub ulSerializedSize: u32,
-}
-impl Copy for SPSERIALIZEDRESULT {}
-impl Clone for SPSERIALIZEDRESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPSERIALIZEDRESULT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPSERIALIZEDRESULT").field("ulSerializedSize", &self.ulSerializedSize).finish()
-    }
 }
 impl windows_core::TypeKind for SPSERIALIZEDRESULT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPSERIALIZEDRESULT {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulSerializedSize == other.ulSerializedSize
-    }
-}
-impl Eq for SPSERIALIZEDRESULT {}
 impl Default for SPSERIALIZEDRESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPSHORTCUTPAIR {
     pub pNextSHORTCUTPAIR: *mut SPSHORTCUTPAIR,
     pub LangID: u16,
@@ -10467,57 +9935,24 @@ pub struct SPSHORTCUTPAIR {
     pub pszDisplay: windows_core::PWSTR,
     pub pszSpoken: windows_core::PWSTR,
 }
-impl Copy for SPSHORTCUTPAIR {}
-impl Clone for SPSHORTCUTPAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPSHORTCUTPAIR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPSHORTCUTPAIR").field("pNextSHORTCUTPAIR", &self.pNextSHORTCUTPAIR).field("LangID", &self.LangID).field("shType", &self.shType).field("pszDisplay", &self.pszDisplay).field("pszSpoken", &self.pszSpoken).finish()
-    }
-}
 impl windows_core::TypeKind for SPSHORTCUTPAIR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPSHORTCUTPAIR {
-    fn eq(&self, other: &Self) -> bool {
-        self.pNextSHORTCUTPAIR == other.pNextSHORTCUTPAIR && self.LangID == other.LangID && self.shType == other.shType && self.pszDisplay == other.pszDisplay && self.pszSpoken == other.pszSpoken
-    }
-}
-impl Eq for SPSHORTCUTPAIR {}
 impl Default for SPSHORTCUTPAIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPSHORTCUTPAIRLIST {
     pub ulSize: u32,
     pub pvBuffer: *mut u8,
     pub pFirstShortcutPair: *mut SPSHORTCUTPAIR,
 }
-impl Copy for SPSHORTCUTPAIRLIST {}
-impl Clone for SPSHORTCUTPAIRLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPSHORTCUTPAIRLIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPSHORTCUTPAIRLIST").field("ulSize", &self.ulSize).field("pvBuffer", &self.pvBuffer).field("pFirstShortcutPair", &self.pFirstShortcutPair).finish()
-    }
-}
 impl windows_core::TypeKind for SPSHORTCUTPAIRLIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPSHORTCUTPAIRLIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulSize == other.ulSize && self.pvBuffer == other.pvBuffer && self.pFirstShortcutPair == other.pFirstShortcutPair
-    }
-}
-impl Eq for SPSHORTCUTPAIRLIST {}
 impl Default for SPSHORTCUTPAIRLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10540,6 +9975,7 @@ impl windows_core::TypeKind for SPSTATEHANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPSTATEINFO {
     pub cAllocatedEntries: u32,
     pub pTransitions: *mut SPTRANSITIONENTRY,
@@ -10548,96 +9984,48 @@ pub struct SPSTATEINFO {
     pub cWords: u32,
     pub cSpecialTransitions: u32,
 }
-impl Copy for SPSTATEINFO {}
-impl Clone for SPSTATEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPSTATEINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPSTATEINFO").field("cAllocatedEntries", &self.cAllocatedEntries).field("pTransitions", &self.pTransitions).field("cEpsilons", &self.cEpsilons).field("cRules", &self.cRules).field("cWords", &self.cWords).field("cSpecialTransitions", &self.cSpecialTransitions).finish()
-    }
-}
 impl windows_core::TypeKind for SPSTATEINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPSTATEINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cAllocatedEntries == other.cAllocatedEntries && self.pTransitions == other.pTransitions && self.cEpsilons == other.cEpsilons && self.cRules == other.cRules && self.cWords == other.cWords && self.cSpecialTransitions == other.cSpecialTransitions
-    }
-}
-impl Eq for SPSTATEINFO {}
 impl Default for SPSTATEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPTEXTSELECTIONINFO {
     pub ulStartActiveOffset: u32,
     pub cchActiveChars: u32,
     pub ulStartSelection: u32,
     pub cchSelection: u32,
 }
-impl Copy for SPTEXTSELECTIONINFO {}
-impl Clone for SPTEXTSELECTIONINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPTEXTSELECTIONINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPTEXTSELECTIONINFO").field("ulStartActiveOffset", &self.ulStartActiveOffset).field("cchActiveChars", &self.cchActiveChars).field("ulStartSelection", &self.ulStartSelection).field("cchSelection", &self.cchSelection).finish()
-    }
-}
 impl windows_core::TypeKind for SPTEXTSELECTIONINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPTEXTSELECTIONINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulStartActiveOffset == other.ulStartActiveOffset && self.cchActiveChars == other.cchActiveChars && self.ulStartSelection == other.ulStartSelection && self.cchSelection == other.cchSelection
-    }
-}
-impl Eq for SPTEXTSELECTIONINFO {}
 impl Default for SPTEXTSELECTIONINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPTMTHREADINFO {
     pub lPoolSize: i32,
     pub lPriority: i32,
     pub ulConcurrencyLimit: u32,
     pub ulMaxQuickAllocThreads: u32,
 }
-impl Copy for SPTMTHREADINFO {}
-impl Clone for SPTMTHREADINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPTMTHREADINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPTMTHREADINFO").field("lPoolSize", &self.lPoolSize).field("lPriority", &self.lPriority).field("ulConcurrencyLimit", &self.ulConcurrencyLimit).field("ulMaxQuickAllocThreads", &self.ulMaxQuickAllocThreads).finish()
-    }
-}
 impl windows_core::TypeKind for SPTMTHREADINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPTMTHREADINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.lPoolSize == other.lPoolSize && self.lPriority == other.lPriority && self.ulConcurrencyLimit == other.ulConcurrencyLimit && self.ulMaxQuickAllocThreads == other.ulMaxQuickAllocThreads
-    }
-}
-impl Eq for SPTMTHREADINFO {}
 impl Default for SPTMTHREADINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SPTRANSITIONENTRY {
     pub ID: SPTRANSITIONID,
     pub hNextState: SPSTATEHANDLE,
@@ -10646,12 +10034,6 @@ pub struct SPTRANSITIONENTRY {
     pub Anonymous1: SPTRANSITIONENTRY_0,
     pub Weight: f32,
     pub Anonymous2: SPTRANSITIONENTRY_1,
-}
-impl Copy for SPTRANSITIONENTRY {}
-impl Clone for SPTRANSITIONENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SPTRANSITIONENTRY {
     type TypeKind = windows_core::CopyType;
@@ -10662,45 +10044,24 @@ impl Default for SPTRANSITIONENTRY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPTRANSITIONENTRY_0 {
     pub fHasProperty: u32,
-}
-impl Copy for SPTRANSITIONENTRY_0 {}
-impl Clone for SPTRANSITIONENTRY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPTRANSITIONENTRY_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPTRANSITIONENTRY_0").field("fHasProperty", &self.fHasProperty).finish()
-    }
 }
 impl windows_core::TypeKind for SPTRANSITIONENTRY_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPTRANSITIONENTRY_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.fHasProperty == other.fHasProperty
-    }
-}
-impl Eq for SPTRANSITIONENTRY_0 {}
 impl Default for SPTRANSITIONENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SPTRANSITIONENTRY_1 {
     pub Anonymous1: SPTRANSITIONENTRY_1_0,
     pub Anonymous2: SPTRANSITIONENTRY_1_1,
     pub Anonymous3: SPTRANSITIONENTRY_1_2,
-}
-impl Copy for SPTRANSITIONENTRY_1 {}
-impl Clone for SPTRANSITIONENTRY_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SPTRANSITIONENTRY_1 {
     type TypeKind = windows_core::CopyType;
@@ -10711,90 +10072,42 @@ impl Default for SPTRANSITIONENTRY_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPTRANSITIONENTRY_1_0 {
     pub hRuleInitialState: SPSTATEHANDLE,
     pub hRule: SPRULEHANDLE,
     pub pvClientRuleContext: *mut core::ffi::c_void,
 }
-impl Copy for SPTRANSITIONENTRY_1_0 {}
-impl Clone for SPTRANSITIONENTRY_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPTRANSITIONENTRY_1_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPTRANSITIONENTRY_1_0").field("hRuleInitialState", &self.hRuleInitialState).field("hRule", &self.hRule).field("pvClientRuleContext", &self.pvClientRuleContext).finish()
-    }
-}
 impl windows_core::TypeKind for SPTRANSITIONENTRY_1_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPTRANSITIONENTRY_1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hRuleInitialState == other.hRuleInitialState && self.hRule == other.hRule && self.pvClientRuleContext == other.pvClientRuleContext
-    }
-}
-impl Eq for SPTRANSITIONENTRY_1_0 {}
 impl Default for SPTRANSITIONENTRY_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPTRANSITIONENTRY_1_1 {
     pub hWord: SPWORDHANDLE,
     pub pvClientWordContext: *mut core::ffi::c_void,
 }
-impl Copy for SPTRANSITIONENTRY_1_1 {}
-impl Clone for SPTRANSITIONENTRY_1_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPTRANSITIONENTRY_1_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPTRANSITIONENTRY_1_1").field("hWord", &self.hWord).field("pvClientWordContext", &self.pvClientWordContext).finish()
-    }
-}
 impl windows_core::TypeKind for SPTRANSITIONENTRY_1_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPTRANSITIONENTRY_1_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hWord == other.hWord && self.pvClientWordContext == other.pvClientWordContext
-    }
-}
-impl Eq for SPTRANSITIONENTRY_1_1 {}
 impl Default for SPTRANSITIONENTRY_1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPTRANSITIONENTRY_1_2 {
     pub pvGrammarCookie: *mut core::ffi::c_void,
-}
-impl Copy for SPTRANSITIONENTRY_1_2 {}
-impl Clone for SPTRANSITIONENTRY_1_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPTRANSITIONENTRY_1_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPTRANSITIONENTRY_1_2").field("pvGrammarCookie", &self.pvGrammarCookie).finish()
-    }
 }
 impl windows_core::TypeKind for SPTRANSITIONENTRY_1_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPTRANSITIONENTRY_1_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pvGrammarCookie == other.pvGrammarCookie
-    }
-}
-impl Eq for SPTRANSITIONENTRY_1_2 {}
 impl Default for SPTRANSITIONENTRY_1_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10817,6 +10130,7 @@ impl windows_core::TypeKind for SPTRANSITIONID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct SPTRANSITIONPROPERTY {
     pub pszName: windows_core::PCWSTR,
     pub ulId: u32,
@@ -10828,57 +10142,31 @@ impl Clone for SPTRANSITIONPROPERTY {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for SPTRANSITIONPROPERTY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPTRANSITIONPROPERTY").field("pszName", &self.pszName).field("ulId", &self.ulId).field("pszValue", &self.pszValue).field("vValue", &self.vValue).finish()
-    }
-}
 impl windows_core::TypeKind for SPTRANSITIONPROPERTY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPTRANSITIONPROPERTY {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszName == other.pszName && self.ulId == other.ulId && self.pszValue == other.pszValue && self.vValue == other.vValue
-    }
-}
-impl Eq for SPTRANSITIONPROPERTY {}
 impl Default for SPTRANSITIONPROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPVCONTEXT {
     pub pCategory: windows_core::PCWSTR,
     pub pBefore: windows_core::PCWSTR,
     pub pAfter: windows_core::PCWSTR,
 }
-impl Copy for SPVCONTEXT {}
-impl Clone for SPVCONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPVCONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPVCONTEXT").field("pCategory", &self.pCategory).field("pBefore", &self.pBefore).field("pAfter", &self.pAfter).finish()
-    }
-}
 impl windows_core::TypeKind for SPVCONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPVCONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.pCategory == other.pCategory && self.pBefore == other.pBefore && self.pAfter == other.pAfter
-    }
-}
-impl Eq for SPVCONTEXT {}
 impl Default for SPVCONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPVOICESTATUS {
     pub ulCurrentStream: u32,
     pub ulLastStreamQueued: u32,
@@ -10894,76 +10182,30 @@ pub struct SPVOICESTATUS {
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
-impl Copy for SPVOICESTATUS {}
-impl Clone for SPVOICESTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPVOICESTATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPVOICESTATUS")
-            .field("ulCurrentStream", &self.ulCurrentStream)
-            .field("ulLastStreamQueued", &self.ulLastStreamQueued)
-            .field("hrLastResult", &self.hrLastResult)
-            .field("dwRunningState", &self.dwRunningState)
-            .field("ulInputWordPos", &self.ulInputWordPos)
-            .field("ulInputWordLen", &self.ulInputWordLen)
-            .field("ulInputSentPos", &self.ulInputSentPos)
-            .field("ulInputSentLen", &self.ulInputSentLen)
-            .field("lBookmarkId", &self.lBookmarkId)
-            .field("PhonemeId", &self.PhonemeId)
-            .field("VisemeId", &self.VisemeId)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwReserved2", &self.dwReserved2)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for SPVOICESTATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPVOICESTATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulCurrentStream == other.ulCurrentStream && self.ulLastStreamQueued == other.ulLastStreamQueued && self.hrLastResult == other.hrLastResult && self.dwRunningState == other.dwRunningState && self.ulInputWordPos == other.ulInputWordPos && self.ulInputWordLen == other.ulInputWordLen && self.ulInputSentPos == other.ulInputSentPos && self.ulInputSentLen == other.ulInputSentLen && self.lBookmarkId == other.lBookmarkId && self.PhonemeId == other.PhonemeId && self.VisemeId == other.VisemeId && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
-    }
-}
-impl Eq for SPVOICESTATUS {}
 impl Default for SPVOICESTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPVPITCH {
     pub MiddleAdj: i32,
     pub RangeAdj: i32,
 }
-impl Copy for SPVPITCH {}
-impl Clone for SPVPITCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPVPITCH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPVPITCH").field("MiddleAdj", &self.MiddleAdj).field("RangeAdj", &self.RangeAdj).finish()
-    }
-}
 impl windows_core::TypeKind for SPVPITCH {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPVPITCH {
-    fn eq(&self, other: &Self) -> bool {
-        self.MiddleAdj == other.MiddleAdj && self.RangeAdj == other.RangeAdj
-    }
-}
-impl Eq for SPVPITCH {}
 impl Default for SPVPITCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPVSTATE {
     pub eAction: SPVACTIONS,
     pub LangID: u16,
@@ -10977,32 +10219,16 @@ pub struct SPVSTATE {
     pub ePartOfSpeech: SPPARTOFSPEECH,
     pub Context: SPVCONTEXT,
 }
-impl Copy for SPVSTATE {}
-impl Clone for SPVSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPVSTATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPVSTATE").field("eAction", &self.eAction).field("LangID", &self.LangID).field("wReserved", &self.wReserved).field("EmphAdj", &self.EmphAdj).field("RateAdj", &self.RateAdj).field("Volume", &self.Volume).field("PitchAdj", &self.PitchAdj).field("SilenceMSecs", &self.SilenceMSecs).field("pPhoneIds", &self.pPhoneIds).field("ePartOfSpeech", &self.ePartOfSpeech).field("Context", &self.Context).finish()
-    }
-}
 impl windows_core::TypeKind for SPVSTATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPVSTATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.eAction == other.eAction && self.LangID == other.LangID && self.wReserved == other.wReserved && self.EmphAdj == other.EmphAdj && self.RateAdj == other.RateAdj && self.Volume == other.Volume && self.PitchAdj == other.PitchAdj && self.SilenceMSecs == other.SilenceMSecs && self.pPhoneIds == other.pPhoneIds && self.ePartOfSpeech == other.ePartOfSpeech && self.Context == other.Context
-    }
-}
-impl Eq for SPVSTATE {}
 impl Default for SPVSTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPVTEXTFRAG {
     pub pNext: *mut SPVTEXTFRAG,
     pub State: SPVSTATE,
@@ -11010,32 +10236,16 @@ pub struct SPVTEXTFRAG {
     pub ulTextLen: u32,
     pub ulTextSrcOffset: u32,
 }
-impl Copy for SPVTEXTFRAG {}
-impl Clone for SPVTEXTFRAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPVTEXTFRAG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPVTEXTFRAG").field("pNext", &self.pNext).field("State", &self.State).field("pTextStart", &self.pTextStart).field("ulTextLen", &self.ulTextLen).field("ulTextSrcOffset", &self.ulTextSrcOffset).finish()
-    }
-}
 impl windows_core::TypeKind for SPVTEXTFRAG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPVTEXTFRAG {
-    fn eq(&self, other: &Self) -> bool {
-        self.pNext == other.pNext && self.State == other.State && self.pTextStart == other.pTextStart && self.ulTextLen == other.ulTextLen && self.ulTextSrcOffset == other.ulTextSrcOffset
-    }
-}
-impl Eq for SPVTEXTFRAG {}
 impl Default for SPVTEXTFRAG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPWORD {
     pub pNextWord: *mut SPWORD,
     pub LangID: u16,
@@ -11044,32 +10254,16 @@ pub struct SPWORD {
     pub pszWord: windows_core::PWSTR,
     pub pFirstWordPronunciation: *mut SPWORDPRONUNCIATION,
 }
-impl Copy for SPWORD {}
-impl Clone for SPWORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPWORD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPWORD").field("pNextWord", &self.pNextWord).field("LangID", &self.LangID).field("wReserved", &self.wReserved).field("eWordType", &self.eWordType).field("pszWord", &self.pszWord).field("pFirstWordPronunciation", &self.pFirstWordPronunciation).finish()
-    }
-}
 impl windows_core::TypeKind for SPWORD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPWORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.pNextWord == other.pNextWord && self.LangID == other.LangID && self.wReserved == other.wReserved && self.eWordType == other.eWordType && self.pszWord == other.pszWord && self.pFirstWordPronunciation == other.pFirstWordPronunciation
-    }
-}
-impl Eq for SPWORD {}
 impl Default for SPWORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPWORDENTRY {
     pub hWord: SPWORDHANDLE,
     pub LangID: u16,
@@ -11078,26 +10272,9 @@ pub struct SPWORDENTRY {
     pub aPhoneId: *mut u16,
     pub pvClientContext: *mut core::ffi::c_void,
 }
-impl Copy for SPWORDENTRY {}
-impl Clone for SPWORDENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPWORDENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPWORDENTRY").field("hWord", &self.hWord).field("LangID", &self.LangID).field("pszDisplayText", &self.pszDisplayText).field("pszLexicalForm", &self.pszLexicalForm).field("aPhoneId", &self.aPhoneId).field("pvClientContext", &self.pvClientContext).finish()
-    }
-}
 impl windows_core::TypeKind for SPWORDENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPWORDENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.hWord == other.hWord && self.LangID == other.LangID && self.pszDisplayText == other.pszDisplayText && self.pszLexicalForm == other.pszLexicalForm && self.aPhoneId == other.aPhoneId && self.pvClientContext == other.pvClientContext
-    }
-}
-impl Eq for SPWORDENTRY {}
 impl Default for SPWORDENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11120,37 +10297,22 @@ impl windows_core::TypeKind for SPWORDHANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPWORDLIST {
     pub ulSize: u32,
     pub pvBuffer: *mut u8,
     pub pFirstWord: *mut SPWORD,
 }
-impl Copy for SPWORDLIST {}
-impl Clone for SPWORDLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPWORDLIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPWORDLIST").field("ulSize", &self.ulSize).field("pvBuffer", &self.pvBuffer).field("pFirstWord", &self.pFirstWord).finish()
-    }
-}
 impl windows_core::TypeKind for SPWORDLIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPWORDLIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulSize == other.ulSize && self.pvBuffer == other.pvBuffer && self.pFirstWord == other.pFirstWord
-    }
-}
-impl Eq for SPWORDLIST {}
 impl Default for SPWORDLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPWORDPRONUNCIATION {
     pub pNextWordPronunciation: *mut SPWORDPRONUNCIATION,
     pub eLexiconType: SPLEXICONTYPE,
@@ -11159,57 +10321,24 @@ pub struct SPWORDPRONUNCIATION {
     pub ePartOfSpeech: SPPARTOFSPEECH,
     pub szPronunciation: [u16; 1],
 }
-impl Copy for SPWORDPRONUNCIATION {}
-impl Clone for SPWORDPRONUNCIATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPWORDPRONUNCIATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPWORDPRONUNCIATION").field("pNextWordPronunciation", &self.pNextWordPronunciation).field("eLexiconType", &self.eLexiconType).field("LangID", &self.LangID).field("wPronunciationFlags", &self.wPronunciationFlags).field("ePartOfSpeech", &self.ePartOfSpeech).field("szPronunciation", &self.szPronunciation).finish()
-    }
-}
 impl windows_core::TypeKind for SPWORDPRONUNCIATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPWORDPRONUNCIATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.pNextWordPronunciation == other.pNextWordPronunciation && self.eLexiconType == other.eLexiconType && self.LangID == other.LangID && self.wPronunciationFlags == other.wPronunciationFlags && self.ePartOfSpeech == other.ePartOfSpeech && self.szPronunciation == other.szPronunciation
-    }
-}
-impl Eq for SPWORDPRONUNCIATION {}
 impl Default for SPWORDPRONUNCIATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPWORDPRONUNCIATIONLIST {
     pub ulSize: u32,
     pub pvBuffer: *mut u8,
     pub pFirstWordPronunciation: *mut SPWORDPRONUNCIATION,
 }
-impl Copy for SPWORDPRONUNCIATIONLIST {}
-impl Clone for SPWORDPRONUNCIATIONLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPWORDPRONUNCIATIONLIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPWORDPRONUNCIATIONLIST").field("ulSize", &self.ulSize).field("pvBuffer", &self.pvBuffer).field("pFirstWordPronunciation", &self.pFirstWordPronunciation).finish()
-    }
-}
 impl windows_core::TypeKind for SPWORDPRONUNCIATIONLIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPWORDPRONUNCIATIONLIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulSize == other.ulSize && self.pvBuffer == other.pvBuffer && self.pFirstWordPronunciation == other.pFirstWordPronunciation
-    }
-}
-impl Eq for SPWORDPRONUNCIATIONLIST {}
 impl Default for SPWORDPRONUNCIATIONLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

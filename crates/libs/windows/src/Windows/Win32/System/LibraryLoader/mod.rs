@@ -488,93 +488,45 @@ impl core::ops::Not for LOAD_LIBRARY_FLAGS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENUMUILANG {
     pub NumOfEnumUILang: u32,
     pub SizeOfEnumUIBuffer: u32,
     pub pEnumUIBuffer: *mut u16,
 }
-impl Copy for ENUMUILANG {}
-impl Clone for ENUMUILANG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ENUMUILANG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ENUMUILANG").field("NumOfEnumUILang", &self.NumOfEnumUILang).field("SizeOfEnumUIBuffer", &self.SizeOfEnumUIBuffer).field("pEnumUIBuffer", &self.pEnumUIBuffer).finish()
-    }
-}
 impl windows_core::TypeKind for ENUMUILANG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ENUMUILANG {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumOfEnumUILang == other.NumOfEnumUILang && self.SizeOfEnumUIBuffer == other.SizeOfEnumUIBuffer && self.pEnumUIBuffer == other.pEnumUIBuffer
-    }
-}
-impl Eq for ENUMUILANG {}
 impl Default for ENUMUILANG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REDIRECTION_DESCRIPTOR {
     pub Version: u32,
     pub FunctionCount: u32,
     pub Redirections: *mut REDIRECTION_FUNCTION_DESCRIPTOR,
 }
-impl Copy for REDIRECTION_DESCRIPTOR {}
-impl Clone for REDIRECTION_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for REDIRECTION_DESCRIPTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REDIRECTION_DESCRIPTOR").field("Version", &self.Version).field("FunctionCount", &self.FunctionCount).field("Redirections", &self.Redirections).finish()
-    }
-}
 impl windows_core::TypeKind for REDIRECTION_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for REDIRECTION_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.FunctionCount == other.FunctionCount && self.Redirections == other.Redirections
-    }
-}
-impl Eq for REDIRECTION_DESCRIPTOR {}
 impl Default for REDIRECTION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REDIRECTION_FUNCTION_DESCRIPTOR {
     pub DllName: windows_core::PCSTR,
     pub FunctionName: windows_core::PCSTR,
     pub RedirectionTarget: *mut core::ffi::c_void,
 }
-impl Copy for REDIRECTION_FUNCTION_DESCRIPTOR {}
-impl Clone for REDIRECTION_FUNCTION_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for REDIRECTION_FUNCTION_DESCRIPTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REDIRECTION_FUNCTION_DESCRIPTOR").field("DllName", &self.DllName).field("FunctionName", &self.FunctionName).field("RedirectionTarget", &self.RedirectionTarget).finish()
-    }
-}
 impl windows_core::TypeKind for REDIRECTION_FUNCTION_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for REDIRECTION_FUNCTION_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.DllName == other.DllName && self.FunctionName == other.FunctionName && self.RedirectionTarget == other.RedirectionTarget
-    }
-}
-impl Eq for REDIRECTION_FUNCTION_DESCRIPTOR {}
 impl Default for REDIRECTION_FUNCTION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

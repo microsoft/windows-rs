@@ -2391,78 +2391,41 @@ impl core::fmt::Debug for WHV_X64_UNSUPPORTED_FEATURE_CODE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOS_IMAGE_INFO {
     pub PdbName: windows_core::PCSTR,
     pub ImageBaseAddress: u64,
     pub ImageSize: u32,
     pub Timestamp: u32,
 }
-impl Copy for DOS_IMAGE_INFO {}
-impl Clone for DOS_IMAGE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOS_IMAGE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOS_IMAGE_INFO").field("PdbName", &self.PdbName).field("ImageBaseAddress", &self.ImageBaseAddress).field("ImageSize", &self.ImageSize).field("Timestamp", &self.Timestamp).finish()
-    }
-}
 impl windows_core::TypeKind for DOS_IMAGE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOS_IMAGE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.PdbName == other.PdbName && self.ImageBaseAddress == other.ImageBaseAddress && self.ImageSize == other.ImageSize && self.Timestamp == other.Timestamp
-    }
-}
-impl Eq for DOS_IMAGE_INFO {}
 impl Default for DOS_IMAGE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GPA_MEMORY_CHUNK {
     pub GuestPhysicalStartPageIndex: u64,
     pub PageCount: u64,
 }
-impl Copy for GPA_MEMORY_CHUNK {}
-impl Clone for GPA_MEMORY_CHUNK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GPA_MEMORY_CHUNK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GPA_MEMORY_CHUNK").field("GuestPhysicalStartPageIndex", &self.GuestPhysicalStartPageIndex).field("PageCount", &self.PageCount).finish()
-    }
-}
 impl windows_core::TypeKind for GPA_MEMORY_CHUNK {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GPA_MEMORY_CHUNK {
-    fn eq(&self, other: &Self) -> bool {
-        self.GuestPhysicalStartPageIndex == other.GuestPhysicalStartPageIndex && self.PageCount == other.PageCount
-    }
-}
-impl Eq for GPA_MEMORY_CHUNK {}
 impl Default for GPA_MEMORY_CHUNK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union GUEST_OS_INFO {
     pub AsUINT64: u64,
     pub ClosedSource: GUEST_OS_INFO_0,
     pub OpenSource: GUEST_OS_INFO_1,
-}
-impl Copy for GUEST_OS_INFO {}
-impl Clone for GUEST_OS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for GUEST_OS_INFO {
     type TypeKind = windows_core::CopyType;
@@ -2473,64 +2436,33 @@ impl Default for GUEST_OS_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GUEST_OS_INFO_0 {
     pub _bitfield: u64,
-}
-impl Copy for GUEST_OS_INFO_0 {}
-impl Clone for GUEST_OS_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GUEST_OS_INFO_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GUEST_OS_INFO_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for GUEST_OS_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GUEST_OS_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for GUEST_OS_INFO_0 {}
 impl Default for GUEST_OS_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GUEST_OS_INFO_1 {
     pub _bitfield: u64,
-}
-impl Copy for GUEST_OS_INFO_1 {}
-impl Clone for GUEST_OS_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GUEST_OS_INFO_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GUEST_OS_INFO_1").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for GUEST_OS_INFO_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GUEST_OS_INFO_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for GUEST_OS_INFO_1 {}
 impl Default for GUEST_OS_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct HDV_PCI_DEVICE_INTERFACE {
     pub Version: HDV_PCI_INTERFACE_VERSION,
     pub Initialize: HDV_PCI_DEVICE_INITIALIZE,
@@ -2544,17 +2476,6 @@ pub struct HDV_PCI_DEVICE_INTERFACE {
     pub ReadInterceptedMemory: HDV_PCI_READ_INTERCEPTED_MEMORY,
     pub WriteInterceptedMemory: HDV_PCI_WRITE_INTERCEPTED_MEMORY,
 }
-impl Copy for HDV_PCI_DEVICE_INTERFACE {}
-impl Clone for HDV_PCI_DEVICE_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HDV_PCI_DEVICE_INTERFACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HDV_PCI_DEVICE_INTERFACE").field("Version", &self.Version).finish()
-    }
-}
 impl windows_core::TypeKind for HDV_PCI_DEVICE_INTERFACE {
     type TypeKind = windows_core::CopyType;
 }
@@ -2564,6 +2485,7 @@ impl Default for HDV_PCI_DEVICE_INTERFACE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HDV_PCI_PNP_ID {
     pub VendorID: u16,
     pub DeviceID: u16,
@@ -2574,88 +2496,39 @@ pub struct HDV_PCI_PNP_ID {
     pub SubVendorID: u16,
     pub SubSystemID: u16,
 }
-impl Copy for HDV_PCI_PNP_ID {}
-impl Clone for HDV_PCI_PNP_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HDV_PCI_PNP_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HDV_PCI_PNP_ID").field("VendorID", &self.VendorID).field("DeviceID", &self.DeviceID).field("RevisionID", &self.RevisionID).field("ProgIf", &self.ProgIf).field("SubClass", &self.SubClass).field("BaseClass", &self.BaseClass).field("SubVendorID", &self.SubVendorID).field("SubSystemID", &self.SubSystemID).finish()
-    }
-}
 impl windows_core::TypeKind for HDV_PCI_PNP_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HDV_PCI_PNP_ID {
-    fn eq(&self, other: &Self) -> bool {
-        self.VendorID == other.VendorID && self.DeviceID == other.DeviceID && self.RevisionID == other.RevisionID && self.ProgIf == other.ProgIf && self.SubClass == other.SubClass && self.BaseClass == other.BaseClass && self.SubVendorID == other.SubVendorID && self.SubSystemID == other.SubSystemID
-    }
-}
-impl Eq for HDV_PCI_PNP_ID {}
 impl Default for HDV_PCI_PNP_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HVSOCKET_ADDRESS_INFO {
     pub SystemId: windows_core::GUID,
     pub VirtualMachineId: windows_core::GUID,
     pub SiloId: windows_core::GUID,
     pub Flags: u32,
 }
-impl Copy for HVSOCKET_ADDRESS_INFO {}
-impl Clone for HVSOCKET_ADDRESS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HVSOCKET_ADDRESS_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HVSOCKET_ADDRESS_INFO").field("SystemId", &self.SystemId).field("VirtualMachineId", &self.VirtualMachineId).field("SiloId", &self.SiloId).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for HVSOCKET_ADDRESS_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HVSOCKET_ADDRESS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.SystemId == other.SystemId && self.VirtualMachineId == other.VirtualMachineId && self.SiloId == other.SiloId && self.Flags == other.Flags
-    }
-}
-impl Eq for HVSOCKET_ADDRESS_INFO {}
 impl Default for HVSOCKET_ADDRESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MODULE_INFO {
     pub ProcessImageName: windows_core::PCSTR,
     pub Image: DOS_IMAGE_INFO,
 }
-impl Copy for MODULE_INFO {}
-impl Clone for MODULE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MODULE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MODULE_INFO").field("ProcessImageName", &self.ProcessImageName).field("Image", &self.Image).finish()
-    }
-}
 impl windows_core::TypeKind for MODULE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MODULE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ProcessImageName == other.ProcessImageName && self.Image == other.Image
-    }
-}
-impl Eq for MODULE_INFO {}
 impl Default for MODULE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2663,6 +2536,7 @@ impl Default for MODULE_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOCKADDR_HV {
     pub Family: super::super::Networking::WinSock::ADDRESS_FAMILY,
     pub Reserved: u16,
@@ -2670,31 +2544,9 @@ pub struct SOCKADDR_HV {
     pub ServiceId: windows_core::GUID,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for SOCKADDR_HV {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for SOCKADDR_HV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl core::fmt::Debug for SOCKADDR_HV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SOCKADDR_HV").field("Family", &self.Family).field("Reserved", &self.Reserved).field("VmId", &self.VmId).field("ServiceId", &self.ServiceId).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for SOCKADDR_HV {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl PartialEq for SOCKADDR_HV {
-    fn eq(&self, other: &Self) -> bool {
-        self.Family == other.Family && self.Reserved == other.Reserved && self.VmId == other.VmId && self.ServiceId == other.ServiceId
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Eq for SOCKADDR_HV {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for SOCKADDR_HV {
     fn default() -> Self {
@@ -2702,6 +2554,7 @@ impl Default for SOCKADDR_HV {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VIRTUAL_PROCESSOR_REGISTER {
     pub Reg64: u64,
     pub Reg32: u32,
@@ -2709,12 +2562,6 @@ pub union VIRTUAL_PROCESSOR_REGISTER {
     pub Reg8: u8,
     pub Reg128: VIRTUAL_PROCESSOR_REGISTER_0,
     pub X64: VIRTUAL_PROCESSOR_REGISTER_1,
-}
-impl Copy for VIRTUAL_PROCESSOR_REGISTER {}
-impl Clone for VIRTUAL_PROCESSOR_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER {
     type TypeKind = windows_core::CopyType;
@@ -2725,47 +2572,26 @@ impl Default for VIRTUAL_PROCESSOR_REGISTER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VIRTUAL_PROCESSOR_REGISTER_0 {
     pub Low64: u64,
     pub High64: u64,
 }
-impl Copy for VIRTUAL_PROCESSOR_REGISTER_0 {}
-impl Clone for VIRTUAL_PROCESSOR_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VIRTUAL_PROCESSOR_REGISTER_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VIRTUAL_PROCESSOR_REGISTER_0").field("Low64", &self.Low64).field("High64", &self.High64).finish()
-    }
-}
 impl windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VIRTUAL_PROCESSOR_REGISTER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Low64 == other.Low64 && self.High64 == other.High64
-    }
-}
-impl Eq for VIRTUAL_PROCESSOR_REGISTER_0 {}
 impl Default for VIRTUAL_PROCESSOR_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VIRTUAL_PROCESSOR_REGISTER_1 {
     pub Segment: VIRTUAL_PROCESSOR_REGISTER_1_1,
     pub Table: VIRTUAL_PROCESSOR_REGISTER_1_2,
     pub FpControlStatus: VIRTUAL_PROCESSOR_REGISTER_1_0,
     pub XmmControlStatus: VIRTUAL_PROCESSOR_REGISTER_1_3,
-}
-impl Copy for VIRTUAL_PROCESSOR_REGISTER_1 {}
-impl Clone for VIRTUAL_PROCESSOR_REGISTER_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1 {
     type TypeKind = windows_core::CopyType;
@@ -2776,6 +2602,7 @@ impl Default for VIRTUAL_PROCESSOR_REGISTER_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VIRTUAL_PROCESSOR_REGISTER_1_0 {
     pub FpControl: u16,
     pub FpStatus: u16,
@@ -2783,12 +2610,6 @@ pub struct VIRTUAL_PROCESSOR_REGISTER_1_0 {
     pub Reserved: u8,
     pub LastFpOp: u16,
     pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_0_0,
-}
-impl Copy for VIRTUAL_PROCESSOR_REGISTER_1_0 {}
-impl Clone for VIRTUAL_PROCESSOR_REGISTER_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_0 {
     type TypeKind = windows_core::CopyType;
@@ -2799,15 +2620,10 @@ impl Default for VIRTUAL_PROCESSOR_REGISTER_1_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
     pub LastFpRip: u64,
     pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_0_0_0,
-}
-impl Copy for VIRTUAL_PROCESSOR_REGISTER_1_0_0 {}
-impl Clone for VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
     type TypeKind = windows_core::CopyType;
@@ -2818,47 +2634,26 @@ impl Default for VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
     pub LastFpEip: u32,
     pub LastFpCs: u16,
 }
-impl Copy for VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {}
-impl Clone for VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VIRTUAL_PROCESSOR_REGISTER_1_0_0_0").field("LastFpEip", &self.LastFpEip).field("LastFpCs", &self.LastFpCs).finish()
-    }
-}
 impl windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.LastFpEip == other.LastFpEip && self.LastFpCs == other.LastFpCs
-    }
-}
-impl Eq for VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {}
 impl Default for VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VIRTUAL_PROCESSOR_REGISTER_1_1 {
     pub Base: u64,
     pub Limit: u32,
     pub Selector: u16,
     pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_1_0,
-}
-impl Copy for VIRTUAL_PROCESSOR_REGISTER_1_1 {}
-impl Clone for VIRTUAL_PROCESSOR_REGISTER_1_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_1 {
     type TypeKind = windows_core::CopyType;
@@ -2869,15 +2664,10 @@ impl Default for VIRTUAL_PROCESSOR_REGISTER_1_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VIRTUAL_PROCESSOR_REGISTER_1_1_0 {
     pub Attributes: u16,
     pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_1_0_0,
-}
-impl Copy for VIRTUAL_PROCESSOR_REGISTER_1_1_0 {}
-impl Clone for VIRTUAL_PROCESSOR_REGISTER_1_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_1_0 {
     type TypeKind = windows_core::CopyType;
@@ -2888,75 +2678,38 @@ impl Default for VIRTUAL_PROCESSOR_REGISTER_1_1_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {
     pub _bitfield: u16,
-}
-impl Copy for VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {}
-impl Clone for VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VIRTUAL_PROCESSOR_REGISTER_1_1_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {}
 impl Default for VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VIRTUAL_PROCESSOR_REGISTER_1_2 {
     pub Limit: u16,
     pub Base: u64,
 }
-impl Copy for VIRTUAL_PROCESSOR_REGISTER_1_2 {}
-impl Clone for VIRTUAL_PROCESSOR_REGISTER_1_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VIRTUAL_PROCESSOR_REGISTER_1_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VIRTUAL_PROCESSOR_REGISTER_1_2").field("Limit", &self.Limit).field("Base", &self.Base).finish()
-    }
-}
 impl windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VIRTUAL_PROCESSOR_REGISTER_1_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Limit == other.Limit && self.Base == other.Base
-    }
-}
-impl Eq for VIRTUAL_PROCESSOR_REGISTER_1_2 {}
 impl Default for VIRTUAL_PROCESSOR_REGISTER_1_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VIRTUAL_PROCESSOR_REGISTER_1_3 {
     pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_3_0,
     pub XmmStatusControl: u32,
     pub XmmStatusControlMask: u32,
-}
-impl Copy for VIRTUAL_PROCESSOR_REGISTER_1_3 {}
-impl Clone for VIRTUAL_PROCESSOR_REGISTER_1_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_3 {
     type TypeKind = windows_core::CopyType;
@@ -2967,15 +2720,10 @@ impl Default for VIRTUAL_PROCESSOR_REGISTER_1_3 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VIRTUAL_PROCESSOR_REGISTER_1_3_0 {
     pub LastFpRdp: u64,
     pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_3_0_0,
-}
-impl Copy for VIRTUAL_PROCESSOR_REGISTER_1_3_0 {}
-impl Clone for VIRTUAL_PROCESSOR_REGISTER_1_3_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_3_0 {
     type TypeKind = windows_core::CopyType;
@@ -2986,75 +2734,38 @@ impl Default for VIRTUAL_PROCESSOR_REGISTER_1_3_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {
     pub LastFpDp: u32,
     pub LastFpDs: u16,
 }
-impl Copy for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {}
-impl Clone for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VIRTUAL_PROCESSOR_REGISTER_1_3_0_0").field("LastFpDp", &self.LastFpDp).field("LastFpDs", &self.LastFpDs).finish()
-    }
-}
 impl windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.LastFpDp == other.LastFpDp && self.LastFpDs == other.LastFpDs
-    }
-}
-impl Eq for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {}
 impl Default for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VM_GENCOUNTER {
     pub GenerationCount: u64,
     pub GenerationCountHigh: u64,
 }
-impl Copy for VM_GENCOUNTER {}
-impl Clone for VM_GENCOUNTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VM_GENCOUNTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VM_GENCOUNTER").field("GenerationCount", &self.GenerationCount).field("GenerationCountHigh", &self.GenerationCountHigh).finish()
-    }
-}
 impl windows_core::TypeKind for VM_GENCOUNTER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VM_GENCOUNTER {
-    fn eq(&self, other: &Self) -> bool {
-        self.GenerationCount == other.GenerationCount && self.GenerationCountHigh == other.GenerationCountHigh
-    }
-}
-impl Eq for VM_GENCOUNTER {}
 impl Default for VM_GENCOUNTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_ACCESS_GPA_CONTROLS {
     pub AsUINT64: u64,
     pub Anonymous: WHV_ACCESS_GPA_CONTROLS_0,
-}
-impl Copy for WHV_ACCESS_GPA_CONTROLS {}
-impl Clone for WHV_ACCESS_GPA_CONTROLS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_ACCESS_GPA_CONTROLS {
     type TypeKind = windows_core::CopyType;
@@ -3065,44 +2776,23 @@ impl Default for WHV_ACCESS_GPA_CONTROLS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_ACCESS_GPA_CONTROLS_0 {
     pub CacheType: WHV_CACHE_TYPE,
     pub Reserved: u32,
 }
-impl Copy for WHV_ACCESS_GPA_CONTROLS_0 {}
-impl Clone for WHV_ACCESS_GPA_CONTROLS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_ACCESS_GPA_CONTROLS_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_ACCESS_GPA_CONTROLS_0").field("CacheType", &self.CacheType).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_ACCESS_GPA_CONTROLS_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_ACCESS_GPA_CONTROLS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.CacheType == other.CacheType && self.Reserved == other.Reserved
-    }
-}
-impl Eq for WHV_ACCESS_GPA_CONTROLS_0 {}
 impl Default for WHV_ACCESS_GPA_CONTROLS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_ADVISE_GPA_RANGE {
     pub Populate: WHV_ADVISE_GPA_RANGE_POPULATE,
-}
-impl Copy for WHV_ADVISE_GPA_RANGE {}
-impl Clone for WHV_ADVISE_GPA_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_ADVISE_GPA_RANGE {
     type TypeKind = windows_core::CopyType;
@@ -3113,15 +2803,10 @@ impl Default for WHV_ADVISE_GPA_RANGE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHV_ADVISE_GPA_RANGE_POPULATE {
     pub Flags: WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS,
     pub AccessType: WHV_MEMORY_ACCESS_TYPE,
-}
-impl Copy for WHV_ADVISE_GPA_RANGE_POPULATE {}
-impl Clone for WHV_ADVISE_GPA_RANGE_POPULATE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_ADVISE_GPA_RANGE_POPULATE {
     type TypeKind = windows_core::CopyType;
@@ -3132,15 +2817,10 @@ impl Default for WHV_ADVISE_GPA_RANGE_POPULATE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
     pub AsUINT32: u32,
     pub Anonymous: WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0,
-}
-impl Copy for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {}
-impl Clone for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -3151,35 +2831,20 @@ impl Default for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
     pub _bitfield: u32,
-}
-impl Copy for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {}
-impl Clone for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {}
 impl Default for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_CAPABILITY {
     pub HypervisorPresent: super::super::Foundation::BOOL,
     pub Features: WHV_CAPABILITY_FEATURES,
@@ -3199,12 +2864,6 @@ pub union WHV_CAPABILITY {
     pub ProcessorPerfmonFeatures: WHV_PROCESSOR_PERFMON_FEATURES,
     pub SchedulerFeatures: WHV_SCHEDULER_FEATURES,
 }
-impl Copy for WHV_CAPABILITY {}
-impl Clone for WHV_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for WHV_CAPABILITY {
     type TypeKind = windows_core::CopyType;
 }
@@ -3214,15 +2873,10 @@ impl Default for WHV_CAPABILITY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_CAPABILITY_FEATURES {
     pub Anonymous: WHV_CAPABILITY_FEATURES_0,
     pub AsUINT64: u64,
-}
-impl Copy for WHV_CAPABILITY_FEATURES {}
-impl Clone for WHV_CAPABILITY_FEATURES {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_CAPABILITY_FEATURES {
     type TypeKind = windows_core::CopyType;
@@ -3233,35 +2887,20 @@ impl Default for WHV_CAPABILITY_FEATURES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_CAPABILITY_FEATURES_0 {
     pub _bitfield: u64,
-}
-impl Copy for WHV_CAPABILITY_FEATURES_0 {}
-impl Clone for WHV_CAPABILITY_FEATURES_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_CAPABILITY_FEATURES_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_CAPABILITY_FEATURES_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_CAPABILITY_FEATURES_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_CAPABILITY_FEATURES_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for WHV_CAPABILITY_FEATURES_0 {}
 impl Default for WHV_CAPABILITY_FEATURES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
     pub _bitfield: u32,
     pub HighestFrequencyMhz: u32,
@@ -3269,96 +2908,48 @@ pub struct WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
     pub LowestFrequencyMhz: u32,
     pub FrequencyStepMhz: u32,
 }
-impl Copy for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {}
-impl Clone for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP").field("_bitfield", &self._bitfield).field("HighestFrequencyMhz", &self.HighestFrequencyMhz).field("NominalFrequencyMhz", &self.NominalFrequencyMhz).field("LowestFrequencyMhz", &self.LowestFrequencyMhz).field("FrequencyStepMhz", &self.FrequencyStepMhz).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield && self.HighestFrequencyMhz == other.HighestFrequencyMhz && self.NominalFrequencyMhz == other.NominalFrequencyMhz && self.LowestFrequencyMhz == other.LowestFrequencyMhz && self.FrequencyStepMhz == other.FrequencyStepMhz
-    }
-}
-impl Eq for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {}
 impl Default for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_CPUID_OUTPUT {
     pub Eax: u32,
     pub Ebx: u32,
     pub Ecx: u32,
     pub Edx: u32,
 }
-impl Copy for WHV_CPUID_OUTPUT {}
-impl Clone for WHV_CPUID_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_CPUID_OUTPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_CPUID_OUTPUT").field("Eax", &self.Eax).field("Ebx", &self.Ebx).field("Ecx", &self.Ecx).field("Edx", &self.Edx).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_CPUID_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_CPUID_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Eax == other.Eax && self.Ebx == other.Ebx && self.Ecx == other.Ecx && self.Edx == other.Edx
-    }
-}
-impl Eq for WHV_CPUID_OUTPUT {}
 impl Default for WHV_CPUID_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_DOORBELL_MATCH_DATA {
     pub GuestAddress: u64,
     pub Value: u64,
     pub Length: u32,
     pub _bitfield: u32,
 }
-impl Copy for WHV_DOORBELL_MATCH_DATA {}
-impl Clone for WHV_DOORBELL_MATCH_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_DOORBELL_MATCH_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_DOORBELL_MATCH_DATA").field("GuestAddress", &self.GuestAddress).field("Value", &self.Value).field("Length", &self.Length).field("_bitfield", &self._bitfield).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_DOORBELL_MATCH_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_DOORBELL_MATCH_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.GuestAddress == other.GuestAddress && self.Value == other.Value && self.Length == other.Length && self._bitfield == other._bitfield
-    }
-}
-impl Eq for WHV_DOORBELL_MATCH_DATA {}
 impl Default for WHV_DOORBELL_MATCH_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct WHV_EMULATOR_CALLBACKS {
     pub Size: u32,
     pub Reserved: u32,
@@ -3367,17 +2958,6 @@ pub struct WHV_EMULATOR_CALLBACKS {
     pub WHvEmulatorGetVirtualProcessorRegisters: WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK,
     pub WHvEmulatorSetVirtualProcessorRegisters: WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK,
     pub WHvEmulatorTranslateGvaPage: WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK,
-}
-impl Copy for WHV_EMULATOR_CALLBACKS {}
-impl Clone for WHV_EMULATOR_CALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_EMULATOR_CALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_EMULATOR_CALLBACKS").field("Size", &self.Size).field("Reserved", &self.Reserved).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_EMULATOR_CALLBACKS {
     type TypeKind = windows_core::CopyType;
@@ -3388,79 +2968,42 @@ impl Default for WHV_EMULATOR_CALLBACKS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_EMULATOR_IO_ACCESS_INFO {
     pub Direction: u8,
     pub Port: u16,
     pub AccessSize: u16,
     pub Data: u32,
 }
-impl Copy for WHV_EMULATOR_IO_ACCESS_INFO {}
-impl Clone for WHV_EMULATOR_IO_ACCESS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_EMULATOR_IO_ACCESS_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_EMULATOR_IO_ACCESS_INFO").field("Direction", &self.Direction).field("Port", &self.Port).field("AccessSize", &self.AccessSize).field("Data", &self.Data).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_EMULATOR_IO_ACCESS_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_EMULATOR_IO_ACCESS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Direction == other.Direction && self.Port == other.Port && self.AccessSize == other.AccessSize && self.Data == other.Data
-    }
-}
-impl Eq for WHV_EMULATOR_IO_ACCESS_INFO {}
 impl Default for WHV_EMULATOR_IO_ACCESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_EMULATOR_MEMORY_ACCESS_INFO {
     pub GpaAddress: u64,
     pub Direction: u8,
     pub AccessSize: u8,
     pub Data: [u8; 8],
 }
-impl Copy for WHV_EMULATOR_MEMORY_ACCESS_INFO {}
-impl Clone for WHV_EMULATOR_MEMORY_ACCESS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_EMULATOR_MEMORY_ACCESS_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_EMULATOR_MEMORY_ACCESS_INFO").field("GpaAddress", &self.GpaAddress).field("Direction", &self.Direction).field("AccessSize", &self.AccessSize).field("Data", &self.Data).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_EMULATOR_MEMORY_ACCESS_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_EMULATOR_MEMORY_ACCESS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.GpaAddress == other.GpaAddress && self.Direction == other.Direction && self.AccessSize == other.AccessSize && self.Data == other.Data
-    }
-}
-impl Eq for WHV_EMULATOR_MEMORY_ACCESS_INFO {}
 impl Default for WHV_EMULATOR_MEMORY_ACCESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_EMULATOR_STATUS {
     pub Anonymous: WHV_EMULATOR_STATUS_0,
     pub AsUINT32: u32,
-}
-impl Copy for WHV_EMULATOR_STATUS {}
-impl Clone for WHV_EMULATOR_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_EMULATOR_STATUS {
     type TypeKind = windows_core::CopyType;
@@ -3471,44 +3014,23 @@ impl Default for WHV_EMULATOR_STATUS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_EMULATOR_STATUS_0 {
     pub _bitfield: u32,
-}
-impl Copy for WHV_EMULATOR_STATUS_0 {}
-impl Clone for WHV_EMULATOR_STATUS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_EMULATOR_STATUS_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_EMULATOR_STATUS_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_EMULATOR_STATUS_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_EMULATOR_STATUS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for WHV_EMULATOR_STATUS_0 {}
 impl Default for WHV_EMULATOR_STATUS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_EXTENDED_VM_EXITS {
     pub Anonymous: WHV_EXTENDED_VM_EXITS_0,
     pub AsUINT64: u64,
-}
-impl Copy for WHV_EXTENDED_VM_EXITS {}
-impl Clone for WHV_EXTENDED_VM_EXITS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_EXTENDED_VM_EXITS {
     type TypeKind = windows_core::CopyType;
@@ -3519,35 +3041,20 @@ impl Default for WHV_EXTENDED_VM_EXITS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_EXTENDED_VM_EXITS_0 {
     pub _bitfield: u64,
-}
-impl Copy for WHV_EXTENDED_VM_EXITS_0 {}
-impl Clone for WHV_EXTENDED_VM_EXITS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_EXTENDED_VM_EXITS_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_EXTENDED_VM_EXITS_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_EXTENDED_VM_EXITS_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_EXTENDED_VM_EXITS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for WHV_EXTENDED_VM_EXITS_0 {}
 impl Default for WHV_EXTENDED_VM_EXITS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHV_HYPERCALL_CONTEXT {
     pub Rax: u64,
     pub Rbx: u64,
@@ -3560,12 +3067,6 @@ pub struct WHV_HYPERCALL_CONTEXT {
     pub XmmRegisters: [WHV_UINT128; 6],
     pub Reserved1: [u64; 2],
 }
-impl Copy for WHV_HYPERCALL_CONTEXT {}
-impl Clone for WHV_HYPERCALL_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for WHV_HYPERCALL_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
@@ -3575,15 +3076,10 @@ impl Default for WHV_HYPERCALL_CONTEXT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_INTERNAL_ACTIVITY_REGISTER {
     pub Anonymous: WHV_INTERNAL_ACTIVITY_REGISTER_0,
     pub AsUINT64: u64,
-}
-impl Copy for WHV_INTERNAL_ACTIVITY_REGISTER {}
-impl Clone for WHV_INTERNAL_ACTIVITY_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_INTERNAL_ACTIVITY_REGISTER {
     type TypeKind = windows_core::CopyType;
@@ -3594,66 +3090,35 @@ impl Default for WHV_INTERNAL_ACTIVITY_REGISTER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_INTERNAL_ACTIVITY_REGISTER_0 {
     pub _bitfield: u64,
-}
-impl Copy for WHV_INTERNAL_ACTIVITY_REGISTER_0 {}
-impl Clone for WHV_INTERNAL_ACTIVITY_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_INTERNAL_ACTIVITY_REGISTER_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_INTERNAL_ACTIVITY_REGISTER_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_INTERNAL_ACTIVITY_REGISTER_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_INTERNAL_ACTIVITY_REGISTER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for WHV_INTERNAL_ACTIVITY_REGISTER_0 {}
 impl Default for WHV_INTERNAL_ACTIVITY_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_INTERRUPT_CONTROL {
     pub _bitfield: u64,
     pub Destination: u32,
     pub Vector: u32,
 }
-impl Copy for WHV_INTERRUPT_CONTROL {}
-impl Clone for WHV_INTERRUPT_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_INTERRUPT_CONTROL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_INTERRUPT_CONTROL").field("_bitfield", &self._bitfield).field("Destination", &self.Destination).field("Vector", &self.Vector).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_INTERRUPT_CONTROL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_INTERRUPT_CONTROL {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield && self.Destination == other.Destination && self.Vector == other.Vector
-    }
-}
-impl Eq for WHV_INTERRUPT_CONTROL {}
 impl Default for WHV_INTERRUPT_CONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHV_MEMORY_ACCESS_CONTEXT {
     pub InstructionByteCount: u8,
     pub Reserved: [u8; 3],
@@ -3661,12 +3126,6 @@ pub struct WHV_MEMORY_ACCESS_CONTEXT {
     pub AccessInfo: WHV_MEMORY_ACCESS_INFO,
     pub Gpa: u64,
     pub Gva: u64,
-}
-impl Copy for WHV_MEMORY_ACCESS_CONTEXT {}
-impl Clone for WHV_MEMORY_ACCESS_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_MEMORY_ACCESS_CONTEXT {
     type TypeKind = windows_core::CopyType;
@@ -3677,15 +3136,10 @@ impl Default for WHV_MEMORY_ACCESS_CONTEXT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_MEMORY_ACCESS_INFO {
     pub Anonymous: WHV_MEMORY_ACCESS_INFO_0,
     pub AsUINT32: u32,
-}
-impl Copy for WHV_MEMORY_ACCESS_INFO {}
-impl Clone for WHV_MEMORY_ACCESS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_MEMORY_ACCESS_INFO {
     type TypeKind = windows_core::CopyType;
@@ -3696,107 +3150,54 @@ impl Default for WHV_MEMORY_ACCESS_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_MEMORY_ACCESS_INFO_0 {
     pub _bitfield: u32,
-}
-impl Copy for WHV_MEMORY_ACCESS_INFO_0 {}
-impl Clone for WHV_MEMORY_ACCESS_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_MEMORY_ACCESS_INFO_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_MEMORY_ACCESS_INFO_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_MEMORY_ACCESS_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_MEMORY_ACCESS_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for WHV_MEMORY_ACCESS_INFO_0 {}
 impl Default for WHV_MEMORY_ACCESS_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_MEMORY_RANGE_ENTRY {
     pub GuestAddress: u64,
     pub SizeInBytes: u64,
 }
-impl Copy for WHV_MEMORY_RANGE_ENTRY {}
-impl Clone for WHV_MEMORY_RANGE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_MEMORY_RANGE_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_MEMORY_RANGE_ENTRY").field("GuestAddress", &self.GuestAddress).field("SizeInBytes", &self.SizeInBytes).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_MEMORY_RANGE_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_MEMORY_RANGE_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.GuestAddress == other.GuestAddress && self.SizeInBytes == other.SizeInBytes
-    }
-}
-impl Eq for WHV_MEMORY_RANGE_ENTRY {}
 impl Default for WHV_MEMORY_RANGE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_MSR_ACTION_ENTRY {
     pub Index: u32,
     pub ReadAction: u8,
     pub WriteAction: u8,
     pub Reserved: u16,
 }
-impl Copy for WHV_MSR_ACTION_ENTRY {}
-impl Clone for WHV_MSR_ACTION_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_MSR_ACTION_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_MSR_ACTION_ENTRY").field("Index", &self.Index).field("ReadAction", &self.ReadAction).field("WriteAction", &self.WriteAction).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_MSR_ACTION_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_MSR_ACTION_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Index == other.Index && self.ReadAction == other.ReadAction && self.WriteAction == other.WriteAction && self.Reserved == other.Reserved
-    }
-}
-impl Eq for WHV_MSR_ACTION_ENTRY {}
 impl Default for WHV_MSR_ACTION_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHV_NOTIFICATION_PORT_PARAMETERS {
     pub NotificationPortType: WHV_NOTIFICATION_PORT_TYPE,
     pub Reserved: u32,
     pub Anonymous: WHV_NOTIFICATION_PORT_PARAMETERS_0,
-}
-impl Copy for WHV_NOTIFICATION_PORT_PARAMETERS {}
-impl Clone for WHV_NOTIFICATION_PORT_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_NOTIFICATION_PORT_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -3807,15 +3208,10 @@ impl Default for WHV_NOTIFICATION_PORT_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_NOTIFICATION_PORT_PARAMETERS_0 {
     pub Doorbell: WHV_DOORBELL_MATCH_DATA,
     pub Event: WHV_NOTIFICATION_PORT_PARAMETERS_0_0,
-}
-impl Copy for WHV_NOTIFICATION_PORT_PARAMETERS_0 {}
-impl Clone for WHV_NOTIFICATION_PORT_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_NOTIFICATION_PORT_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
@@ -3826,29 +3222,13 @@ impl Default for WHV_NOTIFICATION_PORT_PARAMETERS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
     pub ConnectionId: u32,
-}
-impl Copy for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {}
-impl Clone for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_NOTIFICATION_PORT_PARAMETERS_0_0").field("ConnectionId", &self.ConnectionId).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ConnectionId == other.ConnectionId
-    }
-}
-impl Eq for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {}
 impl Default for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3878,37 +3258,22 @@ impl windows_core::TypeKind for WHV_PARTITION_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_PARTITION_MEMORY_COUNTERS {
     pub Mapped4KPageCount: u64,
     pub Mapped2MPageCount: u64,
     pub Mapped1GPageCount: u64,
 }
-impl Copy for WHV_PARTITION_MEMORY_COUNTERS {}
-impl Clone for WHV_PARTITION_MEMORY_COUNTERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_PARTITION_MEMORY_COUNTERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_PARTITION_MEMORY_COUNTERS").field("Mapped4KPageCount", &self.Mapped4KPageCount).field("Mapped2MPageCount", &self.Mapped2MPageCount).field("Mapped1GPageCount", &self.Mapped1GPageCount).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_PARTITION_MEMORY_COUNTERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_PARTITION_MEMORY_COUNTERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Mapped4KPageCount == other.Mapped4KPageCount && self.Mapped2MPageCount == other.Mapped2MPageCount && self.Mapped1GPageCount == other.Mapped1GPageCount
-    }
-}
-impl Eq for WHV_PARTITION_MEMORY_COUNTERS {}
 impl Default for WHV_PARTITION_MEMORY_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_PARTITION_PROPERTY {
     pub ExtendedVmExits: WHV_EXTENDED_VM_EXITS,
     pub ProcessorFeatures: WHV_PROCESSOR_FEATURES,
@@ -3941,12 +3306,6 @@ pub union WHV_PARTITION_PROPERTY {
     pub ProcessorPerfmonFeatures: WHV_PROCESSOR_PERFMON_FEATURES,
     pub DisableSmt: super::super::Foundation::BOOL,
 }
-impl Copy for WHV_PARTITION_PROPERTY {}
-impl Clone for WHV_PARTITION_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for WHV_PARTITION_PROPERTY {
     type TypeKind = windows_core::CopyType;
 }
@@ -3956,6 +3315,7 @@ impl Default for WHV_PARTITION_PROPERTY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_APIC_COUNTERS {
     pub MmioAccessCount: u64,
     pub EoiAccessCount: u64,
@@ -3963,72 +3323,34 @@ pub struct WHV_PROCESSOR_APIC_COUNTERS {
     pub SentIpiCount: u64,
     pub SelfIpiCount: u64,
 }
-impl Copy for WHV_PROCESSOR_APIC_COUNTERS {}
-impl Clone for WHV_PROCESSOR_APIC_COUNTERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_PROCESSOR_APIC_COUNTERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_PROCESSOR_APIC_COUNTERS").field("MmioAccessCount", &self.MmioAccessCount).field("EoiAccessCount", &self.EoiAccessCount).field("TprAccessCount", &self.TprAccessCount).field("SentIpiCount", &self.SentIpiCount).field("SelfIpiCount", &self.SelfIpiCount).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_PROCESSOR_APIC_COUNTERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_PROCESSOR_APIC_COUNTERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.MmioAccessCount == other.MmioAccessCount && self.EoiAccessCount == other.EoiAccessCount && self.TprAccessCount == other.TprAccessCount && self.SentIpiCount == other.SentIpiCount && self.SelfIpiCount == other.SelfIpiCount
-    }
-}
-impl Eq for WHV_PROCESSOR_APIC_COUNTERS {}
 impl Default for WHV_PROCESSOR_APIC_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_EVENT_COUNTERS {
     pub PageFaultCount: u64,
     pub ExceptionCount: u64,
     pub InterruptCount: u64,
 }
-impl Copy for WHV_PROCESSOR_EVENT_COUNTERS {}
-impl Clone for WHV_PROCESSOR_EVENT_COUNTERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_PROCESSOR_EVENT_COUNTERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_PROCESSOR_EVENT_COUNTERS").field("PageFaultCount", &self.PageFaultCount).field("ExceptionCount", &self.ExceptionCount).field("InterruptCount", &self.InterruptCount).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_PROCESSOR_EVENT_COUNTERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_PROCESSOR_EVENT_COUNTERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.PageFaultCount == other.PageFaultCount && self.ExceptionCount == other.ExceptionCount && self.InterruptCount == other.InterruptCount
-    }
-}
-impl Eq for WHV_PROCESSOR_EVENT_COUNTERS {}
 impl Default for WHV_PROCESSOR_EVENT_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_PROCESSOR_FEATURES {
     pub Anonymous: WHV_PROCESSOR_FEATURES_0,
     pub AsUINT64: u64,
-}
-impl Copy for WHV_PROCESSOR_FEATURES {}
-impl Clone for WHV_PROCESSOR_FEATURES {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_PROCESSOR_FEATURES {
     type TypeKind = windows_core::CopyType;
@@ -4039,44 +3361,23 @@ impl Default for WHV_PROCESSOR_FEATURES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_FEATURES_0 {
     pub _bitfield: u64,
-}
-impl Copy for WHV_PROCESSOR_FEATURES_0 {}
-impl Clone for WHV_PROCESSOR_FEATURES_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_PROCESSOR_FEATURES_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_PROCESSOR_FEATURES_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_PROCESSOR_FEATURES_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_PROCESSOR_FEATURES_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for WHV_PROCESSOR_FEATURES_0 {}
 impl Default for WHV_PROCESSOR_FEATURES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_PROCESSOR_FEATURES1 {
     pub Anonymous: WHV_PROCESSOR_FEATURES1_0,
     pub AsUINT64: u64,
-}
-impl Copy for WHV_PROCESSOR_FEATURES1 {}
-impl Clone for WHV_PROCESSOR_FEATURES1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_PROCESSOR_FEATURES1 {
     type TypeKind = windows_core::CopyType;
@@ -4087,45 +3388,24 @@ impl Default for WHV_PROCESSOR_FEATURES1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_FEATURES1_0 {
     pub _bitfield: u64,
-}
-impl Copy for WHV_PROCESSOR_FEATURES1_0 {}
-impl Clone for WHV_PROCESSOR_FEATURES1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_PROCESSOR_FEATURES1_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_PROCESSOR_FEATURES1_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_PROCESSOR_FEATURES1_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_PROCESSOR_FEATURES1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for WHV_PROCESSOR_FEATURES1_0 {}
 impl Default for WHV_PROCESSOR_FEATURES1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHV_PROCESSOR_FEATURES_BANKS {
     pub BanksCount: u32,
     pub Reserved0: u32,
     pub Anonymous: WHV_PROCESSOR_FEATURES_BANKS_0,
-}
-impl Copy for WHV_PROCESSOR_FEATURES_BANKS {}
-impl Clone for WHV_PROCESSOR_FEATURES_BANKS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_PROCESSOR_FEATURES_BANKS {
     type TypeKind = windows_core::CopyType;
@@ -4136,15 +3416,10 @@ impl Default for WHV_PROCESSOR_FEATURES_BANKS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_PROCESSOR_FEATURES_BANKS_0 {
     pub Anonymous: WHV_PROCESSOR_FEATURES_BANKS_0_0,
     pub AsUINT64: [u64; 2],
-}
-impl Copy for WHV_PROCESSOR_FEATURES_BANKS_0 {}
-impl Clone for WHV_PROCESSOR_FEATURES_BANKS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_PROCESSOR_FEATURES_BANKS_0 {
     type TypeKind = windows_core::CopyType;
@@ -4155,15 +3430,10 @@ impl Default for WHV_PROCESSOR_FEATURES_BANKS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHV_PROCESSOR_FEATURES_BANKS_0_0 {
     pub Bank0: WHV_PROCESSOR_FEATURES,
     pub Bank1: WHV_PROCESSOR_FEATURES1,
-}
-impl Copy for WHV_PROCESSOR_FEATURES_BANKS_0_0 {}
-impl Clone for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
     type TypeKind = windows_core::CopyType;
@@ -4174,36 +3444,21 @@ impl Default for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_INTERCEPT_COUNTER {
     pub Count: u64,
     pub Time100ns: u64,
 }
-impl Copy for WHV_PROCESSOR_INTERCEPT_COUNTER {}
-impl Clone for WHV_PROCESSOR_INTERCEPT_COUNTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_PROCESSOR_INTERCEPT_COUNTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_PROCESSOR_INTERCEPT_COUNTER").field("Count", &self.Count).field("Time100ns", &self.Time100ns).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_PROCESSOR_INTERCEPT_COUNTER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_PROCESSOR_INTERCEPT_COUNTER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count && self.Time100ns == other.Time100ns
-    }
-}
-impl Eq for WHV_PROCESSOR_INTERCEPT_COUNTER {}
 impl Default for WHV_PROCESSOR_INTERCEPT_COUNTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_INTERCEPT_COUNTERS {
     pub PageInvalidations: WHV_PROCESSOR_INTERCEPT_COUNTER,
     pub ControlRegisterAccesses: WHV_PROCESSOR_INTERCEPT_COUNTER,
@@ -4220,56 +3475,19 @@ pub struct WHV_PROCESSOR_INTERCEPT_COUNTERS {
     pub Hypercalls: WHV_PROCESSOR_INTERCEPT_COUNTER,
     pub RdpmcInstructions: WHV_PROCESSOR_INTERCEPT_COUNTER,
 }
-impl Copy for WHV_PROCESSOR_INTERCEPT_COUNTERS {}
-impl Clone for WHV_PROCESSOR_INTERCEPT_COUNTERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_PROCESSOR_INTERCEPT_COUNTERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_PROCESSOR_INTERCEPT_COUNTERS")
-            .field("PageInvalidations", &self.PageInvalidations)
-            .field("ControlRegisterAccesses", &self.ControlRegisterAccesses)
-            .field("IoInstructions", &self.IoInstructions)
-            .field("HaltInstructions", &self.HaltInstructions)
-            .field("CpuidInstructions", &self.CpuidInstructions)
-            .field("MsrAccesses", &self.MsrAccesses)
-            .field("OtherIntercepts", &self.OtherIntercepts)
-            .field("PendingInterrupts", &self.PendingInterrupts)
-            .field("EmulatedInstructions", &self.EmulatedInstructions)
-            .field("DebugRegisterAccesses", &self.DebugRegisterAccesses)
-            .field("PageFaultIntercepts", &self.PageFaultIntercepts)
-            .field("NestedPageFaultIntercepts", &self.NestedPageFaultIntercepts)
-            .field("Hypercalls", &self.Hypercalls)
-            .field("RdpmcInstructions", &self.RdpmcInstructions)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WHV_PROCESSOR_INTERCEPT_COUNTERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_PROCESSOR_INTERCEPT_COUNTERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.PageInvalidations == other.PageInvalidations && self.ControlRegisterAccesses == other.ControlRegisterAccesses && self.IoInstructions == other.IoInstructions && self.HaltInstructions == other.HaltInstructions && self.CpuidInstructions == other.CpuidInstructions && self.MsrAccesses == other.MsrAccesses && self.OtherIntercepts == other.OtherIntercepts && self.PendingInterrupts == other.PendingInterrupts && self.EmulatedInstructions == other.EmulatedInstructions && self.DebugRegisterAccesses == other.DebugRegisterAccesses && self.PageFaultIntercepts == other.PageFaultIntercepts && self.NestedPageFaultIntercepts == other.NestedPageFaultIntercepts && self.Hypercalls == other.Hypercalls && self.RdpmcInstructions == other.RdpmcInstructions
-    }
-}
-impl Eq for WHV_PROCESSOR_INTERCEPT_COUNTERS {}
 impl Default for WHV_PROCESSOR_INTERCEPT_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_PROCESSOR_PERFMON_FEATURES {
     pub Anonymous: WHV_PROCESSOR_PERFMON_FEATURES_0,
     pub AsUINT64: u64,
-}
-impl Copy for WHV_PROCESSOR_PERFMON_FEATURES {}
-impl Clone for WHV_PROCESSOR_PERFMON_FEATURES {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_PROCESSOR_PERFMON_FEATURES {
     type TypeKind = windows_core::CopyType;
@@ -4280,65 +3498,34 @@ impl Default for WHV_PROCESSOR_PERFMON_FEATURES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_PERFMON_FEATURES_0 {
     pub _bitfield: u64,
-}
-impl Copy for WHV_PROCESSOR_PERFMON_FEATURES_0 {}
-impl Clone for WHV_PROCESSOR_PERFMON_FEATURES_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_PROCESSOR_PERFMON_FEATURES_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_PROCESSOR_PERFMON_FEATURES_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_PROCESSOR_PERFMON_FEATURES_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_PROCESSOR_PERFMON_FEATURES_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for WHV_PROCESSOR_PERFMON_FEATURES_0 {}
 impl Default for WHV_PROCESSOR_PERFMON_FEATURES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_RUNTIME_COUNTERS {
     pub TotalRuntime100ns: u64,
     pub HypervisorRuntime100ns: u64,
 }
-impl Copy for WHV_PROCESSOR_RUNTIME_COUNTERS {}
-impl Clone for WHV_PROCESSOR_RUNTIME_COUNTERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_PROCESSOR_RUNTIME_COUNTERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_PROCESSOR_RUNTIME_COUNTERS").field("TotalRuntime100ns", &self.TotalRuntime100ns).field("HypervisorRuntime100ns", &self.HypervisorRuntime100ns).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_PROCESSOR_RUNTIME_COUNTERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_PROCESSOR_RUNTIME_COUNTERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.TotalRuntime100ns == other.TotalRuntime100ns && self.HypervisorRuntime100ns == other.HypervisorRuntime100ns
-    }
-}
-impl Eq for WHV_PROCESSOR_RUNTIME_COUNTERS {}
 impl Default for WHV_PROCESSOR_RUNTIME_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
     pub SyntheticInterruptsCount: u64,
     pub LongSpinWaitHypercallsCount: u64,
@@ -4347,48 +3534,19 @@ pub struct WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
     pub VirtualInterruptHypercallsCount: u64,
     pub VirtualMmuHypercallsCount: u64,
 }
-impl Copy for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {}
-impl Clone for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS")
-            .field("SyntheticInterruptsCount", &self.SyntheticInterruptsCount)
-            .field("LongSpinWaitHypercallsCount", &self.LongSpinWaitHypercallsCount)
-            .field("OtherHypercallsCount", &self.OtherHypercallsCount)
-            .field("SyntheticInterruptHypercallsCount", &self.SyntheticInterruptHypercallsCount)
-            .field("VirtualInterruptHypercallsCount", &self.VirtualInterruptHypercallsCount)
-            .field("VirtualMmuHypercallsCount", &self.VirtualMmuHypercallsCount)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.SyntheticInterruptsCount == other.SyntheticInterruptsCount && self.LongSpinWaitHypercallsCount == other.LongSpinWaitHypercallsCount && self.OtherHypercallsCount == other.OtherHypercallsCount && self.SyntheticInterruptHypercallsCount == other.SyntheticInterruptHypercallsCount && self.VirtualInterruptHypercallsCount == other.VirtualInterruptHypercallsCount && self.VirtualMmuHypercallsCount == other.VirtualMmuHypercallsCount
-    }
-}
-impl Eq for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {}
 impl Default for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_PROCESSOR_XSAVE_FEATURES {
     pub Anonymous: WHV_PROCESSOR_XSAVE_FEATURES_0,
     pub AsUINT64: u64,
-}
-impl Copy for WHV_PROCESSOR_XSAVE_FEATURES {}
-impl Clone for WHV_PROCESSOR_XSAVE_FEATURES {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_PROCESSOR_XSAVE_FEATURES {
     type TypeKind = windows_core::CopyType;
@@ -4399,35 +3557,20 @@ impl Default for WHV_PROCESSOR_XSAVE_FEATURES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_XSAVE_FEATURES_0 {
     pub _bitfield: u64,
-}
-impl Copy for WHV_PROCESSOR_XSAVE_FEATURES_0 {}
-impl Clone for WHV_PROCESSOR_XSAVE_FEATURES_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_PROCESSOR_XSAVE_FEATURES_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_PROCESSOR_XSAVE_FEATURES_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_PROCESSOR_XSAVE_FEATURES_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_PROCESSOR_XSAVE_FEATURES_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for WHV_PROCESSOR_XSAVE_FEATURES_0 {}
 impl Default for WHV_PROCESSOR_XSAVE_FEATURES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_REGISTER_VALUE {
     pub Reg128: WHV_UINT128,
     pub Reg64: u64,
@@ -4447,12 +3590,6 @@ pub union WHV_REGISTER_VALUE {
     pub InternalActivity: WHV_INTERNAL_ACTIVITY_REGISTER,
     pub PendingDebugException: WHV_X64_PENDING_DEBUG_EXCEPTION,
 }
-impl Copy for WHV_REGISTER_VALUE {}
-impl Clone for WHV_REGISTER_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for WHV_REGISTER_VALUE {
     type TypeKind = windows_core::CopyType;
 }
@@ -4462,46 +3599,25 @@ impl Default for WHV_REGISTER_VALUE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_RUN_VP_CANCELED_CONTEXT {
     pub CancelReason: WHV_RUN_VP_CANCEL_REASON,
-}
-impl Copy for WHV_RUN_VP_CANCELED_CONTEXT {}
-impl Clone for WHV_RUN_VP_CANCELED_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_RUN_VP_CANCELED_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_RUN_VP_CANCELED_CONTEXT").field("CancelReason", &self.CancelReason).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_RUN_VP_CANCELED_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_RUN_VP_CANCELED_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.CancelReason == other.CancelReason
-    }
-}
-impl Eq for WHV_RUN_VP_CANCELED_CONTEXT {}
 impl Default for WHV_RUN_VP_CANCELED_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHV_RUN_VP_EXIT_CONTEXT {
     pub ExitReason: WHV_RUN_VP_EXIT_REASON,
     pub Reserved: u32,
     pub VpContext: WHV_VP_EXIT_CONTEXT,
     pub Anonymous: WHV_RUN_VP_EXIT_CONTEXT_0,
-}
-impl Copy for WHV_RUN_VP_EXIT_CONTEXT {}
-impl Clone for WHV_RUN_VP_EXIT_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_RUN_VP_EXIT_CONTEXT {
     type TypeKind = windows_core::CopyType;
@@ -4512,6 +3628,7 @@ impl Default for WHV_RUN_VP_EXIT_CONTEXT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_RUN_VP_EXIT_CONTEXT_0 {
     pub MemoryAccess: WHV_MEMORY_ACCESS_CONTEXT,
     pub IoPortAccess: WHV_X64_IO_PORT_ACCESS_CONTEXT,
@@ -4529,12 +3646,6 @@ pub union WHV_RUN_VP_EXIT_CONTEXT_0 {
     pub ApicWrite: WHV_X64_APIC_WRITE_CONTEXT,
     pub SynicSintDeliverable: WHV_SYNIC_SINT_DELIVERABLE_CONTEXT,
 }
-impl Copy for WHV_RUN_VP_EXIT_CONTEXT_0 {}
-impl Clone for WHV_RUN_VP_EXIT_CONTEXT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for WHV_RUN_VP_EXIT_CONTEXT_0 {
     type TypeKind = windows_core::CopyType;
 }
@@ -4544,15 +3655,10 @@ impl Default for WHV_RUN_VP_EXIT_CONTEXT_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_SCHEDULER_FEATURES {
     pub Anonymous: WHV_SCHEDULER_FEATURES_0,
     pub AsUINT64: u64,
-}
-impl Copy for WHV_SCHEDULER_FEATURES {}
-impl Clone for WHV_SCHEDULER_FEATURES {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_SCHEDULER_FEATURES {
     type TypeKind = windows_core::CopyType;
@@ -4563,139 +3669,70 @@ impl Default for WHV_SCHEDULER_FEATURES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_SCHEDULER_FEATURES_0 {
     pub _bitfield: u64,
-}
-impl Copy for WHV_SCHEDULER_FEATURES_0 {}
-impl Clone for WHV_SCHEDULER_FEATURES_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_SCHEDULER_FEATURES_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_SCHEDULER_FEATURES_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_SCHEDULER_FEATURES_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_SCHEDULER_FEATURES_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for WHV_SCHEDULER_FEATURES_0 {}
 impl Default for WHV_SCHEDULER_FEATURES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_SRIOV_RESOURCE_DESCRIPTOR {
     pub PnpInstanceId: [u16; 200],
     pub VirtualFunctionId: super::super::Foundation::LUID,
     pub VirtualFunctionIndex: u16,
     pub Reserved: u16,
 }
-impl Copy for WHV_SRIOV_RESOURCE_DESCRIPTOR {}
-impl Clone for WHV_SRIOV_RESOURCE_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_SRIOV_RESOURCE_DESCRIPTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_SRIOV_RESOURCE_DESCRIPTOR").field("PnpInstanceId", &self.PnpInstanceId).field("VirtualFunctionId", &self.VirtualFunctionId).field("VirtualFunctionIndex", &self.VirtualFunctionIndex).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_SRIOV_RESOURCE_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_SRIOV_RESOURCE_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.PnpInstanceId == other.PnpInstanceId && self.VirtualFunctionId == other.VirtualFunctionId && self.VirtualFunctionIndex == other.VirtualFunctionIndex && self.Reserved == other.Reserved
-    }
-}
-impl Eq for WHV_SRIOV_RESOURCE_DESCRIPTOR {}
 impl Default for WHV_SRIOV_RESOURCE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_SYNIC_EVENT_PARAMETERS {
     pub VpIndex: u32,
     pub TargetSint: u8,
     pub Reserved: u8,
     pub FlagNumber: u16,
 }
-impl Copy for WHV_SYNIC_EVENT_PARAMETERS {}
-impl Clone for WHV_SYNIC_EVENT_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_SYNIC_EVENT_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_SYNIC_EVENT_PARAMETERS").field("VpIndex", &self.VpIndex).field("TargetSint", &self.TargetSint).field("Reserved", &self.Reserved).field("FlagNumber", &self.FlagNumber).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_SYNIC_EVENT_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_SYNIC_EVENT_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.VpIndex == other.VpIndex && self.TargetSint == other.TargetSint && self.Reserved == other.Reserved && self.FlagNumber == other.FlagNumber
-    }
-}
-impl Eq for WHV_SYNIC_EVENT_PARAMETERS {}
 impl Default for WHV_SYNIC_EVENT_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
     pub DeliverableSints: u16,
     pub Reserved1: u16,
     pub Reserved2: u32,
 }
-impl Copy for WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {}
-impl Clone for WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_SYNIC_SINT_DELIVERABLE_CONTEXT").field("DeliverableSints", &self.DeliverableSints).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.DeliverableSints == other.DeliverableSints && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2
-    }
-}
-impl Eq for WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {}
 impl Default for WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_SYNTHETIC_PROCESSOR_FEATURES {
     pub Anonymous: WHV_SYNTHETIC_PROCESSOR_FEATURES_0,
     pub AsUINT64: u64,
-}
-impl Copy for WHV_SYNTHETIC_PROCESSOR_FEATURES {}
-impl Clone for WHV_SYNTHETIC_PROCESSOR_FEATURES {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_SYNTHETIC_PROCESSOR_FEATURES {
     type TypeKind = windows_core::CopyType;
@@ -4706,45 +3743,24 @@ impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
     pub _bitfield: u64,
-}
-impl Copy for WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {}
-impl Clone for WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_SYNTHETIC_PROCESSOR_FEATURES_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {}
 impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
     pub BanksCount: u32,
     pub Reserved0: u32,
     pub Anonymous: WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0,
-}
-impl Copy for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {}
-impl Clone for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
     type TypeKind = windows_core::CopyType;
@@ -4755,15 +3771,10 @@ impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
     pub Anonymous: WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0,
     pub AsUINT64: [u64; 1],
-}
-impl Copy for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {}
-impl Clone for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
     type TypeKind = windows_core::CopyType;
@@ -4774,14 +3785,9 @@ impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
     pub Bank0: WHV_SYNTHETIC_PROCESSOR_FEATURES,
-}
-impl Copy for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {}
-impl Clone for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
     type TypeKind = windows_core::CopyType;
@@ -4792,46 +3798,25 @@ impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_TRANSLATE_GVA_RESULT {
     pub ResultCode: WHV_TRANSLATE_GVA_RESULT_CODE,
     pub Reserved: u32,
 }
-impl Copy for WHV_TRANSLATE_GVA_RESULT {}
-impl Clone for WHV_TRANSLATE_GVA_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_TRANSLATE_GVA_RESULT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_TRANSLATE_GVA_RESULT").field("ResultCode", &self.ResultCode).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_TRANSLATE_GVA_RESULT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_TRANSLATE_GVA_RESULT {
-    fn eq(&self, other: &Self) -> bool {
-        self.ResultCode == other.ResultCode && self.Reserved == other.Reserved
-    }
-}
-impl Eq for WHV_TRANSLATE_GVA_RESULT {}
 impl Default for WHV_TRANSLATE_GVA_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHV_TRIGGER_PARAMETERS {
     pub TriggerType: WHV_TRIGGER_TYPE,
     pub Reserved: u32,
     pub Anonymous: WHV_TRIGGER_PARAMETERS_0,
-}
-impl Copy for WHV_TRIGGER_PARAMETERS {}
-impl Clone for WHV_TRIGGER_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_TRIGGER_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -4842,16 +3827,11 @@ impl Default for WHV_TRIGGER_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_TRIGGER_PARAMETERS_0 {
     pub Interrupt: WHV_INTERRUPT_CONTROL,
     pub SynicEvent: WHV_SYNIC_EVENT_PARAMETERS,
     pub DeviceInterrupt: WHV_TRIGGER_PARAMETERS_0_0,
-}
-impl Copy for WHV_TRIGGER_PARAMETERS_0 {}
-impl Clone for WHV_TRIGGER_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_TRIGGER_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
@@ -4862,47 +3842,26 @@ impl Default for WHV_TRIGGER_PARAMETERS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_TRIGGER_PARAMETERS_0_0 {
     pub LogicalDeviceId: u64,
     pub MsiAddress: u64,
     pub MsiData: u32,
     pub Reserved: u32,
 }
-impl Copy for WHV_TRIGGER_PARAMETERS_0_0 {}
-impl Clone for WHV_TRIGGER_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_TRIGGER_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_TRIGGER_PARAMETERS_0_0").field("LogicalDeviceId", &self.LogicalDeviceId).field("MsiAddress", &self.MsiAddress).field("MsiData", &self.MsiData).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_TRIGGER_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_TRIGGER_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.LogicalDeviceId == other.LogicalDeviceId && self.MsiAddress == other.MsiAddress && self.MsiData == other.MsiData && self.Reserved == other.Reserved
-    }
-}
-impl Eq for WHV_TRIGGER_PARAMETERS_0_0 {}
 impl Default for WHV_TRIGGER_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_UINT128 {
     pub Anonymous: WHV_UINT128_0,
     pub Dword: [u32; 4],
-}
-impl Copy for WHV_UINT128 {}
-impl Clone for WHV_UINT128 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_UINT128 {
     type TypeKind = windows_core::CopyType;
@@ -4913,46 +3872,25 @@ impl Default for WHV_UINT128 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_UINT128_0 {
     pub Low64: u64,
     pub High64: u64,
 }
-impl Copy for WHV_UINT128_0 {}
-impl Clone for WHV_UINT128_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_UINT128_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_UINT128_0").field("Low64", &self.Low64).field("High64", &self.High64).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_UINT128_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_UINT128_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Low64 == other.Low64 && self.High64 == other.High64
-    }
-}
-impl Eq for WHV_UINT128_0 {}
 impl Default for WHV_UINT128_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHV_VIRTUAL_PROCESSOR_PROPERTY {
     pub PropertyCode: WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE,
     pub Reserved: u32,
     pub Anonymous: WHV_VIRTUAL_PROCESSOR_PROPERTY_0,
-}
-impl Copy for WHV_VIRTUAL_PROCESSOR_PROPERTY {}
-impl Clone for WHV_VIRTUAL_PROCESSOR_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_VIRTUAL_PROCESSOR_PROPERTY {
     type TypeKind = windows_core::CopyType;
@@ -4963,15 +3901,10 @@ impl Default for WHV_VIRTUAL_PROCESSOR_PROPERTY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
     pub NumaNode: u16,
     pub Padding: u64,
-}
-impl Copy for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {}
-impl Clone for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
     type TypeKind = windows_core::CopyType;
@@ -4982,16 +3915,11 @@ impl Default for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHV_VPCI_DEVICE_NOTIFICATION {
     pub NotificationType: WHV_VPCI_DEVICE_NOTIFICATION_TYPE,
     pub Reserved1: u32,
     pub Anonymous: WHV_VPCI_DEVICE_NOTIFICATION_0,
-}
-impl Copy for WHV_VPCI_DEVICE_NOTIFICATION {}
-impl Clone for WHV_VPCI_DEVICE_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_VPCI_DEVICE_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
@@ -5002,14 +3930,9 @@ impl Default for WHV_VPCI_DEVICE_NOTIFICATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_VPCI_DEVICE_NOTIFICATION_0 {
     pub Reserved2: u64,
-}
-impl Copy for WHV_VPCI_DEVICE_NOTIFICATION_0 {}
-impl Clone for WHV_VPCI_DEVICE_NOTIFICATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_VPCI_DEVICE_NOTIFICATION_0 {
     type TypeKind = windows_core::CopyType;
@@ -5020,37 +3943,22 @@ impl Default for WHV_VPCI_DEVICE_NOTIFICATION_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_VPCI_DEVICE_REGISTER {
     pub Location: WHV_VPCI_DEVICE_REGISTER_SPACE,
     pub SizeInBytes: u32,
     pub OffsetInBytes: u64,
 }
-impl Copy for WHV_VPCI_DEVICE_REGISTER {}
-impl Clone for WHV_VPCI_DEVICE_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_VPCI_DEVICE_REGISTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_VPCI_DEVICE_REGISTER").field("Location", &self.Location).field("SizeInBytes", &self.SizeInBytes).field("OffsetInBytes", &self.OffsetInBytes).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_VPCI_DEVICE_REGISTER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_VPCI_DEVICE_REGISTER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Location == other.Location && self.SizeInBytes == other.SizeInBytes && self.OffsetInBytes == other.OffsetInBytes
-    }
-}
-impl Eq for WHV_VPCI_DEVICE_REGISTER {}
 impl Default for WHV_VPCI_DEVICE_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_VPCI_HARDWARE_IDS {
     pub VendorID: u16,
     pub DeviceID: u16,
@@ -5061,64 +3969,32 @@ pub struct WHV_VPCI_HARDWARE_IDS {
     pub SubVendorID: u16,
     pub SubSystemID: u16,
 }
-impl Copy for WHV_VPCI_HARDWARE_IDS {}
-impl Clone for WHV_VPCI_HARDWARE_IDS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_VPCI_HARDWARE_IDS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_VPCI_HARDWARE_IDS").field("VendorID", &self.VendorID).field("DeviceID", &self.DeviceID).field("RevisionID", &self.RevisionID).field("ProgIf", &self.ProgIf).field("SubClass", &self.SubClass).field("BaseClass", &self.BaseClass).field("SubVendorID", &self.SubVendorID).field("SubSystemID", &self.SubSystemID).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_VPCI_HARDWARE_IDS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_VPCI_HARDWARE_IDS {
-    fn eq(&self, other: &Self) -> bool {
-        self.VendorID == other.VendorID && self.DeviceID == other.DeviceID && self.RevisionID == other.RevisionID && self.ProgIf == other.ProgIf && self.SubClass == other.SubClass && self.BaseClass == other.BaseClass && self.SubVendorID == other.SubVendorID && self.SubSystemID == other.SubSystemID
-    }
-}
-impl Eq for WHV_VPCI_HARDWARE_IDS {}
 impl Default for WHV_VPCI_HARDWARE_IDS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_VPCI_INTERRUPT_TARGET {
     pub Vector: u32,
     pub Flags: WHV_VPCI_INTERRUPT_TARGET_FLAGS,
     pub ProcessorCount: u32,
     pub Processors: [u32; 1],
 }
-impl Copy for WHV_VPCI_INTERRUPT_TARGET {}
-impl Clone for WHV_VPCI_INTERRUPT_TARGET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_VPCI_INTERRUPT_TARGET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_VPCI_INTERRUPT_TARGET").field("Vector", &self.Vector).field("Flags", &self.Flags).field("ProcessorCount", &self.ProcessorCount).field("Processors", &self.Processors).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_VPCI_INTERRUPT_TARGET {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_VPCI_INTERRUPT_TARGET {
-    fn eq(&self, other: &Self) -> bool {
-        self.Vector == other.Vector && self.Flags == other.Flags && self.ProcessorCount == other.ProcessorCount && self.Processors == other.Processors
-    }
-}
-impl Eq for WHV_VPCI_INTERRUPT_TARGET {}
 impl Default for WHV_VPCI_INTERRUPT_TARGET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_VPCI_MMIO_MAPPING {
     pub Location: WHV_VPCI_DEVICE_REGISTER_SPACE,
     pub Flags: WHV_VPCI_MMIO_RANGE_FLAGS,
@@ -5126,61 +4002,29 @@ pub struct WHV_VPCI_MMIO_MAPPING {
     pub OffsetInBytes: u64,
     pub VirtualAddress: *mut core::ffi::c_void,
 }
-impl Copy for WHV_VPCI_MMIO_MAPPING {}
-impl Clone for WHV_VPCI_MMIO_MAPPING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_VPCI_MMIO_MAPPING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_VPCI_MMIO_MAPPING").field("Location", &self.Location).field("Flags", &self.Flags).field("SizeInBytes", &self.SizeInBytes).field("OffsetInBytes", &self.OffsetInBytes).field("VirtualAddress", &self.VirtualAddress).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_VPCI_MMIO_MAPPING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_VPCI_MMIO_MAPPING {
-    fn eq(&self, other: &Self) -> bool {
-        self.Location == other.Location && self.Flags == other.Flags && self.SizeInBytes == other.SizeInBytes && self.OffsetInBytes == other.OffsetInBytes && self.VirtualAddress == other.VirtualAddress
-    }
-}
-impl Eq for WHV_VPCI_MMIO_MAPPING {}
 impl Default for WHV_VPCI_MMIO_MAPPING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_VPCI_PROBED_BARS {
     pub Value: [u32; 6],
-}
-impl Copy for WHV_VPCI_PROBED_BARS {}
-impl Clone for WHV_VPCI_PROBED_BARS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_VPCI_PROBED_BARS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_VPCI_PROBED_BARS").field("Value", &self.Value).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_VPCI_PROBED_BARS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_VPCI_PROBED_BARS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
-    }
-}
-impl Eq for WHV_VPCI_PROBED_BARS {}
 impl Default for WHV_VPCI_PROBED_BARS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHV_VP_EXCEPTION_CONTEXT {
     pub InstructionByteCount: u8,
     pub Reserved: [u8; 3],
@@ -5191,12 +4035,6 @@ pub struct WHV_VP_EXCEPTION_CONTEXT {
     pub ErrorCode: u32,
     pub ExceptionParameter: u64,
 }
-impl Copy for WHV_VP_EXCEPTION_CONTEXT {}
-impl Clone for WHV_VP_EXCEPTION_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for WHV_VP_EXCEPTION_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
@@ -5206,15 +4044,10 @@ impl Default for WHV_VP_EXCEPTION_CONTEXT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_VP_EXCEPTION_INFO {
     pub Anonymous: WHV_VP_EXCEPTION_INFO_0,
     pub AsUINT32: u32,
-}
-impl Copy for WHV_VP_EXCEPTION_INFO {}
-impl Clone for WHV_VP_EXCEPTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_VP_EXCEPTION_INFO {
     type TypeKind = windows_core::CopyType;
@@ -5225,35 +4058,20 @@ impl Default for WHV_VP_EXCEPTION_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_VP_EXCEPTION_INFO_0 {
     pub _bitfield: u32,
-}
-impl Copy for WHV_VP_EXCEPTION_INFO_0 {}
-impl Clone for WHV_VP_EXCEPTION_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_VP_EXCEPTION_INFO_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_VP_EXCEPTION_INFO_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_VP_EXCEPTION_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_VP_EXCEPTION_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for WHV_VP_EXCEPTION_INFO_0 {}
 impl Default for WHV_VP_EXCEPTION_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHV_VP_EXIT_CONTEXT {
     pub ExecutionState: WHV_X64_VP_EXECUTION_STATE,
     pub _bitfield: u8,
@@ -5262,12 +4080,6 @@ pub struct WHV_VP_EXIT_CONTEXT {
     pub Cs: WHV_X64_SEGMENT_REGISTER,
     pub Rip: u64,
     pub Rflags: u64,
-}
-impl Copy for WHV_VP_EXIT_CONTEXT {}
-impl Clone for WHV_VP_EXIT_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_VP_EXIT_CONTEXT {
     type TypeKind = windows_core::CopyType;
@@ -5278,124 +4090,61 @@ impl Default for WHV_VP_EXIT_CONTEXT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_APIC_EOI_CONTEXT {
     pub InterruptVector: u32,
-}
-impl Copy for WHV_X64_APIC_EOI_CONTEXT {}
-impl Clone for WHV_X64_APIC_EOI_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_X64_APIC_EOI_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_X64_APIC_EOI_CONTEXT").field("InterruptVector", &self.InterruptVector).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_X64_APIC_EOI_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_X64_APIC_EOI_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.InterruptVector == other.InterruptVector
-    }
-}
-impl Eq for WHV_X64_APIC_EOI_CONTEXT {}
 impl Default for WHV_X64_APIC_EOI_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_APIC_INIT_SIPI_CONTEXT {
     pub ApicIcr: u64,
-}
-impl Copy for WHV_X64_APIC_INIT_SIPI_CONTEXT {}
-impl Clone for WHV_X64_APIC_INIT_SIPI_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_X64_APIC_INIT_SIPI_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_X64_APIC_INIT_SIPI_CONTEXT").field("ApicIcr", &self.ApicIcr).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_X64_APIC_INIT_SIPI_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_X64_APIC_INIT_SIPI_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.ApicIcr == other.ApicIcr
-    }
-}
-impl Eq for WHV_X64_APIC_INIT_SIPI_CONTEXT {}
 impl Default for WHV_X64_APIC_INIT_SIPI_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_APIC_SMI_CONTEXT {
     pub ApicIcr: u64,
-}
-impl Copy for WHV_X64_APIC_SMI_CONTEXT {}
-impl Clone for WHV_X64_APIC_SMI_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_X64_APIC_SMI_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_X64_APIC_SMI_CONTEXT").field("ApicIcr", &self.ApicIcr).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_X64_APIC_SMI_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_X64_APIC_SMI_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.ApicIcr == other.ApicIcr
-    }
-}
-impl Eq for WHV_X64_APIC_SMI_CONTEXT {}
 impl Default for WHV_X64_APIC_SMI_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_APIC_WRITE_CONTEXT {
     pub Type: WHV_X64_APIC_WRITE_TYPE,
     pub Reserved: u32,
     pub WriteValue: u64,
 }
-impl Copy for WHV_X64_APIC_WRITE_CONTEXT {}
-impl Clone for WHV_X64_APIC_WRITE_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_X64_APIC_WRITE_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_X64_APIC_WRITE_CONTEXT").field("Type", &self.Type).field("Reserved", &self.Reserved).field("WriteValue", &self.WriteValue).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_X64_APIC_WRITE_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_X64_APIC_WRITE_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Reserved == other.Reserved && self.WriteValue == other.WriteValue
-    }
-}
-impl Eq for WHV_X64_APIC_WRITE_CONTEXT {}
 impl Default for WHV_X64_APIC_WRITE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_CPUID_ACCESS_CONTEXT {
     pub Rax: u64,
     pub Rcx: u64,
@@ -5406,32 +4155,16 @@ pub struct WHV_X64_CPUID_ACCESS_CONTEXT {
     pub DefaultResultRdx: u64,
     pub DefaultResultRbx: u64,
 }
-impl Copy for WHV_X64_CPUID_ACCESS_CONTEXT {}
-impl Clone for WHV_X64_CPUID_ACCESS_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_X64_CPUID_ACCESS_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_X64_CPUID_ACCESS_CONTEXT").field("Rax", &self.Rax).field("Rcx", &self.Rcx).field("Rdx", &self.Rdx).field("Rbx", &self.Rbx).field("DefaultResultRax", &self.DefaultResultRax).field("DefaultResultRcx", &self.DefaultResultRcx).field("DefaultResultRdx", &self.DefaultResultRdx).field("DefaultResultRbx", &self.DefaultResultRbx).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_X64_CPUID_ACCESS_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_X64_CPUID_ACCESS_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Rax == other.Rax && self.Rcx == other.Rcx && self.Rdx == other.Rdx && self.Rbx == other.Rbx && self.DefaultResultRax == other.DefaultResultRax && self.DefaultResultRcx == other.DefaultResultRcx && self.DefaultResultRdx == other.DefaultResultRdx && self.DefaultResultRbx == other.DefaultResultRbx
-    }
-}
-impl Eq for WHV_X64_CPUID_ACCESS_CONTEXT {}
 impl Default for WHV_X64_CPUID_ACCESS_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_CPUID_RESULT {
     pub Function: u32,
     pub Reserved: [u32; 3],
@@ -5440,32 +4173,16 @@ pub struct WHV_X64_CPUID_RESULT {
     pub Ecx: u32,
     pub Edx: u32,
 }
-impl Copy for WHV_X64_CPUID_RESULT {}
-impl Clone for WHV_X64_CPUID_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_X64_CPUID_RESULT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_X64_CPUID_RESULT").field("Function", &self.Function).field("Reserved", &self.Reserved).field("Eax", &self.Eax).field("Ebx", &self.Ebx).field("Ecx", &self.Ecx).field("Edx", &self.Edx).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_X64_CPUID_RESULT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_X64_CPUID_RESULT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Function == other.Function && self.Reserved == other.Reserved && self.Eax == other.Eax && self.Ebx == other.Ebx && self.Ecx == other.Ecx && self.Edx == other.Edx
-    }
-}
-impl Eq for WHV_X64_CPUID_RESULT {}
 impl Default for WHV_X64_CPUID_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_CPUID_RESULT2 {
     pub Function: u32,
     pub Index: u32,
@@ -5474,41 +4191,19 @@ pub struct WHV_X64_CPUID_RESULT2 {
     pub Output: WHV_CPUID_OUTPUT,
     pub Mask: WHV_CPUID_OUTPUT,
 }
-impl Copy for WHV_X64_CPUID_RESULT2 {}
-impl Clone for WHV_X64_CPUID_RESULT2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_X64_CPUID_RESULT2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_X64_CPUID_RESULT2").field("Function", &self.Function).field("Index", &self.Index).field("VpIndex", &self.VpIndex).field("Flags", &self.Flags).field("Output", &self.Output).field("Mask", &self.Mask).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_X64_CPUID_RESULT2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_X64_CPUID_RESULT2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Function == other.Function && self.Index == other.Index && self.VpIndex == other.VpIndex && self.Flags == other.Flags && self.Output == other.Output && self.Mask == other.Mask
-    }
-}
-impl Eq for WHV_X64_CPUID_RESULT2 {}
 impl Default for WHV_X64_CPUID_RESULT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
     pub Anonymous: WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0,
     pub AsUINT64: u64,
-}
-impl Copy for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {}
-impl Clone for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
     type TypeKind = windows_core::CopyType;
@@ -5519,44 +4214,23 @@ impl Default for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
     pub _bitfield: u64,
-}
-impl Copy for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {}
-impl Clone for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {}
 impl Default for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_X64_FP_CONTROL_STATUS_REGISTER {
     pub Anonymous: WHV_X64_FP_CONTROL_STATUS_REGISTER_0,
     pub AsUINT128: WHV_UINT128,
-}
-impl Copy for WHV_X64_FP_CONTROL_STATUS_REGISTER {}
-impl Clone for WHV_X64_FP_CONTROL_STATUS_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_X64_FP_CONTROL_STATUS_REGISTER {
     type TypeKind = windows_core::CopyType;
@@ -5567,6 +4241,7 @@ impl Default for WHV_X64_FP_CONTROL_STATUS_REGISTER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
     pub FpControl: u16,
     pub FpStatus: u16,
@@ -5574,12 +4249,6 @@ pub struct WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
     pub Reserved: u8,
     pub LastFpOp: u16,
     pub Anonymous: WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0,
-}
-impl Copy for WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {}
-impl Clone for WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
     type TypeKind = windows_core::CopyType;
@@ -5590,15 +4259,10 @@ impl Default for WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
     pub LastFpRip: u64,
     pub Anonymous: WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0,
-}
-impl Copy for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {}
-impl Clone for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
     type TypeKind = windows_core::CopyType;
@@ -5609,46 +4273,25 @@ impl Default for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {
     pub LastFpEip: u32,
     pub LastFpCs: u16,
     pub Reserved2: u16,
 }
-impl Copy for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {}
-impl Clone for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0").field("LastFpEip", &self.LastFpEip).field("LastFpCs", &self.LastFpCs).field("Reserved2", &self.Reserved2).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.LastFpEip == other.LastFpEip && self.LastFpCs == other.LastFpCs && self.Reserved2 == other.Reserved2
-    }
-}
-impl Eq for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {}
 impl Default for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_X64_FP_REGISTER {
     pub Anonymous: WHV_X64_FP_REGISTER_0,
     pub AsUINT128: WHV_UINT128,
-}
-impl Copy for WHV_X64_FP_REGISTER {}
-impl Clone for WHV_X64_FP_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_X64_FP_REGISTER {
     type TypeKind = windows_core::CopyType;
@@ -5659,74 +4302,37 @@ impl Default for WHV_X64_FP_REGISTER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_FP_REGISTER_0 {
     pub Mantissa: u64,
     pub _bitfield: u64,
 }
-impl Copy for WHV_X64_FP_REGISTER_0 {}
-impl Clone for WHV_X64_FP_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_X64_FP_REGISTER_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_X64_FP_REGISTER_0").field("Mantissa", &self.Mantissa).field("_bitfield", &self._bitfield).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_X64_FP_REGISTER_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_X64_FP_REGISTER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Mantissa == other.Mantissa && self._bitfield == other._bitfield
-    }
-}
-impl Eq for WHV_X64_FP_REGISTER_0 {}
 impl Default for WHV_X64_FP_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
     pub DeliverableType: WHV_X64_PENDING_INTERRUPTION_TYPE,
-}
-impl Copy for WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {}
-impl Clone for WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT").field("DeliverableType", &self.DeliverableType).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.DeliverableType == other.DeliverableType
-    }
-}
-impl Eq for WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {}
 impl Default for WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_X64_INTERRUPT_STATE_REGISTER {
     pub Anonymous: WHV_X64_INTERRUPT_STATE_REGISTER_0,
     pub AsUINT64: u64,
-}
-impl Copy for WHV_X64_INTERRUPT_STATE_REGISTER {}
-impl Clone for WHV_X64_INTERRUPT_STATE_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_X64_INTERRUPT_STATE_REGISTER {
     type TypeKind = windows_core::CopyType;
@@ -5737,35 +4343,20 @@ impl Default for WHV_X64_INTERRUPT_STATE_REGISTER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_INTERRUPT_STATE_REGISTER_0 {
     pub _bitfield: u64,
-}
-impl Copy for WHV_X64_INTERRUPT_STATE_REGISTER_0 {}
-impl Clone for WHV_X64_INTERRUPT_STATE_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_X64_INTERRUPT_STATE_REGISTER_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_X64_INTERRUPT_STATE_REGISTER_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_X64_INTERRUPT_STATE_REGISTER_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_X64_INTERRUPT_STATE_REGISTER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for WHV_X64_INTERRUPT_STATE_REGISTER_0 {}
 impl Default for WHV_X64_INTERRUPT_STATE_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHV_X64_IO_PORT_ACCESS_CONTEXT {
     pub InstructionByteCount: u8,
     pub Reserved: [u8; 3],
@@ -5780,12 +4371,6 @@ pub struct WHV_X64_IO_PORT_ACCESS_CONTEXT {
     pub Ds: WHV_X64_SEGMENT_REGISTER,
     pub Es: WHV_X64_SEGMENT_REGISTER,
 }
-impl Copy for WHV_X64_IO_PORT_ACCESS_CONTEXT {}
-impl Clone for WHV_X64_IO_PORT_ACCESS_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for WHV_X64_IO_PORT_ACCESS_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
@@ -5795,15 +4380,10 @@ impl Default for WHV_X64_IO_PORT_ACCESS_CONTEXT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_X64_IO_PORT_ACCESS_INFO {
     pub Anonymous: WHV_X64_IO_PORT_ACCESS_INFO_0,
     pub AsUINT32: u32,
-}
-impl Copy for WHV_X64_IO_PORT_ACCESS_INFO {}
-impl Clone for WHV_X64_IO_PORT_ACCESS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_X64_IO_PORT_ACCESS_INFO {
     type TypeKind = windows_core::CopyType;
@@ -5814,46 +4394,25 @@ impl Default for WHV_X64_IO_PORT_ACCESS_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_IO_PORT_ACCESS_INFO_0 {
     pub _bitfield: u32,
-}
-impl Copy for WHV_X64_IO_PORT_ACCESS_INFO_0 {}
-impl Clone for WHV_X64_IO_PORT_ACCESS_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_X64_IO_PORT_ACCESS_INFO_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_X64_IO_PORT_ACCESS_INFO_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_X64_IO_PORT_ACCESS_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_X64_IO_PORT_ACCESS_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for WHV_X64_IO_PORT_ACCESS_INFO_0 {}
 impl Default for WHV_X64_IO_PORT_ACCESS_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHV_X64_MSR_ACCESS_CONTEXT {
     pub AccessInfo: WHV_X64_MSR_ACCESS_INFO,
     pub MsrNumber: u32,
     pub Rax: u64,
     pub Rdx: u64,
-}
-impl Copy for WHV_X64_MSR_ACCESS_CONTEXT {}
-impl Clone for WHV_X64_MSR_ACCESS_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_X64_MSR_ACCESS_CONTEXT {
     type TypeKind = windows_core::CopyType;
@@ -5864,15 +4423,10 @@ impl Default for WHV_X64_MSR_ACCESS_CONTEXT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_X64_MSR_ACCESS_INFO {
     pub Anonymous: WHV_X64_MSR_ACCESS_INFO_0,
     pub AsUINT32: u32,
-}
-impl Copy for WHV_X64_MSR_ACCESS_INFO {}
-impl Clone for WHV_X64_MSR_ACCESS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_X64_MSR_ACCESS_INFO {
     type TypeKind = windows_core::CopyType;
@@ -5883,44 +4437,23 @@ impl Default for WHV_X64_MSR_ACCESS_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_MSR_ACCESS_INFO_0 {
     pub _bitfield: u32,
-}
-impl Copy for WHV_X64_MSR_ACCESS_INFO_0 {}
-impl Clone for WHV_X64_MSR_ACCESS_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_X64_MSR_ACCESS_INFO_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_X64_MSR_ACCESS_INFO_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_X64_MSR_ACCESS_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_X64_MSR_ACCESS_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for WHV_X64_MSR_ACCESS_INFO_0 {}
 impl Default for WHV_X64_MSR_ACCESS_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_X64_MSR_EXIT_BITMAP {
     pub AsUINT64: u64,
     pub Anonymous: WHV_X64_MSR_EXIT_BITMAP_0,
-}
-impl Copy for WHV_X64_MSR_EXIT_BITMAP {}
-impl Clone for WHV_X64_MSR_EXIT_BITMAP {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_X64_MSR_EXIT_BITMAP {
     type TypeKind = windows_core::CopyType;
@@ -5931,44 +4464,23 @@ impl Default for WHV_X64_MSR_EXIT_BITMAP {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_MSR_EXIT_BITMAP_0 {
     pub _bitfield: u64,
-}
-impl Copy for WHV_X64_MSR_EXIT_BITMAP_0 {}
-impl Clone for WHV_X64_MSR_EXIT_BITMAP_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_X64_MSR_EXIT_BITMAP_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_X64_MSR_EXIT_BITMAP_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_X64_MSR_EXIT_BITMAP_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_X64_MSR_EXIT_BITMAP_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for WHV_X64_MSR_EXIT_BITMAP_0 {}
 impl Default for WHV_X64_MSR_EXIT_BITMAP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_DEBUG_EXCEPTION {
     pub AsUINT64: u64,
     pub Anonymous: WHV_X64_PENDING_DEBUG_EXCEPTION_0,
-}
-impl Copy for WHV_X64_PENDING_DEBUG_EXCEPTION {}
-impl Clone for WHV_X64_PENDING_DEBUG_EXCEPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_X64_PENDING_DEBUG_EXCEPTION {
     type TypeKind = windows_core::CopyType;
@@ -5979,44 +4491,23 @@ impl Default for WHV_X64_PENDING_DEBUG_EXCEPTION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
     pub _bitfield: u64,
-}
-impl Copy for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {}
-impl Clone for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_X64_PENDING_DEBUG_EXCEPTION_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {}
 impl Default for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_EXCEPTION_EVENT {
     pub Anonymous: WHV_X64_PENDING_EXCEPTION_EVENT_0,
     pub AsUINT128: WHV_UINT128,
-}
-impl Copy for WHV_X64_PENDING_EXCEPTION_EVENT {}
-impl Clone for WHV_X64_PENDING_EXCEPTION_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_X64_PENDING_EXCEPTION_EVENT {
     type TypeKind = windows_core::CopyType;
@@ -6027,46 +4518,25 @@ impl Default for WHV_X64_PENDING_EXCEPTION_EVENT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_EXCEPTION_EVENT_0 {
     pub _bitfield: u32,
     pub ErrorCode: u32,
     pub ExceptionParameter: u64,
 }
-impl Copy for WHV_X64_PENDING_EXCEPTION_EVENT_0 {}
-impl Clone for WHV_X64_PENDING_EXCEPTION_EVENT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_X64_PENDING_EXCEPTION_EVENT_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_X64_PENDING_EXCEPTION_EVENT_0").field("_bitfield", &self._bitfield).field("ErrorCode", &self.ErrorCode).field("ExceptionParameter", &self.ExceptionParameter).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_X64_PENDING_EXCEPTION_EVENT_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_X64_PENDING_EXCEPTION_EVENT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield && self.ErrorCode == other.ErrorCode && self.ExceptionParameter == other.ExceptionParameter
-    }
-}
-impl Eq for WHV_X64_PENDING_EXCEPTION_EVENT_0 {}
 impl Default for WHV_X64_PENDING_EXCEPTION_EVENT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_EXT_INT_EVENT {
     pub Anonymous: WHV_X64_PENDING_EXT_INT_EVENT_0,
     pub AsUINT128: WHV_UINT128,
-}
-impl Copy for WHV_X64_PENDING_EXT_INT_EVENT {}
-impl Clone for WHV_X64_PENDING_EXT_INT_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_X64_PENDING_EXT_INT_EVENT {
     type TypeKind = windows_core::CopyType;
@@ -6077,45 +4547,24 @@ impl Default for WHV_X64_PENDING_EXT_INT_EVENT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_EXT_INT_EVENT_0 {
     pub _bitfield: u64,
     pub Reserved2: u64,
 }
-impl Copy for WHV_X64_PENDING_EXT_INT_EVENT_0 {}
-impl Clone for WHV_X64_PENDING_EXT_INT_EVENT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_X64_PENDING_EXT_INT_EVENT_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_X64_PENDING_EXT_INT_EVENT_0").field("_bitfield", &self._bitfield).field("Reserved2", &self.Reserved2).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_X64_PENDING_EXT_INT_EVENT_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_X64_PENDING_EXT_INT_EVENT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield && self.Reserved2 == other.Reserved2
-    }
-}
-impl Eq for WHV_X64_PENDING_EXT_INT_EVENT_0 {}
 impl Default for WHV_X64_PENDING_EXT_INT_EVENT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_X64_PENDING_INTERRUPTION_REGISTER {
     pub Anonymous: WHV_X64_PENDING_INTERRUPTION_REGISTER_0,
     pub AsUINT64: u64,
-}
-impl Copy for WHV_X64_PENDING_INTERRUPTION_REGISTER {}
-impl Clone for WHV_X64_PENDING_INTERRUPTION_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_X64_PENDING_INTERRUPTION_REGISTER {
     type TypeKind = windows_core::CopyType;
@@ -6126,48 +4575,27 @@ impl Default for WHV_X64_PENDING_INTERRUPTION_REGISTER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
     pub _bitfield: u32,
     pub ErrorCode: u32,
 }
-impl Copy for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {}
-impl Clone for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_X64_PENDING_INTERRUPTION_REGISTER_0").field("_bitfield", &self._bitfield).field("ErrorCode", &self.ErrorCode).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield && self.ErrorCode == other.ErrorCode
-    }
-}
-impl Eq for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {}
 impl Default for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHV_X64_RDTSC_CONTEXT {
     pub TscAux: u64,
     pub VirtualOffset: u64,
     pub Tsc: u64,
     pub ReferenceTime: u64,
     pub RdtscInfo: WHV_X64_RDTSC_INFO,
-}
-impl Copy for WHV_X64_RDTSC_CONTEXT {}
-impl Clone for WHV_X64_RDTSC_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_X64_RDTSC_CONTEXT {
     type TypeKind = windows_core::CopyType;
@@ -6178,15 +4606,10 @@ impl Default for WHV_X64_RDTSC_CONTEXT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_X64_RDTSC_INFO {
     pub Anonymous: WHV_X64_RDTSC_INFO_0,
     pub AsUINT64: u64,
-}
-impl Copy for WHV_X64_RDTSC_INFO {}
-impl Clone for WHV_X64_RDTSC_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_X64_RDTSC_INFO {
     type TypeKind = windows_core::CopyType;
@@ -6197,46 +4620,25 @@ impl Default for WHV_X64_RDTSC_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_RDTSC_INFO_0 {
     pub _bitfield: u64,
-}
-impl Copy for WHV_X64_RDTSC_INFO_0 {}
-impl Clone for WHV_X64_RDTSC_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_X64_RDTSC_INFO_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_X64_RDTSC_INFO_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_X64_RDTSC_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_X64_RDTSC_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for WHV_X64_RDTSC_INFO_0 {}
 impl Default for WHV_X64_RDTSC_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHV_X64_SEGMENT_REGISTER {
     pub Base: u64,
     pub Limit: u32,
     pub Selector: u16,
     pub Anonymous: WHV_X64_SEGMENT_REGISTER_0,
-}
-impl Copy for WHV_X64_SEGMENT_REGISTER {}
-impl Clone for WHV_X64_SEGMENT_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_X64_SEGMENT_REGISTER {
     type TypeKind = windows_core::CopyType;
@@ -6247,15 +4649,10 @@ impl Default for WHV_X64_SEGMENT_REGISTER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_X64_SEGMENT_REGISTER_0 {
     pub Anonymous: WHV_X64_SEGMENT_REGISTER_0_0,
     pub Attributes: u16,
-}
-impl Copy for WHV_X64_SEGMENT_REGISTER_0 {}
-impl Clone for WHV_X64_SEGMENT_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_X64_SEGMENT_REGISTER_0 {
     type TypeKind = windows_core::CopyType;
@@ -6266,106 +4663,53 @@ impl Default for WHV_X64_SEGMENT_REGISTER_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_SEGMENT_REGISTER_0_0 {
     pub _bitfield: u16,
-}
-impl Copy for WHV_X64_SEGMENT_REGISTER_0_0 {}
-impl Clone for WHV_X64_SEGMENT_REGISTER_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_X64_SEGMENT_REGISTER_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_X64_SEGMENT_REGISTER_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_X64_SEGMENT_REGISTER_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_X64_SEGMENT_REGISTER_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for WHV_X64_SEGMENT_REGISTER_0_0 {}
 impl Default for WHV_X64_SEGMENT_REGISTER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_TABLE_REGISTER {
     pub Pad: [u16; 3],
     pub Limit: u16,
     pub Base: u64,
 }
-impl Copy for WHV_X64_TABLE_REGISTER {}
-impl Clone for WHV_X64_TABLE_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_X64_TABLE_REGISTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_X64_TABLE_REGISTER").field("Pad", &self.Pad).field("Limit", &self.Limit).field("Base", &self.Base).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_X64_TABLE_REGISTER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_X64_TABLE_REGISTER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Pad == other.Pad && self.Limit == other.Limit && self.Base == other.Base
-    }
-}
-impl Eq for WHV_X64_TABLE_REGISTER {}
 impl Default for WHV_X64_TABLE_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
     pub FeatureCode: WHV_X64_UNSUPPORTED_FEATURE_CODE,
     pub Reserved: u32,
     pub FeatureParameter: u64,
 }
-impl Copy for WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {}
-impl Clone for WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_X64_UNSUPPORTED_FEATURE_CONTEXT").field("FeatureCode", &self.FeatureCode).field("Reserved", &self.Reserved).field("FeatureParameter", &self.FeatureParameter).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.FeatureCode == other.FeatureCode && self.Reserved == other.Reserved && self.FeatureParameter == other.FeatureParameter
-    }
-}
-impl Eq for WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {}
 impl Default for WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_X64_VP_EXECUTION_STATE {
     pub Anonymous: WHV_X64_VP_EXECUTION_STATE_0,
     pub AsUINT16: u16,
-}
-impl Copy for WHV_X64_VP_EXECUTION_STATE {}
-impl Clone for WHV_X64_VP_EXECUTION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_X64_VP_EXECUTION_STATE {
     type TypeKind = windows_core::CopyType;
@@ -6376,44 +4720,23 @@ impl Default for WHV_X64_VP_EXECUTION_STATE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_VP_EXECUTION_STATE_0 {
     pub _bitfield: u16,
-}
-impl Copy for WHV_X64_VP_EXECUTION_STATE_0 {}
-impl Clone for WHV_X64_VP_EXECUTION_STATE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_X64_VP_EXECUTION_STATE_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_X64_VP_EXECUTION_STATE_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for WHV_X64_VP_EXECUTION_STATE_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_X64_VP_EXECUTION_STATE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for WHV_X64_VP_EXECUTION_STATE_0 {}
 impl Default for WHV_X64_VP_EXECUTION_STATE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_X64_XMM_CONTROL_STATUS_REGISTER {
     pub Anonymous: WHV_X64_XMM_CONTROL_STATUS_REGISTER_0,
     pub AsUINT128: WHV_UINT128,
-}
-impl Copy for WHV_X64_XMM_CONTROL_STATUS_REGISTER {}
-impl Clone for WHV_X64_XMM_CONTROL_STATUS_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_X64_XMM_CONTROL_STATUS_REGISTER {
     type TypeKind = windows_core::CopyType;
@@ -6424,16 +4747,11 @@ impl Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
     pub Anonymous: WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0,
     pub XmmStatusControl: u32,
     pub XmmStatusControlMask: u32,
-}
-impl Copy for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {}
-impl Clone for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
     type TypeKind = windows_core::CopyType;
@@ -6444,15 +4762,10 @@ impl Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
     pub LastFpRdp: u64,
     pub Anonymous: WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0,
-}
-impl Copy for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {}
-impl Clone for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
     type TypeKind = windows_core::CopyType;
@@ -6463,31 +4776,15 @@ impl Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
     pub LastFpDp: u32,
     pub LastFpDs: u16,
     pub Reserved: u16,
 }
-impl Copy for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {}
-impl Clone for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0").field("LastFpDp", &self.LastFpDp).field("LastFpDs", &self.LastFpDs).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.LastFpDp == other.LastFpDp && self.LastFpDs == other.LastFpDs && self.Reserved == other.Reserved
-    }
-}
-impl Eq for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {}
 impl Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

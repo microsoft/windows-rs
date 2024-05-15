@@ -52,68 +52,38 @@ pub const TPM_WNF_INFO_OWNERSHIP_SUCCESSFUL: u32 = 2u32;
 pub type TBS_COMMAND_LOCALITY = u32;
 pub type TBS_COMMAND_PRIORITY = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TBS_CONTEXT_PARAMS {
     pub version: u32,
 }
-impl Copy for TBS_CONTEXT_PARAMS {}
-impl Clone for TBS_CONTEXT_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TBS_CONTEXT_PARAMS2 {
     pub version: u32,
     pub Anonymous: TBS_CONTEXT_PARAMS2_0,
 }
-impl Copy for TBS_CONTEXT_PARAMS2 {}
-impl Clone for TBS_CONTEXT_PARAMS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union TBS_CONTEXT_PARAMS2_0 {
     pub Anonymous: TBS_CONTEXT_PARAMS2_0_0,
     pub asUINT32: u32,
 }
-impl Copy for TBS_CONTEXT_PARAMS2_0 {}
-impl Clone for TBS_CONTEXT_PARAMS2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TBS_CONTEXT_PARAMS2_0_0 {
     pub _bitfield: u32,
 }
-impl Copy for TBS_CONTEXT_PARAMS2_0_0 {}
-impl Clone for TBS_CONTEXT_PARAMS2_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TPM_DEVICE_INFO {
     pub structVersion: u32,
     pub tpmVersion: u32,
     pub tpmInterfaceType: u32,
     pub tpmImpRevision: u32,
 }
-impl Copy for TPM_DEVICE_INFO {}
-impl Clone for TPM_DEVICE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TPM_WNF_PROVISIONING {
     pub status: u32,
     pub message: [u8; 28],
-}
-impl Copy for TPM_WNF_PROVISIONING {}
-impl Clone for TPM_WNF_PROVISIONING {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

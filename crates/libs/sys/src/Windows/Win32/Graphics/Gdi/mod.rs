@@ -2160,88 +2160,54 @@ pub type TMPF_FLAGS = u8;
 pub type TTEMBED_FLAGS = u32;
 pub type TTLOAD_EMBEDDED_FONT_STATUS = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ABC {
     pub abcA: i32,
     pub abcB: u32,
     pub abcC: i32,
 }
-impl Copy for ABC {}
-impl Clone for ABC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ABCFLOAT {
     pub abcfA: f32,
     pub abcfB: f32,
     pub abcfC: f32,
 }
-impl Copy for ABCFLOAT {}
-impl Clone for ABCFLOAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ABORTPATH {
     pub emr: EMR,
 }
-impl Copy for ABORTPATH {}
-impl Clone for ABORTPATH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AXESLISTA {
     pub axlReserved: u32,
     pub axlNumAxes: u32,
     pub axlAxisInfo: [AXISINFOA; 16],
 }
-impl Copy for AXESLISTA {}
-impl Clone for AXESLISTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AXESLISTW {
     pub axlReserved: u32,
     pub axlNumAxes: u32,
     pub axlAxisInfo: [AXISINFOW; 16],
 }
-impl Copy for AXESLISTW {}
-impl Clone for AXESLISTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AXISINFOA {
     pub axMinValue: i32,
     pub axMaxValue: i32,
     pub axAxisName: [u8; 16],
 }
-impl Copy for AXISINFOA {}
-impl Clone for AXISINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AXISINFOW {
     pub axMinValue: i32,
     pub axMaxValue: i32,
     pub axAxisName: [u16; 16],
 }
-impl Copy for AXISINFOW {}
-impl Clone for AXISINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BITMAP {
     pub bmType: i32,
     pub bmWidth: i32,
@@ -2251,13 +2217,8 @@ pub struct BITMAP {
     pub bmBitsPixel: u16,
     pub bmBits: *mut core::ffi::c_void,
 }
-impl Copy for BITMAP {}
-impl Clone for BITMAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BITMAPCOREHEADER {
     pub bcSize: u32,
     pub bcWidth: u16,
@@ -2265,24 +2226,14 @@ pub struct BITMAPCOREHEADER {
     pub bcPlanes: u16,
     pub bcBitCount: u16,
 }
-impl Copy for BITMAPCOREHEADER {}
-impl Clone for BITMAPCOREHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BITMAPCOREINFO {
     pub bmciHeader: BITMAPCOREHEADER,
     pub bmciColors: [RGBTRIPLE; 1],
 }
-impl Copy for BITMAPCOREINFO {}
-impl Clone for BITMAPCOREINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct BITMAPFILEHEADER {
     pub bfType: u16,
     pub bfSize: u32,
@@ -2290,24 +2241,14 @@ pub struct BITMAPFILEHEADER {
     pub bfReserved2: u16,
     pub bfOffBits: u32,
 }
-impl Copy for BITMAPFILEHEADER {}
-impl Clone for BITMAPFILEHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BITMAPINFO {
     pub bmiHeader: BITMAPINFOHEADER,
     pub bmiColors: [RGBQUAD; 1],
 }
-impl Copy for BITMAPINFO {}
-impl Clone for BITMAPINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BITMAPINFOHEADER {
     pub biSize: u32,
     pub biWidth: i32,
@@ -2321,13 +2262,8 @@ pub struct BITMAPINFOHEADER {
     pub biClrUsed: u32,
     pub biClrImportant: u32,
 }
-impl Copy for BITMAPINFOHEADER {}
-impl Clone for BITMAPINFOHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BITMAPV4HEADER {
     pub bV4Size: u32,
     pub bV4Width: i32,
@@ -2350,13 +2286,8 @@ pub struct BITMAPV4HEADER {
     pub bV4GammaGreen: u32,
     pub bV4GammaBlue: u32,
 }
-impl Copy for BITMAPV4HEADER {}
-impl Clone for BITMAPV4HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BITMAPV5HEADER {
     pub bV5Size: u32,
     pub bV5Width: i32,
@@ -2383,50 +2314,30 @@ pub struct BITMAPV5HEADER {
     pub bV5ProfileSize: u32,
     pub bV5Reserved: u32,
 }
-impl Copy for BITMAPV5HEADER {}
-impl Clone for BITMAPV5HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BLENDFUNCTION {
     pub BlendOp: u8,
     pub BlendFlags: u8,
     pub SourceConstantAlpha: u8,
     pub AlphaFormat: u8,
 }
-impl Copy for BLENDFUNCTION {}
-impl Clone for BLENDFUNCTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CIEXYZ {
     pub ciexyzX: i32,
     pub ciexyzY: i32,
     pub ciexyzZ: i32,
 }
-impl Copy for CIEXYZ {}
-impl Clone for CIEXYZ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CIEXYZTRIPLE {
     pub ciexyzRed: CIEXYZ,
     pub ciexyzGreen: CIEXYZ,
     pub ciexyzBlue: CIEXYZ,
 }
-impl Copy for CIEXYZTRIPLE {}
-impl Clone for CIEXYZTRIPLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COLORADJUSTMENT {
     pub caSize: u16,
     pub caFlags: u16,
@@ -2441,25 +2352,15 @@ pub struct COLORADJUSTMENT {
     pub caColorfulness: i16,
     pub caRedGreenTint: i16,
 }
-impl Copy for COLORADJUSTMENT {}
-impl Clone for COLORADJUSTMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DESIGNVECTOR {
     pub dvReserved: u32,
     pub dvNumAxes: u32,
     pub dvValues: [i32; 16],
 }
-impl Copy for DESIGNVECTOR {}
-impl Clone for DESIGNVECTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVMODEA {
     pub dmDeviceName: [u8; 32],
     pub dmSpecVersion: u16,
@@ -2489,24 +2390,14 @@ pub struct DEVMODEA {
     pub dmPanningWidth: u32,
     pub dmPanningHeight: u32,
 }
-impl Copy for DEVMODEA {}
-impl Clone for DEVMODEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DEVMODEA_0 {
     pub Anonymous1: DEVMODEA_0_0,
     pub Anonymous2: DEVMODEA_0_1,
 }
-impl Copy for DEVMODEA_0 {}
-impl Clone for DEVMODEA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVMODEA_0_0 {
     pub dmOrientation: i16,
     pub dmPaperSize: i16,
@@ -2517,36 +2408,21 @@ pub struct DEVMODEA_0_0 {
     pub dmDefaultSource: i16,
     pub dmPrintQuality: i16,
 }
-impl Copy for DEVMODEA_0_0 {}
-impl Clone for DEVMODEA_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVMODEA_0_1 {
     pub dmPosition: super::super::Foundation::POINTL,
     pub dmDisplayOrientation: DEVMODE_DISPLAY_ORIENTATION,
     pub dmDisplayFixedOutput: DEVMODE_DISPLAY_FIXED_OUTPUT,
 }
-impl Copy for DEVMODEA_0_1 {}
-impl Clone for DEVMODEA_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DEVMODEA_1 {
     pub dmDisplayFlags: u32,
     pub dmNup: u32,
 }
-impl Copy for DEVMODEA_1 {}
-impl Clone for DEVMODEA_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVMODEW {
     pub dmDeviceName: [u16; 32],
     pub dmSpecVersion: u16,
@@ -2576,24 +2452,14 @@ pub struct DEVMODEW {
     pub dmPanningWidth: u32,
     pub dmPanningHeight: u32,
 }
-impl Copy for DEVMODEW {}
-impl Clone for DEVMODEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DEVMODEW_0 {
     pub Anonymous1: DEVMODEW_0_0,
     pub Anonymous2: DEVMODEW_0_1,
 }
-impl Copy for DEVMODEW_0 {}
-impl Clone for DEVMODEW_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVMODEW_0_0 {
     pub dmOrientation: i16,
     pub dmPaperSize: i16,
@@ -2604,36 +2470,21 @@ pub struct DEVMODEW_0_0 {
     pub dmDefaultSource: i16,
     pub dmPrintQuality: i16,
 }
-impl Copy for DEVMODEW_0_0 {}
-impl Clone for DEVMODEW_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVMODEW_0_1 {
     pub dmPosition: super::super::Foundation::POINTL,
     pub dmDisplayOrientation: DEVMODE_DISPLAY_ORIENTATION,
     pub dmDisplayFixedOutput: DEVMODE_DISPLAY_FIXED_OUTPUT,
 }
-impl Copy for DEVMODEW_0_1 {}
-impl Clone for DEVMODEW_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DEVMODEW_1 {
     pub dmDisplayFlags: u32,
     pub dmNup: u32,
 }
-impl Copy for DEVMODEW_1 {}
-impl Clone for DEVMODEW_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIBSECTION {
     pub dsBm: BITMAP,
     pub dsBmih: BITMAPINFOHEADER,
@@ -2641,13 +2492,8 @@ pub struct DIBSECTION {
     pub dshSection: super::super::Foundation::HANDLE,
     pub dsOffset: u32,
 }
-impl Copy for DIBSECTION {}
-impl Clone for DIBSECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DISPLAY_DEVICEA {
     pub cb: u32,
     pub DeviceName: [i8; 32],
@@ -2656,13 +2502,8 @@ pub struct DISPLAY_DEVICEA {
     pub DeviceID: [i8; 128],
     pub DeviceKey: [i8; 128],
 }
-impl Copy for DISPLAY_DEVICEA {}
-impl Clone for DISPLAY_DEVICEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DISPLAY_DEVICEW {
     pub cb: u32,
     pub DeviceName: [u16; 32],
@@ -2671,13 +2512,8 @@ pub struct DISPLAY_DEVICEW {
     pub DeviceID: [u16; 128],
     pub DeviceKey: [u16; 128],
 }
-impl Copy for DISPLAY_DEVICEW {}
-impl Clone for DISPLAY_DEVICEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRAWTEXTPARAMS {
     pub cbSize: u32,
     pub iTabLength: i32,
@@ -2685,24 +2521,14 @@ pub struct DRAWTEXTPARAMS {
     pub iRightMargin: i32,
     pub uiLengthDrawn: u32,
 }
-impl Copy for DRAWTEXTPARAMS {}
-impl Clone for DRAWTEXTPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMR {
     pub iType: ENHANCED_METAFILE_RECORD_TYPE,
     pub nSize: u32,
 }
-impl Copy for EMR {}
-impl Clone for EMR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRALPHABLEND {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -2723,13 +2549,8 @@ pub struct EMRALPHABLEND {
     pub cxSrc: i32,
     pub cySrc: i32,
 }
-impl Copy for EMRALPHABLEND {}
-impl Clone for EMRALPHABLEND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRANGLEARC {
     pub emr: EMR,
     pub ptlCenter: super::super::Foundation::POINTL,
@@ -2737,26 +2558,16 @@ pub struct EMRANGLEARC {
     pub eStartAngle: f32,
     pub eSweepAngle: f32,
 }
-impl Copy for EMRANGLEARC {}
-impl Clone for EMRANGLEARC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRARC {
     pub emr: EMR,
     pub rclBox: super::super::Foundation::RECTL,
     pub ptlStart: super::super::Foundation::POINTL,
     pub ptlEnd: super::super::Foundation::POINTL,
 }
-impl Copy for EMRARC {}
-impl Clone for EMRARC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRBITBLT {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -2775,13 +2586,8 @@ pub struct EMRBITBLT {
     pub offBitsSrc: u32,
     pub cbBitsSrc: u32,
 }
-impl Copy for EMRBITBLT {}
-impl Clone for EMRBITBLT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRCOLORCORRECTPALETTE {
     pub emr: EMR,
     pub ihPalette: u32,
@@ -2789,13 +2595,8 @@ pub struct EMRCOLORCORRECTPALETTE {
     pub nPalEntries: u32,
     pub nReserved: u32,
 }
-impl Copy for EMRCOLORCORRECTPALETTE {}
-impl Clone for EMRCOLORCORRECTPALETTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRCOLORMATCHTOTARGET {
     pub emr: EMR,
     pub dwAction: u32,
@@ -2804,25 +2605,15 @@ pub struct EMRCOLORMATCHTOTARGET {
     pub cbData: u32,
     pub Data: [u8; 1],
 }
-impl Copy for EMRCOLORMATCHTOTARGET {}
-impl Clone for EMRCOLORMATCHTOTARGET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRCREATEBRUSHINDIRECT {
     pub emr: EMR,
     pub ihBrush: u32,
     pub lb: LOGBRUSH32,
 }
-impl Copy for EMRCREATEBRUSHINDIRECT {}
-impl Clone for EMRCREATEBRUSHINDIRECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRCREATEDIBPATTERNBRUSHPT {
     pub emr: EMR,
     pub ihBrush: u32,
@@ -2832,13 +2623,8 @@ pub struct EMRCREATEDIBPATTERNBRUSHPT {
     pub offBits: u32,
     pub cbBits: u32,
 }
-impl Copy for EMRCREATEDIBPATTERNBRUSHPT {}
-impl Clone for EMRCREATEDIBPATTERNBRUSHPT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRCREATEMONOBRUSH {
     pub emr: EMR,
     pub ihBrush: u32,
@@ -2848,84 +2634,49 @@ pub struct EMRCREATEMONOBRUSH {
     pub offBits: u32,
     pub cbBits: u32,
 }
-impl Copy for EMRCREATEMONOBRUSH {}
-impl Clone for EMRCREATEMONOBRUSH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRCREATEPALETTE {
     pub emr: EMR,
     pub ihPal: u32,
     pub lgpl: LOGPALETTE,
 }
-impl Copy for EMRCREATEPALETTE {}
-impl Clone for EMRCREATEPALETTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRCREATEPEN {
     pub emr: EMR,
     pub ihPen: u32,
     pub lopn: LOGPEN,
 }
-impl Copy for EMRCREATEPEN {}
-impl Clone for EMRCREATEPEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRELLIPSE {
     pub emr: EMR,
     pub rclBox: super::super::Foundation::RECTL,
 }
-impl Copy for EMRELLIPSE {}
-impl Clone for EMRELLIPSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMREOF {
     pub emr: EMR,
     pub nPalEntries: u32,
     pub offPalEntries: u32,
     pub nSizeLast: u32,
 }
-impl Copy for EMREOF {}
-impl Clone for EMREOF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMREXCLUDECLIPRECT {
     pub emr: EMR,
     pub rclClip: super::super::Foundation::RECTL,
 }
-impl Copy for EMREXCLUDECLIPRECT {}
-impl Clone for EMREXCLUDECLIPRECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMREXTCREATEFONTINDIRECTW {
     pub emr: EMR,
     pub ihFont: u32,
     pub elfw: EXTLOGFONTW,
 }
-impl Copy for EMREXTCREATEFONTINDIRECTW {}
-impl Clone for EMREXTCREATEFONTINDIRECTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMREXTCREATEPEN {
     pub emr: EMR,
     pub ihPen: u32,
@@ -2935,52 +2686,32 @@ pub struct EMREXTCREATEPEN {
     pub cbBits: u32,
     pub elp: EXTLOGPEN32,
 }
-impl Copy for EMREXTCREATEPEN {}
-impl Clone for EMREXTCREATEPEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMREXTESCAPE {
     pub emr: EMR,
     pub iEscape: i32,
     pub cbEscData: i32,
     pub EscData: [u8; 1],
 }
-impl Copy for EMREXTESCAPE {}
-impl Clone for EMREXTESCAPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMREXTFLOODFILL {
     pub emr: EMR,
     pub ptlStart: super::super::Foundation::POINTL,
     pub crColor: super::super::Foundation::COLORREF,
     pub iMode: u32,
 }
-impl Copy for EMREXTFLOODFILL {}
-impl Clone for EMREXTFLOODFILL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMREXTSELECTCLIPRGN {
     pub emr: EMR,
     pub cbRgnData: u32,
     pub iMode: u32,
     pub RgnData: [u8; 1],
 }
-impl Copy for EMREXTSELECTCLIPRGN {}
-impl Clone for EMREXTSELECTCLIPRGN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMREXTTEXTOUTA {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -2989,24 +2720,14 @@ pub struct EMREXTTEXTOUTA {
     pub eyScale: f32,
     pub emrtext: EMRTEXT,
 }
-impl Copy for EMREXTTEXTOUTA {}
-impl Clone for EMREXTTEXTOUTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRFILLPATH {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
 }
-impl Copy for EMRFILLPATH {}
-impl Clone for EMRFILLPATH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRFILLRGN {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -3014,26 +2735,16 @@ pub struct EMRFILLRGN {
     pub ihBrush: u32,
     pub RgnData: [u8; 1],
 }
-impl Copy for EMRFILLRGN {}
-impl Clone for EMRFILLRGN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRFORMAT {
     pub dSignature: u32,
     pub nVersion: u32,
     pub cbData: u32,
     pub offData: u32,
 }
-impl Copy for EMRFORMAT {}
-impl Clone for EMRFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRFRAMERGN {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -3042,50 +2753,30 @@ pub struct EMRFRAMERGN {
     pub szlStroke: super::super::Foundation::SIZE,
     pub RgnData: [u8; 1],
 }
-impl Copy for EMRFRAMERGN {}
-impl Clone for EMRFRAMERGN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRGDICOMMENT {
     pub emr: EMR,
     pub cbData: u32,
     pub Data: [u8; 1],
 }
-impl Copy for EMRGDICOMMENT {}
-impl Clone for EMRGDICOMMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRGLSBOUNDEDRECORD {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
     pub cbData: u32,
     pub Data: [u8; 1],
 }
-impl Copy for EMRGLSBOUNDEDRECORD {}
-impl Clone for EMRGLSBOUNDEDRECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRGLSRECORD {
     pub emr: EMR,
     pub cbData: u32,
     pub Data: [u8; 1],
 }
-impl Copy for EMRGLSRECORD {}
-impl Clone for EMRGLSRECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRGRADIENTFILL {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -3094,37 +2785,22 @@ pub struct EMRGRADIENTFILL {
     pub ulMode: GRADIENT_FILL,
     pub Ver: [TRIVERTEX; 1],
 }
-impl Copy for EMRGRADIENTFILL {}
-impl Clone for EMRGRADIENTFILL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRINVERTRGN {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
     pub cbRgnData: u32,
     pub RgnData: [u8; 1],
 }
-impl Copy for EMRINVERTRGN {}
-impl Clone for EMRINVERTRGN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRLINETO {
     pub emr: EMR,
     pub ptl: super::super::Foundation::POINTL,
 }
-impl Copy for EMRLINETO {}
-impl Clone for EMRLINETO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRMASKBLT {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -3150,25 +2826,15 @@ pub struct EMRMASKBLT {
     pub offBitsMask: u32,
     pub cbBitsMask: u32,
 }
-impl Copy for EMRMASKBLT {}
-impl Clone for EMRMASKBLT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRMODIFYWORLDTRANSFORM {
     pub emr: EMR,
     pub xform: XFORM,
     pub iMode: MODIFY_WORLD_TRANSFORM_MODE,
 }
-impl Copy for EMRMODIFYWORLDTRANSFORM {}
-impl Clone for EMRMODIFYWORLDTRANSFORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRNAMEDESCAPE {
     pub emr: EMR,
     pub iEscape: i32,
@@ -3176,24 +2842,14 @@ pub struct EMRNAMEDESCAPE {
     pub cbEscData: i32,
     pub EscData: [u8; 1],
 }
-impl Copy for EMRNAMEDESCAPE {}
-impl Clone for EMRNAMEDESCAPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMROFFSETCLIPRGN {
     pub emr: EMR,
     pub ptlOffset: super::super::Foundation::POINTL,
 }
-impl Copy for EMROFFSETCLIPRGN {}
-impl Clone for EMROFFSETCLIPRGN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRPLGBLT {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -3217,13 +2873,8 @@ pub struct EMRPLGBLT {
     pub offBitsMask: u32,
     pub cbBitsMask: u32,
 }
-impl Copy for EMRPLGBLT {}
-impl Clone for EMRPLGBLT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRPOLYDRAW {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -3231,13 +2882,8 @@ pub struct EMRPOLYDRAW {
     pub aptl: [super::super::Foundation::POINTL; 1],
     pub abTypes: [u8; 1],
 }
-impl Copy for EMRPOLYDRAW {}
-impl Clone for EMRPOLYDRAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRPOLYDRAW16 {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -3245,39 +2891,24 @@ pub struct EMRPOLYDRAW16 {
     pub apts: [super::super::Foundation::POINTS; 1],
     pub abTypes: [u8; 1],
 }
-impl Copy for EMRPOLYDRAW16 {}
-impl Clone for EMRPOLYDRAW16 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRPOLYLINE {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
     pub cptl: u32,
     pub aptl: [super::super::Foundation::POINTL; 1],
 }
-impl Copy for EMRPOLYLINE {}
-impl Clone for EMRPOLYLINE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRPOLYLINE16 {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
     pub cpts: u32,
     pub apts: [super::super::Foundation::POINTS; 1],
 }
-impl Copy for EMRPOLYLINE16 {}
-impl Clone for EMRPOLYLINE16 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRPOLYPOLYLINE {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -3286,13 +2917,8 @@ pub struct EMRPOLYPOLYLINE {
     pub aPolyCounts: [u32; 1],
     pub aptl: [super::super::Foundation::POINTL; 1],
 }
-impl Copy for EMRPOLYPOLYLINE {}
-impl Clone for EMRPOLYPOLYLINE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRPOLYPOLYLINE16 {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -3301,13 +2927,8 @@ pub struct EMRPOLYPOLYLINE16 {
     pub aPolyCounts: [u32; 1],
     pub apts: [super::super::Foundation::POINTS; 1],
 }
-impl Copy for EMRPOLYPOLYLINE16 {}
-impl Clone for EMRPOLYPOLYLINE16 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRPOLYTEXTOUTA {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -3317,48 +2938,28 @@ pub struct EMRPOLYTEXTOUTA {
     pub cStrings: i32,
     pub aemrtext: [EMRTEXT; 1],
 }
-impl Copy for EMRPOLYTEXTOUTA {}
-impl Clone for EMRPOLYTEXTOUTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRRESIZEPALETTE {
     pub emr: EMR,
     pub ihPal: u32,
     pub cEntries: u32,
 }
-impl Copy for EMRRESIZEPALETTE {}
-impl Clone for EMRRESIZEPALETTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRRESTOREDC {
     pub emr: EMR,
     pub iRelative: i32,
 }
-impl Copy for EMRRESTOREDC {}
-impl Clone for EMRRESTOREDC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRROUNDRECT {
     pub emr: EMR,
     pub rclBox: super::super::Foundation::RECTL,
     pub szlCorner: super::super::Foundation::SIZE,
 }
-impl Copy for EMRROUNDRECT {}
-impl Clone for EMRROUNDRECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRSCALEVIEWPORTEXTEX {
     pub emr: EMR,
     pub xNum: i32,
@@ -3366,79 +2967,44 @@ pub struct EMRSCALEVIEWPORTEXTEX {
     pub yNum: i32,
     pub yDenom: i32,
 }
-impl Copy for EMRSCALEVIEWPORTEXTEX {}
-impl Clone for EMRSCALEVIEWPORTEXTEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRSELECTCLIPPATH {
     pub emr: EMR,
     pub iMode: u32,
 }
-impl Copy for EMRSELECTCLIPPATH {}
-impl Clone for EMRSELECTCLIPPATH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRSELECTOBJECT {
     pub emr: EMR,
     pub ihObject: u32,
 }
-impl Copy for EMRSELECTOBJECT {}
-impl Clone for EMRSELECTOBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRSELECTPALETTE {
     pub emr: EMR,
     pub ihPal: u32,
 }
-impl Copy for EMRSELECTPALETTE {}
-impl Clone for EMRSELECTPALETTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRSETARCDIRECTION {
     pub emr: EMR,
     pub iArcDirection: u32,
 }
-impl Copy for EMRSETARCDIRECTION {}
-impl Clone for EMRSETARCDIRECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRSETCOLORADJUSTMENT {
     pub emr: EMR,
     pub ColorAdjustment: COLORADJUSTMENT,
 }
-impl Copy for EMRSETCOLORADJUSTMENT {}
-impl Clone for EMRSETCOLORADJUSTMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRSETCOLORSPACE {
     pub emr: EMR,
     pub ihCS: u32,
 }
-impl Copy for EMRSETCOLORSPACE {}
-impl Clone for EMRSETCOLORSPACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRSETDIBITSTODEVICE {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -3456,13 +3022,8 @@ pub struct EMRSETDIBITSTODEVICE {
     pub iStartScan: u32,
     pub cScans: u32,
 }
-impl Copy for EMRSETDIBITSTODEVICE {}
-impl Clone for EMRSETDIBITSTODEVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRSETICMPROFILE {
     pub emr: EMR,
     pub dwFlags: u32,
@@ -3470,35 +3031,20 @@ pub struct EMRSETICMPROFILE {
     pub cbData: u32,
     pub Data: [u8; 1],
 }
-impl Copy for EMRSETICMPROFILE {}
-impl Clone for EMRSETICMPROFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRSETMAPPERFLAGS {
     pub emr: EMR,
     pub dwFlags: u32,
 }
-impl Copy for EMRSETMAPPERFLAGS {}
-impl Clone for EMRSETMAPPERFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRSETMITERLIMIT {
     pub emr: EMR,
     pub eMiterLimit: f32,
 }
-impl Copy for EMRSETMITERLIMIT {}
-impl Clone for EMRSETMITERLIMIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRSETPALETTEENTRIES {
     pub emr: EMR,
     pub ihPal: u32,
@@ -3506,69 +3052,39 @@ pub struct EMRSETPALETTEENTRIES {
     pub cEntries: u32,
     pub aPalEntries: [PALETTEENTRY; 1],
 }
-impl Copy for EMRSETPALETTEENTRIES {}
-impl Clone for EMRSETPALETTEENTRIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRSETPIXELV {
     pub emr: EMR,
     pub ptlPixel: super::super::Foundation::POINTL,
     pub crColor: super::super::Foundation::COLORREF,
 }
-impl Copy for EMRSETPIXELV {}
-impl Clone for EMRSETPIXELV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRSETTEXTCOLOR {
     pub emr: EMR,
     pub crColor: super::super::Foundation::COLORREF,
 }
-impl Copy for EMRSETTEXTCOLOR {}
-impl Clone for EMRSETTEXTCOLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRSETVIEWPORTEXTEX {
     pub emr: EMR,
     pub szlExtent: super::super::Foundation::SIZE,
 }
-impl Copy for EMRSETVIEWPORTEXTEX {}
-impl Clone for EMRSETVIEWPORTEXTEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRSETVIEWPORTORGEX {
     pub emr: EMR,
     pub ptlOrigin: super::super::Foundation::POINTL,
 }
-impl Copy for EMRSETVIEWPORTORGEX {}
-impl Clone for EMRSETVIEWPORTORGEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRSETWORLDTRANSFORM {
     pub emr: EMR,
     pub xform: XFORM,
 }
-impl Copy for EMRSETWORLDTRANSFORM {}
-impl Clone for EMRSETWORLDTRANSFORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRSTRETCHBLT {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -3589,13 +3105,8 @@ pub struct EMRSTRETCHBLT {
     pub cxSrc: i32,
     pub cySrc: i32,
 }
-impl Copy for EMRSTRETCHBLT {}
-impl Clone for EMRSTRETCHBLT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRSTRETCHDIBITS {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -3614,13 +3125,8 @@ pub struct EMRSTRETCHDIBITS {
     pub cxDest: i32,
     pub cyDest: i32,
 }
-impl Copy for EMRSTRETCHDIBITS {}
-impl Clone for EMRSTRETCHDIBITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRTEXT {
     pub ptlReference: super::super::Foundation::POINTL,
     pub nChars: u32,
@@ -3629,13 +3135,8 @@ pub struct EMRTEXT {
     pub rcl: super::super::Foundation::RECTL,
     pub offDx: u32,
 }
-impl Copy for EMRTEXT {}
-impl Clone for EMRTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EMRTRANSPARENTBLT {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -3656,13 +3157,8 @@ pub struct EMRTRANSPARENTBLT {
     pub cxSrc: i32,
     pub cySrc: i32,
 }
-impl Copy for EMRTRANSPARENTBLT {}
-impl Clone for EMRTRANSPARENTBLT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ENHMETAHEADER {
     pub iType: u32,
     pub nSize: u32,
@@ -3684,97 +3180,57 @@ pub struct ENHMETAHEADER {
     pub bOpenGL: u32,
     pub szlMicrometers: super::super::Foundation::SIZE,
 }
-impl Copy for ENHMETAHEADER {}
-impl Clone for ENHMETAHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ENHMETARECORD {
     pub iType: ENHANCED_METAFILE_RECORD_TYPE,
     pub nSize: u32,
     pub dParm: [u32; 1],
 }
-impl Copy for ENHMETARECORD {}
-impl Clone for ENHMETARECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ENUMLOGFONTA {
     pub elfLogFont: LOGFONTA,
     pub elfFullName: [u8; 64],
     pub elfStyle: [u8; 32],
 }
-impl Copy for ENUMLOGFONTA {}
-impl Clone for ENUMLOGFONTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ENUMLOGFONTEXA {
     pub elfLogFont: LOGFONTA,
     pub elfFullName: [u8; 64],
     pub elfStyle: [u8; 32],
     pub elfScript: [u8; 32],
 }
-impl Copy for ENUMLOGFONTEXA {}
-impl Clone for ENUMLOGFONTEXA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ENUMLOGFONTEXDVA {
     pub elfEnumLogfontEx: ENUMLOGFONTEXA,
     pub elfDesignVector: DESIGNVECTOR,
 }
-impl Copy for ENUMLOGFONTEXDVA {}
-impl Clone for ENUMLOGFONTEXDVA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ENUMLOGFONTEXDVW {
     pub elfEnumLogfontEx: ENUMLOGFONTEXW,
     pub elfDesignVector: DESIGNVECTOR,
 }
-impl Copy for ENUMLOGFONTEXDVW {}
-impl Clone for ENUMLOGFONTEXDVW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ENUMLOGFONTEXW {
     pub elfLogFont: LOGFONTW,
     pub elfFullName: [u16; 64],
     pub elfStyle: [u16; 32],
     pub elfScript: [u16; 32],
 }
-impl Copy for ENUMLOGFONTEXW {}
-impl Clone for ENUMLOGFONTEXW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ENUMLOGFONTW {
     pub elfLogFont: LOGFONTW,
     pub elfFullName: [u16; 64],
     pub elfStyle: [u16; 32],
 }
-impl Copy for ENUMLOGFONTW {}
-impl Clone for ENUMLOGFONTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXTLOGFONTA {
     pub elfLogFont: LOGFONTA,
     pub elfFullName: [u8; 64],
@@ -3787,13 +3243,8 @@ pub struct EXTLOGFONTA {
     pub elfCulture: u32,
     pub elfPanose: PANOSE,
 }
-impl Copy for EXTLOGFONTA {}
-impl Clone for EXTLOGFONTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXTLOGFONTW {
     pub elfLogFont: LOGFONTW,
     pub elfFullName: [u16; 64],
@@ -3806,13 +3257,8 @@ pub struct EXTLOGFONTW {
     pub elfCulture: u32,
     pub elfPanose: PANOSE,
 }
-impl Copy for EXTLOGFONTW {}
-impl Clone for EXTLOGFONTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXTLOGPEN {
     pub elpPenStyle: u32,
     pub elpWidth: u32,
@@ -3822,13 +3268,8 @@ pub struct EXTLOGPEN {
     pub elpNumEntries: u32,
     pub elpStyleEntry: [u32; 1],
 }
-impl Copy for EXTLOGPEN {}
-impl Clone for EXTLOGPEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXTLOGPEN32 {
     pub elpPenStyle: u32,
     pub elpWidth: u32,
@@ -3838,24 +3279,14 @@ pub struct EXTLOGPEN32 {
     pub elpNumEntries: u32,
     pub elpStyleEntry: [u32; 1],
 }
-impl Copy for EXTLOGPEN32 {}
-impl Clone for EXTLOGPEN32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FIXED {
     pub fract: u16,
     pub value: i16,
 }
-impl Copy for FIXED {}
-impl Clone for FIXED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GCP_RESULTSA {
     pub lStructSize: u32,
     pub lpOutString: windows_sys::core::PSTR,
@@ -3867,13 +3298,8 @@ pub struct GCP_RESULTSA {
     pub nGlyphs: u32,
     pub nMaxFit: i32,
 }
-impl Copy for GCP_RESULTSA {}
-impl Clone for GCP_RESULTSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GCP_RESULTSW {
     pub lStructSize: u32,
     pub lpOutString: windows_sys::core::PWSTR,
@@ -3885,13 +3311,8 @@ pub struct GCP_RESULTSW {
     pub nGlyphs: u32,
     pub nMaxFit: i32,
 }
-impl Copy for GCP_RESULTSW {}
-impl Clone for GCP_RESULTSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GLYPHMETRICS {
     pub gmBlackBoxX: u32,
     pub gmBlackBoxY: u32,
@@ -3899,13 +3320,8 @@ pub struct GLYPHMETRICS {
     pub gmCellIncX: i16,
     pub gmCellIncY: i16,
 }
-impl Copy for GLYPHMETRICS {}
-impl Clone for GLYPHMETRICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GLYPHSET {
     pub cbThis: u32,
     pub flAccel: u32,
@@ -3913,44 +3329,23 @@ pub struct GLYPHSET {
     pub cRanges: u32,
     pub ranges: [WCRANGE; 1],
 }
-impl Copy for GLYPHSET {}
-impl Clone for GLYPHSET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GRADIENT_RECT {
     pub UpperLeft: u32,
     pub LowerRight: u32,
 }
-impl Copy for GRADIENT_RECT {}
-impl Clone for GRADIENT_RECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GRADIENT_TRIANGLE {
     pub Vertex1: u32,
     pub Vertex2: u32,
     pub Vertex3: u32,
 }
-impl Copy for GRADIENT_TRIANGLE {}
-impl Clone for GRADIENT_TRIANGLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HANDLETABLE {
     pub objectHandle: [HGDIOBJ; 1],
-}
-impl Copy for HANDLETABLE {}
-impl Clone for HANDLETABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type HBITMAP = isize;
 pub type HBRUSH = isize;
@@ -3964,42 +3359,28 @@ pub type HPALETTE = isize;
 pub type HPEN = isize;
 pub type HRGN = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KERNINGPAIR {
     pub wFirst: u16,
     pub wSecond: u16,
     pub iKernAmount: i32,
 }
-impl Copy for KERNINGPAIR {}
-impl Clone for KERNINGPAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LOGBRUSH {
     pub lbStyle: BRUSH_STYLE,
     pub lbColor: super::super::Foundation::COLORREF,
     pub lbHatch: usize,
 }
-impl Copy for LOGBRUSH {}
-impl Clone for LOGBRUSH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LOGBRUSH32 {
     pub lbStyle: BRUSH_STYLE,
     pub lbColor: super::super::Foundation::COLORREF,
     pub lbHatch: u32,
 }
-impl Copy for LOGBRUSH32 {}
-impl Clone for LOGBRUSH32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LOGFONTA {
     pub lfHeight: i32,
     pub lfWidth: i32,
@@ -4016,13 +3397,8 @@ pub struct LOGFONTA {
     pub lfPitchAndFamily: u8,
     pub lfFaceName: [i8; 32],
 }
-impl Copy for LOGFONTA {}
-impl Clone for LOGFONTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LOGFONTW {
     pub lfHeight: i32,
     pub lfWidth: i32,
@@ -4039,50 +3415,30 @@ pub struct LOGFONTW {
     pub lfPitchAndFamily: u8,
     pub lfFaceName: [u16; 32],
 }
-impl Copy for LOGFONTW {}
-impl Clone for LOGFONTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LOGPALETTE {
     pub palVersion: u16,
     pub palNumEntries: u16,
     pub palPalEntry: [PALETTEENTRY; 1],
 }
-impl Copy for LOGPALETTE {}
-impl Clone for LOGPALETTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LOGPEN {
     pub lopnStyle: u32,
     pub lopnWidth: super::super::Foundation::POINT,
     pub lopnColor: super::super::Foundation::COLORREF,
 }
-impl Copy for LOGPEN {}
-impl Clone for LOGPEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MAT2 {
     pub eM11: FIXED,
     pub eM12: FIXED,
     pub eM21: FIXED,
     pub eM22: FIXED,
 }
-impl Copy for MAT2 {}
-impl Clone for MAT2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct METAHEADER {
     pub mtType: u16,
     pub mtHeaderSize: u16,
@@ -4092,60 +3448,35 @@ pub struct METAHEADER {
     pub mtMaxRecord: u32,
     pub mtNoParameters: u16,
 }
-impl Copy for METAHEADER {}
-impl Clone for METAHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct METARECORD {
     pub rdSize: u32,
     pub rdFunction: u16,
     pub rdParm: [u16; 1],
 }
-impl Copy for METARECORD {}
-impl Clone for METARECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MONITORINFO {
     pub cbSize: u32,
     pub rcMonitor: super::super::Foundation::RECT,
     pub rcWork: super::super::Foundation::RECT,
     pub dwFlags: u32,
 }
-impl Copy for MONITORINFO {}
-impl Clone for MONITORINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MONITORINFOEXA {
     pub monitorInfo: MONITORINFO,
     pub szDevice: [i8; 32],
 }
-impl Copy for MONITORINFOEXA {}
-impl Clone for MONITORINFOEXA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MONITORINFOEXW {
     pub monitorInfo: MONITORINFO,
     pub szDevice: [u16; 32],
 }
-impl Copy for MONITORINFOEXW {}
-impl Clone for MONITORINFOEXW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NEWTEXTMETRICA {
     pub tmHeight: i32,
     pub tmAscent: i32,
@@ -4172,13 +3503,8 @@ pub struct NEWTEXTMETRICA {
     pub ntmCellHeight: u32,
     pub ntmAvgWidth: u32,
 }
-impl Copy for NEWTEXTMETRICA {}
-impl Clone for NEWTEXTMETRICA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NEWTEXTMETRICW {
     pub tmHeight: i32,
     pub tmAscent: i32,
@@ -4205,13 +3531,8 @@ pub struct NEWTEXTMETRICW {
     pub ntmCellHeight: u32,
     pub ntmAvgWidth: u32,
 }
-impl Copy for NEWTEXTMETRICW {}
-impl Clone for NEWTEXTMETRICW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OUTLINETEXTMETRICA {
     pub otmSize: u32,
     pub otmTextMetrics: TEXTMETRICA,
@@ -4246,13 +3567,8 @@ pub struct OUTLINETEXTMETRICA {
     pub otmpStyleName: windows_sys::core::PSTR,
     pub otmpFullName: windows_sys::core::PSTR,
 }
-impl Copy for OUTLINETEXTMETRICA {}
-impl Clone for OUTLINETEXTMETRICA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OUTLINETEXTMETRICW {
     pub otmSize: u32,
     pub otmTextMetrics: TEXTMETRICW,
@@ -4287,13 +3603,8 @@ pub struct OUTLINETEXTMETRICW {
     pub otmpStyleName: windows_sys::core::PSTR,
     pub otmpFullName: windows_sys::core::PSTR,
 }
-impl Copy for OUTLINETEXTMETRICW {}
-impl Clone for OUTLINETEXTMETRICW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PAINTSTRUCT {
     pub hdc: HDC,
     pub fErase: super::super::Foundation::BOOL,
@@ -4302,26 +3613,16 @@ pub struct PAINTSTRUCT {
     pub fIncUpdate: super::super::Foundation::BOOL,
     pub rgbReserved: [u8; 32],
 }
-impl Copy for PAINTSTRUCT {}
-impl Clone for PAINTSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PALETTEENTRY {
     pub peRed: u8,
     pub peGreen: u8,
     pub peBlue: u8,
     pub peFlags: u8,
 }
-impl Copy for PALETTEENTRY {}
-impl Clone for PALETTEENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PANOSE {
     pub bFamilyType: PAN_FAMILY_TYPE,
     pub bSerifStyle: PAN_SERIF_STYLE,
@@ -4334,13 +3635,8 @@ pub struct PANOSE {
     pub bMidline: PAN_MIDLINE,
     pub bXHeight: PAN_XHEIGHT,
 }
-impl Copy for PANOSE {}
-impl Clone for PANOSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PELARRAY {
     pub paXCount: i32,
     pub paYCount: i32,
@@ -4348,24 +3644,14 @@ pub struct PELARRAY {
     pub paYExt: i32,
     pub paRGBs: u8,
 }
-impl Copy for PELARRAY {}
-impl Clone for PELARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POINTFX {
     pub x: FIXED,
     pub y: FIXED,
 }
-impl Copy for POINTFX {}
-impl Clone for POINTFX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POLYTEXTA {
     pub x: i32,
     pub y: i32,
@@ -4375,13 +3661,8 @@ pub struct POLYTEXTA {
     pub rcl: super::super::Foundation::RECT,
     pub pdx: *mut i32,
 }
-impl Copy for POLYTEXTA {}
-impl Clone for POLYTEXTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POLYTEXTW {
     pub x: i32,
     pub y: i32,
@@ -4391,61 +3672,36 @@ pub struct POLYTEXTW {
     pub rcl: super::super::Foundation::RECT,
     pub pdx: *mut i32,
 }
-impl Copy for POLYTEXTW {}
-impl Clone for POLYTEXTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RASTERIZER_STATUS {
     pub nSize: i16,
     pub wFlags: i16,
     pub nLanguageID: i16,
 }
-impl Copy for RASTERIZER_STATUS {}
-impl Clone for RASTERIZER_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RGBQUAD {
     pub rgbBlue: u8,
     pub rgbGreen: u8,
     pub rgbRed: u8,
     pub rgbReserved: u8,
 }
-impl Copy for RGBQUAD {}
-impl Clone for RGBQUAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RGBTRIPLE {
     pub rgbtBlue: u8,
     pub rgbtGreen: u8,
     pub rgbtRed: u8,
 }
-impl Copy for RGBTRIPLE {}
-impl Clone for RGBTRIPLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RGNDATA {
     pub rdh: RGNDATAHEADER,
     pub Buffer: [i8; 1],
 }
-impl Copy for RGNDATA {}
-impl Clone for RGNDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RGNDATAHEADER {
     pub dwSize: u32,
     pub iType: u32,
@@ -4453,13 +3709,8 @@ pub struct RGNDATAHEADER {
     pub nRgnSize: u32,
     pub rcBound: super::super::Foundation::RECT,
 }
-impl Copy for RGNDATAHEADER {}
-impl Clone for RGNDATAHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TEXTMETRICA {
     pub tmHeight: i32,
     pub tmAscent: i32,
@@ -4482,13 +3733,8 @@ pub struct TEXTMETRICA {
     pub tmPitchAndFamily: TMPF_FLAGS,
     pub tmCharSet: u8,
 }
-impl Copy for TEXTMETRICA {}
-impl Clone for TEXTMETRICA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TEXTMETRICW {
     pub tmHeight: i32,
     pub tmAscent: i32,
@@ -4511,13 +3757,8 @@ pub struct TEXTMETRICW {
     pub tmPitchAndFamily: TMPF_FLAGS,
     pub tmCharSet: u8,
 }
-impl Copy for TEXTMETRICW {}
-impl Clone for TEXTMETRICW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRIVERTEX {
     pub x: i32,
     pub y: i32,
@@ -4526,61 +3767,36 @@ pub struct TRIVERTEX {
     pub Blue: u16,
     pub Alpha: u16,
 }
-impl Copy for TRIVERTEX {}
-impl Clone for TRIVERTEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TTEMBEDINFO {
     pub usStructSize: u16,
     pub usRootStrSize: u16,
     pub pusRootStr: *mut u16,
 }
-impl Copy for TTEMBEDINFO {}
-impl Clone for TTEMBEDINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TTLOADINFO {
     pub usStructSize: u16,
     pub usRefStrSize: u16,
     pub pusRefStr: *mut u16,
 }
-impl Copy for TTLOADINFO {}
-impl Clone for TTLOADINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TTPOLYCURVE {
     pub wType: u16,
     pub cpfx: u16,
     pub apfx: [POINTFX; 1],
 }
-impl Copy for TTPOLYCURVE {}
-impl Clone for TTPOLYCURVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TTPOLYGONHEADER {
     pub cb: u32,
     pub dwType: u32,
     pub pfxStart: POINTFX,
 }
-impl Copy for TTPOLYGONHEADER {}
-impl Clone for TTPOLYGONHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TTVALIDATIONTESTSPARAMS {
     pub ulStructSize: u32,
     pub lTestFromSize: i32,
@@ -4590,13 +3806,8 @@ pub struct TTVALIDATIONTESTSPARAMS {
     pub usCharCodeCount: u16,
     pub pusCharCodeSet: *mut u16,
 }
-impl Copy for TTVALIDATIONTESTSPARAMS {}
-impl Clone for TTVALIDATIONTESTSPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TTVALIDATIONTESTSPARAMSEX {
     pub ulStructSize: u32,
     pub lTestFromSize: i32,
@@ -4606,35 +3817,20 @@ pub struct TTVALIDATIONTESTSPARAMSEX {
     pub usCharCodeCount: u16,
     pub pulCharCodeSet: *mut u32,
 }
-impl Copy for TTVALIDATIONTESTSPARAMSEX {}
-impl Clone for TTVALIDATIONTESTSPARAMSEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WCRANGE {
     pub wcLow: u16,
     pub cGlyphs: u16,
 }
-impl Copy for WCRANGE {}
-impl Clone for WCRANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WGLSWAP {
     pub hdc: HDC,
     pub uiFlags: u32,
 }
-impl Copy for WGLSWAP {}
-impl Clone for WGLSWAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct XFORM {
     pub eM11: f32,
     pub eM12: f32,
@@ -4642,12 +3838,6 @@ pub struct XFORM {
     pub eM22: f32,
     pub eDx: f32,
     pub eDy: f32,
-}
-impl Copy for XFORM {}
-impl Clone for XFORM {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type CFP_ALLOCPROC = Option<unsafe extern "system" fn(param0: usize) -> *mut core::ffi::c_void>;
 pub type CFP_FREEPROC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void)>;

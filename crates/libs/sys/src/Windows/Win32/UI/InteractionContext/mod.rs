@@ -137,63 +137,39 @@ pub type MOUSE_WHEEL_PARAMETER = i32;
 pub type TAP_PARAMETER = i32;
 pub type TRANSLATION_PARAMETER = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CROSS_SLIDE_PARAMETER {
     pub threshold: CROSS_SLIDE_THRESHOLD,
     pub distance: f32,
 }
-impl Copy for CROSS_SLIDE_PARAMETER {}
-impl Clone for CROSS_SLIDE_PARAMETER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type HINTERACTIONCONTEXT = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERACTION_ARGUMENTS_CROSS_SLIDE {
     pub flags: CROSS_SLIDE_FLAGS,
 }
-impl Copy for INTERACTION_ARGUMENTS_CROSS_SLIDE {}
-impl Clone for INTERACTION_ARGUMENTS_CROSS_SLIDE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERACTION_ARGUMENTS_MANIPULATION {
     pub delta: MANIPULATION_TRANSFORM,
     pub cumulative: MANIPULATION_TRANSFORM,
     pub velocity: MANIPULATION_VELOCITY,
     pub railsState: MANIPULATION_RAILS_STATE,
 }
-impl Copy for INTERACTION_ARGUMENTS_MANIPULATION {}
-impl Clone for INTERACTION_ARGUMENTS_MANIPULATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERACTION_ARGUMENTS_TAP {
     pub count: u32,
 }
-impl Copy for INTERACTION_ARGUMENTS_TAP {}
-impl Clone for INTERACTION_ARGUMENTS_TAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INTERACTION_CONTEXT_CONFIGURATION {
     pub interactionId: INTERACTION_ID,
     pub enable: INTERACTION_CONFIGURATION_FLAGS,
 }
-impl Copy for INTERACTION_CONTEXT_CONFIGURATION {}
-impl Clone for INTERACTION_CONTEXT_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct INTERACTION_CONTEXT_OUTPUT {
     pub interactionId: INTERACTION_ID,
     pub interactionFlags: INTERACTION_FLAGS,
@@ -202,31 +178,17 @@ pub struct INTERACTION_CONTEXT_OUTPUT {
     pub y: f32,
     pub arguments: INTERACTION_CONTEXT_OUTPUT_0,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for INTERACTION_CONTEXT_OUTPUT {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for INTERACTION_CONTEXT_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub union INTERACTION_CONTEXT_OUTPUT_0 {
     pub manipulation: INTERACTION_ARGUMENTS_MANIPULATION,
     pub tap: INTERACTION_ARGUMENTS_TAP,
     pub crossSlide: INTERACTION_ARGUMENTS_CROSS_SLIDE,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for INTERACTION_CONTEXT_OUTPUT_0 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for INTERACTION_CONTEXT_OUTPUT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct INTERACTION_CONTEXT_OUTPUT2 {
     pub interactionId: INTERACTION_ID,
     pub interactionFlags: INTERACTION_FLAGS,
@@ -237,30 +199,16 @@ pub struct INTERACTION_CONTEXT_OUTPUT2 {
     pub y: f32,
     pub arguments: INTERACTION_CONTEXT_OUTPUT2_0,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for INTERACTION_CONTEXT_OUTPUT2 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for INTERACTION_CONTEXT_OUTPUT2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub union INTERACTION_CONTEXT_OUTPUT2_0 {
     pub manipulation: INTERACTION_ARGUMENTS_MANIPULATION,
     pub tap: INTERACTION_ARGUMENTS_TAP,
     pub crossSlide: INTERACTION_ARGUMENTS_CROSS_SLIDE,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for INTERACTION_CONTEXT_OUTPUT2_0 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for INTERACTION_CONTEXT_OUTPUT2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MANIPULATION_TRANSFORM {
     pub translationX: f32,
     pub translationY: f32,
@@ -268,24 +216,13 @@ pub struct MANIPULATION_TRANSFORM {
     pub expansion: f32,
     pub rotation: f32,
 }
-impl Copy for MANIPULATION_TRANSFORM {}
-impl Clone for MANIPULATION_TRANSFORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MANIPULATION_VELOCITY {
     pub velocityX: f32,
     pub velocityY: f32,
     pub velocityExpansion: f32,
     pub velocityAngular: f32,
-}
-impl Copy for MANIPULATION_VELOCITY {}
-impl Clone for MANIPULATION_VELOCITY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK = Option<unsafe extern "system" fn(clientdata: *const core::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT)>;

@@ -76,40 +76,25 @@ pub const RESOURCE_ENUM_VALIDATE: u32 = 8u32;
 pub const SUPPORT_LANG_NUMBER: u32 = 32u32;
 pub type LOAD_LIBRARY_FLAGS = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ENUMUILANG {
     pub NumOfEnumUILang: u32,
     pub SizeOfEnumUIBuffer: u32,
     pub pEnumUIBuffer: *mut u16,
 }
-impl Copy for ENUMUILANG {}
-impl Clone for ENUMUILANG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REDIRECTION_DESCRIPTOR {
     pub Version: u32,
     pub FunctionCount: u32,
     pub Redirections: *mut REDIRECTION_FUNCTION_DESCRIPTOR,
 }
-impl Copy for REDIRECTION_DESCRIPTOR {}
-impl Clone for REDIRECTION_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REDIRECTION_FUNCTION_DESCRIPTOR {
     pub DllName: windows_sys::core::PCSTR,
     pub FunctionName: windows_sys::core::PCSTR,
     pub RedirectionTarget: *mut core::ffi::c_void,
-}
-impl Copy for REDIRECTION_FUNCTION_DESCRIPTOR {}
-impl Clone for REDIRECTION_FUNCTION_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type ENUMRESLANGPROCA = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: windows_sys::core::PCSTR, lpname: windows_sys::core::PCSTR, wlanguage: u16, lparam: isize) -> super::super::Foundation::BOOL>;
 pub type ENUMRESLANGPROCW = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: windows_sys::core::PCWSTR, lpname: windows_sys::core::PCWSTR, wlanguage: u16, lparam: isize) -> super::super::Foundation::BOOL>;

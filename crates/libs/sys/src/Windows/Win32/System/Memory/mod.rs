@@ -270,17 +270,13 @@ pub type WIN32_MEMORY_INFORMATION_CLASS = i32;
 pub type WIN32_MEMORY_PARTITION_INFORMATION_CLASS = i32;
 pub type AtlThunkData_t = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CFG_CALL_TARGET_INFO {
     pub Offset: usize,
     pub Flags: usize,
 }
-impl Copy for CFG_CALL_TARGET_INFO {}
-impl Clone for CFG_CALL_TARGET_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HEAP_SUMMARY {
     pub cb: u32,
     pub cbAllocated: usize,
@@ -288,14 +284,9 @@ pub struct HEAP_SUMMARY {
     pub cbReserved: usize,
     pub cbMaxReserve: usize,
 }
-impl Copy for HEAP_SUMMARY {}
-impl Clone for HEAP_SUMMARY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct MEMORY_BASIC_INFORMATION {
     pub BaseAddress: *mut core::ffi::c_void,
     pub AllocationBase: *mut core::ffi::c_void,
@@ -306,16 +297,9 @@ pub struct MEMORY_BASIC_INFORMATION {
     pub Protect: PAGE_PROTECTION_FLAGS,
     pub Type: PAGE_TYPE,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for MEMORY_BASIC_INFORMATION {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for MEMORY_BASIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct MEMORY_BASIC_INFORMATION {
     pub BaseAddress: *mut core::ffi::c_void,
     pub AllocationBase: *mut core::ffi::c_void,
@@ -325,15 +309,8 @@ pub struct MEMORY_BASIC_INFORMATION {
     pub Protect: PAGE_PROTECTION_FLAGS,
     pub Type: PAGE_TYPE,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for MEMORY_BASIC_INFORMATION {}
-#[cfg(target_arch = "x86")]
-impl Clone for MEMORY_BASIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MEMORY_BASIC_INFORMATION32 {
     pub BaseAddress: u32,
     pub AllocationBase: u32,
@@ -343,13 +320,8 @@ pub struct MEMORY_BASIC_INFORMATION32 {
     pub Protect: PAGE_PROTECTION_FLAGS,
     pub Type: PAGE_TYPE,
 }
-impl Copy for MEMORY_BASIC_INFORMATION32 {}
-impl Clone for MEMORY_BASIC_INFORMATION32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MEMORY_BASIC_INFORMATION64 {
     pub BaseAddress: u64,
     pub AllocationBase: u64,
@@ -361,35 +333,20 @@ pub struct MEMORY_BASIC_INFORMATION64 {
     pub Type: PAGE_TYPE,
     pub __alignment2: u32,
 }
-impl Copy for MEMORY_BASIC_INFORMATION64 {}
-impl Clone for MEMORY_BASIC_INFORMATION64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MEMORY_MAPPED_VIEW_ADDRESS {
     pub Value: *mut core::ffi::c_void,
 }
-impl Copy for MEMORY_MAPPED_VIEW_ADDRESS {}
-impl Clone for MEMORY_MAPPED_VIEW_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
     pub Type: MEM_DEDICATED_ATTRIBUTE_TYPE,
     pub Reserved: u32,
     pub Value: u64,
 }
-impl Copy for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {}
-impl Clone for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
     pub NextEntryOffset: u32,
     pub SizeOfInformation: u32,
@@ -399,46 +356,26 @@ pub struct MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
     pub Reserved: u32,
     pub TypeId: u64,
 }
-impl Copy for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {}
-impl Clone for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MEM_ADDRESS_REQUIREMENTS {
     pub LowestStartingAddress: *mut core::ffi::c_void,
     pub HighestEndingAddress: *mut core::ffi::c_void,
     pub Alignment: usize,
 }
-impl Copy for MEM_ADDRESS_REQUIREMENTS {}
-impl Clone for MEM_ADDRESS_REQUIREMENTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MEM_EXTENDED_PARAMETER {
     pub Anonymous1: MEM_EXTENDED_PARAMETER_0,
     pub Anonymous2: MEM_EXTENDED_PARAMETER_1,
 }
-impl Copy for MEM_EXTENDED_PARAMETER {}
-impl Clone for MEM_EXTENDED_PARAMETER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MEM_EXTENDED_PARAMETER_0 {
     pub _bitfield: u64,
 }
-impl Copy for MEM_EXTENDED_PARAMETER_0 {}
-impl Clone for MEM_EXTENDED_PARAMETER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MEM_EXTENDED_PARAMETER_1 {
     pub ULong64: u64,
     pub Pointer: *mut core::ffi::c_void,
@@ -446,13 +383,8 @@ pub union MEM_EXTENDED_PARAMETER_1 {
     pub Handle: super::super::Foundation::HANDLE,
     pub ULong: u32,
 }
-impl Copy for MEM_EXTENDED_PARAMETER_1 {}
-impl Clone for MEM_EXTENDED_PARAMETER_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_HEAP_ENTRY {
     pub lpData: *mut core::ffi::c_void,
     pub cbData: u32,
@@ -461,48 +393,28 @@ pub struct PROCESS_HEAP_ENTRY {
     pub wFlags: u16,
     pub Anonymous: PROCESS_HEAP_ENTRY_0,
 }
-impl Copy for PROCESS_HEAP_ENTRY {}
-impl Clone for PROCESS_HEAP_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESS_HEAP_ENTRY_0 {
     pub Block: PROCESS_HEAP_ENTRY_0_0,
     pub Region: PROCESS_HEAP_ENTRY_0_1,
 }
-impl Copy for PROCESS_HEAP_ENTRY_0 {}
-impl Clone for PROCESS_HEAP_ENTRY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_HEAP_ENTRY_0_0 {
     pub hMem: super::super::Foundation::HANDLE,
     pub dwReserved: [u32; 3],
 }
-impl Copy for PROCESS_HEAP_ENTRY_0_0 {}
-impl Clone for PROCESS_HEAP_ENTRY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_HEAP_ENTRY_0_1 {
     pub dwCommittedSize: u32,
     pub dwUnCommittedSize: u32,
     pub lpFirstBlock: *mut core::ffi::c_void,
     pub lpLastBlock: *mut core::ffi::c_void,
 }
-impl Copy for PROCESS_HEAP_ENTRY_0_1 {}
-impl Clone for PROCESS_HEAP_ENTRY_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WIN32_MEMORY_PARTITION_INFORMATION {
     pub Flags: u32,
     pub NumaNode: u32,
@@ -522,24 +434,14 @@ pub struct WIN32_MEMORY_PARTITION_INFORMATION {
     pub Reserved2: u64,
     pub PartitionId: u32,
 }
-impl Copy for WIN32_MEMORY_PARTITION_INFORMATION {}
-impl Clone for WIN32_MEMORY_PARTITION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WIN32_MEMORY_RANGE_ENTRY {
     pub VirtualAddress: *mut core::ffi::c_void,
     pub NumberOfBytes: usize,
 }
-impl Copy for WIN32_MEMORY_RANGE_ENTRY {}
-impl Clone for WIN32_MEMORY_RANGE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WIN32_MEMORY_REGION_INFORMATION {
     pub AllocationBase: *mut core::ffi::c_void,
     pub AllocationProtect: u32,
@@ -547,32 +449,16 @@ pub struct WIN32_MEMORY_REGION_INFORMATION {
     pub RegionSize: usize,
     pub CommitSize: usize,
 }
-impl Copy for WIN32_MEMORY_REGION_INFORMATION {}
-impl Clone for WIN32_MEMORY_REGION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WIN32_MEMORY_REGION_INFORMATION_0 {
     pub Flags: u32,
     pub Anonymous: WIN32_MEMORY_REGION_INFORMATION_0_0,
 }
-impl Copy for WIN32_MEMORY_REGION_INFORMATION_0 {}
-impl Clone for WIN32_MEMORY_REGION_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WIN32_MEMORY_REGION_INFORMATION_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for WIN32_MEMORY_REGION_INFORMATION_0_0 {}
-impl Clone for WIN32_MEMORY_REGION_INFORMATION_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type PBAD_MEMORY_CALLBACK_ROUTINE = Option<unsafe extern "system" fn()>;
 pub type PSECURE_MEMORY_CACHE_CALLBACK = Option<unsafe extern "system" fn(addr: *const core::ffi::c_void, range: usize) -> super::super::Foundation::BOOLEAN>;

@@ -10189,96 +10189,56 @@ pub type NTSTATUS_SEVERITY_CODE = u32;
 pub type WAIT_EVENT = u32;
 pub type WIN32_ERROR = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct APP_LOCAL_DEVICE_ID {
     pub value: [u8; 32],
-}
-impl Copy for APP_LOCAL_DEVICE_ID {}
-impl Clone for APP_LOCAL_DEVICE_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type BOOL = i32;
 pub type BOOLEAN = u8;
 pub type COLORREF = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DECIMAL {
     pub wReserved: u16,
     pub Anonymous1: DECIMAL_0,
     pub Hi32: u32,
     pub Anonymous2: DECIMAL_1,
 }
-impl Copy for DECIMAL {}
-impl Clone for DECIMAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DECIMAL_0 {
     pub Anonymous: DECIMAL_0_0,
     pub signscale: u16,
 }
-impl Copy for DECIMAL_0 {}
-impl Clone for DECIMAL_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DECIMAL_0_0 {
     pub scale: u8,
     pub sign: u8,
 }
-impl Copy for DECIMAL_0_0 {}
-impl Clone for DECIMAL_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DECIMAL_1 {
     pub Anonymous: DECIMAL_1_0,
     pub Lo64: u64,
 }
-impl Copy for DECIMAL_1 {}
-impl Clone for DECIMAL_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DECIMAL_1_0 {
     pub Lo32: u32,
     pub Mid32: u32,
 }
-impl Copy for DECIMAL_1_0 {}
-impl Clone for DECIMAL_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILETIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,
 }
-impl Copy for FILETIME {}
-impl Clone for FILETIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FLOAT128 {
     pub LowPart: i64,
     pub HighPart: i64,
-}
-impl Copy for FLOAT128 {}
-impl Clone for FLOAT128 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type HANDLE = isize;
 pub type HANDLE_PTR = usize;
@@ -10295,90 +10255,56 @@ pub type HWND = isize;
 pub type LPARAM = isize;
 pub type LRESULT = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LUID {
     pub LowPart: u32,
     pub HighPart: i32,
 }
-impl Copy for LUID {}
-impl Clone for LUID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type NTSTATUS = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POINT {
     pub x: i32,
     pub y: i32,
 }
-impl Copy for POINT {}
-impl Clone for POINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POINTL {
     pub x: i32,
     pub y: i32,
 }
-impl Copy for POINTL {}
-impl Clone for POINTL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POINTS {
     pub x: i16,
     pub y: i16,
 }
-impl Copy for POINTS {}
-impl Clone for POINTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type PSID = *mut core::ffi::c_void;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RECT {
     pub left: i32,
     pub top: i32,
     pub right: i32,
     pub bottom: i32,
 }
-impl Copy for RECT {}
-impl Clone for RECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RECTL {
     pub left: i32,
     pub top: i32,
     pub right: i32,
     pub bottom: i32,
 }
-impl Copy for RECTL {}
-impl Clone for RECTL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type SHANDLE_PTR = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SIZE {
     pub cx: i32,
     pub cy: i32,
 }
-impl Copy for SIZE {}
-impl Clone for SIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEMTIME {
     pub wYear: u16,
     pub wMonth: u16,
@@ -10389,23 +10315,12 @@ pub struct SYSTEMTIME {
     pub wSecond: u16,
     pub wMilliseconds: u16,
 }
-impl Copy for SYSTEMTIME {}
-impl Clone for SYSTEMTIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UNICODE_STRING {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Buffer: windows_sys::core::PWSTR,
-}
-impl Copy for UNICODE_STRING {}
-impl Clone for UNICODE_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type VARIANT_BOOL = i16;
 pub type WPARAM = usize;

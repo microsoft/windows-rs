@@ -5210,6 +5210,7 @@ impl core::fmt::Debug for XPS_TILE_MODE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOCINFOA {
     pub cbSize: i32,
     pub lpszDocName: windows_core::PCSTR,
@@ -5217,32 +5218,16 @@ pub struct DOCINFOA {
     pub lpszDatatype: windows_core::PCSTR,
     pub fwType: u32,
 }
-impl Copy for DOCINFOA {}
-impl Clone for DOCINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOCINFOA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOCINFOA").field("cbSize", &self.cbSize).field("lpszDocName", &self.lpszDocName).field("lpszOutput", &self.lpszOutput).field("lpszDatatype", &self.lpszDatatype).field("fwType", &self.fwType).finish()
-    }
-}
 impl windows_core::TypeKind for DOCINFOA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOCINFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.lpszDocName == other.lpszDocName && self.lpszOutput == other.lpszOutput && self.lpszDatatype == other.lpszDatatype && self.fwType == other.fwType
-    }
-}
-impl Eq for DOCINFOA {}
 impl Default for DOCINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOCINFOW {
     pub cbSize: i32,
     pub lpszDocName: windows_core::PCWSTR,
@@ -5250,58 +5235,25 @@ pub struct DOCINFOW {
     pub lpszDatatype: windows_core::PCWSTR,
     pub fwType: u32,
 }
-impl Copy for DOCINFOW {}
-impl Clone for DOCINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DOCINFOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DOCINFOW").field("cbSize", &self.cbSize).field("lpszDocName", &self.lpszDocName).field("lpszOutput", &self.lpszOutput).field("lpszDatatype", &self.lpszDatatype).field("fwType", &self.fwType).finish()
-    }
-}
 impl windows_core::TypeKind for DOCINFOW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DOCINFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.lpszDocName == other.lpszDocName && self.lpszOutput == other.lpszOutput && self.lpszDatatype == other.lpszDatatype && self.fwType == other.fwType
-    }
-}
-impl Eq for DOCINFOW {}
 impl Default for DOCINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRAWPATRECT {
     pub ptPosition: super::super::Foundation::POINT,
     pub ptSize: super::super::Foundation::POINT,
     pub wStyle: u16,
     pub wPattern: u16,
 }
-impl Copy for DRAWPATRECT {}
-impl Clone for DRAWPATRECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DRAWPATRECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DRAWPATRECT").field("ptPosition", &self.ptPosition).field("ptSize", &self.ptSize).field("wStyle", &self.wStyle).field("wPattern", &self.wPattern).finish()
-    }
-}
 impl windows_core::TypeKind for DRAWPATRECT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DRAWPATRECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.ptPosition == other.ptPosition && self.ptSize == other.ptSize && self.wStyle == other.wStyle && self.wPattern == other.wPattern
-    }
-}
-impl Eq for DRAWPATRECT {}
 impl Default for DRAWPATRECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5324,6 +5276,7 @@ impl windows_core::TypeKind for HPTPROVIDER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSFEATURE_CUSTPAPER {
     pub lOrientation: i32,
     pub lWidth: i32,
@@ -5331,102 +5284,48 @@ pub struct PSFEATURE_CUSTPAPER {
     pub lWidthOffset: i32,
     pub lHeightOffset: i32,
 }
-impl Copy for PSFEATURE_CUSTPAPER {}
-impl Clone for PSFEATURE_CUSTPAPER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSFEATURE_CUSTPAPER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSFEATURE_CUSTPAPER").field("lOrientation", &self.lOrientation).field("lWidth", &self.lWidth).field("lHeight", &self.lHeight).field("lWidthOffset", &self.lWidthOffset).field("lHeightOffset", &self.lHeightOffset).finish()
-    }
-}
 impl windows_core::TypeKind for PSFEATURE_CUSTPAPER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PSFEATURE_CUSTPAPER {
-    fn eq(&self, other: &Self) -> bool {
-        self.lOrientation == other.lOrientation && self.lWidth == other.lWidth && self.lHeight == other.lHeight && self.lWidthOffset == other.lWidthOffset && self.lHeightOffset == other.lHeightOffset
-    }
-}
-impl Eq for PSFEATURE_CUSTPAPER {}
 impl Default for PSFEATURE_CUSTPAPER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSFEATURE_OUTPUT {
     pub bPageIndependent: super::super::Foundation::BOOL,
     pub bSetPageDevice: super::super::Foundation::BOOL,
 }
-impl Copy for PSFEATURE_OUTPUT {}
-impl Clone for PSFEATURE_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSFEATURE_OUTPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSFEATURE_OUTPUT").field("bPageIndependent", &self.bPageIndependent).field("bSetPageDevice", &self.bSetPageDevice).finish()
-    }
-}
 impl windows_core::TypeKind for PSFEATURE_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PSFEATURE_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.bPageIndependent == other.bPageIndependent && self.bSetPageDevice == other.bSetPageDevice
-    }
-}
-impl Eq for PSFEATURE_OUTPUT {}
 impl Default for PSFEATURE_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSINJECTDATA {
     pub DataBytes: u32,
     pub InjectionPoint: PSINJECT_POINT,
     pub PageNumber: u16,
 }
-impl Copy for PSINJECTDATA {}
-impl Clone for PSINJECTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PSINJECTDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PSINJECTDATA").field("DataBytes", &self.DataBytes).field("InjectionPoint", &self.InjectionPoint).field("PageNumber", &self.PageNumber).finish()
-    }
-}
 impl windows_core::TypeKind for PSINJECTDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PSINJECTDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.DataBytes == other.DataBytes && self.InjectionPoint == other.InjectionPoint && self.PageNumber == other.PageNumber
-    }
-}
-impl Eq for PSINJECTDATA {}
 impl Default for PSINJECTDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct XPS_COLOR {
     pub colorType: XPS_COLOR_TYPE,
     pub value: XPS_COLOR_0,
-}
-impl Copy for XPS_COLOR {}
-impl Clone for XPS_COLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for XPS_COLOR {
     type TypeKind = windows_core::CopyType;
@@ -5437,16 +5336,11 @@ impl Default for XPS_COLOR {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union XPS_COLOR_0 {
     pub sRGB: XPS_COLOR_0_1,
     pub scRGB: XPS_COLOR_0_2,
     pub context: XPS_COLOR_0_0,
-}
-impl Copy for XPS_COLOR_0 {}
-impl Clone for XPS_COLOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for XPS_COLOR_0 {
     type TypeKind = windows_core::CopyType;
@@ -5457,194 +5351,99 @@ impl Default for XPS_COLOR_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XPS_COLOR_0_0 {
     pub channelCount: u8,
     pub channels: [f32; 9],
 }
-impl Copy for XPS_COLOR_0_0 {}
-impl Clone for XPS_COLOR_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XPS_COLOR_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XPS_COLOR_0_0").field("channelCount", &self.channelCount).field("channels", &self.channels).finish()
-    }
-}
 impl windows_core::TypeKind for XPS_COLOR_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XPS_COLOR_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.channelCount == other.channelCount && self.channels == other.channels
-    }
-}
-impl Eq for XPS_COLOR_0_0 {}
 impl Default for XPS_COLOR_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XPS_COLOR_0_1 {
     pub alpha: u8,
     pub red: u8,
     pub green: u8,
     pub blue: u8,
 }
-impl Copy for XPS_COLOR_0_1 {}
-impl Clone for XPS_COLOR_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XPS_COLOR_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XPS_COLOR_0_1").field("alpha", &self.alpha).field("red", &self.red).field("green", &self.green).field("blue", &self.blue).finish()
-    }
-}
 impl windows_core::TypeKind for XPS_COLOR_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XPS_COLOR_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.alpha == other.alpha && self.red == other.red && self.green == other.green && self.blue == other.blue
-    }
-}
-impl Eq for XPS_COLOR_0_1 {}
 impl Default for XPS_COLOR_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XPS_COLOR_0_2 {
     pub alpha: f32,
     pub red: f32,
     pub green: f32,
     pub blue: f32,
 }
-impl Copy for XPS_COLOR_0_2 {}
-impl Clone for XPS_COLOR_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XPS_COLOR_0_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XPS_COLOR_0_2").field("alpha", &self.alpha).field("red", &self.red).field("green", &self.green).field("blue", &self.blue).finish()
-    }
-}
 impl windows_core::TypeKind for XPS_COLOR_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XPS_COLOR_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.alpha == other.alpha && self.red == other.red && self.green == other.green && self.blue == other.blue
-    }
-}
-impl Eq for XPS_COLOR_0_2 {}
 impl Default for XPS_COLOR_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XPS_DASH {
     pub length: f32,
     pub gap: f32,
 }
-impl Copy for XPS_DASH {}
-impl Clone for XPS_DASH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XPS_DASH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XPS_DASH").field("length", &self.length).field("gap", &self.gap).finish()
-    }
-}
 impl windows_core::TypeKind for XPS_DASH {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XPS_DASH {
-    fn eq(&self, other: &Self) -> bool {
-        self.length == other.length && self.gap == other.gap
-    }
-}
-impl Eq for XPS_DASH {}
 impl Default for XPS_DASH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XPS_GLYPH_INDEX {
     pub index: i32,
     pub advanceWidth: f32,
     pub horizontalOffset: f32,
     pub verticalOffset: f32,
 }
-impl Copy for XPS_GLYPH_INDEX {}
-impl Clone for XPS_GLYPH_INDEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XPS_GLYPH_INDEX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XPS_GLYPH_INDEX").field("index", &self.index).field("advanceWidth", &self.advanceWidth).field("horizontalOffset", &self.horizontalOffset).field("verticalOffset", &self.verticalOffset).finish()
-    }
-}
 impl windows_core::TypeKind for XPS_GLYPH_INDEX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XPS_GLYPH_INDEX {
-    fn eq(&self, other: &Self) -> bool {
-        self.index == other.index && self.advanceWidth == other.advanceWidth && self.horizontalOffset == other.horizontalOffset && self.verticalOffset == other.verticalOffset
-    }
-}
-impl Eq for XPS_GLYPH_INDEX {}
 impl Default for XPS_GLYPH_INDEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XPS_GLYPH_MAPPING {
     pub unicodeStringStart: u32,
     pub unicodeStringLength: u16,
     pub glyphIndicesStart: u32,
     pub glyphIndicesLength: u16,
 }
-impl Copy for XPS_GLYPH_MAPPING {}
-impl Clone for XPS_GLYPH_MAPPING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XPS_GLYPH_MAPPING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XPS_GLYPH_MAPPING").field("unicodeStringStart", &self.unicodeStringStart).field("unicodeStringLength", &self.unicodeStringLength).field("glyphIndicesStart", &self.glyphIndicesStart).field("glyphIndicesLength", &self.glyphIndicesLength).finish()
-    }
-}
 impl windows_core::TypeKind for XPS_GLYPH_MAPPING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XPS_GLYPH_MAPPING {
-    fn eq(&self, other: &Self) -> bool {
-        self.unicodeStringStart == other.unicodeStringStart && self.unicodeStringLength == other.unicodeStringLength && self.glyphIndicesStart == other.glyphIndicesStart && self.glyphIndicesLength == other.glyphIndicesLength
-    }
-}
-impl Eq for XPS_GLYPH_MAPPING {}
 impl Default for XPS_GLYPH_MAPPING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XPS_MATRIX {
     pub m11: f32,
     pub m12: f32,
@@ -5653,118 +5452,53 @@ pub struct XPS_MATRIX {
     pub m31: f32,
     pub m32: f32,
 }
-impl Copy for XPS_MATRIX {}
-impl Clone for XPS_MATRIX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XPS_MATRIX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XPS_MATRIX").field("m11", &self.m11).field("m12", &self.m12).field("m21", &self.m21).field("m22", &self.m22).field("m31", &self.m31).field("m32", &self.m32).finish()
-    }
-}
 impl windows_core::TypeKind for XPS_MATRIX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XPS_MATRIX {
-    fn eq(&self, other: &Self) -> bool {
-        self.m11 == other.m11 && self.m12 == other.m12 && self.m21 == other.m21 && self.m22 == other.m22 && self.m31 == other.m31 && self.m32 == other.m32
-    }
-}
-impl Eq for XPS_MATRIX {}
 impl Default for XPS_MATRIX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XPS_POINT {
     pub x: f32,
     pub y: f32,
 }
-impl Copy for XPS_POINT {}
-impl Clone for XPS_POINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XPS_POINT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XPS_POINT").field("x", &self.x).field("y", &self.y).finish()
-    }
-}
 impl windows_core::TypeKind for XPS_POINT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XPS_POINT {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y
-    }
-}
-impl Eq for XPS_POINT {}
 impl Default for XPS_POINT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XPS_RECT {
     pub x: f32,
     pub y: f32,
     pub width: f32,
     pub height: f32,
 }
-impl Copy for XPS_RECT {}
-impl Clone for XPS_RECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XPS_RECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XPS_RECT").field("x", &self.x).field("y", &self.y).field("width", &self.width).field("height", &self.height).finish()
-    }
-}
 impl windows_core::TypeKind for XPS_RECT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XPS_RECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y && self.width == other.width && self.height == other.height
-    }
-}
-impl Eq for XPS_RECT {}
 impl Default for XPS_RECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XPS_SIZE {
     pub width: f32,
     pub height: f32,
 }
-impl Copy for XPS_SIZE {}
-impl Clone for XPS_SIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XPS_SIZE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XPS_SIZE").field("width", &self.width).field("height", &self.height).finish()
-    }
-}
 impl windows_core::TypeKind for XPS_SIZE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XPS_SIZE {
-    fn eq(&self, other: &Self) -> bool {
-        self.width == other.width && self.height == other.height
-    }
-}
-impl Eq for XPS_SIZE {}
 impl Default for XPS_SIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

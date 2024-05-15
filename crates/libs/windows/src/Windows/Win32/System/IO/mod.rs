@@ -92,15 +92,10 @@ where
     PostQueuedCompletionStatus(completionport.param().abi(), dwnumberofbytestransferred, dwcompletionkey, core::mem::transmute(lpoverlapped.unwrap_or(std::ptr::null()))).ok()
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_STATUS_BLOCK {
     pub Anonymous: IO_STATUS_BLOCK_0,
     pub Information: usize,
-}
-impl Copy for IO_STATUS_BLOCK {}
-impl Clone for IO_STATUS_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IO_STATUS_BLOCK {
     type TypeKind = windows_core::CopyType;
@@ -111,15 +106,10 @@ impl Default for IO_STATUS_BLOCK {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IO_STATUS_BLOCK_0 {
     pub Status: super::super::Foundation::NTSTATUS,
     pub Pointer: *mut core::ffi::c_void,
-}
-impl Copy for IO_STATUS_BLOCK_0 {}
-impl Clone for IO_STATUS_BLOCK_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IO_STATUS_BLOCK_0 {
     type TypeKind = windows_core::CopyType;
@@ -130,17 +120,12 @@ impl Default for IO_STATUS_BLOCK_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OVERLAPPED {
     pub Internal: usize,
     pub InternalHigh: usize,
     pub Anonymous: OVERLAPPED_0,
     pub hEvent: super::super::Foundation::HANDLE,
-}
-impl Copy for OVERLAPPED {}
-impl Clone for OVERLAPPED {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for OVERLAPPED {
     type TypeKind = windows_core::CopyType;
@@ -151,15 +136,10 @@ impl Default for OVERLAPPED {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union OVERLAPPED_0 {
     pub Anonymous: OVERLAPPED_0_0,
     pub Pointer: *mut core::ffi::c_void,
-}
-impl Copy for OVERLAPPED_0 {}
-impl Clone for OVERLAPPED_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for OVERLAPPED_0 {
     type TypeKind = windows_core::CopyType;
@@ -170,62 +150,30 @@ impl Default for OVERLAPPED_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OVERLAPPED_0_0 {
     pub Offset: u32,
     pub OffsetHigh: u32,
 }
-impl Copy for OVERLAPPED_0_0 {}
-impl Clone for OVERLAPPED_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OVERLAPPED_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OVERLAPPED_0_0").field("Offset", &self.Offset).field("OffsetHigh", &self.OffsetHigh).finish()
-    }
-}
 impl windows_core::TypeKind for OVERLAPPED_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OVERLAPPED_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Offset == other.Offset && self.OffsetHigh == other.OffsetHigh
-    }
-}
-impl Eq for OVERLAPPED_0_0 {}
 impl Default for OVERLAPPED_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OVERLAPPED_ENTRY {
     pub lpCompletionKey: usize,
     pub lpOverlapped: *mut OVERLAPPED,
     pub Internal: usize,
     pub dwNumberOfBytesTransferred: u32,
 }
-impl Copy for OVERLAPPED_ENTRY {}
-impl Clone for OVERLAPPED_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OVERLAPPED_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OVERLAPPED_ENTRY").field("lpCompletionKey", &self.lpCompletionKey).field("lpOverlapped", &self.lpOverlapped).field("Internal", &self.Internal).field("dwNumberOfBytesTransferred", &self.dwNumberOfBytesTransferred).finish()
-    }
-}
 impl windows_core::TypeKind for OVERLAPPED_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OVERLAPPED_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpCompletionKey == other.lpCompletionKey && self.lpOverlapped == other.lpOverlapped && self.Internal == other.Internal && self.dwNumberOfBytesTransferred == other.dwNumberOfBytesTransferred
-    }
-}
-impl Eq for OVERLAPPED_ENTRY {}
 impl Default for OVERLAPPED_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -6543,36 +6543,21 @@ pub const SAXAttributes60: windows_core::GUID = windows_core::GUID::from_u128(0x
 pub const SAXXMLReader60: windows_core::GUID = windows_core::GUID::from_u128(0x88d96a0c_f192_11d4_a65f_0040963251e5);
 pub const ServerXMLHTTP60: windows_core::GUID = windows_core::GUID::from_u128(0x88d96a0b_f192_11d4_a65f_0040963251e5);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XHR_CERT {
     pub cbCert: u32,
     pub pbCert: *mut u8,
 }
-impl Copy for XHR_CERT {}
-impl Clone for XHR_CERT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XHR_CERT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XHR_CERT").field("cbCert", &self.cbCert).field("pbCert", &self.pbCert).finish()
-    }
-}
 impl windows_core::TypeKind for XHR_CERT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XHR_CERT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbCert == other.cbCert && self.pbCert == other.pbCert
-    }
-}
-impl Eq for XHR_CERT {}
 impl Default for XHR_CERT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XHR_COOKIE {
     pub pwszUrl: windows_core::PWSTR,
     pub pwszName: windows_core::PWSTR,
@@ -6581,26 +6566,9 @@ pub struct XHR_COOKIE {
     pub ftExpires: super::super::super::Foundation::FILETIME,
     pub dwFlags: u32,
 }
-impl Copy for XHR_COOKIE {}
-impl Clone for XHR_COOKIE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XHR_COOKIE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XHR_COOKIE").field("pwszUrl", &self.pwszUrl).field("pwszName", &self.pwszName).field("pwszValue", &self.pwszValue).field("pwszP3PPolicy", &self.pwszP3PPolicy).field("ftExpires", &self.ftExpires).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for XHR_COOKIE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XHR_COOKIE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszUrl == other.pwszUrl && self.pwszName == other.pwszName && self.pwszValue == other.pwszValue && self.pwszP3PPolicy == other.pwszP3PPolicy && self.ftExpires == other.ftExpires && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for XHR_COOKIE {}
 impl Default for XHR_COOKIE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6612,6 +6580,7 @@ pub const XMLHTTP60: windows_core::GUID = windows_core::GUID::from_u128(0x88d96a
 pub const XMLHTTPRequest: windows_core::GUID = windows_core::GUID::from_u128(0xed8c108e_4349_11d2_91a4_00c04f7969e8);
 pub const XMLSchemaCache60: windows_core::GUID = windows_core::GUID::from_u128(0x88d96a07_f192_11d4_a65f_0040963251e5);
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct XML_ERROR {
     pub _nLine: u32,
     pub _pchBuf: std::mem::ManuallyDrop<windows_core::BSTR>,
@@ -6627,20 +6596,9 @@ impl Clone for XML_ERROR {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for XML_ERROR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XML_ERROR").field("_nLine", &self._nLine).field("_pchBuf", &self._pchBuf).field("_cchBuf", &self._cchBuf).field("_ich", &self._ich).field("_pszFound", &self._pszFound).field("_pszExpected", &self._pszExpected).field("_reserved1", &self._reserved1).field("_reserved2", &self._reserved2).finish()
-    }
-}
 impl windows_core::TypeKind for XML_ERROR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XML_ERROR {
-    fn eq(&self, other: &Self) -> bool {
-        self._nLine == other._nLine && self._pchBuf == other._pchBuf && self._cchBuf == other._cchBuf && self._ich == other._ich && self._pszFound == other._pszFound && self._pszExpected == other._pszExpected && self._reserved1 == other._reserved1 && self._reserved2 == other._reserved2
-    }
-}
-impl Eq for XML_ERROR {}
 impl Default for XML_ERROR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6648,6 +6606,7 @@ impl Default for XML_ERROR {
 }
 pub const XSLTemplate60: windows_core::GUID = windows_core::GUID::from_u128(0x88d96a08_f192_11d4_a65f_0040963251e5);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct __msxml6_ReferenceRemainingTypes__ {
     pub __tagDomNodeType__: DOMNodeType,
     pub __domNodeType__: DOMNodeType,
@@ -6672,70 +6631,9 @@ pub struct __msxml6_ReferenceRemainingTypes__ {
     pub __schemaTypeVarietyEnum__: SCHEMATYPEVARIETY,
     pub __schemaTypeVariety__: SCHEMATYPEVARIETY,
 }
-impl Copy for __msxml6_ReferenceRemainingTypes__ {}
-impl Clone for __msxml6_ReferenceRemainingTypes__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for __msxml6_ReferenceRemainingTypes__ {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("__msxml6_ReferenceRemainingTypes__")
-            .field("__tagDomNodeType__", &self.__tagDomNodeType__)
-            .field("__domNodeType__", &self.__domNodeType__)
-            .field("__serverXmlHttpOptionEnum__", &self.__serverXmlHttpOptionEnum__)
-            .field("__serverXmlHttpOption__", &self.__serverXmlHttpOption__)
-            .field("__serverCertOptionEnum__", &self.__serverCertOptionEnum__)
-            .field("__serverCertOption__", &self.__serverCertOption__)
-            .field("__proxySettingEnum__", &self.__proxySettingEnum__)
-            .field("__proxySetting__", &self.__proxySetting__)
-            .field("__somItemTypeEnum__", &self.__somItemTypeEnum__)
-            .field("__somItemType__", &self.__somItemType__)
-            .field("__schemaUseEnum__", &self.__schemaUseEnum__)
-            .field("__schemaUse__", &self.__schemaUse__)
-            .field("__schemaDerivationMethodEnum__", &self.__schemaDerivationMethodEnum__)
-            .field("__schemaDerivationMethod__", &self.__schemaDerivationMethod__)
-            .field("__schemaContentTypeEnum__", &self.__schemaContentTypeEnum__)
-            .field("__schemaContentType__", &self.__schemaContentType__)
-            .field("__schemaProcessContentsEnum__", &self.__schemaProcessContentsEnum__)
-            .field("__schemaProcessContents__", &self.__schemaProcessContents__)
-            .field("__schemaWhitespaceEnum__", &self.__schemaWhitespaceEnum__)
-            .field("__schemaWhitespace__", &self.__schemaWhitespace__)
-            .field("__schemaTypeVarietyEnum__", &self.__schemaTypeVarietyEnum__)
-            .field("__schemaTypeVariety__", &self.__schemaTypeVariety__)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for __msxml6_ReferenceRemainingTypes__ {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for __msxml6_ReferenceRemainingTypes__ {
-    fn eq(&self, other: &Self) -> bool {
-        self.__tagDomNodeType__ == other.__tagDomNodeType__
-            && self.__domNodeType__ == other.__domNodeType__
-            && self.__serverXmlHttpOptionEnum__ == other.__serverXmlHttpOptionEnum__
-            && self.__serverXmlHttpOption__ == other.__serverXmlHttpOption__
-            && self.__serverCertOptionEnum__ == other.__serverCertOptionEnum__
-            && self.__serverCertOption__ == other.__serverCertOption__
-            && self.__proxySettingEnum__ == other.__proxySettingEnum__
-            && self.__proxySetting__ == other.__proxySetting__
-            && self.__somItemTypeEnum__ == other.__somItemTypeEnum__
-            && self.__somItemType__ == other.__somItemType__
-            && self.__schemaUseEnum__ == other.__schemaUseEnum__
-            && self.__schemaUse__ == other.__schemaUse__
-            && self.__schemaDerivationMethodEnum__ == other.__schemaDerivationMethodEnum__
-            && self.__schemaDerivationMethod__ == other.__schemaDerivationMethod__
-            && self.__schemaContentTypeEnum__ == other.__schemaContentTypeEnum__
-            && self.__schemaContentType__ == other.__schemaContentType__
-            && self.__schemaProcessContentsEnum__ == other.__schemaProcessContentsEnum__
-            && self.__schemaProcessContents__ == other.__schemaProcessContents__
-            && self.__schemaWhitespaceEnum__ == other.__schemaWhitespaceEnum__
-            && self.__schemaWhitespace__ == other.__schemaWhitespace__
-            && self.__schemaTypeVarietyEnum__ == other.__schemaTypeVarietyEnum__
-            && self.__schemaTypeVariety__ == other.__schemaTypeVariety__
-    }
-}
-impl Eq for __msxml6_ReferenceRemainingTypes__ {}
 impl Default for __msxml6_ReferenceRemainingTypes__ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

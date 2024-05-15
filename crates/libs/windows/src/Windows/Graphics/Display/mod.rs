@@ -1445,21 +1445,11 @@ impl windows_core::RuntimeType for ResolutionScale {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.ResolutionScale;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NitRange {
     pub MinNits: f32,
     pub MaxNits: f32,
     pub StepSizeNits: f32,
-}
-impl Copy for NitRange {}
-impl Clone for NitRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NitRange {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NitRange").field("MinNits", &self.MinNits).field("MaxNits", &self.MaxNits).field("StepSizeNits", &self.StepSizeNits).finish()
-    }
 }
 impl windows_core::TypeKind for NitRange {
     type TypeKind = windows_core::CopyType;
@@ -1467,12 +1457,6 @@ impl windows_core::TypeKind for NitRange {
 impl windows_core::RuntimeType for NitRange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Display.NitRange;f4;f4;f4)");
 }
-impl PartialEq for NitRange {
-    fn eq(&self, other: &Self) -> bool {
-        self.MinNits == other.MinNits && self.MaxNits == other.MaxNits && self.StepSizeNits == other.StepSizeNits
-    }
-}
-impl Eq for NitRange {}
 impl Default for NitRange {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

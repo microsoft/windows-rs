@@ -532,35 +532,22 @@ pub type PNRP_RESOLVE_CRITERIA = i32;
 pub type PNRP_SCOPE = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct DRT_ADDRESS {
     pub socketAddress: super::super::Networking::WinSock::SOCKADDR_STORAGE,
     pub flags: u32,
     pub nearness: i32,
     pub latency: u32,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for DRT_ADDRESS {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for DRT_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct DRT_ADDRESS_LIST {
     pub AddressCount: u32,
     pub AddressList: [DRT_ADDRESS; 1],
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for DRT_ADDRESS_LIST {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for DRT_ADDRESS_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRT_BOOTSTRAP_PROVIDER {
     pub pvContext: *mut core::ffi::c_void,
     pub Attach: isize,
@@ -571,123 +558,66 @@ pub struct DRT_BOOTSTRAP_PROVIDER {
     pub Register: isize,
     pub Unregister: isize,
 }
-impl Copy for DRT_BOOTSTRAP_PROVIDER {}
-impl Clone for DRT_BOOTSTRAP_PROVIDER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRT_DATA {
     pub cb: u32,
     pub pb: *mut u8,
 }
-impl Copy for DRT_DATA {}
-impl Clone for DRT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct DRT_EVENT_DATA {
     pub r#type: DRT_EVENT_TYPE,
     pub hr: windows_sys::core::HRESULT,
     pub pvContext: *mut core::ffi::c_void,
     pub Anonymous: DRT_EVENT_DATA_0,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for DRT_EVENT_DATA {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for DRT_EVENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub union DRT_EVENT_DATA_0 {
     pub leafsetKeyChange: DRT_EVENT_DATA_0_0,
     pub registrationStateChange: DRT_EVENT_DATA_0_1,
     pub statusChange: DRT_EVENT_DATA_0_2,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for DRT_EVENT_DATA_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for DRT_EVENT_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct DRT_EVENT_DATA_0_0 {
     pub change: DRT_LEAFSET_KEY_CHANGE_TYPE,
     pub localKey: DRT_DATA,
     pub remoteKey: DRT_DATA,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for DRT_EVENT_DATA_0_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for DRT_EVENT_DATA_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct DRT_EVENT_DATA_0_1 {
     pub state: DRT_REGISTRATION_STATE,
     pub localKey: DRT_DATA,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for DRT_EVENT_DATA_0_1 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for DRT_EVENT_DATA_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct DRT_EVENT_DATA_0_2 {
     pub status: DRT_STATUS,
     pub bootstrapAddresses: DRT_EVENT_DATA_0_2_0,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for DRT_EVENT_DATA_0_2 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for DRT_EVENT_DATA_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct DRT_EVENT_DATA_0_2_0 {
     pub cntAddress: u32,
     pub pAddresses: *mut super::super::Networking::WinSock::SOCKADDR_STORAGE,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for DRT_EVENT_DATA_0_2_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for DRT_EVENT_DATA_0_2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRT_REGISTRATION {
     pub key: DRT_DATA,
     pub appData: DRT_DATA,
 }
-impl Copy for DRT_REGISTRATION {}
-impl Clone for DRT_REGISTRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRT_SEARCH_INFO {
     pub dwSize: u32,
     pub fIterative: super::super::Foundation::BOOL,
@@ -697,26 +627,16 @@ pub struct DRT_SEARCH_INFO {
     pub pMaximumKey: *mut DRT_DATA,
     pub pMinimumKey: *mut DRT_DATA,
 }
-impl Copy for DRT_SEARCH_INFO {}
-impl Clone for DRT_SEARCH_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRT_SEARCH_RESULT {
     pub dwSize: u32,
     pub r#type: DRT_MATCH_TYPE,
     pub pvContext: *mut core::ffi::c_void,
     pub registration: DRT_REGISTRATION,
 }
-impl Copy for DRT_SEARCH_RESULT {}
-impl Clone for DRT_SEARCH_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRT_SECURITY_PROVIDER {
     pub pvContext: *mut core::ffi::c_void,
     pub Attach: isize,
@@ -733,13 +653,8 @@ pub struct DRT_SECURITY_PROVIDER {
     pub SignData: isize,
     pub VerifyData: isize,
 }
-impl Copy for DRT_SECURITY_PROVIDER {}
-impl Clone for DRT_SECURITY_PROVIDER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRT_SETTINGS {
     pub dwSize: u32,
     pub cbKey: u32,
@@ -752,139 +667,78 @@ pub struct DRT_SETTINGS {
     pub pBootstrapProvider: *mut DRT_BOOTSTRAP_PROVIDER,
     pub eSecurityMode: DRT_SECURITY_MODE,
 }
-impl Copy for DRT_SETTINGS {}
-impl Clone for DRT_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEERDIST_CLIENT_BASIC_INFO {
     pub fFlashCrowd: super::super::Foundation::BOOL,
 }
-impl Copy for PEERDIST_CLIENT_BASIC_INFO {}
-impl Clone for PEERDIST_CLIENT_BASIC_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEERDIST_CONTENT_TAG {
     pub Data: [u8; 16],
 }
-impl Copy for PEERDIST_CONTENT_TAG {}
-impl Clone for PEERDIST_CONTENT_TAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEERDIST_PUBLICATION_OPTIONS {
     pub dwVersion: u32,
     pub dwFlags: u32,
 }
-impl Copy for PEERDIST_PUBLICATION_OPTIONS {}
-impl Clone for PEERDIST_PUBLICATION_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEERDIST_RETRIEVAL_OPTIONS {
     pub cbSize: u32,
     pub dwContentInfoMinVersion: u32,
     pub dwContentInfoMaxVersion: u32,
     pub dwReserved: u32,
 }
-impl Copy for PEERDIST_RETRIEVAL_OPTIONS {}
-impl Clone for PEERDIST_RETRIEVAL_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEERDIST_STATUS_INFO {
     pub cbSize: u32,
     pub status: PEERDIST_STATUS,
     pub dwMinVer: PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE,
     pub dwMaxVer: PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE,
 }
-impl Copy for PEERDIST_STATUS_INFO {}
-impl Clone for PEERDIST_STATUS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct PEER_ADDRESS {
     pub dwSize: u32,
     pub sin6: super::super::Networking::WinSock::SOCKADDR_IN6,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for PEER_ADDRESS {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for PEER_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_APPLICATION {
     pub id: windows_sys::core::GUID,
     pub data: PEER_DATA,
     pub pwzDescription: windows_sys::core::PWSTR,
 }
-impl Copy for PEER_APPLICATION {}
-impl Clone for PEER_APPLICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_APPLICATION_REGISTRATION_INFO {
     pub application: PEER_APPLICATION,
     pub pwzApplicationToLaunch: windows_sys::core::PWSTR,
     pub pwzApplicationArguments: windows_sys::core::PWSTR,
     pub dwPublicationScope: u32,
 }
-impl Copy for PEER_APPLICATION_REGISTRATION_INFO {}
-impl Clone for PEER_APPLICATION_REGISTRATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct PEER_APP_LAUNCH_INFO {
     pub pContact: *mut PEER_CONTACT,
     pub pEndpoint: *mut PEER_ENDPOINT,
     pub pInvitation: *mut PEER_INVITATION,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for PEER_APP_LAUNCH_INFO {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for PEER_APP_LAUNCH_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct PEER_COLLAB_EVENT_DATA {
     pub eventType: PEER_COLLAB_EVENT_TYPE,
     pub Anonymous: PEER_COLLAB_EVENT_DATA_0,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for PEER_COLLAB_EVENT_DATA {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for PEER_COLLAB_EVENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub union PEER_COLLAB_EVENT_DATA_0 {
     pub watchListChangedData: PEER_EVENT_WATCHLIST_CHANGED_DATA,
     pub presenceChangedData: PEER_EVENT_PRESENCE_CHANGED_DATA,
@@ -894,27 +748,15 @@ pub union PEER_COLLAB_EVENT_DATA_0 {
     pub peopleNearMeChangedData: PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA,
     pub requestStatusChangedData: PEER_EVENT_REQUEST_STATUS_CHANGED_DATA,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for PEER_COLLAB_EVENT_DATA_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for PEER_COLLAB_EVENT_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_COLLAB_EVENT_REGISTRATION {
     pub eventType: PEER_COLLAB_EVENT_TYPE,
     pub pInstance: *mut windows_sys::core::GUID,
 }
-impl Copy for PEER_COLLAB_EVENT_REGISTRATION {}
-impl Clone for PEER_COLLAB_EVENT_REGISTRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct PEER_CONNECTION_INFO {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -923,15 +765,8 @@ pub struct PEER_CONNECTION_INFO {
     pub pwzPeerId: windows_sys::core::PWSTR,
     pub address: PEER_ADDRESS,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for PEER_CONNECTION_INFO {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for PEER_CONNECTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_CONTACT {
     pub pwzPeerName: windows_sys::core::PWSTR,
     pub pwzNickName: windows_sys::core::PWSTR,
@@ -941,14 +776,9 @@ pub struct PEER_CONTACT {
     pub WatcherPermissions: PEER_WATCH_PERMISSION,
     pub credentials: PEER_DATA,
 }
-impl Copy for PEER_CONTACT {}
-impl Clone for PEER_CONTACT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct PEER_CREDENTIAL_INFO {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -961,56 +791,30 @@ pub struct PEER_CREDENTIAL_INFO {
     pub cRoles: u32,
     pub pRoles: *mut windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for PEER_CREDENTIAL_INFO {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for PEER_CREDENTIAL_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_DATA {
     pub cbData: u32,
     pub pbData: *mut u8,
 }
-impl Copy for PEER_DATA {}
-impl Clone for PEER_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct PEER_ENDPOINT {
     pub address: PEER_ADDRESS,
     pub pwzEndpointName: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for PEER_ENDPOINT {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for PEER_ENDPOINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct PEER_EVENT_APPLICATION_CHANGED_DATA {
     pub pContact: *mut PEER_CONTACT,
     pub pEndpoint: *mut PEER_ENDPOINT,
     pub changeType: PEER_CHANGE_TYPE,
     pub pApplication: *mut PEER_APPLICATION,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for PEER_EVENT_APPLICATION_CHANGED_DATA {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for PEER_EVENT_APPLICATION_CHANGED_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_EVENT_CONNECTION_CHANGE_DATA {
     pub dwSize: u32,
     pub status: PEER_CONNECTION_STATUS,
@@ -1019,171 +823,96 @@ pub struct PEER_EVENT_CONNECTION_CHANGE_DATA {
     pub ullNextConnectionId: u64,
     pub hrConnectionFailedReason: windows_sys::core::HRESULT,
 }
-impl Copy for PEER_EVENT_CONNECTION_CHANGE_DATA {}
-impl Clone for PEER_EVENT_CONNECTION_CHANGE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct PEER_EVENT_ENDPOINT_CHANGED_DATA {
     pub pContact: *mut PEER_CONTACT,
     pub pEndpoint: *mut PEER_ENDPOINT,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for PEER_EVENT_ENDPOINT_CHANGED_DATA {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for PEER_EVENT_ENDPOINT_CHANGED_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_EVENT_INCOMING_DATA {
     pub dwSize: u32,
     pub ullConnectionId: u64,
     pub r#type: windows_sys::core::GUID,
     pub data: PEER_DATA,
 }
-impl Copy for PEER_EVENT_INCOMING_DATA {}
-impl Clone for PEER_EVENT_INCOMING_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_EVENT_MEMBER_CHANGE_DATA {
     pub dwSize: u32,
     pub changeType: PEER_MEMBER_CHANGE_TYPE,
     pub pwzIdentity: windows_sys::core::PWSTR,
 }
-impl Copy for PEER_EVENT_MEMBER_CHANGE_DATA {}
-impl Clone for PEER_EVENT_MEMBER_CHANGE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_EVENT_NODE_CHANGE_DATA {
     pub dwSize: u32,
     pub changeType: PEER_NODE_CHANGE_TYPE,
     pub ullNodeId: u64,
     pub pwzPeerId: windows_sys::core::PWSTR,
 }
-impl Copy for PEER_EVENT_NODE_CHANGE_DATA {}
-impl Clone for PEER_EVENT_NODE_CHANGE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct PEER_EVENT_OBJECT_CHANGED_DATA {
     pub pContact: *mut PEER_CONTACT,
     pub pEndpoint: *mut PEER_ENDPOINT,
     pub changeType: PEER_CHANGE_TYPE,
     pub pObject: *mut PEER_OBJECT,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for PEER_EVENT_OBJECT_CHANGED_DATA {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for PEER_EVENT_OBJECT_CHANGED_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
     pub changeType: PEER_CHANGE_TYPE,
     pub pPeopleNearMe: *mut PEER_PEOPLE_NEAR_ME,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct PEER_EVENT_PRESENCE_CHANGED_DATA {
     pub pContact: *mut PEER_CONTACT,
     pub pEndpoint: *mut PEER_ENDPOINT,
     pub changeType: PEER_CHANGE_TYPE,
     pub pPresenceInfo: *mut PEER_PRESENCE_INFO,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for PEER_EVENT_PRESENCE_CHANGED_DATA {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for PEER_EVENT_PRESENCE_CHANGED_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_EVENT_RECORD_CHANGE_DATA {
     pub dwSize: u32,
     pub changeType: PEER_RECORD_CHANGE_TYPE,
     pub recordId: windows_sys::core::GUID,
     pub recordType: windows_sys::core::GUID,
 }
-impl Copy for PEER_EVENT_RECORD_CHANGE_DATA {}
-impl Clone for PEER_EVENT_RECORD_CHANGE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
     pub pEndpoint: *mut PEER_ENDPOINT,
     pub hrChange: windows_sys::core::HRESULT,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_EVENT_SYNCHRONIZED_DATA {
     pub dwSize: u32,
     pub recordType: windows_sys::core::GUID,
 }
-impl Copy for PEER_EVENT_SYNCHRONIZED_DATA {}
-impl Clone for PEER_EVENT_SYNCHRONIZED_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_EVENT_WATCHLIST_CHANGED_DATA {
     pub pContact: *mut PEER_CONTACT,
     pub changeType: PEER_CHANGE_TYPE,
 }
-impl Copy for PEER_EVENT_WATCHLIST_CHANGED_DATA {}
-impl Clone for PEER_EVENT_WATCHLIST_CHANGED_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_GRAPH_EVENT_DATA {
     pub eventType: PEER_GRAPH_EVENT_TYPE,
     pub Anonymous: PEER_GRAPH_EVENT_DATA_0,
 }
-impl Copy for PEER_GRAPH_EVENT_DATA {}
-impl Clone for PEER_GRAPH_EVENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PEER_GRAPH_EVENT_DATA_0 {
     pub dwStatus: PEER_GRAPH_STATUS_FLAGS,
     pub incomingData: PEER_EVENT_INCOMING_DATA,
@@ -1192,24 +921,14 @@ pub union PEER_GRAPH_EVENT_DATA_0 {
     pub nodeChangeData: PEER_EVENT_NODE_CHANGE_DATA,
     pub synchronizedData: PEER_EVENT_SYNCHRONIZED_DATA,
 }
-impl Copy for PEER_GRAPH_EVENT_DATA_0 {}
-impl Clone for PEER_GRAPH_EVENT_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_GRAPH_EVENT_REGISTRATION {
     pub eventType: PEER_GRAPH_EVENT_TYPE,
     pub pType: *mut windows_sys::core::GUID,
 }
-impl Copy for PEER_GRAPH_EVENT_REGISTRATION {}
-impl Clone for PEER_GRAPH_EVENT_REGISTRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_GRAPH_PROPERTIES {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1222,24 +941,14 @@ pub struct PEER_GRAPH_PROPERTIES {
     pub ulPresenceLifetime: u32,
     pub cPresenceMax: u32,
 }
-impl Copy for PEER_GRAPH_PROPERTIES {}
-impl Clone for PEER_GRAPH_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_GROUP_EVENT_DATA {
     pub eventType: PEER_GROUP_EVENT_TYPE,
     pub Anonymous: PEER_GROUP_EVENT_DATA_0,
 }
-impl Copy for PEER_GROUP_EVENT_DATA {}
-impl Clone for PEER_GROUP_EVENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PEER_GROUP_EVENT_DATA_0 {
     pub dwStatus: PEER_GROUP_STATUS,
     pub incomingData: PEER_EVENT_INCOMING_DATA,
@@ -1248,24 +957,14 @@ pub union PEER_GROUP_EVENT_DATA_0 {
     pub memberChangeData: PEER_EVENT_MEMBER_CHANGE_DATA,
     pub hrConnectionFailedReason: windows_sys::core::HRESULT,
 }
-impl Copy for PEER_GROUP_EVENT_DATA_0 {}
-impl Clone for PEER_GROUP_EVENT_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_GROUP_EVENT_REGISTRATION {
     pub eventType: PEER_GROUP_EVENT_TYPE,
     pub pType: *mut windows_sys::core::GUID,
 }
-impl Copy for PEER_GROUP_EVENT_REGISTRATION {}
-impl Clone for PEER_GROUP_EVENT_REGISTRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_GROUP_PROPERTIES {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1281,26 +980,16 @@ pub struct PEER_GROUP_PROPERTIES {
     pub pwzGroupPassword: windows_sys::core::PWSTR,
     pub groupPasswordRole: windows_sys::core::GUID,
 }
-impl Copy for PEER_GROUP_PROPERTIES {}
-impl Clone for PEER_GROUP_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_INVITATION {
     pub applicationId: windows_sys::core::GUID,
     pub applicationData: PEER_DATA,
     pub pwzMessage: windows_sys::core::PWSTR,
 }
-impl Copy for PEER_INVITATION {}
-impl Clone for PEER_INVITATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct PEER_INVITATION_INFO {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1322,28 +1011,16 @@ pub struct PEER_INVITATION_INFO {
     pub pSubjectPublicKey: *mut super::super::Security::Cryptography::CERT_PUBLIC_KEY_INFO,
     pub authScheme: PEER_GROUP_AUTHENTICATION_SCHEME,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for PEER_INVITATION_INFO {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for PEER_INVITATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_INVITATION_RESPONSE {
     pub action: PEER_INVITATION_RESPONSE_TYPE,
     pub pwzMessage: windows_sys::core::PWSTR,
     pub hrExtendedInfo: windows_sys::core::HRESULT,
 }
-impl Copy for PEER_INVITATION_RESPONSE {}
-impl Clone for PEER_INVITATION_RESPONSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+#[derive(Clone, Copy)]
 pub struct PEER_MEMBER {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1354,28 +1031,16 @@ pub struct PEER_MEMBER {
     pub pAddresses: *mut PEER_ADDRESS,
     pub pCredentialInfo: *mut PEER_CREDENTIAL_INFO,
 }
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl Copy for PEER_MEMBER {}
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl Clone for PEER_MEMBER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_NAME_PAIR {
     pub dwSize: u32,
     pub pwzPeerName: windows_sys::core::PWSTR,
     pub pwzFriendlyName: windows_sys::core::PWSTR,
 }
-impl Copy for PEER_NAME_PAIR {}
-impl Clone for PEER_NAME_PAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct PEER_NODE_INFO {
     pub dwSize: u32,
     pub ullNodeId: u64,
@@ -1384,55 +1049,31 @@ pub struct PEER_NODE_INFO {
     pub pAddresses: *mut PEER_ADDRESS,
     pub pwzAttributes: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for PEER_NODE_INFO {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for PEER_NODE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_OBJECT {
     pub id: windows_sys::core::GUID,
     pub data: PEER_DATA,
     pub dwPublicationScope: u32,
 }
-impl Copy for PEER_OBJECT {}
-impl Clone for PEER_OBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct PEER_PEOPLE_NEAR_ME {
     pub pwzNickName: windows_sys::core::PWSTR,
     pub endpoint: PEER_ENDPOINT,
     pub id: windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for PEER_PEOPLE_NEAR_ME {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for PEER_PEOPLE_NEAR_ME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_PNRP_CLOUD_INFO {
     pub pwzCloudName: windows_sys::core::PWSTR,
     pub dwScope: PNRP_SCOPE,
     pub dwScopeId: u32,
 }
-impl Copy for PEER_PNRP_CLOUD_INFO {}
-impl Clone for PEER_PNRP_CLOUD_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct PEER_PNRP_ENDPOINT_INFO {
     pub pwzPeerName: windows_sys::core::PWSTR,
     pub cAddresses: u32,
@@ -1440,16 +1081,9 @@ pub struct PEER_PNRP_ENDPOINT_INFO {
     pub pwzComment: windows_sys::core::PWSTR,
     pub payload: PEER_DATA,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for PEER_PNRP_ENDPOINT_INFO {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for PEER_PNRP_ENDPOINT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct PEER_PNRP_REGISTRATION_INFO {
     pub pwzCloudName: windows_sys::core::PWSTR,
     pub pwzPublishingIdentity: windows_sys::core::PWSTR,
@@ -1459,26 +1093,14 @@ pub struct PEER_PNRP_REGISTRATION_INFO {
     pub pwzComment: windows_sys::core::PWSTR,
     pub payload: PEER_DATA,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for PEER_PNRP_REGISTRATION_INFO {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for PEER_PNRP_REGISTRATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_PRESENCE_INFO {
     pub status: PEER_PRESENCE_STATUS,
     pub pwzDescriptiveText: windows_sys::core::PWSTR,
 }
-impl Copy for PEER_PRESENCE_INFO {}
-impl Clone for PEER_PRESENCE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_RECORD {
     pub dwSize: u32,
     pub r#type: windows_sys::core::GUID,
@@ -1494,13 +1116,8 @@ pub struct PEER_RECORD {
     pub securityData: PEER_DATA,
     pub data: PEER_DATA,
 }
-impl Copy for PEER_RECORD {}
-impl Clone for PEER_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_SECURITY_INTERFACE {
     pub dwSize: u32,
     pub pwzSspFilename: windows_sys::core::PWSTR,
@@ -1513,38 +1130,23 @@ pub struct PEER_SECURITY_INTERFACE {
     pub pfnFreeSecurityData: PFNPEER_FREE_SECURITY_DATA,
     pub pfnAuthFailed: PFNPEER_ON_PASSWORD_AUTH_FAILED,
 }
-impl Copy for PEER_SECURITY_INTERFACE {}
-impl Clone for PEER_SECURITY_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PEER_VERSION_DATA {
     pub wVersion: u16,
     pub wHighestVersion: u16,
 }
-impl Copy for PEER_VERSION_DATA {}
-impl Clone for PEER_VERSION_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PNRPCLOUDINFO {
     pub dwSize: u32,
     pub Cloud: PNRP_CLOUD_ID,
     pub enCloudState: PNRP_CLOUD_STATE,
     pub enCloudFlags: PNRP_CLOUD_FLAGS,
 }
-impl Copy for PNRPCLOUDINFO {}
-impl Clone for PNRPCLOUDINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct PNRPINFO_V1 {
     pub dwSize: u32,
     pub lpwszIdentity: windows_sys::core::PWSTR,
@@ -1556,16 +1158,9 @@ pub struct PNRPINFO_V1 {
     pub saHint: super::super::Networking::WinSock::SOCKET_ADDRESS,
     pub enNameState: PNRP_REGISTERED_ID_STATE,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for PNRPINFO_V1 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for PNRPINFO_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
+#[derive(Clone, Copy)]
 pub struct PNRPINFO_V2 {
     pub dwSize: u32,
     pub lpwszIdentity: windows_sys::core::PWSTR,
@@ -1579,39 +1174,19 @@ pub struct PNRPINFO_V2 {
     pub enExtendedPayloadType: PNRP_EXTENDED_PAYLOAD_TYPE,
     pub Anonymous: PNRPINFO_V2_0,
 }
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
-impl Copy for PNRPINFO_V2 {}
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
-impl Clone for PNRPINFO_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
+#[derive(Clone, Copy)]
 pub union PNRPINFO_V2_0 {
     pub blobPayload: super::super::System::Com::BLOB,
     pub pwszPayload: windows_sys::core::PWSTR,
 }
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
-impl Copy for PNRPINFO_V2_0 {}
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
-impl Clone for PNRPINFO_V2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PNRP_CLOUD_ID {
     pub AddressFamily: i32,
     pub Scope: PNRP_SCOPE,
     pub ScopeId: u32,
-}
-impl Copy for PNRP_CLOUD_ID {}
-impl Clone for PNRP_CLOUD_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub type DRT_BOOTSTRAP_RESOLVE_CALLBACK = Option<unsafe extern "system" fn(hr: windows_sys::core::HRESULT, pvcontext: *mut core::ffi::c_void, paddresses: *mut super::super::Networking::WinSock::SOCKET_ADDRESS_LIST, ffatalerror: super::super::Foundation::BOOL)>;

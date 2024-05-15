@@ -13,13 +13,8 @@ windows_targets::link!("api-ms-win-security-isolatedcontainer-l1-1-1.dll" "syste
 pub const WDAG_CLIPBOARD_TAG: windows_sys::core::PCWSTR = windows_sys::core::w!("CrossIsolatedEnvironmentContent");
 pub const IsolatedAppLauncher: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbc812430_e75e_4fd1_9641_1f9f1e2d9a1f);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IsolatedAppLauncherTelemetryParameters {
     pub EnableForLaunch: super::super::Foundation::BOOL,
     pub CorrelationGUID: windows_sys::core::GUID,
-}
-impl Copy for IsolatedAppLauncherTelemetryParameters {}
-impl Clone for IsolatedAppLauncherTelemetryParameters {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

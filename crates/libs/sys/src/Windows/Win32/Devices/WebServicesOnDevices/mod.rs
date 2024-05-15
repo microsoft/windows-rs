@@ -129,27 +129,18 @@ pub type WSDXML_OP = i32;
 pub type WSD_CONFIG_PARAM_TYPE = i32;
 pub type WSD_PROTOCOL_TYPE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REQUESTBODY_GetStatus {
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for REQUESTBODY_GetStatus {}
-impl Clone for REQUESTBODY_GetStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REQUESTBODY_Renew {
     pub Expires: *mut WSD_EVENTING_EXPIRES,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for REQUESTBODY_Renew {}
-impl Clone for REQUESTBODY_Renew {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REQUESTBODY_Subscribe {
     pub EndTo: *mut WSD_ENDPOINT_REFERENCE,
     pub Delivery: *mut WSD_EVENTING_DELIVERY_MODE,
@@ -157,80 +148,45 @@ pub struct REQUESTBODY_Subscribe {
     pub Filter: *mut WSD_EVENTING_FILTER,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for REQUESTBODY_Subscribe {}
-impl Clone for REQUESTBODY_Subscribe {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REQUESTBODY_Unsubscribe {
     pub any: *mut WSDXML_ELEMENT,
 }
-impl Copy for REQUESTBODY_Unsubscribe {}
-impl Clone for REQUESTBODY_Unsubscribe {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RESPONSEBODY_GetMetadata {
     pub Metadata: *mut WSD_METADATA_SECTION_LIST,
 }
-impl Copy for RESPONSEBODY_GetMetadata {}
-impl Clone for RESPONSEBODY_GetMetadata {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RESPONSEBODY_GetStatus {
     pub expires: *mut WSD_EVENTING_EXPIRES,
     pub any: *mut WSDXML_ELEMENT,
 }
-impl Copy for RESPONSEBODY_GetStatus {}
-impl Clone for RESPONSEBODY_GetStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RESPONSEBODY_Renew {
     pub expires: *mut WSD_EVENTING_EXPIRES,
     pub any: *mut WSDXML_ELEMENT,
 }
-impl Copy for RESPONSEBODY_Renew {}
-impl Clone for RESPONSEBODY_Renew {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RESPONSEBODY_Subscribe {
     pub SubscriptionManager: *mut WSD_ENDPOINT_REFERENCE,
     pub expires: *mut WSD_EVENTING_EXPIRES,
     pub any: *mut WSDXML_ELEMENT,
 }
-impl Copy for RESPONSEBODY_Subscribe {}
-impl Clone for RESPONSEBODY_Subscribe {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RESPONSEBODY_SubscriptionEnd {
     pub SubscriptionManager: *mut WSD_ENDPOINT_REFERENCE,
     pub Status: windows_sys::core::PCWSTR,
     pub Reason: *mut WSD_LOCALIZED_STRING,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for RESPONSEBODY_SubscriptionEnd {}
-impl Clone for RESPONSEBODY_SubscriptionEnd {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSDUdpRetransmitParams {
     pub ulSendDelay: u32,
     pub ulRepeat: u32,
@@ -238,26 +194,16 @@ pub struct WSDUdpRetransmitParams {
     pub ulRepeatMaxDelay: u32,
     pub ulRepeatUpperDelay: u32,
 }
-impl Copy for WSDUdpRetransmitParams {}
-impl Clone for WSDUdpRetransmitParams {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSDXML_ATTRIBUTE {
     pub Element: *mut WSDXML_ELEMENT,
     pub Next: *mut WSDXML_ATTRIBUTE,
     pub Name: *mut WSDXML_NAME,
     pub Value: windows_sys::core::PWSTR,
 }
-impl Copy for WSDXML_ATTRIBUTE {}
-impl Clone for WSDXML_ATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSDXML_ELEMENT {
     pub Node: WSDXML_NODE,
     pub Name: *mut WSDXML_NAME,
@@ -265,35 +211,20 @@ pub struct WSDXML_ELEMENT {
     pub FirstChild: *mut WSDXML_NODE,
     pub PrefixMappings: *mut WSDXML_PREFIX_MAPPING,
 }
-impl Copy for WSDXML_ELEMENT {}
-impl Clone for WSDXML_ELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSDXML_ELEMENT_LIST {
     pub Next: *mut WSDXML_ELEMENT_LIST,
     pub Element: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSDXML_ELEMENT_LIST {}
-impl Clone for WSDXML_ELEMENT_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSDXML_NAME {
     pub Space: *mut WSDXML_NAMESPACE,
     pub LocalName: windows_sys::core::PWSTR,
 }
-impl Copy for WSDXML_NAME {}
-impl Clone for WSDXML_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSDXML_NAMESPACE {
     pub Uri: windows_sys::core::PCWSTR,
     pub PreferredPrefix: windows_sys::core::PCWSTR,
@@ -301,13 +232,8 @@ pub struct WSDXML_NAMESPACE {
     pub NamesCount: u16,
     pub Encoding: u16,
 }
-impl Copy for WSDXML_NAMESPACE {}
-impl Clone for WSDXML_NAMESPACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSDXML_NODE {
     pub Type: i32,
     pub Parent: *mut WSDXML_ELEMENT,
@@ -317,94 +243,54 @@ impl WSDXML_NODE {
     pub const ElementType: i32 = 0i32;
     pub const TextType: i32 = 1i32;
 }
-impl Copy for WSDXML_NODE {}
-impl Clone for WSDXML_NODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSDXML_PREFIX_MAPPING {
     pub Refs: u32,
     pub Next: *mut WSDXML_PREFIX_MAPPING,
     pub Space: *mut WSDXML_NAMESPACE,
     pub Prefix: windows_sys::core::PWSTR,
 }
-impl Copy for WSDXML_PREFIX_MAPPING {}
-impl Clone for WSDXML_PREFIX_MAPPING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSDXML_TEXT {
     pub Node: WSDXML_NODE,
     pub Text: windows_sys::core::PWSTR,
 }
-impl Copy for WSDXML_TEXT {}
-impl Clone for WSDXML_TEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSDXML_TYPE {
     pub Uri: windows_sys::core::PCWSTR,
     pub Table: *const u8,
 }
-impl Copy for WSDXML_TYPE {}
-impl Clone for WSDXML_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_APP_SEQUENCE {
     pub InstanceId: u64,
     pub SequenceId: windows_sys::core::PCWSTR,
     pub MessageNumber: u64,
 }
-impl Copy for WSD_APP_SEQUENCE {}
-impl Clone for WSD_APP_SEQUENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_BYE {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_BYE {}
-impl Clone for WSD_BYE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_CONFIG_ADDRESSES {
     pub addresses: *mut *mut core::ffi::c_void,
     pub dwAddressCount: u32,
 }
-impl Copy for WSD_CONFIG_ADDRESSES {}
-impl Clone for WSD_CONFIG_ADDRESSES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_CONFIG_PARAM {
     pub configParamType: WSD_CONFIG_PARAM_TYPE,
     pub pConfigData: *mut core::ffi::c_void,
     pub dwConfigDataSize: u32,
 }
-impl Copy for WSD_CONFIG_PARAM {}
-impl Clone for WSD_CONFIG_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_DATETIME {
     pub isPositive: super::super::Foundation::BOOL,
     pub year: u32,
@@ -419,13 +305,8 @@ pub struct WSD_DATETIME {
     pub TZHour: u8,
     pub TZMinute: u8,
 }
-impl Copy for WSD_DATETIME {}
-impl Clone for WSD_DATETIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_DURATION {
     pub isPositive: super::super::Foundation::BOOL,
     pub year: u32,
@@ -436,13 +317,8 @@ pub struct WSD_DURATION {
     pub second: u32,
     pub millisecond: u32,
 }
-impl Copy for WSD_DURATION {}
-impl Clone for WSD_DURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_ENDPOINT_REFERENCE {
     pub Address: windows_sys::core::PCWSTR,
     pub ReferenceProperties: WSD_REFERENCE_PROPERTIES,
@@ -451,24 +327,14 @@ pub struct WSD_ENDPOINT_REFERENCE {
     pub ServiceName: *mut WSDXML_NAME,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_ENDPOINT_REFERENCE {}
-impl Clone for WSD_ENDPOINT_REFERENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_ENDPOINT_REFERENCE_LIST {
     pub Next: *mut WSD_ENDPOINT_REFERENCE_LIST,
     pub Element: *mut WSD_ENDPOINT_REFERENCE,
 }
-impl Copy for WSD_ENDPOINT_REFERENCE_LIST {}
-impl Clone for WSD_ENDPOINT_REFERENCE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_EVENT {
     pub Hr: windows_sys::core::HRESULT,
     pub EventType: u32,
@@ -478,91 +344,51 @@ pub struct WSD_EVENT {
     pub Operation: *mut WSD_OPERATION,
     pub MessageParameters: *mut core::ffi::c_void,
 }
-impl Copy for WSD_EVENT {}
-impl Clone for WSD_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_EVENTING_DELIVERY_MODE {
     pub Mode: windows_sys::core::PCWSTR,
     pub Push: *mut WSD_EVENTING_DELIVERY_MODE_PUSH,
     pub Data: *mut core::ffi::c_void,
 }
-impl Copy for WSD_EVENTING_DELIVERY_MODE {}
-impl Clone for WSD_EVENTING_DELIVERY_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_EVENTING_DELIVERY_MODE_PUSH {
     pub NotifyTo: *mut WSD_ENDPOINT_REFERENCE,
 }
-impl Copy for WSD_EVENTING_DELIVERY_MODE_PUSH {}
-impl Clone for WSD_EVENTING_DELIVERY_MODE_PUSH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_EVENTING_EXPIRES {
     pub Duration: *mut WSD_DURATION,
     pub DateTime: *mut WSD_DATETIME,
 }
-impl Copy for WSD_EVENTING_EXPIRES {}
-impl Clone for WSD_EVENTING_EXPIRES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_EVENTING_FILTER {
     pub Dialect: windows_sys::core::PCWSTR,
     pub FilterAction: *mut WSD_EVENTING_FILTER_ACTION,
     pub Data: *mut core::ffi::c_void,
 }
-impl Copy for WSD_EVENTING_FILTER {}
-impl Clone for WSD_EVENTING_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_EVENTING_FILTER_ACTION {
     pub Actions: *mut WSD_URI_LIST,
 }
-impl Copy for WSD_EVENTING_FILTER_ACTION {}
-impl Clone for WSD_EVENTING_FILTER_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_HANDLER_CONTEXT {
     pub Handler: PWSD_SOAP_MESSAGE_HANDLER,
     pub PVoid: *mut core::ffi::c_void,
     pub Unknown: *mut core::ffi::c_void,
 }
-impl Copy for WSD_HANDLER_CONTEXT {}
-impl Clone for WSD_HANDLER_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_HEADER_RELATESTO {
     pub RelationshipType: *mut WSDXML_NAME,
     pub MessageID: windows_sys::core::PCWSTR,
 }
-impl Copy for WSD_HEADER_RELATESTO {}
-impl Clone for WSD_HEADER_RELATESTO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_HELLO {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Types: *mut WSD_NAME_LIST,
@@ -571,46 +397,26 @@ pub struct WSD_HELLO {
     pub MetadataVersion: u64,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_HELLO {}
-impl Clone for WSD_HELLO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_HOST_METADATA {
     pub Host: *mut WSD_SERVICE_METADATA,
     pub Hosted: *mut WSD_SERVICE_METADATA_LIST,
 }
-impl Copy for WSD_HOST_METADATA {}
-impl Clone for WSD_HOST_METADATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_LOCALIZED_STRING {
     pub lang: windows_sys::core::PCWSTR,
     pub String: windows_sys::core::PCWSTR,
 }
-impl Copy for WSD_LOCALIZED_STRING {}
-impl Clone for WSD_LOCALIZED_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_LOCALIZED_STRING_LIST {
     pub Next: *mut WSD_LOCALIZED_STRING_LIST,
     pub Element: *mut WSD_LOCALIZED_STRING,
 }
-impl Copy for WSD_LOCALIZED_STRING_LIST {}
-impl Clone for WSD_LOCALIZED_STRING_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_METADATA_SECTION {
     pub Dialect: windows_sys::core::PCWSTR,
     pub Identifier: windows_sys::core::PCWSTR,
@@ -619,72 +425,42 @@ pub struct WSD_METADATA_SECTION {
     pub Location: windows_sys::core::PCWSTR,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_METADATA_SECTION {}
-impl Clone for WSD_METADATA_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_METADATA_SECTION_LIST {
     pub Next: *mut WSD_METADATA_SECTION_LIST,
     pub Element: *mut WSD_METADATA_SECTION,
 }
-impl Copy for WSD_METADATA_SECTION_LIST {}
-impl Clone for WSD_METADATA_SECTION_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_NAME_LIST {
     pub Next: *mut WSD_NAME_LIST,
     pub Element: *mut WSDXML_NAME,
 }
-impl Copy for WSD_NAME_LIST {}
-impl Clone for WSD_NAME_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_OPERATION {
     pub RequestType: *mut WSDXML_TYPE,
     pub ResponseType: *mut WSDXML_TYPE,
     pub RequestStubFunction: WSD_STUB_FUNCTION,
 }
-impl Copy for WSD_OPERATION {}
-impl Clone for WSD_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_PORT_TYPE {
     pub EncodedName: u32,
     pub OperationCount: u32,
     pub Operations: *mut WSD_OPERATION,
     pub ProtocolType: WSD_PROTOCOL_TYPE,
 }
-impl Copy for WSD_PORT_TYPE {}
-impl Clone for WSD_PORT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_PROBE {
     pub Types: *mut WSD_NAME_LIST,
     pub Scopes: *mut WSD_SCOPES,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_PROBE {}
-impl Clone for WSD_PROBE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_PROBE_MATCH {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Types: *mut WSD_NAME_LIST,
@@ -693,78 +469,43 @@ pub struct WSD_PROBE_MATCH {
     pub MetadataVersion: u64,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_PROBE_MATCH {}
-impl Clone for WSD_PROBE_MATCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_PROBE_MATCHES {
     pub ProbeMatch: *mut WSD_PROBE_MATCH_LIST,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_PROBE_MATCHES {}
-impl Clone for WSD_PROBE_MATCHES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_PROBE_MATCH_LIST {
     pub Next: *mut WSD_PROBE_MATCH_LIST,
     pub Element: *mut WSD_PROBE_MATCH,
 }
-impl Copy for WSD_PROBE_MATCH_LIST {}
-impl Clone for WSD_PROBE_MATCH_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_REFERENCE_PARAMETERS {
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_REFERENCE_PARAMETERS {}
-impl Clone for WSD_REFERENCE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_REFERENCE_PROPERTIES {
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_REFERENCE_PROPERTIES {}
-impl Clone for WSD_REFERENCE_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_RELATIONSHIP_METADATA {
     pub Type: windows_sys::core::PCWSTR,
     pub Data: *mut WSD_HOST_METADATA,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_RELATIONSHIP_METADATA {}
-impl Clone for WSD_RELATIONSHIP_METADATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_RESOLVE {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_RESOLVE {}
-impl Clone for WSD_RESOLVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_RESOLVE_MATCH {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Types: *mut WSD_NAME_LIST,
@@ -773,36 +514,21 @@ pub struct WSD_RESOLVE_MATCH {
     pub MetadataVersion: u64,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_RESOLVE_MATCH {}
-impl Clone for WSD_RESOLVE_MATCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_RESOLVE_MATCHES {
     pub ResolveMatch: *mut WSD_RESOLVE_MATCH,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_RESOLVE_MATCHES {}
-impl Clone for WSD_RESOLVE_MATCHES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_SCOPES {
     pub MatchBy: windows_sys::core::PCWSTR,
     pub Scopes: *mut WSD_URI_LIST,
 }
-impl Copy for WSD_SCOPES {}
-impl Clone for WSD_SCOPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct WSD_SECURITY_CERT_VALIDATION {
     pub certMatchArray: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
     pub dwCertMatchArrayCount: u32,
@@ -813,16 +539,9 @@ pub struct WSD_SECURITY_CERT_VALIDATION {
     pub pbCertHash: *mut u8,
     pub dwCertHashSize: u32,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for WSD_SECURITY_CERT_VALIDATION {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for WSD_SECURITY_CERT_VALIDATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct WSD_SECURITY_CERT_VALIDATION_V1 {
     pub certMatchArray: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
     pub dwCertMatchArrayCount: u32,
@@ -830,55 +549,31 @@ pub struct WSD_SECURITY_CERT_VALIDATION_V1 {
     pub hCertIssuerStore: super::super::Security::Cryptography::HCERTSTORE,
     pub dwCertCheckOptions: u32,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for WSD_SECURITY_CERT_VALIDATION_V1 {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for WSD_SECURITY_CERT_VALIDATION_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct WSD_SECURITY_SIGNATURE_VALIDATION {
     pub signingCertArray: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
     pub dwSigningCertArrayCount: u32,
     pub hSigningCertStore: super::super::Security::Cryptography::HCERTSTORE,
     pub dwFlags: u32,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for WSD_SECURITY_SIGNATURE_VALIDATION {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for WSD_SECURITY_SIGNATURE_VALIDATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_SERVICE_METADATA {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE_LIST,
     pub Types: *mut WSD_NAME_LIST,
     pub ServiceId: windows_sys::core::PCWSTR,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_SERVICE_METADATA {}
-impl Clone for WSD_SERVICE_METADATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_SERVICE_METADATA_LIST {
     pub Next: *mut WSD_SERVICE_METADATA_LIST,
     pub Element: *mut WSD_SERVICE_METADATA,
 }
-impl Copy for WSD_SERVICE_METADATA_LIST {}
-impl Clone for WSD_SERVICE_METADATA_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_SOAP_FAULT {
     pub Code: *mut WSD_SOAP_FAULT_CODE,
     pub Reason: *mut WSD_SOAP_FAULT_REASON,
@@ -886,45 +581,25 @@ pub struct WSD_SOAP_FAULT {
     pub Role: windows_sys::core::PCWSTR,
     pub Detail: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_SOAP_FAULT {}
-impl Clone for WSD_SOAP_FAULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_SOAP_FAULT_CODE {
     pub Value: *mut WSDXML_NAME,
     pub Subcode: *mut WSD_SOAP_FAULT_SUBCODE,
 }
-impl Copy for WSD_SOAP_FAULT_CODE {}
-impl Clone for WSD_SOAP_FAULT_CODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_SOAP_FAULT_REASON {
     pub Text: *mut WSD_LOCALIZED_STRING_LIST,
 }
-impl Copy for WSD_SOAP_FAULT_REASON {}
-impl Clone for WSD_SOAP_FAULT_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_SOAP_FAULT_SUBCODE {
     pub Value: *mut WSDXML_NAME,
     pub Subcode: *mut WSD_SOAP_FAULT_SUBCODE,
 }
-impl Copy for WSD_SOAP_FAULT_SUBCODE {}
-impl Clone for WSD_SOAP_FAULT_SUBCODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_SOAP_HEADER {
     pub To: windows_sys::core::PCWSTR,
     pub Action: windows_sys::core::PCWSTR,
@@ -936,51 +611,31 @@ pub struct WSD_SOAP_HEADER {
     pub AppSequence: *mut WSD_APP_SEQUENCE,
     pub AnyHeaders: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_SOAP_HEADER {}
-impl Clone for WSD_SOAP_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_SOAP_MESSAGE {
     pub Header: WSD_SOAP_HEADER,
     pub Body: *mut core::ffi::c_void,
     pub BodyType: *mut WSDXML_TYPE,
 }
-impl Copy for WSD_SOAP_MESSAGE {}
-impl Clone for WSD_SOAP_MESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     pub hr: windows_sys::core::HRESULT,
     pub eventHandle: super::super::Foundation::HANDLE,
     pub messageParameters: *mut core::ffi::c_void,
     pub results: *mut core::ffi::c_void,
 }
-impl Copy for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {}
-impl Clone for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_THIS_DEVICE_METADATA {
     pub FriendlyName: *mut WSD_LOCALIZED_STRING_LIST,
     pub FirmwareVersion: windows_sys::core::PCWSTR,
     pub SerialNumber: windows_sys::core::PCWSTR,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_THIS_DEVICE_METADATA {}
-impl Clone for WSD_THIS_DEVICE_METADATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_THIS_MODEL_METADATA {
     pub Manufacturer: *mut WSD_LOCALIZED_STRING_LIST,
     pub ManufacturerUrl: windows_sys::core::PCWSTR,
@@ -990,32 +645,16 @@ pub struct WSD_THIS_MODEL_METADATA {
     pub PresentationUrl: windows_sys::core::PCWSTR,
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_THIS_MODEL_METADATA {}
-impl Clone for WSD_THIS_MODEL_METADATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_UNKNOWN_LOOKUP {
     pub Any: *mut WSDXML_ELEMENT,
 }
-impl Copy for WSD_UNKNOWN_LOOKUP {}
-impl Clone for WSD_UNKNOWN_LOOKUP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WSD_URI_LIST {
     pub Next: *mut WSD_URI_LIST,
     pub Element: windows_sys::core::PCWSTR,
-}
-impl Copy for WSD_URI_LIST {}
-impl Clone for WSD_URI_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type PWSD_SOAP_MESSAGE_HANDLER = Option<unsafe extern "system" fn(thisunknown: *mut core::ffi::c_void, event: *mut WSD_EVENT) -> windows_sys::core::HRESULT>;
 pub type WSD_STUB_FUNCTION = Option<unsafe extern "system" fn(server: *mut core::ffi::c_void, session: *mut core::ffi::c_void, event: *mut WSD_EVENT) -> windows_sys::core::HRESULT>;

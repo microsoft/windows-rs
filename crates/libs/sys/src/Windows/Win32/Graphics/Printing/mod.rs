@@ -1844,28 +1844,19 @@ pub type XPSRAS_BACKGROUND_COLOR = i32;
 pub type XPSRAS_PIXEL_FORMAT = i32;
 pub type XPSRAS_RENDERING_MODE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ADDJOB_INFO_1A {
     pub Path: windows_sys::core::PSTR,
     pub JobId: u32,
 }
-impl Copy for ADDJOB_INFO_1A {}
-impl Clone for ADDJOB_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ADDJOB_INFO_1W {
     pub Path: windows_sys::core::PWSTR,
     pub JobId: u32,
 }
-impl Copy for ADDJOB_INFO_1W {}
-impl Clone for ADDJOB_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ATTRIBUTE_INFO_1 {
     pub dwJobNumberOfPagesPerSide: u32,
     pub dwDrvNumberOfPagesPerSide: u32,
@@ -1875,13 +1866,8 @@ pub struct ATTRIBUTE_INFO_1 {
     pub dwJobNumberOfCopies: u32,
     pub dwDrvNumberOfCopies: u32,
 }
-impl Copy for ATTRIBUTE_INFO_1 {}
-impl Clone for ATTRIBUTE_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ATTRIBUTE_INFO_2 {
     pub dwJobNumberOfPagesPerSide: u32,
     pub dwDrvNumberOfPagesPerSide: u32,
@@ -1892,13 +1878,8 @@ pub struct ATTRIBUTE_INFO_2 {
     pub dwDrvNumberOfCopies: u32,
     pub dwColorOptimization: u32,
 }
-impl Copy for ATTRIBUTE_INFO_2 {}
-impl Clone for ATTRIBUTE_INFO_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ATTRIBUTE_INFO_3 {
     pub dwJobNumberOfPagesPerSide: u32,
     pub dwDrvNumberOfPagesPerSide: u32,
@@ -1911,13 +1892,8 @@ pub struct ATTRIBUTE_INFO_3 {
     pub dmPrintQuality: i16,
     pub dmYResolution: i16,
 }
-impl Copy for ATTRIBUTE_INFO_3 {}
-impl Clone for ATTRIBUTE_INFO_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ATTRIBUTE_INFO_4 {
     pub dwJobNumberOfPagesPerSide: u32,
     pub dwDrvNumberOfPagesPerSide: u32,
@@ -1935,24 +1911,14 @@ pub struct ATTRIBUTE_INFO_4 {
     pub dwScalingPercentX: u32,
     pub dwScalingPercentY: u32,
 }
-impl Copy for ATTRIBUTE_INFO_4 {}
-impl Clone for ATTRIBUTE_INFO_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BIDI_DATA {
     pub dwBidiType: u32,
     pub u: BIDI_DATA_0,
 }
-impl Copy for BIDI_DATA {}
-impl Clone for BIDI_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union BIDI_DATA_0 {
     pub bData: super::super::Foundation::BOOL,
     pub iData: i32,
@@ -1960,90 +1926,55 @@ pub union BIDI_DATA_0 {
     pub fData: f32,
     pub biData: BINARY_CONTAINER,
 }
-impl Copy for BIDI_DATA_0 {}
-impl Clone for BIDI_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BIDI_REQUEST_CONTAINER {
     pub Version: u32,
     pub Flags: u32,
     pub Count: u32,
     pub aData: [BIDI_REQUEST_DATA; 1],
 }
-impl Copy for BIDI_REQUEST_CONTAINER {}
-impl Clone for BIDI_REQUEST_CONTAINER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BIDI_REQUEST_DATA {
     pub dwReqNumber: u32,
     pub pSchema: windows_sys::core::PWSTR,
     pub data: BIDI_DATA,
 }
-impl Copy for BIDI_REQUEST_DATA {}
-impl Clone for BIDI_REQUEST_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BIDI_RESPONSE_CONTAINER {
     pub Version: u32,
     pub Flags: u32,
     pub Count: u32,
     pub aData: [BIDI_RESPONSE_DATA; 1],
 }
-impl Copy for BIDI_RESPONSE_CONTAINER {}
-impl Clone for BIDI_RESPONSE_CONTAINER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BIDI_RESPONSE_DATA {
     pub dwResult: u32,
     pub dwReqNumber: u32,
     pub pSchema: windows_sys::core::PWSTR,
     pub data: BIDI_DATA,
 }
-impl Copy for BIDI_RESPONSE_DATA {}
-impl Clone for BIDI_RESPONSE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BINARY_CONTAINER {
     pub cbBuf: u32,
     pub pData: *mut u8,
-}
-impl Copy for BINARY_CONTAINER {}
-impl Clone for BINARY_CONTAINER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const BidiRequest: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb9162a23_45f9_47cc_80f5_fe0fe9b9e1a2);
 pub const BidiRequestContainer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc5b8a24_db05_4a01_8388_22edf6c2bbba);
 pub const BidiSpl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2a614240_a4c5_4c33_bd87_1bc709331639);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BranchOfficeJobData {
     pub eEventType: EBranchOfficeJobEventType,
     pub JobId: u32,
     pub JobInfo: BranchOfficeJobData_0,
 }
-impl Copy for BranchOfficeJobData {}
-impl Clone for BranchOfficeJobData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union BranchOfficeJobData_0 {
     pub LogJobPrinted: BranchOfficeJobDataPrinted,
     pub LogJobRendered: BranchOfficeJobDataRendered,
@@ -2051,24 +1982,14 @@ pub union BranchOfficeJobData_0 {
     pub LogPipelineFailed: BranchOfficeJobDataPipelineFailed,
     pub LogOfflineFileFull: BranchOfficeLogOfflineFileFull,
 }
-impl Copy for BranchOfficeJobData_0 {}
-impl Clone for BranchOfficeJobData_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BranchOfficeJobDataContainer {
     pub cJobDataEntries: u32,
     pub JobData: [BranchOfficeJobData; 1],
 }
-impl Copy for BranchOfficeJobDataContainer {}
-impl Clone for BranchOfficeJobDataContainer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BranchOfficeJobDataError {
     pub LastError: u32,
     pub pDocumentName: windows_sys::core::PWSTR,
@@ -2083,25 +2004,15 @@ pub struct BranchOfficeJobDataError {
     pub pJobError: windows_sys::core::PWSTR,
     pub pErrorDescription: windows_sys::core::PWSTR,
 }
-impl Copy for BranchOfficeJobDataError {}
-impl Clone for BranchOfficeJobDataError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BranchOfficeJobDataPipelineFailed {
     pub pDocumentName: windows_sys::core::PWSTR,
     pub pPrinterName: windows_sys::core::PWSTR,
     pub pExtraErrorInfo: windows_sys::core::PWSTR,
 }
-impl Copy for BranchOfficeJobDataPipelineFailed {}
-impl Clone for BranchOfficeJobDataPipelineFailed {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BranchOfficeJobDataPrinted {
     pub Status: u32,
     pub pDocumentName: windows_sys::core::PWSTR,
@@ -2112,13 +2023,8 @@ pub struct BranchOfficeJobDataPrinted {
     pub Size: i64,
     pub TotalPages: u32,
 }
-impl Copy for BranchOfficeJobDataPrinted {}
-impl Clone for BranchOfficeJobDataPrinted {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BranchOfficeJobDataRendered {
     pub Size: i64,
     pub ICMMethod: u32,
@@ -2128,24 +2034,14 @@ pub struct BranchOfficeJobDataRendered {
     pub Copies: i16,
     pub TTOption: i16,
 }
-impl Copy for BranchOfficeJobDataRendered {}
-impl Clone for BranchOfficeJobDataRendered {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BranchOfficeLogOfflineFileFull {
     pub pMachineName: windows_sys::core::PWSTR,
 }
-impl Copy for BranchOfficeLogOfflineFileFull {}
-impl Clone for BranchOfficeLogOfflineFileFull {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct COMPROPSHEETUI {
     pub cbSize: u16,
     pub Flags: u16,
@@ -2164,53 +2060,31 @@ pub struct COMPROPSHEETUI {
     pub OptItemVersion: u16,
     pub dwReserved: [usize; 4],
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for COMPROPSHEETUI {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for COMPROPSHEETUI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CONFIG_INFO_DATA_1 {
     pub Reserved: [u8; 128],
     pub dwVersion: u32,
 }
-impl Copy for CONFIG_INFO_DATA_1 {}
-impl Clone for CONFIG_INFO_DATA_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CORE_PRINTER_DRIVERA {
     pub CoreDriverGUID: windows_sys::core::GUID,
     pub ftDriverDate: super::super::Foundation::FILETIME,
     pub dwlDriverVersion: u64,
     pub szPackageID: [i8; 260],
 }
-impl Copy for CORE_PRINTER_DRIVERA {}
-impl Clone for CORE_PRINTER_DRIVERA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CORE_PRINTER_DRIVERW {
     pub CoreDriverGUID: windows_sys::core::GUID,
     pub ftDriverDate: super::super::Foundation::FILETIME,
     pub dwlDriverVersion: u64,
     pub szPackageID: [u16; 260],
 }
-impl Copy for CORE_PRINTER_DRIVERW {}
-impl Clone for CORE_PRINTER_DRIVERW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct CPSUICBPARAM {
     pub cbSize: u16,
     pub Reason: u16,
@@ -2223,72 +2097,38 @@ pub struct CPSUICBPARAM {
     pub UserData: usize,
     pub Result: usize,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for CPSUICBPARAM {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for CPSUICBPARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub union CPSUICBPARAM_0 {
     pub OldSel: i32,
     pub pOldSel: *mut i8,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for CPSUICBPARAM_0 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for CPSUICBPARAM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CPSUIDATABLOCK {
     pub cbData: u32,
     pub pbData: *mut u8,
 }
-impl Copy for CPSUIDATABLOCK {}
-impl Clone for CPSUIDATABLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CUSTOMSIZEPARAM {
     pub dwOrder: i32,
     pub lMinVal: i32,
     pub lMaxVal: i32,
 }
-impl Copy for CUSTOMSIZEPARAM {}
-impl Clone for CUSTOMSIZEPARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DATATYPES_INFO_1A {
     pub pName: windows_sys::core::PSTR,
 }
-impl Copy for DATATYPES_INFO_1A {}
-impl Clone for DATATYPES_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DATATYPES_INFO_1W {
     pub pName: windows_sys::core::PWSTR,
 }
-impl Copy for DATATYPES_INFO_1W {}
-impl Clone for DATATYPES_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DATA_HEADER {
     pub dwSignature: u32,
     pub wSize: u16,
@@ -2296,40 +2136,25 @@ pub struct DATA_HEADER {
     pub dwDataSize: u32,
     pub dwReserved: u32,
 }
-impl Copy for DATA_HEADER {}
-impl Clone for DATA_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DELETE_PORT_DATA_1 {
     pub psztPortName: [u16; 64],
     pub Reserved: [u8; 98],
     pub dwVersion: u32,
     pub dwReserved: u32,
 }
-impl Copy for DELETE_PORT_DATA_1 {}
-impl Clone for DELETE_PORT_DATA_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVICEPROPERTYHEADER {
     pub cbSize: u16,
     pub Flags: u16,
     pub hPrinter: super::super::Foundation::HANDLE,
     pub pszPrinterName: *mut i8,
 }
-impl Copy for DEVICEPROPERTYHEADER {}
-impl Clone for DEVICEPROPERTYHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct DEVQUERYPRINT_INFO {
     pub cbSize: u16,
     pub Level: u16,
@@ -2339,16 +2164,9 @@ pub struct DEVQUERYPRINT_INFO {
     pub cchErrorStr: u32,
     pub cchNeeded: u32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DEVQUERYPRINT_INFO {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DEVQUERYPRINT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct DLGPAGE {
     pub cbSize: u16,
     pub Flags: u16,
@@ -2357,57 +2175,31 @@ pub struct DLGPAGE {
     pub IconID: usize,
     pub Anonymous: DLGPAGE_0,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for DLGPAGE {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for DLGPAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub union DLGPAGE_0 {
     pub DlgTemplateID: u16,
     pub hDlgTemplate: super::super::Foundation::HANDLE,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for DLGPAGE_0 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for DLGPAGE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct DOCEVENT_CREATEDCPRE {
     pub pszDriver: windows_sys::core::PWSTR,
     pub pszDevice: windows_sys::core::PWSTR,
     pub pdm: *mut super::Gdi::DEVMODEW,
     pub bIC: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DOCEVENT_CREATEDCPRE {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DOCEVENT_CREATEDCPRE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DOCEVENT_ESCAPE {
     pub iEscape: i32,
     pub cjInput: i32,
     pub pvInData: *mut core::ffi::c_void,
 }
-impl Copy for DOCEVENT_ESCAPE {}
-impl Clone for DOCEVENT_ESCAPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DOCEVENT_FILTER {
     pub cbSize: u32,
     pub cElementsAllocated: u32,
@@ -2415,14 +2207,9 @@ pub struct DOCEVENT_FILTER {
     pub cElementsReturned: u32,
     pub aDocEventCall: [u32; 1],
 }
-impl Copy for DOCEVENT_FILTER {}
-impl Clone for DOCEVENT_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct DOCUMENTPROPERTYHEADER {
     pub cbSize: u16,
     pub Reserved: u16,
@@ -2433,39 +2220,22 @@ pub struct DOCUMENTPROPERTYHEADER {
     pub cbOut: u32,
     pub fMode: u32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for DOCUMENTPROPERTYHEADER {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for DOCUMENTPROPERTYHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DOC_INFO_1A {
     pub pDocName: windows_sys::core::PSTR,
     pub pOutputFile: windows_sys::core::PSTR,
     pub pDatatype: windows_sys::core::PSTR,
 }
-impl Copy for DOC_INFO_1A {}
-impl Clone for DOC_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DOC_INFO_1W {
     pub pDocName: windows_sys::core::PWSTR,
     pub pOutputFile: windows_sys::core::PWSTR,
     pub pDatatype: windows_sys::core::PWSTR,
 }
-impl Copy for DOC_INFO_1W {}
-impl Clone for DOC_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DOC_INFO_2A {
     pub pDocName: windows_sys::core::PSTR,
     pub pOutputFile: windows_sys::core::PSTR,
@@ -2473,13 +2243,8 @@ pub struct DOC_INFO_2A {
     pub dwMode: u32,
     pub JobId: u32,
 }
-impl Copy for DOC_INFO_2A {}
-impl Clone for DOC_INFO_2A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DOC_INFO_2W {
     pub pDocName: windows_sys::core::PWSTR,
     pub pOutputFile: windows_sys::core::PWSTR,
@@ -2487,39 +2252,24 @@ pub struct DOC_INFO_2W {
     pub dwMode: u32,
     pub JobId: u32,
 }
-impl Copy for DOC_INFO_2W {}
-impl Clone for DOC_INFO_2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DOC_INFO_3A {
     pub pDocName: windows_sys::core::PSTR,
     pub pOutputFile: windows_sys::core::PSTR,
     pub pDatatype: windows_sys::core::PSTR,
     pub dwFlags: u32,
 }
-impl Copy for DOC_INFO_3A {}
-impl Clone for DOC_INFO_3A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DOC_INFO_3W {
     pub pDocName: windows_sys::core::PWSTR,
     pub pOutputFile: windows_sys::core::PWSTR,
     pub pDatatype: windows_sys::core::PWSTR,
     pub dwFlags: u32,
 }
-impl Copy for DOC_INFO_3W {}
-impl Clone for DOC_INFO_3W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DOC_INFO_INTERNAL {
     pub pDocName: *mut i8,
     pub pOutputFile: *mut i8,
@@ -2527,33 +2277,18 @@ pub struct DOC_INFO_INTERNAL {
     pub bLowILJob: super::super::Foundation::BOOL,
     pub hTokenLowIL: super::super::Foundation::HANDLE,
 }
-impl Copy for DOC_INFO_INTERNAL {}
-impl Clone for DOC_INFO_INTERNAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_1A {
     pub pName: windows_sys::core::PSTR,
 }
-impl Copy for DRIVER_INFO_1A {}
-impl Clone for DRIVER_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_1W {
     pub pName: windows_sys::core::PWSTR,
 }
-impl Copy for DRIVER_INFO_1W {}
-impl Clone for DRIVER_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_2A {
     pub cVersion: u32,
     pub pName: windows_sys::core::PSTR,
@@ -2562,13 +2297,8 @@ pub struct DRIVER_INFO_2A {
     pub pDataFile: windows_sys::core::PSTR,
     pub pConfigFile: windows_sys::core::PSTR,
 }
-impl Copy for DRIVER_INFO_2A {}
-impl Clone for DRIVER_INFO_2A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_2W {
     pub cVersion: u32,
     pub pName: windows_sys::core::PWSTR,
@@ -2577,13 +2307,8 @@ pub struct DRIVER_INFO_2W {
     pub pDataFile: windows_sys::core::PWSTR,
     pub pConfigFile: windows_sys::core::PWSTR,
 }
-impl Copy for DRIVER_INFO_2W {}
-impl Clone for DRIVER_INFO_2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_3A {
     pub cVersion: u32,
     pub pName: windows_sys::core::PSTR,
@@ -2596,13 +2321,8 @@ pub struct DRIVER_INFO_3A {
     pub pMonitorName: windows_sys::core::PSTR,
     pub pDefaultDataType: windows_sys::core::PSTR,
 }
-impl Copy for DRIVER_INFO_3A {}
-impl Clone for DRIVER_INFO_3A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_3W {
     pub cVersion: u32,
     pub pName: windows_sys::core::PWSTR,
@@ -2615,13 +2335,8 @@ pub struct DRIVER_INFO_3W {
     pub pMonitorName: windows_sys::core::PWSTR,
     pub pDefaultDataType: windows_sys::core::PWSTR,
 }
-impl Copy for DRIVER_INFO_3W {}
-impl Clone for DRIVER_INFO_3W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_4A {
     pub cVersion: u32,
     pub pName: windows_sys::core::PSTR,
@@ -2635,13 +2350,8 @@ pub struct DRIVER_INFO_4A {
     pub pDefaultDataType: windows_sys::core::PSTR,
     pub pszzPreviousNames: windows_sys::core::PSTR,
 }
-impl Copy for DRIVER_INFO_4A {}
-impl Clone for DRIVER_INFO_4A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_4W {
     pub cVersion: u32,
     pub pName: windows_sys::core::PWSTR,
@@ -2655,13 +2365,8 @@ pub struct DRIVER_INFO_4W {
     pub pDefaultDataType: windows_sys::core::PWSTR,
     pub pszzPreviousNames: windows_sys::core::PWSTR,
 }
-impl Copy for DRIVER_INFO_4W {}
-impl Clone for DRIVER_INFO_4W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_5A {
     pub cVersion: u32,
     pub pName: windows_sys::core::PSTR,
@@ -2673,13 +2378,8 @@ pub struct DRIVER_INFO_5A {
     pub dwConfigVersion: u32,
     pub dwDriverVersion: u32,
 }
-impl Copy for DRIVER_INFO_5A {}
-impl Clone for DRIVER_INFO_5A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_5W {
     pub cVersion: u32,
     pub pName: windows_sys::core::PWSTR,
@@ -2691,13 +2391,8 @@ pub struct DRIVER_INFO_5W {
     pub dwConfigVersion: u32,
     pub dwDriverVersion: u32,
 }
-impl Copy for DRIVER_INFO_5W {}
-impl Clone for DRIVER_INFO_5W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_6A {
     pub cVersion: u32,
     pub pName: windows_sys::core::PSTR,
@@ -2717,13 +2412,8 @@ pub struct DRIVER_INFO_6A {
     pub pszHardwareID: windows_sys::core::PSTR,
     pub pszProvider: windows_sys::core::PSTR,
 }
-impl Copy for DRIVER_INFO_6A {}
-impl Clone for DRIVER_INFO_6A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_6W {
     pub cVersion: u32,
     pub pName: windows_sys::core::PWSTR,
@@ -2743,13 +2433,8 @@ pub struct DRIVER_INFO_6W {
     pub pszHardwareID: windows_sys::core::PWSTR,
     pub pszProvider: windows_sys::core::PWSTR,
 }
-impl Copy for DRIVER_INFO_6W {}
-impl Clone for DRIVER_INFO_6W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_8A {
     pub cVersion: u32,
     pub pName: windows_sys::core::PSTR,
@@ -2777,13 +2462,8 @@ pub struct DRIVER_INFO_8A {
     pub ftMinInboxDriverVerDate: super::super::Foundation::FILETIME,
     pub dwlMinInboxDriverVerVersion: u64,
 }
-impl Copy for DRIVER_INFO_8A {}
-impl Clone for DRIVER_INFO_8A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_8W {
     pub cVersion: u32,
     pub pName: windows_sys::core::PWSTR,
@@ -2811,24 +2491,14 @@ pub struct DRIVER_INFO_8W {
     pub ftMinInboxDriverVerDate: super::super::Foundation::FILETIME,
     pub dwlMinInboxDriverVerVersion: u64,
 }
-impl Copy for DRIVER_INFO_8W {}
-impl Clone for DRIVER_INFO_8W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_UPGRADE_INFO_1 {
     pub pPrinterName: *mut i8,
     pub pOldDriverDirectory: *mut i8,
 }
-impl Copy for DRIVER_UPGRADE_INFO_1 {}
-impl Clone for DRIVER_UPGRADE_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_UPGRADE_INFO_2 {
     pub pPrinterName: *mut i8,
     pub pOldDriverDirectory: *mut i8,
@@ -2844,13 +2514,8 @@ pub struct DRIVER_UPGRADE_INFO_2 {
     pub pDefaultDataType: *mut i8,
     pub pszzPreviousNames: *mut i8,
 }
-impl Copy for DRIVER_UPGRADE_INFO_2 {}
-impl Clone for DRIVER_UPGRADE_INFO_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXTCHKBOX {
     pub cbSize: u16,
     pub Flags: u16,
@@ -2861,14 +2526,9 @@ pub struct EXTCHKBOX {
     pub wReserved: [u16; 4],
     pub dwReserved: [usize; 2],
 }
-impl Copy for EXTCHKBOX {}
-impl Clone for EXTCHKBOX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct EXTPUSH {
     pub cbSize: u16,
     pub Flags: u16,
@@ -2878,43 +2538,22 @@ pub struct EXTPUSH {
     pub Anonymous2: EXTPUSH_1,
     pub dwReserved: [usize; 3],
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for EXTPUSH {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for EXTPUSH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub union EXTPUSH_0 {
     pub DlgProc: super::super::UI::WindowsAndMessaging::DLGPROC,
     pub pfnCallBack: super::super::Foundation::FARPROC,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for EXTPUSH_0 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for EXTPUSH_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub union EXTPUSH_1 {
     pub DlgTemplateID: u16,
     pub hDlgTemplate: super::super::Foundation::HANDLE,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for EXTPUSH_1 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for EXTPUSH_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXTTEXTMETRIC {
     pub emSize: i16,
     pub emPointSize: i16,
@@ -2943,39 +2582,24 @@ pub struct EXTTEXTMETRIC {
     pub emKernPairs: u16,
     pub emKernTracks: u16,
 }
-impl Copy for EXTTEXTMETRIC {}
-impl Clone for EXTTEXTMETRIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FORM_INFO_1A {
     pub Flags: u32,
     pub pName: windows_sys::core::PSTR,
     pub Size: super::super::Foundation::SIZE,
     pub ImageableArea: super::super::Foundation::RECTL,
 }
-impl Copy for FORM_INFO_1A {}
-impl Clone for FORM_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FORM_INFO_1W {
     pub Flags: u32,
     pub pName: windows_sys::core::PWSTR,
     pub Size: super::super::Foundation::SIZE,
     pub ImageableArea: super::super::Foundation::RECTL,
 }
-impl Copy for FORM_INFO_1W {}
-impl Clone for FORM_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FORM_INFO_2A {
     pub Flags: u32,
     pub pName: windows_sys::core::PCSTR,
@@ -2988,13 +2612,8 @@ pub struct FORM_INFO_2A {
     pub pDisplayName: windows_sys::core::PCSTR,
     pub wLangId: u16,
 }
-impl Copy for FORM_INFO_2A {}
-impl Clone for FORM_INFO_2A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FORM_INFO_2W {
     pub Flags: u32,
     pub pName: windows_sys::core::PCWSTR,
@@ -3007,24 +2626,14 @@ pub struct FORM_INFO_2W {
     pub pDisplayName: windows_sys::core::PCWSTR,
     pub wLangId: u16,
 }
-impl Copy for FORM_INFO_2W {}
-impl Clone for FORM_INFO_2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GLYPHRUN {
     pub wcLow: u16,
     pub wGlyphCount: u16,
 }
-impl Copy for GLYPHRUN {}
-impl Clone for GLYPHRUN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INSERTPSUIPAGE_INFO {
     pub cbSize: u16,
     pub Type: u8,
@@ -3033,24 +2642,14 @@ pub struct INSERTPSUIPAGE_INFO {
     pub dwData2: usize,
     pub dwData3: usize,
 }
-impl Copy for INSERTPSUIPAGE_INFO {}
-impl Clone for INSERTPSUIPAGE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INVOC {
     pub dwCount: u32,
     pub loOffset: u32,
 }
-impl Copy for INVOC {}
-impl Clone for INVOC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ImgErrorInfo {
     pub description: windows_sys::core::BSTR,
     pub guid: windows_sys::core::GUID,
@@ -3064,13 +2663,8 @@ pub struct ImgErrorInfo {
     pub userFallback: windows_sys::core::BSTR,
     pub exceptionID: u32,
 }
-impl Copy for ImgErrorInfo {}
-impl Clone for ImgErrorInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOB_INFO_1A {
     pub JobId: u32,
     pub pPrinterName: windows_sys::core::PSTR,
@@ -3086,13 +2680,8 @@ pub struct JOB_INFO_1A {
     pub PagesPrinted: u32,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
 }
-impl Copy for JOB_INFO_1A {}
-impl Clone for JOB_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOB_INFO_1W {
     pub JobId: u32,
     pub pPrinterName: windows_sys::core::PWSTR,
@@ -3108,14 +2697,9 @@ pub struct JOB_INFO_1W {
     pub PagesPrinted: u32,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
 }
-impl Copy for JOB_INFO_1W {}
-impl Clone for JOB_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[derive(Clone, Copy)]
 pub struct JOB_INFO_2A {
     pub JobId: u32,
     pub pPrinterName: windows_sys::core::PSTR,
@@ -3141,16 +2725,9 @@ pub struct JOB_INFO_2A {
     pub Time: u32,
     pub PagesPrinted: u32,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Copy for JOB_INFO_2A {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Clone for JOB_INFO_2A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[derive(Clone, Copy)]
 pub struct JOB_INFO_2W {
     pub JobId: u32,
     pub pPrinterName: windows_sys::core::PWSTR,
@@ -3176,28 +2753,16 @@ pub struct JOB_INFO_2W {
     pub Time: u32,
     pub PagesPrinted: u32,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Copy for JOB_INFO_2W {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Clone for JOB_INFO_2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOB_INFO_3 {
     pub JobId: u32,
     pub NextJobId: u32,
     pub Reserved: u32,
 }
-impl Copy for JOB_INFO_3 {}
-impl Clone for JOB_INFO_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[derive(Clone, Copy)]
 pub struct JOB_INFO_4A {
     pub JobId: u32,
     pub pPrinterName: windows_sys::core::PSTR,
@@ -3224,16 +2789,9 @@ pub struct JOB_INFO_4A {
     pub PagesPrinted: u32,
     pub SizeHigh: i32,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Copy for JOB_INFO_4A {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Clone for JOB_INFO_4A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[derive(Clone, Copy)]
 pub struct JOB_INFO_4W {
     pub JobId: u32,
     pub pPrinterName: windows_sys::core::PWSTR,
@@ -3260,42 +2818,23 @@ pub struct JOB_INFO_4W {
     pub PagesPrinted: u32,
     pub SizeHigh: i32,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Copy for JOB_INFO_4W {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Clone for JOB_INFO_4W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Display")]
+#[derive(Clone, Copy)]
 pub struct KERNDATA {
     pub dwSize: u32,
     pub dwKernPairNum: u32,
     pub KernPair: [super::super::Devices::Display::FD_KERNINGPAIR; 1],
 }
-#[cfg(feature = "Win32_Devices_Display")]
-impl Copy for KERNDATA {}
-#[cfg(feature = "Win32_Devices_Display")]
-impl Clone for KERNDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MAPTABLE {
     pub dwSize: u32,
     pub dwGlyphNum: u32,
     pub Trans: [TRANSDATA; 1],
 }
-impl Copy for MAPTABLE {}
-impl Clone for MAPTABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MESSAGEBOX_PARAMS {
     pub cbSize: u32,
     pub pTitle: windows_sys::core::PWSTR,
@@ -3304,14 +2843,9 @@ pub struct MESSAGEBOX_PARAMS {
     pub dwTimeout: u32,
     pub bWait: super::super::Foundation::BOOL,
 }
-impl Copy for MESSAGEBOX_PARAMS {}
-impl Clone for MESSAGEBOX_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct MONITOR {
     pub pfnEnumPorts: PFN_PRINTING_ENUMPORTS,
     pub pfnOpenPort: PFN_PRINTING_OPENPORT,
@@ -3331,16 +2865,9 @@ pub struct MONITOR {
     pub pfnXcvDataPort: PFN_PRINTING_XCVDATAPORT,
     pub pfnXcvClosePort: PFN_PRINTING_XCVCLOSEPORT,
 }
-#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-impl Copy for MONITOR {}
-#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-impl Clone for MONITOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct MONITOR2 {
     pub cbSize: u32,
     pub pfnEnumPorts: PFN_PRINTING_ENUMPORTS2,
@@ -3366,30 +2893,16 @@ pub struct MONITOR2 {
     pub pfnNotifyUnusedPorts: PFN_PRINTING_NOTIFYUNUSEDPORTS2,
     pub pfnPowerEvent: PFN_PRINTING_POWEREVENT2,
 }
-#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-impl Copy for MONITOR2 {}
-#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-impl Clone for MONITOR2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
 pub struct MONITOREX {
     pub dwMonitorSize: u32,
     pub Monitor: MONITOR,
 }
-#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-impl Copy for MONITOREX {}
-#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-impl Clone for MONITOREX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
 pub struct MONITORINIT {
     pub cbSize: u32,
     pub hSpooler: super::super::Foundation::HANDLE,
@@ -3398,15 +2911,8 @@ pub struct MONITORINIT {
     pub bLocal: super::super::Foundation::BOOL,
     pub pszServerName: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl Copy for MONITORINIT {}
-#[cfg(feature = "Win32_System_Registry")]
-impl Clone for MONITORINIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MONITORREG {
     pub cbSize: u32,
     pub fpCreateKey: isize,
@@ -3420,148 +2926,83 @@ pub struct MONITORREG {
     pub fpEnumValue: isize,
     pub fpQueryValue: isize,
 }
-impl Copy for MONITORREG {}
-impl Clone for MONITORREG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MONITORUI {
     pub dwMonitorUISize: u32,
     pub pfnAddPortUI: isize,
     pub pfnConfigurePortUI: isize,
     pub pfnDeletePortUI: isize,
 }
-impl Copy for MONITORUI {}
-impl Clone for MONITORUI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MONITOR_INFO_1A {
     pub pName: windows_sys::core::PSTR,
 }
-impl Copy for MONITOR_INFO_1A {}
-impl Clone for MONITOR_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MONITOR_INFO_1W {
     pub pName: windows_sys::core::PWSTR,
 }
-impl Copy for MONITOR_INFO_1W {}
-impl Clone for MONITOR_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MONITOR_INFO_2A {
     pub pName: windows_sys::core::PSTR,
     pub pEnvironment: windows_sys::core::PSTR,
     pub pDLLName: windows_sys::core::PSTR,
 }
-impl Copy for MONITOR_INFO_2A {}
-impl Clone for MONITOR_INFO_2A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MONITOR_INFO_2W {
     pub pName: windows_sys::core::PWSTR,
     pub pEnvironment: windows_sys::core::PWSTR,
     pub pDLLName: windows_sys::core::PWSTR,
 }
-impl Copy for MONITOR_INFO_2W {}
-impl Clone for MONITOR_INFO_2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MXDC_ESCAPE_HEADER_T {
     pub cbInput: u32,
     pub cbOutput: u32,
     pub opCode: u32,
 }
-impl Copy for MXDC_ESCAPE_HEADER_T {}
-impl Clone for MXDC_ESCAPE_HEADER_T {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MXDC_GET_FILENAME_DATA_T {
     pub cbOutput: u32,
     pub wszData: [u16; 1],
 }
-impl Copy for MXDC_GET_FILENAME_DATA_T {}
-impl Clone for MXDC_GET_FILENAME_DATA_T {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MXDC_PRINTTICKET_DATA_T {
     pub dwDataSize: u32,
     pub bData: [u8; 1],
 }
-impl Copy for MXDC_PRINTTICKET_DATA_T {}
-impl Clone for MXDC_PRINTTICKET_DATA_T {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MXDC_PRINTTICKET_ESCAPE_T {
     pub mxdcEscape: MXDC_ESCAPE_HEADER_T,
     pub printTicketData: MXDC_PRINTTICKET_DATA_T,
 }
-impl Copy for MXDC_PRINTTICKET_ESCAPE_T {}
-impl Clone for MXDC_PRINTTICKET_ESCAPE_T {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MXDC_S0PAGE_DATA_T {
     pub dwSize: u32,
     pub bData: [u8; 1],
 }
-impl Copy for MXDC_S0PAGE_DATA_T {}
-impl Clone for MXDC_S0PAGE_DATA_T {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T {
     pub mxdcEscape: MXDC_ESCAPE_HEADER_T,
     pub xpsS0PageData: MXDC_S0PAGE_DATA_T,
 }
-impl Copy for MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T {}
-impl Clone for MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MXDC_S0PAGE_RESOURCE_ESCAPE_T {
     pub mxdcEscape: MXDC_ESCAPE_HEADER_T,
     pub xpsS0PageResourcePassthrough: MXDC_XPS_S0PAGE_RESOURCE_T,
 }
-impl Copy for MXDC_S0PAGE_RESOURCE_ESCAPE_T {}
-impl Clone for MXDC_S0PAGE_RESOURCE_ESCAPE_T {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MXDC_XPS_S0PAGE_RESOURCE_T {
     pub dwSize: u32,
     pub dwResourceType: u32,
@@ -3569,27 +3010,17 @@ pub struct MXDC_XPS_S0PAGE_RESOURCE_T {
     pub dwDataSize: u32,
     pub bData: [u8; 1],
 }
-impl Copy for MXDC_XPS_S0PAGE_RESOURCE_T {}
-impl Clone for MXDC_XPS_S0PAGE_RESOURCE_T {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NOTIFICATION_CONFIG_1 {
     pub cbSize: u32,
     pub fdwFlags: u32,
     pub pfnNotifyCallback: ROUTER_NOTIFY_CALLBACK,
     pub pContext: *mut core::ffi::c_void,
 }
-impl Copy for NOTIFICATION_CONFIG_1 {}
-impl Clone for NOTIFICATION_CONFIG_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct OEMCUIPPARAM {
     pub cbSize: u32,
     pub poemuiobj: *mut OEMUIOBJ,
@@ -3607,16 +3038,9 @@ pub struct OEMCUIPPARAM {
     pub pOEMUserData: *mut core::ffi::c_void,
     pub OEMCUIPCallback: OEMCUIPCALLBACK,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for OEMCUIPPARAM {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for OEMCUIPPARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct OEMDMPARAM {
     pub cbSize: u32,
     pub pdriverobj: *mut core::ffi::c_void,
@@ -3628,15 +3052,8 @@ pub struct OEMDMPARAM {
     pub pOEMDMOut: *mut core::ffi::c_void,
     pub cbBufSize: u32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for OEMDMPARAM {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for OEMDMPARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OEMFONTINSTPARAM {
     pub cbSize: u32,
     pub hPrinter: super::super::Foundation::HANDLE,
@@ -3645,36 +3062,21 @@ pub struct OEMFONTINSTPARAM {
     pub dwFlags: u32,
     pub pFontInstallerName: windows_sys::core::PWSTR,
 }
-impl Copy for OEMFONTINSTPARAM {}
-impl Clone for OEMFONTINSTPARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OEMUIOBJ {
     pub cbSize: u32,
     pub pOemUIProcs: *mut OEMUIPROCS,
 }
-impl Copy for OEMUIOBJ {}
-impl Clone for OEMUIOBJ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OEMUIPROCS {
     pub DrvGetDriverSetting: PFN_DrvGetDriverSetting,
     pub DrvUpdateUISetting: PFN_DrvUpdateUISetting,
 }
-impl Copy for OEMUIPROCS {}
-impl Clone for OEMUIPROCS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct OEMUIPSPARAM {
     pub cbSize: u32,
     pub poemuiobj: *mut OEMUIOBJ,
@@ -3688,27 +3090,15 @@ pub struct OEMUIPSPARAM {
     pub dwFlags: u32,
     pub pOemEntry: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for OEMUIPSPARAM {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for OEMUIPSPARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OEM_DMEXTRAHEADER {
     pub dwSize: u32,
     pub dwSignature: u32,
     pub dwVersion: u32,
 }
-impl Copy for OEM_DMEXTRAHEADER {}
-impl Clone for OEM_DMEXTRAHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OIEXT {
     pub cbSize: u16,
     pub Flags: u16,
@@ -3716,13 +3106,8 @@ pub struct OIEXT {
     pub pHelpFile: *mut i8,
     pub dwReserved: [usize; 4],
 }
-impl Copy for OIEXT {}
-impl Clone for OIEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OPTCOMBO {
     pub cbSize: u16,
     pub Flags: u8,
@@ -3731,14 +3116,9 @@ pub struct OPTCOMBO {
     pub Sel: i32,
     pub dwReserved: [u32; 3],
 }
-impl Copy for OPTCOMBO {}
-impl Clone for OPTCOMBO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct OPTITEM {
     pub cbSize: u16,
     pub Level: u8,
@@ -3756,43 +3136,22 @@ pub struct OPTITEM {
     pub pOIExt: *mut OIEXT,
     pub dwReserved: [usize; 3],
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for OPTITEM {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for OPTITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub union OPTITEM_0 {
     pub Sel: i32,
     pub pSel: *mut i8,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for OPTITEM_0 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for OPTITEM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub union OPTITEM_1 {
     pub pExtChkBox: *mut EXTCHKBOX,
     pub pExtPush: *mut EXTPUSH,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for OPTITEM_1 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for OPTITEM_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OPTPARAM {
     pub cbSize: u16,
     pub Flags: u8,
@@ -3802,13 +3161,8 @@ pub struct OPTPARAM {
     pub lParam: super::super::Foundation::LPARAM,
     pub dwReserved: [usize; 2],
 }
-impl Copy for OPTPARAM {}
-impl Clone for OPTPARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OPTTYPE {
     pub cbSize: u16,
     pub Type: u8,
@@ -3820,13 +3174,8 @@ pub struct OPTTYPE {
     pub wReserved: [u16; 3],
     pub dwReserved: [usize; 3],
 }
-impl Copy for OPTTYPE {}
-impl Clone for OPTTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PORT_DATA_1 {
     pub sztPortName: [u16; 64],
     pub dwVersion: u32,
@@ -3843,13 +3192,8 @@ pub struct PORT_DATA_1 {
     pub dwSNMPEnabled: u32,
     pub dwSNMPDevIndex: u32,
 }
-impl Copy for PORT_DATA_1 {}
-impl Clone for PORT_DATA_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PORT_DATA_2 {
     pub sztPortName: [u16; 64],
     pub dwVersion: u32,
@@ -3866,45 +3210,25 @@ pub struct PORT_DATA_2 {
     pub dwSNMPDevIndex: u32,
     pub dwPortMonitorMibIndex: u32,
 }
-impl Copy for PORT_DATA_2 {}
-impl Clone for PORT_DATA_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PORT_DATA_LIST_1 {
     pub dwVersion: u32,
     pub cPortData: u32,
     pub pPortData: [PORT_DATA_2; 1],
 }
-impl Copy for PORT_DATA_LIST_1 {}
-impl Clone for PORT_DATA_LIST_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PORT_INFO_1A {
     pub pName: windows_sys::core::PSTR,
 }
-impl Copy for PORT_INFO_1A {}
-impl Clone for PORT_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PORT_INFO_1W {
     pub pName: windows_sys::core::PWSTR,
 }
-impl Copy for PORT_INFO_1W {}
-impl Clone for PORT_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PORT_INFO_2A {
     pub pPortName: windows_sys::core::PSTR,
     pub pMonitorName: windows_sys::core::PSTR,
@@ -3912,13 +3236,8 @@ pub struct PORT_INFO_2A {
     pub fPortType: u32,
     pub Reserved: u32,
 }
-impl Copy for PORT_INFO_2A {}
-impl Clone for PORT_INFO_2A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PORT_INFO_2W {
     pub pPortName: windows_sys::core::PWSTR,
     pub pMonitorName: windows_sys::core::PWSTR,
@@ -3926,89 +3245,50 @@ pub struct PORT_INFO_2W {
     pub fPortType: u32,
     pub Reserved: u32,
 }
-impl Copy for PORT_INFO_2W {}
-impl Clone for PORT_INFO_2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PORT_INFO_3A {
     pub dwStatus: u32,
     pub pszStatus: windows_sys::core::PSTR,
     pub dwSeverity: u32,
 }
-impl Copy for PORT_INFO_3A {}
-impl Clone for PORT_INFO_3A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PORT_INFO_3W {
     pub dwStatus: u32,
     pub pszStatus: windows_sys::core::PWSTR,
     pub dwSeverity: u32,
 }
-impl Copy for PORT_INFO_3W {}
-impl Clone for PORT_INFO_3W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_CONNECTION_INFO_1A {
     pub dwFlags: u32,
     pub pszDriverName: windows_sys::core::PSTR,
 }
-impl Copy for PRINTER_CONNECTION_INFO_1A {}
-impl Clone for PRINTER_CONNECTION_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_CONNECTION_INFO_1W {
     pub dwFlags: u32,
     pub pszDriverName: windows_sys::core::PWSTR,
 }
-impl Copy for PRINTER_CONNECTION_INFO_1W {}
-impl Clone for PRINTER_CONNECTION_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct PRINTER_DEFAULTSA {
     pub pDatatype: windows_sys::core::PSTR,
     pub pDevMode: *mut super::Gdi::DEVMODEA,
     pub DesiredAccess: PRINTER_ACCESS_RIGHTS,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for PRINTER_DEFAULTSA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for PRINTER_DEFAULTSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct PRINTER_DEFAULTSW {
     pub pDatatype: windows_sys::core::PWSTR,
     pub pDevMode: *mut super::Gdi::DEVMODEW,
     pub DesiredAccess: PRINTER_ACCESS_RIGHTS,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for PRINTER_DEFAULTSW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for PRINTER_DEFAULTSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_ENUM_VALUESA {
     pub pValueName: windows_sys::core::PSTR,
     pub cbValueName: u32,
@@ -4016,13 +3296,8 @@ pub struct PRINTER_ENUM_VALUESA {
     pub pData: *mut u8,
     pub cbData: u32,
 }
-impl Copy for PRINTER_ENUM_VALUESA {}
-impl Clone for PRINTER_ENUM_VALUESA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_ENUM_VALUESW {
     pub pValueName: windows_sys::core::PWSTR,
     pub cbValueName: u32,
@@ -4030,52 +3305,32 @@ pub struct PRINTER_ENUM_VALUESW {
     pub pData: *mut u8,
     pub cbData: u32,
 }
-impl Copy for PRINTER_ENUM_VALUESW {}
-impl Clone for PRINTER_ENUM_VALUESW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_EVENT_ATTRIBUTES_INFO {
     pub cbSize: u32,
     pub dwOldAttributes: u32,
     pub dwNewAttributes: u32,
 }
-impl Copy for PRINTER_EVENT_ATTRIBUTES_INFO {}
-impl Clone for PRINTER_EVENT_ATTRIBUTES_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_1A {
     pub Flags: u32,
     pub pDescription: windows_sys::core::PSTR,
     pub pName: windows_sys::core::PSTR,
     pub pComment: windows_sys::core::PSTR,
 }
-impl Copy for PRINTER_INFO_1A {}
-impl Clone for PRINTER_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_1W {
     pub Flags: u32,
     pub pDescription: windows_sys::core::PWSTR,
     pub pName: windows_sys::core::PWSTR,
     pub pComment: windows_sys::core::PWSTR,
 }
-impl Copy for PRINTER_INFO_1W {}
-impl Clone for PRINTER_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_2A {
     pub pServerName: windows_sys::core::PSTR,
     pub pPrinterName: windows_sys::core::PSTR,
@@ -4099,16 +3354,9 @@ pub struct PRINTER_INFO_2A {
     pub cJobs: u32,
     pub AveragePPM: u32,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Copy for PRINTER_INFO_2A {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Clone for PRINTER_INFO_2A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_2W {
     pub pServerName: windows_sys::core::PWSTR,
     pub pPrinterName: windows_sys::core::PWSTR,
@@ -4132,52 +3380,28 @@ pub struct PRINTER_INFO_2W {
     pub cJobs: u32,
     pub AveragePPM: u32,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Copy for PRINTER_INFO_2W {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-impl Clone for PRINTER_INFO_2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_3 {
     pub pSecurityDescriptor: super::super::Security::PSECURITY_DESCRIPTOR,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for PRINTER_INFO_3 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for PRINTER_INFO_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_4A {
     pub pPrinterName: windows_sys::core::PSTR,
     pub pServerName: windows_sys::core::PSTR,
     pub Attributes: u32,
 }
-impl Copy for PRINTER_INFO_4A {}
-impl Clone for PRINTER_INFO_4A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_4W {
     pub pPrinterName: windows_sys::core::PWSTR,
     pub pServerName: windows_sys::core::PWSTR,
     pub Attributes: u32,
 }
-impl Copy for PRINTER_INFO_4W {}
-impl Clone for PRINTER_INFO_4W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_5A {
     pub pPrinterName: windows_sys::core::PSTR,
     pub pPortName: windows_sys::core::PSTR,
@@ -4185,13 +3409,8 @@ pub struct PRINTER_INFO_5A {
     pub DeviceNotSelectedTimeout: u32,
     pub TransmissionRetryTimeout: u32,
 }
-impl Copy for PRINTER_INFO_5A {}
-impl Clone for PRINTER_INFO_5A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_5W {
     pub pPrinterName: windows_sys::core::PWSTR,
     pub pPortName: windows_sys::core::PWSTR,
@@ -4199,110 +3418,57 @@ pub struct PRINTER_INFO_5W {
     pub DeviceNotSelectedTimeout: u32,
     pub TransmissionRetryTimeout: u32,
 }
-impl Copy for PRINTER_INFO_5W {}
-impl Clone for PRINTER_INFO_5W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_6 {
     pub dwStatus: u32,
 }
-impl Copy for PRINTER_INFO_6 {}
-impl Clone for PRINTER_INFO_6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_7A {
     pub pszObjectGUID: windows_sys::core::PSTR,
     pub dwAction: u32,
 }
-impl Copy for PRINTER_INFO_7A {}
-impl Clone for PRINTER_INFO_7A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_7W {
     pub pszObjectGUID: windows_sys::core::PWSTR,
     pub dwAction: u32,
 }
-impl Copy for PRINTER_INFO_7W {}
-impl Clone for PRINTER_INFO_7W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_8A {
     pub pDevMode: *mut super::Gdi::DEVMODEA,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for PRINTER_INFO_8A {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for PRINTER_INFO_8A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_8W {
     pub pDevMode: *mut super::Gdi::DEVMODEW,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for PRINTER_INFO_8W {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for PRINTER_INFO_8W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_9A {
     pub pDevMode: *mut super::Gdi::DEVMODEA,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for PRINTER_INFO_9A {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for PRINTER_INFO_9A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_9W {
     pub pDevMode: *mut super::Gdi::DEVMODEW,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for PRINTER_INFO_9W {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for PRINTER_INFO_9W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_NOTIFY_INFO {
     pub Version: u32,
     pub Flags: u32,
     pub Count: u32,
     pub aData: [PRINTER_NOTIFY_INFO_DATA; 1],
 }
-impl Copy for PRINTER_NOTIFY_INFO {}
-impl Clone for PRINTER_NOTIFY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_NOTIFY_INFO_DATA {
     pub Type: u16,
     pub Field: u16,
@@ -4310,60 +3476,35 @@ pub struct PRINTER_NOTIFY_INFO_DATA {
     pub Id: u32,
     pub NotifyData: PRINTER_NOTIFY_INFO_DATA_0,
 }
-impl Copy for PRINTER_NOTIFY_INFO_DATA {}
-impl Clone for PRINTER_NOTIFY_INFO_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PRINTER_NOTIFY_INFO_DATA_0 {
     pub adwData: [u32; 2],
     pub Data: PRINTER_NOTIFY_INFO_DATA_0_0,
 }
-impl Copy for PRINTER_NOTIFY_INFO_DATA_0 {}
-impl Clone for PRINTER_NOTIFY_INFO_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_NOTIFY_INFO_DATA_0_0 {
     pub cbBuf: u32,
     pub pBuf: *mut core::ffi::c_void,
 }
-impl Copy for PRINTER_NOTIFY_INFO_DATA_0_0 {}
-impl Clone for PRINTER_NOTIFY_INFO_DATA_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_NOTIFY_INIT {
     pub Size: u32,
     pub Reserved: u32,
     pub PollTime: u32,
 }
-impl Copy for PRINTER_NOTIFY_INIT {}
-impl Clone for PRINTER_NOTIFY_INIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_NOTIFY_OPTIONS {
     pub Version: u32,
     pub Flags: u32,
     pub Count: u32,
     pub pTypes: *mut PRINTER_NOTIFY_OPTIONS_TYPE,
 }
-impl Copy for PRINTER_NOTIFY_OPTIONS {}
-impl Clone for PRINTER_NOTIFY_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_NOTIFY_OPTIONS_TYPE {
     pub Type: u16,
     pub Reserved0: u16,
@@ -4372,36 +3513,21 @@ pub struct PRINTER_NOTIFY_OPTIONS_TYPE {
     pub Count: u32,
     pub pFields: *mut u16,
 }
-impl Copy for PRINTER_NOTIFY_OPTIONS_TYPE {}
-impl Clone for PRINTER_NOTIFY_OPTIONS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_OPTIONSA {
     pub cbSize: u32,
     pub dwFlags: u32,
 }
-impl Copy for PRINTER_OPTIONSA {}
-impl Clone for PRINTER_OPTIONSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_OPTIONSW {
     pub cbSize: u32,
     pub dwFlags: u32,
 }
-impl Copy for PRINTER_OPTIONSW {}
-impl Clone for PRINTER_OPTIONSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct PRINTIFI32 {
     pub cjThis: u32,
     pub cjIfiExtra: u32,
@@ -4463,16 +3589,9 @@ pub struct PRINTIFI32 {
     pub ulPanoseCulture: u32,
     pub panose: super::Gdi::PANOSE,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for PRINTIFI32 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for PRINTIFI32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct PRINTPROCESSOROPENDATA {
     pub pDevMode: *mut super::Gdi::DEVMODEA,
     pub pDatatype: windows_sys::core::PWSTR,
@@ -4482,28 +3601,16 @@ pub struct PRINTPROCESSOROPENDATA {
     pub pOutputFile: windows_sys::core::PWSTR,
     pub pPrinterName: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for PRINTPROCESSOROPENDATA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for PRINTPROCESSOROPENDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTPROCESSOR_CAPS_1 {
     pub dwLevel: u32,
     pub dwNupOptions: u32,
     pub dwPageOrderFlags: u32,
     pub dwNumberOfCopies: u32,
 }
-impl Copy for PRINTPROCESSOR_CAPS_1 {}
-impl Clone for PRINTPROCESSOR_CAPS_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTPROCESSOR_CAPS_2 {
     pub dwLevel: u32,
     pub dwNupOptions: u32,
@@ -4515,33 +3622,18 @@ pub struct PRINTPROCESSOR_CAPS_2 {
     pub dwBookletHandlingCaps: u32,
     pub dwScalingCaps: u32,
 }
-impl Copy for PRINTPROCESSOR_CAPS_2 {}
-impl Clone for PRINTPROCESSOR_CAPS_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTPROCESSOR_INFO_1A {
     pub pName: windows_sys::core::PSTR,
 }
-impl Copy for PRINTPROCESSOR_INFO_1A {}
-impl Clone for PRINTPROCESSOR_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTPROCESSOR_INFO_1W {
     pub pName: windows_sys::core::PWSTR,
 }
-impl Copy for PRINTPROCESSOR_INFO_1W {}
-impl Clone for PRINTPROCESSOR_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINTPROVIDOR {
     pub fpOpenPrinter: isize,
     pub fpSetJob: isize,
@@ -4652,36 +3744,21 @@ pub struct PRINTPROVIDOR {
     pub fpIppSetPrinterAttributes: isize,
     pub fpIppCreateJobOnPrinterWithAttributes: isize,
 }
-impl Copy for PRINTPROVIDOR {}
-impl Clone for PRINTPROVIDOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINT_EXECUTION_DATA {
     pub context: PRINT_EXECUTION_CONTEXT,
     pub clientAppPID: u32,
 }
-impl Copy for PRINT_EXECUTION_DATA {}
-impl Clone for PRINT_EXECUTION_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRINT_FEATURE_OPTION {
     pub pszFeature: windows_sys::core::PCSTR,
     pub pszOption: windows_sys::core::PCSTR,
 }
-impl Copy for PRINT_FEATURE_OPTION {}
-impl Clone for PRINT_FEATURE_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct PROPSHEETUI_GETICON_INFO {
     pub cbSize: u16,
     pub Flags: u16,
@@ -4689,15 +3766,8 @@ pub struct PROPSHEETUI_GETICON_INFO {
     pub cyIcon: u16,
     pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for PROPSHEETUI_GETICON_INFO {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for PROPSHEETUI_GETICON_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROPSHEETUI_INFO {
     pub cbSize: u16,
     pub Version: u16,
@@ -4709,14 +3779,9 @@ pub struct PROPSHEETUI_INFO {
     pub UserData: usize,
     pub Result: usize,
 }
-impl Copy for PROPSHEETUI_INFO {}
-impl Clone for PROPSHEETUI_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct PROPSHEETUI_INFO_HEADER {
     pub cbSize: u16,
     pub Flags: u16,
@@ -4725,84 +3790,45 @@ pub struct PROPSHEETUI_INFO_HEADER {
     pub hInst: super::super::Foundation::HINSTANCE,
     pub Anonymous: PROPSHEETUI_INFO_HEADER_0,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for PROPSHEETUI_INFO_HEADER {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for PROPSHEETUI_INFO_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub union PROPSHEETUI_INFO_HEADER_0 {
     pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
     pub IconID: usize,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for PROPSHEETUI_INFO_HEADER_0 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for PROPSHEETUI_INFO_HEADER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROVIDOR_INFO_1A {
     pub pName: windows_sys::core::PSTR,
     pub pEnvironment: windows_sys::core::PSTR,
     pub pDLLName: windows_sys::core::PSTR,
 }
-impl Copy for PROVIDOR_INFO_1A {}
-impl Clone for PROVIDOR_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROVIDOR_INFO_1W {
     pub pName: windows_sys::core::PWSTR,
     pub pEnvironment: windows_sys::core::PWSTR,
     pub pDLLName: windows_sys::core::PWSTR,
 }
-impl Copy for PROVIDOR_INFO_1W {}
-impl Clone for PROVIDOR_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROVIDOR_INFO_2A {
     pub pOrder: windows_sys::core::PSTR,
 }
-impl Copy for PROVIDOR_INFO_2A {}
-impl Clone for PROVIDOR_INFO_2A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROVIDOR_INFO_2W {
     pub pOrder: windows_sys::core::PWSTR,
 }
-impl Copy for PROVIDOR_INFO_2W {}
-impl Clone for PROVIDOR_INFO_2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSCRIPT5_PRIVATE_DEVMODE {
     pub wReserved: [u16; 57],
     pub wSize: u16,
 }
-impl Copy for PSCRIPT5_PRIVATE_DEVMODE {}
-impl Clone for PSCRIPT5_PRIVATE_DEVMODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSPINFO {
     pub cbSize: u16,
     pub wReserved: u16,
@@ -4810,58 +3836,33 @@ pub struct PSPINFO {
     pub hCPSUIPage: super::super::Foundation::HANDLE,
     pub pfnComPropSheet: PFNCOMPROPSHEET,
 }
-impl Copy for PSPINFO {}
-impl Clone for PSPINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PUBLISHERINFO {
     pub dwMode: u32,
     pub wMinoutlinePPEM: u16,
     pub wMaxbitmapPPEM: u16,
 }
-impl Copy for PUBLISHERINFO {}
-impl Clone for PUBLISHERINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PrintNamedProperty {
     pub propertyName: windows_sys::core::PWSTR,
     pub propertyValue: PrintPropertyValue,
 }
-impl Copy for PrintNamedProperty {}
-impl Clone for PrintNamedProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PrintPropertiesCollection {
     pub numberOfProperties: u32,
     pub propertiesCollection: *mut PrintNamedProperty,
 }
-impl Copy for PrintPropertiesCollection {}
-impl Clone for PrintPropertiesCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PrintPropertyValue {
     pub ePropertyType: EPrintPropertyType,
     pub value: PrintPropertyValue_0,
 }
-impl Copy for PrintPropertyValue {}
-impl Clone for PrintPropertyValue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PrintPropertyValue_0 {
     pub propertyByte: u8,
     pub propertyString: windows_sys::core::PWSTR,
@@ -4869,52 +3870,32 @@ pub union PrintPropertyValue_0 {
     pub propertyInt64: i64,
     pub propertyBlob: PrintPropertyValue_0_0,
 }
-impl Copy for PrintPropertyValue_0 {}
-impl Clone for PrintPropertyValue_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PrintPropertyValue_0_0 {
     pub cbBuf: u32,
     pub pBuf: *mut core::ffi::c_void,
-}
-impl Copy for PrintPropertyValue_0_0 {}
-impl Clone for PrintPropertyValue_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const PrintSchemaAsyncOperation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x43b2f83d_10f2_48ab_831b_55fdbdbd34a4);
 pub const PrinterExtensionManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x331b60da_9e90_4dd0_9c84_eac4e659b61f);
 pub const PrinterQueue: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeb54c230_798c_4c9e_b461_29fad04039b1);
 pub const PrinterQueueView: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeb54c231_798c_4c9e_b461_29fad04039b1);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SETRESULT_INFO {
     pub cbSize: u16,
     pub wReserved: u16,
     pub hSetResult: super::super::Foundation::HANDLE,
     pub Result: super::super::Foundation::LRESULT,
 }
-impl Copy for SETRESULT_INFO {}
-impl Clone for SETRESULT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SHOWUIPARAMS {
     pub UIType: UI_TYPE,
     pub MessageBoxParams: MESSAGEBOX_PARAMS,
 }
-impl Copy for SHOWUIPARAMS {}
-impl Clone for SHOWUIPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SIMULATE_CAPS_1 {
     pub dwLevel: u32,
     pub dwPageOrderFlags: u32,
@@ -4922,13 +3903,8 @@ pub struct SIMULATE_CAPS_1 {
     pub dwCollate: u32,
     pub dwNupOptions: u32,
 }
-impl Copy for SIMULATE_CAPS_1 {}
-impl Clone for SIMULATE_CAPS_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SPLCLIENT_INFO_1 {
     pub dwSize: u32,
     pub pMachineName: windows_sys::core::PWSTR,
@@ -4938,49 +3914,25 @@ pub struct SPLCLIENT_INFO_1 {
     pub dwMinorVersion: u32,
     pub wProcessorArchitecture: u16,
 }
-impl Copy for SPLCLIENT_INFO_1 {}
-impl Clone for SPLCLIENT_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SPLCLIENT_INFO_2_W2K {
     pub hSplPrinter: usize,
 }
-impl Copy for SPLCLIENT_INFO_2_W2K {}
-impl Clone for SPLCLIENT_INFO_2_W2K {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SPLCLIENT_INFO_2_WINXP {
     pub hSplPrinter: u64,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SPLCLIENT_INFO_2_WINXP {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SPLCLIENT_INFO_2_WINXP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SPLCLIENT_INFO_2_WINXP {
     pub hSplPrinter: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SPLCLIENT_INFO_2_WINXP {}
-#[cfg(target_arch = "x86")]
-impl Clone for SPLCLIENT_INFO_2_WINXP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SPLCLIENT_INFO_3_VISTA {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -4993,13 +3945,8 @@ pub struct SPLCLIENT_INFO_3_VISTA {
     pub wProcessorArchitecture: u16,
     pub hSplPrinter: u64,
 }
-impl Copy for SPLCLIENT_INFO_3_VISTA {}
-impl Clone for SPLCLIENT_INFO_3_VISTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SPLCLIENT_INFO_INTERNAL {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -5014,37 +3961,22 @@ pub struct SPLCLIENT_INFO_INTERNAL {
     pub dwProcessId: u32,
     pub dwSessionId: u32,
 }
-impl Copy for SPLCLIENT_INFO_INTERNAL {}
-impl Clone for SPLCLIENT_INFO_INTERNAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRANSDATA {
     pub ubCodePageID: u8,
     pub ubType: u8,
     pub uCode: TRANSDATA_0,
 }
-impl Copy for TRANSDATA {}
-impl Clone for TRANSDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union TRANSDATA_0 {
     pub sCode: i16,
     pub ubCode: u8,
     pub ubPairs: [u8; 2],
 }
-impl Copy for TRANSDATA_0 {}
-impl Clone for TRANSDATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UFF_FILEHEADER {
     pub dwSignature: u32,
     pub dwVersion: u32,
@@ -5056,13 +3988,8 @@ pub struct UFF_FILEHEADER {
     pub dwFlags: u32,
     pub dwReserved: [u32; 4],
 }
-impl Copy for UFF_FILEHEADER {}
-impl Clone for UFF_FILEHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UFF_FONTDIRECTORY {
     pub dwSignature: u32,
     pub wSize: u16,
@@ -5076,13 +4003,8 @@ pub struct UFF_FONTDIRECTORY {
     pub offGlyphData: u32,
     pub offVarData: u32,
 }
-impl Copy for UFF_FONTDIRECTORY {}
-impl Clone for UFF_FONTDIRECTORY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UNIDRVINFO {
     pub dwSize: u32,
     pub flGenFlags: u32,
@@ -5098,24 +4020,14 @@ pub struct UNIDRVINFO {
     pub UnSelectFont: INVOC,
     pub wReserved: [u16; 4],
 }
-impl Copy for UNIDRVINFO {}
-impl Clone for UNIDRVINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UNIDRV_PRIVATE_DEVMODE {
     pub wReserved: [u16; 4],
     pub wSize: u16,
 }
-impl Copy for UNIDRV_PRIVATE_DEVMODE {}
-impl Clone for UNIDRV_PRIVATE_DEVMODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UNIFM_HDR {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -5128,25 +4040,15 @@ pub struct UNIFM_HDR {
     pub loKernPair: u32,
     pub dwReserved: [u32; 2],
 }
-impl Copy for UNIFM_HDR {}
-impl Clone for UNIFM_HDR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UNI_CODEPAGEINFO {
     pub dwCodePage: u32,
     pub SelectSymbolSet: INVOC,
     pub UnSelectSymbolSet: INVOC,
 }
-impl Copy for UNI_CODEPAGEINFO {}
-impl Clone for UNI_CODEPAGEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UNI_GLYPHSETDATA {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -5160,58 +4062,32 @@ pub struct UNI_GLYPHSETDATA {
     pub loMapTableOffset: u32,
     pub dwReserved: [u32; 2],
 }
-impl Copy for UNI_GLYPHSETDATA {}
-impl Clone for UNI_GLYPHSETDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USERDATA {
     pub dwSize: u32,
     pub dwItemID: usize,
     pub pKeyWordName: windows_sys::core::PSTR,
     pub dwReserved: [u32; 8],
 }
-impl Copy for USERDATA {}
-impl Clone for USERDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WIDTHRUN {
     pub wStartGlyph: u16,
     pub wGlyphCount: u16,
     pub loCharWidthOffset: u32,
 }
-impl Copy for WIDTHRUN {}
-impl Clone for WIDTHRUN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WIDTHTABLE {
     pub dwSize: u32,
     pub dwRunNum: u32,
     pub WidthRun: [WIDTHRUN; 1],
 }
-impl Copy for WIDTHTABLE {}
-impl Clone for WIDTHTABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct _SPLCLIENT_INFO_2_V3 {
     pub hSplPrinter: u64,
-}
-impl Copy for _SPLCLIENT_INFO_2_V3 {}
-impl Clone for _SPLCLIENT_INFO_2_V3 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type EMFPLAYPROC = Option<unsafe extern "system" fn(param0: super::Gdi::HDC, param1: i32, param2: super::super::Foundation::HANDLE) -> i32>;

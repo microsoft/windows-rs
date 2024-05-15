@@ -185,44 +185,30 @@ pub type CRYPTUI_WIZ_FLAGS = u32;
 pub type CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION = u32;
 pub type CTL_MODIFY_REQUEST_OPERATION = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_FILTER_DATA {
     pub dwSize: u32,
     pub cExtensionChecks: u32,
     pub arrayExtensionChecks: *mut CERT_FILTER_EXTENSION_MATCH,
     pub dwCheckingFlags: u32,
 }
-impl Copy for CERT_FILTER_DATA {}
-impl Clone for CERT_FILTER_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_FILTER_EXTENSION_MATCH {
     pub szExtensionOID: windows_sys::core::PCSTR,
     pub dwTestOperation: u32,
     pub pbTestData: *mut u8,
     pub cbTestData: u32,
 }
-impl Copy for CERT_FILTER_EXTENSION_MATCH {}
-impl Clone for CERT_FILTER_EXTENSION_MATCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_SELECTUI_INPUT {
     pub hStore: super::HCERTSTORE,
     pub prgpChain: *mut *mut super::CERT_CHAIN_CONTEXT,
     pub cChain: u32,
 }
-impl Copy for CERT_SELECTUI_INPUT {}
-impl Clone for CERT_SELECTUI_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_SELECT_STRUCT_A {
     pub dwSize: u32,
     pub hwndParent: super::super::super::Foundation::HWND,
@@ -242,13 +228,8 @@ pub struct CERT_SELECT_STRUCT_A {
     pub dwHelpId: u32,
     pub hprov: usize,
 }
-impl Copy for CERT_SELECT_STRUCT_A {}
-impl Clone for CERT_SELECT_STRUCT_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_SELECT_STRUCT_W {
     pub dwSize: u32,
     pub hwndParent: super::super::super::Foundation::HWND,
@@ -268,13 +249,8 @@ pub struct CERT_SELECT_STRUCT_W {
     pub dwHelpId: u32,
     pub hprov: usize,
 }
-impl Copy for CERT_SELECT_STRUCT_W {}
-impl Clone for CERT_SELECT_STRUCT_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CERT_VERIFY_CERTIFICATE_TRUST {
     pub cbSize: u32,
     pub pccert: *const super::CERT_CONTEXT,
@@ -296,14 +272,9 @@ pub struct CERT_VERIFY_CERTIFICATE_TRUST {
     pub prgdwErrors: *mut *mut u32,
     pub prgpbTrustInfo: *mut *mut super::CRYPT_INTEGER_BLOB,
 }
-impl Copy for CERT_VERIFY_CERTIFICATE_TRUST {}
-impl Clone for CERT_VERIFY_CERTIFICATE_TRUST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct CERT_VIEWPROPERTIES_STRUCT_A {
     pub dwSize: u32,
     pub hwndParent: super::super::super::Foundation::HWND,
@@ -328,16 +299,9 @@ pub struct CERT_VIEWPROPERTIES_STRUCT_A {
     pub cArrayPropSheetPages: u32,
     pub arrayPropSheetPages: *mut super::super::super::UI::Controls::PROPSHEETPAGEA,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for CERT_VIEWPROPERTIES_STRUCT_A {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for CERT_VIEWPROPERTIES_STRUCT_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct CERT_VIEWPROPERTIES_STRUCT_W {
     pub dwSize: u32,
     pub hwndParent: super::super::super::Foundation::HWND,
@@ -362,15 +326,8 @@ pub struct CERT_VIEWPROPERTIES_STRUCT_W {
     pub cArrayPropSheetPages: u32,
     pub arrayPropSheetPages: *mut super::super::super::UI::Controls::PROPSHEETPAGEA,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for CERT_VIEWPROPERTIES_STRUCT_W {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for CERT_VIEWPROPERTIES_STRUCT_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPTUI_CERT_MGR_STRUCT {
     pub dwSize: u32,
     pub hwndParent: super::super::super::Foundation::HWND,
@@ -378,25 +335,15 @@ pub struct CRYPTUI_CERT_MGR_STRUCT {
     pub pwszTitle: windows_sys::core::PCWSTR,
     pub pszInitUsageOID: windows_sys::core::PCSTR,
 }
-impl Copy for CRYPTUI_CERT_MGR_STRUCT {}
-impl Clone for CRYPTUI_CERT_MGR_STRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPTUI_INITDIALOG_STRUCT {
     pub lParam: super::super::super::Foundation::LPARAM,
     pub pCertContext: *const super::CERT_CONTEXT,
 }
-impl Copy for CRYPTUI_INITDIALOG_STRUCT {}
-impl Clone for CRYPTUI_INITDIALOG_STRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct CRYPTUI_VIEWCERTIFICATE_STRUCTA {
     pub dwSize: u32,
     pub hwndParent: super::super::super::Foundation::HWND,
@@ -417,30 +364,16 @@ pub struct CRYPTUI_VIEWCERTIFICATE_STRUCTA {
     pub rgPropSheetPages: *mut super::super::super::UI::Controls::PROPSHEETPAGEA,
     pub nStartPage: u32,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for CRYPTUI_VIEWCERTIFICATE_STRUCTA {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for CRYPTUI_VIEWCERTIFICATE_STRUCTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union CRYPTUI_VIEWCERTIFICATE_STRUCTA_0 {
     pub pCryptProviderData: *const super::super::WinTrust::CRYPT_PROVIDER_DATA,
     pub hWVTStateData: super::super::super::Foundation::HANDLE,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for CRYPTUI_VIEWCERTIFICATE_STRUCTA_0 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for CRYPTUI_VIEWCERTIFICATE_STRUCTA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub struct CRYPTUI_VIEWCERTIFICATE_STRUCTW {
     pub dwSize: u32,
     pub hwndParent: super::super::super::Foundation::HWND,
@@ -461,29 +394,15 @@ pub struct CRYPTUI_VIEWCERTIFICATE_STRUCTW {
     pub rgPropSheetPages: *mut super::super::super::UI::Controls::PROPSHEETPAGEW,
     pub nStartPage: u32,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for CRYPTUI_VIEWCERTIFICATE_STRUCTW {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for CRYPTUI_VIEWCERTIFICATE_STRUCTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[derive(Clone, Copy)]
 pub union CRYPTUI_VIEWCERTIFICATE_STRUCTW_0 {
     pub pCryptProviderData: *const super::super::WinTrust::CRYPT_PROVIDER_DATA,
     pub hWVTStateData: super::super::super::Foundation::HANDLE,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Copy for CRYPTUI_VIEWCERTIFICATE_STRUCTW_0 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Clone for CRYPTUI_VIEWCERTIFICATE_STRUCTW_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
     pub dwSize: u32,
     pub pGuidSubject: *mut windows_sys::core::GUID,
@@ -491,49 +410,29 @@ pub struct CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
     pub pbBlob: *mut u8,
     pub pwszDisplayName: windows_sys::core::PCWSTR,
 }
-impl Copy for CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {}
-impl Clone for CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
     pub dwSize: u32,
     pub pwszSigningCertFileName: windows_sys::core::PWSTR,
     pub dwPvkChoice: CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION,
     pub Anonymous: CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0,
 }
-impl Copy for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {}
-impl Clone for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0 {
     pub pPvkFileInfo: *mut CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO,
     pub pPvkProvInfo: *mut super::CRYPT_KEY_PROV_INFO,
 }
-impl Copy for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0 {}
-impl Clone for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
     pub dwSize: u32,
     pub cbBlob: u32,
     pub pbBlob: *mut u8,
 }
-impl Copy for CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {}
-impl Clone for CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
     pub dwSize: u32,
     pub dwAttrFlags: CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE,
@@ -545,13 +444,8 @@ pub struct CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
     pub psAuthenticated: *mut super::CRYPT_ATTRIBUTES,
     pub psUnauthenticated: *mut super::CRYPT_ATTRIBUTES,
 }
-impl Copy for CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {}
-impl Clone for CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_INFO {
     pub dwSize: u32,
     pub dwSubjectChoice: CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT,
@@ -562,49 +456,29 @@ pub struct CRYPTUI_WIZ_DIGITAL_SIGN_INFO {
     pub dwAdditionalCertChoice: CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE,
     pub pSignExtInfo: *mut CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO,
 }
-impl Copy for CRYPTUI_WIZ_DIGITAL_SIGN_INFO {}
-impl Clone for CRYPTUI_WIZ_DIGITAL_SIGN_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CRYPTUI_WIZ_DIGITAL_SIGN_INFO_0 {
     pub pwszFileName: windows_sys::core::PCWSTR,
     pub pSignBlobInfo: *mut CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO,
 }
-impl Copy for CRYPTUI_WIZ_DIGITAL_SIGN_INFO_0 {}
-impl Clone for CRYPTUI_WIZ_DIGITAL_SIGN_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CRYPTUI_WIZ_DIGITAL_SIGN_INFO_1 {
     pub pSigningCertContext: *const super::CERT_CONTEXT,
     pub pSigningCertStore: *mut CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO,
     pub pSigningCertPvkInfo: *mut CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO,
 }
-impl Copy for CRYPTUI_WIZ_DIGITAL_SIGN_INFO_1 {}
-impl Clone for CRYPTUI_WIZ_DIGITAL_SIGN_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
     pub dwSize: u32,
     pub pwszPvkFileName: windows_sys::core::PWSTR,
     pub pwszProvName: windows_sys::core::PWSTR,
     pub dwProvType: u32,
 }
-impl Copy for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {}
-impl Clone for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
     pub dwSize: u32,
     pub cCertStore: u32,
@@ -612,13 +486,8 @@ pub struct CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
     pub pFilterCallback: PFNCFILTERPROC,
     pub pvCallbackData: *mut core::ffi::c_void,
 }
-impl Copy for CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {}
-impl Clone for CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
     pub dwSize: u32,
     pub dwExportFormat: CRYPTUI_WIZ_EXPORT_FORMAT,
@@ -627,13 +496,8 @@ pub struct CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
     pub pwszPassword: windows_sys::core::PCWSTR,
     pub fStrongEncryption: super::super::super::Foundation::BOOL,
 }
-impl Copy for CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {}
-impl Clone for CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPTUI_WIZ_EXPORT_INFO {
     pub dwSize: u32,
     pub pwszExportFileName: windows_sys::core::PCWSTR,
@@ -642,26 +506,16 @@ pub struct CRYPTUI_WIZ_EXPORT_INFO {
     pub cStores: u32,
     pub rghStores: *mut super::HCERTSTORE,
 }
-impl Copy for CRYPTUI_WIZ_EXPORT_INFO {}
-impl Clone for CRYPTUI_WIZ_EXPORT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CRYPTUI_WIZ_EXPORT_INFO_0 {
     pub pCertContext: *const super::CERT_CONTEXT,
     pub pCTLContext: *mut super::CTL_CONTEXT,
     pub pCRLContext: *mut super::CRL_CONTEXT,
     pub hCertStore: super::HCERTSTORE,
 }
-impl Copy for CRYPTUI_WIZ_EXPORT_INFO_0 {}
-impl Clone for CRYPTUI_WIZ_EXPORT_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CRYPTUI_WIZ_IMPORT_SRC_INFO {
     pub dwSize: u32,
     pub dwSubjectChoice: CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION,
@@ -669,13 +523,8 @@ pub struct CRYPTUI_WIZ_IMPORT_SRC_INFO {
     pub dwFlags: super::CRYPT_KEY_FLAGS,
     pub pwszPassword: windows_sys::core::PCWSTR,
 }
-impl Copy for CRYPTUI_WIZ_IMPORT_SRC_INFO {}
-impl Clone for CRYPTUI_WIZ_IMPORT_SRC_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CRYPTUI_WIZ_IMPORT_SRC_INFO_0 {
     pub pwszFileName: windows_sys::core::PCWSTR,
     pub pCertContext: *const super::CERT_CONTEXT,
@@ -683,23 +532,12 @@ pub union CRYPTUI_WIZ_IMPORT_SRC_INFO_0 {
     pub pCRLContext: *mut super::CRL_CONTEXT,
     pub hCertStore: super::HCERTSTORE,
 }
-impl Copy for CRYPTUI_WIZ_IMPORT_SRC_INFO_0 {}
-impl Clone for CRYPTUI_WIZ_IMPORT_SRC_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CTL_MODIFY_REQUEST {
     pub pccert: *const super::CERT_CONTEXT,
     pub dwOperation: CTL_MODIFY_REQUEST_OPERATION,
     pub dwError: u32,
-}
-impl Copy for CTL_MODIFY_REQUEST {}
-impl Clone for CTL_MODIFY_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type PFNCFILTERPROC = Option<unsafe extern "system" fn(pcertcontext: *const super::CERT_CONTEXT, pfinitialselectedcert: *mut super::super::super::Foundation::BOOL, pvcallbackdata: *mut core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 pub type PFNCMFILTERPROC = Option<unsafe extern "system" fn(pcertcontext: *const super::CERT_CONTEXT, param1: super::super::super::Foundation::LPARAM, param2: u32, param3: u32) -> super::super::super::Foundation::BOOL>;

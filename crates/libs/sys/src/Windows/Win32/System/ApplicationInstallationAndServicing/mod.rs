@@ -1720,6 +1720,7 @@ pub type msirbRebootReason = i32;
 pub type msirbRebootType = i32;
 pub type msmErrorType = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACTCTXA {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -1731,13 +1732,8 @@ pub struct ACTCTXA {
     pub lpApplicationName: windows_sys::core::PCSTR,
     pub hModule: super::super::Foundation::HMODULE,
 }
-impl Copy for ACTCTXA {}
-impl Clone for ACTCTXA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACTCTXW {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -1749,14 +1745,9 @@ pub struct ACTCTXW {
     pub lpApplicationName: windows_sys::core::PCWSTR,
     pub hModule: super::super::Foundation::HMODULE,
 }
-impl Copy for ACTCTXW {}
-impl Clone for ACTCTXW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
+#[derive(Clone, Copy)]
 pub struct ACTCTX_SECTION_KEYED_DATA {
     pub cbSize: u32,
     pub ulDataFormatVersion: u32,
@@ -1771,15 +1762,8 @@ pub struct ACTCTX_SECTION_KEYED_DATA {
     pub ulFlags: u32,
     pub AssemblyMetadata: super::WindowsProgramming::ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA,
 }
-#[cfg(feature = "Win32_System_WindowsProgramming")]
-impl Copy for ACTCTX_SECTION_KEYED_DATA {}
-#[cfg(feature = "Win32_System_WindowsProgramming")]
-impl Clone for ACTCTX_SECTION_KEYED_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
     pub ulFlags: u32,
     pub ulEncodedAssemblyIdentityLength: u32,
@@ -1801,24 +1785,14 @@ pub struct ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
     pub lpAssemblyDirectoryName: windows_sys::core::PCWSTR,
     pub ulFileCount: u32,
 }
-impl Copy for ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {}
-impl Clone for ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {
     pub ElementCount: u32,
     pub Elements: [COMPATIBILITY_CONTEXT_ELEMENT; 1],
 }
-impl Copy for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {}
-impl Clone for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACTIVATION_CONTEXT_DETAILED_INFORMATION {
     pub dwFlags: u32,
     pub ulFormatVersion: u32,
@@ -1833,36 +1807,21 @@ pub struct ACTIVATION_CONTEXT_DETAILED_INFORMATION {
     pub lpRootConfigurationPath: windows_sys::core::PCWSTR,
     pub lpAppDirPath: windows_sys::core::PCWSTR,
 }
-impl Copy for ACTIVATION_CONTEXT_DETAILED_INFORMATION {}
-impl Clone for ACTIVATION_CONTEXT_DETAILED_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACTIVATION_CONTEXT_QUERY_INDEX {
     pub ulAssemblyIndex: u32,
     pub ulFileIndexInAssembly: u32,
 }
-impl Copy for ACTIVATION_CONTEXT_QUERY_INDEX {}
-impl Clone for ACTIVATION_CONTEXT_QUERY_INDEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {
     pub ulFlags: u32,
     pub RunLevel: ACTCTX_REQUESTED_RUN_LEVEL,
     pub UiAccess: u32,
 }
-impl Copy for ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {}
-impl Clone for ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ASSEMBLY_FILE_DETAILED_INFORMATION {
     pub ulFlags: u32,
     pub ulFilenameLength: u32,
@@ -1870,13 +1829,8 @@ pub struct ASSEMBLY_FILE_DETAILED_INFORMATION {
     pub lpFileName: windows_sys::core::PCWSTR,
     pub lpFilePath: windows_sys::core::PCWSTR,
 }
-impl Copy for ASSEMBLY_FILE_DETAILED_INFORMATION {}
-impl Clone for ASSEMBLY_FILE_DETAILED_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ASSEMBLY_INFO {
     pub cbAssemblyInfo: u32,
     pub dwAssemblyFlags: u32,
@@ -1884,37 +1838,22 @@ pub struct ASSEMBLY_INFO {
     pub pszCurrentAssemblyPathBuf: windows_sys::core::PWSTR,
     pub cchBuf: u32,
 }
-impl Copy for ASSEMBLY_INFO {}
-impl Clone for ASSEMBLY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COMPATIBILITY_CONTEXT_ELEMENT {
     pub Id: windows_sys::core::GUID,
     pub Type: ACTCTX_COMPATIBILITY_ELEMENT_TYPE,
     pub MaxVersionTested: u64,
 }
-impl Copy for COMPATIBILITY_CONTEXT_ELEMENT {}
-impl Clone for COMPATIBILITY_CONTEXT_ELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DELTA_HASH {
     pub HashSize: u32,
     pub HashValue: [u8; 32],
 }
-impl Copy for DELTA_HASH {}
-impl Clone for DELTA_HASH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[derive(Clone, Copy)]
 pub struct DELTA_HEADER_INFO {
     pub FileTypeSet: i64,
     pub FileType: i64,
@@ -1924,49 +1863,27 @@ pub struct DELTA_HEADER_INFO {
     pub TargetHashAlgId: super::super::Security::Cryptography::ALG_ID,
     pub TargetHash: DELTA_HASH,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Copy for DELTA_HEADER_INFO {}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Clone for DELTA_HEADER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DELTA_INPUT {
     pub Anonymous: DELTA_INPUT_0,
     pub uSize: usize,
     pub Editable: super::super::Foundation::BOOL,
 }
-impl Copy for DELTA_INPUT {}
-impl Clone for DELTA_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DELTA_INPUT_0 {
     pub lpcStart: *const core::ffi::c_void,
     pub lpStart: *mut core::ffi::c_void,
 }
-impl Copy for DELTA_INPUT_0 {}
-impl Clone for DELTA_INPUT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DELTA_OUTPUT {
     pub lpStart: *mut core::ffi::c_void,
     pub uSize: usize,
 }
-impl Copy for DELTA_OUTPUT {}
-impl Clone for DELTA_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FUSION_INSTALL_REFERENCE {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -1974,86 +1891,51 @@ pub struct FUSION_INSTALL_REFERENCE {
     pub szIdentifier: windows_sys::core::PCWSTR,
     pub szNonCannonicalData: windows_sys::core::PCWSTR,
 }
-impl Copy for FUSION_INSTALL_REFERENCE {}
-impl Clone for FUSION_INSTALL_REFERENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MSIFILEHASHINFO {
     pub dwFileHashInfoSize: u32,
     pub dwData: [u32; 4],
 }
-impl Copy for MSIFILEHASHINFO {}
-impl Clone for MSIFILEHASHINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type MSIHANDLE = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MSIPATCHSEQUENCEINFOA {
     pub szPatchData: windows_sys::core::PCSTR,
     pub ePatchDataType: MSIPATCHDATATYPE,
     pub dwOrder: u32,
     pub uStatus: u32,
 }
-impl Copy for MSIPATCHSEQUENCEINFOA {}
-impl Clone for MSIPATCHSEQUENCEINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MSIPATCHSEQUENCEINFOW {
     pub szPatchData: windows_sys::core::PCWSTR,
     pub ePatchDataType: MSIPATCHDATATYPE,
     pub dwOrder: u32,
     pub uStatus: u32,
 }
-impl Copy for MSIPATCHSEQUENCEINFOW {}
-impl Clone for MSIPATCHSEQUENCEINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const MsmMerge: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0adda830_2c26_11d2_ad65_00a0c9af11a6);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PATCH_IGNORE_RANGE {
     pub OffsetInOldFile: u32,
     pub LengthInBytes: u32,
 }
-impl Copy for PATCH_IGNORE_RANGE {}
-impl Clone for PATCH_IGNORE_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PATCH_INTERLEAVE_MAP {
     pub CountRanges: u32,
     pub Range: [PATCH_INTERLEAVE_MAP_0; 1],
 }
-impl Copy for PATCH_INTERLEAVE_MAP {}
-impl Clone for PATCH_INTERLEAVE_MAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PATCH_INTERLEAVE_MAP_0 {
     pub OldOffset: u32,
     pub OldLength: u32,
     pub NewLength: u32,
 }
-impl Copy for PATCH_INTERLEAVE_MAP_0 {}
-impl Clone for PATCH_INTERLEAVE_MAP_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PATCH_OLD_FILE_INFO {
     pub SizeOfThisStruct: u32,
     pub Anonymous: PATCH_OLD_FILE_INFO_0,
@@ -2062,25 +1944,15 @@ pub struct PATCH_OLD_FILE_INFO {
     pub RetainRangeCount: u32,
     pub RetainRangeArray: *mut PATCH_RETAIN_RANGE,
 }
-impl Copy for PATCH_OLD_FILE_INFO {}
-impl Clone for PATCH_OLD_FILE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PATCH_OLD_FILE_INFO_0 {
     pub OldFileNameA: windows_sys::core::PCSTR,
     pub OldFileNameW: windows_sys::core::PCWSTR,
     pub OldFileHandle: super::super::Foundation::HANDLE,
 }
-impl Copy for PATCH_OLD_FILE_INFO_0 {}
-impl Clone for PATCH_OLD_FILE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PATCH_OLD_FILE_INFO_A {
     pub SizeOfThisStruct: u32,
     pub OldFileName: windows_sys::core::PCSTR,
@@ -2089,13 +1961,8 @@ pub struct PATCH_OLD_FILE_INFO_A {
     pub RetainRangeCount: u32,
     pub RetainRangeArray: *mut PATCH_RETAIN_RANGE,
 }
-impl Copy for PATCH_OLD_FILE_INFO_A {}
-impl Clone for PATCH_OLD_FILE_INFO_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PATCH_OLD_FILE_INFO_H {
     pub SizeOfThisStruct: u32,
     pub OldFileHandle: super::super::Foundation::HANDLE,
@@ -2104,13 +1971,8 @@ pub struct PATCH_OLD_FILE_INFO_H {
     pub RetainRangeCount: u32,
     pub RetainRangeArray: *mut PATCH_RETAIN_RANGE,
 }
-impl Copy for PATCH_OLD_FILE_INFO_H {}
-impl Clone for PATCH_OLD_FILE_INFO_H {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PATCH_OLD_FILE_INFO_W {
     pub SizeOfThisStruct: u32,
     pub OldFileName: windows_sys::core::PCWSTR,
@@ -2119,13 +1981,8 @@ pub struct PATCH_OLD_FILE_INFO_W {
     pub RetainRangeCount: u32,
     pub RetainRangeArray: *mut PATCH_RETAIN_RANGE,
 }
-impl Copy for PATCH_OLD_FILE_INFO_W {}
-impl Clone for PATCH_OLD_FILE_INFO_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PATCH_OPTION_DATA {
     pub SizeOfThisStruct: u32,
     pub SymbolOptionFlags: u32,
@@ -2137,80 +1994,45 @@ pub struct PATCH_OPTION_DATA {
     pub InterleaveMapArray: *mut *mut PATCH_INTERLEAVE_MAP,
     pub MaxLzxWindowSize: u32,
 }
-impl Copy for PATCH_OPTION_DATA {}
-impl Clone for PATCH_OPTION_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PATCH_RETAIN_RANGE {
     pub OffsetInOldFile: u32,
     pub LengthInBytes: u32,
     pub OffsetInNewFile: u32,
 }
-impl Copy for PATCH_RETAIN_RANGE {}
-impl Clone for PATCH_RETAIN_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PMSIHANDLE {
     pub m_h: MSIHANDLE,
 }
-impl Copy for PMSIHANDLE {}
-impl Clone for PMSIHANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const PMSvc: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb9e511fc_e364_497a_a121_b7b3612cedce);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PM_APPTASKTYPE {
     pub ProductID: windows_sys::core::GUID,
     pub TaskType: PM_TASK_TYPE,
 }
-impl Copy for PM_APPTASKTYPE {}
-impl Clone for PM_APPTASKTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PM_BSATASKID {
     pub ProductID: windows_sys::core::GUID,
     pub TaskID: windows_sys::core::BSTR,
 }
-impl Copy for PM_BSATASKID {}
-impl Clone for PM_BSATASKID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PM_BWTASKID {
     pub ProductID: windows_sys::core::GUID,
     pub TaskID: windows_sys::core::BSTR,
 }
-impl Copy for PM_BWTASKID {}
-impl Clone for PM_BWTASKID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PM_ENUM_FILTER {
     pub FilterType: i32,
     pub FilterParameter: PM_ENUM_FILTER_0,
 }
-impl Copy for PM_ENUM_FILTER {}
-impl Clone for PM_ENUM_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PM_ENUM_FILTER_0 {
     pub Dummy: i32,
     pub Genre: PM_APP_GENRE,
@@ -2230,24 +2052,14 @@ pub union PM_ENUM_FILTER_0 {
     pub AppSupportedFileExtPID: windows_sys::core::GUID,
     pub ShareTargetFileType: windows_sys::core::BSTR,
 }
-impl Copy for PM_ENUM_FILTER_0 {}
-impl Clone for PM_ENUM_FILTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PM_EXTENSIONCONSUMER {
     pub ConsumerPID: windows_sys::core::GUID,
     pub ExtensionID: windows_sys::core::BSTR,
 }
-impl Copy for PM_EXTENSIONCONSUMER {}
-impl Clone for PM_EXTENSIONCONSUMER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PM_INSTALLINFO {
     pub ProductID: windows_sys::core::GUID,
     pub PackagePath: windows_sys::core::BSTR,
@@ -2259,24 +2071,14 @@ pub struct PM_INSTALLINFO {
     pub OfferID: windows_sys::core::GUID,
     pub MarketplaceAppVersion: windows_sys::core::BSTR,
 }
-impl Copy for PM_INSTALLINFO {}
-impl Clone for PM_INSTALLINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PM_INVOCATIONINFO {
     pub URIBaseOrAUMID: windows_sys::core::BSTR,
     pub URIFragmentOrArgs: windows_sys::core::BSTR,
 }
-impl Copy for PM_INVOCATIONINFO {}
-impl Clone for PM_INVOCATIONINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PM_STARTAPPBLOB {
     pub cbSize: u32,
     pub ProductID: windows_sys::core::GUID,
@@ -2290,13 +2092,8 @@ pub struct PM_STARTAPPBLOB {
     pub IsModernLightUp: super::super::Foundation::BOOL,
     pub LightUpSupportMask: u16,
 }
-impl Copy for PM_STARTAPPBLOB {}
-impl Clone for PM_STARTAPPBLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PM_STARTTILEBLOB {
     pub cbSize: u32,
     pub ProductID: windows_sys::core::GUID,
@@ -2312,13 +2109,8 @@ pub struct PM_STARTTILEBLOB {
     pub IsModern: super::super::Foundation::BOOL,
     pub InvocationInfo: PM_INVOCATIONINFO,
 }
-impl Copy for PM_STARTTILEBLOB {}
-impl Clone for PM_STARTTILEBLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PM_UPDATEINFO {
     pub ProductID: windows_sys::core::GUID,
     pub PackagePath: windows_sys::core::BSTR,
@@ -2328,13 +2120,8 @@ pub struct PM_UPDATEINFO {
     pub MarketplaceAppVersion: windows_sys::core::BSTR,
     pub DeploymentOptions: u32,
 }
-impl Copy for PM_UPDATEINFO {}
-impl Clone for PM_UPDATEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PM_UPDATEINFO_LEGACY {
     pub ProductID: windows_sys::core::GUID,
     pub PackagePath: windows_sys::core::BSTR,
@@ -2343,22 +2130,11 @@ pub struct PM_UPDATEINFO_LEGACY {
     pub cbLicense: u32,
     pub MarketplaceAppVersion: windows_sys::core::BSTR,
 }
-impl Copy for PM_UPDATEINFO_LEGACY {}
-impl Clone for PM_UPDATEINFO_LEGACY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROTECTED_FILE_DATA {
     pub FileName: [u16; 260],
     pub FileNumber: u32,
-}
-impl Copy for PROTECTED_FILE_DATA {}
-impl Clone for PROTECTED_FILE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type INSTALLUI_HANDLERA = Option<unsafe extern "system" fn(pvcontext: *mut core::ffi::c_void, imessagetype: u32, szmessage: windows_sys::core::PCSTR) -> i32>;
 pub type INSTALLUI_HANDLERW = Option<unsafe extern "system" fn(pvcontext: *mut core::ffi::c_void, imessagetype: u32, szmessage: windows_sys::core::PCWSTR) -> i32>;

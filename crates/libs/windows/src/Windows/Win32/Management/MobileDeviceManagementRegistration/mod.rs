@@ -206,62 +206,30 @@ impl core::fmt::Debug for REGISTRATION_INFORMATION_CLASS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MANAGEMENT_REGISTRATION_INFO {
     pub fDeviceRegisteredWithManagement: super::super::Foundation::BOOL,
     pub dwDeviceRegistionKind: u32,
     pub pszUPN: windows_core::PWSTR,
     pub pszMDMServiceUri: windows_core::PWSTR,
 }
-impl Copy for MANAGEMENT_REGISTRATION_INFO {}
-impl Clone for MANAGEMENT_REGISTRATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MANAGEMENT_REGISTRATION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MANAGEMENT_REGISTRATION_INFO").field("fDeviceRegisteredWithManagement", &self.fDeviceRegisteredWithManagement).field("dwDeviceRegistionKind", &self.dwDeviceRegistionKind).field("pszUPN", &self.pszUPN).field("pszMDMServiceUri", &self.pszMDMServiceUri).finish()
-    }
-}
 impl windows_core::TypeKind for MANAGEMENT_REGISTRATION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MANAGEMENT_REGISTRATION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.fDeviceRegisteredWithManagement == other.fDeviceRegisteredWithManagement && self.dwDeviceRegistionKind == other.dwDeviceRegistionKind && self.pszUPN == other.pszUPN && self.pszMDMServiceUri == other.pszMDMServiceUri
-    }
-}
-impl Eq for MANAGEMENT_REGISTRATION_INFO {}
 impl Default for MANAGEMENT_REGISTRATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MANAGEMENT_SERVICE_INFO {
     pub pszMDMServiceUri: windows_core::PWSTR,
     pub pszAuthenticationUri: windows_core::PWSTR,
 }
-impl Copy for MANAGEMENT_SERVICE_INFO {}
-impl Clone for MANAGEMENT_SERVICE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MANAGEMENT_SERVICE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MANAGEMENT_SERVICE_INFO").field("pszMDMServiceUri", &self.pszMDMServiceUri).field("pszAuthenticationUri", &self.pszAuthenticationUri).finish()
-    }
-}
 impl windows_core::TypeKind for MANAGEMENT_SERVICE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MANAGEMENT_SERVICE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszMDMServiceUri == other.pszMDMServiceUri && self.pszAuthenticationUri == other.pszAuthenticationUri
-    }
-}
-impl Eq for MANAGEMENT_SERVICE_INFO {}
 impl Default for MANAGEMENT_SERVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -1990,17 +1990,10 @@ pub const PortableDeviceValuesCollection: windows_sys::core::GUID = windows_sys:
 pub const PortableDeviceWebControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x186dd02c_2dec_41b5_a7d4_b59056fade51);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[derive(Clone, Copy)]
 pub struct WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
     pub Command: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
     pub AccessType: u32,
     pub AccessProperty: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Copy for WPD_COMMAND_ACCESS_LOOKUP_ENTRY {}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Clone for WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const WpdSerializer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0b91a74b_ad7c_4a9d_b563_29eef9167172);

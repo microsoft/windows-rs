@@ -66,69 +66,39 @@ pub type PERCEIVED = i32;
 pub type SHCOLSTATE = i32;
 pub type STRRET_TYPE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COMDLG_FILTERSPEC {
     pub pszName: windows_sys::core::PCWSTR,
     pub pszSpec: windows_sys::core::PCWSTR,
 }
-impl Copy for COMDLG_FILTERSPEC {}
-impl Clone for COMDLG_FILTERSPEC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct ITEMIDLIST {
     pub mkid: SHITEMID,
 }
-impl Copy for ITEMIDLIST {}
-impl Clone for ITEMIDLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct SHELLDETAILS {
     pub fmt: i32,
     pub cxChar: i32,
     pub str: STRRET,
 }
-impl Copy for SHELLDETAILS {}
-impl Clone for SHELLDETAILS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct SHITEMID {
     pub cb: u16,
     pub abID: [u8; 1],
 }
-impl Copy for SHITEMID {}
-impl Clone for SHITEMID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STRRET {
     pub uType: u32,
     pub Anonymous: STRRET_0,
 }
-impl Copy for STRRET {}
-impl Clone for STRRET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union STRRET_0 {
     pub pOleStr: windows_sys::core::PWSTR,
     pub uOffset: u32,
     pub cStr: [u8; 260],
-}
-impl Copy for STRRET_0 {}
-impl Clone for STRRET_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

@@ -8028,38 +8028,23 @@ pub const FeedFolderWatcher: windows_core::GUID = windows_core::GUID::from_u128(
 pub const FeedWatcher: windows_core::GUID = windows_core::GUID::from_u128(0x18a6737b_f433_4687_89bc_a1b4dfb9f123);
 pub const FeedsManager: windows_core::GUID = windows_core::GUID::from_u128(0xfaeb54c4_f66f_4806_83a0_805299f5e3ad);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TimedLevel {
     pub frequency: [u8; 2048],
     pub waveform: [u8; 2048],
     pub state: i32,
     pub timeStamp: i64,
 }
-impl Copy for TimedLevel {}
-impl Clone for TimedLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TimedLevel {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TimedLevel").field("frequency", &self.frequency).field("waveform", &self.waveform).field("state", &self.state).field("timeStamp", &self.timeStamp).finish()
-    }
-}
 impl windows_core::TypeKind for TimedLevel {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TimedLevel {
-    fn eq(&self, other: &Self) -> bool {
-        self.frequency == other.frequency && self.waveform == other.waveform && self.state == other.state && self.timeStamp == other.timeStamp
-    }
-}
-impl Eq for TimedLevel {}
 impl Default for TimedLevel {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct WMPContextMenuInfo {
     pub dwID: u32,
     pub bstrMenuText: std::mem::ManuallyDrop<windows_core::BSTR>,
@@ -8070,20 +8055,9 @@ impl Clone for WMPContextMenuInfo {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for WMPContextMenuInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WMPContextMenuInfo").field("dwID", &self.dwID).field("bstrMenuText", &self.bstrMenuText).field("bstrHelpText", &self.bstrHelpText).finish()
-    }
-}
 impl windows_core::TypeKind for WMPContextMenuInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WMPContextMenuInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwID == other.dwID && self.bstrMenuText == other.bstrMenuText && self.bstrHelpText == other.bstrHelpText
-    }
-}
-impl Eq for WMPContextMenuInfo {}
 impl Default for WMPContextMenuInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8092,6 +8066,7 @@ impl Default for WMPContextMenuInfo {
 pub const WMPLib: windows_core::GUID = windows_core::GUID::from_u128(0x6bf52a50_394a_11d3_b153_00c04f79faa6);
 pub const WMPRemoteMediaServices: windows_core::GUID = windows_core::GUID::from_u128(0xdf333473_2cf7_4be2_907f_9aad5661364f);
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
     pub dwCurrentTransactionID: u32,
     pub dwReturnedObjectCount: u32,
@@ -8099,12 +8074,6 @@ pub struct WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
     pub dwDeletedObjectStartingOffset: u32,
     pub dwFlags: u32,
     pub wsObjectPathnameList: [u16; 1],
-}
-impl Copy for WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {}
-impl Clone for WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
     type TypeKind = windows_core::CopyType;
@@ -8115,15 +8084,10 @@ impl Default for WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {
     pub dwChangesSinceTransactionID: u32,
     pub dwResultSetStartingIndex: u32,
-}
-impl Copy for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {}
-impl Clone for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {
     type TypeKind = windows_core::CopyType;

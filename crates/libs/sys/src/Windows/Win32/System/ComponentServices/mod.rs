@@ -370,33 +370,24 @@ pub type ReleaseModes = i32;
 pub type TRACKING_COLL_TYPE = i32;
 pub type TransactionVote = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct APPDATA {
     pub m_idApp: u32,
     pub m_szAppGuid: [u16; 40],
     pub m_dwAppProcessId: u32,
     pub m_AppStatistics: APPSTATISTICS,
 }
-impl Copy for APPDATA {}
-impl Clone for APPDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct APPSTATISTICS {
     pub m_cTotalCalls: u32,
     pub m_cTotalInstances: u32,
     pub m_cTotalClasses: u32,
     pub m_cCallsPerSecond: u32,
 }
-impl Copy for APPSTATISTICS {}
-impl Clone for APPSTATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const AppDomainHelper: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xef24f689_14f8_4d92_b4af_d7b1f0e70fd4);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ApplicationProcessRecycleInfo {
     pub IsRecyclable: super::super::Foundation::BOOL,
     pub IsRecycled: super::super::Foundation::BOOL,
@@ -413,13 +404,8 @@ pub struct ApplicationProcessRecycleInfo {
     pub CallLimit: u32,
     pub NumCallsLastReported: u32,
 }
-impl Copy for ApplicationProcessRecycleInfo {}
-impl Clone for ApplicationProcessRecycleInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ApplicationProcessStatistics {
     pub NumCallsOutstanding: u32,
     pub NumTrackedComponents: u32,
@@ -430,13 +416,8 @@ pub struct ApplicationProcessStatistics {
     pub Reserved3: u32,
     pub Reserved4: u32,
 }
-impl Copy for ApplicationProcessStatistics {}
-impl Clone for ApplicationProcessStatistics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ApplicationProcessSummary {
     pub PartitionIdPrimaryApplication: windows_sys::core::GUID,
     pub ApplicationIdPrimaryApplication: windows_sys::core::GUID,
@@ -448,13 +429,8 @@ pub struct ApplicationProcessSummary {
     pub IsPaused: super::super::Foundation::BOOL,
     pub IsRecycled: super::super::Foundation::BOOL,
 }
-impl Copy for ApplicationProcessSummary {}
-impl Clone for ApplicationProcessSummary {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ApplicationSummary {
     pub ApplicationInstanceId: windows_sys::core::GUID,
     pub PartitionId: windows_sys::core::GUID,
@@ -464,14 +440,9 @@ pub struct ApplicationSummary {
     pub NumTrackedComponents: u32,
     pub NumComponentInstances: u32,
 }
-impl Copy for ApplicationSummary {}
-impl Clone for ApplicationSummary {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const ByotServerEx: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0aa_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLSIDDATA {
     pub m_clsid: windows_sys::core::GUID,
     pub m_cReferences: u32,
@@ -482,13 +453,8 @@ pub struct CLSIDDATA {
     pub m_cCallsCompleted: u32,
     pub m_cCallsFailed: u32,
 }
-impl Copy for CLSIDDATA {}
-impl Clone for CLSIDDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CLSIDDATA2 {
     pub m_clsid: windows_sys::core::GUID,
     pub m_appid: windows_sys::core::GUID,
@@ -504,17 +470,12 @@ pub struct CLSIDDATA2 {
     pub m_cCallsCompleted: u32,
     pub m_cCallsFailed: u32,
 }
-impl Copy for CLSIDDATA2 {}
-impl Clone for CLSIDDATA2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const COMAdminCatalog: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf618c514_dfb8_11d1_a2cf_00805fc79235);
 pub const COMAdminCatalogCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf618c516_dfb8_11d1_a2cf_00805fc79235);
 pub const COMAdminCatalogObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf618c515_dfb8_11d1_a2cf_00805fc79235);
 pub const COMEvents: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0ab_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COMSVCSEVENTINFO {
     pub cbSize: u32,
     pub dwPid: u32,
@@ -524,12 +485,6 @@ pub struct COMSVCSEVENTINFO {
     pub guidApp: windows_sys::core::GUID,
     pub sMachineName: windows_sys::core::PWSTR,
 }
-impl Copy for COMSVCSEVENTINFO {}
-impl Clone for COMSVCSEVENTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const CRMClerk: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0bd_7f19_11d2_978e_0000f8757e2a);
 pub const CRMRecoveryClerk: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0be_7f19_11d2_978e_0000f8757e2a);
 pub const CServiceConfig: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0c8_7f19_11d2_978e_0000f8757e2a);
@@ -538,18 +493,14 @@ pub const CoMTSLocator: windows_sys::core::GUID = windows_sys::core::GUID::from_
 pub const ComServiceEvents: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0c3_7f19_11d2_978e_0000f8757e2a);
 pub const ComSystemAppEventData: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0c6_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ComponentHangMonitorInfo {
     pub IsMonitored: super::super::Foundation::BOOL,
     pub TerminateOnHang: super::super::Foundation::BOOL,
     pub AvgCallThresholdInMs: u32,
 }
-impl Copy for ComponentHangMonitorInfo {}
-impl Clone for ComponentHangMonitorInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ComponentStatistics {
     pub NumInstances: u32,
     pub NumBoundReferences: u32,
@@ -565,13 +516,8 @@ pub struct ComponentStatistics {
     pub Reserved3: u32,
     pub Reserved4: u32,
 }
-impl Copy for ComponentStatistics {}
-impl Clone for ComponentStatistics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ComponentSummary {
     pub ApplicationInstanceId: windows_sys::core::GUID,
     pub PartitionId: windows_sys::core::GUID,
@@ -580,32 +526,20 @@ pub struct ComponentSummary {
     pub ClassName: windows_sys::core::PWSTR,
     pub ApplicationName: windows_sys::core::PWSTR,
 }
-impl Copy for ComponentSummary {}
-impl Clone for ComponentSummary {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct CrmLogRecordRead {
     pub dwCrmFlags: u32,
     pub dwSequenceNumber: u32,
     pub blobUserData: super::Com::BLOB,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for CrmLogRecordRead {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for CrmLogRecordRead {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const DispenserManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0c0_7f19_11d2_978e_0000f8757e2a);
 pub const Dummy30040732: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0a9_7f19_11d2_978e_0000f8757e2a);
 pub const EventServer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabafbc_7f19_11d2_978e_0000f8757e2a);
 pub const GetSecurityCallContextAppObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0a8_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HANG_INFO {
     pub fAppHangMonitorEnabled: super::super::Foundation::BOOL,
     pub fTerminateOnHang: super::super::Foundation::BOOL,
@@ -614,29 +548,18 @@ pub struct HANG_INFO {
     pub dwDumpCount: u32,
     pub dwInfoMsgCount: u32,
 }
-impl Copy for HANG_INFO {}
-impl Clone for HANG_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const LBEvents: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0c1_7f19_11d2_978e_0000f8757e2a);
 pub const MessageMover: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0bf_7f19_11d2_978e_0000f8757e2a);
 pub const MtsGrp: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4b2e958d_0393_11d1_b1ab_00aa00ba3258);
 pub const PoolMgr: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabafb5_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RECYCLE_INFO {
     pub guidCombaseProcessIdentifier: windows_sys::core::GUID,
     pub ProcessStartTime: i64,
     pub dwRecycleLifetimeLimit: u32,
     pub dwRecycleMemoryLimit: u32,
     pub dwRecycleExpirationTimeout: u32,
-}
-impl Copy for RECYCLE_INFO {}
-impl Clone for RECYCLE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const SecurityCallContext: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0a7_7f19_11d2_978e_0000f8757e2a);
 pub const SecurityCallers: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecabb0a6_7f19_11d2_978e_0000f8757e2a);

@@ -16066,15 +16066,10 @@ pub const ATSCComponentType: windows_core::GUID = windows_core::GUID::from_u128(
 pub const ATSCLocator: windows_core::GUID = windows_core::GUID::from_u128(0x8872ff1b_98fa_4d7a_8d93_c9f1055f85bb);
 pub const ATSCTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xa2e30750_6c3d_11d3_b653_00c04f79498e);
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct ATSC_FILTER_OPTIONS {
     pub fSpecifyEtmId: super::super::super::Foundation::BOOL,
     pub EtmId: u32,
-}
-impl Copy for ATSC_FILTER_OPTIONS {}
-impl Clone for ATSC_FILTER_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for ATSC_FILTER_OPTIONS {
     type TypeKind = windows_core::CopyType;
@@ -16092,32 +16087,16 @@ pub const AnalogTVTuningSpace: windows_core::GUID = windows_core::GUID::from_u12
 pub const AuxInTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xf9769a06_7aca_4e39_9cfb_97bb35f0e77e);
 pub const BDANETWORKTYPE_ATSC: windows_core::GUID = windows_core::GUID::from_u128(0x71985f51_1ca1_11d3_9cc8_00c04f7971e0);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_DEBUG_DATA {
     pub lResult: i32,
     pub uuidDebugDataType: windows_core::GUID,
     pub ulDataSize: u32,
     pub argbDebugData: [u8; 1],
 }
-impl Copy for BDA_DEBUG_DATA {}
-impl Clone for BDA_DEBUG_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_DEBUG_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_DEBUG_DATA").field("lResult", &self.lResult).field("uuidDebugDataType", &self.uuidDebugDataType).field("ulDataSize", &self.ulDataSize).field("argbDebugData", &self.argbDebugData).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_DEBUG_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_DEBUG_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lResult == other.lResult && self.uuidDebugDataType == other.uuidDebugDataType && self.ulDataSize == other.ulDataSize && self.argbDebugData == other.argbDebugData
-    }
-}
-impl Eq for BDA_DEBUG_DATA {}
 impl Default for BDA_DEBUG_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -16126,6 +16105,7 @@ impl Default for BDA_DEBUG_DATA {
 pub const BDA_DEBUG_DATA_AVAILABLE: windows_core::GUID = windows_core::GUID::from_u128(0x69c24f54_9983_497e_b415_282be4c555fb);
 pub const BDA_DEBUG_DATA_TYPE_STRING: windows_core::GUID = windows_core::GUID::from_u128(0xa806e767_de5c_430c_80bf_a21ebe06c748);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_EVENT_DATA {
     pub lResult: i32,
     pub ulEventID: u32,
@@ -16133,58 +16113,25 @@ pub struct BDA_EVENT_DATA {
     pub ulEventDataLength: u32,
     pub argbEventData: [u8; 1],
 }
-impl Copy for BDA_EVENT_DATA {}
-impl Clone for BDA_EVENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_EVENT_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_EVENT_DATA").field("lResult", &self.lResult).field("ulEventID", &self.ulEventID).field("uuidEventType", &self.uuidEventType).field("ulEventDataLength", &self.ulEventDataLength).field("argbEventData", &self.argbEventData).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_EVENT_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_EVENT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lResult == other.lResult && self.ulEventID == other.ulEventID && self.uuidEventType == other.uuidEventType && self.ulEventDataLength == other.ulEventDataLength && self.argbEventData == other.argbEventData
-    }
-}
-impl Eq for BDA_EVENT_DATA {}
 impl Default for BDA_EVENT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_TRANSPORT_INFO {
     pub ulcbPhyiscalPacket: u32,
     pub ulcbPhyiscalFrame: u32,
     pub ulcbPhyiscalFrameAlignment: u32,
     pub AvgTimePerFrame: i64,
 }
-impl Copy for BDA_TRANSPORT_INFO {}
-impl Clone for BDA_TRANSPORT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BDA_TRANSPORT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BDA_TRANSPORT_INFO").field("ulcbPhyiscalPacket", &self.ulcbPhyiscalPacket).field("ulcbPhyiscalFrame", &self.ulcbPhyiscalFrame).field("ulcbPhyiscalFrameAlignment", &self.ulcbPhyiscalFrameAlignment).field("AvgTimePerFrame", &self.AvgTimePerFrame).finish()
-    }
-}
 impl windows_core::TypeKind for BDA_TRANSPORT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BDA_TRANSPORT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulcbPhyiscalPacket == other.ulcbPhyiscalPacket && self.ulcbPhyiscalFrame == other.ulcbPhyiscalFrame && self.ulcbPhyiscalFrameAlignment == other.ulcbPhyiscalFrameAlignment && self.AvgTimePerFrame == other.AvgTimePerFrame
-    }
-}
-impl Eq for BDA_TRANSPORT_INFO {}
 impl Default for BDA_TRANSPORT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -16192,14 +16139,9 @@ impl Default for BDA_TRANSPORT_INFO {
 }
 pub const BSKYB_TERRESTRIAL_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x9e9e46c6_3aba_4f08_ad0e_cc5ac8148c2b);
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct BadSampleInfo {
     pub hrReason: windows_core::HRESULT,
-}
-impl Copy for BadSampleInfo {}
-impl Clone for BadSampleInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BadSampleInfo {
     type TypeKind = windows_core::CopyType;
@@ -16211,29 +16153,13 @@ impl Default for BadSampleInfo {
 }
 pub const BroadcastEventService: windows_core::GUID = windows_core::GUID::from_u128(0x0b3ffb92_0919_4934_9d5b_619c719d0202);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAPTURE_STREAMTIME {
     pub StreamTime: i64,
-}
-impl Copy for CAPTURE_STREAMTIME {}
-impl Clone for CAPTURE_STREAMTIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CAPTURE_STREAMTIME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CAPTURE_STREAMTIME").field("StreamTime", &self.StreamTime).finish()
-    }
 }
 impl windows_core::TypeKind for CAPTURE_STREAMTIME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CAPTURE_STREAMTIME {
-    fn eq(&self, other: &Self) -> bool {
-        self.StreamTime == other.StreamTime
-    }
-}
-impl Eq for CAPTURE_STREAMTIME {}
 impl Default for CAPTURE_STREAMTIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -16241,30 +16167,14 @@ impl Default for CAPTURE_STREAMTIME {
 }
 pub const CXDSData: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4f4_0049_4e2b_98fb_9537f6ce516d);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ChannelChangeInfo {
     pub state: ChannelChangeSpanningEvent_State,
     pub TimeStamp: u64,
 }
-impl Copy for ChannelChangeInfo {}
-impl Clone for ChannelChangeInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ChannelChangeInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ChannelChangeInfo").field("state", &self.state).field("TimeStamp", &self.TimeStamp).finish()
-    }
-}
 impl windows_core::TypeKind for ChannelChangeInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ChannelChangeInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.state == other.state && self.TimeStamp == other.TimeStamp
-    }
-}
-impl Eq for ChannelChangeInfo {}
 impl Default for ChannelChangeInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -16273,15 +16183,10 @@ impl Default for ChannelChangeInfo {
 pub const ChannelIDTuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0x3a9428a7_31a4_45e9_9efb_e055bf7bb3db);
 pub const ChannelIDTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xcc829a2f_3365_463f_af13_81dbb6f3a555);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ChannelInfo {
     pub lFrequency: i32,
     pub Anonymous: ChannelInfo_0,
-}
-impl Copy for ChannelInfo {}
-impl Clone for ChannelInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for ChannelInfo {
     type TypeKind = windows_core::CopyType;
@@ -16292,16 +16197,11 @@ impl Default for ChannelInfo {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union ChannelInfo_0 {
     pub DVB: ChannelInfo_0_2,
     pub DC: ChannelInfo_0_1,
     pub ATSC: ChannelInfo_0_0,
-}
-impl Copy for ChannelInfo_0 {}
-impl Clone for ChannelInfo_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for ChannelInfo_0 {
     type TypeKind = windows_core::CopyType;
@@ -16312,89 +16212,41 @@ impl Default for ChannelInfo_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ChannelInfo_0_0 {
     pub lProgNumber: i32,
-}
-impl Copy for ChannelInfo_0_0 {}
-impl Clone for ChannelInfo_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ChannelInfo_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ChannelInfo_0_0").field("lProgNumber", &self.lProgNumber).finish()
-    }
 }
 impl windows_core::TypeKind for ChannelInfo_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ChannelInfo_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.lProgNumber == other.lProgNumber
-    }
-}
-impl Eq for ChannelInfo_0_0 {}
 impl Default for ChannelInfo_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ChannelInfo_0_1 {
     pub lProgNumber: i32,
-}
-impl Copy for ChannelInfo_0_1 {}
-impl Clone for ChannelInfo_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ChannelInfo_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ChannelInfo_0_1").field("lProgNumber", &self.lProgNumber).finish()
-    }
 }
 impl windows_core::TypeKind for ChannelInfo_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ChannelInfo_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.lProgNumber == other.lProgNumber
-    }
-}
-impl Eq for ChannelInfo_0_1 {}
 impl Default for ChannelInfo_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ChannelInfo_0_2 {
     pub lONID: i32,
     pub lTSID: i32,
     pub lSID: i32,
 }
-impl Copy for ChannelInfo_0_2 {}
-impl Clone for ChannelInfo_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ChannelInfo_0_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ChannelInfo_0_2").field("lONID", &self.lONID).field("lTSID", &self.lTSID).field("lSID", &self.lSID).finish()
-    }
-}
 impl windows_core::TypeKind for ChannelInfo_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ChannelInfo_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.lONID == other.lONID && self.lTSID == other.lTSID && self.lSID == other.lSID
-    }
-}
-impl Eq for ChannelInfo_0_2 {}
 impl Default for ChannelInfo_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -16402,30 +16254,14 @@ impl Default for ChannelInfo_0_2 {
 }
 pub const ChannelTuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0x0369b4e5_45b6_11d3_b650_00c04f79498e);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ChannelTypeInfo {
     pub channelType: ChannelType,
     pub timeStamp: u64,
 }
-impl Copy for ChannelTypeInfo {}
-impl Clone for ChannelTypeInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ChannelTypeInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ChannelTypeInfo").field("channelType", &self.channelType).field("timeStamp", &self.timeStamp).finish()
-    }
-}
 impl windows_core::TypeKind for ChannelTypeInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ChannelTypeInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.channelType == other.channelType && self.timeStamp == other.timeStamp
-    }
-}
-impl Eq for ChannelTypeInfo {}
 impl Default for ChannelTypeInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -16439,6 +16275,7 @@ pub const CreatePropBagOnRegKey: windows_core::GUID = windows_core::GUID::from_u
 pub const DIGITAL_CABLE_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x143827ab_f77b_498d_81ca_5a007aec28bf);
 pub const DIRECT_TV_SATELLITE_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x93b66fb5_93d4_4323_921c_c1f52df61d3f);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSHOW_STREAM_DESC {
     pub VersionNo: u32,
     pub StreamId: u32,
@@ -16446,44 +16283,22 @@ pub struct DSHOW_STREAM_DESC {
     pub Creation: super::super::super::Foundation::BOOL,
     pub Reserved: u32,
 }
-impl Copy for DSHOW_STREAM_DESC {}
-impl Clone for DSHOW_STREAM_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DSHOW_STREAM_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DSHOW_STREAM_DESC").field("VersionNo", &self.VersionNo).field("StreamId", &self.StreamId).field("Default", &self.Default).field("Creation", &self.Creation).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for DSHOW_STREAM_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DSHOW_STREAM_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.VersionNo == other.VersionNo && self.StreamId == other.StreamId && self.Default == other.Default && self.Creation == other.Creation && self.Reserved == other.Reserved
-    }
-}
-impl Eq for DSHOW_STREAM_DESC {}
 impl Default for DSHOW_STREAM_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DSMCC_ELEMENT {
     pub pid: u16,
     pub bComponentTag: u8,
     pub dwCarouselId: u32,
     pub dwTransactionId: u32,
     pub pNext: *mut DSMCC_ELEMENT,
-}
-impl Copy for DSMCC_ELEMENT {}
-impl Clone for DSMCC_ELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DSMCC_ELEMENT {
     type TypeKind = windows_core::CopyType;
@@ -16494,6 +16309,7 @@ impl Default for DSMCC_ELEMENT {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DSMCC_FILTER_OPTIONS {
     pub fSpecifyProtocol: super::super::super::Foundation::BOOL,
     pub Protocol: u8,
@@ -16511,12 +16327,6 @@ pub struct DSMCC_FILTER_OPTIONS {
     pub fGetModuleCall: super::super::super::Foundation::BOOL,
     pub NumberOfBlocksInModule: u16,
 }
-impl Copy for DSMCC_FILTER_OPTIONS {}
-impl Clone for DSMCC_FILTER_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DSMCC_FILTER_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
@@ -16526,6 +16336,7 @@ impl Default for DSMCC_FILTER_OPTIONS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DSMCC_SECTION {
     pub TableId: u8,
     pub Header: DSMCC_SECTION_0,
@@ -16542,12 +16353,6 @@ pub struct DSMCC_SECTION {
     pub MessageLength: u16,
     pub RemainingData: [u8; 1],
 }
-impl Copy for DSMCC_SECTION {}
-impl Clone for DSMCC_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for DSMCC_SECTION {
     type TypeKind = windows_core::CopyType;
 }
@@ -16557,15 +16362,10 @@ impl Default for DSMCC_SECTION {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union DSMCC_SECTION_0 {
     pub S: MPEG_HEADER_BITS_MIDL,
     pub W: u16,
-}
-impl Copy for DSMCC_SECTION_0 {}
-impl Clone for DSMCC_SECTION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DSMCC_SECTION_0 {
     type TypeKind = windows_core::CopyType;
@@ -16576,15 +16376,10 @@ impl Default for DSMCC_SECTION_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DSMCC_SECTION_1 {
     pub S: MPEG_HEADER_VERSION_BITS_MIDL,
     pub B: u8,
-}
-impl Copy for DSMCC_SECTION_1 {}
-impl Clone for DSMCC_SECTION_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DSMCC_SECTION_1 {
     type TypeKind = windows_core::CopyType;
@@ -16599,30 +16394,14 @@ pub const DVBCLocator: windows_core::GUID = windows_core::GUID::from_u128(0xc531
 pub const DVBSLocator: windows_core::GUID = windows_core::GUID::from_u128(0x1df7d126_4050_47f0_a7cf_4c4ca9241333);
 pub const DVBSTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xb64016f3_c9a2_4066_96f0_bd9563314726);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVBScramblingControlSpanningEvent {
     pub ulPID: u32,
     pub fScrambled: super::super::super::Foundation::BOOL,
 }
-impl Copy for DVBScramblingControlSpanningEvent {}
-impl Clone for DVBScramblingControlSpanningEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DVBScramblingControlSpanningEvent {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DVBScramblingControlSpanningEvent").field("ulPID", &self.ulPID).field("fScrambled", &self.fScrambled).finish()
-    }
-}
 impl windows_core::TypeKind for DVBScramblingControlSpanningEvent {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DVBScramblingControlSpanningEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulPID == other.ulPID && self.fScrambled == other.fScrambled
-    }
-}
-impl Eq for DVBScramblingControlSpanningEvent {}
 impl Default for DVBScramblingControlSpanningEvent {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -16634,15 +16413,10 @@ pub const DVBTuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0x1
 pub const DVBTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xc6b14b32_76aa_4a86_a7ac_5c79aaf58da7);
 pub const DVB_CABLE_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0xdc0c0fe7_0485_4266_b93f_68fbf80ed834);
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DVB_EIT_FILTER_OPTIONS {
     pub fSpecifySegment: super::super::super::Foundation::BOOL,
     pub bSegment: u8,
-}
-impl Copy for DVB_EIT_FILTER_OPTIONS {}
-impl Clone for DVB_EIT_FILTER_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DVB_EIT_FILTER_OPTIONS {
     type TypeKind = windows_core::CopyType;
@@ -16656,6 +16430,7 @@ pub const DVB_SATELLITE_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID
 pub const DVB_TERRESTRIAL_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x216c62df_6d7f_4e9a_8571_05f14edb766a);
 #[repr(C)]
 #[cfg(feature = "Win32_Media_MediaFoundation")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct DVR_STREAM_DESC {
     pub Version: u32,
     pub StreamId: u32,
@@ -16673,23 +16448,9 @@ impl Clone for DVR_STREAM_DESC {
     }
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
-impl core::fmt::Debug for DVR_STREAM_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DVR_STREAM_DESC").field("Version", &self.Version).field("StreamId", &self.StreamId).field("Default", &self.Default).field("Creation", &self.Creation).field("Reserved", &self.Reserved).field("guidSubMediaType", &self.guidSubMediaType).field("guidFormatType", &self.guidFormatType).field("MediaType", &self.MediaType).finish()
-    }
-}
-#[cfg(feature = "Win32_Media_MediaFoundation")]
 impl windows_core::TypeKind for DVR_STREAM_DESC {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Media_MediaFoundation")]
-impl PartialEq for DVR_STREAM_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.StreamId == other.StreamId && self.Default == other.Default && self.Creation == other.Creation && self.Reserved == other.Reserved && self.guidSubMediaType == other.guidSubMediaType && self.guidFormatType == other.guidFormatType && self.MediaType == other.MediaType
-    }
-}
-#[cfg(feature = "Win32_Media_MediaFoundation")]
-impl Eq for DVR_STREAM_DESC {}
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 impl Default for DVR_STREAM_DESC {
     fn default() -> Self {
@@ -16701,92 +16462,44 @@ pub const DigitalCableTuneRequest: windows_core::GUID = windows_core::GUID::from
 pub const DigitalCableTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xd9bb4cee_b87a_47f1_ac92_b08d9c7813fc);
 pub const DigitalLocator: windows_core::GUID = windows_core::GUID::from_u128(0x6e50cc0d_c19b_4bf6_810b_5bd60761f5cc);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DualMonoInfo {
     pub LangID1: u16,
     pub LangID2: u16,
     pub lISOLangCode1: i32,
     pub lISOLangCode2: i32,
 }
-impl Copy for DualMonoInfo {}
-impl Clone for DualMonoInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DualMonoInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DualMonoInfo").field("LangID1", &self.LangID1).field("LangID2", &self.LangID2).field("lISOLangCode1", &self.lISOLangCode1).field("lISOLangCode2", &self.lISOLangCode2).finish()
-    }
-}
 impl windows_core::TypeKind for DualMonoInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DualMonoInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.LangID1 == other.LangID1 && self.LangID2 == other.LangID2 && self.lISOLangCode1 == other.lISOLangCode1 && self.lISOLangCode2 == other.lISOLangCode2
-    }
-}
-impl Eq for DualMonoInfo {}
 impl Default for DualMonoInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DvbParentalRatingDescriptor {
     pub ulNumParams: u32,
     pub pParams: [DvbParentalRatingParam; 1],
 }
-impl Copy for DvbParentalRatingDescriptor {}
-impl Clone for DvbParentalRatingDescriptor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DvbParentalRatingDescriptor {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DvbParentalRatingDescriptor").field("ulNumParams", &self.ulNumParams).field("pParams", &self.pParams).finish()
-    }
-}
 impl windows_core::TypeKind for DvbParentalRatingDescriptor {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DvbParentalRatingDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulNumParams == other.ulNumParams && self.pParams == other.pParams
-    }
-}
-impl Eq for DvbParentalRatingDescriptor {}
 impl Default for DvbParentalRatingDescriptor {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DvbParentalRatingParam {
     pub szCountryCode: [i8; 4],
     pub bRating: u8,
 }
-impl Copy for DvbParentalRatingParam {}
-impl Clone for DvbParentalRatingParam {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DvbParentalRatingParam {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DvbParentalRatingParam").field("szCountryCode", &self.szCountryCode).field("bRating", &self.bRating).finish()
-    }
-}
 impl windows_core::TypeKind for DvbParentalRatingParam {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DvbParentalRatingParam {
-    fn eq(&self, other: &Self) -> bool {
-        self.szCountryCode == other.szCountryCode && self.bRating == other.bRating
-    }
-}
-impl Eq for DvbParentalRatingParam {}
 impl Default for DvbParentalRatingParam {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -16894,19 +16607,12 @@ pub const KSDATAFORMAT_TYPE_MPE: windows_core::GUID = windows_core::GUID::from_u
 pub const KSDATAFORMAT_TYPE_MPEG2_SECTIONS: windows_core::GUID = windows_core::GUID::from_u128(0x455f176c_4b06_47ce_9aef_8caef73df7b5);
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSEVENTDATA_BDA_RF_TUNER_SCAN_S {
     pub EventData: super::super::KernelStreaming::KSEVENTDATA,
     pub StartFrequency: u32,
     pub EndFrequency: u32,
     pub LockRequested: BDA_LockType,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSEVENTDATA_BDA_RF_TUNER_SCAN_S {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSEVENTDATA_BDA_RF_TUNER_SCAN_S {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSEVENTDATA_BDA_RF_TUNER_SCAN_S {
@@ -16942,18 +16648,11 @@ pub const KSMETHODSETID_BdaWmdrmSession: windows_core::GUID = windows_core::GUID
 pub const KSMETHODSETID_BdaWmdrmTuner: windows_core::GUID = windows_core::GUID::from_u128(0x86d979cf_a8a7_4f94_b5fb_14c0aca68fe6);
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_BUFFER {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulBufferSize: u32,
     pub argbBuffer: [u8; 1],
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_BUFFER {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_BUFFER {
@@ -16967,18 +16666,11 @@ impl Default for KSM_BDA_BUFFER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_CAS_CAPTURETOKEN {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulTokenLength: u32,
     pub argbToken: [u8; 1],
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_CAS_CAPTURETOKEN {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_CAS_CAPTURETOKEN {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_CAS_CAPTURETOKEN {
@@ -16992,20 +16684,13 @@ impl Default for KSM_BDA_CAS_CAPTURETOKEN {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_CAS_CLOSEMMIDIALOG {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulDialogRequest: u32,
     pub cLanguage: [i8; 12],
     pub ulDialogNumber: u32,
     pub ulReason: u32,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_CAS_CLOSEMMIDIALOG {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_CAS_CLOSEMMIDIALOG {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_CAS_CLOSEMMIDIALOG {
@@ -17019,6 +16704,7 @@ impl Default for KSM_BDA_CAS_CLOSEMMIDIALOG {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_CAS_ENTITLEMENTTOKEN {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulDialogRequest: u32,
@@ -17026,14 +16712,6 @@ pub struct KSM_BDA_CAS_ENTITLEMENTTOKEN {
     pub ulRequestType: u32,
     pub ulEntitlementTokenLen: u32,
     pub argbEntitlementToken: [u8; 1],
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_CAS_ENTITLEMENTTOKEN {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_CAS_ENTITLEMENTTOKEN {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_CAS_ENTITLEMENTTOKEN {
@@ -17047,19 +16725,12 @@ impl Default for KSM_BDA_CAS_ENTITLEMENTTOKEN {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_CAS_OPENBROADCASTMMI {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulDialogRequest: u32,
     pub cLanguage: [i8; 12],
     pub ulEventId: u32,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_CAS_OPENBROADCASTMMI {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_CAS_OPENBROADCASTMMI {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_CAS_OPENBROADCASTMMI {
@@ -17073,19 +16744,12 @@ impl Default for KSM_BDA_CAS_OPENBROADCASTMMI {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_DEBUG_LEVEL {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub ucDebugLevel: u8,
     pub ulDebugStringSize: u32,
     pub argbDebugString: [u8; 1],
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_DEBUG_LEVEL {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_DEBUG_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_DEBUG_LEVEL {
@@ -17099,17 +16763,10 @@ impl Default for KSM_BDA_DEBUG_LEVEL {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_DRM_SETDRM {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub NewDRMuuid: windows_core::GUID,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_DRM_SETDRM {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_DRM_SETDRM {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_DRM_SETDRM {
@@ -17123,18 +16780,11 @@ impl Default for KSM_BDA_DRM_SETDRM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_EVENT_COMPLETE {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub ulEventID: u32,
     pub ulEventResult: u32,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_EVENT_COMPLETE {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_EVENT_COMPLETE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_EVENT_COMPLETE {
@@ -17148,18 +16798,11 @@ impl Default for KSM_BDA_EVENT_COMPLETE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_GDDS_SERVICEFROMTUNEXML {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub ulTuneXmlLength: u32,
     pub argbTuneXml: [u8; 1],
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_GDDS_SERVICEFROMTUNEXML {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_GDDS_SERVICEFROMTUNEXML {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_GDDS_SERVICEFROMTUNEXML {
@@ -17173,17 +16816,10 @@ impl Default for KSM_BDA_GDDS_SERVICEFROMTUNEXML {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_GDDS_TUNEXMLFROMIDX {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub ulIdx: u64,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_GDDS_TUNEXMLFROMIDX {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_GDDS_TUNEXMLFROMIDX {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_GDDS_TUNEXMLFROMIDX {
@@ -17197,19 +16833,12 @@ impl Default for KSM_BDA_GDDS_TUNEXMLFROMIDX {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_GPNV_GETVALUE {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub ulNameLength: u32,
     pub cLanguage: [i8; 12],
     pub argbData: [u8; 1],
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_GPNV_GETVALUE {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_GPNV_GETVALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_GPNV_GETVALUE {
@@ -17223,17 +16852,10 @@ impl Default for KSM_BDA_GPNV_GETVALUE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_GPNV_NAMEINDEX {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub ulValueNameIndex: u32,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_GPNV_NAMEINDEX {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_GPNV_NAMEINDEX {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_GPNV_NAMEINDEX {
@@ -17247,6 +16869,7 @@ impl Default for KSM_BDA_GPNV_NAMEINDEX {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_GPNV_SETVALUE {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub ulDialogRequest: u32,
@@ -17254,14 +16877,6 @@ pub struct KSM_BDA_GPNV_SETVALUE {
     pub ulNameLength: u32,
     pub ulValueLength: u32,
     pub argbName: [u8; 1],
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_GPNV_SETVALUE {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_GPNV_SETVALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_GPNV_SETVALUE {
@@ -17275,19 +16890,12 @@ impl Default for KSM_BDA_GPNV_SETVALUE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_ISDBCAS_REQUEST {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulRequestID: u32,
     pub ulIsdbCommandSize: u32,
     pub argbIsdbCommandData: [u8; 1],
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_ISDBCAS_REQUEST {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_ISDBCAS_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_ISDBCAS_REQUEST {
@@ -17301,18 +16909,11 @@ impl Default for KSM_BDA_ISDBCAS_REQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_PIN {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub Anonymous: KSM_BDA_PIN_0,
     pub Reserved: u32,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_PIN {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_PIN {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_PIN {
@@ -17326,17 +16927,10 @@ impl Default for KSM_BDA_PIN {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub union KSM_BDA_PIN_0 {
     pub PinId: u32,
     pub PinType: u32,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_PIN_0 {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_PIN_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_PIN_0 {
@@ -17350,18 +16944,11 @@ impl Default for KSM_BDA_PIN_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_PIN_PAIR {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub Anonymous1: KSM_BDA_PIN_PAIR_0,
     pub Anonymous2: KSM_BDA_PIN_PAIR_1,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_PIN_PAIR {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_PIN_PAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_PIN_PAIR {
@@ -17375,17 +16962,10 @@ impl Default for KSM_BDA_PIN_PAIR {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub union KSM_BDA_PIN_PAIR_0 {
     pub InputPinId: u32,
     pub InputPinType: u32,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_PIN_PAIR_0 {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_PIN_PAIR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_PIN_PAIR_0 {
@@ -17399,17 +16979,10 @@ impl Default for KSM_BDA_PIN_PAIR_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub union KSM_BDA_PIN_PAIR_1 {
     pub OutputPinId: u32,
     pub OutputPinType: u32,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_PIN_PAIR_1 {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_PIN_PAIR_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_PIN_PAIR_1 {
@@ -17423,17 +16996,10 @@ impl Default for KSM_BDA_PIN_PAIR_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_SCAN_CAPABILTIES {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub uuidBroadcastStandard: windows_core::GUID,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_SCAN_CAPABILTIES {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_SCAN_CAPABILTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_SCAN_CAPABILTIES {
@@ -17447,19 +17013,12 @@ impl Default for KSM_BDA_SCAN_CAPABILTIES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_SCAN_FILTER {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub ulScanModulationTypeSize: u32,
     pub AnalogVideoStandards: u64,
     pub argbScanModulationTypes: [u8; 1],
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_SCAN_FILTER {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_SCAN_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_SCAN_FILTER {
@@ -17473,18 +17032,11 @@ impl Default for KSM_BDA_SCAN_FILTER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_SCAN_START {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub LowerFrequency: u32,
     pub HigherFrequency: u32,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_SCAN_START {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_SCAN_START {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_SCAN_START {
@@ -17498,17 +17050,10 @@ impl Default for KSM_BDA_SCAN_START {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_TS_SELECTOR_SETTSID {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub usTSID: u16,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_TS_SELECTOR_SETTSID {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_TS_SELECTOR_SETTSID {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_TS_SELECTOR_SETTSID {
@@ -17522,18 +17067,11 @@ impl Default for KSM_BDA_TS_SELECTOR_SETTSID {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_TUNER_TUNEREQUEST {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub ulTuneLength: u32,
     pub argbTuneData: [u8; 1],
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_TUNER_TUNEREQUEST {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_TUNER_TUNEREQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_TUNER_TUNEREQUEST {
@@ -17547,17 +17085,10 @@ impl Default for KSM_BDA_TUNER_TUNEREQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_USERACTIVITY_USEREASON {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub ulUseReason: u32,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_USERACTIVITY_USEREASON {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_USERACTIVITY_USEREASON {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_USERACTIVITY_USEREASON {
@@ -17571,17 +17102,10 @@ impl Default for KSM_BDA_USERACTIVITY_USEREASON {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_WMDRMTUNER_GETPIDPROTECTION {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulPID: u32,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_WMDRMTUNER_GETPIDPROTECTION {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_WMDRMTUNER_GETPIDPROTECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_WMDRMTUNER_GETPIDPROTECTION {
@@ -17595,20 +17119,13 @@ impl Default for KSM_BDA_WMDRMTUNER_GETPIDPROTECTION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulDialogRequest: u32,
     pub cLanguage: [i8; 12],
     pub ulPurchaseTokenLength: u32,
     pub argbDataBuffer: [u8; 1],
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_WMDRMTUNER_PURCHASEENTITLEMENT {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
@@ -17622,18 +17139,11 @@ impl Default for KSM_BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_WMDRMTUNER_SETPIDPROTECTION {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulPID: u32,
     pub uuidKeyID: windows_core::GUID,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_WMDRMTUNER_SETPIDPROTECTION {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_WMDRMTUNER_SETPIDPROTECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_WMDRMTUNER_SETPIDPROTECTION {
@@ -17647,17 +17157,10 @@ impl Default for KSM_BDA_WMDRMTUNER_SETPIDPROTECTION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_WMDRMTUNER_SYNCVALUE {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulSyncValue: u32,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_WMDRMTUNER_SYNCVALUE {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_WMDRMTUNER_SYNCVALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_WMDRMTUNER_SYNCVALUE {
@@ -17671,17 +17174,10 @@ impl Default for KSM_BDA_WMDRMTUNER_SYNCVALUE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_WMDRM_LICENSE {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub uuidKeyID: windows_core::GUID,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_WMDRM_LICENSE {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_WMDRM_LICENSE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_WMDRM_LICENSE {
@@ -17695,19 +17191,12 @@ impl Default for KSM_BDA_WMDRM_LICENSE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_WMDRM_RENEWLICENSE {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulXMRLicenseLength: u32,
     pub ulEntitlementTokenLength: u32,
     pub argbDataBuffer: [u8; 1],
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSM_BDA_WMDRM_RENEWLICENSE {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSM_BDA_WMDRM_RENEWLICENSE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSM_BDA_WMDRM_RENEWLICENSE {
@@ -17742,6 +17231,7 @@ pub const KSNODE_BDA_TS_SELECTOR: windows_core::GUID = windows_core::GUID::from_
 pub const KSNODE_BDA_VIDEO_ENCODER: windows_core::GUID = windows_core::GUID::from_u128(0xd98429e3_65c9_4ac4_93aa_766782833b7a);
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_BDA_RF_TUNER_CAPS_S {
     pub Property: super::super::KernelStreaming::KSP_NODE,
     pub Mode: u32,
@@ -17755,14 +17245,6 @@ pub struct KSPROPERTY_BDA_RF_TUNER_CAPS_S {
     pub MilliSecondsPerMHz: u32,
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSPROPERTY_BDA_RF_TUNER_CAPS_S {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSPROPERTY_BDA_RF_TUNER_CAPS_S {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSPROPERTY_BDA_RF_TUNER_CAPS_S {
     type TypeKind = windows_core::CopyType;
 }
@@ -17774,20 +17256,13 @@ impl Default for KSPROPERTY_BDA_RF_TUNER_CAPS_S {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_BDA_RF_TUNER_SCAN_STATUS_S {
     pub Property: super::super::KernelStreaming::KSP_NODE,
     pub CurrentFrequency: u32,
     pub FrequencyRangeMin: u32,
     pub FrequencyRangeMax: u32,
     pub MilliSecondsLeft: u32,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSPROPERTY_BDA_RF_TUNER_SCAN_STATUS_S {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSPROPERTY_BDA_RF_TUNER_SCAN_STATUS_S {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSPROPERTY_BDA_RF_TUNER_SCAN_STATUS_S {
@@ -17801,17 +17276,10 @@ impl Default for KSPROPERTY_BDA_RF_TUNER_SCAN_STATUS_S {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_BDA_RF_TUNER_STANDARD_MODE_S {
     pub Property: super::super::KernelStreaming::KSP_NODE,
     pub AutoDetect: super::super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSPROPERTY_BDA_RF_TUNER_STANDARD_MODE_S {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSPROPERTY_BDA_RF_TUNER_STANDARD_MODE_S {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSPROPERTY_BDA_RF_TUNER_STANDARD_MODE_S {
@@ -17825,18 +17293,11 @@ impl Default for KSPROPERTY_BDA_RF_TUNER_STANDARD_MODE_S {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_BDA_RF_TUNER_STANDARD_S {
     pub Property: super::super::KernelStreaming::KSP_NODE,
     pub SignalType: BDA_SignalType,
     pub SignalStandard: u32,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSPROPERTY_BDA_RF_TUNER_STANDARD_S {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSPROPERTY_BDA_RF_TUNER_STANDARD_S {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSPROPERTY_BDA_RF_TUNER_STANDARD_S {
@@ -17866,19 +17327,12 @@ pub const KSPROPSETID_BdaTopology: windows_core::GUID = windows_core::GUID::from
 pub const KSPROPSETID_BdaVoidTransform: windows_core::GUID = windows_core::GUID::from_u128(0x71985f46_1ca1_11d3_9cc8_00c04f7971e0);
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSP_BDA_NODE_PIN {
     pub Property: super::super::KernelStreaming::KSIDENTIFIER,
     pub ulNodeType: u32,
     pub ulInputPinId: u32,
     pub ulOutputPinId: u32,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSP_BDA_NODE_PIN {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSP_BDA_NODE_PIN {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSP_BDA_NODE_PIN {
@@ -17892,17 +17346,10 @@ impl Default for KSP_BDA_NODE_PIN {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KSP_NODE_ESPID {
     pub Property: super::super::KernelStreaming::KSP_NODE,
     pub EsPid: u32,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KSP_NODE_ESPID {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KSP_NODE_ESPID {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KSP_NODE_ESPID {
@@ -17916,16 +17363,9 @@ impl Default for KSP_NODE_ESPID {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KS_DATARANGE_BDA_ANTENNA {
     pub DataRange: super::super::KernelStreaming::KSDATAFORMAT,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KS_DATARANGE_BDA_ANTENNA {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KS_DATARANGE_BDA_ANTENNA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KS_DATARANGE_BDA_ANTENNA {
@@ -17939,17 +17379,10 @@ impl Default for KS_DATARANGE_BDA_ANTENNA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
+#[derive(Clone, Copy)]
 pub struct KS_DATARANGE_BDA_TRANSPORT {
     pub DataRange: super::super::KernelStreaming::KSDATAFORMAT,
     pub BdaTransportInfo: BDA_TRANSPORT_INFO,
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Copy for KS_DATARANGE_BDA_TRANSPORT {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl Clone for KS_DATARANGE_BDA_TRANSPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl windows_core::TypeKind for KS_DATARANGE_BDA_TRANSPORT {
@@ -17962,6 +17395,7 @@ impl Default for KS_DATARANGE_BDA_TRANSPORT {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LONG_SECTION {
     pub TableId: u8,
     pub Header: LONG_SECTION_0,
@@ -17970,12 +17404,6 @@ pub struct LONG_SECTION {
     pub SectionNumber: u8,
     pub LastSectionNumber: u8,
     pub RemainingData: [u8; 1],
-}
-impl Copy for LONG_SECTION {}
-impl Clone for LONG_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LONG_SECTION {
     type TypeKind = windows_core::CopyType;
@@ -17986,15 +17414,10 @@ impl Default for LONG_SECTION {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union LONG_SECTION_0 {
     pub S: MPEG_HEADER_BITS_MIDL,
     pub W: u16,
-}
-impl Copy for LONG_SECTION_0 {}
-impl Clone for LONG_SECTION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LONG_SECTION_0 {
     type TypeKind = windows_core::CopyType;
@@ -18005,15 +17428,10 @@ impl Default for LONG_SECTION_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union LONG_SECTION_1 {
     pub S: MPEG_HEADER_VERSION_BITS_MIDL,
     pub B: u8,
-}
-impl Copy for LONG_SECTION_1 {}
-impl Clone for LONG_SECTION_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for LONG_SECTION_1 {
     type TypeKind = windows_core::CopyType;
@@ -18025,30 +17443,14 @@ impl Default for LONG_SECTION_1 {
 }
 pub const LanguageComponentType: windows_core::GUID = windows_core::GUID::from_u128(0x1be49f30_0e1b_11d3_9d8e_00c04f72d980);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LanguageInfo {
     pub LangID: u16,
     pub lISOLangCode: i32,
 }
-impl Copy for LanguageInfo {}
-impl Clone for LanguageInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LanguageInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LanguageInfo").field("LangID", &self.LangID).field("lISOLangCode", &self.lISOLangCode).finish()
-    }
-}
 impl windows_core::TypeKind for LanguageInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LanguageInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.LangID == other.LangID && self.lISOLangCode == other.lISOLangCode
-    }
-}
-impl Eq for LanguageInfo {}
 impl Default for LanguageInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -18060,6 +17462,7 @@ pub const MPEG2ComponentType: windows_core::GUID = windows_core::GUID::from_u128
 pub const MPEG2TuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0x0955ac62_bf2e_4cba_a2b9_a63f772d46cf);
 pub const MPEG2TuneRequestFactory: windows_core::GUID = windows_core::GUID::from_u128(0x2c63e4eb_4cea_41b8_919c_e947ea19a77c);
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MPEG2_FILTER {
     pub bVersionNumber: u8,
     pub wFilterSize: u16,
@@ -18079,12 +17482,6 @@ pub struct MPEG2_FILTER {
     pub fSpecifyAtscOptions: super::super::super::Foundation::BOOL,
     pub Atsc: ATSC_FILTER_OPTIONS,
 }
-impl Copy for MPEG2_FILTER {}
-impl Clone for MPEG2_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for MPEG2_FILTER {
     type TypeKind = windows_core::CopyType;
 }
@@ -18094,16 +17491,11 @@ impl Default for MPEG2_FILTER {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MPEG2_FILTER2 {
     pub Anonymous: MPEG2_FILTER2_0,
     pub fSpecifyDvbEitOptions: super::super::super::Foundation::BOOL,
     pub DvbEit: DVB_EIT_FILTER_OPTIONS,
-}
-impl Copy for MPEG2_FILTER2 {}
-impl Clone for MPEG2_FILTER2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MPEG2_FILTER2 {
     type TypeKind = windows_core::CopyType;
@@ -18114,15 +17506,10 @@ impl Default for MPEG2_FILTER2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MPEG2_FILTER2_0 {
     pub Anonymous: MPEG2_FILTER2_0_0,
     pub bVersion1Bytes: [u8; 124],
-}
-impl Copy for MPEG2_FILTER2_0 {}
-impl Clone for MPEG2_FILTER2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MPEG2_FILTER2_0 {
     type TypeKind = windows_core::CopyType;
@@ -18133,6 +17520,7 @@ impl Default for MPEG2_FILTER2_0 {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MPEG2_FILTER2_0_0 {
     pub bVersionNumber: u8,
     pub wFilterSize: u16,
@@ -18152,12 +17540,6 @@ pub struct MPEG2_FILTER2_0_0 {
     pub fSpecifyAtscOptions: super::super::super::Foundation::BOOL,
     pub Atsc: ATSC_FILTER_OPTIONS,
 }
-impl Copy for MPEG2_FILTER2_0_0 {}
-impl Clone for MPEG2_FILTER2_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for MPEG2_FILTER2_0_0 {
     type TypeKind = windows_core::CopyType;
 }
@@ -18167,14 +17549,9 @@ impl Default for MPEG2_FILTER2_0_0 {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MPEG_BCS_DEMUX {
     pub AVMGraphId: u32,
-}
-impl Copy for MPEG_BCS_DEMUX {}
-impl Clone for MPEG_BCS_DEMUX {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MPEG_BCS_DEMUX {
     type TypeKind = windows_core::CopyType;
@@ -18185,15 +17562,10 @@ impl Default for MPEG_BCS_DEMUX {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MPEG_CONTEXT {
     pub Type: MPEG_CONTEXT_TYPE,
     pub U: MPEG_CONTEXT_0,
-}
-impl Copy for MPEG_CONTEXT {}
-impl Clone for MPEG_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MPEG_CONTEXT {
     type TypeKind = windows_core::CopyType;
@@ -18204,15 +17576,10 @@ impl Default for MPEG_CONTEXT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MPEG_CONTEXT_0 {
     pub Demux: MPEG_BCS_DEMUX,
     pub Winsock: MPEG_WINSOCK,
-}
-impl Copy for MPEG_CONTEXT_0 {}
-impl Clone for MPEG_CONTEXT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MPEG_CONTEXT_0 {
     type TypeKind = windows_core::CopyType;
@@ -18223,16 +17590,11 @@ impl Default for MPEG_CONTEXT_0 {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MPEG_DATE {
     pub Date: u8,
     pub Month: u8,
     pub Year: u16,
-}
-impl Copy for MPEG_DATE {}
-impl Clone for MPEG_DATE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MPEG_DATE {
     type TypeKind = windows_core::CopyType;
@@ -18243,15 +17605,10 @@ impl Default for MPEG_DATE {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MPEG_DATE_AND_TIME {
     pub D: MPEG_DATE,
     pub T: MPEG_TIME,
-}
-impl Copy for MPEG_DATE_AND_TIME {}
-impl Clone for MPEG_DATE_AND_TIME {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MPEG_DATE_AND_TIME {
     type TypeKind = windows_core::CopyType;
@@ -18262,14 +17619,9 @@ impl Default for MPEG_DATE_AND_TIME {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MPEG_HEADER_BITS {
     pub _bitfield: u16,
-}
-impl Copy for MPEG_HEADER_BITS {}
-impl Clone for MPEG_HEADER_BITS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MPEG_HEADER_BITS {
     type TypeKind = windows_core::CopyType;
@@ -18280,14 +17632,9 @@ impl Default for MPEG_HEADER_BITS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MPEG_HEADER_BITS_MIDL {
     pub Bits: u16,
-}
-impl Copy for MPEG_HEADER_BITS_MIDL {}
-impl Clone for MPEG_HEADER_BITS_MIDL {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MPEG_HEADER_BITS_MIDL {
     type TypeKind = windows_core::CopyType;
@@ -18298,73 +17645,36 @@ impl Default for MPEG_HEADER_BITS_MIDL {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPEG_HEADER_VERSION_BITS {
     pub _bitfield: u8,
-}
-impl Copy for MPEG_HEADER_VERSION_BITS {}
-impl Clone for MPEG_HEADER_VERSION_BITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MPEG_HEADER_VERSION_BITS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPEG_HEADER_VERSION_BITS").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for MPEG_HEADER_VERSION_BITS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MPEG_HEADER_VERSION_BITS {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for MPEG_HEADER_VERSION_BITS {}
 impl Default for MPEG_HEADER_VERSION_BITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPEG_HEADER_VERSION_BITS_MIDL {
     pub Bits: u8,
-}
-impl Copy for MPEG_HEADER_VERSION_BITS_MIDL {}
-impl Clone for MPEG_HEADER_VERSION_BITS_MIDL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MPEG_HEADER_VERSION_BITS_MIDL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MPEG_HEADER_VERSION_BITS_MIDL").field("Bits", &self.Bits).finish()
-    }
 }
 impl windows_core::TypeKind for MPEG_HEADER_VERSION_BITS_MIDL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MPEG_HEADER_VERSION_BITS_MIDL {
-    fn eq(&self, other: &Self) -> bool {
-        self.Bits == other.Bits
-    }
-}
-impl Eq for MPEG_HEADER_VERSION_BITS_MIDL {}
 impl Default for MPEG_HEADER_VERSION_BITS_MIDL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MPEG_PACKET_LIST {
     pub wPacketCount: u16,
     pub PacketList: [*mut MPEG_RQST_PACKET; 1],
-}
-impl Copy for MPEG_PACKET_LIST {}
-impl Clone for MPEG_PACKET_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MPEG_PACKET_LIST {
     type TypeKind = windows_core::CopyType;
@@ -18375,15 +17685,10 @@ impl Default for MPEG_PACKET_LIST {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MPEG_RQST_PACKET {
     pub dwLength: u32,
     pub pSection: *mut SECTION,
-}
-impl Copy for MPEG_RQST_PACKET {}
-impl Clone for MPEG_RQST_PACKET {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MPEG_RQST_PACKET {
     type TypeKind = windows_core::CopyType;
@@ -18394,6 +17699,7 @@ impl Default for MPEG_RQST_PACKET {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MPEG_SERVICE_REQUEST {
     pub Type: MPEG_REQUEST_TYPE,
     pub Context: MPEG_CONTEXT,
@@ -18401,12 +17707,6 @@ pub struct MPEG_SERVICE_REQUEST {
     pub TableId: u8,
     pub Filter: MPEG2_FILTER,
     pub Flags: u32,
-}
-impl Copy for MPEG_SERVICE_REQUEST {}
-impl Clone for MPEG_SERVICE_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MPEG_SERVICE_REQUEST {
     type TypeKind = windows_core::CopyType;
@@ -18417,15 +17717,10 @@ impl Default for MPEG_SERVICE_REQUEST {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MPEG_SERVICE_RESPONSE {
     pub IPAddress: u32,
     pub Port: u16,
-}
-impl Copy for MPEG_SERVICE_RESPONSE {}
-impl Clone for MPEG_SERVICE_RESPONSE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MPEG_SERVICE_RESPONSE {
     type TypeKind = windows_core::CopyType;
@@ -18436,17 +17731,12 @@ impl Default for MPEG_SERVICE_RESPONSE {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MPEG_STREAM_BUFFER {
     pub hr: windows_core::HRESULT,
     pub dwDataBufferSize: u32,
     pub dwSizeOfDataRead: u32,
     pub pDataBuffer: *mut u8,
-}
-impl Copy for MPEG_STREAM_BUFFER {}
-impl Clone for MPEG_STREAM_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MPEG_STREAM_BUFFER {
     type TypeKind = windows_core::CopyType;
@@ -18457,18 +17747,13 @@ impl Default for MPEG_STREAM_BUFFER {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MPEG_STREAM_FILTER {
     pub wPidValue: u16,
     pub dwFilterSize: u32,
     pub fCrcEnabled: super::super::super::Foundation::BOOL,
     pub rgchFilter: [u8; 16],
     pub rgchMask: [u8; 16],
-}
-impl Copy for MPEG_STREAM_FILTER {}
-impl Clone for MPEG_STREAM_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MPEG_STREAM_FILTER {
     type TypeKind = windows_core::CopyType;
@@ -18479,16 +17764,11 @@ impl Default for MPEG_STREAM_FILTER {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MPEG_TIME {
     pub Hours: u8,
     pub Minutes: u8,
     pub Seconds: u8,
-}
-impl Copy for MPEG_TIME {}
-impl Clone for MPEG_TIME {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MPEG_TIME {
     type TypeKind = windows_core::CopyType;
@@ -18499,14 +17779,9 @@ impl Default for MPEG_TIME {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MPEG_WINSOCK {
     pub AVMGraphId: u32,
-}
-impl Copy for MPEG_WINSOCK {}
-impl Clone for MPEG_WINSOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MPEG_WINSOCK {
     type TypeKind = windows_core::CopyType;
@@ -18517,16 +17792,11 @@ impl Default for MPEG_WINSOCK {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MPE_ELEMENT {
     pub pid: u16,
     pub bComponentTag: u8,
     pub pNext: *mut MPE_ELEMENT,
-}
-impl Copy for MPE_ELEMENT {}
-impl Clone for MPE_ELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MPE_ELEMENT {
     type TypeKind = windows_core::CopyType;
@@ -18603,16 +17873,11 @@ pub const Mpeg2Data: windows_core::GUID = windows_core::GUID::from_u128(0xc666e1
 pub const Mpeg2DataLib: windows_core::GUID = windows_core::GUID::from_u128(0xdbaf6c1b_b6a4_4898_ae65_204f0d9509a1);
 pub const Mpeg2Stream: windows_core::GUID = windows_core::GUID::from_u128(0xf91d96c7_8509_4d0b_ab26_a0dd10904bb7);
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct Mpeg2TableSampleHdr {
     pub SectionCount: u8,
     pub Reserved: [u8; 3],
     pub SectionOffsets: [i32; 1],
-}
-impl Copy for Mpeg2TableSampleHdr {}
-impl Clone for Mpeg2TableSampleHdr {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for Mpeg2TableSampleHdr {
     type TypeKind = windows_core::CopyType;
@@ -18623,15 +17888,10 @@ impl Default for Mpeg2TableSampleHdr {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PBDAParentalControl {
     pub rating_system_count: u32,
     pub rating_systems: *mut RATING_SYSTEM,
-}
-impl Copy for PBDAParentalControl {}
-impl Clone for PBDAParentalControl {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PBDAParentalControl {
     type TypeKind = windows_core::CopyType;
@@ -18643,6 +17903,7 @@ impl Default for PBDAParentalControl {
 }
 pub const PBDA_ALWAYS_TUNE_IN_MUX: windows_core::GUID = windows_core::GUID::from_u128(0x1e1d7141_583f_4ac2_b019_1f430eda0f4c);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PBDA_TAG_ATTRIBUTE {
     pub TableUUId: windows_core::GUID,
     pub TableId: u8,
@@ -18650,99 +17911,45 @@ pub struct PBDA_TAG_ATTRIBUTE {
     pub TableDataSize: u32,
     pub TableData: [u8; 1],
 }
-impl Copy for PBDA_TAG_ATTRIBUTE {}
-impl Clone for PBDA_TAG_ATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PBDA_TAG_ATTRIBUTE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PBDA_TAG_ATTRIBUTE").field("TableUUId", &self.TableUUId).field("TableId", &self.TableId).field("VersionNo", &self.VersionNo).field("TableDataSize", &self.TableDataSize).field("TableData", &self.TableData).finish()
-    }
-}
 impl windows_core::TypeKind for PBDA_TAG_ATTRIBUTE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PBDA_TAG_ATTRIBUTE {
-    fn eq(&self, other: &Self) -> bool {
-        self.TableUUId == other.TableUUId && self.TableId == other.TableId && self.VersionNo == other.VersionNo && self.TableDataSize == other.TableDataSize && self.TableData == other.TableData
-    }
-}
-impl Eq for PBDA_TAG_ATTRIBUTE {}
 impl Default for PBDA_TAG_ATTRIBUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PIC_SEQ_SAMPLE {
     pub _bitfield: u32,
-}
-impl Copy for PIC_SEQ_SAMPLE {}
-impl Clone for PIC_SEQ_SAMPLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PIC_SEQ_SAMPLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PIC_SEQ_SAMPLE").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for PIC_SEQ_SAMPLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PIC_SEQ_SAMPLE {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for PIC_SEQ_SAMPLE {}
 impl Default for PIC_SEQ_SAMPLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PIDListSpanningEvent {
     pub wPIDCount: u16,
     pub pulPIDs: [u32; 1],
 }
-impl Copy for PIDListSpanningEvent {}
-impl Clone for PIDListSpanningEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PIDListSpanningEvent {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PIDListSpanningEvent").field("wPIDCount", &self.wPIDCount).field("pulPIDs", &self.pulPIDs).finish()
-    }
-}
 impl windows_core::TypeKind for PIDListSpanningEvent {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PIDListSpanningEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.wPIDCount == other.wPIDCount && self.pulPIDs == other.pulPIDs
-    }
-}
-impl Eq for PIDListSpanningEvent {}
 impl Default for PIDListSpanningEvent {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PID_BITS {
     pub _bitfield: u16,
-}
-impl Copy for PID_BITS {}
-impl Clone for PID_BITS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PID_BITS {
     type TypeKind = windows_core::CopyType;
@@ -18753,14 +17960,9 @@ impl Default for PID_BITS {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PID_BITS_MIDL {
     pub Bits: u16,
-}
-impl Copy for PID_BITS_MIDL {}
-impl Clone for PID_BITS_MIDL {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PID_BITS_MIDL {
     type TypeKind = windows_core::CopyType;
@@ -18780,45 +17982,24 @@ pub const PINNAME_IPSINK_INPUT: windows_core::GUID = windows_core::GUID::from_u1
 pub const PINNAME_MPE: windows_core::GUID = windows_core::GUID::from_u128(0xc1b06d73_1dbb_11d3_8f46_00c04f7971e2);
 pub const PersistTuneXmlUtility: windows_core::GUID = windows_core::GUID::from_u128(0xe77026b0_b97f_4cbb_b7fb_f4f03ad69f11);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ProgramElement {
     pub wProgramNumber: u16,
     pub wProgramMapPID: u16,
 }
-impl Copy for ProgramElement {}
-impl Clone for ProgramElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ProgramElement {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ProgramElement").field("wProgramNumber", &self.wProgramNumber).field("wProgramMapPID", &self.wProgramMapPID).finish()
-    }
-}
 impl windows_core::TypeKind for ProgramElement {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ProgramElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.wProgramNumber == other.wProgramNumber && self.wProgramMapPID == other.wProgramMapPID
-    }
-}
-impl Eq for ProgramElement {}
 impl Default for ProgramElement {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RATING_ATTRIBUTE {
     pub rating_attribute_id: u32,
     pub rating_attribute_value: u32,
-}
-impl Copy for RATING_ATTRIBUTE {}
-impl Clone for RATING_ATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RATING_ATTRIBUTE {
     type TypeKind = windows_core::CopyType;
@@ -18829,15 +18010,10 @@ impl Default for RATING_ATTRIBUTE {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RATING_INFO {
     pub rating_system_count: u32,
     pub lpratingsystem: *mut RATING_SYSTEM,
-}
-impl Copy for RATING_INFO {}
-impl Clone for RATING_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RATING_INFO {
     type TypeKind = windows_core::CopyType;
@@ -18848,18 +18024,13 @@ impl Default for RATING_INFO {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RATING_SYSTEM {
     pub rating_system_id: windows_core::GUID,
     pub _bitfield: u8,
     pub country_code: [u8; 3],
     pub rating_attribute_count: u32,
     pub lpratingattrib: *mut RATING_ATTRIBUTE,
-}
-impl Copy for RATING_SYSTEM {}
-impl Clone for RATING_SYSTEM {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RATING_SYSTEM {
     type TypeKind = windows_core::CopyType;
@@ -18870,97 +18041,50 @@ impl Default for RATING_SYSTEM {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAMPLE_LIVE_STREAM_TIME {
     pub qwStreamTime: u64,
     pub qwLiveTime: u64,
 }
-impl Copy for SAMPLE_LIVE_STREAM_TIME {}
-impl Clone for SAMPLE_LIVE_STREAM_TIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SAMPLE_LIVE_STREAM_TIME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SAMPLE_LIVE_STREAM_TIME").field("qwStreamTime", &self.qwStreamTime).field("qwLiveTime", &self.qwLiveTime).finish()
-    }
-}
 impl windows_core::TypeKind for SAMPLE_LIVE_STREAM_TIME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SAMPLE_LIVE_STREAM_TIME {
-    fn eq(&self, other: &Self) -> bool {
-        self.qwStreamTime == other.qwStreamTime && self.qwLiveTime == other.qwLiveTime
-    }
-}
-impl Eq for SAMPLE_LIVE_STREAM_TIME {}
 impl Default for SAMPLE_LIVE_STREAM_TIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAMPLE_SEQ_OFFSET {
     pub _bitfield: u32,
-}
-impl Copy for SAMPLE_SEQ_OFFSET {}
-impl Clone for SAMPLE_SEQ_OFFSET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SAMPLE_SEQ_OFFSET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SAMPLE_SEQ_OFFSET").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for SAMPLE_SEQ_OFFSET {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SAMPLE_SEQ_OFFSET {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for SAMPLE_SEQ_OFFSET {}
 impl Default for SAMPLE_SEQ_OFFSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SBE2_STREAM_DESC {
     pub Version: u32,
     pub StreamId: u32,
     pub Default: u32,
     pub Reserved: u32,
 }
-impl Copy for SBE2_STREAM_DESC {}
-impl Clone for SBE2_STREAM_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SBE2_STREAM_DESC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SBE2_STREAM_DESC").field("Version", &self.Version).field("StreamId", &self.StreamId).field("Default", &self.Default).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for SBE2_STREAM_DESC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SBE2_STREAM_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.StreamId == other.StreamId && self.Default == other.Default && self.Reserved == other.Reserved
-    }
-}
-impl Eq for SBE2_STREAM_DESC {}
 impl Default for SBE2_STREAM_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SBE_PIN_DATA {
     pub cDataBytes: u64,
     pub cSamplesProcessed: u64,
@@ -18968,42 +18092,20 @@ pub struct SBE_PIN_DATA {
     pub cSyncPoints: u64,
     pub cTimestamps: u64,
 }
-impl Copy for SBE_PIN_DATA {}
-impl Clone for SBE_PIN_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SBE_PIN_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SBE_PIN_DATA").field("cDataBytes", &self.cDataBytes).field("cSamplesProcessed", &self.cSamplesProcessed).field("cDiscontinuities", &self.cDiscontinuities).field("cSyncPoints", &self.cSyncPoints).field("cTimestamps", &self.cTimestamps).finish()
-    }
-}
 impl windows_core::TypeKind for SBE_PIN_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SBE_PIN_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cDataBytes == other.cDataBytes && self.cSamplesProcessed == other.cSamplesProcessed && self.cDiscontinuities == other.cDiscontinuities && self.cSyncPoints == other.cSyncPoints && self.cTimestamps == other.cTimestamps
-    }
-}
-impl Eq for SBE_PIN_DATA {}
 impl Default for SBE_PIN_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct SECTION {
     pub TableId: u8,
     pub Header: SECTION_0,
     pub SectionData: [u8; 1],
-}
-impl Copy for SECTION {}
-impl Clone for SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SECTION {
     type TypeKind = windows_core::CopyType;
@@ -19014,15 +18116,10 @@ impl Default for SECTION {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union SECTION_0 {
     pub S: MPEG_HEADER_BITS_MIDL,
     pub W: u16,
-}
-impl Copy for SECTION_0 {}
-impl Clone for SECTION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SECTION_0 {
     type TypeKind = windows_core::CopyType;
@@ -19033,32 +18130,16 @@ impl Default for SECTION_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STREAMBUFFER_ATTRIBUTE {
     pub pszName: windows_core::PWSTR,
     pub StreamBufferAttributeType: STREAMBUFFER_ATTR_DATATYPE,
     pub pbAttribute: *mut u8,
     pub cbLength: u16,
 }
-impl Copy for STREAMBUFFER_ATTRIBUTE {}
-impl Clone for STREAMBUFFER_ATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STREAMBUFFER_ATTRIBUTE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STREAMBUFFER_ATTRIBUTE").field("pszName", &self.pszName).field("StreamBufferAttributeType", &self.StreamBufferAttributeType).field("pbAttribute", &self.pbAttribute).field("cbLength", &self.cbLength).finish()
-    }
-}
 impl windows_core::TypeKind for STREAMBUFFER_ATTRIBUTE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STREAMBUFFER_ATTRIBUTE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszName == other.pszName && self.StreamBufferAttributeType == other.StreamBufferAttributeType && self.pbAttribute == other.pbAttribute && self.cbLength == other.cbLength
-    }
-}
-impl Eq for STREAMBUFFER_ATTRIBUTE {}
 impl Default for STREAMBUFFER_ATTRIBUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -19066,38 +18147,23 @@ impl Default for STREAMBUFFER_ATTRIBUTE {
 }
 pub const SectionList: windows_core::GUID = windows_core::GUID::from_u128(0x73da5d04_4347_45d3_a9dc_fae9ddbe558d);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SpanningEventDescriptor {
     pub wDataLen: u16,
     pub wProgNumber: u16,
     pub wSID: u16,
     pub bDescriptor: [u8; 1],
 }
-impl Copy for SpanningEventDescriptor {}
-impl Clone for SpanningEventDescriptor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SpanningEventDescriptor {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SpanningEventDescriptor").field("wDataLen", &self.wDataLen).field("wProgNumber", &self.wProgNumber).field("wSID", &self.wSID).field("bDescriptor", &self.bDescriptor).finish()
-    }
-}
 impl windows_core::TypeKind for SpanningEventDescriptor {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SpanningEventDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.wDataLen == other.wDataLen && self.wProgNumber == other.wProgNumber && self.wSID == other.wSID && self.bDescriptor == other.bDescriptor
-    }
-}
-impl Eq for SpanningEventDescriptor {}
 impl Default for SpanningEventDescriptor {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SpanningEventEmmMessage {
     pub bCAbroadcasterGroupId: u8,
     pub bMessageControl: u8,
@@ -19113,40 +18179,9 @@ pub struct SpanningEventEmmMessage {
     pub wMessageLength: u16,
     pub szMessageArea: [u16; 1],
 }
-impl Copy for SpanningEventEmmMessage {}
-impl Clone for SpanningEventEmmMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SpanningEventEmmMessage {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SpanningEventEmmMessage")
-            .field("bCAbroadcasterGroupId", &self.bCAbroadcasterGroupId)
-            .field("bMessageControl", &self.bMessageControl)
-            .field("wServiceId", &self.wServiceId)
-            .field("wTableIdExtension", &self.wTableIdExtension)
-            .field("bDeletionStatus", &self.bDeletionStatus)
-            .field("bDisplayingDuration1", &self.bDisplayingDuration1)
-            .field("bDisplayingDuration2", &self.bDisplayingDuration2)
-            .field("bDisplayingDuration3", &self.bDisplayingDuration3)
-            .field("bDisplayingCycle", &self.bDisplayingCycle)
-            .field("bFormatVersion", &self.bFormatVersion)
-            .field("bDisplayPosition", &self.bDisplayPosition)
-            .field("wMessageLength", &self.wMessageLength)
-            .field("szMessageArea", &self.szMessageArea)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for SpanningEventEmmMessage {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SpanningEventEmmMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.bCAbroadcasterGroupId == other.bCAbroadcasterGroupId && self.bMessageControl == other.bMessageControl && self.wServiceId == other.wServiceId && self.wTableIdExtension == other.wTableIdExtension && self.bDeletionStatus == other.bDeletionStatus && self.bDisplayingDuration1 == other.bDisplayingDuration1 && self.bDisplayingDuration2 == other.bDisplayingDuration2 && self.bDisplayingDuration3 == other.bDisplayingDuration3 && self.bDisplayingCycle == other.bDisplayingCycle && self.bFormatVersion == other.bFormatVersion && self.bDisplayPosition == other.bDisplayPosition && self.wMessageLength == other.wMessageLength && self.szMessageArea == other.szMessageArea
-    }
-}
-impl Eq for SpanningEventEmmMessage {}
 impl Default for SpanningEventEmmMessage {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -19154,15 +18189,10 @@ impl Default for SpanningEventEmmMessage {
 }
 pub const SystemTuningSpaces: windows_core::GUID = windows_core::GUID::from_u128(0xd02aac50_027e_11d3_9d8e_00c04f72d980);
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct TID_EXTENSION {
     pub wTidExt: u16,
     pub wCount: u16,
-}
-impl Copy for TID_EXTENSION {}
-impl Clone for TID_EXTENSION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for TID_EXTENSION {
     type TypeKind = windows_core::CopyType;
@@ -19174,16 +18204,11 @@ impl Default for TID_EXTENSION {
 }
 pub const TIFLoad: windows_core::GUID = windows_core::GUID::from_u128(0x14eb8748_1753_4393_95ae_4f7e7a87aad6);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRANSPORT_PROPERTIES {
     pub PID: u32,
     pub PCR: i64,
     pub Fields: TRANSPORT_PROPERTIES_0,
-}
-impl Copy for TRANSPORT_PROPERTIES {}
-impl Clone for TRANSPORT_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for TRANSPORT_PROPERTIES {
     type TypeKind = windows_core::CopyType;
@@ -19194,15 +18219,10 @@ impl Default for TRANSPORT_PROPERTIES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union TRANSPORT_PROPERTIES_0 {
     pub Others: TRANSPORT_PROPERTIES_0_0,
     pub Value: i64,
-}
-impl Copy for TRANSPORT_PROPERTIES_0 {}
-impl Clone for TRANSPORT_PROPERTIES_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for TRANSPORT_PROPERTIES_0 {
     type TypeKind = windows_core::CopyType;
@@ -19213,29 +18233,13 @@ impl Default for TRANSPORT_PROPERTIES_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSPORT_PROPERTIES_0_0 {
     pub _bitfield: i64,
-}
-impl Copy for TRANSPORT_PROPERTIES_0_0 {}
-impl Clone for TRANSPORT_PROPERTIES_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TRANSPORT_PROPERTIES_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRANSPORT_PROPERTIES_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for TRANSPORT_PROPERTIES_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TRANSPORT_PROPERTIES_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for TRANSPORT_PROPERTIES_0_0 {}
 impl Default for TRANSPORT_PROPERTIES_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -19245,6 +18249,7 @@ pub const TuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0xb46e
 pub const TunerMarshaler: windows_core::GUID = windows_core::GUID::from_u128(0x6438570b_0c08_4a25_9504_8012bb4d50cf);
 pub const TuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0x5ffdc5e6_b83a_4b55_b6e8_c69e765fe9db);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UDCR_TAG {
     pub bVersion: u8,
     pub KID: [u8; 25],
@@ -19255,32 +18260,16 @@ pub struct UDCR_TAG {
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
-impl Copy for UDCR_TAG {}
-impl Clone for UDCR_TAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UDCR_TAG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UDCR_TAG").field("bVersion", &self.bVersion).field("KID", &self.KID).field("ullBaseCounter", &self.ullBaseCounter).field("ullBaseCounterRange", &self.ullBaseCounterRange).field("fScrambled", &self.fScrambled).field("bStreamMark", &self.bStreamMark).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
-    }
-}
 impl windows_core::TypeKind for UDCR_TAG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UDCR_TAG {
-    fn eq(&self, other: &Self) -> bool {
-        self.bVersion == other.bVersion && self.KID == other.KID && self.ullBaseCounter == other.ullBaseCounter && self.ullBaseCounterRange == other.ullBaseCounterRange && self.fScrambled == other.fScrambled && self.bStreamMark == other.bStreamMark && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
-    }
-}
-impl Eq for UDCR_TAG {}
 impl Default for UDCR_TAG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VA_OPTIONAL_VIDEO_PROPERTIES {
     pub dwPictureHeight: u16,
     pub dwPictureWidth: u16,
@@ -19291,43 +18280,21 @@ pub struct VA_OPTIONAL_VIDEO_PROPERTIES {
     pub VATransferCharacteristics: VA_TRANSFER_CHARACTERISTICS,
     pub VAMatrixCoefficients: VA_MATRIX_COEFFICIENTS,
 }
-impl Copy for VA_OPTIONAL_VIDEO_PROPERTIES {}
-impl Clone for VA_OPTIONAL_VIDEO_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VA_OPTIONAL_VIDEO_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VA_OPTIONAL_VIDEO_PROPERTIES").field("dwPictureHeight", &self.dwPictureHeight).field("dwPictureWidth", &self.dwPictureWidth).field("dwAspectRatioX", &self.dwAspectRatioX).field("dwAspectRatioY", &self.dwAspectRatioY).field("VAVideoFormat", &self.VAVideoFormat).field("VAColorPrimaries", &self.VAColorPrimaries).field("VATransferCharacteristics", &self.VATransferCharacteristics).field("VAMatrixCoefficients", &self.VAMatrixCoefficients).finish()
-    }
-}
 impl windows_core::TypeKind for VA_OPTIONAL_VIDEO_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VA_OPTIONAL_VIDEO_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwPictureHeight == other.dwPictureHeight && self.dwPictureWidth == other.dwPictureWidth && self.dwAspectRatioX == other.dwAspectRatioX && self.dwAspectRatioY == other.dwAspectRatioY && self.VAVideoFormat == other.VAVideoFormat && self.VAColorPrimaries == other.VAColorPrimaries && self.VATransferCharacteristics == other.VATransferCharacteristics && self.VAMatrixCoefficients == other.VAMatrixCoefficients
-    }
-}
-impl Eq for VA_OPTIONAL_VIDEO_PROPERTIES {}
 impl Default for VA_OPTIONAL_VIDEO_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WMDRMProtectionInfo {
     pub wszKID: [u16; 25],
     pub qwCounter: u64,
     pub qwIndex: u64,
     pub bOffset: u8,
-}
-impl Copy for WMDRMProtectionInfo {}
-impl Clone for WMDRMProtectionInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WMDRMProtectionInfo {
     type TypeKind = windows_core::CopyType;

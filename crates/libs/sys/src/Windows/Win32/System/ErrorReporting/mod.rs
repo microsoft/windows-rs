@@ -192,6 +192,7 @@ pub type WER_SUBMIT_RESULT = i32;
 pub type HREPORT = isize;
 pub type HREPORTSTORE = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WER_DUMP_CUSTOM_OPTIONS {
     pub dwSize: u32,
     pub dwMask: u32,
@@ -205,13 +206,8 @@ pub struct WER_DUMP_CUSTOM_OPTIONS {
     pub dwOtherModuleFlags: u32,
     pub wzPreferredModuleList: [u16; 256],
 }
-impl Copy for WER_DUMP_CUSTOM_OPTIONS {}
-impl Clone for WER_DUMP_CUSTOM_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WER_DUMP_CUSTOM_OPTIONS_V2 {
     pub dwSize: u32,
     pub dwMask: u32,
@@ -227,13 +223,8 @@ pub struct WER_DUMP_CUSTOM_OPTIONS_V2 {
     pub dwPreferredModuleResetFlags: u32,
     pub dwOtherModuleResetFlags: u32,
 }
-impl Copy for WER_DUMP_CUSTOM_OPTIONS_V2 {}
-impl Clone for WER_DUMP_CUSTOM_OPTIONS_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WER_DUMP_CUSTOM_OPTIONS_V3 {
     pub dwSize: u32,
     pub dwMask: u32,
@@ -252,27 +243,15 @@ pub struct WER_DUMP_CUSTOM_OPTIONS_V3 {
     pub hSnapshot: super::super::Foundation::HANDLE,
     pub dwThreadID: u32,
 }
-impl Copy for WER_DUMP_CUSTOM_OPTIONS_V3 {}
-impl Clone for WER_DUMP_CUSTOM_OPTIONS_V3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub struct WER_EXCEPTION_INFORMATION {
     pub pExceptionPointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS,
     pub bClientPointers: super::super::Foundation::BOOL,
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Copy for WER_EXCEPTION_INFORMATION {}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Clone for WER_EXCEPTION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WER_REPORT_INFORMATION {
     pub dwSize: u32,
     pub hProcess: super::super::Foundation::HANDLE,
@@ -283,13 +262,8 @@ pub struct WER_REPORT_INFORMATION {
     pub wzDescription: [u16; 512],
     pub hwndParent: super::super::Foundation::HWND,
 }
-impl Copy for WER_REPORT_INFORMATION {}
-impl Clone for WER_REPORT_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WER_REPORT_INFORMATION_V3 {
     pub dwSize: u32,
     pub hProcess: super::super::Foundation::HANDLE,
@@ -302,13 +276,8 @@ pub struct WER_REPORT_INFORMATION_V3 {
     pub wzNamespacePartner: [u16; 64],
     pub wzNamespaceGroup: [u16; 64],
 }
-impl Copy for WER_REPORT_INFORMATION_V3 {}
-impl Clone for WER_REPORT_INFORMATION_V3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WER_REPORT_INFORMATION_V4 {
     pub dwSize: u32,
     pub hProcess: super::super::Foundation::HANDLE,
@@ -324,13 +293,8 @@ pub struct WER_REPORT_INFORMATION_V4 {
     pub hSnapshot: super::super::Foundation::HANDLE,
     pub hDeleteFilesImpersonationToken: super::super::Foundation::HANDLE,
 }
-impl Copy for WER_REPORT_INFORMATION_V4 {}
-impl Clone for WER_REPORT_INFORMATION_V4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WER_REPORT_INFORMATION_V5 {
     pub dwSize: u32,
     pub hProcess: super::super::Foundation::HANDLE,
@@ -347,13 +311,8 @@ pub struct WER_REPORT_INFORMATION_V5 {
     pub hDeleteFilesImpersonationToken: super::super::Foundation::HANDLE,
     pub submitResultMax: WER_SUBMIT_RESULT,
 }
-impl Copy for WER_REPORT_INFORMATION_V5 {}
-impl Clone for WER_REPORT_INFORMATION_V5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WER_REPORT_METADATA_V1 {
     pub Signature: WER_REPORT_SIGNATURE,
     pub BucketId: windows_sys::core::GUID,
@@ -361,13 +320,8 @@ pub struct WER_REPORT_METADATA_V1 {
     pub CreationTime: super::super::Foundation::FILETIME,
     pub SizeInBytes: u64,
 }
-impl Copy for WER_REPORT_METADATA_V1 {}
-impl Clone for WER_REPORT_METADATA_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WER_REPORT_METADATA_V2 {
     pub Signature: WER_REPORT_SIGNATURE,
     pub BucketId: windows_sys::core::GUID,
@@ -381,13 +335,8 @@ pub struct WER_REPORT_METADATA_V2 {
     pub SizeOfFileNames: u32,
     pub FileNames: windows_sys::core::PWSTR,
 }
-impl Copy for WER_REPORT_METADATA_V2 {}
-impl Clone for WER_REPORT_METADATA_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WER_REPORT_METADATA_V3 {
     pub Signature: WER_REPORT_SIGNATURE,
     pub BucketId: windows_sys::core::GUID,
@@ -407,36 +356,21 @@ pub struct WER_REPORT_METADATA_V3 {
     pub BucketIdString: [u16; 260],
     pub LegacyBucketId: u64,
 }
-impl Copy for WER_REPORT_METADATA_V3 {}
-impl Clone for WER_REPORT_METADATA_V3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WER_REPORT_PARAMETER {
     pub Name: [u16; 129],
     pub Value: [u16; 260],
 }
-impl Copy for WER_REPORT_PARAMETER {}
-impl Clone for WER_REPORT_PARAMETER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WER_REPORT_SIGNATURE {
     pub EventName: [u16; 65],
     pub Parameters: [WER_REPORT_PARAMETER; 10],
 }
-impl Copy for WER_REPORT_SIGNATURE {}
-impl Clone for WER_REPORT_SIGNATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub struct WER_RUNTIME_EXCEPTION_INFORMATION {
     pub dwSize: u32,
     pub hProcess: super::super::Foundation::HANDLE,
@@ -446,14 +380,6 @@ pub struct WER_RUNTIME_EXCEPTION_INFORMATION {
     pub pwszReportId: windows_sys::core::PCWSTR,
     pub bIsFatal: super::super::Foundation::BOOL,
     pub dwReserved: u32,
-}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Copy for WER_RUNTIME_EXCEPTION_INFORMATION {}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Clone for WER_RUNTIME_EXCEPTION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbiscustomdebugger: *mut super::super::Foundation::BOOL, pwszdebuggerlaunch: windows_sys::core::PWSTR, pchdebuggerlaunch: *mut u32, pbisdebuggerautolaunch: *mut super::super::Foundation::BOOL) -> windows_sys::core::HRESULT>;

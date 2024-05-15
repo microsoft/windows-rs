@@ -2784,23 +2784,10 @@ impl windows_core::RuntimeType for DisplayWireFormatPixelEncoding {
 }
 #[repr(C)]
 #[cfg(feature = "Foundation_Numerics")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DisplayPresentationRate {
     pub VerticalSyncRate: super::super::super::Foundation::Numerics::Rational,
     pub VerticalSyncsPerPresentation: i32,
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Copy for DisplayPresentationRate {}
-#[cfg(feature = "Foundation_Numerics")]
-impl Clone for DisplayPresentationRate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl core::fmt::Debug for DisplayPresentationRate {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DisplayPresentationRate").field("VerticalSyncRate", &self.VerticalSyncRate).field("VerticalSyncsPerPresentation", &self.VerticalSyncsPerPresentation).finish()
-    }
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl windows_core::TypeKind for DisplayPresentationRate {
@@ -2810,14 +2797,6 @@ impl windows_core::TypeKind for DisplayPresentationRate {
 impl windows_core::RuntimeType for DisplayPresentationRate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Display.Core.DisplayPresentationRate;struct(Windows.Foundation.Numerics.Rational;u4;u4);i4)");
 }
-#[cfg(feature = "Foundation_Numerics")]
-impl PartialEq for DisplayPresentationRate {
-    fn eq(&self, other: &Self) -> bool {
-        self.VerticalSyncRate == other.VerticalSyncRate && self.VerticalSyncsPerPresentation == other.VerticalSyncsPerPresentation
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Eq for DisplayPresentationRate {}
 #[cfg(feature = "Foundation_Numerics")]
 impl Default for DisplayPresentationRate {
     fn default() -> Self {

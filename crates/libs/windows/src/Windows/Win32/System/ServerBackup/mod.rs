@@ -110,6 +110,7 @@ impl core::fmt::Debug for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSB_OB_REGISTRATION_INFO {
     pub m_wszResourceDLL: windows_core::PWSTR,
     pub m_guidSnapinId: windows_core::GUID,
@@ -117,32 +118,16 @@ pub struct WSB_OB_REGISTRATION_INFO {
     pub m_dwProviderIcon: u32,
     pub m_bSupportsRemoting: super::super::Foundation::BOOLEAN,
 }
-impl Copy for WSB_OB_REGISTRATION_INFO {}
-impl Clone for WSB_OB_REGISTRATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSB_OB_REGISTRATION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSB_OB_REGISTRATION_INFO").field("m_wszResourceDLL", &self.m_wszResourceDLL).field("m_guidSnapinId", &self.m_guidSnapinId).field("m_dwProviderName", &self.m_dwProviderName).field("m_dwProviderIcon", &self.m_dwProviderIcon).field("m_bSupportsRemoting", &self.m_bSupportsRemoting).finish()
-    }
-}
 impl windows_core::TypeKind for WSB_OB_REGISTRATION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSB_OB_REGISTRATION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_wszResourceDLL == other.m_wszResourceDLL && self.m_guidSnapinId == other.m_guidSnapinId && self.m_dwProviderName == other.m_dwProviderName && self.m_dwProviderIcon == other.m_dwProviderIcon && self.m_bSupportsRemoting == other.m_bSupportsRemoting
-    }
-}
-impl Eq for WSB_OB_REGISTRATION_INFO {}
 impl Default for WSB_OB_REGISTRATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSB_OB_STATUS_ENTRY {
     pub m_dwIcon: u32,
     pub m_dwStatusEntryName: u32,
@@ -150,87 +135,38 @@ pub struct WSB_OB_STATUS_ENTRY {
     pub m_cValueTypePair: u32,
     pub m_rgValueTypePair: *mut WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR,
 }
-impl Copy for WSB_OB_STATUS_ENTRY {}
-impl Clone for WSB_OB_STATUS_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSB_OB_STATUS_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSB_OB_STATUS_ENTRY").field("m_dwIcon", &self.m_dwIcon).field("m_dwStatusEntryName", &self.m_dwStatusEntryName).field("m_dwStatusEntryValue", &self.m_dwStatusEntryValue).field("m_cValueTypePair", &self.m_cValueTypePair).field("m_rgValueTypePair", &self.m_rgValueTypePair).finish()
-    }
-}
 impl windows_core::TypeKind for WSB_OB_STATUS_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSB_OB_STATUS_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_dwIcon == other.m_dwIcon && self.m_dwStatusEntryName == other.m_dwStatusEntryName && self.m_dwStatusEntryValue == other.m_dwStatusEntryValue && self.m_cValueTypePair == other.m_cValueTypePair && self.m_rgValueTypePair == other.m_rgValueTypePair
-    }
-}
-impl Eq for WSB_OB_STATUS_ENTRY {}
 impl Default for WSB_OB_STATUS_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {
     pub m_wszObStatusEntryPairValue: windows_core::PWSTR,
     pub m_ObStatusEntryPairType: WSB_OB_STATUS_ENTRY_PAIR_TYPE,
 }
-impl Copy for WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {}
-impl Clone for WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR").field("m_wszObStatusEntryPairValue", &self.m_wszObStatusEntryPairValue).field("m_ObStatusEntryPairType", &self.m_ObStatusEntryPairType).finish()
-    }
-}
 impl windows_core::TypeKind for WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_wszObStatusEntryPairValue == other.m_wszObStatusEntryPairValue && self.m_ObStatusEntryPairType == other.m_ObStatusEntryPairType
-    }
-}
-impl Eq for WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {}
 impl Default for WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSB_OB_STATUS_INFO {
     pub m_guidSnapinId: windows_core::GUID,
     pub m_cStatusEntry: u32,
     pub m_rgStatusEntry: *mut WSB_OB_STATUS_ENTRY,
 }
-impl Copy for WSB_OB_STATUS_INFO {}
-impl Clone for WSB_OB_STATUS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WSB_OB_STATUS_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WSB_OB_STATUS_INFO").field("m_guidSnapinId", &self.m_guidSnapinId).field("m_cStatusEntry", &self.m_cStatusEntry).field("m_rgStatusEntry", &self.m_rgStatusEntry).finish()
-    }
-}
 impl windows_core::TypeKind for WSB_OB_STATUS_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WSB_OB_STATUS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_guidSnapinId == other.m_guidSnapinId && self.m_cStatusEntry == other.m_cStatusEntry && self.m_rgStatusEntry == other.m_rgStatusEntry
-    }
-}
-impl Eq for WSB_OB_STATUS_INFO {}
 impl Default for WSB_OB_STATUS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

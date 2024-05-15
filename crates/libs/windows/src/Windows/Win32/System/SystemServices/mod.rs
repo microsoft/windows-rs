@@ -3310,6 +3310,7 @@ impl core::ops::Not for WORD_WHEEL_OPEN_FLAGS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ANON_OBJECT_HEADER {
     pub Sig1: u16,
     pub Sig2: u16,
@@ -3319,32 +3320,16 @@ pub struct ANON_OBJECT_HEADER {
     pub ClassID: windows_core::GUID,
     pub SizeOfData: u32,
 }
-impl Copy for ANON_OBJECT_HEADER {}
-impl Clone for ANON_OBJECT_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ANON_OBJECT_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ANON_OBJECT_HEADER").field("Sig1", &self.Sig1).field("Sig2", &self.Sig2).field("Version", &self.Version).field("Machine", &self.Machine).field("TimeDateStamp", &self.TimeDateStamp).field("ClassID", &self.ClassID).field("SizeOfData", &self.SizeOfData).finish()
-    }
-}
 impl windows_core::TypeKind for ANON_OBJECT_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ANON_OBJECT_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Sig1 == other.Sig1 && self.Sig2 == other.Sig2 && self.Version == other.Version && self.Machine == other.Machine && self.TimeDateStamp == other.TimeDateStamp && self.ClassID == other.ClassID && self.SizeOfData == other.SizeOfData
-    }
-}
-impl Eq for ANON_OBJECT_HEADER {}
 impl Default for ANON_OBJECT_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ANON_OBJECT_HEADER_BIGOBJ {
     pub Sig1: u16,
     pub Sig2: u16,
@@ -3360,46 +3345,16 @@ pub struct ANON_OBJECT_HEADER_BIGOBJ {
     pub PointerToSymbolTable: u32,
     pub NumberOfSymbols: u32,
 }
-impl Copy for ANON_OBJECT_HEADER_BIGOBJ {}
-impl Clone for ANON_OBJECT_HEADER_BIGOBJ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ANON_OBJECT_HEADER_BIGOBJ {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ANON_OBJECT_HEADER_BIGOBJ")
-            .field("Sig1", &self.Sig1)
-            .field("Sig2", &self.Sig2)
-            .field("Version", &self.Version)
-            .field("Machine", &self.Machine)
-            .field("TimeDateStamp", &self.TimeDateStamp)
-            .field("ClassID", &self.ClassID)
-            .field("SizeOfData", &self.SizeOfData)
-            .field("Flags", &self.Flags)
-            .field("MetaDataSize", &self.MetaDataSize)
-            .field("MetaDataOffset", &self.MetaDataOffset)
-            .field("NumberOfSections", &self.NumberOfSections)
-            .field("PointerToSymbolTable", &self.PointerToSymbolTable)
-            .field("NumberOfSymbols", &self.NumberOfSymbols)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for ANON_OBJECT_HEADER_BIGOBJ {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ANON_OBJECT_HEADER_BIGOBJ {
-    fn eq(&self, other: &Self) -> bool {
-        self.Sig1 == other.Sig1 && self.Sig2 == other.Sig2 && self.Version == other.Version && self.Machine == other.Machine && self.TimeDateStamp == other.TimeDateStamp && self.ClassID == other.ClassID && self.SizeOfData == other.SizeOfData && self.Flags == other.Flags && self.MetaDataSize == other.MetaDataSize && self.MetaDataOffset == other.MetaDataOffset && self.NumberOfSections == other.NumberOfSections && self.PointerToSymbolTable == other.PointerToSymbolTable && self.NumberOfSymbols == other.NumberOfSymbols
-    }
-}
-impl Eq for ANON_OBJECT_HEADER_BIGOBJ {}
 impl Default for ANON_OBJECT_HEADER_BIGOBJ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ANON_OBJECT_HEADER_V2 {
     pub Sig1: u16,
     pub Sig2: u16,
@@ -3412,101 +3367,47 @@ pub struct ANON_OBJECT_HEADER_V2 {
     pub MetaDataSize: u32,
     pub MetaDataOffset: u32,
 }
-impl Copy for ANON_OBJECT_HEADER_V2 {}
-impl Clone for ANON_OBJECT_HEADER_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ANON_OBJECT_HEADER_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ANON_OBJECT_HEADER_V2").field("Sig1", &self.Sig1).field("Sig2", &self.Sig2).field("Version", &self.Version).field("Machine", &self.Machine).field("TimeDateStamp", &self.TimeDateStamp).field("ClassID", &self.ClassID).field("SizeOfData", &self.SizeOfData).field("Flags", &self.Flags).field("MetaDataSize", &self.MetaDataSize).field("MetaDataOffset", &self.MetaDataOffset).finish()
-    }
-}
 impl windows_core::TypeKind for ANON_OBJECT_HEADER_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ANON_OBJECT_HEADER_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Sig1 == other.Sig1 && self.Sig2 == other.Sig2 && self.Version == other.Version && self.Machine == other.Machine && self.TimeDateStamp == other.TimeDateStamp && self.ClassID == other.ClassID && self.SizeOfData == other.SizeOfData && self.Flags == other.Flags && self.MetaDataSize == other.MetaDataSize && self.MetaDataOffset == other.MetaDataOffset
-    }
-}
-impl Eq for ANON_OBJECT_HEADER_V2 {}
 impl Default for ANON_OBJECT_HEADER_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct APPLICATIONLAUNCH_SETTING_VALUE {
     pub ActivationTime: i64,
     pub Flags: u32,
     pub ButtonInstanceID: u32,
 }
-impl Copy for APPLICATIONLAUNCH_SETTING_VALUE {}
-impl Clone for APPLICATIONLAUNCH_SETTING_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for APPLICATIONLAUNCH_SETTING_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("APPLICATIONLAUNCH_SETTING_VALUE").field("ActivationTime", &self.ActivationTime).field("Flags", &self.Flags).field("ButtonInstanceID", &self.ButtonInstanceID).finish()
-    }
-}
 impl windows_core::TypeKind for APPLICATIONLAUNCH_SETTING_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for APPLICATIONLAUNCH_SETTING_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.ActivationTime == other.ActivationTime && self.Flags == other.Flags && self.ButtonInstanceID == other.ButtonInstanceID
-    }
-}
-impl Eq for APPLICATIONLAUNCH_SETTING_VALUE {}
 impl Default for APPLICATIONLAUNCH_SETTING_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMPONENT_FILTER {
     pub ComponentFlags: u32,
-}
-impl Copy for COMPONENT_FILTER {}
-impl Clone for COMPONENT_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COMPONENT_FILTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COMPONENT_FILTER").field("ComponentFlags", &self.ComponentFlags).finish()
-    }
 }
 impl windows_core::TypeKind for COMPONENT_FILTER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COMPONENT_FILTER {
-    fn eq(&self, other: &Self) -> bool {
-        self.ComponentFlags == other.ComponentFlags
-    }
-}
-impl Eq for COMPONENT_FILTER {}
 impl Default for COMPONENT_FILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DISPATCHER_CONTEXT_NONVOLREG_ARM64 {
     pub Buffer: [u8; 152],
     pub Anonymous: DISPATCHER_CONTEXT_NONVOLREG_ARM64_0,
-}
-impl Copy for DISPATCHER_CONTEXT_NONVOLREG_ARM64 {}
-impl Clone for DISPATCHER_CONTEXT_NONVOLREG_ARM64 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DISPATCHER_CONTEXT_NONVOLREG_ARM64 {
     type TypeKind = windows_core::CopyType;
@@ -3517,98 +3418,51 @@ impl Default for DISPATCHER_CONTEXT_NONVOLREG_ARM64 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {
     pub GpNvRegs: [u64; 11],
     pub FpNvRegs: [f64; 8],
 }
-impl Copy for DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {}
-impl Clone for DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DISPATCHER_CONTEXT_NONVOLREG_ARM64_0").field("GpNvRegs", &self.GpNvRegs).field("FpNvRegs", &self.FpNvRegs).finish()
-    }
-}
 impl windows_core::TypeKind for DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.GpNvRegs == other.GpNvRegs && self.FpNvRegs == other.FpNvRegs
-    }
-}
-impl Eq for DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {}
 impl Default for DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENLISTMENT_BASIC_INFORMATION {
     pub EnlistmentId: windows_core::GUID,
     pub TransactionId: windows_core::GUID,
     pub ResourceManagerId: windows_core::GUID,
 }
-impl Copy for ENLISTMENT_BASIC_INFORMATION {}
-impl Clone for ENLISTMENT_BASIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ENLISTMENT_BASIC_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ENLISTMENT_BASIC_INFORMATION").field("EnlistmentId", &self.EnlistmentId).field("TransactionId", &self.TransactionId).field("ResourceManagerId", &self.ResourceManagerId).finish()
-    }
-}
 impl windows_core::TypeKind for ENLISTMENT_BASIC_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ENLISTMENT_BASIC_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.EnlistmentId == other.EnlistmentId && self.TransactionId == other.TransactionId && self.ResourceManagerId == other.ResourceManagerId
-    }
-}
-impl Eq for ENLISTMENT_BASIC_INFORMATION {}
 impl Default for ENLISTMENT_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENLISTMENT_CRM_INFORMATION {
     pub CrmTransactionManagerId: windows_core::GUID,
     pub CrmResourceManagerId: windows_core::GUID,
     pub CrmEnlistmentId: windows_core::GUID,
 }
-impl Copy for ENLISTMENT_CRM_INFORMATION {}
-impl Clone for ENLISTMENT_CRM_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ENLISTMENT_CRM_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ENLISTMENT_CRM_INFORMATION").field("CrmTransactionManagerId", &self.CrmTransactionManagerId).field("CrmResourceManagerId", &self.CrmResourceManagerId).field("CrmEnlistmentId", &self.CrmEnlistmentId).finish()
-    }
-}
 impl windows_core::TypeKind for ENLISTMENT_CRM_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ENLISTMENT_CRM_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.CrmTransactionManagerId == other.CrmTransactionManagerId && self.CrmResourceManagerId == other.CrmResourceManagerId && self.CrmEnlistmentId == other.CrmEnlistmentId
-    }
-}
-impl Eq for ENLISTMENT_CRM_INFORMATION {}
 impl Default for ENLISTMENT_CRM_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILE_NOTIFY_FULL_INFORMATION {
     pub NextEntryOffset: u32,
     pub Action: u32,
@@ -3627,12 +3481,6 @@ pub struct FILE_NOTIFY_FULL_INFORMATION {
     pub Reserved: u8,
     pub FileName: [u16; 1],
 }
-impl Copy for FILE_NOTIFY_FULL_INFORMATION {}
-impl Clone for FILE_NOTIFY_FULL_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for FILE_NOTIFY_FULL_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
@@ -3642,15 +3490,10 @@ impl Default for FILE_NOTIFY_FULL_INFORMATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union FILE_NOTIFY_FULL_INFORMATION_0 {
     pub ReparsePointTag: u32,
     pub EaSize: u32,
-}
-impl Copy for FILE_NOTIFY_FULL_INFORMATION_0 {}
-impl Clone for FILE_NOTIFY_FULL_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for FILE_NOTIFY_FULL_INFORMATION_0 {
     type TypeKind = windows_core::CopyType;
@@ -3662,17 +3505,10 @@ impl Default for FILE_NOTIFY_FULL_INFORMATION_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct GDI_NONREMOTE {
     pub fContext: i32,
     pub u: GDI_NONREMOTE_0,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for GDI_NONREMOTE {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for GDI_NONREMOTE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for GDI_NONREMOTE {
@@ -3686,17 +3522,10 @@ impl Default for GDI_NONREMOTE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub union GDI_NONREMOTE_0 {
     pub hInproc: i32,
     pub hRemote: *mut super::Com::DWORD_BLOB,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for GDI_NONREMOTE_0 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for GDI_NONREMOTE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for GDI_NONREMOTE_0 {
@@ -3709,78 +3538,41 @@ impl Default for GDI_NONREMOTE_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HEAP_OPTIMIZE_RESOURCES_INFORMATION {
     pub Version: u32,
     pub Flags: u32,
 }
-impl Copy for HEAP_OPTIMIZE_RESOURCES_INFORMATION {}
-impl Clone for HEAP_OPTIMIZE_RESOURCES_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HEAP_OPTIMIZE_RESOURCES_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HEAP_OPTIMIZE_RESOURCES_INFORMATION").field("Version", &self.Version).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for HEAP_OPTIMIZE_RESOURCES_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HEAP_OPTIMIZE_RESOURCES_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Flags == other.Flags
-    }
-}
-impl Eq for HEAP_OPTIMIZE_RESOURCES_INFORMATION {}
 impl Default for HEAP_OPTIMIZE_RESOURCES_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HIBERFILE_BUCKET {
     pub MaxPhysicalMemory: u64,
     pub PhysicalMemoryPercent: [u32; 3],
 }
-impl Copy for HIBERFILE_BUCKET {}
-impl Clone for HIBERFILE_BUCKET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HIBERFILE_BUCKET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HIBERFILE_BUCKET").field("MaxPhysicalMemory", &self.MaxPhysicalMemory).field("PhysicalMemoryPercent", &self.PhysicalMemoryPercent).finish()
-    }
-}
 impl windows_core::TypeKind for HIBERFILE_BUCKET {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HIBERFILE_BUCKET {
-    fn eq(&self, other: &Self) -> bool {
-        self.MaxPhysicalMemory == other.MaxPhysicalMemory && self.PhysicalMemoryPercent == other.PhysicalMemoryPercent
-    }
-}
-impl Eq for HIBERFILE_BUCKET {}
 impl Default for HIBERFILE_BUCKET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u64,
     pub EndAddress: u64,
     pub ExceptionHandler: u64,
     pub HandlerData: u64,
     pub PrologEndAddress: u64,
-}
-impl Copy for IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {}
-impl Clone for IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
     type TypeKind = windows_core::CopyType;
@@ -3791,6 +3583,7 @@ impl Default for IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u32,
     pub EndAddress: u32,
@@ -3798,92 +3591,44 @@ pub struct IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
     pub HandlerData: u32,
     pub PrologEndAddress: u32,
 }
-impl Copy for IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {}
-impl Clone for IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY").field("BeginAddress", &self.BeginAddress).field("EndAddress", &self.EndAddress).field("ExceptionHandler", &self.ExceptionHandler).field("HandlerData", &self.HandlerData).field("PrologEndAddress", &self.PrologEndAddress).finish()
-    }
-}
 impl windows_core::TypeKind for IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.BeginAddress == other.BeginAddress && self.EndAddress == other.EndAddress && self.ExceptionHandler == other.ExceptionHandler && self.HandlerData == other.HandlerData && self.PrologEndAddress == other.PrologEndAddress
-    }
-}
-impl Eq for IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {}
 impl Default for IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_ARCHITECTURE_ENTRY {
     pub FixupInstRVA: u32,
     pub NewInst: u32,
 }
-impl Copy for IMAGE_ARCHITECTURE_ENTRY {}
-impl Clone for IMAGE_ARCHITECTURE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_ARCHITECTURE_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_ARCHITECTURE_ENTRY").field("FixupInstRVA", &self.FixupInstRVA).field("NewInst", &self.NewInst).finish()
-    }
-}
 impl windows_core::TypeKind for IMAGE_ARCHITECTURE_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_ARCHITECTURE_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.FixupInstRVA == other.FixupInstRVA && self.NewInst == other.NewInst
-    }
-}
-impl Eq for IMAGE_ARCHITECTURE_ENTRY {}
 impl Default for IMAGE_ARCHITECTURE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_ARCHITECTURE_HEADER {
     pub _bitfield: u32,
     pub FirstEntryRVA: u32,
 }
-impl Copy for IMAGE_ARCHITECTURE_HEADER {}
-impl Clone for IMAGE_ARCHITECTURE_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_ARCHITECTURE_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_ARCHITECTURE_HEADER").field("_bitfield", &self._bitfield).field("FirstEntryRVA", &self.FirstEntryRVA).finish()
-    }
-}
 impl windows_core::TypeKind for IMAGE_ARCHITECTURE_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_ARCHITECTURE_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield && self.FirstEntryRVA == other.FirstEntryRVA
-    }
-}
-impl Eq for IMAGE_ARCHITECTURE_HEADER {}
 impl Default for IMAGE_ARCHITECTURE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_ARCHIVE_MEMBER_HEADER {
     pub Name: [u8; 16],
     pub Date: [u8; 12],
@@ -3893,41 +3638,19 @@ pub struct IMAGE_ARCHIVE_MEMBER_HEADER {
     pub Size: [u8; 10],
     pub EndHeader: [u8; 2],
 }
-impl Copy for IMAGE_ARCHIVE_MEMBER_HEADER {}
-impl Clone for IMAGE_ARCHIVE_MEMBER_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_ARCHIVE_MEMBER_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_ARCHIVE_MEMBER_HEADER").field("Name", &self.Name).field("Date", &self.Date).field("UserID", &self.UserID).field("GroupID", &self.GroupID).field("Mode", &self.Mode).field("Size", &self.Size).field("EndHeader", &self.EndHeader).finish()
-    }
-}
 impl windows_core::TypeKind for IMAGE_ARCHIVE_MEMBER_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_ARCHIVE_MEMBER_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Name == other.Name && self.Date == other.Date && self.UserID == other.UserID && self.GroupID == other.GroupID && self.Mode == other.Mode && self.Size == other.Size && self.EndHeader == other.EndHeader
-    }
-}
-impl Eq for IMAGE_ARCHIVE_MEMBER_HEADER {}
 impl Default for IMAGE_ARCHIVE_MEMBER_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
     pub HeaderData: u32,
     pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0,
-}
-impl Copy for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {}
-impl Clone for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
     type TypeKind = windows_core::CopyType;
@@ -3938,44 +3661,23 @@ impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
     pub _bitfield: u32,
-}
-impl Copy for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {}
-impl Clone for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {}
 impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u32,
     pub Anonymous: IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0,
-}
-impl Copy for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {}
-impl Clone for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {
     type TypeKind = windows_core::CopyType;
@@ -3986,15 +3688,10 @@ impl Default for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {
     pub UnwindData: u32,
     pub Anonymous: IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0,
-}
-impl Copy for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {}
-impl Clone for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {
     type TypeKind = windows_core::CopyType;
@@ -4005,47 +3702,26 @@ impl Default for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {}
-impl Clone for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {}
 impl Default for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IMAGE_AUX_SYMBOL {
     pub Sym: IMAGE_AUX_SYMBOL_3,
     pub File: IMAGE_AUX_SYMBOL_1,
     pub Section: IMAGE_AUX_SYMBOL_2,
     pub TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF,
     pub CRC: IMAGE_AUX_SYMBOL_0,
-}
-impl Copy for IMAGE_AUX_SYMBOL {}
-impl Clone for IMAGE_AUX_SYMBOL {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_AUX_SYMBOL {
     type TypeKind = windows_core::CopyType;
@@ -4056,15 +3732,10 @@ impl Default for IMAGE_AUX_SYMBOL {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_0 {
     pub crc: u32,
     pub rgbReserved: [u8; 14],
-}
-impl Copy for IMAGE_AUX_SYMBOL_0 {}
-impl Clone for IMAGE_AUX_SYMBOL_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_0 {
     type TypeKind = windows_core::CopyType;
@@ -4075,35 +3746,20 @@ impl Default for IMAGE_AUX_SYMBOL_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_AUX_SYMBOL_1 {
     pub Name: [u8; 18],
-}
-impl Copy for IMAGE_AUX_SYMBOL_1 {}
-impl Clone for IMAGE_AUX_SYMBOL_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_AUX_SYMBOL_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_AUX_SYMBOL_1").field("Name", &self.Name).finish()
-    }
 }
 impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_AUX_SYMBOL_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Name == other.Name
-    }
-}
-impl Eq for IMAGE_AUX_SYMBOL_1 {}
 impl Default for IMAGE_AUX_SYMBOL_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_2 {
     pub Length: u32,
     pub NumberOfRelocations: u16,
@@ -4114,12 +3770,6 @@ pub struct IMAGE_AUX_SYMBOL_2 {
     pub bReserved: u8,
     pub HighNumber: i16,
 }
-impl Copy for IMAGE_AUX_SYMBOL_2 {}
-impl Clone for IMAGE_AUX_SYMBOL_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_2 {
     type TypeKind = windows_core::CopyType;
 }
@@ -4129,17 +3779,12 @@ impl Default for IMAGE_AUX_SYMBOL_2 {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_3 {
     pub TagIndex: u32,
     pub Misc: IMAGE_AUX_SYMBOL_3_1,
     pub FcnAry: IMAGE_AUX_SYMBOL_3_0,
     pub TvIndex: u16,
-}
-impl Copy for IMAGE_AUX_SYMBOL_3 {}
-impl Clone for IMAGE_AUX_SYMBOL_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_3 {
     type TypeKind = windows_core::CopyType;
@@ -4150,15 +3795,10 @@ impl Default for IMAGE_AUX_SYMBOL_3 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IMAGE_AUX_SYMBOL_3_0 {
     pub Function: IMAGE_AUX_SYMBOL_3_0_1,
     pub Array: IMAGE_AUX_SYMBOL_3_0_0,
-}
-impl Copy for IMAGE_AUX_SYMBOL_3_0 {}
-impl Clone for IMAGE_AUX_SYMBOL_3_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_3_0 {
     type TypeKind = windows_core::CopyType;
@@ -4169,44 +3809,23 @@ impl Default for IMAGE_AUX_SYMBOL_3_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_AUX_SYMBOL_3_0_0 {
     pub Dimension: [u16; 4],
-}
-impl Copy for IMAGE_AUX_SYMBOL_3_0_0 {}
-impl Clone for IMAGE_AUX_SYMBOL_3_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_AUX_SYMBOL_3_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_AUX_SYMBOL_3_0_0").field("Dimension", &self.Dimension).finish()
-    }
 }
 impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_3_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_AUX_SYMBOL_3_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Dimension == other.Dimension
-    }
-}
-impl Eq for IMAGE_AUX_SYMBOL_3_0_0 {}
 impl Default for IMAGE_AUX_SYMBOL_3_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_3_0_1 {
     pub PointerToLinenumber: u32,
     pub PointerToNextFunction: u32,
-}
-impl Copy for IMAGE_AUX_SYMBOL_3_0_1 {}
-impl Clone for IMAGE_AUX_SYMBOL_3_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_3_0_1 {
     type TypeKind = windows_core::CopyType;
@@ -4217,15 +3836,10 @@ impl Default for IMAGE_AUX_SYMBOL_3_0_1 {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub union IMAGE_AUX_SYMBOL_3_1 {
     pub LnSz: IMAGE_AUX_SYMBOL_3_1_0,
     pub TotalSize: u32,
-}
-impl Copy for IMAGE_AUX_SYMBOL_3_1 {}
-impl Clone for IMAGE_AUX_SYMBOL_3_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_3_1 {
     type TypeKind = windows_core::CopyType;
@@ -4236,48 +3850,27 @@ impl Default for IMAGE_AUX_SYMBOL_3_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_AUX_SYMBOL_3_1_0 {
     pub Linenumber: u16,
     pub Size: u16,
 }
-impl Copy for IMAGE_AUX_SYMBOL_3_1_0 {}
-impl Clone for IMAGE_AUX_SYMBOL_3_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_AUX_SYMBOL_3_1_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_AUX_SYMBOL_3_1_0").field("Linenumber", &self.Linenumber).field("Size", &self.Size).finish()
-    }
-}
 impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_3_1_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_AUX_SYMBOL_3_1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Linenumber == other.Linenumber && self.Size == other.Size
-    }
-}
-impl Eq for IMAGE_AUX_SYMBOL_3_1_0 {}
 impl Default for IMAGE_AUX_SYMBOL_3_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IMAGE_AUX_SYMBOL_EX {
     pub Sym: IMAGE_AUX_SYMBOL_EX_4,
     pub File: IMAGE_AUX_SYMBOL_EX_2,
     pub Section: IMAGE_AUX_SYMBOL_EX_3,
     pub Anonymous: IMAGE_AUX_SYMBOL_EX_0,
     pub CRC: IMAGE_AUX_SYMBOL_EX_1,
-}
-impl Copy for IMAGE_AUX_SYMBOL_EX {}
-impl Clone for IMAGE_AUX_SYMBOL_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_EX {
     type TypeKind = windows_core::CopyType;
@@ -4288,15 +3881,10 @@ impl Default for IMAGE_AUX_SYMBOL_EX {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_EX_0 {
     pub TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF,
     pub rgbReserved: [u8; 2],
-}
-impl Copy for IMAGE_AUX_SYMBOL_EX_0 {}
-impl Clone for IMAGE_AUX_SYMBOL_EX_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_EX_0 {
     type TypeKind = windows_core::CopyType;
@@ -4307,15 +3895,10 @@ impl Default for IMAGE_AUX_SYMBOL_EX_0 {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_EX_1 {
     pub crc: u32,
     pub rgbReserved: [u8; 16],
-}
-impl Copy for IMAGE_AUX_SYMBOL_EX_1 {}
-impl Clone for IMAGE_AUX_SYMBOL_EX_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_EX_1 {
     type TypeKind = windows_core::CopyType;
@@ -4326,35 +3909,20 @@ impl Default for IMAGE_AUX_SYMBOL_EX_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_AUX_SYMBOL_EX_2 {
     pub Name: [u8; 20],
-}
-impl Copy for IMAGE_AUX_SYMBOL_EX_2 {}
-impl Clone for IMAGE_AUX_SYMBOL_EX_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_AUX_SYMBOL_EX_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_AUX_SYMBOL_EX_2").field("Name", &self.Name).finish()
-    }
 }
 impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_EX_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_AUX_SYMBOL_EX_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Name == other.Name
-    }
-}
-impl Eq for IMAGE_AUX_SYMBOL_EX_2 {}
 impl Default for IMAGE_AUX_SYMBOL_EX_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_EX_3 {
     pub Length: u32,
     pub NumberOfRelocations: u16,
@@ -4366,12 +3934,6 @@ pub struct IMAGE_AUX_SYMBOL_EX_3 {
     pub HighNumber: i16,
     pub rgbReserved: [u8; 2],
 }
-impl Copy for IMAGE_AUX_SYMBOL_EX_3 {}
-impl Clone for IMAGE_AUX_SYMBOL_EX_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_EX_3 {
     type TypeKind = windows_core::CopyType;
 }
@@ -4381,16 +3943,11 @@ impl Default for IMAGE_AUX_SYMBOL_EX_3 {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_EX_4 {
     pub WeakDefaultSymIndex: u32,
     pub WeakSearchType: u32,
     pub rgbReserved: [u8; 12],
-}
-impl Copy for IMAGE_AUX_SYMBOL_EX_4 {}
-impl Clone for IMAGE_AUX_SYMBOL_EX_4 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_EX_4 {
     type TypeKind = windows_core::CopyType;
@@ -4401,17 +3958,12 @@ impl Default for IMAGE_AUX_SYMBOL_EX_4 {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_TOKEN_DEF {
     pub bAuxType: u8,
     pub bReserved: u8,
     pub SymbolTableIndex: u32,
     pub rgbReserved: [u8; 12],
-}
-impl Copy for IMAGE_AUX_SYMBOL_TOKEN_DEF {}
-impl Clone for IMAGE_AUX_SYMBOL_TOKEN_DEF {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_TOKEN_DEF {
     type TypeKind = windows_core::CopyType;
@@ -4422,46 +3974,25 @@ impl Default for IMAGE_AUX_SYMBOL_TOKEN_DEF {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_BASE_RELOCATION {
     pub VirtualAddress: u32,
     pub SizeOfBlock: u32,
 }
-impl Copy for IMAGE_BASE_RELOCATION {}
-impl Clone for IMAGE_BASE_RELOCATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_BASE_RELOCATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_BASE_RELOCATION").field("VirtualAddress", &self.VirtualAddress).field("SizeOfBlock", &self.SizeOfBlock).finish()
-    }
-}
 impl windows_core::TypeKind for IMAGE_BASE_RELOCATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_BASE_RELOCATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.VirtualAddress == other.VirtualAddress && self.SizeOfBlock == other.SizeOfBlock
-    }
-}
-impl Eq for IMAGE_BASE_RELOCATION {}
 impl Default for IMAGE_BASE_RELOCATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_BDD_DYNAMIC_RELOCATION {
     pub Left: u16,
     pub Right: u16,
     pub Value: u32,
-}
-impl Copy for IMAGE_BDD_DYNAMIC_RELOCATION {}
-impl Clone for IMAGE_BDD_DYNAMIC_RELOCATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_BDD_DYNAMIC_RELOCATION {
     type TypeKind = windows_core::CopyType;
@@ -4472,15 +4003,10 @@ impl Default for IMAGE_BDD_DYNAMIC_RELOCATION {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_BDD_INFO {
     pub Version: u32,
     pub BDDSize: u32,
-}
-impl Copy for IMAGE_BDD_INFO {}
-impl Clone for IMAGE_BDD_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_BDD_INFO {
     type TypeKind = windows_core::CopyType;
@@ -4491,98 +4017,51 @@ impl Default for IMAGE_BDD_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_BOUND_FORWARDER_REF {
     pub TimeDateStamp: u32,
     pub OffsetModuleName: u16,
     pub Reserved: u16,
 }
-impl Copy for IMAGE_BOUND_FORWARDER_REF {}
-impl Clone for IMAGE_BOUND_FORWARDER_REF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_BOUND_FORWARDER_REF {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_BOUND_FORWARDER_REF").field("TimeDateStamp", &self.TimeDateStamp).field("OffsetModuleName", &self.OffsetModuleName).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for IMAGE_BOUND_FORWARDER_REF {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_BOUND_FORWARDER_REF {
-    fn eq(&self, other: &Self) -> bool {
-        self.TimeDateStamp == other.TimeDateStamp && self.OffsetModuleName == other.OffsetModuleName && self.Reserved == other.Reserved
-    }
-}
-impl Eq for IMAGE_BOUND_FORWARDER_REF {}
 impl Default for IMAGE_BOUND_FORWARDER_REF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_BOUND_IMPORT_DESCRIPTOR {
     pub TimeDateStamp: u32,
     pub OffsetModuleName: u16,
     pub NumberOfModuleForwarderRefs: u16,
 }
-impl Copy for IMAGE_BOUND_IMPORT_DESCRIPTOR {}
-impl Clone for IMAGE_BOUND_IMPORT_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_BOUND_IMPORT_DESCRIPTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_BOUND_IMPORT_DESCRIPTOR").field("TimeDateStamp", &self.TimeDateStamp).field("OffsetModuleName", &self.OffsetModuleName).field("NumberOfModuleForwarderRefs", &self.NumberOfModuleForwarderRefs).finish()
-    }
-}
 impl windows_core::TypeKind for IMAGE_BOUND_IMPORT_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_BOUND_IMPORT_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.TimeDateStamp == other.TimeDateStamp && self.OffsetModuleName == other.OffsetModuleName && self.NumberOfModuleForwarderRefs == other.NumberOfModuleForwarderRefs
-    }
-}
-impl Eq for IMAGE_BOUND_IMPORT_DESCRIPTOR {}
 impl Default for IMAGE_BOUND_IMPORT_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
     pub FuncStart: u32,
     pub _bitfield: u32,
 }
-impl Copy for IMAGE_CE_RUNTIME_FUNCTION_ENTRY {}
-impl Clone for IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_CE_RUNTIME_FUNCTION_ENTRY").field("FuncStart", &self.FuncStart).field("_bitfield", &self._bitfield).finish()
-    }
-}
 impl windows_core::TypeKind for IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.FuncStart == other.FuncStart && self._bitfield == other._bitfield
-    }
-}
-impl Eq for IMAGE_CE_RUNTIME_FUNCTION_ENTRY {}
 impl Default for IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_DEBUG_MISC {
     pub DataType: u32,
     pub Length: u32,
@@ -4590,32 +4069,16 @@ pub struct IMAGE_DEBUG_MISC {
     pub Reserved: [u8; 3],
     pub Data: [u8; 1],
 }
-impl Copy for IMAGE_DEBUG_MISC {}
-impl Clone for IMAGE_DEBUG_MISC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_DEBUG_MISC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_DEBUG_MISC").field("DataType", &self.DataType).field("Length", &self.Length).field("Unicode", &self.Unicode).field("Reserved", &self.Reserved).field("Data", &self.Data).finish()
-    }
-}
 impl windows_core::TypeKind for IMAGE_DEBUG_MISC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_DEBUG_MISC {
-    fn eq(&self, other: &Self) -> bool {
-        self.DataType == other.DataType && self.Length == other.Length && self.Unicode == other.Unicode && self.Reserved == other.Reserved && self.Data == other.Data
-    }
-}
-impl Eq for IMAGE_DEBUG_MISC {}
 impl Default for IMAGE_DEBUG_MISC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_DOS_HEADER {
     pub e_magic: u16,
     pub e_cblp: u16,
@@ -4637,12 +4100,6 @@ pub struct IMAGE_DOS_HEADER {
     pub e_res2: [u16; 10],
     pub e_lfanew: i32,
 }
-impl Copy for IMAGE_DOS_HEADER {}
-impl Clone for IMAGE_DOS_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for IMAGE_DOS_HEADER {
     type TypeKind = windows_core::CopyType;
 }
@@ -4652,15 +4109,10 @@ impl Default for IMAGE_DOS_HEADER {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_DYNAMIC_RELOCATION32 {
     pub Symbol: u32,
     pub BaseRelocSize: u32,
-}
-impl Copy for IMAGE_DYNAMIC_RELOCATION32 {}
-impl Clone for IMAGE_DYNAMIC_RELOCATION32 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_DYNAMIC_RELOCATION32 {
     type TypeKind = windows_core::CopyType;
@@ -4671,18 +4123,13 @@ impl Default for IMAGE_DYNAMIC_RELOCATION32 {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_DYNAMIC_RELOCATION32_V2 {
     pub HeaderSize: u32,
     pub FixupInfoSize: u32,
     pub Symbol: u32,
     pub SymbolGroup: u32,
     pub Flags: u32,
-}
-impl Copy for IMAGE_DYNAMIC_RELOCATION32_V2 {}
-impl Clone for IMAGE_DYNAMIC_RELOCATION32_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_DYNAMIC_RELOCATION32_V2 {
     type TypeKind = windows_core::CopyType;
@@ -4693,15 +4140,10 @@ impl Default for IMAGE_DYNAMIC_RELOCATION32_V2 {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_DYNAMIC_RELOCATION64 {
     pub Symbol: u64,
     pub BaseRelocSize: u32,
-}
-impl Copy for IMAGE_DYNAMIC_RELOCATION64 {}
-impl Clone for IMAGE_DYNAMIC_RELOCATION64 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_DYNAMIC_RELOCATION64 {
     type TypeKind = windows_core::CopyType;
@@ -4712,18 +4154,13 @@ impl Default for IMAGE_DYNAMIC_RELOCATION64 {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_DYNAMIC_RELOCATION64_V2 {
     pub HeaderSize: u32,
     pub FixupInfoSize: u32,
     pub Symbol: u64,
     pub SymbolGroup: u32,
     pub Flags: u32,
-}
-impl Copy for IMAGE_DYNAMIC_RELOCATION64_V2 {}
-impl Clone for IMAGE_DYNAMIC_RELOCATION64_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_DYNAMIC_RELOCATION64_V2 {
     type TypeKind = windows_core::CopyType;
@@ -4734,47 +4171,26 @@ impl Default for IMAGE_DYNAMIC_RELOCATION64_V2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_DYNAMIC_RELOCATION_TABLE {
     pub Version: u32,
     pub Size: u32,
 }
-impl Copy for IMAGE_DYNAMIC_RELOCATION_TABLE {}
-impl Clone for IMAGE_DYNAMIC_RELOCATION_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_DYNAMIC_RELOCATION_TABLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_DYNAMIC_RELOCATION_TABLE").field("Version", &self.Version).field("Size", &self.Size).finish()
-    }
-}
 impl windows_core::TypeKind for IMAGE_DYNAMIC_RELOCATION_TABLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_DYNAMIC_RELOCATION_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Size == other.Size
-    }
-}
-impl Eq for IMAGE_DYNAMIC_RELOCATION_TABLE {}
 impl Default for IMAGE_DYNAMIC_RELOCATION_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {
     pub EpilogueCount: u32,
     pub EpilogueByteCount: u8,
     pub BranchDescriptorElementSize: u8,
     pub BranchDescriptorCount: u16,
-}
-impl Copy for IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {}
-impl Clone for IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {
     type TypeKind = windows_core::CopyType;
@@ -4785,6 +4201,7 @@ impl Default for IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_EXPORT_DIRECTORY {
     pub Characteristics: u32,
     pub TimeDateStamp: u32,
@@ -4798,55 +4215,21 @@ pub struct IMAGE_EXPORT_DIRECTORY {
     pub AddressOfNames: u32,
     pub AddressOfNameOrdinals: u32,
 }
-impl Copy for IMAGE_EXPORT_DIRECTORY {}
-impl Clone for IMAGE_EXPORT_DIRECTORY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_EXPORT_DIRECTORY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_EXPORT_DIRECTORY")
-            .field("Characteristics", &self.Characteristics)
-            .field("TimeDateStamp", &self.TimeDateStamp)
-            .field("MajorVersion", &self.MajorVersion)
-            .field("MinorVersion", &self.MinorVersion)
-            .field("Name", &self.Name)
-            .field("Base", &self.Base)
-            .field("NumberOfFunctions", &self.NumberOfFunctions)
-            .field("NumberOfNames", &self.NumberOfNames)
-            .field("AddressOfFunctions", &self.AddressOfFunctions)
-            .field("AddressOfNames", &self.AddressOfNames)
-            .field("AddressOfNameOrdinals", &self.AddressOfNameOrdinals)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for IMAGE_EXPORT_DIRECTORY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_EXPORT_DIRECTORY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Characteristics == other.Characteristics && self.TimeDateStamp == other.TimeDateStamp && self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.Name == other.Name && self.Base == other.Base && self.NumberOfFunctions == other.NumberOfFunctions && self.NumberOfNames == other.NumberOfNames && self.AddressOfFunctions == other.AddressOfFunctions && self.AddressOfNames == other.AddressOfNames && self.AddressOfNameOrdinals == other.AddressOfNameOrdinals
-    }
-}
-impl Eq for IMAGE_EXPORT_DIRECTORY {}
 impl Default for IMAGE_EXPORT_DIRECTORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION {
     pub OriginalRva: u32,
     pub BDDOffset: u32,
     pub RvaSize: u32,
     pub BaseRelocSize: u32,
-}
-impl Copy for IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION {}
-impl Clone for IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION {
     type TypeKind = windows_core::CopyType;
@@ -4857,14 +4240,9 @@ impl Default for IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_FUNCTION_OVERRIDE_HEADER {
     pub FuncOverrideSize: u32,
-}
-impl Copy for IMAGE_FUNCTION_OVERRIDE_HEADER {}
-impl Clone for IMAGE_FUNCTION_OVERRIDE_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_FUNCTION_OVERRIDE_HEADER {
     type TypeKind = windows_core::CopyType;
@@ -4875,6 +4253,7 @@ impl Default for IMAGE_FUNCTION_OVERRIDE_HEADER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_HOT_PATCH_BASE {
     pub SequenceNumber: u32,
     pub Flags: u32,
@@ -4885,62 +4264,30 @@ pub struct IMAGE_HOT_PATCH_BASE {
     pub PatchTable: u32,
     pub BufferOffset: u32,
 }
-impl Copy for IMAGE_HOT_PATCH_BASE {}
-impl Clone for IMAGE_HOT_PATCH_BASE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_HOT_PATCH_BASE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_HOT_PATCH_BASE").field("SequenceNumber", &self.SequenceNumber).field("Flags", &self.Flags).field("OriginalTimeDateStamp", &self.OriginalTimeDateStamp).field("OriginalCheckSum", &self.OriginalCheckSum).field("CodeIntegrityInfo", &self.CodeIntegrityInfo).field("CodeIntegritySize", &self.CodeIntegritySize).field("PatchTable", &self.PatchTable).field("BufferOffset", &self.BufferOffset).finish()
-    }
-}
 impl windows_core::TypeKind for IMAGE_HOT_PATCH_BASE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_HOT_PATCH_BASE {
-    fn eq(&self, other: &Self) -> bool {
-        self.SequenceNumber == other.SequenceNumber && self.Flags == other.Flags && self.OriginalTimeDateStamp == other.OriginalTimeDateStamp && self.OriginalCheckSum == other.OriginalCheckSum && self.CodeIntegrityInfo == other.CodeIntegrityInfo && self.CodeIntegritySize == other.CodeIntegritySize && self.PatchTable == other.PatchTable && self.BufferOffset == other.BufferOffset
-    }
-}
-impl Eq for IMAGE_HOT_PATCH_BASE {}
 impl Default for IMAGE_HOT_PATCH_BASE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_HOT_PATCH_HASHES {
     pub SHA256: [u8; 32],
     pub SHA1: [u8; 20],
 }
-impl Copy for IMAGE_HOT_PATCH_HASHES {}
-impl Clone for IMAGE_HOT_PATCH_HASHES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_HOT_PATCH_HASHES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_HOT_PATCH_HASHES").field("SHA256", &self.SHA256).field("SHA1", &self.SHA1).finish()
-    }
-}
 impl windows_core::TypeKind for IMAGE_HOT_PATCH_HASHES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_HOT_PATCH_HASHES {
-    fn eq(&self, other: &Self) -> bool {
-        self.SHA256 == other.SHA256 && self.SHA1 == other.SHA1
-    }
-}
-impl Eq for IMAGE_HOT_PATCH_HASHES {}
 impl Default for IMAGE_HOT_PATCH_HASHES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_HOT_PATCH_INFO {
     pub Version: u32,
     pub Size: u32,
@@ -4950,70 +4297,32 @@ pub struct IMAGE_HOT_PATCH_INFO {
     pub BufferOffset: u32,
     pub ExtraPatchSize: u32,
 }
-impl Copy for IMAGE_HOT_PATCH_INFO {}
-impl Clone for IMAGE_HOT_PATCH_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_HOT_PATCH_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_HOT_PATCH_INFO").field("Version", &self.Version).field("Size", &self.Size).field("SequenceNumber", &self.SequenceNumber).field("BaseImageList", &self.BaseImageList).field("BaseImageCount", &self.BaseImageCount).field("BufferOffset", &self.BufferOffset).field("ExtraPatchSize", &self.ExtraPatchSize).finish()
-    }
-}
 impl windows_core::TypeKind for IMAGE_HOT_PATCH_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_HOT_PATCH_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Size == other.Size && self.SequenceNumber == other.SequenceNumber && self.BaseImageList == other.BaseImageList && self.BaseImageCount == other.BaseImageCount && self.BufferOffset == other.BufferOffset && self.ExtraPatchSize == other.ExtraPatchSize
-    }
-}
-impl Eq for IMAGE_HOT_PATCH_INFO {}
 impl Default for IMAGE_HOT_PATCH_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_IMPORT_BY_NAME {
     pub Hint: u16,
     pub Name: [i8; 1],
 }
-impl Copy for IMAGE_IMPORT_BY_NAME {}
-impl Clone for IMAGE_IMPORT_BY_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_IMPORT_BY_NAME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_IMPORT_BY_NAME").field("Hint", &self.Hint).field("Name", &self.Name).finish()
-    }
-}
 impl windows_core::TypeKind for IMAGE_IMPORT_BY_NAME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_IMPORT_BY_NAME {
-    fn eq(&self, other: &Self) -> bool {
-        self.Hint == other.Hint && self.Name == other.Name
-    }
-}
-impl Eq for IMAGE_IMPORT_BY_NAME {}
 impl Default for IMAGE_IMPORT_BY_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     pub _bitfield: u32,
-}
-impl Copy for IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {}
-impl Clone for IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     type TypeKind = windows_core::CopyType;
@@ -5024,18 +4333,13 @@ impl Default for IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_IMPORT_DESCRIPTOR {
     pub Anonymous: IMAGE_IMPORT_DESCRIPTOR_0,
     pub TimeDateStamp: u32,
     pub ForwarderChain: u32,
     pub Name: u32,
     pub FirstThunk: u32,
-}
-impl Copy for IMAGE_IMPORT_DESCRIPTOR {}
-impl Clone for IMAGE_IMPORT_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_IMPORT_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
@@ -5046,15 +4350,10 @@ impl Default for IMAGE_IMPORT_DESCRIPTOR {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IMAGE_IMPORT_DESCRIPTOR_0 {
     pub Characteristics: u32,
     pub OriginalFirstThunk: u32,
-}
-impl Copy for IMAGE_IMPORT_DESCRIPTOR_0 {}
-impl Clone for IMAGE_IMPORT_DESCRIPTOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_IMPORT_DESCRIPTOR_0 {
     type TypeKind = windows_core::CopyType;
@@ -5065,14 +4364,9 @@ impl Default for IMAGE_IMPORT_DESCRIPTOR_0 {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     pub _bitfield: u16,
-}
-impl Copy for IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {}
-impl Clone for IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     type TypeKind = windows_core::CopyType;
@@ -5083,15 +4377,10 @@ impl Default for IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_LINENUMBER {
     pub Type: IMAGE_LINENUMBER_0,
     pub Linenumber: u16,
-}
-impl Copy for IMAGE_LINENUMBER {}
-impl Clone for IMAGE_LINENUMBER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_LINENUMBER {
     type TypeKind = windows_core::CopyType;
@@ -5102,15 +4391,10 @@ impl Default for IMAGE_LINENUMBER {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub union IMAGE_LINENUMBER_0 {
     pub SymbolTableIndex: u32,
     pub VirtualAddress: u32,
-}
-impl Copy for IMAGE_LINENUMBER_0 {}
-impl Clone for IMAGE_LINENUMBER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_LINENUMBER_0 {
     type TypeKind = windows_core::CopyType;
@@ -5121,6 +4405,7 @@ impl Default for IMAGE_LINENUMBER_0 {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_OS2_HEADER {
     pub ne_magic: u16,
     pub ne_ver: i8,
@@ -5153,12 +4438,6 @@ pub struct IMAGE_OS2_HEADER {
     pub ne_swaparea: u16,
     pub ne_expver: u16,
 }
-impl Copy for IMAGE_OS2_HEADER {}
-impl Clone for IMAGE_OS2_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for IMAGE_OS2_HEADER {
     type TypeKind = windows_core::CopyType;
 }
@@ -5168,16 +4447,11 @@ impl Default for IMAGE_OS2_HEADER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_POLICY_ENTRY {
     pub Type: IMAGE_POLICY_ENTRY_TYPE,
     pub PolicyId: IMAGE_POLICY_ID,
     pub u: IMAGE_POLICY_ENTRY_0,
-}
-impl Copy for IMAGE_POLICY_ENTRY {}
-impl Clone for IMAGE_POLICY_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_POLICY_ENTRY {
     type TypeKind = windows_core::CopyType;
@@ -5188,6 +4462,7 @@ impl Default for IMAGE_POLICY_ENTRY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IMAGE_POLICY_ENTRY_0 {
     pub None: *const core::ffi::c_void,
     pub BoolValue: super::super::Foundation::BOOLEAN,
@@ -5202,12 +4477,6 @@ pub union IMAGE_POLICY_ENTRY_0 {
     pub AnsiStringValue: windows_core::PCSTR,
     pub UnicodeStringValue: windows_core::PCWSTR,
 }
-impl Copy for IMAGE_POLICY_ENTRY_0 {}
-impl Clone for IMAGE_POLICY_ENTRY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for IMAGE_POLICY_ENTRY_0 {
     type TypeKind = windows_core::CopyType;
 }
@@ -5217,17 +4486,12 @@ impl Default for IMAGE_POLICY_ENTRY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_POLICY_METADATA {
     pub Version: u8,
     pub Reserved0: [u8; 7],
     pub ApplicationId: u64,
     pub Policies: [IMAGE_POLICY_ENTRY; 1],
-}
-impl Copy for IMAGE_POLICY_METADATA {}
-impl Clone for IMAGE_POLICY_METADATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_POLICY_METADATA {
     type TypeKind = windows_core::CopyType;
@@ -5238,45 +4502,24 @@ impl Default for IMAGE_POLICY_METADATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {
     pub PrologueByteCount: u8,
-}
-impl Copy for IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {}
-impl Clone for IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER").field("PrologueByteCount", &self.PrologueByteCount).finish()
-    }
 }
 impl windows_core::TypeKind for IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.PrologueByteCount == other.PrologueByteCount
-    }
-}
-impl Eq for IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {}
 impl Default for IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_RELOCATION {
     pub Anonymous: IMAGE_RELOCATION_0,
     pub SymbolTableIndex: u32,
     pub Type: u16,
-}
-impl Copy for IMAGE_RELOCATION {}
-impl Clone for IMAGE_RELOCATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_RELOCATION {
     type TypeKind = windows_core::CopyType;
@@ -5287,15 +4530,10 @@ impl Default for IMAGE_RELOCATION {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub union IMAGE_RELOCATION_0 {
     pub VirtualAddress: u32,
     pub RelocCount: u32,
-}
-impl Copy for IMAGE_RELOCATION_0 {}
-impl Clone for IMAGE_RELOCATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_RELOCATION_0 {
     type TypeKind = windows_core::CopyType;
@@ -5306,38 +4544,23 @@ impl Default for IMAGE_RELOCATION_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_RESOURCE_DATA_ENTRY {
     pub OffsetToData: u32,
     pub Size: u32,
     pub CodePage: u32,
     pub Reserved: u32,
 }
-impl Copy for IMAGE_RESOURCE_DATA_ENTRY {}
-impl Clone for IMAGE_RESOURCE_DATA_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_RESOURCE_DATA_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_RESOURCE_DATA_ENTRY").field("OffsetToData", &self.OffsetToData).field("Size", &self.Size).field("CodePage", &self.CodePage).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for IMAGE_RESOURCE_DATA_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_RESOURCE_DATA_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.OffsetToData == other.OffsetToData && self.Size == other.Size && self.CodePage == other.CodePage && self.Reserved == other.Reserved
-    }
-}
-impl Eq for IMAGE_RESOURCE_DATA_ENTRY {}
 impl Default for IMAGE_RESOURCE_DATA_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_RESOURCE_DIRECTORY {
     pub Characteristics: u32,
     pub TimeDateStamp: u32,
@@ -5346,41 +4569,19 @@ pub struct IMAGE_RESOURCE_DIRECTORY {
     pub NumberOfNamedEntries: u16,
     pub NumberOfIdEntries: u16,
 }
-impl Copy for IMAGE_RESOURCE_DIRECTORY {}
-impl Clone for IMAGE_RESOURCE_DIRECTORY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_RESOURCE_DIRECTORY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_RESOURCE_DIRECTORY").field("Characteristics", &self.Characteristics).field("TimeDateStamp", &self.TimeDateStamp).field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("NumberOfNamedEntries", &self.NumberOfNamedEntries).field("NumberOfIdEntries", &self.NumberOfIdEntries).finish()
-    }
-}
 impl windows_core::TypeKind for IMAGE_RESOURCE_DIRECTORY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_RESOURCE_DIRECTORY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Characteristics == other.Characteristics && self.TimeDateStamp == other.TimeDateStamp && self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.NumberOfNamedEntries == other.NumberOfNamedEntries && self.NumberOfIdEntries == other.NumberOfIdEntries
-    }
-}
-impl Eq for IMAGE_RESOURCE_DIRECTORY {}
 impl Default for IMAGE_RESOURCE_DIRECTORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY {
     pub Anonymous1: IMAGE_RESOURCE_DIRECTORY_ENTRY_0,
     pub Anonymous2: IMAGE_RESOURCE_DIRECTORY_ENTRY_1,
-}
-impl Copy for IMAGE_RESOURCE_DIRECTORY_ENTRY {}
-impl Clone for IMAGE_RESOURCE_DIRECTORY_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_RESOURCE_DIRECTORY_ENTRY {
     type TypeKind = windows_core::CopyType;
@@ -5391,16 +4592,11 @@ impl Default for IMAGE_RESOURCE_DIRECTORY_ENTRY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {
     pub Anonymous: IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0,
     pub Name: u32,
     pub Id: u16,
-}
-impl Copy for IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {}
-impl Clone for IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {
     type TypeKind = windows_core::CopyType;
@@ -5411,44 +4607,23 @@ impl Default for IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {}
-impl Clone for IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {}
 impl Default for IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {
     pub OffsetToData: u32,
     pub Anonymous: IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0,
-}
-impl Copy for IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {}
-impl Clone for IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {
     type TypeKind = windows_core::CopyType;
@@ -5459,95 +4634,48 @@ impl Default for IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
     pub _bitfield: u32,
-}
-impl Copy for IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {}
-impl Clone for IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {}
 impl Default for IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_RESOURCE_DIRECTORY_STRING {
     pub Length: u16,
     pub NameString: [i8; 1],
 }
-impl Copy for IMAGE_RESOURCE_DIRECTORY_STRING {}
-impl Clone for IMAGE_RESOURCE_DIRECTORY_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_RESOURCE_DIRECTORY_STRING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_RESOURCE_DIRECTORY_STRING").field("Length", &self.Length).field("NameString", &self.NameString).finish()
-    }
-}
 impl windows_core::TypeKind for IMAGE_RESOURCE_DIRECTORY_STRING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_RESOURCE_DIRECTORY_STRING {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.NameString == other.NameString
-    }
-}
-impl Eq for IMAGE_RESOURCE_DIRECTORY_STRING {}
 impl Default for IMAGE_RESOURCE_DIRECTORY_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_RESOURCE_DIR_STRING_U {
     pub Length: u16,
     pub NameString: [u16; 1],
 }
-impl Copy for IMAGE_RESOURCE_DIR_STRING_U {}
-impl Clone for IMAGE_RESOURCE_DIR_STRING_U {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_RESOURCE_DIR_STRING_U {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_RESOURCE_DIR_STRING_U").field("Length", &self.Length).field("NameString", &self.NameString).finish()
-    }
-}
 impl windows_core::TypeKind for IMAGE_RESOURCE_DIR_STRING_U {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_RESOURCE_DIR_STRING_U {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.NameString == other.NameString
-    }
-}
-impl Eq for IMAGE_RESOURCE_DIR_STRING_U {}
 impl Default for IMAGE_RESOURCE_DIR_STRING_U {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_SEPARATE_DEBUG_HEADER {
     pub Signature: u16,
     pub Flags: u16,
@@ -5563,54 +4691,18 @@ pub struct IMAGE_SEPARATE_DEBUG_HEADER {
     pub SectionAlignment: u32,
     pub Reserved: [u32; 2],
 }
-impl Copy for IMAGE_SEPARATE_DEBUG_HEADER {}
-impl Clone for IMAGE_SEPARATE_DEBUG_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_SEPARATE_DEBUG_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_SEPARATE_DEBUG_HEADER")
-            .field("Signature", &self.Signature)
-            .field("Flags", &self.Flags)
-            .field("Machine", &self.Machine)
-            .field("Characteristics", &self.Characteristics)
-            .field("TimeDateStamp", &self.TimeDateStamp)
-            .field("CheckSum", &self.CheckSum)
-            .field("ImageBase", &self.ImageBase)
-            .field("SizeOfImage", &self.SizeOfImage)
-            .field("NumberOfSections", &self.NumberOfSections)
-            .field("ExportedNamesSize", &self.ExportedNamesSize)
-            .field("DebugDirectorySize", &self.DebugDirectorySize)
-            .field("SectionAlignment", &self.SectionAlignment)
-            .field("Reserved", &self.Reserved)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for IMAGE_SEPARATE_DEBUG_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_SEPARATE_DEBUG_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Signature == other.Signature && self.Flags == other.Flags && self.Machine == other.Machine && self.Characteristics == other.Characteristics && self.TimeDateStamp == other.TimeDateStamp && self.CheckSum == other.CheckSum && self.ImageBase == other.ImageBase && self.SizeOfImage == other.SizeOfImage && self.NumberOfSections == other.NumberOfSections && self.ExportedNamesSize == other.ExportedNamesSize && self.DebugDirectorySize == other.DebugDirectorySize && self.SectionAlignment == other.SectionAlignment && self.Reserved == other.Reserved
-    }
-}
-impl Eq for IMAGE_SEPARATE_DEBUG_HEADER {}
 impl Default for IMAGE_SEPARATE_DEBUG_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {
     pub _bitfield: u16,
-}
-impl Copy for IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {}
-impl Clone for IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {
     type TypeKind = windows_core::CopyType;
@@ -5621,6 +4713,7 @@ impl Default for IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_SYMBOL {
     pub N: IMAGE_SYMBOL_0,
     pub Value: u32,
@@ -5628,12 +4721,6 @@ pub struct IMAGE_SYMBOL {
     pub Type: u16,
     pub StorageClass: u8,
     pub NumberOfAuxSymbols: u8,
-}
-impl Copy for IMAGE_SYMBOL {}
-impl Clone for IMAGE_SYMBOL {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_SYMBOL {
     type TypeKind = windows_core::CopyType;
@@ -5644,16 +4731,11 @@ impl Default for IMAGE_SYMBOL {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub union IMAGE_SYMBOL_0 {
     pub ShortName: [u8; 8],
     pub Name: IMAGE_SYMBOL_0_0,
     pub LongName: [u32; 2],
-}
-impl Copy for IMAGE_SYMBOL_0 {}
-impl Clone for IMAGE_SYMBOL_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_SYMBOL_0 {
     type TypeKind = windows_core::CopyType;
@@ -5664,15 +4746,10 @@ impl Default for IMAGE_SYMBOL_0 {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_SYMBOL_0_0 {
     pub Short: u32,
     pub Long: u32,
-}
-impl Copy for IMAGE_SYMBOL_0_0 {}
-impl Clone for IMAGE_SYMBOL_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_SYMBOL_0_0 {
     type TypeKind = windows_core::CopyType;
@@ -5683,6 +4760,7 @@ impl Default for IMAGE_SYMBOL_0_0 {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_SYMBOL_EX {
     pub N: IMAGE_SYMBOL_EX_0,
     pub Value: u32,
@@ -5690,12 +4768,6 @@ pub struct IMAGE_SYMBOL_EX {
     pub Type: u16,
     pub StorageClass: u8,
     pub NumberOfAuxSymbols: u8,
-}
-impl Copy for IMAGE_SYMBOL_EX {}
-impl Clone for IMAGE_SYMBOL_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_SYMBOL_EX {
     type TypeKind = windows_core::CopyType;
@@ -5706,16 +4778,11 @@ impl Default for IMAGE_SYMBOL_EX {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub union IMAGE_SYMBOL_EX_0 {
     pub ShortName: [u8; 8],
     pub Name: IMAGE_SYMBOL_EX_0_0,
     pub LongName: [u32; 2],
-}
-impl Copy for IMAGE_SYMBOL_EX_0 {}
-impl Clone for IMAGE_SYMBOL_EX_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_SYMBOL_EX_0 {
     type TypeKind = windows_core::CopyType;
@@ -5726,15 +4793,10 @@ impl Default for IMAGE_SYMBOL_EX_0 {
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_SYMBOL_EX_0_0 {
     pub Short: u32,
     pub Long: u32,
-}
-impl Copy for IMAGE_SYMBOL_EX_0_0 {}
-impl Clone for IMAGE_SYMBOL_EX_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_SYMBOL_EX_0_0 {
     type TypeKind = windows_core::CopyType;
@@ -5745,6 +4807,7 @@ impl Default for IMAGE_SYMBOL_EX_0_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_TLS_DIRECTORY32 {
     pub StartAddressOfRawData: u32,
     pub EndAddressOfRawData: u32,
@@ -5752,12 +4815,6 @@ pub struct IMAGE_TLS_DIRECTORY32 {
     pub AddressOfCallBacks: u32,
     pub SizeOfZeroFill: u32,
     pub Anonymous: IMAGE_TLS_DIRECTORY32_0,
-}
-impl Copy for IMAGE_TLS_DIRECTORY32 {}
-impl Clone for IMAGE_TLS_DIRECTORY32 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_TLS_DIRECTORY32 {
     type TypeKind = windows_core::CopyType;
@@ -5768,15 +4825,10 @@ impl Default for IMAGE_TLS_DIRECTORY32 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IMAGE_TLS_DIRECTORY32_0 {
     pub Characteristics: u32,
     pub Anonymous: IMAGE_TLS_DIRECTORY32_0_0,
-}
-impl Copy for IMAGE_TLS_DIRECTORY32_0 {}
-impl Clone for IMAGE_TLS_DIRECTORY32_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_TLS_DIRECTORY32_0 {
     type TypeKind = windows_core::CopyType;
@@ -5787,35 +4839,20 @@ impl Default for IMAGE_TLS_DIRECTORY32_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_TLS_DIRECTORY32_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for IMAGE_TLS_DIRECTORY32_0_0 {}
-impl Clone for IMAGE_TLS_DIRECTORY32_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_TLS_DIRECTORY32_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_TLS_DIRECTORY32_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for IMAGE_TLS_DIRECTORY32_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_TLS_DIRECTORY32_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for IMAGE_TLS_DIRECTORY32_0_0 {}
 impl Default for IMAGE_TLS_DIRECTORY32_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_TLS_DIRECTORY64 {
     pub StartAddressOfRawData: u64,
     pub EndAddressOfRawData: u64,
@@ -5823,12 +4860,6 @@ pub struct IMAGE_TLS_DIRECTORY64 {
     pub AddressOfCallBacks: u64,
     pub SizeOfZeroFill: u32,
     pub Anonymous: IMAGE_TLS_DIRECTORY64_0,
-}
-impl Copy for IMAGE_TLS_DIRECTORY64 {}
-impl Clone for IMAGE_TLS_DIRECTORY64 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_TLS_DIRECTORY64 {
     type TypeKind = windows_core::CopyType;
@@ -5839,15 +4870,10 @@ impl Default for IMAGE_TLS_DIRECTORY64 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IMAGE_TLS_DIRECTORY64_0 {
     pub Characteristics: u32,
     pub Anonymous: IMAGE_TLS_DIRECTORY64_0_0,
-}
-impl Copy for IMAGE_TLS_DIRECTORY64_0 {}
-impl Clone for IMAGE_TLS_DIRECTORY64_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMAGE_TLS_DIRECTORY64_0 {
     type TypeKind = windows_core::CopyType;
@@ -5858,35 +4884,20 @@ impl Default for IMAGE_TLS_DIRECTORY64_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_TLS_DIRECTORY64_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for IMAGE_TLS_DIRECTORY64_0_0 {}
-impl Clone for IMAGE_TLS_DIRECTORY64_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMAGE_TLS_DIRECTORY64_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMAGE_TLS_DIRECTORY64_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for IMAGE_TLS_DIRECTORY64_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMAGE_TLS_DIRECTORY64_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for IMAGE_TLS_DIRECTORY64_0_0 {}
 impl Default for IMAGE_TLS_DIRECTORY64_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_VXD_HEADER {
     pub e32_magic: u16,
     pub e32_border: u8,
@@ -5940,12 +4951,6 @@ pub struct IMAGE_VXD_HEADER {
     pub e32_devid: u16,
     pub e32_ddkver: u16,
 }
-impl Copy for IMAGE_VXD_HEADER {}
-impl Clone for IMAGE_VXD_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for IMAGE_VXD_HEADER {
     type TypeKind = windows_core::CopyType;
 }
@@ -5955,6 +4960,7 @@ impl Default for IMAGE_VXD_HEADER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMPORT_OBJECT_HEADER {
     pub Sig1: u16,
     pub Sig2: u16,
@@ -5965,12 +4971,6 @@ pub struct IMPORT_OBJECT_HEADER {
     pub Anonymous: IMPORT_OBJECT_HEADER_0,
     pub _bitfield: u16,
 }
-impl Copy for IMPORT_OBJECT_HEADER {}
-impl Clone for IMPORT_OBJECT_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for IMPORT_OBJECT_HEADER {
     type TypeKind = windows_core::CopyType;
 }
@@ -5980,15 +4980,10 @@ impl Default for IMPORT_OBJECT_HEADER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IMPORT_OBJECT_HEADER_0 {
     pub Ordinal: u16,
     pub Hint: u16,
-}
-impl Copy for IMPORT_OBJECT_HEADER_0 {}
-impl Clone for IMPORT_OBJECT_HEADER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IMPORT_OBJECT_HEADER_0 {
     type TypeKind = windows_core::CopyType;
@@ -5999,18 +4994,13 @@ impl Default for IMPORT_OBJECT_HEADER_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KERNEL_CET_CONTEXT {
     pub Ssp: u64,
     pub Rip: u64,
     pub SegCs: u16,
     pub Anonymous: KERNEL_CET_CONTEXT_0,
     pub Fill: [u16; 2],
-}
-impl Copy for KERNEL_CET_CONTEXT {}
-impl Clone for KERNEL_CET_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for KERNEL_CET_CONTEXT {
     type TypeKind = windows_core::CopyType;
@@ -6021,15 +5011,10 @@ impl Default for KERNEL_CET_CONTEXT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union KERNEL_CET_CONTEXT_0 {
     pub AllFlags: u16,
     pub Anonymous: KERNEL_CET_CONTEXT_0_0,
-}
-impl Copy for KERNEL_CET_CONTEXT_0 {}
-impl Clone for KERNEL_CET_CONTEXT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for KERNEL_CET_CONTEXT_0 {
     type TypeKind = windows_core::CopyType;
@@ -6040,125 +5025,62 @@ impl Default for KERNEL_CET_CONTEXT_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KERNEL_CET_CONTEXT_0_0 {
     pub _bitfield: u16,
-}
-impl Copy for KERNEL_CET_CONTEXT_0_0 {}
-impl Clone for KERNEL_CET_CONTEXT_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for KERNEL_CET_CONTEXT_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("KERNEL_CET_CONTEXT_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for KERNEL_CET_CONTEXT_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for KERNEL_CET_CONTEXT_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for KERNEL_CET_CONTEXT_0_0 {}
 impl Default for KERNEL_CET_CONTEXT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KTMOBJECT_CURSOR {
     pub LastQuery: windows_core::GUID,
     pub ObjectIdCount: u32,
     pub ObjectIds: [windows_core::GUID; 1],
 }
-impl Copy for KTMOBJECT_CURSOR {}
-impl Clone for KTMOBJECT_CURSOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for KTMOBJECT_CURSOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("KTMOBJECT_CURSOR").field("LastQuery", &self.LastQuery).field("ObjectIdCount", &self.ObjectIdCount).field("ObjectIds", &self.ObjectIds).finish()
-    }
-}
 impl windows_core::TypeKind for KTMOBJECT_CURSOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for KTMOBJECT_CURSOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.LastQuery == other.LastQuery && self.ObjectIdCount == other.ObjectIdCount && self.ObjectIds == other.ObjectIds
-    }
-}
-impl Eq for KTMOBJECT_CURSOR {}
 impl Default for KTMOBJECT_CURSOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MAXVERSIONTESTED_INFO {
     pub MaxVersionTested: u64,
-}
-impl Copy for MAXVERSIONTESTED_INFO {}
-impl Clone for MAXVERSIONTESTED_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MAXVERSIONTESTED_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MAXVERSIONTESTED_INFO").field("MaxVersionTested", &self.MaxVersionTested).finish()
-    }
 }
 impl windows_core::TypeKind for MAXVERSIONTESTED_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MAXVERSIONTESTED_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.MaxVersionTested == other.MaxVersionTested
-    }
-}
-impl Eq for MAXVERSIONTESTED_INFO {}
 impl Default for MAXVERSIONTESTED_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_APP_INSTANCE_EA {
     pub AppInstanceID: windows_core::GUID,
     pub CsvFlags: u32,
 }
-impl Copy for NETWORK_APP_INSTANCE_EA {}
-impl Clone for NETWORK_APP_INSTANCE_EA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NETWORK_APP_INSTANCE_EA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NETWORK_APP_INSTANCE_EA").field("AppInstanceID", &self.AppInstanceID).field("CsvFlags", &self.CsvFlags).finish()
-    }
-}
 impl windows_core::TypeKind for NETWORK_APP_INSTANCE_EA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NETWORK_APP_INSTANCE_EA {
-    fn eq(&self, other: &Self) -> bool {
-        self.AppInstanceID == other.AppInstanceID && self.CsvFlags == other.CsvFlags
-    }
-}
-impl Eq for NETWORK_APP_INSTANCE_EA {}
 impl Default for NETWORK_APP_INSTANCE_EA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct NON_PAGED_DEBUG_INFO {
     pub Signature: u16,
     pub Flags: u16,
@@ -6170,12 +5092,6 @@ pub struct NON_PAGED_DEBUG_INFO {
     pub SizeOfImage: u32,
     pub ImageBase: u64,
 }
-impl Copy for NON_PAGED_DEBUG_INFO {}
-impl Clone for NON_PAGED_DEBUG_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for NON_PAGED_DEBUG_INFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -6185,35 +5101,20 @@ impl Default for NON_PAGED_DEBUG_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NOTIFY_USER_POWER_SETTING {
     pub Guid: windows_core::GUID,
-}
-impl Copy for NOTIFY_USER_POWER_SETTING {}
-impl Clone for NOTIFY_USER_POWER_SETTING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NOTIFY_USER_POWER_SETTING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NOTIFY_USER_POWER_SETTING").field("Guid", &self.Guid).finish()
-    }
 }
 impl windows_core::TypeKind for NOTIFY_USER_POWER_SETTING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NOTIFY_USER_POWER_SETTING {
-    fn eq(&self, other: &Self) -> bool {
-        self.Guid == other.Guid
-    }
-}
-impl Eq for NOTIFY_USER_POWER_SETTING {}
 impl Default for NOTIFY_USER_POWER_SETTING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NT_TIB32 {
     pub ExceptionList: u32,
     pub StackBase: u32,
@@ -6222,12 +5123,6 @@ pub struct NT_TIB32 {
     pub Anonymous: NT_TIB32_0,
     pub ArbitraryUserPointer: u32,
     pub Self_: u32,
-}
-impl Copy for NT_TIB32 {}
-impl Clone for NT_TIB32 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for NT_TIB32 {
     type TypeKind = windows_core::CopyType;
@@ -6238,15 +5133,10 @@ impl Default for NT_TIB32 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union NT_TIB32_0 {
     pub FiberData: u32,
     pub Version: u32,
-}
-impl Copy for NT_TIB32_0 {}
-impl Clone for NT_TIB32_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for NT_TIB32_0 {
     type TypeKind = windows_core::CopyType;
@@ -6257,6 +5147,7 @@ impl Default for NT_TIB32_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NT_TIB64 {
     pub ExceptionList: u64,
     pub StackBase: u64,
@@ -6265,12 +5156,6 @@ pub struct NT_TIB64 {
     pub Anonymous: NT_TIB64_0,
     pub ArbitraryUserPointer: u64,
     pub Self_: u64,
-}
-impl Copy for NT_TIB64 {}
-impl Clone for NT_TIB64 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for NT_TIB64 {
     type TypeKind = windows_core::CopyType;
@@ -6281,15 +5166,10 @@ impl Default for NT_TIB64 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union NT_TIB64_0 {
     pub FiberData: u64,
     pub Version: u32,
-}
-impl Copy for NT_TIB64_0 {}
-impl Clone for NT_TIB64_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for NT_TIB64_0 {
     type TypeKind = windows_core::CopyType;
@@ -6300,80 +5180,43 @@ impl Default for NT_TIB64_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PACKEDEVENTINFO {
     pub ulSize: u32,
     pub ulNumEventsForLogFile: u32,
     pub ulOffsets: [u32; 1],
 }
-impl Copy for PACKEDEVENTINFO {}
-impl Clone for PACKEDEVENTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PACKEDEVENTINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PACKEDEVENTINFO").field("ulSize", &self.ulSize).field("ulNumEventsForLogFile", &self.ulNumEventsForLogFile).field("ulOffsets", &self.ulOffsets).finish()
-    }
-}
 impl windows_core::TypeKind for PACKEDEVENTINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PACKEDEVENTINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulSize == other.ulSize && self.ulNumEventsForLogFile == other.ulNumEventsForLogFile && self.ulOffsets == other.ulOffsets
-    }
-}
-impl Eq for PACKEDEVENTINFO {}
 impl Default for PACKEDEVENTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSOR_IDLESTATE_INFO {
     pub TimeCheck: u32,
     pub DemotePercent: u8,
     pub PromotePercent: u8,
     pub Spare: [u8; 2],
 }
-impl Copy for PROCESSOR_IDLESTATE_INFO {}
-impl Clone for PROCESSOR_IDLESTATE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESSOR_IDLESTATE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESSOR_IDLESTATE_INFO").field("TimeCheck", &self.TimeCheck).field("DemotePercent", &self.DemotePercent).field("PromotePercent", &self.PromotePercent).field("Spare", &self.Spare).finish()
-    }
-}
 impl windows_core::TypeKind for PROCESSOR_IDLESTATE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESSOR_IDLESTATE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.TimeCheck == other.TimeCheck && self.DemotePercent == other.DemotePercent && self.PromotePercent == other.PromotePercent && self.Spare == other.Spare
-    }
-}
-impl Eq for PROCESSOR_IDLESTATE_INFO {}
 impl Default for PROCESSOR_IDLESTATE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESSOR_IDLESTATE_POLICY {
     pub Revision: u16,
     pub Flags: PROCESSOR_IDLESTATE_POLICY_0,
     pub PolicyCount: u32,
     pub Policy: [PROCESSOR_IDLESTATE_INFO; 3],
-}
-impl Copy for PROCESSOR_IDLESTATE_POLICY {}
-impl Clone for PROCESSOR_IDLESTATE_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESSOR_IDLESTATE_POLICY {
     type TypeKind = windows_core::CopyType;
@@ -6384,15 +5227,10 @@ impl Default for PROCESSOR_IDLESTATE_POLICY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESSOR_IDLESTATE_POLICY_0 {
     pub AsWORD: u16,
     pub Anonymous: PROCESSOR_IDLESTATE_POLICY_0_0,
-}
-impl Copy for PROCESSOR_IDLESTATE_POLICY_0 {}
-impl Clone for PROCESSOR_IDLESTATE_POLICY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESSOR_IDLESTATE_POLICY_0 {
     type TypeKind = windows_core::CopyType;
@@ -6403,35 +5241,20 @@ impl Default for PROCESSOR_IDLESTATE_POLICY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSOR_IDLESTATE_POLICY_0_0 {
     pub _bitfield: u16,
-}
-impl Copy for PROCESSOR_IDLESTATE_POLICY_0_0 {}
-impl Clone for PROCESSOR_IDLESTATE_POLICY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESSOR_IDLESTATE_POLICY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESSOR_IDLESTATE_POLICY_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for PROCESSOR_IDLESTATE_POLICY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESSOR_IDLESTATE_POLICY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for PROCESSOR_IDLESTATE_POLICY_0_0 {}
 impl Default for PROCESSOR_IDLESTATE_POLICY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESSOR_PERFSTATE_POLICY {
     pub Revision: u32,
     pub MaxThrottle: u8,
@@ -6444,12 +5267,6 @@ pub struct PROCESSOR_PERFSTATE_POLICY {
     pub IncreasePercent: u32,
     pub DecreasePercent: u32,
 }
-impl Copy for PROCESSOR_PERFSTATE_POLICY {}
-impl Clone for PROCESSOR_PERFSTATE_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for PROCESSOR_PERFSTATE_POLICY {
     type TypeKind = windows_core::CopyType;
 }
@@ -6459,15 +5276,10 @@ impl Default for PROCESSOR_PERFSTATE_POLICY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESSOR_PERFSTATE_POLICY_0 {
     pub Spare: u8,
     pub Flags: PROCESSOR_PERFSTATE_POLICY_0_0,
-}
-impl Copy for PROCESSOR_PERFSTATE_POLICY_0 {}
-impl Clone for PROCESSOR_PERFSTATE_POLICY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESSOR_PERFSTATE_POLICY_0 {
     type TypeKind = windows_core::CopyType;
@@ -6478,15 +5290,10 @@ impl Default for PROCESSOR_PERFSTATE_POLICY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESSOR_PERFSTATE_POLICY_0_0 {
     pub AsBYTE: u8,
     pub Anonymous: PROCESSOR_PERFSTATE_POLICY_0_0_0,
-}
-impl Copy for PROCESSOR_PERFSTATE_POLICY_0_0 {}
-impl Clone for PROCESSOR_PERFSTATE_POLICY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESSOR_PERFSTATE_POLICY_0_0 {
     type TypeKind = windows_core::CopyType;
@@ -6497,43 +5304,22 @@ impl Default for PROCESSOR_PERFSTATE_POLICY_0_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSOR_PERFSTATE_POLICY_0_0_0 {
     pub _bitfield: u8,
-}
-impl Copy for PROCESSOR_PERFSTATE_POLICY_0_0_0 {}
-impl Clone for PROCESSOR_PERFSTATE_POLICY_0_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESSOR_PERFSTATE_POLICY_0_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESSOR_PERFSTATE_POLICY_0_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for PROCESSOR_PERFSTATE_POLICY_0_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESSOR_PERFSTATE_POLICY_0_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for PROCESSOR_PERFSTATE_POLICY_0_0_0 {}
 impl Default for PROCESSOR_PERFSTATE_POLICY_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY {
     pub Anonymous: PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0,
-}
-impl Copy for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY {}
-impl Clone for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY {
     type TypeKind = windows_core::CopyType;
@@ -6544,15 +5330,10 @@ impl Default for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0,
-}
-impl Copy for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0 {}
-impl Clone for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0 {
     type TypeKind = windows_core::CopyType;
@@ -6563,43 +5344,22 @@ impl Default for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {}
-impl Clone for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {}
 impl Default for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_ASLR_POLICY {
     pub Anonymous: PROCESS_MITIGATION_ASLR_POLICY_0,
-}
-impl Copy for PROCESS_MITIGATION_ASLR_POLICY {}
-impl Clone for PROCESS_MITIGATION_ASLR_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_ASLR_POLICY {
     type TypeKind = windows_core::CopyType;
@@ -6610,15 +5370,10 @@ impl Default for PROCESS_MITIGATION_ASLR_POLICY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_ASLR_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_ASLR_POLICY_0_0,
-}
-impl Copy for PROCESS_MITIGATION_ASLR_POLICY_0 {}
-impl Clone for PROCESS_MITIGATION_ASLR_POLICY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_ASLR_POLICY_0 {
     type TypeKind = windows_core::CopyType;
@@ -6629,43 +5384,22 @@ impl Default for PROCESS_MITIGATION_ASLR_POLICY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_ASLR_POLICY_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for PROCESS_MITIGATION_ASLR_POLICY_0_0 {}
-impl Clone for PROCESS_MITIGATION_ASLR_POLICY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_MITIGATION_ASLR_POLICY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_ASLR_POLICY_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_ASLR_POLICY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_MITIGATION_ASLR_POLICY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for PROCESS_MITIGATION_ASLR_POLICY_0_0 {}
 impl Default for PROCESS_MITIGATION_ASLR_POLICY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0,
-}
-impl Copy for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {}
-impl Clone for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {
     type TypeKind = windows_core::CopyType;
@@ -6676,15 +5410,10 @@ impl Default for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0,
-}
-impl Copy for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {}
-impl Clone for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {
     type TypeKind = windows_core::CopyType;
@@ -6695,43 +5424,22 @@ impl Default for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {}
-impl Clone for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {}
 impl Default for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_CHILD_PROCESS_POLICY {
     pub Anonymous: PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0,
-}
-impl Copy for PROCESS_MITIGATION_CHILD_PROCESS_POLICY {}
-impl Clone for PROCESS_MITIGATION_CHILD_PROCESS_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_CHILD_PROCESS_POLICY {
     type TypeKind = windows_core::CopyType;
@@ -6742,15 +5450,10 @@ impl Default for PROCESS_MITIGATION_CHILD_PROCESS_POLICY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0,
-}
-impl Copy for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {}
-impl Clone for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {
     type TypeKind = windows_core::CopyType;
@@ -6761,43 +5464,22 @@ impl Default for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {}
-impl Clone for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {}
 impl Default for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {
     pub Anonymous: PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0,
-}
-impl Copy for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {}
-impl Clone for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {
     type TypeKind = windows_core::CopyType;
@@ -6808,15 +5490,10 @@ impl Default for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0,
-}
-impl Copy for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {}
-impl Clone for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {
     type TypeKind = windows_core::CopyType;
@@ -6827,44 +5504,23 @@ impl Default for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {}
-impl Clone for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {}
 impl Default for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_DEP_POLICY {
     pub Anonymous: PROCESS_MITIGATION_DEP_POLICY_0,
     pub Permanent: super::super::Foundation::BOOLEAN,
-}
-impl Copy for PROCESS_MITIGATION_DEP_POLICY {}
-impl Clone for PROCESS_MITIGATION_DEP_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_DEP_POLICY {
     type TypeKind = windows_core::CopyType;
@@ -6875,15 +5531,10 @@ impl Default for PROCESS_MITIGATION_DEP_POLICY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_DEP_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_DEP_POLICY_0_0,
-}
-impl Copy for PROCESS_MITIGATION_DEP_POLICY_0 {}
-impl Clone for PROCESS_MITIGATION_DEP_POLICY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_DEP_POLICY_0 {
     type TypeKind = windows_core::CopyType;
@@ -6894,43 +5545,22 @@ impl Default for PROCESS_MITIGATION_DEP_POLICY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_DEP_POLICY_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for PROCESS_MITIGATION_DEP_POLICY_0_0 {}
-impl Clone for PROCESS_MITIGATION_DEP_POLICY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_MITIGATION_DEP_POLICY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_DEP_POLICY_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_DEP_POLICY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_MITIGATION_DEP_POLICY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for PROCESS_MITIGATION_DEP_POLICY_0_0 {}
 impl Default for PROCESS_MITIGATION_DEP_POLICY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0,
-}
-impl Copy for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {}
-impl Clone for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
     type TypeKind = windows_core::CopyType;
@@ -6941,15 +5571,10 @@ impl Default for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0,
-}
-impl Copy for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {}
-impl Clone for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {
     type TypeKind = windows_core::CopyType;
@@ -6960,43 +5585,22 @@ impl Default for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {}
-impl Clone for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {}
 impl Default for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0,
-}
-impl Copy for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {}
-impl Clone for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {
     type TypeKind = windows_core::CopyType;
@@ -7007,15 +5611,10 @@ impl Default for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0,
-}
-impl Copy for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 {}
-impl Clone for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 {
     type TypeKind = windows_core::CopyType;
@@ -7026,43 +5625,22 @@ impl Default for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {}
-impl Clone for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {}
 impl Default for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_FONT_DISABLE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_FONT_DISABLE_POLICY_0,
-}
-impl Copy for PROCESS_MITIGATION_FONT_DISABLE_POLICY {}
-impl Clone for PROCESS_MITIGATION_FONT_DISABLE_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_FONT_DISABLE_POLICY {
     type TypeKind = windows_core::CopyType;
@@ -7073,15 +5651,10 @@ impl Default for PROCESS_MITIGATION_FONT_DISABLE_POLICY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0,
-}
-impl Copy for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {}
-impl Clone for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {
     type TypeKind = windows_core::CopyType;
@@ -7092,43 +5665,22 @@ impl Default for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {}
-impl Clone for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {}
 impl Default for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_IMAGE_LOAD_POLICY {
     pub Anonymous: PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0,
-}
-impl Copy for PROCESS_MITIGATION_IMAGE_LOAD_POLICY {}
-impl Clone for PROCESS_MITIGATION_IMAGE_LOAD_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_IMAGE_LOAD_POLICY {
     type TypeKind = windows_core::CopyType;
@@ -7139,15 +5691,10 @@ impl Default for PROCESS_MITIGATION_IMAGE_LOAD_POLICY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0,
-}
-impl Copy for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {}
-impl Clone for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {
     type TypeKind = windows_core::CopyType;
@@ -7158,43 +5705,22 @@ impl Default for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {}
-impl Clone for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {}
 impl Default for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {
     pub Anonymous: PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0,
-}
-impl Copy for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {}
-impl Clone for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {
     type TypeKind = windows_core::CopyType;
@@ -7205,15 +5731,10 @@ impl Default for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0,
-}
-impl Copy for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {}
-impl Clone for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {
     type TypeKind = windows_core::CopyType;
@@ -7224,43 +5745,22 @@ impl Default for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {}
-impl Clone for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {}
 impl Default for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {
     pub Anonymous: PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0,
-}
-impl Copy for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {}
-impl Clone for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {
     type TypeKind = windows_core::CopyType;
@@ -7271,15 +5771,10 @@ impl Default for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0,
-}
-impl Copy for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {}
-impl Clone for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {
     type TypeKind = windows_core::CopyType;
@@ -7290,43 +5785,22 @@ impl Default for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {}
-impl Clone for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {}
 impl Default for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_SEHOP_POLICY {
     pub Anonymous: PROCESS_MITIGATION_SEHOP_POLICY_0,
-}
-impl Copy for PROCESS_MITIGATION_SEHOP_POLICY {}
-impl Clone for PROCESS_MITIGATION_SEHOP_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_SEHOP_POLICY {
     type TypeKind = windows_core::CopyType;
@@ -7337,15 +5811,10 @@ impl Default for PROCESS_MITIGATION_SEHOP_POLICY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_SEHOP_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_SEHOP_POLICY_0_0,
-}
-impl Copy for PROCESS_MITIGATION_SEHOP_POLICY_0 {}
-impl Clone for PROCESS_MITIGATION_SEHOP_POLICY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_SEHOP_POLICY_0 {
     type TypeKind = windows_core::CopyType;
@@ -7356,43 +5825,22 @@ impl Default for PROCESS_MITIGATION_SEHOP_POLICY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_SEHOP_POLICY_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for PROCESS_MITIGATION_SEHOP_POLICY_0_0 {}
-impl Clone for PROCESS_MITIGATION_SEHOP_POLICY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_MITIGATION_SEHOP_POLICY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_SEHOP_POLICY_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_SEHOP_POLICY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_MITIGATION_SEHOP_POLICY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for PROCESS_MITIGATION_SEHOP_POLICY_0_0 {}
 impl Default for PROCESS_MITIGATION_SEHOP_POLICY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {
     pub Anonymous: PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0,
-}
-impl Copy for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {}
-impl Clone for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {
     type TypeKind = windows_core::CopyType;
@@ -7403,15 +5851,10 @@ impl Default for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0,
-}
-impl Copy for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 {}
-impl Clone for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 {
     type TypeKind = windows_core::CopyType;
@@ -7422,43 +5865,22 @@ impl Default for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {}
-impl Clone for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {}
 impl Default for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
     pub Anonymous: PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0,
-}
-impl Copy for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {}
-impl Clone for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
     type TypeKind = windows_core::CopyType;
@@ -7469,15 +5891,10 @@ impl Default for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0,
-}
-impl Copy for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {}
-impl Clone for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {
     type TypeKind = windows_core::CopyType;
@@ -7488,43 +5905,22 @@ impl Default for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {}
-impl Clone for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {}
 impl Default for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0,
-}
-impl Copy for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {}
-impl Clone for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {
     type TypeKind = windows_core::CopyType;
@@ -7535,15 +5931,10 @@ impl Default for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0,
-}
-impl Copy for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {}
-impl Clone for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {
     type TypeKind = windows_core::CopyType;
@@ -7554,43 +5945,22 @@ impl Default for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {}
-impl Clone for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {}
 impl Default for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {
     pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0,
-}
-impl Copy for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {}
-impl Clone for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {
     type TypeKind = windows_core::CopyType;
@@ -7601,15 +5971,10 @@ impl Default for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0,
-}
-impl Copy for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {}
-impl Clone for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {
     type TypeKind = windows_core::CopyType;
@@ -7620,43 +5985,22 @@ impl Default for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {}
-impl Clone for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {}
 impl Default for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY {
     pub Anonymous: PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0,
-}
-impl Copy for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY {}
-impl Clone for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY {
     type TypeKind = windows_core::CopyType;
@@ -7667,15 +6011,10 @@ impl Default for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0,
-}
-impl Copy for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0 {}
-impl Clone for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0 {
     type TypeKind = windows_core::CopyType;
@@ -7686,43 +6025,22 @@ impl Default for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {}
-impl Clone for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {}
 impl Default for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
     pub Anonymous: PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0,
-}
-impl Copy for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {}
-impl Clone for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
     type TypeKind = windows_core::CopyType;
@@ -7733,15 +6051,10 @@ impl Default for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0,
-}
-impl Copy for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {}
-impl Clone for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {
     type TypeKind = windows_core::CopyType;
@@ -7752,35 +6065,20 @@ impl Default for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {}
-impl Clone for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {}
 impl Default for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct QUOTA_LIMITS_EX {
     pub PagedPoolLimit: usize,
     pub NonPagedPoolLimit: usize,
@@ -7795,12 +6093,6 @@ pub struct QUOTA_LIMITS_EX {
     pub Flags: u32,
     pub CpuRateLimit: RATE_QUOTA_LIMIT,
 }
-impl Copy for QUOTA_LIMITS_EX {}
-impl Clone for QUOTA_LIMITS_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for QUOTA_LIMITS_EX {
     type TypeKind = windows_core::CopyType;
 }
@@ -7810,15 +6102,10 @@ impl Default for QUOTA_LIMITS_EX {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union RATE_QUOTA_LIMIT {
     pub RateData: u32,
     pub Anonymous: RATE_QUOTA_LIMIT_0,
-}
-impl Copy for RATE_QUOTA_LIMIT {}
-impl Clone for RATE_QUOTA_LIMIT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RATE_QUOTA_LIMIT {
     type TypeKind = windows_core::CopyType;
@@ -7829,35 +6116,20 @@ impl Default for RATE_QUOTA_LIMIT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RATE_QUOTA_LIMIT_0 {
     pub _bitfield: u32,
-}
-impl Copy for RATE_QUOTA_LIMIT_0 {}
-impl Clone for RATE_QUOTA_LIMIT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RATE_QUOTA_LIMIT_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RATE_QUOTA_LIMIT_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for RATE_QUOTA_LIMIT_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RATE_QUOTA_LIMIT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for RATE_QUOTA_LIMIT_0 {}
 impl Default for RATE_QUOTA_LIMIT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REARRANGE_FILE_DATA {
     pub SourceStartingOffset: u64,
     pub TargetOffset: u64,
@@ -7865,26 +6137,9 @@ pub struct REARRANGE_FILE_DATA {
     pub Length: u32,
     pub Flags: u32,
 }
-impl Copy for REARRANGE_FILE_DATA {}
-impl Clone for REARRANGE_FILE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for REARRANGE_FILE_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REARRANGE_FILE_DATA").field("SourceStartingOffset", &self.SourceStartingOffset).field("TargetOffset", &self.TargetOffset).field("SourceFileHandle", &self.SourceFileHandle).field("Length", &self.Length).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for REARRANGE_FILE_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for REARRANGE_FILE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.SourceStartingOffset == other.SourceStartingOffset && self.TargetOffset == other.TargetOffset && self.SourceFileHandle == other.SourceFileHandle && self.Length == other.Length && self.Flags == other.Flags
-    }
-}
-impl Eq for REARRANGE_FILE_DATA {}
 impl Default for REARRANGE_FILE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7892,6 +6147,7 @@ impl Default for REARRANGE_FILE_DATA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REARRANGE_FILE_DATA32 {
     pub SourceStartingOffset: u64,
     pub TargetOffset: u64,
@@ -7900,31 +6156,9 @@ pub struct REARRANGE_FILE_DATA32 {
     pub Flags: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for REARRANGE_FILE_DATA32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for REARRANGE_FILE_DATA32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl core::fmt::Debug for REARRANGE_FILE_DATA32 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REARRANGE_FILE_DATA32").field("SourceStartingOffset", &self.SourceStartingOffset).field("TargetOffset", &self.TargetOffset).field("SourceFileHandle", &self.SourceFileHandle).field("Length", &self.Length).field("Flags", &self.Flags).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for REARRANGE_FILE_DATA32 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl PartialEq for REARRANGE_FILE_DATA32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.SourceStartingOffset == other.SourceStartingOffset && self.TargetOffset == other.TargetOffset && self.SourceFileHandle == other.SourceFileHandle && self.Length == other.Length && self.Flags == other.Flags
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Eq for REARRANGE_FILE_DATA32 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for REARRANGE_FILE_DATA32 {
     fn default() -> Self {
@@ -7932,220 +6166,109 @@ impl Default for REARRANGE_FILE_DATA32 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {
     pub Version: u32,
     pub Accurate: u32,
     pub Supported: u32,
     pub AccurateMask0: u32,
 }
-impl Copy for REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {}
-impl Clone for REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO").field("Version", &self.Version).field("Accurate", &self.Accurate).field("Supported", &self.Supported).field("AccurateMask0", &self.AccurateMask0).finish()
-    }
-}
 impl windows_core::TypeKind for REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Accurate == other.Accurate && self.Supported == other.Supported && self.AccurateMask0 == other.AccurateMask0
-    }
-}
-impl Eq for REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {}
 impl Default for REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESOURCEMANAGER_BASIC_INFORMATION {
     pub ResourceManagerId: windows_core::GUID,
     pub DescriptionLength: u32,
     pub Description: [u16; 1],
 }
-impl Copy for RESOURCEMANAGER_BASIC_INFORMATION {}
-impl Clone for RESOURCEMANAGER_BASIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RESOURCEMANAGER_BASIC_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RESOURCEMANAGER_BASIC_INFORMATION").field("ResourceManagerId", &self.ResourceManagerId).field("DescriptionLength", &self.DescriptionLength).field("Description", &self.Description).finish()
-    }
-}
 impl windows_core::TypeKind for RESOURCEMANAGER_BASIC_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RESOURCEMANAGER_BASIC_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ResourceManagerId == other.ResourceManagerId && self.DescriptionLength == other.DescriptionLength && self.Description == other.Description
-    }
-}
-impl Eq for RESOURCEMANAGER_BASIC_INFORMATION {}
 impl Default for RESOURCEMANAGER_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESOURCEMANAGER_COMPLETION_INFORMATION {
     pub IoCompletionPortHandle: super::super::Foundation::HANDLE,
     pub CompletionKey: usize,
 }
-impl Copy for RESOURCEMANAGER_COMPLETION_INFORMATION {}
-impl Clone for RESOURCEMANAGER_COMPLETION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RESOURCEMANAGER_COMPLETION_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RESOURCEMANAGER_COMPLETION_INFORMATION").field("IoCompletionPortHandle", &self.IoCompletionPortHandle).field("CompletionKey", &self.CompletionKey).finish()
-    }
-}
 impl windows_core::TypeKind for RESOURCEMANAGER_COMPLETION_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RESOURCEMANAGER_COMPLETION_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.IoCompletionPortHandle == other.IoCompletionPortHandle && self.CompletionKey == other.CompletionKey
-    }
-}
-impl Eq for RESOURCEMANAGER_COMPLETION_INFORMATION {}
 impl Default for RESOURCEMANAGER_COMPLETION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RemHBITMAP {
     pub cbData: u32,
     pub data: [u8; 1],
 }
-impl Copy for RemHBITMAP {}
-impl Clone for RemHBITMAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RemHBITMAP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RemHBITMAP").field("cbData", &self.cbData).field("data", &self.data).finish()
-    }
-}
 impl windows_core::TypeKind for RemHBITMAP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RemHBITMAP {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbData == other.cbData && self.data == other.data
-    }
-}
-impl Eq for RemHBITMAP {}
 impl Default for RemHBITMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RemHBRUSH {
     pub cbData: u32,
     pub data: [u8; 1],
 }
-impl Copy for RemHBRUSH {}
-impl Clone for RemHBRUSH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RemHBRUSH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RemHBRUSH").field("cbData", &self.cbData).field("data", &self.data).finish()
-    }
-}
 impl windows_core::TypeKind for RemHBRUSH {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RemHBRUSH {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbData == other.cbData && self.data == other.data
-    }
-}
-impl Eq for RemHBRUSH {}
 impl Default for RemHBRUSH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RemHENHMETAFILE {
     pub cbData: u32,
     pub data: [u8; 1],
 }
-impl Copy for RemHENHMETAFILE {}
-impl Clone for RemHENHMETAFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RemHENHMETAFILE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RemHENHMETAFILE").field("cbData", &self.cbData).field("data", &self.data).finish()
-    }
-}
 impl windows_core::TypeKind for RemHENHMETAFILE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RemHENHMETAFILE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbData == other.cbData && self.data == other.data
-    }
-}
-impl Eq for RemHENHMETAFILE {}
 impl Default for RemHENHMETAFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RemHGLOBAL {
     pub fNullHGlobal: i32,
     pub cbData: u32,
     pub data: [u8; 1],
 }
-impl Copy for RemHGLOBAL {}
-impl Clone for RemHGLOBAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RemHGLOBAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RemHGLOBAL").field("fNullHGlobal", &self.fNullHGlobal).field("cbData", &self.cbData).field("data", &self.data).finish()
-    }
-}
 impl windows_core::TypeKind for RemHGLOBAL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RemHGLOBAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.fNullHGlobal == other.fNullHGlobal && self.cbData == other.cbData && self.data == other.data
-    }
-}
-impl Eq for RemHGLOBAL {}
 impl Default for RemHGLOBAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RemHMETAFILEPICT {
     pub mm: i32,
     pub xExt: i32,
@@ -8153,71 +6276,33 @@ pub struct RemHMETAFILEPICT {
     pub cbData: u32,
     pub data: [u8; 1],
 }
-impl Copy for RemHMETAFILEPICT {}
-impl Clone for RemHMETAFILEPICT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RemHMETAFILEPICT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RemHMETAFILEPICT").field("mm", &self.mm).field("xExt", &self.xExt).field("yExt", &self.yExt).field("cbData", &self.cbData).field("data", &self.data).finish()
-    }
-}
 impl windows_core::TypeKind for RemHMETAFILEPICT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RemHMETAFILEPICT {
-    fn eq(&self, other: &Self) -> bool {
-        self.mm == other.mm && self.xExt == other.xExt && self.yExt == other.yExt && self.cbData == other.cbData && self.data == other.data
-    }
-}
-impl Eq for RemHMETAFILEPICT {}
 impl Default for RemHMETAFILEPICT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RemHPALETTE {
     pub cbData: u32,
     pub data: [u8; 1],
 }
-impl Copy for RemHPALETTE {}
-impl Clone for RemHPALETTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RemHPALETTE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RemHPALETTE").field("cbData", &self.cbData).field("data", &self.data).finish()
-    }
-}
 impl windows_core::TypeKind for RemHPALETTE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RemHPALETTE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbData == other.cbData && self.data == other.data
-    }
-}
-impl Eq for RemHPALETTE {}
 impl Default for RemHPALETTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RemotableHandle {
     pub fContext: i32,
     pub u: RemotableHandle_0,
-}
-impl Copy for RemotableHandle {}
-impl Clone for RemotableHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RemotableHandle {
     type TypeKind = windows_core::CopyType;
@@ -8228,15 +6313,10 @@ impl Default for RemotableHandle {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union RemotableHandle_0 {
     pub hInproc: i32,
     pub hRemote: i32,
-}
-impl Copy for RemotableHandle_0 {}
-impl Clone for RemotableHandle_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RemotableHandle_0 {
     type TypeKind = windows_core::CopyType;
@@ -8247,192 +6327,97 @@ impl Default for RemotableHandle_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCOPE_TABLE_AMD64 {
     pub Count: u32,
     pub ScopeRecord: [SCOPE_TABLE_AMD64_0; 1],
 }
-impl Copy for SCOPE_TABLE_AMD64 {}
-impl Clone for SCOPE_TABLE_AMD64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCOPE_TABLE_AMD64 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCOPE_TABLE_AMD64").field("Count", &self.Count).field("ScopeRecord", &self.ScopeRecord).finish()
-    }
-}
 impl windows_core::TypeKind for SCOPE_TABLE_AMD64 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCOPE_TABLE_AMD64 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count && self.ScopeRecord == other.ScopeRecord
-    }
-}
-impl Eq for SCOPE_TABLE_AMD64 {}
 impl Default for SCOPE_TABLE_AMD64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCOPE_TABLE_AMD64_0 {
     pub BeginAddress: u32,
     pub EndAddress: u32,
     pub HandlerAddress: u32,
     pub JumpTarget: u32,
 }
-impl Copy for SCOPE_TABLE_AMD64_0 {}
-impl Clone for SCOPE_TABLE_AMD64_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCOPE_TABLE_AMD64_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCOPE_TABLE_AMD64_0").field("BeginAddress", &self.BeginAddress).field("EndAddress", &self.EndAddress).field("HandlerAddress", &self.HandlerAddress).field("JumpTarget", &self.JumpTarget).finish()
-    }
-}
 impl windows_core::TypeKind for SCOPE_TABLE_AMD64_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCOPE_TABLE_AMD64_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.BeginAddress == other.BeginAddress && self.EndAddress == other.EndAddress && self.HandlerAddress == other.HandlerAddress && self.JumpTarget == other.JumpTarget
-    }
-}
-impl Eq for SCOPE_TABLE_AMD64_0 {}
 impl Default for SCOPE_TABLE_AMD64_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCOPE_TABLE_ARM {
     pub Count: u32,
     pub ScopeRecord: [SCOPE_TABLE_ARM_0; 1],
 }
-impl Copy for SCOPE_TABLE_ARM {}
-impl Clone for SCOPE_TABLE_ARM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCOPE_TABLE_ARM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCOPE_TABLE_ARM").field("Count", &self.Count).field("ScopeRecord", &self.ScopeRecord).finish()
-    }
-}
 impl windows_core::TypeKind for SCOPE_TABLE_ARM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCOPE_TABLE_ARM {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count && self.ScopeRecord == other.ScopeRecord
-    }
-}
-impl Eq for SCOPE_TABLE_ARM {}
 impl Default for SCOPE_TABLE_ARM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCOPE_TABLE_ARM_0 {
     pub BeginAddress: u32,
     pub EndAddress: u32,
     pub HandlerAddress: u32,
     pub JumpTarget: u32,
 }
-impl Copy for SCOPE_TABLE_ARM_0 {}
-impl Clone for SCOPE_TABLE_ARM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCOPE_TABLE_ARM_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCOPE_TABLE_ARM_0").field("BeginAddress", &self.BeginAddress).field("EndAddress", &self.EndAddress).field("HandlerAddress", &self.HandlerAddress).field("JumpTarget", &self.JumpTarget).finish()
-    }
-}
 impl windows_core::TypeKind for SCOPE_TABLE_ARM_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCOPE_TABLE_ARM_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.BeginAddress == other.BeginAddress && self.EndAddress == other.EndAddress && self.HandlerAddress == other.HandlerAddress && self.JumpTarget == other.JumpTarget
-    }
-}
-impl Eq for SCOPE_TABLE_ARM_0 {}
 impl Default for SCOPE_TABLE_ARM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCOPE_TABLE_ARM64 {
     pub Count: u32,
     pub ScopeRecord: [SCOPE_TABLE_ARM64_0; 1],
 }
-impl Copy for SCOPE_TABLE_ARM64 {}
-impl Clone for SCOPE_TABLE_ARM64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCOPE_TABLE_ARM64 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCOPE_TABLE_ARM64").field("Count", &self.Count).field("ScopeRecord", &self.ScopeRecord).finish()
-    }
-}
 impl windows_core::TypeKind for SCOPE_TABLE_ARM64 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCOPE_TABLE_ARM64 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count && self.ScopeRecord == other.ScopeRecord
-    }
-}
-impl Eq for SCOPE_TABLE_ARM64 {}
 impl Default for SCOPE_TABLE_ARM64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCOPE_TABLE_ARM64_0 {
     pub BeginAddress: u32,
     pub EndAddress: u32,
     pub HandlerAddress: u32,
     pub JumpTarget: u32,
 }
-impl Copy for SCOPE_TABLE_ARM64_0 {}
-impl Clone for SCOPE_TABLE_ARM64_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCOPE_TABLE_ARM64_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCOPE_TABLE_ARM64_0").field("BeginAddress", &self.BeginAddress).field("EndAddress", &self.EndAddress).field("HandlerAddress", &self.HandlerAddress).field("JumpTarget", &self.JumpTarget).finish()
-    }
-}
 impl windows_core::TypeKind for SCOPE_TABLE_ARM64_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCOPE_TABLE_ARM64_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.BeginAddress == other.BeginAddress && self.EndAddress == other.EndAddress && self.HandlerAddress == other.HandlerAddress && self.JumpTarget == other.JumpTarget
-    }
-}
-impl Eq for SCOPE_TABLE_ARM64_0 {}
 impl Default for SCOPE_TABLE_ARM64_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCRUB_DATA_INPUT {
     pub Size: u32,
     pub Flags: u32,
@@ -8441,32 +6426,16 @@ pub struct SCRUB_DATA_INPUT {
     pub Reserved: [u32; 41],
     pub ResumeContext: [u8; 1040],
 }
-impl Copy for SCRUB_DATA_INPUT {}
-impl Clone for SCRUB_DATA_INPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCRUB_DATA_INPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCRUB_DATA_INPUT").field("Size", &self.Size).field("Flags", &self.Flags).field("MaximumIos", &self.MaximumIos).field("ObjectId", &self.ObjectId).field("Reserved", &self.Reserved).field("ResumeContext", &self.ResumeContext).finish()
-    }
-}
 impl windows_core::TypeKind for SCRUB_DATA_INPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCRUB_DATA_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Flags == other.Flags && self.MaximumIos == other.MaximumIos && self.ObjectId == other.ObjectId && self.Reserved == other.Reserved && self.ResumeContext == other.ResumeContext
-    }
-}
-impl Eq for SCRUB_DATA_INPUT {}
 impl Default for SCRUB_DATA_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCRUB_DATA_OUTPUT {
     pub Size: u32,
     pub Flags: u32,
@@ -8493,110 +6462,30 @@ pub struct SCRUB_DATA_OUTPUT {
     pub DataBytesScrubbed: u64,
     pub ResumeContext: [u8; 1040],
 }
-impl Copy for SCRUB_DATA_OUTPUT {}
-impl Clone for SCRUB_DATA_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCRUB_DATA_OUTPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCRUB_DATA_OUTPUT")
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("Status", &self.Status)
-            .field("ErrorFileOffset", &self.ErrorFileOffset)
-            .field("ErrorLength", &self.ErrorLength)
-            .field("NumberOfBytesRepaired", &self.NumberOfBytesRepaired)
-            .field("NumberOfBytesFailed", &self.NumberOfBytesFailed)
-            .field("InternalFileReference", &self.InternalFileReference)
-            .field("ResumeContextLength", &self.ResumeContextLength)
-            .field("ParityExtentDataOffset", &self.ParityExtentDataOffset)
-            .field("Reserved", &self.Reserved)
-            .field("NumberOfMetadataBytesProcessed", &self.NumberOfMetadataBytesProcessed)
-            .field("NumberOfDataBytesProcessed", &self.NumberOfDataBytesProcessed)
-            .field("TotalNumberOfMetadataBytesInUse", &self.TotalNumberOfMetadataBytesInUse)
-            .field("TotalNumberOfDataBytesInUse", &self.TotalNumberOfDataBytesInUse)
-            .field("DataBytesSkippedDueToNoAllocation", &self.DataBytesSkippedDueToNoAllocation)
-            .field("DataBytesSkippedDueToInvalidRun", &self.DataBytesSkippedDueToInvalidRun)
-            .field("DataBytesSkippedDueToIntegrityStream", &self.DataBytesSkippedDueToIntegrityStream)
-            .field("DataBytesSkippedDueToRegionBeingClean", &self.DataBytesSkippedDueToRegionBeingClean)
-            .field("DataBytesSkippedDueToLockConflict", &self.DataBytesSkippedDueToLockConflict)
-            .field("DataBytesSkippedDueToNoScrubDataFlag", &self.DataBytesSkippedDueToNoScrubDataFlag)
-            .field("DataBytesSkippedDueToNoScrubNonIntegrityStreamFlag", &self.DataBytesSkippedDueToNoScrubNonIntegrityStreamFlag)
-            .field("DataBytesScrubbed", &self.DataBytesScrubbed)
-            .field("ResumeContext", &self.ResumeContext)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for SCRUB_DATA_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCRUB_DATA_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.Status == other.Status
-            && self.ErrorFileOffset == other.ErrorFileOffset
-            && self.ErrorLength == other.ErrorLength
-            && self.NumberOfBytesRepaired == other.NumberOfBytesRepaired
-            && self.NumberOfBytesFailed == other.NumberOfBytesFailed
-            && self.InternalFileReference == other.InternalFileReference
-            && self.ResumeContextLength == other.ResumeContextLength
-            && self.ParityExtentDataOffset == other.ParityExtentDataOffset
-            && self.Reserved == other.Reserved
-            && self.NumberOfMetadataBytesProcessed == other.NumberOfMetadataBytesProcessed
-            && self.NumberOfDataBytesProcessed == other.NumberOfDataBytesProcessed
-            && self.TotalNumberOfMetadataBytesInUse == other.TotalNumberOfMetadataBytesInUse
-            && self.TotalNumberOfDataBytesInUse == other.TotalNumberOfDataBytesInUse
-            && self.DataBytesSkippedDueToNoAllocation == other.DataBytesSkippedDueToNoAllocation
-            && self.DataBytesSkippedDueToInvalidRun == other.DataBytesSkippedDueToInvalidRun
-            && self.DataBytesSkippedDueToIntegrityStream == other.DataBytesSkippedDueToIntegrityStream
-            && self.DataBytesSkippedDueToRegionBeingClean == other.DataBytesSkippedDueToRegionBeingClean
-            && self.DataBytesSkippedDueToLockConflict == other.DataBytesSkippedDueToLockConflict
-            && self.DataBytesSkippedDueToNoScrubDataFlag == other.DataBytesSkippedDueToNoScrubDataFlag
-            && self.DataBytesSkippedDueToNoScrubNonIntegrityStreamFlag == other.DataBytesSkippedDueToNoScrubNonIntegrityStreamFlag
-            && self.DataBytesScrubbed == other.DataBytesScrubbed
-            && self.ResumeContext == other.ResumeContext
-    }
-}
-impl Eq for SCRUB_DATA_OUTPUT {}
 impl Default for SCRUB_DATA_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCRUB_PARITY_EXTENT {
     pub Offset: i64,
     pub Length: u64,
 }
-impl Copy for SCRUB_PARITY_EXTENT {}
-impl Clone for SCRUB_PARITY_EXTENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCRUB_PARITY_EXTENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCRUB_PARITY_EXTENT").field("Offset", &self.Offset).field("Length", &self.Length).finish()
-    }
-}
 impl windows_core::TypeKind for SCRUB_PARITY_EXTENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCRUB_PARITY_EXTENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Offset == other.Offset && self.Length == other.Length
-    }
-}
-impl Eq for SCRUB_PARITY_EXTENT {}
 impl Default for SCRUB_PARITY_EXTENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCRUB_PARITY_EXTENT_DATA {
     pub Size: u16,
     pub Flags: u16,
@@ -8604,62 +6493,30 @@ pub struct SCRUB_PARITY_EXTENT_DATA {
     pub MaximumNumberOfParityExtents: u16,
     pub ParityExtents: [SCRUB_PARITY_EXTENT; 1],
 }
-impl Copy for SCRUB_PARITY_EXTENT_DATA {}
-impl Clone for SCRUB_PARITY_EXTENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCRUB_PARITY_EXTENT_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCRUB_PARITY_EXTENT_DATA").field("Size", &self.Size).field("Flags", &self.Flags).field("NumberOfParityExtents", &self.NumberOfParityExtents).field("MaximumNumberOfParityExtents", &self.MaximumNumberOfParityExtents).field("ParityExtents", &self.ParityExtents).finish()
-    }
-}
 impl windows_core::TypeKind for SCRUB_PARITY_EXTENT_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCRUB_PARITY_EXTENT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Flags == other.Flags && self.NumberOfParityExtents == other.NumberOfParityExtents && self.MaximumNumberOfParityExtents == other.MaximumNumberOfParityExtents && self.ParityExtents == other.ParityExtents
-    }
-}
-impl Eq for SCRUB_PARITY_EXTENT_DATA {}
 impl Default for SCRUB_PARITY_EXTENT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECURITY_OBJECT_AI_PARAMS {
     pub Size: u32,
     pub ConstraintMask: u32,
 }
-impl Copy for SECURITY_OBJECT_AI_PARAMS {}
-impl Clone for SECURITY_OBJECT_AI_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SECURITY_OBJECT_AI_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SECURITY_OBJECT_AI_PARAMS").field("Size", &self.Size).field("ConstraintMask", &self.ConstraintMask).finish()
-    }
-}
 impl windows_core::TypeKind for SECURITY_OBJECT_AI_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SECURITY_OBJECT_AI_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.ConstraintMask == other.ConstraintMask
-    }
-}
-impl Eq for SECURITY_OBJECT_AI_PARAMS {}
 impl Default for SECURITY_OBJECT_AI_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVERSILO_BASIC_INFORMATION {
     pub ServiceSessionId: u32,
     pub State: SERVERSILO_STATE,
@@ -8668,26 +6525,9 @@ pub struct SERVERSILO_BASIC_INFORMATION {
     pub ApiSetSchema: *mut core::ffi::c_void,
     pub HostApiSetSchema: *mut core::ffi::c_void,
 }
-impl Copy for SERVERSILO_BASIC_INFORMATION {}
-impl Clone for SERVERSILO_BASIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERVERSILO_BASIC_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERVERSILO_BASIC_INFORMATION").field("ServiceSessionId", &self.ServiceSessionId).field("State", &self.State).field("ExitStatus", &self.ExitStatus).field("IsDownlevelContainer", &self.IsDownlevelContainer).field("ApiSetSchema", &self.ApiSetSchema).field("HostApiSetSchema", &self.HostApiSetSchema).finish()
-    }
-}
 impl windows_core::TypeKind for SERVERSILO_BASIC_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERVERSILO_BASIC_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ServiceSessionId == other.ServiceSessionId && self.State == other.State && self.ExitStatus == other.ExitStatus && self.IsDownlevelContainer == other.IsDownlevelContainer && self.ApiSetSchema == other.ApiSetSchema && self.HostApiSetSchema == other.HostApiSetSchema
-    }
-}
-impl Eq for SERVERSILO_BASIC_INFORMATION {}
 impl Default for SERVERSILO_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8695,17 +6535,10 @@ impl Default for SERVERSILO_BASIC_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct SE_TOKEN_USER {
     pub Anonymous1: SE_TOKEN_USER_0,
     pub Anonymous2: SE_TOKEN_USER_1,
-}
-#[cfg(feature = "Win32_Security")]
-impl Copy for SE_TOKEN_USER {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for SE_TOKEN_USER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for SE_TOKEN_USER {
@@ -8719,17 +6552,10 @@ impl Default for SE_TOKEN_USER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union SE_TOKEN_USER_0 {
     pub TokenUser: super::super::Security::TOKEN_USER,
     pub User: super::super::Security::SID_AND_ATTRIBUTES,
-}
-#[cfg(feature = "Win32_Security")]
-impl Copy for SE_TOKEN_USER_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for SE_TOKEN_USER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for SE_TOKEN_USER_0 {
@@ -8743,17 +6569,10 @@ impl Default for SE_TOKEN_USER_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union SE_TOKEN_USER_1 {
     pub Sid: super::super::Security::SID,
     pub Buffer: [u8; 68],
-}
-#[cfg(feature = "Win32_Security")]
-impl Copy for SE_TOKEN_USER_1 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for SE_TOKEN_USER_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for SE_TOKEN_USER_1 {
@@ -8766,67 +6585,36 @@ impl Default for SE_TOKEN_USER_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHARED_VIRTUAL_DISK_SUPPORT {
     pub SharedVirtualDiskSupport: SharedVirtualDiskSupportType,
     pub HandleState: SharedVirtualDiskHandleState,
 }
-impl Copy for SHARED_VIRTUAL_DISK_SUPPORT {}
-impl Clone for SHARED_VIRTUAL_DISK_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SHARED_VIRTUAL_DISK_SUPPORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SHARED_VIRTUAL_DISK_SUPPORT").field("SharedVirtualDiskSupport", &self.SharedVirtualDiskSupport).field("HandleState", &self.HandleState).finish()
-    }
-}
 impl windows_core::TypeKind for SHARED_VIRTUAL_DISK_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SHARED_VIRTUAL_DISK_SUPPORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.SharedVirtualDiskSupport == other.SharedVirtualDiskSupport && self.HandleState == other.HandleState
-    }
-}
-impl Eq for SHARED_VIRTUAL_DISK_SUPPORT {}
 impl Default for SHARED_VIRTUAL_DISK_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHUFFLE_FILE_DATA {
     pub StartingOffset: i64,
     pub Length: i64,
     pub Flags: u32,
 }
-impl Copy for SHUFFLE_FILE_DATA {}
-impl Clone for SHUFFLE_FILE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SHUFFLE_FILE_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SHUFFLE_FILE_DATA").field("StartingOffset", &self.StartingOffset).field("Length", &self.Length).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for SHUFFLE_FILE_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SHUFFLE_FILE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartingOffset == other.StartingOffset && self.Length == other.Length && self.Flags == other.Flags
-    }
-}
-impl Eq for SHUFFLE_FILE_DATA {}
 impl Default for SHUFFLE_FILE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SILOOBJECT_BASIC_INFORMATION {
     pub SiloId: u32,
     pub SiloParentId: u32,
@@ -8834,93 +6622,45 @@ pub struct SILOOBJECT_BASIC_INFORMATION {
     pub IsInServerSilo: super::super::Foundation::BOOLEAN,
     pub Reserved: [u8; 3],
 }
-impl Copy for SILOOBJECT_BASIC_INFORMATION {}
-impl Clone for SILOOBJECT_BASIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SILOOBJECT_BASIC_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SILOOBJECT_BASIC_INFORMATION").field("SiloId", &self.SiloId).field("SiloParentId", &self.SiloParentId).field("NumberOfProcesses", &self.NumberOfProcesses).field("IsInServerSilo", &self.IsInServerSilo).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for SILOOBJECT_BASIC_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SILOOBJECT_BASIC_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.SiloId == other.SiloId && self.SiloParentId == other.SiloParentId && self.NumberOfProcesses == other.NumberOfProcesses && self.IsInServerSilo == other.IsInServerSilo && self.Reserved == other.Reserved
-    }
-}
-impl Eq for SILOOBJECT_BASIC_INFORMATION {}
 impl Default for SILOOBJECT_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SUPPORTED_OS_INFO {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
 }
-impl Copy for SUPPORTED_OS_INFO {}
-impl Clone for SUPPORTED_OS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SUPPORTED_OS_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SUPPORTED_OS_INFO").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
-    }
-}
 impl windows_core::TypeKind for SUPPORTED_OS_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SUPPORTED_OS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion
-    }
-}
-impl Eq for SUPPORTED_OS_INFO {}
 impl Default for SUPPORTED_OS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TAPE_CREATE_PARTITION {
     pub Method: u32,
     pub Count: u32,
     pub Size: u32,
 }
-impl Copy for TAPE_CREATE_PARTITION {}
-impl Clone for TAPE_CREATE_PARTITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TAPE_CREATE_PARTITION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TAPE_CREATE_PARTITION").field("Method", &self.Method).field("Count", &self.Count).field("Size", &self.Size).finish()
-    }
-}
 impl windows_core::TypeKind for TAPE_CREATE_PARTITION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TAPE_CREATE_PARTITION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Method == other.Method && self.Count == other.Count && self.Size == other.Size
-    }
-}
-impl Eq for TAPE_CREATE_PARTITION {}
 impl Default for TAPE_CREATE_PARTITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TAPE_GET_DRIVE_PARAMETERS {
     pub ECC: super::super::Foundation::BOOLEAN,
     pub Compression: super::super::Foundation::BOOLEAN,
@@ -8934,44 +6674,16 @@ pub struct TAPE_GET_DRIVE_PARAMETERS {
     pub FeaturesHigh: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH,
     pub EOTWarningZoneSize: u32,
 }
-impl Copy for TAPE_GET_DRIVE_PARAMETERS {}
-impl Clone for TAPE_GET_DRIVE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TAPE_GET_DRIVE_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TAPE_GET_DRIVE_PARAMETERS")
-            .field("ECC", &self.ECC)
-            .field("Compression", &self.Compression)
-            .field("DataPadding", &self.DataPadding)
-            .field("ReportSetmarks", &self.ReportSetmarks)
-            .field("DefaultBlockSize", &self.DefaultBlockSize)
-            .field("MaximumBlockSize", &self.MaximumBlockSize)
-            .field("MinimumBlockSize", &self.MinimumBlockSize)
-            .field("MaximumPartitionCount", &self.MaximumPartitionCount)
-            .field("FeaturesLow", &self.FeaturesLow)
-            .field("FeaturesHigh", &self.FeaturesHigh)
-            .field("EOTWarningZoneSize", &self.EOTWarningZoneSize)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for TAPE_GET_DRIVE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TAPE_GET_DRIVE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ECC == other.ECC && self.Compression == other.Compression && self.DataPadding == other.DataPadding && self.ReportSetmarks == other.ReportSetmarks && self.DefaultBlockSize == other.DefaultBlockSize && self.MaximumBlockSize == other.MaximumBlockSize && self.MinimumBlockSize == other.MinimumBlockSize && self.MaximumPartitionCount == other.MaximumPartitionCount && self.FeaturesLow == other.FeaturesLow && self.FeaturesHigh == other.FeaturesHigh && self.EOTWarningZoneSize == other.EOTWarningZoneSize
-    }
-}
-impl Eq for TAPE_GET_DRIVE_PARAMETERS {}
 impl Default for TAPE_GET_DRIVE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TAPE_GET_MEDIA_PARAMETERS {
     pub Capacity: i64,
     pub Remaining: i64,
@@ -8979,32 +6691,16 @@ pub struct TAPE_GET_MEDIA_PARAMETERS {
     pub PartitionCount: u32,
     pub WriteProtected: super::super::Foundation::BOOLEAN,
 }
-impl Copy for TAPE_GET_MEDIA_PARAMETERS {}
-impl Clone for TAPE_GET_MEDIA_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TAPE_GET_MEDIA_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TAPE_GET_MEDIA_PARAMETERS").field("Capacity", &self.Capacity).field("Remaining", &self.Remaining).field("BlockSize", &self.BlockSize).field("PartitionCount", &self.PartitionCount).field("WriteProtected", &self.WriteProtected).finish()
-    }
-}
 impl windows_core::TypeKind for TAPE_GET_MEDIA_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TAPE_GET_MEDIA_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Capacity == other.Capacity && self.Remaining == other.Remaining && self.BlockSize == other.BlockSize && self.PartitionCount == other.PartitionCount && self.WriteProtected == other.WriteProtected
-    }
-}
-impl Eq for TAPE_GET_MEDIA_PARAMETERS {}
 impl Default for TAPE_GET_MEDIA_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TAPE_SET_DRIVE_PARAMETERS {
     pub ECC: super::super::Foundation::BOOLEAN,
     pub Compression: super::super::Foundation::BOOLEAN,
@@ -9012,477 +6708,221 @@ pub struct TAPE_SET_DRIVE_PARAMETERS {
     pub ReportSetmarks: super::super::Foundation::BOOLEAN,
     pub EOTWarningZoneSize: u32,
 }
-impl Copy for TAPE_SET_DRIVE_PARAMETERS {}
-impl Clone for TAPE_SET_DRIVE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TAPE_SET_DRIVE_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TAPE_SET_DRIVE_PARAMETERS").field("ECC", &self.ECC).field("Compression", &self.Compression).field("DataPadding", &self.DataPadding).field("ReportSetmarks", &self.ReportSetmarks).field("EOTWarningZoneSize", &self.EOTWarningZoneSize).finish()
-    }
-}
 impl windows_core::TypeKind for TAPE_SET_DRIVE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TAPE_SET_DRIVE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ECC == other.ECC && self.Compression == other.Compression && self.DataPadding == other.DataPadding && self.ReportSetmarks == other.ReportSetmarks && self.EOTWarningZoneSize == other.EOTWarningZoneSize
-    }
-}
-impl Eq for TAPE_SET_DRIVE_PARAMETERS {}
 impl Default for TAPE_SET_DRIVE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TAPE_SET_MEDIA_PARAMETERS {
     pub BlockSize: u32,
-}
-impl Copy for TAPE_SET_MEDIA_PARAMETERS {}
-impl Clone for TAPE_SET_MEDIA_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TAPE_SET_MEDIA_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TAPE_SET_MEDIA_PARAMETERS").field("BlockSize", &self.BlockSize).finish()
-    }
 }
 impl windows_core::TypeKind for TAPE_SET_MEDIA_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TAPE_SET_MEDIA_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.BlockSize == other.BlockSize
-    }
-}
-impl Eq for TAPE_SET_MEDIA_PARAMETERS {}
 impl Default for TAPE_SET_MEDIA_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TAPE_WMI_OPERATIONS {
     pub Method: u32,
     pub DataBufferSize: u32,
     pub DataBuffer: *mut core::ffi::c_void,
 }
-impl Copy for TAPE_WMI_OPERATIONS {}
-impl Clone for TAPE_WMI_OPERATIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TAPE_WMI_OPERATIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TAPE_WMI_OPERATIONS").field("Method", &self.Method).field("DataBufferSize", &self.DataBufferSize).field("DataBuffer", &self.DataBuffer).finish()
-    }
-}
 impl windows_core::TypeKind for TAPE_WMI_OPERATIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TAPE_WMI_OPERATIONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Method == other.Method && self.DataBufferSize == other.DataBufferSize && self.DataBuffer == other.DataBuffer
-    }
-}
-impl Eq for TAPE_WMI_OPERATIONS {}
 impl Default for TAPE_WMI_OPERATIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_BNO_ISOLATION_INFORMATION {
     pub IsolationPrefix: windows_core::PWSTR,
     pub IsolationEnabled: super::super::Foundation::BOOLEAN,
 }
-impl Copy for TOKEN_BNO_ISOLATION_INFORMATION {}
-impl Clone for TOKEN_BNO_ISOLATION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOKEN_BNO_ISOLATION_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOKEN_BNO_ISOLATION_INFORMATION").field("IsolationPrefix", &self.IsolationPrefix).field("IsolationEnabled", &self.IsolationEnabled).finish()
-    }
-}
 impl windows_core::TypeKind for TOKEN_BNO_ISOLATION_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOKEN_BNO_ISOLATION_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.IsolationPrefix == other.IsolationPrefix && self.IsolationEnabled == other.IsolationEnabled
-    }
-}
-impl Eq for TOKEN_BNO_ISOLATION_INFORMATION {}
 impl Default for TOKEN_BNO_ISOLATION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_SID_INFORMATION {
     pub Sid: super::super::Foundation::PSID,
-}
-impl Copy for TOKEN_SID_INFORMATION {}
-impl Clone for TOKEN_SID_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOKEN_SID_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOKEN_SID_INFORMATION").field("Sid", &self.Sid).finish()
-    }
 }
 impl windows_core::TypeKind for TOKEN_SID_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOKEN_SID_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Sid == other.Sid
-    }
-}
-impl Eq for TOKEN_SID_INFORMATION {}
 impl Default for TOKEN_SID_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSACTIONMANAGER_BASIC_INFORMATION {
     pub TmIdentity: windows_core::GUID,
     pub VirtualClock: i64,
 }
-impl Copy for TRANSACTIONMANAGER_BASIC_INFORMATION {}
-impl Clone for TRANSACTIONMANAGER_BASIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TRANSACTIONMANAGER_BASIC_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRANSACTIONMANAGER_BASIC_INFORMATION").field("TmIdentity", &self.TmIdentity).field("VirtualClock", &self.VirtualClock).finish()
-    }
-}
 impl windows_core::TypeKind for TRANSACTIONMANAGER_BASIC_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TRANSACTIONMANAGER_BASIC_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.TmIdentity == other.TmIdentity && self.VirtualClock == other.VirtualClock
-    }
-}
-impl Eq for TRANSACTIONMANAGER_BASIC_INFORMATION {}
 impl Default for TRANSACTIONMANAGER_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSACTIONMANAGER_LOGPATH_INFORMATION {
     pub LogPathLength: u32,
     pub LogPath: [u16; 1],
 }
-impl Copy for TRANSACTIONMANAGER_LOGPATH_INFORMATION {}
-impl Clone for TRANSACTIONMANAGER_LOGPATH_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TRANSACTIONMANAGER_LOGPATH_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRANSACTIONMANAGER_LOGPATH_INFORMATION").field("LogPathLength", &self.LogPathLength).field("LogPath", &self.LogPath).finish()
-    }
-}
 impl windows_core::TypeKind for TRANSACTIONMANAGER_LOGPATH_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TRANSACTIONMANAGER_LOGPATH_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.LogPathLength == other.LogPathLength && self.LogPath == other.LogPath
-    }
-}
-impl Eq for TRANSACTIONMANAGER_LOGPATH_INFORMATION {}
 impl Default for TRANSACTIONMANAGER_LOGPATH_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSACTIONMANAGER_LOG_INFORMATION {
     pub LogIdentity: windows_core::GUID,
-}
-impl Copy for TRANSACTIONMANAGER_LOG_INFORMATION {}
-impl Clone for TRANSACTIONMANAGER_LOG_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TRANSACTIONMANAGER_LOG_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRANSACTIONMANAGER_LOG_INFORMATION").field("LogIdentity", &self.LogIdentity).finish()
-    }
 }
 impl windows_core::TypeKind for TRANSACTIONMANAGER_LOG_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TRANSACTIONMANAGER_LOG_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.LogIdentity == other.LogIdentity
-    }
-}
-impl Eq for TRANSACTIONMANAGER_LOG_INFORMATION {}
 impl Default for TRANSACTIONMANAGER_LOG_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSACTIONMANAGER_OLDEST_INFORMATION {
     pub OldestTransactionGuid: windows_core::GUID,
-}
-impl Copy for TRANSACTIONMANAGER_OLDEST_INFORMATION {}
-impl Clone for TRANSACTIONMANAGER_OLDEST_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TRANSACTIONMANAGER_OLDEST_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRANSACTIONMANAGER_OLDEST_INFORMATION").field("OldestTransactionGuid", &self.OldestTransactionGuid).finish()
-    }
 }
 impl windows_core::TypeKind for TRANSACTIONMANAGER_OLDEST_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TRANSACTIONMANAGER_OLDEST_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.OldestTransactionGuid == other.OldestTransactionGuid
-    }
-}
-impl Eq for TRANSACTIONMANAGER_OLDEST_INFORMATION {}
 impl Default for TRANSACTIONMANAGER_OLDEST_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSACTIONMANAGER_RECOVERY_INFORMATION {
     pub LastRecoveredLsn: u64,
-}
-impl Copy for TRANSACTIONMANAGER_RECOVERY_INFORMATION {}
-impl Clone for TRANSACTIONMANAGER_RECOVERY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TRANSACTIONMANAGER_RECOVERY_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRANSACTIONMANAGER_RECOVERY_INFORMATION").field("LastRecoveredLsn", &self.LastRecoveredLsn).finish()
-    }
 }
 impl windows_core::TypeKind for TRANSACTIONMANAGER_RECOVERY_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TRANSACTIONMANAGER_RECOVERY_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.LastRecoveredLsn == other.LastRecoveredLsn
-    }
-}
-impl Eq for TRANSACTIONMANAGER_RECOVERY_INFORMATION {}
 impl Default for TRANSACTIONMANAGER_RECOVERY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSACTION_BASIC_INFORMATION {
     pub TransactionId: windows_core::GUID,
     pub State: u32,
     pub Outcome: u32,
 }
-impl Copy for TRANSACTION_BASIC_INFORMATION {}
-impl Clone for TRANSACTION_BASIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TRANSACTION_BASIC_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRANSACTION_BASIC_INFORMATION").field("TransactionId", &self.TransactionId).field("State", &self.State).field("Outcome", &self.Outcome).finish()
-    }
-}
 impl windows_core::TypeKind for TRANSACTION_BASIC_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TRANSACTION_BASIC_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.TransactionId == other.TransactionId && self.State == other.State && self.Outcome == other.Outcome
-    }
-}
-impl Eq for TRANSACTION_BASIC_INFORMATION {}
 impl Default for TRANSACTION_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSACTION_BIND_INFORMATION {
     pub TmHandle: super::super::Foundation::HANDLE,
-}
-impl Copy for TRANSACTION_BIND_INFORMATION {}
-impl Clone for TRANSACTION_BIND_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TRANSACTION_BIND_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRANSACTION_BIND_INFORMATION").field("TmHandle", &self.TmHandle).finish()
-    }
 }
 impl windows_core::TypeKind for TRANSACTION_BIND_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TRANSACTION_BIND_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.TmHandle == other.TmHandle
-    }
-}
-impl Eq for TRANSACTION_BIND_INFORMATION {}
 impl Default for TRANSACTION_BIND_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSACTION_ENLISTMENTS_INFORMATION {
     pub NumberOfEnlistments: u32,
     pub EnlistmentPair: [TRANSACTION_ENLISTMENT_PAIR; 1],
 }
-impl Copy for TRANSACTION_ENLISTMENTS_INFORMATION {}
-impl Clone for TRANSACTION_ENLISTMENTS_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TRANSACTION_ENLISTMENTS_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRANSACTION_ENLISTMENTS_INFORMATION").field("NumberOfEnlistments", &self.NumberOfEnlistments).field("EnlistmentPair", &self.EnlistmentPair).finish()
-    }
-}
 impl windows_core::TypeKind for TRANSACTION_ENLISTMENTS_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TRANSACTION_ENLISTMENTS_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumberOfEnlistments == other.NumberOfEnlistments && self.EnlistmentPair == other.EnlistmentPair
-    }
-}
-impl Eq for TRANSACTION_ENLISTMENTS_INFORMATION {}
 impl Default for TRANSACTION_ENLISTMENTS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSACTION_ENLISTMENT_PAIR {
     pub EnlistmentId: windows_core::GUID,
     pub ResourceManagerId: windows_core::GUID,
 }
-impl Copy for TRANSACTION_ENLISTMENT_PAIR {}
-impl Clone for TRANSACTION_ENLISTMENT_PAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TRANSACTION_ENLISTMENT_PAIR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRANSACTION_ENLISTMENT_PAIR").field("EnlistmentId", &self.EnlistmentId).field("ResourceManagerId", &self.ResourceManagerId).finish()
-    }
-}
 impl windows_core::TypeKind for TRANSACTION_ENLISTMENT_PAIR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TRANSACTION_ENLISTMENT_PAIR {
-    fn eq(&self, other: &Self) -> bool {
-        self.EnlistmentId == other.EnlistmentId && self.ResourceManagerId == other.ResourceManagerId
-    }
-}
-impl Eq for TRANSACTION_ENLISTMENT_PAIR {}
 impl Default for TRANSACTION_ENLISTMENT_PAIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSACTION_LIST_ENTRY {
     pub UOW: windows_core::GUID,
-}
-impl Copy for TRANSACTION_LIST_ENTRY {}
-impl Clone for TRANSACTION_LIST_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TRANSACTION_LIST_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRANSACTION_LIST_ENTRY").field("UOW", &self.UOW).finish()
-    }
 }
 impl windows_core::TypeKind for TRANSACTION_LIST_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TRANSACTION_LIST_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.UOW == other.UOW
-    }
-}
-impl Eq for TRANSACTION_LIST_ENTRY {}
 impl Default for TRANSACTION_LIST_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSACTION_LIST_INFORMATION {
     pub NumberOfTransactions: u32,
     pub TransactionInformation: [TRANSACTION_LIST_ENTRY; 1],
 }
-impl Copy for TRANSACTION_LIST_INFORMATION {}
-impl Clone for TRANSACTION_LIST_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TRANSACTION_LIST_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRANSACTION_LIST_INFORMATION").field("NumberOfTransactions", &self.NumberOfTransactions).field("TransactionInformation", &self.TransactionInformation).finish()
-    }
-}
 impl windows_core::TypeKind for TRANSACTION_LIST_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TRANSACTION_LIST_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumberOfTransactions == other.NumberOfTransactions && self.TransactionInformation == other.TransactionInformation
-    }
-}
-impl Eq for TRANSACTION_LIST_INFORMATION {}
 impl Default for TRANSACTION_LIST_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSACTION_PROPERTIES_INFORMATION {
     pub IsolationLevel: u32,
     pub IsolationFlags: u32,
@@ -9491,116 +6931,51 @@ pub struct TRANSACTION_PROPERTIES_INFORMATION {
     pub DescriptionLength: u32,
     pub Description: [u16; 1],
 }
-impl Copy for TRANSACTION_PROPERTIES_INFORMATION {}
-impl Clone for TRANSACTION_PROPERTIES_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TRANSACTION_PROPERTIES_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRANSACTION_PROPERTIES_INFORMATION").field("IsolationLevel", &self.IsolationLevel).field("IsolationFlags", &self.IsolationFlags).field("Timeout", &self.Timeout).field("Outcome", &self.Outcome).field("DescriptionLength", &self.DescriptionLength).field("Description", &self.Description).finish()
-    }
-}
 impl windows_core::TypeKind for TRANSACTION_PROPERTIES_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TRANSACTION_PROPERTIES_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.IsolationLevel == other.IsolationLevel && self.IsolationFlags == other.IsolationFlags && self.Timeout == other.Timeout && self.Outcome == other.Outcome && self.DescriptionLength == other.DescriptionLength && self.Description == other.Description
-    }
-}
-impl Eq for TRANSACTION_PROPERTIES_INFORMATION {}
 impl Default for TRANSACTION_PROPERTIES_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {
     pub SuperiorEnlistmentPair: TRANSACTION_ENLISTMENT_PAIR,
-}
-impl Copy for TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {}
-impl Clone for TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION").field("SuperiorEnlistmentPair", &self.SuperiorEnlistmentPair).finish()
-    }
 }
 impl windows_core::TypeKind for TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.SuperiorEnlistmentPair == other.SuperiorEnlistmentPair
-    }
-}
-impl Eq for TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {}
 impl Default for TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UMS_CREATE_THREAD_ATTRIBUTES {
     pub UmsVersion: u32,
     pub UmsContext: *mut core::ffi::c_void,
     pub UmsCompletionList: *mut core::ffi::c_void,
 }
-impl Copy for UMS_CREATE_THREAD_ATTRIBUTES {}
-impl Clone for UMS_CREATE_THREAD_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UMS_CREATE_THREAD_ATTRIBUTES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UMS_CREATE_THREAD_ATTRIBUTES").field("UmsVersion", &self.UmsVersion).field("UmsContext", &self.UmsContext).field("UmsCompletionList", &self.UmsCompletionList).finish()
-    }
-}
 impl windows_core::TypeKind for UMS_CREATE_THREAD_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UMS_CREATE_THREAD_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.UmsVersion == other.UmsVersion && self.UmsContext == other.UmsContext && self.UmsCompletionList == other.UmsCompletionList
-    }
-}
-impl Eq for UMS_CREATE_THREAD_ATTRIBUTES {}
 impl Default for UMS_CREATE_THREAD_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSAVE_CET_U_FORMAT {
     pub Ia32CetUMsr: u64,
     pub Ia32Pl3SspMsr: u64,
 }
-impl Copy for XSAVE_CET_U_FORMAT {}
-impl Clone for XSAVE_CET_U_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XSAVE_CET_U_FORMAT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XSAVE_CET_U_FORMAT").field("Ia32CetUMsr", &self.Ia32CetUMsr).field("Ia32Pl3SspMsr", &self.Ia32Pl3SspMsr).finish()
-    }
-}
 impl windows_core::TypeKind for XSAVE_CET_U_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XSAVE_CET_U_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Ia32CetUMsr == other.Ia32CetUMsr && self.Ia32Pl3SspMsr == other.Ia32Pl3SspMsr
-    }
-}
-impl Eq for XSAVE_CET_U_FORMAT {}
 impl Default for XSAVE_CET_U_FORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9608,6 +6983,7 @@ impl Default for XSAVE_CET_U_FORMAT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct remoteMETAFILEPICT {
     pub mm: i32,
     pub xExt: i32,
@@ -9615,31 +6991,9 @@ pub struct remoteMETAFILEPICT {
     pub hMF: *mut userHMETAFILE,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Copy for remoteMETAFILEPICT {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for remoteMETAFILEPICT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl core::fmt::Debug for remoteMETAFILEPICT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("remoteMETAFILEPICT").field("mm", &self.mm).field("xExt", &self.xExt).field("yExt", &self.yExt).field("hMF", &self.hMF).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for remoteMETAFILEPICT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl PartialEq for remoteMETAFILEPICT {
-    fn eq(&self, other: &Self) -> bool {
-        self.mm == other.mm && self.xExt == other.xExt && self.yExt == other.yExt && self.hMF == other.hMF
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Eq for remoteMETAFILEPICT {}
 #[cfg(feature = "Win32_System_Com")]
 impl Default for remoteMETAFILEPICT {
     fn default() -> Self {
@@ -9647,6 +7001,7 @@ impl Default for remoteMETAFILEPICT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct userBITMAP {
     pub bmType: i32,
     pub bmWidth: i32,
@@ -9657,41 +7012,19 @@ pub struct userBITMAP {
     pub cbSize: u32,
     pub pBuffer: [u8; 1],
 }
-impl Copy for userBITMAP {}
-impl Clone for userBITMAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for userBITMAP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("userBITMAP").field("bmType", &self.bmType).field("bmWidth", &self.bmWidth).field("bmHeight", &self.bmHeight).field("bmWidthBytes", &self.bmWidthBytes).field("bmPlanes", &self.bmPlanes).field("bmBitsPixel", &self.bmBitsPixel).field("cbSize", &self.cbSize).field("pBuffer", &self.pBuffer).finish()
-    }
-}
 impl windows_core::TypeKind for userBITMAP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for userBITMAP {
-    fn eq(&self, other: &Self) -> bool {
-        self.bmType == other.bmType && self.bmWidth == other.bmWidth && self.bmHeight == other.bmHeight && self.bmWidthBytes == other.bmWidthBytes && self.bmPlanes == other.bmPlanes && self.bmBitsPixel == other.bmBitsPixel && self.cbSize == other.cbSize && self.pBuffer == other.pBuffer
-    }
-}
-impl Eq for userBITMAP {}
 impl Default for userBITMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct userCLIPFORMAT {
     pub fContext: i32,
     pub u: userCLIPFORMAT_0,
-}
-impl Copy for userCLIPFORMAT {}
-impl Clone for userCLIPFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for userCLIPFORMAT {
     type TypeKind = windows_core::CopyType;
@@ -9702,15 +7035,10 @@ impl Default for userCLIPFORMAT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union userCLIPFORMAT_0 {
     pub dwValue: u32,
     pub pwszName: windows_core::PWSTR,
-}
-impl Copy for userCLIPFORMAT_0 {}
-impl Clone for userCLIPFORMAT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for userCLIPFORMAT_0 {
     type TypeKind = windows_core::CopyType;
@@ -9721,15 +7049,10 @@ impl Default for userCLIPFORMAT_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct userHBITMAP {
     pub fContext: i32,
     pub u: userHBITMAP_0,
-}
-impl Copy for userHBITMAP {}
-impl Clone for userHBITMAP {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for userHBITMAP {
     type TypeKind = windows_core::CopyType;
@@ -9740,16 +7063,11 @@ impl Default for userHBITMAP {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union userHBITMAP_0 {
     pub hInproc: i32,
     pub hRemote: *mut userBITMAP,
     pub hInproc64: i64,
-}
-impl Copy for userHBITMAP_0 {}
-impl Clone for userHBITMAP_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for userHBITMAP_0 {
     type TypeKind = windows_core::CopyType;
@@ -9761,17 +7079,10 @@ impl Default for userHBITMAP_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct userHENHMETAFILE {
     pub fContext: i32,
     pub u: userHENHMETAFILE_0,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for userHENHMETAFILE {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for userHENHMETAFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for userHENHMETAFILE {
@@ -9785,18 +7096,11 @@ impl Default for userHENHMETAFILE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub union userHENHMETAFILE_0 {
     pub hInproc: i32,
     pub hRemote: *mut super::Com::BYTE_BLOB,
     pub hInproc64: i64,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for userHENHMETAFILE_0 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for userHENHMETAFILE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for userHENHMETAFILE_0 {
@@ -9810,17 +7114,10 @@ impl Default for userHENHMETAFILE_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct userHGLOBAL {
     pub fContext: i32,
     pub u: userHGLOBAL_0,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for userHGLOBAL {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for userHGLOBAL {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for userHGLOBAL {
@@ -9834,18 +7131,11 @@ impl Default for userHGLOBAL {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub union userHGLOBAL_0 {
     pub hInproc: i32,
     pub hRemote: *mut super::Com::FLAGGED_BYTE_BLOB,
     pub hInproc64: i64,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for userHGLOBAL_0 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for userHGLOBAL_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for userHGLOBAL_0 {
@@ -9859,17 +7149,10 @@ impl Default for userHGLOBAL_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct userHMETAFILE {
     pub fContext: i32,
     pub u: userHMETAFILE_0,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for userHMETAFILE {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for userHMETAFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for userHMETAFILE {
@@ -9883,18 +7166,11 @@ impl Default for userHMETAFILE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub union userHMETAFILE_0 {
     pub hInproc: i32,
     pub hRemote: *mut super::Com::BYTE_BLOB,
     pub hInproc64: i64,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for userHMETAFILE_0 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for userHMETAFILE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for userHMETAFILE_0 {
@@ -9908,17 +7184,10 @@ impl Default for userHMETAFILE_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct userHMETAFILEPICT {
     pub fContext: i32,
     pub u: userHMETAFILEPICT_0,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for userHMETAFILEPICT {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for userHMETAFILEPICT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for userHMETAFILEPICT {
@@ -9932,18 +7201,11 @@ impl Default for userHMETAFILEPICT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub union userHMETAFILEPICT_0 {
     pub hInproc: i32,
     pub hRemote: *mut remoteMETAFILEPICT,
     pub hInproc64: i64,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Copy for userHMETAFILEPICT_0 {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for userHMETAFILEPICT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for userHMETAFILEPICT_0 {
@@ -9957,17 +7219,10 @@ impl Default for userHMETAFILEPICT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct userHPALETTE {
     pub fContext: i32,
     pub u: userHPALETTE_0,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for userHPALETTE {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for userHPALETTE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for userHPALETTE {
@@ -9981,18 +7236,11 @@ impl Default for userHPALETTE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub union userHPALETTE_0 {
     pub hInproc: i32,
     pub hRemote: *mut super::super::Graphics::Gdi::LOGPALETTE,
     pub hInproc64: i64,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for userHPALETTE_0 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for userHPALETTE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for userHPALETTE_0 {

@@ -234,6 +234,7 @@ pub type DDE_INITIALIZE_COMMAND = u32;
 pub type DDE_NAME_SERVICE_CMD = u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct CONVCONTEXT {
     pub cb: u32,
     pub wFlags: u32,
@@ -243,16 +244,9 @@ pub struct CONVCONTEXT {
     pub dwSecurity: u32,
     pub qos: super::super::Security::SECURITY_QUALITY_OF_SERVICE,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for CONVCONTEXT {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for CONVCONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct CONVINFO {
     pub cb: u32,
     pub hUser: usize,
@@ -271,140 +265,81 @@ pub struct CONVINFO {
     pub hwnd: super::super::Foundation::HWND,
     pub hwndPartner: super::super::Foundation::HWND,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for CONVINFO {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for CONVINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COPYDATASTRUCT {
     pub dwData: usize,
     pub cbData: u32,
     pub lpData: *mut core::ffi::c_void,
 }
-impl Copy for COPYDATASTRUCT {}
-impl Clone for COPYDATASTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DDEACK {
     pub _bitfield: u16,
 }
-impl Copy for DDEACK {}
-impl Clone for DDEACK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DDEADVISE {
     pub _bitfield: u16,
     pub cfFormat: i16,
 }
-impl Copy for DDEADVISE {}
-impl Clone for DDEADVISE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DDEDATA {
     pub _bitfield: u16,
     pub cfFormat: i16,
     pub Value: [u8; 1],
 }
-impl Copy for DDEDATA {}
-impl Clone for DDEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DDELN {
     pub _bitfield: u16,
     pub cfFormat: i16,
 }
-impl Copy for DDELN {}
-impl Clone for DDELN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DDEML_MSG_HOOK_DATA {
     pub uiLo: usize,
     pub uiHi: usize,
     pub cbData: u32,
     pub Data: [u32; 8],
 }
-impl Copy for DDEML_MSG_HOOK_DATA {}
-impl Clone for DDEML_MSG_HOOK_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DDEPOKE {
     pub _bitfield: u16,
     pub cfFormat: i16,
     pub Value: [u8; 1],
 }
-impl Copy for DDEPOKE {}
-impl Clone for DDEPOKE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DDEUP {
     pub _bitfield: u16,
     pub cfFormat: i16,
     pub rgb: [u8; 1],
-}
-impl Copy for DDEUP {}
-impl Clone for DDEUP {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type HCONV = isize;
 pub type HCONVLIST = isize;
 pub type HDDEDATA = isize;
 pub type HSZ = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HSZPAIR {
     pub hszSvc: HSZ,
     pub hszTopic: HSZ,
 }
-impl Copy for HSZPAIR {}
-impl Clone for HSZPAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct METAFILEPICT {
     pub mm: i32,
     pub xExt: i32,
     pub yExt: i32,
     pub hMF: super::super::Graphics::Gdi::HMETAFILE,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for METAFILEPICT {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for METAFILEPICT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct MONCBSTRUCT {
     pub cb: u32,
     pub dwTime: u32,
@@ -422,15 +357,8 @@ pub struct MONCBSTRUCT {
     pub cbData: u32,
     pub Data: [u32; 8],
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for MONCBSTRUCT {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for MONCBSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MONCONVSTRUCT {
     pub cb: u32,
     pub fConnect: super::super::Foundation::BOOL,
@@ -441,26 +369,16 @@ pub struct MONCONVSTRUCT {
     pub hConvClient: HCONV,
     pub hConvServer: HCONV,
 }
-impl Copy for MONCONVSTRUCT {}
-impl Clone for MONCONVSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MONERRSTRUCT {
     pub cb: u32,
     pub wLastError: u32,
     pub dwTime: u32,
     pub hTask: super::super::Foundation::HANDLE,
 }
-impl Copy for MONERRSTRUCT {}
-impl Clone for MONERRSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MONHSZSTRUCTA {
     pub cb: u32,
     pub fsAction: super::super::Foundation::BOOL,
@@ -469,13 +387,8 @@ pub struct MONHSZSTRUCTA {
     pub hTask: super::super::Foundation::HANDLE,
     pub str: [i8; 1],
 }
-impl Copy for MONHSZSTRUCTA {}
-impl Clone for MONHSZSTRUCTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MONHSZSTRUCTW {
     pub cb: u32,
     pub fsAction: super::super::Foundation::BOOL,
@@ -484,13 +397,8 @@ pub struct MONHSZSTRUCTW {
     pub hTask: super::super::Foundation::HANDLE,
     pub str: [u16; 1],
 }
-impl Copy for MONHSZSTRUCTW {}
-impl Clone for MONHSZSTRUCTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MONLINKSTRUCT {
     pub cb: u32,
     pub dwTime: u32,
@@ -505,13 +413,8 @@ pub struct MONLINKSTRUCT {
     pub hConvServer: HCONV,
     pub hConvClient: HCONV,
 }
-impl Copy for MONLINKSTRUCT {}
-impl Clone for MONLINKSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MONMSGSTRUCT {
     pub cb: u32,
     pub hwndTo: super::super::Foundation::HWND,
@@ -521,11 +424,5 @@ pub struct MONMSGSTRUCT {
     pub wParam: super::super::Foundation::WPARAM,
     pub lParam: super::super::Foundation::LPARAM,
     pub dmhd: DDEML_MSG_HOOK_DATA,
-}
-impl Copy for MONMSGSTRUCT {}
-impl Clone for MONMSGSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type PFNCALLBACK = Option<unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA>;

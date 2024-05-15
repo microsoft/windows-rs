@@ -958,18 +958,14 @@ pub type WbemQueryFlagEnum = i32;
 pub type WbemTextFlagEnum = i32;
 pub type WbemTimeout = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Application {
     pub reserved1: u64,
     pub reserved2: isize,
     pub ft: *const MI_ApplicationFT,
 }
-impl Copy for MI_Application {}
-impl Clone for MI_Application {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ApplicationFT {
     pub Close: isize,
     pub NewSession: isize,
@@ -983,106 +979,61 @@ pub struct MI_ApplicationFT {
     pub NewInstanceFromClass: isize,
     pub NewClass: isize,
 }
-impl Copy for MI_ApplicationFT {}
-impl Clone for MI_ApplicationFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Array {
     pub data: *mut core::ffi::c_void,
     pub size: u32,
 }
-impl Copy for MI_Array {}
-impl Clone for MI_Array {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ArrayField {
     pub value: MI_Array,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ArrayField {}
-impl Clone for MI_ArrayField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_BooleanA {
     pub data: *mut u8,
     pub size: u32,
 }
-impl Copy for MI_BooleanA {}
-impl Clone for MI_BooleanA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_BooleanAField {
     pub value: MI_BooleanA,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_BooleanAField {}
-impl Clone for MI_BooleanAField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_BooleanField {
     pub value: u8,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_BooleanField {}
-impl Clone for MI_BooleanField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Char16A {
     pub data: *mut u16,
     pub size: u32,
 }
-impl Copy for MI_Char16A {}
-impl Clone for MI_Char16A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Char16AField {
     pub value: MI_Char16A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Char16AField {}
-impl Clone for MI_Char16AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Char16Field {
     pub value: u16,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Char16Field {}
-impl Clone for MI_Char16Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Class {
     pub ft: *const MI_ClassFT,
     pub classDecl: *const MI_ClassDecl,
@@ -1090,13 +1041,8 @@ pub struct MI_Class {
     pub serverName: *const u16,
     pub reserved: [isize; 4],
 }
-impl Copy for MI_Class {}
-impl Clone for MI_Class {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ClassDecl {
     pub flags: u32,
     pub code: u32,
@@ -1114,13 +1060,8 @@ pub struct MI_ClassDecl {
     pub providerFT: *const MI_ProviderFT,
     pub owningClass: *mut MI_Class,
 }
-impl Copy for MI_ClassDecl {}
-impl Clone for MI_ClassDecl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ClassFT {
     pub GetClassNameA: isize,
     pub GetNameSpace: isize,
@@ -1137,13 +1078,8 @@ pub struct MI_ClassFT {
     pub Delete: isize,
     pub Clone: isize,
 }
-impl Copy for MI_ClassFT {}
-impl Clone for MI_ClassFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ClientFT_V1 {
     pub applicationFT: *const MI_ApplicationFT,
     pub sessionFT: *const MI_SessionFT,
@@ -1156,584 +1092,334 @@ pub struct MI_ClientFT_V1 {
     pub operationOptionsFT: *const MI_OperationOptionsFT,
     pub utilitiesFT: *const MI_UtilitiesFT,
 }
-impl Copy for MI_ClientFT_V1 {}
-impl Clone for MI_ClientFT_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstBooleanA {
     pub data: *const u8,
     pub size: u32,
 }
-impl Copy for MI_ConstBooleanA {}
-impl Clone for MI_ConstBooleanA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstBooleanAField {
     pub value: MI_ConstBooleanA,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstBooleanAField {}
-impl Clone for MI_ConstBooleanAField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstBooleanField {
     pub value: u8,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstBooleanField {}
-impl Clone for MI_ConstBooleanField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstChar16A {
     pub data: *const u16,
     pub size: u32,
 }
-impl Copy for MI_ConstChar16A {}
-impl Clone for MI_ConstChar16A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstChar16AField {
     pub value: MI_ConstChar16A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstChar16AField {}
-impl Clone for MI_ConstChar16AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstChar16Field {
     pub value: u16,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstChar16Field {}
-impl Clone for MI_ConstChar16Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstDatetimeA {
     pub data: *const MI_Datetime,
     pub size: u32,
 }
-impl Copy for MI_ConstDatetimeA {}
-impl Clone for MI_ConstDatetimeA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstDatetimeAField {
     pub value: MI_ConstDatetimeA,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstDatetimeAField {}
-impl Clone for MI_ConstDatetimeAField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstDatetimeField {
     pub value: MI_Datetime,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstDatetimeField {}
-impl Clone for MI_ConstDatetimeField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstInstanceA {
     pub data: *const *const MI_Instance,
     pub size: u32,
 }
-impl Copy for MI_ConstInstanceA {}
-impl Clone for MI_ConstInstanceA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstInstanceAField {
     pub value: MI_ConstInstanceA,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstInstanceAField {}
-impl Clone for MI_ConstInstanceAField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstInstanceField {
     pub value: *const MI_Instance,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstInstanceField {}
-impl Clone for MI_ConstInstanceField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstReal32A {
     pub data: *const f32,
     pub size: u32,
 }
-impl Copy for MI_ConstReal32A {}
-impl Clone for MI_ConstReal32A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstReal32AField {
     pub value: MI_ConstReal32A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstReal32AField {}
-impl Clone for MI_ConstReal32AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstReal32Field {
     pub value: f32,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstReal32Field {}
-impl Clone for MI_ConstReal32Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstReal64A {
     pub data: *const f64,
     pub size: u32,
 }
-impl Copy for MI_ConstReal64A {}
-impl Clone for MI_ConstReal64A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstReal64AField {
     pub value: MI_ConstReal64A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstReal64AField {}
-impl Clone for MI_ConstReal64AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstReal64Field {
     pub value: f64,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstReal64Field {}
-impl Clone for MI_ConstReal64Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstReferenceA {
     pub data: *const *const MI_Instance,
     pub size: u32,
 }
-impl Copy for MI_ConstReferenceA {}
-impl Clone for MI_ConstReferenceA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstReferenceAField {
     pub value: MI_ConstReferenceA,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstReferenceAField {}
-impl Clone for MI_ConstReferenceAField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstReferenceField {
     pub value: *const MI_Instance,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstReferenceField {}
-impl Clone for MI_ConstReferenceField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstSint16A {
     pub data: *const i16,
     pub size: u32,
 }
-impl Copy for MI_ConstSint16A {}
-impl Clone for MI_ConstSint16A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstSint16AField {
     pub value: MI_ConstSint16A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstSint16AField {}
-impl Clone for MI_ConstSint16AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstSint16Field {
     pub value: i16,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstSint16Field {}
-impl Clone for MI_ConstSint16Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstSint32A {
     pub data: *const i32,
     pub size: u32,
 }
-impl Copy for MI_ConstSint32A {}
-impl Clone for MI_ConstSint32A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstSint32AField {
     pub value: MI_ConstSint32A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstSint32AField {}
-impl Clone for MI_ConstSint32AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstSint32Field {
     pub value: i32,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstSint32Field {}
-impl Clone for MI_ConstSint32Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstSint64A {
     pub data: *const i64,
     pub size: u32,
 }
-impl Copy for MI_ConstSint64A {}
-impl Clone for MI_ConstSint64A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstSint64AField {
     pub value: MI_ConstSint64A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstSint64AField {}
-impl Clone for MI_ConstSint64AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstSint64Field {
     pub value: i64,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstSint64Field {}
-impl Clone for MI_ConstSint64Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstSint8A {
     pub data: *const i8,
     pub size: u32,
 }
-impl Copy for MI_ConstSint8A {}
-impl Clone for MI_ConstSint8A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstSint8AField {
     pub value: MI_ConstSint8A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstSint8AField {}
-impl Clone for MI_ConstSint8AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstSint8Field {
     pub value: i8,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstSint8Field {}
-impl Clone for MI_ConstSint8Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstStringA {
     pub data: *const *const u16,
     pub size: u32,
 }
-impl Copy for MI_ConstStringA {}
-impl Clone for MI_ConstStringA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstStringAField {
     pub value: MI_ConstStringA,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstStringAField {}
-impl Clone for MI_ConstStringAField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstStringField {
     pub value: *const u16,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstStringField {}
-impl Clone for MI_ConstStringField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstUint16A {
     pub data: *const u16,
     pub size: u32,
 }
-impl Copy for MI_ConstUint16A {}
-impl Clone for MI_ConstUint16A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstUint16AField {
     pub value: MI_ConstUint16A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstUint16AField {}
-impl Clone for MI_ConstUint16AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstUint16Field {
     pub value: u16,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstUint16Field {}
-impl Clone for MI_ConstUint16Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstUint32A {
     pub data: *const u32,
     pub size: u32,
 }
-impl Copy for MI_ConstUint32A {}
-impl Clone for MI_ConstUint32A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstUint32AField {
     pub value: MI_ConstUint32A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstUint32AField {}
-impl Clone for MI_ConstUint32AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstUint32Field {
     pub value: u32,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstUint32Field {}
-impl Clone for MI_ConstUint32Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstUint64A {
     pub data: *const u64,
     pub size: u32,
 }
-impl Copy for MI_ConstUint64A {}
-impl Clone for MI_ConstUint64A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstUint64AField {
     pub value: MI_ConstUint64A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstUint64AField {}
-impl Clone for MI_ConstUint64AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstUint64Field {
     pub value: u64,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstUint64Field {}
-impl Clone for MI_ConstUint64Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstUint8A {
     pub data: *const u8,
     pub size: u32,
 }
-impl Copy for MI_ConstUint8A {}
-impl Clone for MI_ConstUint8A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstUint8AField {
     pub value: MI_ConstUint8A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstUint8AField {}
-impl Clone for MI_ConstUint8AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstUint8Field {
     pub value: u8,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ConstUint8Field {}
-impl Clone for MI_ConstUint8Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Context {
     pub ft: *const MI_ContextFT,
     pub reserved: [isize; 3],
 }
-impl Copy for MI_Context {}
-impl Clone for MI_Context {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ContextFT {
     pub PostResult: isize,
     pub PostInstance: isize,
@@ -1766,81 +1452,46 @@ pub struct MI_ContextFT {
     pub PostCimError: isize,
     pub WriteError: isize,
 }
-impl Copy for MI_ContextFT {}
-impl Clone for MI_ContextFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Datetime {
     pub isTimestamp: u32,
     pub u: MI_Datetime_0,
 }
-impl Copy for MI_Datetime {}
-impl Clone for MI_Datetime {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MI_Datetime_0 {
     pub timestamp: MI_Timestamp,
     pub interval: MI_Interval,
 }
-impl Copy for MI_Datetime_0 {}
-impl Clone for MI_Datetime_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_DatetimeA {
     pub data: *mut MI_Datetime,
     pub size: u32,
 }
-impl Copy for MI_DatetimeA {}
-impl Clone for MI_DatetimeA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_DatetimeAField {
     pub value: MI_DatetimeA,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_DatetimeAField {}
-impl Clone for MI_DatetimeAField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_DatetimeField {
     pub value: MI_Datetime,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_DatetimeField {}
-impl Clone for MI_DatetimeField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Deserializer {
     pub reserved1: u64,
     pub reserved2: isize,
 }
-impl Copy for MI_Deserializer {}
-impl Clone for MI_Deserializer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_DeserializerFT {
     pub Close: isize,
     pub DeserializeClass: isize,
@@ -1849,25 +1500,15 @@ pub struct MI_DeserializerFT {
     pub DeserializeInstance: isize,
     pub Instance_GetClassName: isize,
 }
-impl Copy for MI_DeserializerFT {}
-impl Clone for MI_DeserializerFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_DestinationOptions {
     pub reserved1: u64,
     pub reserved2: isize,
     pub ft: *const MI_DestinationOptionsFT,
 }
-impl Copy for MI_DestinationOptions {}
-impl Clone for MI_DestinationOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_DestinationOptionsFT {
     pub Delete: isize,
     pub SetString: isize,
@@ -1885,13 +1526,8 @@ pub struct MI_DestinationOptionsFT {
     pub SetInterval: isize,
     pub GetInterval: isize,
 }
-impl Copy for MI_DestinationOptionsFT {}
-impl Clone for MI_DestinationOptionsFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_FeatureDecl {
     pub flags: u32,
     pub code: u32,
@@ -1899,58 +1535,33 @@ pub struct MI_FeatureDecl {
     pub qualifiers: *const *const MI_Qualifier,
     pub numQualifiers: u32,
 }
-impl Copy for MI_FeatureDecl {}
-impl Clone for MI_FeatureDecl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Filter {
     pub ft: *const MI_FilterFT,
     pub reserved: [isize; 3],
 }
-impl Copy for MI_Filter {}
-impl Clone for MI_Filter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_FilterFT {
     pub Evaluate: isize,
     pub GetExpression: isize,
 }
-impl Copy for MI_FilterFT {}
-impl Clone for MI_FilterFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_HostedProvider {
     pub reserved1: u64,
     pub reserved2: isize,
     pub ft: *const MI_HostedProviderFT,
 }
-impl Copy for MI_HostedProvider {}
-impl Clone for MI_HostedProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_HostedProviderFT {
     pub Close: isize,
     pub GetApplication: isize,
 }
-impl Copy for MI_HostedProviderFT {}
-impl Clone for MI_HostedProviderFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Instance {
     pub ft: *const MI_InstanceFT,
     pub classDecl: *const MI_ClassDecl,
@@ -1958,47 +1569,27 @@ pub struct MI_Instance {
     pub nameSpace: *const u16,
     pub reserved: [isize; 4],
 }
-impl Copy for MI_Instance {}
-impl Clone for MI_Instance {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_InstanceA {
     pub data: *mut *mut MI_Instance,
     pub size: u32,
 }
-impl Copy for MI_InstanceA {}
-impl Clone for MI_InstanceA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_InstanceAField {
     pub value: MI_InstanceA,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_InstanceAField {}
-impl Clone for MI_InstanceAField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_InstanceExFT {
     pub parent: MI_InstanceFT,
     pub Normalize: isize,
 }
-impl Copy for MI_InstanceExFT {}
-impl Clone for MI_InstanceExFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_InstanceFT {
     pub Clone: isize,
     pub Destruct: isize,
@@ -2019,25 +1610,15 @@ pub struct MI_InstanceFT {
     pub SetServerName: isize,
     pub GetClass: isize,
 }
-impl Copy for MI_InstanceFT {}
-impl Clone for MI_InstanceFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_InstanceField {
     pub value: *mut MI_Instance,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_InstanceField {}
-impl Clone for MI_InstanceField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Interval {
     pub days: u32,
     pub hours: u32,
@@ -2048,13 +1629,8 @@ pub struct MI_Interval {
     pub __padding2: u32,
     pub __padding3: u32,
 }
-impl Copy for MI_Interval {}
-impl Clone for MI_Interval {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_MethodDecl {
     pub flags: u32,
     pub code: u32,
@@ -2070,13 +1646,8 @@ pub struct MI_MethodDecl {
     pub schema: *const MI_SchemaDecl,
     pub function: MI_MethodDecl_Invoke,
 }
-impl Copy for MI_MethodDecl {}
-impl Clone for MI_MethodDecl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Module {
     pub version: u32,
     pub generatorVersion: u32,
@@ -2087,14 +1658,9 @@ pub struct MI_Module {
     pub Unload: MI_Module_Unload,
     pub dynamicProviderFT: *const MI_ProviderFT,
 }
-impl Copy for MI_Module {}
-impl Clone for MI_Module {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type MI_Module_Self = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ObjectDecl {
     pub flags: u32,
     pub code: u32,
@@ -2105,25 +1671,15 @@ pub struct MI_ObjectDecl {
     pub numProperties: u32,
     pub size: u32,
 }
-impl Copy for MI_ObjectDecl {}
-impl Clone for MI_ObjectDecl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Operation {
     pub reserved1: u64,
     pub reserved2: isize,
     pub ft: *const MI_OperationFT,
 }
-impl Copy for MI_Operation {}
-impl Clone for MI_Operation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_OperationCallbacks {
     pub callbackContext: *mut core::ffi::c_void,
     pub promptUser: MI_OperationCallback_PromptUser,
@@ -2135,13 +1691,8 @@ pub struct MI_OperationCallbacks {
     pub classResult: MI_OperationCallback_Class,
     pub streamedParameterResult: MI_OperationCallback_StreamedParameter,
 }
-impl Copy for MI_OperationCallbacks {}
-impl Clone for MI_OperationCallbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_OperationFT {
     pub Close: isize,
     pub Cancel: isize,
@@ -2150,25 +1701,15 @@ pub struct MI_OperationFT {
     pub GetIndication: isize,
     pub GetClass: isize,
 }
-impl Copy for MI_OperationFT {}
-impl Clone for MI_OperationFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_OperationOptions {
     pub reserved1: u64,
     pub reserved2: isize,
     pub ft: *const MI_OperationOptionsFT,
 }
-impl Copy for MI_OperationOptions {}
-impl Clone for MI_OperationOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_OperationOptionsFT {
     pub Delete: isize,
     pub SetString: isize,
@@ -2184,13 +1725,8 @@ pub struct MI_OperationOptionsFT {
     pub SetInterval: isize,
     pub GetInterval: isize,
 }
-impl Copy for MI_OperationOptionsFT {}
-impl Clone for MI_OperationOptionsFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ParameterDecl {
     pub flags: u32,
     pub code: u32,
@@ -2202,38 +1738,23 @@ pub struct MI_ParameterDecl {
     pub subscript: u32,
     pub offset: u32,
 }
-impl Copy for MI_ParameterDecl {}
-impl Clone for MI_ParameterDecl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ParameterSet {
     pub reserved1: u64,
     pub reserved2: isize,
     pub ft: *const MI_ParameterSetFT,
 }
-impl Copy for MI_ParameterSet {}
-impl Clone for MI_ParameterSet {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ParameterSetFT {
     pub GetMethodReturnType: isize,
     pub GetParameterCount: isize,
     pub GetParameterAt: isize,
     pub GetParameter: isize,
 }
-impl Copy for MI_ParameterSetFT {}
-impl Clone for MI_ParameterSetFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_PropertyDecl {
     pub flags: u32,
     pub code: u32,
@@ -2248,24 +1769,14 @@ pub struct MI_PropertyDecl {
     pub propagator: *const u16,
     pub value: *const core::ffi::c_void,
 }
-impl Copy for MI_PropertyDecl {}
-impl Clone for MI_PropertyDecl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_PropertySet {
     pub ft: *const MI_PropertySetFT,
     pub reserved: [isize; 3],
 }
-impl Copy for MI_PropertySet {}
-impl Clone for MI_PropertySet {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_PropertySetFT {
     pub GetElementCount: isize,
     pub ContainsElement: isize,
@@ -2276,13 +1787,8 @@ pub struct MI_PropertySetFT {
     pub Delete: isize,
     pub Clone: isize,
 }
-impl Copy for MI_PropertySetFT {}
-impl Clone for MI_PropertySetFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ProviderFT {
     pub Load: MI_ProviderFT_Load,
     pub Unload: MI_ProviderFT_Unload,
@@ -2299,26 +1805,16 @@ pub struct MI_ProviderFT {
     pub Unsubscribe: MI_ProviderFT_Unsubscribe,
     pub Invoke: MI_ProviderFT_Invoke,
 }
-impl Copy for MI_ProviderFT {}
-impl Clone for MI_ProviderFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Qualifier {
     pub name: *const u16,
     pub r#type: u32,
     pub flavor: u32,
     pub value: *const core::ffi::c_void,
 }
-impl Copy for MI_Qualifier {}
-impl Clone for MI_Qualifier {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_QualifierDecl {
     pub name: *const u16,
     pub r#type: u32,
@@ -2327,178 +1823,103 @@ pub struct MI_QualifierDecl {
     pub subscript: u32,
     pub value: *const core::ffi::c_void,
 }
-impl Copy for MI_QualifierDecl {}
-impl Clone for MI_QualifierDecl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_QualifierSet {
     pub reserved1: u64,
     pub reserved2: isize,
     pub ft: *const MI_QualifierSetFT,
 }
-impl Copy for MI_QualifierSet {}
-impl Clone for MI_QualifierSet {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_QualifierSetFT {
     pub GetQualifierCount: isize,
     pub GetQualifierAt: isize,
     pub GetQualifier: isize,
 }
-impl Copy for MI_QualifierSetFT {}
-impl Clone for MI_QualifierSetFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Real32A {
     pub data: *mut f32,
     pub size: u32,
 }
-impl Copy for MI_Real32A {}
-impl Clone for MI_Real32A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Real32AField {
     pub value: MI_Real32A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Real32AField {}
-impl Clone for MI_Real32AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Real32Field {
     pub value: f32,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Real32Field {}
-impl Clone for MI_Real32Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Real64A {
     pub data: *mut f64,
     pub size: u32,
 }
-impl Copy for MI_Real64A {}
-impl Clone for MI_Real64A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Real64AField {
     pub value: MI_Real64A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Real64AField {}
-impl Clone for MI_Real64AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Real64Field {
     pub value: f64,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Real64Field {}
-impl Clone for MI_Real64Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ReferenceA {
     pub data: *mut *mut MI_Instance,
     pub size: u32,
 }
-impl Copy for MI_ReferenceA {}
-impl Clone for MI_ReferenceA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ReferenceAField {
     pub value: MI_ReferenceA,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ReferenceAField {}
-impl Clone for MI_ReferenceAField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ReferenceField {
     pub value: *mut MI_Instance,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_ReferenceField {}
-impl Clone for MI_ReferenceField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_SchemaDecl {
     pub qualifierDecls: *const *const MI_QualifierDecl,
     pub numQualifierDecls: u32,
     pub classDecls: *const *const MI_ClassDecl,
     pub numClassDecls: u32,
 }
-impl Copy for MI_SchemaDecl {}
-impl Clone for MI_SchemaDecl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Serializer {
     pub reserved1: u64,
     pub reserved2: isize,
 }
-impl Copy for MI_Serializer {}
-impl Clone for MI_Serializer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_SerializerFT {
     pub Close: isize,
     pub SerializeClass: isize,
     pub SerializeInstance: isize,
 }
-impl Copy for MI_SerializerFT {}
-impl Clone for MI_SerializerFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Server {
     pub serverFT: *const MI_ServerFT,
     pub contextFT: *const MI_ContextFT,
@@ -2506,48 +1927,28 @@ pub struct MI_Server {
     pub propertySetFT: *const MI_PropertySetFT,
     pub filterFT: *const MI_FilterFT,
 }
-impl Copy for MI_Server {}
-impl Clone for MI_Server {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_ServerFT {
     pub GetVersion: isize,
     pub GetSystemName: isize,
 }
-impl Copy for MI_ServerFT {}
-impl Clone for MI_ServerFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Session {
     pub reserved1: u64,
     pub reserved2: isize,
     pub ft: *const MI_SessionFT,
 }
-impl Copy for MI_Session {}
-impl Clone for MI_Session {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_SessionCallbacks {
     pub callbackContext: *mut core::ffi::c_void,
     pub writeMessage: isize,
     pub writeError: isize,
 }
-impl Copy for MI_SessionCallbacks {}
-impl Clone for MI_SessionCallbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_SessionFT {
     pub Close: isize,
     pub GetApplication: isize,
@@ -2565,200 +1966,115 @@ pub struct MI_SessionFT {
     pub EnumerateClasses: isize,
     pub TestConnection: isize,
 }
-impl Copy for MI_SessionFT {}
-impl Clone for MI_SessionFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Sint16A {
     pub data: *mut i16,
     pub size: u32,
 }
-impl Copy for MI_Sint16A {}
-impl Clone for MI_Sint16A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Sint16AField {
     pub value: MI_Sint16A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Sint16AField {}
-impl Clone for MI_Sint16AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Sint16Field {
     pub value: i16,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Sint16Field {}
-impl Clone for MI_Sint16Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Sint32A {
     pub data: *mut i32,
     pub size: u32,
 }
-impl Copy for MI_Sint32A {}
-impl Clone for MI_Sint32A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Sint32AField {
     pub value: MI_Sint32A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Sint32AField {}
-impl Clone for MI_Sint32AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Sint32Field {
     pub value: i32,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Sint32Field {}
-impl Clone for MI_Sint32Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Sint64A {
     pub data: *mut i64,
     pub size: u32,
 }
-impl Copy for MI_Sint64A {}
-impl Clone for MI_Sint64A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Sint64AField {
     pub value: MI_Sint64A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Sint64AField {}
-impl Clone for MI_Sint64AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Sint64Field {
     pub value: i64,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Sint64Field {}
-impl Clone for MI_Sint64Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Sint8A {
     pub data: *mut i8,
     pub size: u32,
 }
-impl Copy for MI_Sint8A {}
-impl Clone for MI_Sint8A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Sint8AField {
     pub value: MI_Sint8A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Sint8AField {}
-impl Clone for MI_Sint8AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Sint8Field {
     pub value: i8,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Sint8Field {}
-impl Clone for MI_Sint8Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_StringA {
     pub data: *mut *mut u16,
     pub size: u32,
 }
-impl Copy for MI_StringA {}
-impl Clone for MI_StringA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_StringAField {
     pub value: MI_StringA,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_StringAField {}
-impl Clone for MI_StringAField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_StringField {
     pub value: *mut u16,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_StringField {}
-impl Clone for MI_StringField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_SubscriptionDeliveryOptions {
     pub reserved1: u64,
     pub reserved2: isize,
     pub ft: *const MI_SubscriptionDeliveryOptionsFT,
 }
-impl Copy for MI_SubscriptionDeliveryOptions {}
-impl Clone for MI_SubscriptionDeliveryOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_SubscriptionDeliveryOptionsFT {
     pub SetString: isize,
     pub SetNumber: isize,
@@ -2778,13 +2094,8 @@ pub struct MI_SubscriptionDeliveryOptionsFT {
     pub GetCredentialsPasswordAt: isize,
     pub Clone: isize,
 }
-impl Copy for MI_SubscriptionDeliveryOptionsFT {}
-impl Clone for MI_SubscriptionDeliveryOptionsFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Timestamp {
     pub year: u32,
     pub month: u32,
@@ -2795,198 +2106,113 @@ pub struct MI_Timestamp {
     pub microseconds: u32,
     pub utc: i32,
 }
-impl Copy for MI_Timestamp {}
-impl Clone for MI_Timestamp {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Uint16A {
     pub data: *mut u16,
     pub size: u32,
 }
-impl Copy for MI_Uint16A {}
-impl Clone for MI_Uint16A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Uint16AField {
     pub value: MI_Uint16A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Uint16AField {}
-impl Clone for MI_Uint16AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Uint16Field {
     pub value: u16,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Uint16Field {}
-impl Clone for MI_Uint16Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Uint32A {
     pub data: *mut u32,
     pub size: u32,
 }
-impl Copy for MI_Uint32A {}
-impl Clone for MI_Uint32A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Uint32AField {
     pub value: MI_Uint32A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Uint32AField {}
-impl Clone for MI_Uint32AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Uint32Field {
     pub value: u32,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Uint32Field {}
-impl Clone for MI_Uint32Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Uint64A {
     pub data: *mut u64,
     pub size: u32,
 }
-impl Copy for MI_Uint64A {}
-impl Clone for MI_Uint64A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Uint64AField {
     pub value: MI_Uint64A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Uint64AField {}
-impl Clone for MI_Uint64AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Uint64Field {
     pub value: u64,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Uint64Field {}
-impl Clone for MI_Uint64Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Uint8A {
     pub data: *mut u8,
     pub size: u32,
 }
-impl Copy for MI_Uint8A {}
-impl Clone for MI_Uint8A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Uint8AField {
     pub value: MI_Uint8A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Uint8AField {}
-impl Clone for MI_Uint8AField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_Uint8Field {
     pub value: u8,
     pub exists: u8,
     pub flags: u8,
 }
-impl Copy for MI_Uint8Field {}
-impl Clone for MI_Uint8Field {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_UserCredentials {
     pub authenticationType: *const u16,
     pub credentials: MI_UserCredentials_0,
 }
-impl Copy for MI_UserCredentials {}
-impl Clone for MI_UserCredentials {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MI_UserCredentials_0 {
     pub usernamePassword: MI_UsernamePasswordCreds,
     pub certificateThumbprint: *const u16,
 }
-impl Copy for MI_UserCredentials_0 {}
-impl Clone for MI_UserCredentials_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_UsernamePasswordCreds {
     pub domain: *const u16,
     pub username: *const u16,
     pub password: *const u16,
 }
-impl Copy for MI_UsernamePasswordCreds {}
-impl Clone for MI_UsernamePasswordCreds {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_UtilitiesFT {
     pub MapErrorToMiErrorCategory: isize,
     pub CimErrorFromErrorCode: isize,
 }
-impl Copy for MI_UtilitiesFT {}
-impl Clone for MI_UtilitiesFT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MI_Value {
     pub boolean: u8,
     pub uint8: u8,
@@ -3022,14 +2248,9 @@ pub union MI_Value {
     pub instancea: MI_InstanceA,
     pub array: MI_Array,
 }
-impl Copy for MI_Value {}
-impl Clone for MI_Value {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const MofCompiler: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6daf9757_2e37_11d2_aec9_00c04fb68820);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SWbemAnalysisMatrix {
     pub m_uVersion: u32,
     pub m_uMatrixType: u32,
@@ -3039,26 +2260,16 @@ pub struct SWbemAnalysisMatrix {
     pub m_pValues: *mut *mut core::ffi::c_void,
     pub m_pbTruthTable: *mut super::super::Foundation::BOOL,
 }
-impl Copy for SWbemAnalysisMatrix {}
-impl Clone for SWbemAnalysisMatrix {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SWbemAnalysisMatrixList {
     pub m_uVersion: u32,
     pub m_uMatrixType: u32,
     pub m_uNumMatrices: u32,
     pub m_pMatrices: *mut SWbemAnalysisMatrix,
 }
-impl Copy for SWbemAnalysisMatrixList {}
-impl Clone for SWbemAnalysisMatrixList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SWbemAssocQueryInf {
     pub m_uVersion: u32,
     pub m_uAnalysisType: u32,
@@ -3072,12 +2283,6 @@ pub struct SWbemAssocQueryInf {
     pub m_pszResultRole: windows_sys::core::PWSTR,
     pub m_pszRequiredQualifier: windows_sys::core::PWSTR,
     pub m_pszRequiredAssocQualifier: windows_sys::core::PWSTR,
-}
-impl Copy for SWbemAssocQueryInf {}
-impl Clone for SWbemAssocQueryInf {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const SWbemDateTime: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x47dfbe54_cf76_11d3_b38f_00105a1f473a);
 pub const SWbemEventSource: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x04b83d58_21ae_11d2_8b33_00600806d9b6);
@@ -3098,6 +2303,7 @@ pub const SWbemPropertySet: windows_sys::core::GUID = windows_sys::core::GUID::f
 pub const SWbemQualifier: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x04b83d5f_21ae_11d2_8b33_00600806d9b6);
 pub const SWbemQualifierSet: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x04b83d5e_21ae_11d2_8b33_00600806d9b6);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SWbemQueryQualifiedName {
     pub m_uVersion: u32,
     pub m_uTokenType: u32,
@@ -3107,15 +2313,10 @@ pub struct SWbemQueryQualifiedName {
     pub m_pbArrayElUsed: *mut super::super::Foundation::BOOL,
     pub m_puArrayIndex: *mut u32,
 }
-impl Copy for SWbemQueryQualifiedName {}
-impl Clone for SWbemQueryQualifiedName {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const SWbemRefreshableItem: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8c6854bc_de4b_11d3_b390_00105a1f473a);
 pub const SWbemRefresher: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd269bf5c_d9c1_11d3_b38f_00105a1f473a);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SWbemRpnConst {
     pub m_pszStrVal: windows_sys::core::PCWSTR,
     pub m_bBoolVal: super::super::Foundation::BOOL,
@@ -3125,13 +2326,8 @@ pub union SWbemRpnConst {
     pub m_lVal64: i64,
     pub m_uVal64: i64,
 }
-impl Copy for SWbemRpnConst {}
-impl Clone for SWbemRpnConst {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SWbemRpnEncodedQuery {
     pub m_uVersion: u32,
     pub m_uTokenType: u32,
@@ -3152,13 +2348,8 @@ pub struct SWbemRpnEncodedQuery {
     pub m_ppszOrderByList: *const windows_sys::core::PCWSTR,
     pub m_uOrderDirectionEl: *mut u32,
 }
-impl Copy for SWbemRpnEncodedQuery {}
-impl Clone for SWbemRpnEncodedQuery {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SWbemRpnQueryToken {
     pub m_uVersion: u32,
     pub m_uTokenType: u32,
@@ -3173,23 +2364,12 @@ pub struct SWbemRpnQueryToken {
     pub m_pszRightFunc: windows_sys::core::PCWSTR,
     pub m_pszLeftFunc: windows_sys::core::PCWSTR,
 }
-impl Copy for SWbemRpnQueryToken {}
-impl Clone for SWbemRpnQueryToken {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SWbemRpnTokenList {
     pub m_uVersion: u32,
     pub m_uTokenType: u32,
     pub m_uNumTokens: u32,
-}
-impl Copy for SWbemRpnTokenList {}
-impl Clone for SWbemRpnTokenList {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const SWbemSecurity: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb54d66e9_2287_11d2_8b33_00600806d9b6);
 pub const SWbemServices: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x04b83d63_21ae_11d2_8b33_00600806d9b6);
@@ -3197,6 +2377,7 @@ pub const SWbemServicesEx: windows_sys::core::GUID = windows_sys::core::GUID::fr
 pub const SWbemSink: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x75718c9a_f029_11d1_a1ac_00c04fb6c223);
 pub const UnsecuredApartment: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x49bd2028_1523_11d1_ad79_00c04fd8fdff);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WBEM_COMPILE_STATUS_INFO {
     pub lPhaseError: i32,
     pub hRes: windows_sys::core::HRESULT,
@@ -3204,12 +2385,6 @@ pub struct WBEM_COMPILE_STATUS_INFO {
     pub FirstLine: i32,
     pub LastLine: i32,
     pub dwOutFlags: u32,
-}
-impl Copy for WBEM_COMPILE_STATUS_INFO {}
-impl Clone for WBEM_COMPILE_STATUS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const WMIExtension: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf0975afe_5c7f_11d2_8b74_00104b2afb41);
 pub const WbemAdministrativeLocator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcb8555cc_9128_11d1_ad9b_00c04fd8fdff);

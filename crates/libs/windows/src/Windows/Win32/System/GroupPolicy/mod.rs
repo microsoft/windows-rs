@@ -3932,6 +3932,7 @@ pub const GPMTrustee: windows_core::GUID = windows_core::GUID::from_u128(0xc54a7
 pub const GPMWMIFilter: windows_core::GUID = windows_core::GUID::from_u128(0x626745d8_0dea_4062_bf60_cfc5b1ca1286);
 pub const GPMWMIFilterCollection: windows_core::GUID = windows_core::GUID::from_u128(0x74dc6d28_e820_47d6_a0b8_f08d93d7fa33);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GPOBROWSEINFO {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -3945,32 +3946,16 @@ pub struct GPOBROWSEINFO {
     pub gpoType: GROUP_POLICY_OBJECT_TYPE,
     pub gpoHint: GROUP_POLICY_HINT_TYPE,
 }
-impl Copy for GPOBROWSEINFO {}
-impl Clone for GPOBROWSEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GPOBROWSEINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GPOBROWSEINFO").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("hwndOwner", &self.hwndOwner).field("lpTitle", &self.lpTitle).field("lpInitialOU", &self.lpInitialOU).field("lpDSPath", &self.lpDSPath).field("dwDSPathSize", &self.dwDSPathSize).field("lpName", &self.lpName).field("dwNameSize", &self.dwNameSize).field("gpoType", &self.gpoType).field("gpoHint", &self.gpoHint).finish()
-    }
-}
 impl windows_core::TypeKind for GPOBROWSEINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GPOBROWSEINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.hwndOwner == other.hwndOwner && self.lpTitle == other.lpTitle && self.lpInitialOU == other.lpInitialOU && self.lpDSPath == other.lpDSPath && self.dwDSPathSize == other.dwDSPathSize && self.lpName == other.lpName && self.dwNameSize == other.dwNameSize && self.gpoType == other.gpoType && self.gpoHint == other.gpoHint
-    }
-}
-impl Eq for GPOBROWSEINFO {}
 impl Default for GPOBROWSEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GROUP_POLICY_OBJECTA {
     pub dwOptions: u32,
     pub dwVersion: u32,
@@ -3986,46 +3971,16 @@ pub struct GROUP_POLICY_OBJECTA {
     pub lParam2: super::super::Foundation::LPARAM,
     pub lpLink: windows_core::PSTR,
 }
-impl Copy for GROUP_POLICY_OBJECTA {}
-impl Clone for GROUP_POLICY_OBJECTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GROUP_POLICY_OBJECTA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GROUP_POLICY_OBJECTA")
-            .field("dwOptions", &self.dwOptions)
-            .field("dwVersion", &self.dwVersion)
-            .field("lpDSPath", &self.lpDSPath)
-            .field("lpFileSysPath", &self.lpFileSysPath)
-            .field("lpDisplayName", &self.lpDisplayName)
-            .field("szGPOName", &self.szGPOName)
-            .field("GPOLink", &self.GPOLink)
-            .field("lParam", &self.lParam)
-            .field("pNext", &self.pNext)
-            .field("pPrev", &self.pPrev)
-            .field("lpExtensions", &self.lpExtensions)
-            .field("lParam2", &self.lParam2)
-            .field("lpLink", &self.lpLink)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for GROUP_POLICY_OBJECTA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GROUP_POLICY_OBJECTA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwOptions == other.dwOptions && self.dwVersion == other.dwVersion && self.lpDSPath == other.lpDSPath && self.lpFileSysPath == other.lpFileSysPath && self.lpDisplayName == other.lpDisplayName && self.szGPOName == other.szGPOName && self.GPOLink == other.GPOLink && self.lParam == other.lParam && self.pNext == other.pNext && self.pPrev == other.pPrev && self.lpExtensions == other.lpExtensions && self.lParam2 == other.lParam2 && self.lpLink == other.lpLink
-    }
-}
-impl Eq for GROUP_POLICY_OBJECTA {}
 impl Default for GROUP_POLICY_OBJECTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GROUP_POLICY_OBJECTW {
     pub dwOptions: u32,
     pub dwVersion: u32,
@@ -4041,55 +3996,19 @@ pub struct GROUP_POLICY_OBJECTW {
     pub lParam2: super::super::Foundation::LPARAM,
     pub lpLink: windows_core::PWSTR,
 }
-impl Copy for GROUP_POLICY_OBJECTW {}
-impl Clone for GROUP_POLICY_OBJECTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GROUP_POLICY_OBJECTW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GROUP_POLICY_OBJECTW")
-            .field("dwOptions", &self.dwOptions)
-            .field("dwVersion", &self.dwVersion)
-            .field("lpDSPath", &self.lpDSPath)
-            .field("lpFileSysPath", &self.lpFileSysPath)
-            .field("lpDisplayName", &self.lpDisplayName)
-            .field("szGPOName", &self.szGPOName)
-            .field("GPOLink", &self.GPOLink)
-            .field("lParam", &self.lParam)
-            .field("pNext", &self.pNext)
-            .field("pPrev", &self.pPrev)
-            .field("lpExtensions", &self.lpExtensions)
-            .field("lParam2", &self.lParam2)
-            .field("lpLink", &self.lpLink)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for GROUP_POLICY_OBJECTW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GROUP_POLICY_OBJECTW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwOptions == other.dwOptions && self.dwVersion == other.dwVersion && self.lpDSPath == other.lpDSPath && self.lpFileSysPath == other.lpFileSysPath && self.lpDisplayName == other.lpDisplayName && self.szGPOName == other.szGPOName && self.GPOLink == other.GPOLink && self.lParam == other.lParam && self.pNext == other.pNext && self.pPrev == other.pPrev && self.lpExtensions == other.lpExtensions && self.lParam2 == other.lParam2 && self.lpLink == other.lpLink
-    }
-}
-impl Eq for GROUP_POLICY_OBJECTW {}
 impl Default for GROUP_POLICY_OBJECTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INSTALLDATA {
     pub Type: INSTALLSPECTYPE,
     pub Spec: INSTALLSPEC,
-}
-impl Copy for INSTALLDATA {}
-impl Clone for INSTALLDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for INSTALLDATA {
     type TypeKind = windows_core::CopyType;
@@ -4100,17 +4019,12 @@ impl Default for INSTALLDATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union INSTALLSPEC {
     pub AppName: INSTALLSPEC_0,
     pub FileExt: windows_core::PWSTR,
     pub ProgId: windows_core::PWSTR,
     pub COMClass: INSTALLSPEC_1,
-}
-impl Copy for INSTALLSPEC {}
-impl Clone for INSTALLSPEC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for INSTALLSPEC {
     type TypeKind = windows_core::CopyType;
@@ -4121,98 +4035,51 @@ impl Default for INSTALLSPEC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INSTALLSPEC_0 {
     pub Name: windows_core::PWSTR,
     pub GPOId: windows_core::GUID,
 }
-impl Copy for INSTALLSPEC_0 {}
-impl Clone for INSTALLSPEC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INSTALLSPEC_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INSTALLSPEC_0").field("Name", &self.Name).field("GPOId", &self.GPOId).finish()
-    }
-}
 impl windows_core::TypeKind for INSTALLSPEC_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INSTALLSPEC_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Name == other.Name && self.GPOId == other.GPOId
-    }
-}
-impl Eq for INSTALLSPEC_0 {}
 impl Default for INSTALLSPEC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INSTALLSPEC_1 {
     pub Clsid: windows_core::GUID,
     pub ClsCtx: u32,
 }
-impl Copy for INSTALLSPEC_1 {}
-impl Clone for INSTALLSPEC_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INSTALLSPEC_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INSTALLSPEC_1").field("Clsid", &self.Clsid).field("ClsCtx", &self.ClsCtx).finish()
-    }
-}
 impl windows_core::TypeKind for INSTALLSPEC_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INSTALLSPEC_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Clsid == other.Clsid && self.ClsCtx == other.ClsCtx
-    }
-}
-impl Eq for INSTALLSPEC_1 {}
 impl Default for INSTALLSPEC_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LOCALMANAGEDAPPLICATION {
     pub pszDeploymentName: windows_core::PWSTR,
     pub pszPolicyName: windows_core::PWSTR,
     pub pszProductId: windows_core::PWSTR,
     pub dwState: u32,
 }
-impl Copy for LOCALMANAGEDAPPLICATION {}
-impl Clone for LOCALMANAGEDAPPLICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LOCALMANAGEDAPPLICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LOCALMANAGEDAPPLICATION").field("pszDeploymentName", &self.pszDeploymentName).field("pszPolicyName", &self.pszPolicyName).field("pszProductId", &self.pszProductId).field("dwState", &self.dwState).finish()
-    }
-}
 impl windows_core::TypeKind for LOCALMANAGEDAPPLICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LOCALMANAGEDAPPLICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszDeploymentName == other.pszDeploymentName && self.pszPolicyName == other.pszPolicyName && self.pszProductId == other.pszProductId && self.dwState == other.dwState
-    }
-}
-impl Eq for LOCALMANAGEDAPPLICATION {}
 impl Default for LOCALMANAGEDAPPLICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MANAGEDAPPLICATION {
     pub pszPackageName: windows_core::PWSTR,
     pub pszPublisher: windows_core::PWSTR,
@@ -4231,49 +4098,16 @@ pub struct MANAGEDAPPLICATION {
     pub dwPathType: u32,
     pub bInstalled: super::super::Foundation::BOOL,
 }
-impl Copy for MANAGEDAPPLICATION {}
-impl Clone for MANAGEDAPPLICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MANAGEDAPPLICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MANAGEDAPPLICATION")
-            .field("pszPackageName", &self.pszPackageName)
-            .field("pszPublisher", &self.pszPublisher)
-            .field("dwVersionHi", &self.dwVersionHi)
-            .field("dwVersionLo", &self.dwVersionLo)
-            .field("dwRevision", &self.dwRevision)
-            .field("GpoId", &self.GpoId)
-            .field("pszPolicyName", &self.pszPolicyName)
-            .field("ProductId", &self.ProductId)
-            .field("Language", &self.Language)
-            .field("pszOwner", &self.pszOwner)
-            .field("pszCompany", &self.pszCompany)
-            .field("pszComments", &self.pszComments)
-            .field("pszContact", &self.pszContact)
-            .field("pszSupportUrl", &self.pszSupportUrl)
-            .field("dwPathType", &self.dwPathType)
-            .field("bInstalled", &self.bInstalled)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MANAGEDAPPLICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MANAGEDAPPLICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszPackageName == other.pszPackageName && self.pszPublisher == other.pszPublisher && self.dwVersionHi == other.dwVersionHi && self.dwVersionLo == other.dwVersionLo && self.dwRevision == other.dwRevision && self.GpoId == other.GpoId && self.pszPolicyName == other.pszPolicyName && self.ProductId == other.ProductId && self.Language == other.Language && self.pszOwner == other.pszOwner && self.pszCompany == other.pszCompany && self.pszComments == other.pszComments && self.pszContact == other.pszContact && self.pszSupportUrl == other.pszSupportUrl && self.dwPathType == other.dwPathType && self.bInstalled == other.bInstalled
-    }
-}
-impl Eq for MANAGEDAPPLICATION {}
 impl Default for MANAGEDAPPLICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POLICYSETTINGSTATUSINFO {
     pub szKey: windows_core::PWSTR,
     pub szEventSource: windows_core::PWSTR,
@@ -4283,26 +4117,9 @@ pub struct POLICYSETTINGSTATUSINFO {
     pub status: SETTINGSTATUS,
     pub timeLogged: super::super::Foundation::SYSTEMTIME,
 }
-impl Copy for POLICYSETTINGSTATUSINFO {}
-impl Clone for POLICYSETTINGSTATUSINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for POLICYSETTINGSTATUSINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("POLICYSETTINGSTATUSINFO").field("szKey", &self.szKey).field("szEventSource", &self.szEventSource).field("szEventLogName", &self.szEventLogName).field("dwEventID", &self.dwEventID).field("dwErrorCode", &self.dwErrorCode).field("status", &self.status).field("timeLogged", &self.timeLogged).finish()
-    }
-}
 impl windows_core::TypeKind for POLICYSETTINGSTATUSINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for POLICYSETTINGSTATUSINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.szKey == other.szKey && self.szEventSource == other.szEventSource && self.szEventLogName == other.szEventLogName && self.dwEventID == other.dwEventID && self.dwErrorCode == other.dwErrorCode && self.status == other.status && self.timeLogged == other.timeLogged
-    }
-}
-impl Eq for POLICYSETTINGSTATUSINFO {}
 impl Default for POLICYSETTINGSTATUSINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4310,6 +4127,7 @@ impl Default for POLICYSETTINGSTATUSINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
+#[derive(Debug, Eq, PartialEq)]
 pub struct RSOP_TARGET {
     pub pwszAccountName: windows_core::PWSTR,
     pub pwszNewSOM: windows_core::PWSTR,
@@ -4325,23 +4143,9 @@ impl Clone for RSOP_TARGET {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
-impl core::fmt::Debug for RSOP_TARGET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RSOP_TARGET").field("pwszAccountName", &self.pwszAccountName).field("pwszNewSOM", &self.pwszNewSOM).field("psaSecurityGroups", &self.psaSecurityGroups).field("pRsopToken", &self.pRsopToken).field("pGPOList", &self.pGPOList).field("pWbemServices", &self.pWbemServices).finish()
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
 impl windows_core::TypeKind for RSOP_TARGET {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
-impl PartialEq for RSOP_TARGET {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszAccountName == other.pwszAccountName && self.pwszNewSOM == other.pwszNewSOM && self.psaSecurityGroups == other.psaSecurityGroups && self.pRsopToken == other.pRsopToken && self.pGPOList == other.pGPOList && self.pWbemServices == other.pWbemServices
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
-impl Eq for RSOP_TARGET {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
 impl Default for RSOP_TARGET {
     fn default() -> Self {

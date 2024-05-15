@@ -1404,36 +1404,21 @@ impl windows_core::TypeKind for AtlThunkData_t {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CFG_CALL_TARGET_INFO {
     pub Offset: usize,
     pub Flags: usize,
 }
-impl Copy for CFG_CALL_TARGET_INFO {}
-impl Clone for CFG_CALL_TARGET_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CFG_CALL_TARGET_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CFG_CALL_TARGET_INFO").field("Offset", &self.Offset).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for CFG_CALL_TARGET_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CFG_CALL_TARGET_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Offset == other.Offset && self.Flags == other.Flags
-    }
-}
-impl Eq for CFG_CALL_TARGET_INFO {}
 impl Default for CFG_CALL_TARGET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HEAP_SUMMARY {
     pub cb: u32,
     pub cbAllocated: usize,
@@ -1441,26 +1426,9 @@ pub struct HEAP_SUMMARY {
     pub cbReserved: usize,
     pub cbMaxReserve: usize,
 }
-impl Copy for HEAP_SUMMARY {}
-impl Clone for HEAP_SUMMARY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HEAP_SUMMARY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HEAP_SUMMARY").field("cb", &self.cb).field("cbAllocated", &self.cbAllocated).field("cbCommitted", &self.cbCommitted).field("cbReserved", &self.cbReserved).field("cbMaxReserve", &self.cbMaxReserve).finish()
-    }
-}
 impl windows_core::TypeKind for HEAP_SUMMARY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HEAP_SUMMARY {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.cbAllocated == other.cbAllocated && self.cbCommitted == other.cbCommitted && self.cbReserved == other.cbReserved && self.cbMaxReserve == other.cbMaxReserve
-    }
-}
-impl Eq for HEAP_SUMMARY {}
 impl Default for HEAP_SUMMARY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1468,6 +1436,7 @@ impl Default for HEAP_SUMMARY {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MEMORY_BASIC_INFORMATION {
     pub BaseAddress: *mut core::ffi::c_void,
     pub AllocationBase: *mut core::ffi::c_void,
@@ -1479,31 +1448,9 @@ pub struct MEMORY_BASIC_INFORMATION {
     pub Type: PAGE_TYPE,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for MEMORY_BASIC_INFORMATION {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for MEMORY_BASIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl core::fmt::Debug for MEMORY_BASIC_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MEMORY_BASIC_INFORMATION").field("BaseAddress", &self.BaseAddress).field("AllocationBase", &self.AllocationBase).field("AllocationProtect", &self.AllocationProtect).field("PartitionId", &self.PartitionId).field("RegionSize", &self.RegionSize).field("State", &self.State).field("Protect", &self.Protect).field("Type", &self.Type).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for MEMORY_BASIC_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl PartialEq for MEMORY_BASIC_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.BaseAddress == other.BaseAddress && self.AllocationBase == other.AllocationBase && self.AllocationProtect == other.AllocationProtect && self.PartitionId == other.PartitionId && self.RegionSize == other.RegionSize && self.State == other.State && self.Protect == other.Protect && self.Type == other.Type
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Eq for MEMORY_BASIC_INFORMATION {}
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for MEMORY_BASIC_INFORMATION {
     fn default() -> Self {
@@ -1512,6 +1459,7 @@ impl Default for MEMORY_BASIC_INFORMATION {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MEMORY_BASIC_INFORMATION {
     pub BaseAddress: *mut core::ffi::c_void,
     pub AllocationBase: *mut core::ffi::c_void,
@@ -1522,31 +1470,9 @@ pub struct MEMORY_BASIC_INFORMATION {
     pub Type: PAGE_TYPE,
 }
 #[cfg(target_arch = "x86")]
-impl Copy for MEMORY_BASIC_INFORMATION {}
-#[cfg(target_arch = "x86")]
-impl Clone for MEMORY_BASIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-impl core::fmt::Debug for MEMORY_BASIC_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MEMORY_BASIC_INFORMATION").field("BaseAddress", &self.BaseAddress).field("AllocationBase", &self.AllocationBase).field("AllocationProtect", &self.AllocationProtect).field("RegionSize", &self.RegionSize).field("State", &self.State).field("Protect", &self.Protect).field("Type", &self.Type).finish()
-    }
-}
-#[cfg(target_arch = "x86")]
 impl windows_core::TypeKind for MEMORY_BASIC_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(target_arch = "x86")]
-impl PartialEq for MEMORY_BASIC_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.BaseAddress == other.BaseAddress && self.AllocationBase == other.AllocationBase && self.AllocationProtect == other.AllocationProtect && self.RegionSize == other.RegionSize && self.State == other.State && self.Protect == other.Protect && self.Type == other.Type
-    }
-}
-#[cfg(target_arch = "x86")]
-impl Eq for MEMORY_BASIC_INFORMATION {}
 #[cfg(target_arch = "x86")]
 impl Default for MEMORY_BASIC_INFORMATION {
     fn default() -> Self {
@@ -1554,6 +1480,7 @@ impl Default for MEMORY_BASIC_INFORMATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MEMORY_BASIC_INFORMATION32 {
     pub BaseAddress: u32,
     pub AllocationBase: u32,
@@ -1563,32 +1490,16 @@ pub struct MEMORY_BASIC_INFORMATION32 {
     pub Protect: PAGE_PROTECTION_FLAGS,
     pub Type: PAGE_TYPE,
 }
-impl Copy for MEMORY_BASIC_INFORMATION32 {}
-impl Clone for MEMORY_BASIC_INFORMATION32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MEMORY_BASIC_INFORMATION32 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MEMORY_BASIC_INFORMATION32").field("BaseAddress", &self.BaseAddress).field("AllocationBase", &self.AllocationBase).field("AllocationProtect", &self.AllocationProtect).field("RegionSize", &self.RegionSize).field("State", &self.State).field("Protect", &self.Protect).field("Type", &self.Type).finish()
-    }
-}
 impl windows_core::TypeKind for MEMORY_BASIC_INFORMATION32 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MEMORY_BASIC_INFORMATION32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.BaseAddress == other.BaseAddress && self.AllocationBase == other.AllocationBase && self.AllocationProtect == other.AllocationProtect && self.RegionSize == other.RegionSize && self.State == other.State && self.Protect == other.Protect && self.Type == other.Type
-    }
-}
-impl Eq for MEMORY_BASIC_INFORMATION32 {}
 impl Default for MEMORY_BASIC_INFORMATION32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MEMORY_BASIC_INFORMATION64 {
     pub BaseAddress: u64,
     pub AllocationBase: u64,
@@ -1600,92 +1511,44 @@ pub struct MEMORY_BASIC_INFORMATION64 {
     pub Type: PAGE_TYPE,
     pub __alignment2: u32,
 }
-impl Copy for MEMORY_BASIC_INFORMATION64 {}
-impl Clone for MEMORY_BASIC_INFORMATION64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MEMORY_BASIC_INFORMATION64 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MEMORY_BASIC_INFORMATION64").field("BaseAddress", &self.BaseAddress).field("AllocationBase", &self.AllocationBase).field("AllocationProtect", &self.AllocationProtect).field("__alignment1", &self.__alignment1).field("RegionSize", &self.RegionSize).field("State", &self.State).field("Protect", &self.Protect).field("Type", &self.Type).field("__alignment2", &self.__alignment2).finish()
-    }
-}
 impl windows_core::TypeKind for MEMORY_BASIC_INFORMATION64 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MEMORY_BASIC_INFORMATION64 {
-    fn eq(&self, other: &Self) -> bool {
-        self.BaseAddress == other.BaseAddress && self.AllocationBase == other.AllocationBase && self.AllocationProtect == other.AllocationProtect && self.__alignment1 == other.__alignment1 && self.RegionSize == other.RegionSize && self.State == other.State && self.Protect == other.Protect && self.Type == other.Type && self.__alignment2 == other.__alignment2
-    }
-}
-impl Eq for MEMORY_BASIC_INFORMATION64 {}
 impl Default for MEMORY_BASIC_INFORMATION64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MEMORY_MAPPED_VIEW_ADDRESS {
     pub Value: *mut core::ffi::c_void,
-}
-impl Copy for MEMORY_MAPPED_VIEW_ADDRESS {}
-impl Clone for MEMORY_MAPPED_VIEW_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MEMORY_MAPPED_VIEW_ADDRESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MEMORY_MAPPED_VIEW_ADDRESS").field("Value", &self.Value).finish()
-    }
 }
 impl windows_core::TypeKind for MEMORY_MAPPED_VIEW_ADDRESS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MEMORY_MAPPED_VIEW_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
-    }
-}
-impl Eq for MEMORY_MAPPED_VIEW_ADDRESS {}
 impl Default for MEMORY_MAPPED_VIEW_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
     pub Type: MEM_DEDICATED_ATTRIBUTE_TYPE,
     pub Reserved: u32,
     pub Value: u64,
 }
-impl Copy for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {}
-impl Clone for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE").field("Type", &self.Type).field("Reserved", &self.Reserved).field("Value", &self.Value).finish()
-    }
-}
 impl windows_core::TypeKind for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Reserved == other.Reserved && self.Value == other.Value
-    }
-}
-impl Eq for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {}
 impl Default for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
     pub NextEntryOffset: u32,
     pub SizeOfInformation: u32,
@@ -1695,72 +1558,34 @@ pub struct MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
     pub Reserved: u32,
     pub TypeId: u64,
 }
-impl Copy for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {}
-impl Clone for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("SizeOfInformation", &self.SizeOfInformation).field("Flags", &self.Flags).field("AttributesOffset", &self.AttributesOffset).field("AttributeCount", &self.AttributeCount).field("Reserved", &self.Reserved).field("TypeId", &self.TypeId).finish()
-    }
-}
 impl windows_core::TypeKind for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset && self.SizeOfInformation == other.SizeOfInformation && self.Flags == other.Flags && self.AttributesOffset == other.AttributesOffset && self.AttributeCount == other.AttributeCount && self.Reserved == other.Reserved && self.TypeId == other.TypeId
-    }
-}
-impl Eq for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {}
 impl Default for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MEM_ADDRESS_REQUIREMENTS {
     pub LowestStartingAddress: *mut core::ffi::c_void,
     pub HighestEndingAddress: *mut core::ffi::c_void,
     pub Alignment: usize,
 }
-impl Copy for MEM_ADDRESS_REQUIREMENTS {}
-impl Clone for MEM_ADDRESS_REQUIREMENTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MEM_ADDRESS_REQUIREMENTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MEM_ADDRESS_REQUIREMENTS").field("LowestStartingAddress", &self.LowestStartingAddress).field("HighestEndingAddress", &self.HighestEndingAddress).field("Alignment", &self.Alignment).finish()
-    }
-}
 impl windows_core::TypeKind for MEM_ADDRESS_REQUIREMENTS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MEM_ADDRESS_REQUIREMENTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.LowestStartingAddress == other.LowestStartingAddress && self.HighestEndingAddress == other.HighestEndingAddress && self.Alignment == other.Alignment
-    }
-}
-impl Eq for MEM_ADDRESS_REQUIREMENTS {}
 impl Default for MEM_ADDRESS_REQUIREMENTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MEM_EXTENDED_PARAMETER {
     pub Anonymous1: MEM_EXTENDED_PARAMETER_0,
     pub Anonymous2: MEM_EXTENDED_PARAMETER_1,
-}
-impl Copy for MEM_EXTENDED_PARAMETER {}
-impl Clone for MEM_EXTENDED_PARAMETER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MEM_EXTENDED_PARAMETER {
     type TypeKind = windows_core::CopyType;
@@ -1771,47 +1596,26 @@ impl Default for MEM_EXTENDED_PARAMETER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MEM_EXTENDED_PARAMETER_0 {
     pub _bitfield: u64,
-}
-impl Copy for MEM_EXTENDED_PARAMETER_0 {}
-impl Clone for MEM_EXTENDED_PARAMETER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MEM_EXTENDED_PARAMETER_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MEM_EXTENDED_PARAMETER_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for MEM_EXTENDED_PARAMETER_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MEM_EXTENDED_PARAMETER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for MEM_EXTENDED_PARAMETER_0 {}
 impl Default for MEM_EXTENDED_PARAMETER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MEM_EXTENDED_PARAMETER_1 {
     pub ULong64: u64,
     pub Pointer: *mut core::ffi::c_void,
     pub Size: usize,
     pub Handle: super::super::Foundation::HANDLE,
     pub ULong: u32,
-}
-impl Copy for MEM_EXTENDED_PARAMETER_1 {}
-impl Clone for MEM_EXTENDED_PARAMETER_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MEM_EXTENDED_PARAMETER_1 {
     type TypeKind = windows_core::CopyType;
@@ -1822,6 +1626,7 @@ impl Default for MEM_EXTENDED_PARAMETER_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_HEAP_ENTRY {
     pub lpData: *mut core::ffi::c_void,
     pub cbData: u32,
@@ -1829,12 +1634,6 @@ pub struct PROCESS_HEAP_ENTRY {
     pub iRegionIndex: u8,
     pub wFlags: u16,
     pub Anonymous: PROCESS_HEAP_ENTRY_0,
-}
-impl Copy for PROCESS_HEAP_ENTRY {}
-impl Clone for PROCESS_HEAP_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_HEAP_ENTRY {
     type TypeKind = windows_core::CopyType;
@@ -1845,15 +1644,10 @@ impl Default for PROCESS_HEAP_ENTRY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROCESS_HEAP_ENTRY_0 {
     pub Block: PROCESS_HEAP_ENTRY_0_0,
     pub Region: PROCESS_HEAP_ENTRY_0_1,
-}
-impl Copy for PROCESS_HEAP_ENTRY_0 {}
-impl Clone for PROCESS_HEAP_ENTRY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROCESS_HEAP_ENTRY_0 {
     type TypeKind = windows_core::CopyType;
@@ -1864,68 +1658,37 @@ impl Default for PROCESS_HEAP_ENTRY_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_HEAP_ENTRY_0_0 {
     pub hMem: super::super::Foundation::HANDLE,
     pub dwReserved: [u32; 3],
 }
-impl Copy for PROCESS_HEAP_ENTRY_0_0 {}
-impl Clone for PROCESS_HEAP_ENTRY_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_HEAP_ENTRY_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_HEAP_ENTRY_0_0").field("hMem", &self.hMem).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 impl windows_core::TypeKind for PROCESS_HEAP_ENTRY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_HEAP_ENTRY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hMem == other.hMem && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for PROCESS_HEAP_ENTRY_0_0 {}
 impl Default for PROCESS_HEAP_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_HEAP_ENTRY_0_1 {
     pub dwCommittedSize: u32,
     pub dwUnCommittedSize: u32,
     pub lpFirstBlock: *mut core::ffi::c_void,
     pub lpLastBlock: *mut core::ffi::c_void,
 }
-impl Copy for PROCESS_HEAP_ENTRY_0_1 {}
-impl Clone for PROCESS_HEAP_ENTRY_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROCESS_HEAP_ENTRY_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROCESS_HEAP_ENTRY_0_1").field("dwCommittedSize", &self.dwCommittedSize).field("dwUnCommittedSize", &self.dwUnCommittedSize).field("lpFirstBlock", &self.lpFirstBlock).field("lpLastBlock", &self.lpLastBlock).finish()
-    }
-}
 impl windows_core::TypeKind for PROCESS_HEAP_ENTRY_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROCESS_HEAP_ENTRY_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwCommittedSize == other.dwCommittedSize && self.dwUnCommittedSize == other.dwUnCommittedSize && self.lpFirstBlock == other.lpFirstBlock && self.lpLastBlock == other.lpLastBlock
-    }
-}
-impl Eq for PROCESS_HEAP_ENTRY_0_1 {}
 impl Default for PROCESS_HEAP_ENTRY_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIN32_MEMORY_PARTITION_INFORMATION {
     pub Flags: u32,
     pub NumaNode: u32,
@@ -1945,92 +1708,36 @@ pub struct WIN32_MEMORY_PARTITION_INFORMATION {
     pub Reserved2: u64,
     pub PartitionId: u32,
 }
-impl Copy for WIN32_MEMORY_PARTITION_INFORMATION {}
-impl Clone for WIN32_MEMORY_PARTITION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WIN32_MEMORY_PARTITION_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIN32_MEMORY_PARTITION_INFORMATION")
-            .field("Flags", &self.Flags)
-            .field("NumaNode", &self.NumaNode)
-            .field("Channel", &self.Channel)
-            .field("NumberOfNumaNodes", &self.NumberOfNumaNodes)
-            .field("ResidentAvailablePages", &self.ResidentAvailablePages)
-            .field("CommittedPages", &self.CommittedPages)
-            .field("CommitLimit", &self.CommitLimit)
-            .field("PeakCommitment", &self.PeakCommitment)
-            .field("TotalNumberOfPages", &self.TotalNumberOfPages)
-            .field("AvailablePages", &self.AvailablePages)
-            .field("ZeroPages", &self.ZeroPages)
-            .field("FreePages", &self.FreePages)
-            .field("StandbyPages", &self.StandbyPages)
-            .field("Reserved", &self.Reserved)
-            .field("MaximumCommitLimit", &self.MaximumCommitLimit)
-            .field("Reserved2", &self.Reserved2)
-            .field("PartitionId", &self.PartitionId)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WIN32_MEMORY_PARTITION_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WIN32_MEMORY_PARTITION_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.NumaNode == other.NumaNode && self.Channel == other.Channel && self.NumberOfNumaNodes == other.NumberOfNumaNodes && self.ResidentAvailablePages == other.ResidentAvailablePages && self.CommittedPages == other.CommittedPages && self.CommitLimit == other.CommitLimit && self.PeakCommitment == other.PeakCommitment && self.TotalNumberOfPages == other.TotalNumberOfPages && self.AvailablePages == other.AvailablePages && self.ZeroPages == other.ZeroPages && self.FreePages == other.FreePages && self.StandbyPages == other.StandbyPages && self.Reserved == other.Reserved && self.MaximumCommitLimit == other.MaximumCommitLimit && self.Reserved2 == other.Reserved2 && self.PartitionId == other.PartitionId
-    }
-}
-impl Eq for WIN32_MEMORY_PARTITION_INFORMATION {}
 impl Default for WIN32_MEMORY_PARTITION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIN32_MEMORY_RANGE_ENTRY {
     pub VirtualAddress: *mut core::ffi::c_void,
     pub NumberOfBytes: usize,
 }
-impl Copy for WIN32_MEMORY_RANGE_ENTRY {}
-impl Clone for WIN32_MEMORY_RANGE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WIN32_MEMORY_RANGE_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIN32_MEMORY_RANGE_ENTRY").field("VirtualAddress", &self.VirtualAddress).field("NumberOfBytes", &self.NumberOfBytes).finish()
-    }
-}
 impl windows_core::TypeKind for WIN32_MEMORY_RANGE_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WIN32_MEMORY_RANGE_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.VirtualAddress == other.VirtualAddress && self.NumberOfBytes == other.NumberOfBytes
-    }
-}
-impl Eq for WIN32_MEMORY_RANGE_ENTRY {}
 impl Default for WIN32_MEMORY_RANGE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WIN32_MEMORY_REGION_INFORMATION {
     pub AllocationBase: *mut core::ffi::c_void,
     pub AllocationProtect: u32,
     pub Anonymous: WIN32_MEMORY_REGION_INFORMATION_0,
     pub RegionSize: usize,
     pub CommitSize: usize,
-}
-impl Copy for WIN32_MEMORY_REGION_INFORMATION {}
-impl Clone for WIN32_MEMORY_REGION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WIN32_MEMORY_REGION_INFORMATION {
     type TypeKind = windows_core::CopyType;
@@ -2041,15 +1748,10 @@ impl Default for WIN32_MEMORY_REGION_INFORMATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WIN32_MEMORY_REGION_INFORMATION_0 {
     pub Flags: u32,
     pub Anonymous: WIN32_MEMORY_REGION_INFORMATION_0_0,
-}
-impl Copy for WIN32_MEMORY_REGION_INFORMATION_0 {}
-impl Clone for WIN32_MEMORY_REGION_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WIN32_MEMORY_REGION_INFORMATION_0 {
     type TypeKind = windows_core::CopyType;
@@ -2060,29 +1762,13 @@ impl Default for WIN32_MEMORY_REGION_INFORMATION_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIN32_MEMORY_REGION_INFORMATION_0_0 {
     pub _bitfield: u32,
-}
-impl Copy for WIN32_MEMORY_REGION_INFORMATION_0_0 {}
-impl Clone for WIN32_MEMORY_REGION_INFORMATION_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WIN32_MEMORY_REGION_INFORMATION_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WIN32_MEMORY_REGION_INFORMATION_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for WIN32_MEMORY_REGION_INFORMATION_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WIN32_MEMORY_REGION_INFORMATION_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for WIN32_MEMORY_REGION_INFORMATION_0_0 {}
 impl Default for WIN32_MEMORY_REGION_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

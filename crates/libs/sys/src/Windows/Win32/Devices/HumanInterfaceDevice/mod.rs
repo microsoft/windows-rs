@@ -2563,17 +2563,13 @@ pub type GPIOBUTTONS_BUTTON_TYPE = i32;
 pub type HIDP_KEYBOARD_DIRECTION = i32;
 pub type HIDP_REPORT_TYPE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CPOINT {
     pub lP: i32,
     pub dwLog: u32,
 }
-impl Copy for CPOINT {}
-impl Clone for CPOINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIACTIONA {
     pub uAppData: usize,
     pub dwSemantic: u32,
@@ -2583,24 +2579,14 @@ pub struct DIACTIONA {
     pub dwObjID: u32,
     pub dwHow: u32,
 }
-impl Copy for DIACTIONA {}
-impl Clone for DIACTIONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DIACTIONA_0 {
     pub lptszActionName: windows_sys::core::PCSTR,
     pub uResIdString: u32,
 }
-impl Copy for DIACTIONA_0 {}
-impl Clone for DIACTIONA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIACTIONFORMATA {
     pub dwSize: u32,
     pub dwActionSize: u32,
@@ -2617,13 +2603,8 @@ pub struct DIACTIONFORMATA {
     pub dwCRC: u32,
     pub tszActionMap: [i8; 260],
 }
-impl Copy for DIACTIONFORMATA {}
-impl Clone for DIACTIONFORMATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIACTIONFORMATW {
     pub dwSize: u32,
     pub dwActionSize: u32,
@@ -2640,13 +2621,8 @@ pub struct DIACTIONFORMATW {
     pub dwCRC: u32,
     pub tszActionMap: [u16; 260],
 }
-impl Copy for DIACTIONFORMATW {}
-impl Clone for DIACTIONFORMATW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIACTIONW {
     pub uAppData: usize,
     pub dwSemantic: u32,
@@ -2656,24 +2632,14 @@ pub struct DIACTIONW {
     pub dwObjID: u32,
     pub dwHow: u32,
 }
-impl Copy for DIACTIONW {}
-impl Clone for DIACTIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DIACTIONW_0 {
     pub lptszActionName: windows_sys::core::PCWSTR,
     pub uResIdString: u32,
 }
-impl Copy for DIACTIONW_0 {}
-impl Clone for DIACTIONW_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DICOLORSET {
     pub dwSize: u32,
     pub cTextFore: u32,
@@ -2685,13 +2651,8 @@ pub struct DICOLORSET {
     pub cHighlightFill: u32,
     pub cAreaFill: u32,
 }
-impl Copy for DICOLORSET {}
-impl Clone for DICOLORSET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DICONDITION {
     pub lOffset: i32,
     pub lPositiveCoefficient: i32,
@@ -2700,13 +2661,8 @@ pub struct DICONDITION {
     pub dwNegativeSaturation: u32,
     pub lDeadBand: i32,
 }
-impl Copy for DICONDITION {}
-impl Clone for DICONDITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DICONFIGUREDEVICESPARAMSA {
     pub dwSize: u32,
     pub dwcUsers: u32,
@@ -2717,13 +2673,8 @@ pub struct DICONFIGUREDEVICESPARAMSA {
     pub dics: DICOLORSET,
     pub lpUnkDDSTarget: *mut core::ffi::c_void,
 }
-impl Copy for DICONFIGUREDEVICESPARAMSA {}
-impl Clone for DICONFIGUREDEVICESPARAMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DICONFIGUREDEVICESPARAMSW {
     pub dwSize: u32,
     pub dwcUsers: u32,
@@ -2734,36 +2685,21 @@ pub struct DICONFIGUREDEVICESPARAMSW {
     pub dics: DICOLORSET,
     pub lpUnkDDSTarget: *mut core::ffi::c_void,
 }
-impl Copy for DICONFIGUREDEVICESPARAMSW {}
-impl Clone for DICONFIGUREDEVICESPARAMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DICONSTANTFORCE {
     pub lMagnitude: i32,
 }
-impl Copy for DICONSTANTFORCE {}
-impl Clone for DICONSTANTFORCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DICUSTOMFORCE {
     pub cChannels: u32,
     pub dwSamplePeriod: u32,
     pub cSamples: u32,
     pub rglForceData: *mut i32,
 }
-impl Copy for DICUSTOMFORCE {}
-impl Clone for DICUSTOMFORCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIDATAFORMAT {
     pub dwSize: u32,
     pub dwObjSize: u32,
@@ -2772,13 +2708,8 @@ pub struct DIDATAFORMAT {
     pub dwNumObjs: u32,
     pub rgodf: *mut DIOBJECTDATAFORMAT,
 }
-impl Copy for DIDATAFORMAT {}
-impl Clone for DIDATAFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIDEVCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -2792,13 +2723,8 @@ pub struct DIDEVCAPS {
     pub dwHardwareRevision: u32,
     pub dwFFDriverVersion: u32,
 }
-impl Copy for DIDEVCAPS {}
-impl Clone for DIDEVCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIDEVCAPS_DX3 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -2807,13 +2733,8 @@ pub struct DIDEVCAPS_DX3 {
     pub dwButtons: u32,
     pub dwPOVs: u32,
 }
-impl Copy for DIDEVCAPS_DX3 {}
-impl Clone for DIDEVCAPS_DX3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIDEVICEIMAGEINFOA {
     pub tszImagePath: [i8; 260],
     pub dwFlags: u32,
@@ -2825,13 +2746,8 @@ pub struct DIDEVICEIMAGEINFOA {
     pub rcCalloutRect: super::super::Foundation::RECT,
     pub dwTextAlign: u32,
 }
-impl Copy for DIDEVICEIMAGEINFOA {}
-impl Clone for DIDEVICEIMAGEINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIDEVICEIMAGEINFOHEADERA {
     pub dwSize: u32,
     pub dwSizeImageInfo: u32,
@@ -2843,13 +2759,8 @@ pub struct DIDEVICEIMAGEINFOHEADERA {
     pub dwBufferUsed: u32,
     pub lprgImageInfoArray: *mut DIDEVICEIMAGEINFOA,
 }
-impl Copy for DIDEVICEIMAGEINFOHEADERA {}
-impl Clone for DIDEVICEIMAGEINFOHEADERA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIDEVICEIMAGEINFOHEADERW {
     pub dwSize: u32,
     pub dwSizeImageInfo: u32,
@@ -2861,13 +2772,8 @@ pub struct DIDEVICEIMAGEINFOHEADERW {
     pub dwBufferUsed: u32,
     pub lprgImageInfoArray: *mut DIDEVICEIMAGEINFOW,
 }
-impl Copy for DIDEVICEIMAGEINFOHEADERW {}
-impl Clone for DIDEVICEIMAGEINFOHEADERW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIDEVICEIMAGEINFOW {
     pub tszImagePath: [u16; 260],
     pub dwFlags: u32,
@@ -2879,13 +2785,8 @@ pub struct DIDEVICEIMAGEINFOW {
     pub rcCalloutRect: super::super::Foundation::RECT,
     pub dwTextAlign: u32,
 }
-impl Copy for DIDEVICEIMAGEINFOW {}
-impl Clone for DIDEVICEIMAGEINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIDEVICEINSTANCEA {
     pub dwSize: u32,
     pub guidInstance: windows_sys::core::GUID,
@@ -2897,13 +2798,8 @@ pub struct DIDEVICEINSTANCEA {
     pub wUsagePage: u16,
     pub wUsage: u16,
 }
-impl Copy for DIDEVICEINSTANCEA {}
-impl Clone for DIDEVICEINSTANCEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIDEVICEINSTANCEW {
     pub dwSize: u32,
     pub guidInstance: windows_sys::core::GUID,
@@ -2915,13 +2811,8 @@ pub struct DIDEVICEINSTANCEW {
     pub wUsagePage: u16,
     pub wUsage: u16,
 }
-impl Copy for DIDEVICEINSTANCEW {}
-impl Clone for DIDEVICEINSTANCEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIDEVICEINSTANCE_DX3A {
     pub dwSize: u32,
     pub guidInstance: windows_sys::core::GUID,
@@ -2930,13 +2821,8 @@ pub struct DIDEVICEINSTANCE_DX3A {
     pub tszInstanceName: [i8; 260],
     pub tszProductName: [i8; 260],
 }
-impl Copy for DIDEVICEINSTANCE_DX3A {}
-impl Clone for DIDEVICEINSTANCE_DX3A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIDEVICEINSTANCE_DX3W {
     pub dwSize: u32,
     pub guidInstance: windows_sys::core::GUID,
@@ -2945,13 +2831,8 @@ pub struct DIDEVICEINSTANCE_DX3W {
     pub tszInstanceName: [u16; 260],
     pub tszProductName: [u16; 260],
 }
-impl Copy for DIDEVICEINSTANCE_DX3W {}
-impl Clone for DIDEVICEINSTANCE_DX3W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIDEVICEOBJECTDATA {
     pub dwOfs: u32,
     pub dwData: u32,
@@ -2959,26 +2840,16 @@ pub struct DIDEVICEOBJECTDATA {
     pub dwSequence: u32,
     pub uAppData: usize,
 }
-impl Copy for DIDEVICEOBJECTDATA {}
-impl Clone for DIDEVICEOBJECTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIDEVICEOBJECTDATA_DX3 {
     pub dwOfs: u32,
     pub dwData: u32,
     pub dwTimeStamp: u32,
     pub dwSequence: u32,
 }
-impl Copy for DIDEVICEOBJECTDATA_DX3 {}
-impl Clone for DIDEVICEOBJECTDATA_DX3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIDEVICEOBJECTINSTANCEA {
     pub dwSize: u32,
     pub guidType: windows_sys::core::GUID,
@@ -2996,13 +2867,8 @@ pub struct DIDEVICEOBJECTINSTANCEA {
     pub wExponent: u16,
     pub wReportId: u16,
 }
-impl Copy for DIDEVICEOBJECTINSTANCEA {}
-impl Clone for DIDEVICEOBJECTINSTANCEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIDEVICEOBJECTINSTANCEW {
     pub dwSize: u32,
     pub guidType: windows_sys::core::GUID,
@@ -3020,13 +2886,8 @@ pub struct DIDEVICEOBJECTINSTANCEW {
     pub wExponent: u16,
     pub wReportId: u16,
 }
-impl Copy for DIDEVICEOBJECTINSTANCEW {}
-impl Clone for DIDEVICEOBJECTINSTANCEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIDEVICEOBJECTINSTANCE_DX3A {
     pub dwSize: u32,
     pub guidType: windows_sys::core::GUID,
@@ -3035,13 +2896,8 @@ pub struct DIDEVICEOBJECTINSTANCE_DX3A {
     pub dwFlags: u32,
     pub tszName: [i8; 260],
 }
-impl Copy for DIDEVICEOBJECTINSTANCE_DX3A {}
-impl Clone for DIDEVICEOBJECTINSTANCE_DX3A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIDEVICEOBJECTINSTANCE_DX3W {
     pub dwSize: u32,
     pub guidType: windows_sys::core::GUID,
@@ -3050,38 +2906,23 @@ pub struct DIDEVICEOBJECTINSTANCE_DX3W {
     pub dwFlags: u32,
     pub tszName: [u16; 260],
 }
-impl Copy for DIDEVICEOBJECTINSTANCE_DX3W {}
-impl Clone for DIDEVICEOBJECTINSTANCE_DX3W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIDEVICESTATE {
     pub dwSize: u32,
     pub dwState: u32,
     pub dwLoad: u32,
 }
-impl Copy for DIDEVICESTATE {}
-impl Clone for DIDEVICESTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIDRIVERVERSIONS {
     pub dwSize: u32,
     pub dwFirmwareRevision: u32,
     pub dwHardwareRevision: u32,
     pub dwFFDriverVersion: u32,
 }
-impl Copy for DIDRIVERVERSIONS {}
-impl Clone for DIDRIVERVERSIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIEFFECT {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -3098,13 +2939,8 @@ pub struct DIEFFECT {
     pub lpvTypeSpecificParams: *mut core::ffi::c_void,
     pub dwStartDelay: u32,
 }
-impl Copy for DIEFFECT {}
-impl Clone for DIEFFECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIEFFECTATTRIBUTES {
     pub dwEffectId: u32,
     pub dwEffType: u32,
@@ -3112,13 +2948,8 @@ pub struct DIEFFECTATTRIBUTES {
     pub dwDynamicParams: u32,
     pub dwCoords: u32,
 }
-impl Copy for DIEFFECTATTRIBUTES {}
-impl Clone for DIEFFECTATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIEFFECTINFOA {
     pub dwSize: u32,
     pub guid: windows_sys::core::GUID,
@@ -3127,13 +2958,8 @@ pub struct DIEFFECTINFOA {
     pub dwDynamicParams: u32,
     pub tszName: [i8; 260],
 }
-impl Copy for DIEFFECTINFOA {}
-impl Clone for DIEFFECTINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIEFFECTINFOW {
     pub dwSize: u32,
     pub guid: windows_sys::core::GUID,
@@ -3142,13 +2968,8 @@ pub struct DIEFFECTINFOW {
     pub dwDynamicParams: u32,
     pub tszName: [u16; 260],
 }
-impl Copy for DIEFFECTINFOW {}
-impl Clone for DIEFFECTINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIEFFECT_DX5 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -3164,13 +2985,8 @@ pub struct DIEFFECT_DX5 {
     pub cbTypeSpecificParams: u32,
     pub lpvTypeSpecificParams: *mut core::ffi::c_void,
 }
-impl Copy for DIEFFECT_DX5 {}
-impl Clone for DIEFFECT_DX5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIEFFESCAPE {
     pub dwSize: u32,
     pub dwCommand: u32,
@@ -3179,13 +2995,8 @@ pub struct DIEFFESCAPE {
     pub lpvOutBuffer: *mut core::ffi::c_void,
     pub cbOutBuffer: u32,
 }
-impl Copy for DIEFFESCAPE {}
-impl Clone for DIEFFESCAPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIENVELOPE {
     pub dwSize: u32,
     pub dwAttackLevel: u32,
@@ -3193,61 +3004,36 @@ pub struct DIENVELOPE {
     pub dwFadeLevel: u32,
     pub dwFadeTime: u32,
 }
-impl Copy for DIENVELOPE {}
-impl Clone for DIENVELOPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIFFDEVICEATTRIBUTES {
     pub dwFlags: u32,
     pub dwFFSamplePeriod: u32,
     pub dwFFMinTimeResolution: u32,
 }
-impl Copy for DIFFDEVICEATTRIBUTES {}
-impl Clone for DIFFDEVICEATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIFFOBJECTATTRIBUTES {
     pub dwFFMaxForce: u32,
     pub dwFFForceResolution: u32,
 }
-impl Copy for DIFFOBJECTATTRIBUTES {}
-impl Clone for DIFFOBJECTATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIFILEEFFECT {
     pub dwSize: u32,
     pub GuidEffect: windows_sys::core::GUID,
     pub lpDiEffect: *mut DIEFFECT,
     pub szFriendlyName: [i8; 260],
 }
-impl Copy for DIFILEEFFECT {}
-impl Clone for DIFILEEFFECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIHIDFFINITINFO {
     pub dwSize: u32,
     pub pwszDeviceInterface: windows_sys::core::PWSTR,
     pub GuidInstance: windows_sys::core::GUID,
 }
-impl Copy for DIHIDFFINITINFO {}
-impl Clone for DIHIDFFINITINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIJOYCONFIG {
     pub dwSize: u32,
     pub guidInstance: windows_sys::core::GUID,
@@ -3257,13 +3043,8 @@ pub struct DIJOYCONFIG {
     pub wszCallout: [u16; 256],
     pub guidGameport: windows_sys::core::GUID,
 }
-impl Copy for DIJOYCONFIG {}
-impl Clone for DIJOYCONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIJOYCONFIG_DX5 {
     pub dwSize: u32,
     pub guidInstance: windows_sys::core::GUID,
@@ -3272,13 +3053,8 @@ pub struct DIJOYCONFIG_DX5 {
     pub wszType: [u16; 256],
     pub wszCallout: [u16; 256],
 }
-impl Copy for DIJOYCONFIG_DX5 {}
-impl Clone for DIJOYCONFIG_DX5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIJOYSTATE {
     pub lX: i32,
     pub lY: i32,
@@ -3290,13 +3066,8 @@ pub struct DIJOYSTATE {
     pub rgdwPOV: [u32; 4],
     pub rgbButtons: [u8; 32],
 }
-impl Copy for DIJOYSTATE {}
-impl Clone for DIJOYSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIJOYSTATE2 {
     pub lX: i32,
     pub lY: i32,
@@ -3329,13 +3100,8 @@ pub struct DIJOYSTATE2 {
     pub lFRz: i32,
     pub rglFSlider: [i32; 2],
 }
-impl Copy for DIJOYSTATE2 {}
-impl Clone for DIJOYSTATE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIJOYTYPEINFO {
     pub dwSize: u32,
     pub hws: JOYREGHWSETTINGS,
@@ -3347,13 +3113,8 @@ pub struct DIJOYTYPEINFO {
     pub dwFlags2: u32,
     pub wszMapFile: [u16; 256],
 }
-impl Copy for DIJOYTYPEINFO {}
-impl Clone for DIJOYTYPEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIJOYTYPEINFO_DX5 {
     pub dwSize: u32,
     pub hws: JOYREGHWSETTINGS,
@@ -3361,13 +3122,8 @@ pub struct DIJOYTYPEINFO_DX5 {
     pub wszDisplayName: [u16; 256],
     pub wszCallout: [u16; 260],
 }
-impl Copy for DIJOYTYPEINFO_DX5 {}
-impl Clone for DIJOYTYPEINFO_DX5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIJOYTYPEINFO_DX6 {
     pub dwSize: u32,
     pub hws: JOYREGHWSETTINGS,
@@ -3377,267 +3133,157 @@ pub struct DIJOYTYPEINFO_DX6 {
     pub wszHardwareId: [u16; 256],
     pub dwFlags1: u32,
 }
-impl Copy for DIJOYTYPEINFO_DX6 {}
-impl Clone for DIJOYTYPEINFO_DX6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIJOYUSERVALUES {
     pub dwSize: u32,
     pub ruv: JOYREGUSERVALUES,
     pub wszGlobalDriver: [u16; 256],
     pub wszGameportEmulator: [u16; 256],
 }
-impl Copy for DIJOYUSERVALUES {}
-impl Clone for DIJOYUSERVALUES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIMOUSESTATE {
     pub lX: i32,
     pub lY: i32,
     pub lZ: i32,
     pub rgbButtons: [u8; 4],
 }
-impl Copy for DIMOUSESTATE {}
-impl Clone for DIMOUSESTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIMOUSESTATE2 {
     pub lX: i32,
     pub lY: i32,
     pub lZ: i32,
     pub rgbButtons: [u8; 8],
 }
-impl Copy for DIMOUSESTATE2 {}
-impl Clone for DIMOUSESTATE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIOBJECTATTRIBUTES {
     pub dwFlags: u32,
     pub wUsagePage: u16,
     pub wUsage: u16,
 }
-impl Copy for DIOBJECTATTRIBUTES {}
-impl Clone for DIOBJECTATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIOBJECTCALIBRATION {
     pub lMin: i32,
     pub lCenter: i32,
     pub lMax: i32,
 }
-impl Copy for DIOBJECTCALIBRATION {}
-impl Clone for DIOBJECTCALIBRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIOBJECTDATAFORMAT {
     pub pguid: *const windows_sys::core::GUID,
     pub dwOfs: u32,
     pub dwType: u32,
     pub dwFlags: u32,
 }
-impl Copy for DIOBJECTDATAFORMAT {}
-impl Clone for DIOBJECTDATAFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIPERIODIC {
     pub dwMagnitude: u32,
     pub lOffset: i32,
     pub dwPhase: u32,
     pub dwPeriod: u32,
 }
-impl Copy for DIPERIODIC {}
-impl Clone for DIPERIODIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIPOVCALIBRATION {
     pub lMin: [i32; 5],
     pub lMax: [i32; 5],
 }
-impl Copy for DIPOVCALIBRATION {}
-impl Clone for DIPOVCALIBRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIPROPCAL {
     pub diph: DIPROPHEADER,
     pub lMin: i32,
     pub lCenter: i32,
     pub lMax: i32,
 }
-impl Copy for DIPROPCAL {}
-impl Clone for DIPROPCAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIPROPCALPOV {
     pub diph: DIPROPHEADER,
     pub lMin: [i32; 5],
     pub lMax: [i32; 5],
 }
-impl Copy for DIPROPCALPOV {}
-impl Clone for DIPROPCALPOV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIPROPCPOINTS {
     pub diph: DIPROPHEADER,
     pub dwCPointsNum: u32,
     pub cp: [CPOINT; 8],
 }
-impl Copy for DIPROPCPOINTS {}
-impl Clone for DIPROPCPOINTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIPROPDWORD {
     pub diph: DIPROPHEADER,
     pub dwData: u32,
 }
-impl Copy for DIPROPDWORD {}
-impl Clone for DIPROPDWORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIPROPGUIDANDPATH {
     pub diph: DIPROPHEADER,
     pub guidClass: windows_sys::core::GUID,
     pub wszPath: [u16; 260],
 }
-impl Copy for DIPROPGUIDANDPATH {}
-impl Clone for DIPROPGUIDANDPATH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIPROPHEADER {
     pub dwSize: u32,
     pub dwHeaderSize: u32,
     pub dwObj: u32,
     pub dwHow: u32,
 }
-impl Copy for DIPROPHEADER {}
-impl Clone for DIPROPHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIPROPPOINTER {
     pub diph: DIPROPHEADER,
     pub uData: usize,
 }
-impl Copy for DIPROPPOINTER {}
-impl Clone for DIPROPPOINTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIPROPRANGE {
     pub diph: DIPROPHEADER,
     pub lMin: i32,
     pub lMax: i32,
 }
-impl Copy for DIPROPRANGE {}
-impl Clone for DIPROPRANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIPROPSTRING {
     pub diph: DIPROPHEADER,
     pub wsz: [u16; 260],
 }
-impl Copy for DIPROPSTRING {}
-impl Clone for DIPROPSTRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DIRAMPFORCE {
     pub lStart: i32,
     pub lEnd: i32,
 }
-impl Copy for DIRAMPFORCE {}
-impl Clone for DIRAMPFORCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HIDD_ATTRIBUTES {
     pub Size: u32,
     pub VendorID: u16,
     pub ProductID: u16,
     pub VersionNumber: u16,
 }
-impl Copy for HIDD_ATTRIBUTES {}
-impl Clone for HIDD_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct HIDD_CONFIGURATION {
     pub cookie: *mut core::ffi::c_void,
     pub size: u32,
     pub RingBufferSize: u32,
 }
-impl Copy for HIDD_CONFIGURATION {}
-impl Clone for HIDD_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HIDP_BUTTON_ARRAY_DATA {
     pub ArrayIndex: u16,
     pub On: super::super::Foundation::BOOLEAN,
 }
-impl Copy for HIDP_BUTTON_ARRAY_DATA {}
-impl Clone for HIDP_BUTTON_ARRAY_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HIDP_BUTTON_CAPS {
     pub UsagePage: u16,
     pub ReportID: u8,
@@ -3655,24 +3301,14 @@ pub struct HIDP_BUTTON_CAPS {
     pub Reserved: [u32; 9],
     pub Anonymous: HIDP_BUTTON_CAPS_0,
 }
-impl Copy for HIDP_BUTTON_CAPS {}
-impl Clone for HIDP_BUTTON_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union HIDP_BUTTON_CAPS_0 {
     pub Range: HIDP_BUTTON_CAPS_0_1,
     pub NotRange: HIDP_BUTTON_CAPS_0_0,
 }
-impl Copy for HIDP_BUTTON_CAPS_0 {}
-impl Clone for HIDP_BUTTON_CAPS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HIDP_BUTTON_CAPS_0_0 {
     pub Usage: u16,
     pub Reserved1: u16,
@@ -3683,13 +3319,8 @@ pub struct HIDP_BUTTON_CAPS_0_0 {
     pub DataIndex: u16,
     pub Reserved4: u16,
 }
-impl Copy for HIDP_BUTTON_CAPS_0_0 {}
-impl Clone for HIDP_BUTTON_CAPS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HIDP_BUTTON_CAPS_0_1 {
     pub UsageMin: u16,
     pub UsageMax: u16,
@@ -3700,13 +3331,8 @@ pub struct HIDP_BUTTON_CAPS_0_1 {
     pub DataIndexMin: u16,
     pub DataIndexMax: u16,
 }
-impl Copy for HIDP_BUTTON_CAPS_0_1 {}
-impl Clone for HIDP_BUTTON_CAPS_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HIDP_CAPS {
     pub Usage: u16,
     pub UsagePage: u16,
@@ -3725,80 +3351,45 @@ pub struct HIDP_CAPS {
     pub NumberFeatureValueCaps: u16,
     pub NumberFeatureDataIndices: u16,
 }
-impl Copy for HIDP_CAPS {}
-impl Clone for HIDP_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HIDP_DATA {
     pub DataIndex: u16,
     pub Reserved: u16,
     pub Anonymous: HIDP_DATA_0,
 }
-impl Copy for HIDP_DATA {}
-impl Clone for HIDP_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union HIDP_DATA_0 {
     pub RawValue: u32,
     pub On: super::super::Foundation::BOOLEAN,
 }
-impl Copy for HIDP_DATA_0 {}
-impl Clone for HIDP_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct HIDP_EXTENDED_ATTRIBUTES {
     pub NumGlobalUnknowns: u8,
     pub Reserved: [u8; 3],
     pub GlobalUnknowns: *mut HIDP_UNKNOWN_TOKEN,
     pub Data: [u32; 1],
 }
-impl Copy for HIDP_EXTENDED_ATTRIBUTES {}
-impl Clone for HIDP_EXTENDED_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HIDP_KEYBOARD_MODIFIER_STATE {
     pub Anonymous: HIDP_KEYBOARD_MODIFIER_STATE_0,
 }
-impl Copy for HIDP_KEYBOARD_MODIFIER_STATE {}
-impl Clone for HIDP_KEYBOARD_MODIFIER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union HIDP_KEYBOARD_MODIFIER_STATE_0 {
     pub Anonymous: HIDP_KEYBOARD_MODIFIER_STATE_0_0,
     pub ul: u32,
 }
-impl Copy for HIDP_KEYBOARD_MODIFIER_STATE_0 {}
-impl Clone for HIDP_KEYBOARD_MODIFIER_STATE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
     pub _bitfield: u32,
 }
-impl Copy for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {}
-impl Clone for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(4))]
+#[derive(Clone, Copy)]
 pub struct HIDP_LINK_COLLECTION_NODE {
     pub LinkUsage: u16,
     pub LinkUsagePage: u16,
@@ -3809,25 +3400,15 @@ pub struct HIDP_LINK_COLLECTION_NODE {
     pub _bitfield: u32,
     pub UserContext: *mut core::ffi::c_void,
 }
-impl Copy for HIDP_LINK_COLLECTION_NODE {}
-impl Clone for HIDP_LINK_COLLECTION_NODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HIDP_UNKNOWN_TOKEN {
     pub Token: u8,
     pub Reserved: [u8; 3],
     pub BitField: u32,
 }
-impl Copy for HIDP_UNKNOWN_TOKEN {}
-impl Clone for HIDP_UNKNOWN_TOKEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HIDP_VALUE_CAPS {
     pub UsagePage: u16,
     pub ReportID: u8,
@@ -3853,24 +3434,14 @@ pub struct HIDP_VALUE_CAPS {
     pub PhysicalMax: i32,
     pub Anonymous: HIDP_VALUE_CAPS_0,
 }
-impl Copy for HIDP_VALUE_CAPS {}
-impl Clone for HIDP_VALUE_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union HIDP_VALUE_CAPS_0 {
     pub Range: HIDP_VALUE_CAPS_0_1,
     pub NotRange: HIDP_VALUE_CAPS_0_0,
 }
-impl Copy for HIDP_VALUE_CAPS_0 {}
-impl Clone for HIDP_VALUE_CAPS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HIDP_VALUE_CAPS_0_0 {
     pub Usage: u16,
     pub Reserved1: u16,
@@ -3881,13 +3452,8 @@ pub struct HIDP_VALUE_CAPS_0_0 {
     pub DataIndex: u16,
     pub Reserved4: u16,
 }
-impl Copy for HIDP_VALUE_CAPS_0_0 {}
-impl Clone for HIDP_VALUE_CAPS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HIDP_VALUE_CAPS_0_1 {
     pub UsageMin: u16,
     pub UsageMax: u16,
@@ -3898,13 +3464,8 @@ pub struct HIDP_VALUE_CAPS_0_1 {
     pub DataIndexMin: u16,
     pub DataIndexMax: u16,
 }
-impl Copy for HIDP_VALUE_CAPS_0_1 {}
-impl Clone for HIDP_VALUE_CAPS_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HID_COLLECTION_INFORMATION {
     pub DescriptorSize: u32,
     pub Polled: super::super::Foundation::BOOLEAN,
@@ -3913,58 +3474,33 @@ pub struct HID_COLLECTION_INFORMATION {
     pub ProductID: u16,
     pub VersionNumber: u16,
 }
-impl Copy for HID_COLLECTION_INFORMATION {}
-impl Clone for HID_COLLECTION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HID_DRIVER_CONFIG {
     pub Size: u32,
     pub RingBufferSize: u32,
 }
-impl Copy for HID_DRIVER_CONFIG {}
-impl Clone for HID_DRIVER_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HID_XFER_PACKET {
     pub reportBuffer: *mut u8,
     pub reportBufferLen: u32,
     pub reportId: u8,
 }
-impl Copy for HID_XFER_PACKET {}
-impl Clone for HID_XFER_PACKET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INDICATOR_LIST {
     pub MakeCode: u16,
     pub IndicatorFlags: u16,
 }
-impl Copy for INDICATOR_LIST {}
-impl Clone for INDICATOR_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INPUT_BUTTON_ENABLE_INFO {
     pub ButtonType: GPIOBUTTONS_BUTTON_TYPE,
     pub Enabled: super::super::Foundation::BOOLEAN,
 }
-impl Copy for INPUT_BUTTON_ENABLE_INFO {}
-impl Clone for INPUT_BUTTON_ENABLE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOYCALIBRATE {
     pub wXbase: u32,
     pub wXdelta: u32,
@@ -3973,13 +3509,8 @@ pub struct JOYCALIBRATE {
     pub wZbase: u32,
     pub wZdelta: u32,
 }
-impl Copy for JOYCALIBRATE {}
-impl Clone for JOYCALIBRATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOYPOS {
     pub dwX: u32,
     pub dwY: u32,
@@ -3988,25 +3519,15 @@ pub struct JOYPOS {
     pub dwU: u32,
     pub dwV: u32,
 }
-impl Copy for JOYPOS {}
-impl Clone for JOYPOS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOYRANGE {
     pub jpMin: JOYPOS,
     pub jpMax: JOYPOS,
     pub jpCenter: JOYPOS,
 }
-impl Copy for JOYRANGE {}
-impl Clone for JOYRANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOYREGHWCONFIG {
     pub hws: JOYREGHWSETTINGS,
     pub dwUsageSettings: u32,
@@ -4014,48 +3535,28 @@ pub struct JOYREGHWCONFIG {
     pub dwType: u32,
     pub dwReserved: u32,
 }
-impl Copy for JOYREGHWCONFIG {}
-impl Clone for JOYREGHWCONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOYREGHWSETTINGS {
     pub dwFlags: u32,
     pub dwNumButtons: u32,
 }
-impl Copy for JOYREGHWSETTINGS {}
-impl Clone for JOYREGHWSETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOYREGHWVALUES {
     pub jrvHardware: JOYRANGE,
     pub dwPOVValues: [u32; 4],
     pub dwCalFlags: u32,
 }
-impl Copy for JOYREGHWVALUES {}
-impl Clone for JOYREGHWVALUES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct JOYREGUSERVALUES {
     pub dwTimeOut: u32,
     pub jrvRanges: JOYRANGE,
     pub jpDeadZone: JOYPOS,
 }
-impl Copy for JOYREGUSERVALUES {}
-impl Clone for JOYREGUSERVALUES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEYBOARD_ATTRIBUTES {
     pub KeyboardIdentifier: KEYBOARD_ID,
     pub KeyboardMode: u16,
@@ -4066,13 +3567,8 @@ pub struct KEYBOARD_ATTRIBUTES {
     pub KeyRepeatMinimum: KEYBOARD_TYPEMATIC_PARAMETERS,
     pub KeyRepeatMaximum: KEYBOARD_TYPEMATIC_PARAMETERS,
 }
-impl Copy for KEYBOARD_ATTRIBUTES {}
-impl Clone for KEYBOARD_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEYBOARD_EXTENDED_ATTRIBUTES {
     pub Version: u8,
     pub FormFactor: u8,
@@ -4082,58 +3578,33 @@ pub struct KEYBOARD_EXTENDED_ATTRIBUTES {
     pub IETFLanguageTagIndex: u8,
     pub ImplementedInputAssistControls: u8,
 }
-impl Copy for KEYBOARD_EXTENDED_ATTRIBUTES {}
-impl Clone for KEYBOARD_EXTENDED_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEYBOARD_ID {
     pub Type: u8,
     pub Subtype: u8,
 }
-impl Copy for KEYBOARD_ID {}
-impl Clone for KEYBOARD_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEYBOARD_IME_STATUS {
     pub UnitId: u16,
     pub ImeOpen: u32,
     pub ImeConvMode: u32,
 }
-impl Copy for KEYBOARD_IME_STATUS {}
-impl Clone for KEYBOARD_IME_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEYBOARD_INDICATOR_PARAMETERS {
     pub UnitId: u16,
     pub LedFlags: u16,
 }
-impl Copy for KEYBOARD_INDICATOR_PARAMETERS {}
-impl Clone for KEYBOARD_INDICATOR_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEYBOARD_INDICATOR_TRANSLATION {
     pub NumberOfIndicatorKeys: u16,
     pub IndicatorList: [INDICATOR_LIST; 1],
 }
-impl Copy for KEYBOARD_INDICATOR_TRANSLATION {}
-impl Clone for KEYBOARD_INDICATOR_TRANSLATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEYBOARD_INPUT_DATA {
     pub UnitId: u16,
     pub MakeCode: u16,
@@ -4141,48 +3612,28 @@ pub struct KEYBOARD_INPUT_DATA {
     pub Reserved: u16,
     pub ExtraInformation: u32,
 }
-impl Copy for KEYBOARD_INPUT_DATA {}
-impl Clone for KEYBOARD_INPUT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEYBOARD_TYPEMATIC_PARAMETERS {
     pub UnitId: u16,
     pub Rate: u16,
     pub Delay: u16,
 }
-impl Copy for KEYBOARD_TYPEMATIC_PARAMETERS {}
-impl Clone for KEYBOARD_TYPEMATIC_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEYBOARD_UNIT_ID_PARAMETER {
     pub UnitId: u16,
 }
-impl Copy for KEYBOARD_UNIT_ID_PARAMETER {}
-impl Clone for KEYBOARD_UNIT_ID_PARAMETER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MOUSE_ATTRIBUTES {
     pub MouseIdentifier: u16,
     pub NumberOfButtons: u16,
     pub SampleRate: u16,
     pub InputDataQueueLength: u32,
 }
-impl Copy for MOUSE_ATTRIBUTES {}
-impl Clone for MOUSE_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MOUSE_INPUT_DATA {
     pub UnitId: u16,
     pub Flags: u16,
@@ -4192,55 +3643,29 @@ pub struct MOUSE_INPUT_DATA {
     pub LastY: i32,
     pub ExtraInformation: u32,
 }
-impl Copy for MOUSE_INPUT_DATA {}
-impl Clone for MOUSE_INPUT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MOUSE_INPUT_DATA_0 {
     pub Buttons: u32,
     pub Anonymous: MOUSE_INPUT_DATA_0_0,
 }
-impl Copy for MOUSE_INPUT_DATA_0 {}
-impl Clone for MOUSE_INPUT_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MOUSE_INPUT_DATA_0_0 {
     pub ButtonFlags: u16,
     pub ButtonData: u16,
 }
-impl Copy for MOUSE_INPUT_DATA_0_0 {}
-impl Clone for MOUSE_INPUT_DATA_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MOUSE_UNIT_ID_PARAMETER {
     pub UnitId: u16,
 }
-impl Copy for MOUSE_UNIT_ID_PARAMETER {}
-impl Clone for MOUSE_UNIT_ID_PARAMETER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type PHIDP_PREPARSED_DATA = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct USAGE_AND_PAGE {
     pub Usage: u16,
     pub UsagePage: u16,
-}
-impl Copy for USAGE_AND_PAGE {}
-impl Clone for USAGE_AND_PAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type LPDICONFIGUREDEVICESCALLBACK = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type LPDIENUMCREATEDEFFECTOBJECTSCALLBACK = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;

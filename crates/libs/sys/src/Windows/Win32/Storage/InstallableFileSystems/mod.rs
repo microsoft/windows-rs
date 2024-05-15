@@ -159,40 +159,26 @@ pub type FILTER_VOLUME_INFORMATION_CLASS = i32;
 pub type FLT_FILESYSTEM_TYPE = i32;
 pub type INSTANCE_INFORMATION_CLASS = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILTER_AGGREGATE_BASIC_INFORMATION {
     pub NextEntryOffset: u32,
     pub Flags: u32,
     pub Type: FILTER_AGGREGATE_BASIC_INFORMATION_0,
 }
-impl Copy for FILTER_AGGREGATE_BASIC_INFORMATION {}
-impl Clone for FILTER_AGGREGATE_BASIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union FILTER_AGGREGATE_BASIC_INFORMATION_0 {
     pub MiniFilter: FILTER_AGGREGATE_BASIC_INFORMATION_0_1,
     pub LegacyFilter: FILTER_AGGREGATE_BASIC_INFORMATION_0_0,
 }
-impl Copy for FILTER_AGGREGATE_BASIC_INFORMATION_0 {}
-impl Clone for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
     pub FilterNameLength: u16,
     pub FilterNameBufferOffset: u16,
 }
-impl Copy for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {}
-impl Clone for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
     pub FrameID: u32,
     pub NumberOfInstances: u32,
@@ -201,36 +187,21 @@ pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
     pub FilterAltitudeLength: u16,
     pub FilterAltitudeBufferOffset: u16,
 }
-impl Copy for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {}
-impl Clone for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILTER_AGGREGATE_STANDARD_INFORMATION {
     pub NextEntryOffset: u32,
     pub Flags: u32,
     pub Type: FILTER_AGGREGATE_STANDARD_INFORMATION_0,
 }
-impl Copy for FILTER_AGGREGATE_STANDARD_INFORMATION {}
-impl Clone for FILTER_AGGREGATE_STANDARD_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
     pub MiniFilter: FILTER_AGGREGATE_STANDARD_INFORMATION_0_1,
     pub LegacyFilter: FILTER_AGGREGATE_STANDARD_INFORMATION_0_0,
 }
-impl Copy for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {}
-impl Clone for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
     pub Flags: u32,
     pub FilterNameLength: u16,
@@ -238,13 +209,8 @@ pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
     pub FilterAltitudeLength: u16,
     pub FilterAltitudeBufferOffset: u16,
 }
-impl Copy for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {}
-impl Clone for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub Flags: u32,
     pub FrameID: u32,
@@ -254,13 +220,8 @@ pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub FilterAltitudeLength: u16,
     pub FilterAltitudeBufferOffset: u16,
 }
-impl Copy for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {}
-impl Clone for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILTER_FULL_INFORMATION {
     pub NextEntryOffset: u32,
     pub FrameID: u32,
@@ -268,46 +229,26 @@ pub struct FILTER_FULL_INFORMATION {
     pub FilterNameLength: u16,
     pub FilterNameBuffer: [u16; 1],
 }
-impl Copy for FILTER_FULL_INFORMATION {}
-impl Clone for FILTER_FULL_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILTER_MESSAGE_HEADER {
     pub ReplyLength: u32,
     pub MessageId: u64,
 }
-impl Copy for FILTER_MESSAGE_HEADER {}
-impl Clone for FILTER_MESSAGE_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILTER_REPLY_HEADER {
     pub Status: super::super::Foundation::NTSTATUS,
     pub MessageId: u64,
 }
-impl Copy for FILTER_REPLY_HEADER {}
-impl Clone for FILTER_REPLY_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILTER_VOLUME_BASIC_INFORMATION {
     pub FilterVolumeNameLength: u16,
     pub FilterVolumeName: [u16; 1],
 }
-impl Copy for FILTER_VOLUME_BASIC_INFORMATION {}
-impl Clone for FILTER_VOLUME_BASIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILTER_VOLUME_STANDARD_INFORMATION {
     pub NextEntryOffset: u32,
     pub Flags: u32,
@@ -316,38 +257,23 @@ pub struct FILTER_VOLUME_STANDARD_INFORMATION {
     pub FilterVolumeNameLength: u16,
     pub FilterVolumeName: [u16; 1],
 }
-impl Copy for FILTER_VOLUME_STANDARD_INFORMATION {}
-impl Clone for FILTER_VOLUME_STANDARD_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type HFILTER = isize;
 pub type HFILTER_INSTANCE = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION {
     pub NextEntryOffset: u32,
     pub Flags: u32,
     pub Type: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0,
 }
-impl Copy for INSTANCE_AGGREGATE_STANDARD_INFORMATION {}
-impl Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
     pub MiniFilter: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1,
     pub LegacyFilter: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0,
 }
-impl Copy for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {}
-impl Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
     pub Flags: u32,
     pub AltitudeLength: u16,
@@ -358,13 +284,8 @@ pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
     pub FilterNameBufferOffset: u16,
     pub SupportedFeatures: u32,
 }
-impl Copy for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {}
-impl Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub Flags: u32,
     pub FrameID: u32,
@@ -379,25 +300,15 @@ pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub FilterNameBufferOffset: u16,
     pub SupportedFeatures: u32,
 }
-impl Copy for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {}
-impl Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INSTANCE_BASIC_INFORMATION {
     pub NextEntryOffset: u32,
     pub InstanceNameLength: u16,
     pub InstanceNameBufferOffset: u16,
 }
-impl Copy for INSTANCE_BASIC_INFORMATION {}
-impl Clone for INSTANCE_BASIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INSTANCE_FULL_INFORMATION {
     pub NextEntryOffset: u32,
     pub InstanceNameLength: u16,
@@ -409,23 +320,12 @@ pub struct INSTANCE_FULL_INFORMATION {
     pub FilterNameLength: u16,
     pub FilterNameBufferOffset: u16,
 }
-impl Copy for INSTANCE_FULL_INFORMATION {}
-impl Clone for INSTANCE_FULL_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INSTANCE_PARTIAL_INFORMATION {
     pub NextEntryOffset: u32,
     pub InstanceNameLength: u16,
     pub InstanceNameBufferOffset: u16,
     pub AltitudeLength: u16,
     pub AltitudeBufferOffset: u16,
-}
-impl Copy for INSTANCE_PARTIAL_INFORMATION {}
-impl Clone for INSTANCE_PARTIAL_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

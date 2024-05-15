@@ -1518,66 +1518,35 @@ impl core::fmt::Debug for SCARD_STATE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BINARY_BLOB_CREDENTIAL_INFO {
     pub cbBlob: u32,
     pub pbBlob: *mut u8,
 }
-impl Copy for BINARY_BLOB_CREDENTIAL_INFO {}
-impl Clone for BINARY_BLOB_CREDENTIAL_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BINARY_BLOB_CREDENTIAL_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BINARY_BLOB_CREDENTIAL_INFO").field("cbBlob", &self.cbBlob).field("pbBlob", &self.pbBlob).finish()
-    }
-}
 impl windows_core::TypeKind for BINARY_BLOB_CREDENTIAL_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BINARY_BLOB_CREDENTIAL_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbBlob == other.cbBlob && self.pbBlob == other.pbBlob
-    }
-}
-impl Eq for BINARY_BLOB_CREDENTIAL_INFO {}
 impl Default for BINARY_BLOB_CREDENTIAL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CREDENTIAL_INFO {
     pub cbSize: u32,
     pub rgbHashOfCert: [u8; 20],
 }
-impl Copy for CERT_CREDENTIAL_INFO {}
-impl Clone for CERT_CREDENTIAL_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CERT_CREDENTIAL_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CERT_CREDENTIAL_INFO").field("cbSize", &self.cbSize).field("rgbHashOfCert", &self.rgbHashOfCert).finish()
-    }
-}
 impl windows_core::TypeKind for CERT_CREDENTIAL_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CERT_CREDENTIAL_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.rgbHashOfCert == other.rgbHashOfCert
-    }
-}
-impl Eq for CERT_CREDENTIAL_INFO {}
 impl Default for CERT_CREDENTIAL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREDENTIALA {
     pub Flags: CRED_FLAGS,
     pub Type: CRED_TYPE,
@@ -1592,45 +1561,16 @@ pub struct CREDENTIALA {
     pub TargetAlias: windows_core::PSTR,
     pub UserName: windows_core::PSTR,
 }
-impl Copy for CREDENTIALA {}
-impl Clone for CREDENTIALA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CREDENTIALA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CREDENTIALA")
-            .field("Flags", &self.Flags)
-            .field("Type", &self.Type)
-            .field("TargetName", &self.TargetName)
-            .field("Comment", &self.Comment)
-            .field("LastWritten", &self.LastWritten)
-            .field("CredentialBlobSize", &self.CredentialBlobSize)
-            .field("CredentialBlob", &self.CredentialBlob)
-            .field("Persist", &self.Persist)
-            .field("AttributeCount", &self.AttributeCount)
-            .field("Attributes", &self.Attributes)
-            .field("TargetAlias", &self.TargetAlias)
-            .field("UserName", &self.UserName)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for CREDENTIALA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CREDENTIALA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.Type == other.Type && self.TargetName == other.TargetName && self.Comment == other.Comment && self.LastWritten == other.LastWritten && self.CredentialBlobSize == other.CredentialBlobSize && self.CredentialBlob == other.CredentialBlob && self.Persist == other.Persist && self.AttributeCount == other.AttributeCount && self.Attributes == other.Attributes && self.TargetAlias == other.TargetAlias && self.UserName == other.UserName
-    }
-}
-impl Eq for CREDENTIALA {}
 impl Default for CREDENTIALA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREDENTIALW {
     pub Flags: CRED_FLAGS,
     pub Type: CRED_TYPE,
@@ -1645,109 +1585,48 @@ pub struct CREDENTIALW {
     pub TargetAlias: windows_core::PWSTR,
     pub UserName: windows_core::PWSTR,
 }
-impl Copy for CREDENTIALW {}
-impl Clone for CREDENTIALW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CREDENTIALW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CREDENTIALW")
-            .field("Flags", &self.Flags)
-            .field("Type", &self.Type)
-            .field("TargetName", &self.TargetName)
-            .field("Comment", &self.Comment)
-            .field("LastWritten", &self.LastWritten)
-            .field("CredentialBlobSize", &self.CredentialBlobSize)
-            .field("CredentialBlob", &self.CredentialBlob)
-            .field("Persist", &self.Persist)
-            .field("AttributeCount", &self.AttributeCount)
-            .field("Attributes", &self.Attributes)
-            .field("TargetAlias", &self.TargetAlias)
-            .field("UserName", &self.UserName)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for CREDENTIALW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CREDENTIALW {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.Type == other.Type && self.TargetName == other.TargetName && self.Comment == other.Comment && self.LastWritten == other.LastWritten && self.CredentialBlobSize == other.CredentialBlobSize && self.CredentialBlob == other.CredentialBlob && self.Persist == other.Persist && self.AttributeCount == other.AttributeCount && self.Attributes == other.Attributes && self.TargetAlias == other.TargetAlias && self.UserName == other.UserName
-    }
-}
-impl Eq for CREDENTIALW {}
 impl Default for CREDENTIALW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREDENTIAL_ATTRIBUTEA {
     pub Keyword: windows_core::PSTR,
     pub Flags: u32,
     pub ValueSize: u32,
     pub Value: *mut u8,
 }
-impl Copy for CREDENTIAL_ATTRIBUTEA {}
-impl Clone for CREDENTIAL_ATTRIBUTEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CREDENTIAL_ATTRIBUTEA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CREDENTIAL_ATTRIBUTEA").field("Keyword", &self.Keyword).field("Flags", &self.Flags).field("ValueSize", &self.ValueSize).field("Value", &self.Value).finish()
-    }
-}
 impl windows_core::TypeKind for CREDENTIAL_ATTRIBUTEA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CREDENTIAL_ATTRIBUTEA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Keyword == other.Keyword && self.Flags == other.Flags && self.ValueSize == other.ValueSize && self.Value == other.Value
-    }
-}
-impl Eq for CREDENTIAL_ATTRIBUTEA {}
 impl Default for CREDENTIAL_ATTRIBUTEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREDENTIAL_ATTRIBUTEW {
     pub Keyword: windows_core::PWSTR,
     pub Flags: u32,
     pub ValueSize: u32,
     pub Value: *mut u8,
 }
-impl Copy for CREDENTIAL_ATTRIBUTEW {}
-impl Clone for CREDENTIAL_ATTRIBUTEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CREDENTIAL_ATTRIBUTEW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CREDENTIAL_ATTRIBUTEW").field("Keyword", &self.Keyword).field("Flags", &self.Flags).field("ValueSize", &self.ValueSize).field("Value", &self.Value).finish()
-    }
-}
 impl windows_core::TypeKind for CREDENTIAL_ATTRIBUTEW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CREDENTIAL_ATTRIBUTEW {
-    fn eq(&self, other: &Self) -> bool {
-        self.Keyword == other.Keyword && self.Flags == other.Flags && self.ValueSize == other.ValueSize && self.Value == other.Value
-    }
-}
-impl Eq for CREDENTIAL_ATTRIBUTEW {}
 impl Default for CREDENTIAL_ATTRIBUTEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREDENTIAL_TARGET_INFORMATIONA {
     pub TargetName: windows_core::PSTR,
     pub NetbiosServerName: windows_core::PSTR,
@@ -1760,32 +1639,16 @@ pub struct CREDENTIAL_TARGET_INFORMATIONA {
     pub CredTypeCount: u32,
     pub CredTypes: *mut u32,
 }
-impl Copy for CREDENTIAL_TARGET_INFORMATIONA {}
-impl Clone for CREDENTIAL_TARGET_INFORMATIONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CREDENTIAL_TARGET_INFORMATIONA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CREDENTIAL_TARGET_INFORMATIONA").field("TargetName", &self.TargetName).field("NetbiosServerName", &self.NetbiosServerName).field("DnsServerName", &self.DnsServerName).field("NetbiosDomainName", &self.NetbiosDomainName).field("DnsDomainName", &self.DnsDomainName).field("DnsTreeName", &self.DnsTreeName).field("PackageName", &self.PackageName).field("Flags", &self.Flags).field("CredTypeCount", &self.CredTypeCount).field("CredTypes", &self.CredTypes).finish()
-    }
-}
 impl windows_core::TypeKind for CREDENTIAL_TARGET_INFORMATIONA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CREDENTIAL_TARGET_INFORMATIONA {
-    fn eq(&self, other: &Self) -> bool {
-        self.TargetName == other.TargetName && self.NetbiosServerName == other.NetbiosServerName && self.DnsServerName == other.DnsServerName && self.NetbiosDomainName == other.NetbiosDomainName && self.DnsDomainName == other.DnsDomainName && self.DnsTreeName == other.DnsTreeName && self.PackageName == other.PackageName && self.Flags == other.Flags && self.CredTypeCount == other.CredTypeCount && self.CredTypes == other.CredTypes
-    }
-}
-impl Eq for CREDENTIAL_TARGET_INFORMATIONA {}
 impl Default for CREDENTIAL_TARGET_INFORMATIONA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREDENTIAL_TARGET_INFORMATIONW {
     pub TargetName: windows_core::PWSTR,
     pub NetbiosServerName: windows_core::PWSTR,
@@ -1798,63 +1661,31 @@ pub struct CREDENTIAL_TARGET_INFORMATIONW {
     pub CredTypeCount: u32,
     pub CredTypes: *mut u32,
 }
-impl Copy for CREDENTIAL_TARGET_INFORMATIONW {}
-impl Clone for CREDENTIAL_TARGET_INFORMATIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CREDENTIAL_TARGET_INFORMATIONW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CREDENTIAL_TARGET_INFORMATIONW").field("TargetName", &self.TargetName).field("NetbiosServerName", &self.NetbiosServerName).field("DnsServerName", &self.DnsServerName).field("NetbiosDomainName", &self.NetbiosDomainName).field("DnsDomainName", &self.DnsDomainName).field("DnsTreeName", &self.DnsTreeName).field("PackageName", &self.PackageName).field("Flags", &self.Flags).field("CredTypeCount", &self.CredTypeCount).field("CredTypes", &self.CredTypes).finish()
-    }
-}
 impl windows_core::TypeKind for CREDENTIAL_TARGET_INFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CREDENTIAL_TARGET_INFORMATIONW {
-    fn eq(&self, other: &Self) -> bool {
-        self.TargetName == other.TargetName && self.NetbiosServerName == other.NetbiosServerName && self.DnsServerName == other.DnsServerName && self.NetbiosDomainName == other.NetbiosDomainName && self.DnsDomainName == other.DnsDomainName && self.DnsTreeName == other.DnsTreeName && self.PackageName == other.PackageName && self.Flags == other.Flags && self.CredTypeCount == other.CredTypeCount && self.CredTypes == other.CredTypes
-    }
-}
-impl Eq for CREDENTIAL_TARGET_INFORMATIONW {}
 impl Default for CREDENTIAL_TARGET_INFORMATIONW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREDSSP_CRED {
     pub Type: CREDSPP_SUBMIT_TYPE,
     pub pSchannelCred: *mut core::ffi::c_void,
     pub pSpnegoCred: *mut core::ffi::c_void,
 }
-impl Copy for CREDSSP_CRED {}
-impl Clone for CREDSSP_CRED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CREDSSP_CRED {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CREDSSP_CRED").field("Type", &self.Type).field("pSchannelCred", &self.pSchannelCred).field("pSpnegoCred", &self.pSpnegoCred).finish()
-    }
-}
 impl windows_core::TypeKind for CREDSSP_CRED {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CREDSSP_CRED {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.pSchannelCred == other.pSchannelCred && self.pSpnegoCred == other.pSpnegoCred
-    }
-}
-impl Eq for CREDSSP_CRED {}
 impl Default for CREDSSP_CRED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREDSSP_CRED_EX {
     pub Type: CREDSPP_SUBMIT_TYPE,
     pub Version: u32,
@@ -1862,26 +1693,9 @@ pub struct CREDSSP_CRED_EX {
     pub Reserved: u32,
     pub Cred: CREDSSP_CRED,
 }
-impl Copy for CREDSSP_CRED_EX {}
-impl Clone for CREDSSP_CRED_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CREDSSP_CRED_EX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CREDSSP_CRED_EX").field("Type", &self.Type).field("Version", &self.Version).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("Cred", &self.Cred).finish()
-    }
-}
 impl windows_core::TypeKind for CREDSSP_CRED_EX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CREDSSP_CRED_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Version == other.Version && self.Flags == other.Flags && self.Reserved == other.Reserved && self.Cred == other.Cred
-    }
-}
-impl Eq for CREDSSP_CRED_EX {}
 impl Default for CREDSSP_CRED_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1889,6 +1703,7 @@ impl Default for CREDSSP_CRED_EX {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREDUI_INFOA {
     pub cbSize: u32,
     pub hwndParent: super::super::Foundation::HWND,
@@ -1897,31 +1712,9 @@ pub struct CREDUI_INFOA {
     pub hbmBanner: super::super::Graphics::Gdi::HBITMAP,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for CREDUI_INFOA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for CREDUI_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for CREDUI_INFOA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CREDUI_INFOA").field("cbSize", &self.cbSize).field("hwndParent", &self.hwndParent).field("pszMessageText", &self.pszMessageText).field("pszCaptionText", &self.pszCaptionText).field("hbmBanner", &self.hbmBanner).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for CREDUI_INFOA {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for CREDUI_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.hwndParent == other.hwndParent && self.pszMessageText == other.pszMessageText && self.pszCaptionText == other.pszCaptionText && self.hbmBanner == other.hbmBanner
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for CREDUI_INFOA {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for CREDUI_INFOA {
     fn default() -> Self {
@@ -1930,6 +1723,7 @@ impl Default for CREDUI_INFOA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREDUI_INFOW {
     pub cbSize: u32,
     pub hwndParent: super::super::Foundation::HWND,
@@ -1938,31 +1732,9 @@ pub struct CREDUI_INFOW {
     pub hbmBanner: super::super::Graphics::Gdi::HBITMAP,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for CREDUI_INFOW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for CREDUI_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for CREDUI_INFOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CREDUI_INFOW").field("cbSize", &self.cbSize).field("hwndParent", &self.hwndParent).field("pszMessageText", &self.pszMessageText).field("pszCaptionText", &self.pszCaptionText).field("hbmBanner", &self.hbmBanner).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for CREDUI_INFOW {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for CREDUI_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.hwndParent == other.hwndParent && self.pszMessageText == other.pszMessageText && self.pszCaptionText == other.pszCaptionText && self.hbmBanner == other.hbmBanner
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for CREDUI_INFOW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for CREDUI_INFOW {
     fn default() -> Self {
@@ -1970,35 +1742,20 @@ impl Default for CREDUI_INFOW {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KeyCredentialManagerInfo {
     pub containerId: windows_core::GUID,
-}
-impl Copy for KeyCredentialManagerInfo {}
-impl Clone for KeyCredentialManagerInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for KeyCredentialManagerInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("KeyCredentialManagerInfo").field("containerId", &self.containerId).finish()
-    }
 }
 impl windows_core::TypeKind for KeyCredentialManagerInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for KeyCredentialManagerInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.containerId == other.containerId
-    }
-}
-impl Eq for KeyCredentialManagerInfo {}
 impl Default for KeyCredentialManagerInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct OPENCARDNAMEA {
     pub dwStructSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -2024,38 +1781,6 @@ pub struct OPENCARDNAMEA {
     pub lpfnDisconnect: LPOCNDSCPROC,
     pub hCardHandle: usize,
 }
-impl Copy for OPENCARDNAMEA {}
-impl Clone for OPENCARDNAMEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OPENCARDNAMEA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OPENCARDNAMEA")
-            .field("dwStructSize", &self.dwStructSize)
-            .field("hwndOwner", &self.hwndOwner)
-            .field("hSCardContext", &self.hSCardContext)
-            .field("lpstrGroupNames", &self.lpstrGroupNames)
-            .field("nMaxGroupNames", &self.nMaxGroupNames)
-            .field("lpstrCardNames", &self.lpstrCardNames)
-            .field("nMaxCardNames", &self.nMaxCardNames)
-            .field("rgguidInterfaces", &self.rgguidInterfaces)
-            .field("cguidInterfaces", &self.cguidInterfaces)
-            .field("lpstrRdr", &self.lpstrRdr)
-            .field("nMaxRdr", &self.nMaxRdr)
-            .field("lpstrCard", &self.lpstrCard)
-            .field("nMaxCard", &self.nMaxCard)
-            .field("lpstrTitle", &self.lpstrTitle)
-            .field("dwFlags", &self.dwFlags)
-            .field("pvUserData", &self.pvUserData)
-            .field("dwShareMode", &self.dwShareMode)
-            .field("dwPreferredProtocols", &self.dwPreferredProtocols)
-            .field("dwActiveProtocol", &self.dwActiveProtocol)
-            .field("hCardHandle", &self.hCardHandle)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for OPENCARDNAMEA {
     type TypeKind = windows_core::CopyType;
 }
@@ -2065,6 +1790,7 @@ impl Default for OPENCARDNAMEA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct OPENCARDNAMEW {
     pub dwStructSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -2090,38 +1816,6 @@ pub struct OPENCARDNAMEW {
     pub lpfnDisconnect: LPOCNDSCPROC,
     pub hCardHandle: usize,
 }
-impl Copy for OPENCARDNAMEW {}
-impl Clone for OPENCARDNAMEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OPENCARDNAMEW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OPENCARDNAMEW")
-            .field("dwStructSize", &self.dwStructSize)
-            .field("hwndOwner", &self.hwndOwner)
-            .field("hSCardContext", &self.hSCardContext)
-            .field("lpstrGroupNames", &self.lpstrGroupNames)
-            .field("nMaxGroupNames", &self.nMaxGroupNames)
-            .field("lpstrCardNames", &self.lpstrCardNames)
-            .field("nMaxCardNames", &self.nMaxCardNames)
-            .field("rgguidInterfaces", &self.rgguidInterfaces)
-            .field("cguidInterfaces", &self.cguidInterfaces)
-            .field("lpstrRdr", &self.lpstrRdr)
-            .field("nMaxRdr", &self.nMaxRdr)
-            .field("lpstrCard", &self.lpstrCard)
-            .field("nMaxCard", &self.nMaxCard)
-            .field("lpstrTitle", &self.lpstrTitle)
-            .field("dwFlags", &self.dwFlags)
-            .field("pvUserData", &self.pvUserData)
-            .field("dwShareMode", &self.dwShareMode)
-            .field("dwPreferredProtocols", &self.dwPreferredProtocols)
-            .field("dwActiveProtocol", &self.dwActiveProtocol)
-            .field("hCardHandle", &self.hCardHandle)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for OPENCARDNAMEW {
     type TypeKind = windows_core::CopyType;
 }
@@ -2132,6 +1826,7 @@ impl Default for OPENCARDNAMEW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy, Debug)]
 pub struct OPENCARDNAME_EXA {
     pub dwStructSize: u32,
     pub hSCardContext: usize,
@@ -2153,38 +1848,6 @@ pub struct OPENCARDNAME_EXA {
     pub hCardHandle: usize,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for OPENCARDNAME_EXA {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for OPENCARDNAME_EXA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl core::fmt::Debug for OPENCARDNAME_EXA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OPENCARDNAME_EXA")
-            .field("dwStructSize", &self.dwStructSize)
-            .field("hSCardContext", &self.hSCardContext)
-            .field("hwndOwner", &self.hwndOwner)
-            .field("dwFlags", &self.dwFlags)
-            .field("lpstrTitle", &self.lpstrTitle)
-            .field("lpstrSearchDesc", &self.lpstrSearchDesc)
-            .field("hIcon", &self.hIcon)
-            .field("pOpenCardSearchCriteria", &self.pOpenCardSearchCriteria)
-            .field("pvUserData", &self.pvUserData)
-            .field("dwShareMode", &self.dwShareMode)
-            .field("dwPreferredProtocols", &self.dwPreferredProtocols)
-            .field("lpstrRdr", &self.lpstrRdr)
-            .field("nMaxRdr", &self.nMaxRdr)
-            .field("lpstrCard", &self.lpstrCard)
-            .field("nMaxCard", &self.nMaxCard)
-            .field("dwActiveProtocol", &self.dwActiveProtocol)
-            .field("hCardHandle", &self.hCardHandle)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::TypeKind for OPENCARDNAME_EXA {
     type TypeKind = windows_core::CopyType;
 }
@@ -2196,6 +1859,7 @@ impl Default for OPENCARDNAME_EXA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy, Debug)]
 pub struct OPENCARDNAME_EXW {
     pub dwStructSize: u32,
     pub hSCardContext: usize,
@@ -2217,38 +1881,6 @@ pub struct OPENCARDNAME_EXW {
     pub hCardHandle: usize,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for OPENCARDNAME_EXW {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for OPENCARDNAME_EXW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl core::fmt::Debug for OPENCARDNAME_EXW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OPENCARDNAME_EXW")
-            .field("dwStructSize", &self.dwStructSize)
-            .field("hSCardContext", &self.hSCardContext)
-            .field("hwndOwner", &self.hwndOwner)
-            .field("dwFlags", &self.dwFlags)
-            .field("lpstrTitle", &self.lpstrTitle)
-            .field("lpstrSearchDesc", &self.lpstrSearchDesc)
-            .field("hIcon", &self.hIcon)
-            .field("pOpenCardSearchCriteria", &self.pOpenCardSearchCriteria)
-            .field("pvUserData", &self.pvUserData)
-            .field("dwShareMode", &self.dwShareMode)
-            .field("dwPreferredProtocols", &self.dwPreferredProtocols)
-            .field("lpstrRdr", &self.lpstrRdr)
-            .field("nMaxRdr", &self.nMaxRdr)
-            .field("lpstrCard", &self.lpstrCard)
-            .field("nMaxCard", &self.nMaxCard)
-            .field("dwActiveProtocol", &self.dwActiveProtocol)
-            .field("hCardHandle", &self.hCardHandle)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::TypeKind for OPENCARDNAME_EXW {
     type TypeKind = windows_core::CopyType;
 }
@@ -2259,6 +1891,7 @@ impl Default for OPENCARDNAME_EXW {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct OPENCARD_SEARCH_CRITERIAA {
     pub dwStructSize: u32,
     pub lpstrGroupNames: windows_core::PSTR,
@@ -2274,28 +1907,6 @@ pub struct OPENCARD_SEARCH_CRITERIAA {
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
 }
-impl Copy for OPENCARD_SEARCH_CRITERIAA {}
-impl Clone for OPENCARD_SEARCH_CRITERIAA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OPENCARD_SEARCH_CRITERIAA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OPENCARD_SEARCH_CRITERIAA")
-            .field("dwStructSize", &self.dwStructSize)
-            .field("lpstrGroupNames", &self.lpstrGroupNames)
-            .field("nMaxGroupNames", &self.nMaxGroupNames)
-            .field("rgguidInterfaces", &self.rgguidInterfaces)
-            .field("cguidInterfaces", &self.cguidInterfaces)
-            .field("lpstrCardNames", &self.lpstrCardNames)
-            .field("nMaxCardNames", &self.nMaxCardNames)
-            .field("pvUserData", &self.pvUserData)
-            .field("dwShareMode", &self.dwShareMode)
-            .field("dwPreferredProtocols", &self.dwPreferredProtocols)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for OPENCARD_SEARCH_CRITERIAA {
     type TypeKind = windows_core::CopyType;
 }
@@ -2305,6 +1916,7 @@ impl Default for OPENCARD_SEARCH_CRITERIAA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct OPENCARD_SEARCH_CRITERIAW {
     pub dwStructSize: u32,
     pub lpstrGroupNames: windows_core::PWSTR,
@@ -2320,28 +1932,6 @@ pub struct OPENCARD_SEARCH_CRITERIAW {
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
 }
-impl Copy for OPENCARD_SEARCH_CRITERIAW {}
-impl Clone for OPENCARD_SEARCH_CRITERIAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OPENCARD_SEARCH_CRITERIAW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OPENCARD_SEARCH_CRITERIAW")
-            .field("dwStructSize", &self.dwStructSize)
-            .field("lpstrGroupNames", &self.lpstrGroupNames)
-            .field("nMaxGroupNames", &self.nMaxGroupNames)
-            .field("rgguidInterfaces", &self.rgguidInterfaces)
-            .field("cguidInterfaces", &self.cguidInterfaces)
-            .field("lpstrCardNames", &self.lpstrCardNames)
-            .field("nMaxCardNames", &self.nMaxCardNames)
-            .field("pvUserData", &self.pvUserData)
-            .field("dwShareMode", &self.dwShareMode)
-            .field("dwPreferredProtocols", &self.dwPreferredProtocols)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for OPENCARD_SEARCH_CRITERIAW {
     type TypeKind = windows_core::CopyType;
 }
@@ -2351,17 +1941,12 @@ impl Default for OPENCARD_SEARCH_CRITERIAW {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct READER_SEL_REQUEST {
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
     pub MatchType: READER_SEL_REQUEST_MATCH_TYPE,
     pub Anonymous: READER_SEL_REQUEST_0,
-}
-impl Copy for READER_SEL_REQUEST {}
-impl Clone for READER_SEL_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for READER_SEL_REQUEST {
     type TypeKind = windows_core::CopyType;
@@ -2372,15 +1957,10 @@ impl Default for READER_SEL_REQUEST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union READER_SEL_REQUEST_0 {
     pub ReaderAndContainerParameter: READER_SEL_REQUEST_0_0,
     pub SerialNumberParameter: READER_SEL_REQUEST_0_1,
-}
-impl Copy for READER_SEL_REQUEST_0 {}
-impl Clone for READER_SEL_REQUEST_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for READER_SEL_REQUEST_0 {
     type TypeKind = windows_core::CopyType;
@@ -2391,6 +1971,7 @@ impl Default for READER_SEL_REQUEST_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct READER_SEL_REQUEST_0_0 {
     pub cbReaderNameOffset: u32,
     pub cchReaderNameLength: u32,
@@ -2399,156 +1980,76 @@ pub struct READER_SEL_REQUEST_0_0 {
     pub dwDesiredCardModuleVersion: u32,
     pub dwCspFlags: u32,
 }
-impl Copy for READER_SEL_REQUEST_0_0 {}
-impl Clone for READER_SEL_REQUEST_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for READER_SEL_REQUEST_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("READER_SEL_REQUEST_0_0").field("cbReaderNameOffset", &self.cbReaderNameOffset).field("cchReaderNameLength", &self.cchReaderNameLength).field("cbContainerNameOffset", &self.cbContainerNameOffset).field("cchContainerNameLength", &self.cchContainerNameLength).field("dwDesiredCardModuleVersion", &self.dwDesiredCardModuleVersion).field("dwCspFlags", &self.dwCspFlags).finish()
-    }
-}
 impl windows_core::TypeKind for READER_SEL_REQUEST_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for READER_SEL_REQUEST_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbReaderNameOffset == other.cbReaderNameOffset && self.cchReaderNameLength == other.cchReaderNameLength && self.cbContainerNameOffset == other.cbContainerNameOffset && self.cchContainerNameLength == other.cchContainerNameLength && self.dwDesiredCardModuleVersion == other.dwDesiredCardModuleVersion && self.dwCspFlags == other.dwCspFlags
-    }
-}
-impl Eq for READER_SEL_REQUEST_0_0 {}
 impl Default for READER_SEL_REQUEST_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct READER_SEL_REQUEST_0_1 {
     pub cbSerialNumberOffset: u32,
     pub cbSerialNumberLength: u32,
     pub dwDesiredCardModuleVersion: u32,
 }
-impl Copy for READER_SEL_REQUEST_0_1 {}
-impl Clone for READER_SEL_REQUEST_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for READER_SEL_REQUEST_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("READER_SEL_REQUEST_0_1").field("cbSerialNumberOffset", &self.cbSerialNumberOffset).field("cbSerialNumberLength", &self.cbSerialNumberLength).field("dwDesiredCardModuleVersion", &self.dwDesiredCardModuleVersion).finish()
-    }
-}
 impl windows_core::TypeKind for READER_SEL_REQUEST_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for READER_SEL_REQUEST_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSerialNumberOffset == other.cbSerialNumberOffset && self.cbSerialNumberLength == other.cbSerialNumberLength && self.dwDesiredCardModuleVersion == other.dwDesiredCardModuleVersion
-    }
-}
-impl Eq for READER_SEL_REQUEST_0_1 {}
 impl Default for READER_SEL_REQUEST_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct READER_SEL_RESPONSE {
     pub cbReaderNameOffset: u32,
     pub cchReaderNameLength: u32,
     pub cbCardNameOffset: u32,
     pub cchCardNameLength: u32,
 }
-impl Copy for READER_SEL_RESPONSE {}
-impl Clone for READER_SEL_RESPONSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for READER_SEL_RESPONSE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("READER_SEL_RESPONSE").field("cbReaderNameOffset", &self.cbReaderNameOffset).field("cchReaderNameLength", &self.cchReaderNameLength).field("cbCardNameOffset", &self.cbCardNameOffset).field("cchCardNameLength", &self.cchCardNameLength).finish()
-    }
-}
 impl windows_core::TypeKind for READER_SEL_RESPONSE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for READER_SEL_RESPONSE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbReaderNameOffset == other.cbReaderNameOffset && self.cchReaderNameLength == other.cchReaderNameLength && self.cbCardNameOffset == other.cbCardNameOffset && self.cchCardNameLength == other.cchCardNameLength
-    }
-}
-impl Eq for READER_SEL_RESPONSE {}
 impl Default for READER_SEL_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCARD_ATRMASK {
     pub cbAtr: u32,
     pub rgbAtr: [u8; 36],
     pub rgbMask: [u8; 36],
 }
-impl Copy for SCARD_ATRMASK {}
-impl Clone for SCARD_ATRMASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCARD_ATRMASK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCARD_ATRMASK").field("cbAtr", &self.cbAtr).field("rgbAtr", &self.rgbAtr).field("rgbMask", &self.rgbMask).finish()
-    }
-}
 impl windows_core::TypeKind for SCARD_ATRMASK {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCARD_ATRMASK {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbAtr == other.cbAtr && self.rgbAtr == other.rgbAtr && self.rgbMask == other.rgbMask
-    }
-}
-impl Eq for SCARD_ATRMASK {}
 impl Default for SCARD_ATRMASK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCARD_IO_REQUEST {
     pub dwProtocol: u32,
     pub cbPciLength: u32,
 }
-impl Copy for SCARD_IO_REQUEST {}
-impl Clone for SCARD_IO_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCARD_IO_REQUEST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCARD_IO_REQUEST").field("dwProtocol", &self.dwProtocol).field("cbPciLength", &self.cbPciLength).finish()
-    }
-}
 impl windows_core::TypeKind for SCARD_IO_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCARD_IO_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwProtocol == other.dwProtocol && self.cbPciLength == other.cbPciLength
-    }
-}
-impl Eq for SCARD_IO_REQUEST {}
 impl Default for SCARD_IO_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCARD_READERSTATEA {
     pub szReader: windows_core::PCSTR,
     pub pvUserData: *mut core::ffi::c_void,
@@ -2557,32 +2058,16 @@ pub struct SCARD_READERSTATEA {
     pub cbAtr: u32,
     pub rgbAtr: [u8; 36],
 }
-impl Copy for SCARD_READERSTATEA {}
-impl Clone for SCARD_READERSTATEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCARD_READERSTATEA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCARD_READERSTATEA").field("szReader", &self.szReader).field("pvUserData", &self.pvUserData).field("dwCurrentState", &self.dwCurrentState).field("dwEventState", &self.dwEventState).field("cbAtr", &self.cbAtr).field("rgbAtr", &self.rgbAtr).finish()
-    }
-}
 impl windows_core::TypeKind for SCARD_READERSTATEA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCARD_READERSTATEA {
-    fn eq(&self, other: &Self) -> bool {
-        self.szReader == other.szReader && self.pvUserData == other.pvUserData && self.dwCurrentState == other.dwCurrentState && self.dwEventState == other.dwEventState && self.cbAtr == other.cbAtr && self.rgbAtr == other.rgbAtr
-    }
-}
-impl Eq for SCARD_READERSTATEA {}
 impl Default for SCARD_READERSTATEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCARD_READERSTATEW {
     pub szReader: windows_core::PCWSTR,
     pub pvUserData: *mut core::ffi::c_void,
@@ -2591,32 +2076,16 @@ pub struct SCARD_READERSTATEW {
     pub cbAtr: u32,
     pub rgbAtr: [u8; 36],
 }
-impl Copy for SCARD_READERSTATEW {}
-impl Clone for SCARD_READERSTATEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCARD_READERSTATEW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCARD_READERSTATEW").field("szReader", &self.szReader).field("pvUserData", &self.pvUserData).field("dwCurrentState", &self.dwCurrentState).field("dwEventState", &self.dwEventState).field("cbAtr", &self.cbAtr).field("rgbAtr", &self.rgbAtr).finish()
-    }
-}
 impl windows_core::TypeKind for SCARD_READERSTATEW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCARD_READERSTATEW {
-    fn eq(&self, other: &Self) -> bool {
-        self.szReader == other.szReader && self.pvUserData == other.pvUserData && self.dwCurrentState == other.dwCurrentState && self.dwEventState == other.dwEventState && self.cbAtr == other.cbAtr && self.rgbAtr == other.rgbAtr
-    }
-}
-impl Eq for SCARD_READERSTATEW {}
 impl Default for SCARD_READERSTATEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCARD_T0_COMMAND {
     pub bCla: u8,
     pub bIns: u8,
@@ -2624,43 +2093,21 @@ pub struct SCARD_T0_COMMAND {
     pub bP2: u8,
     pub bP3: u8,
 }
-impl Copy for SCARD_T0_COMMAND {}
-impl Clone for SCARD_T0_COMMAND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCARD_T0_COMMAND {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCARD_T0_COMMAND").field("bCla", &self.bCla).field("bIns", &self.bIns).field("bP1", &self.bP1).field("bP2", &self.bP2).field("bP3", &self.bP3).finish()
-    }
-}
 impl windows_core::TypeKind for SCARD_T0_COMMAND {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCARD_T0_COMMAND {
-    fn eq(&self, other: &Self) -> bool {
-        self.bCla == other.bCla && self.bIns == other.bIns && self.bP1 == other.bP1 && self.bP2 == other.bP2 && self.bP3 == other.bP3
-    }
-}
-impl Eq for SCARD_T0_COMMAND {}
 impl Default for SCARD_T0_COMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SCARD_T0_REQUEST {
     pub ioRequest: SCARD_IO_REQUEST,
     pub bSw1: u8,
     pub bSw2: u8,
     pub Anonymous: SCARD_T0_REQUEST_0,
-}
-impl Copy for SCARD_T0_REQUEST {}
-impl Clone for SCARD_T0_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SCARD_T0_REQUEST {
     type TypeKind = windows_core::CopyType;
@@ -2671,15 +2118,10 @@ impl Default for SCARD_T0_REQUEST {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SCARD_T0_REQUEST_0 {
     pub CmdBytes: SCARD_T0_COMMAND,
     pub rgbHeader: [u8; 5],
-}
-impl Copy for SCARD_T0_REQUEST_0 {}
-impl Clone for SCARD_T0_REQUEST_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SCARD_T0_REQUEST_0 {
     type TypeKind = windows_core::CopyType;
@@ -2690,118 +2132,54 @@ impl Default for SCARD_T0_REQUEST_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCARD_T1_REQUEST {
     pub ioRequest: SCARD_IO_REQUEST,
-}
-impl Copy for SCARD_T1_REQUEST {}
-impl Clone for SCARD_T1_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SCARD_T1_REQUEST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SCARD_T1_REQUEST").field("ioRequest", &self.ioRequest).finish()
-    }
 }
 impl windows_core::TypeKind for SCARD_T1_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SCARD_T1_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        self.ioRequest == other.ioRequest
-    }
-}
-impl Eq for SCARD_T1_REQUEST {}
 impl Default for SCARD_T1_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecHandle {
     pub dwLower: usize,
     pub dwUpper: usize,
 }
-impl Copy for SecHandle {}
-impl Clone for SecHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SecHandle {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SecHandle").field("dwLower", &self.dwLower).field("dwUpper", &self.dwUpper).finish()
-    }
-}
 impl windows_core::TypeKind for SecHandle {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SecHandle {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwLower == other.dwLower && self.dwUpper == other.dwUpper
-    }
-}
-impl Eq for SecHandle {}
 impl Default for SecHandle {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_ClientCreds {
     pub AuthBufferLen: u32,
     pub AuthBuffer: *mut u8,
 }
-impl Copy for SecPkgContext_ClientCreds {}
-impl Clone for SecPkgContext_ClientCreds {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SecPkgContext_ClientCreds {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SecPkgContext_ClientCreds").field("AuthBufferLen", &self.AuthBufferLen).field("AuthBuffer", &self.AuthBuffer).finish()
-    }
-}
 impl windows_core::TypeKind for SecPkgContext_ClientCreds {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SecPkgContext_ClientCreds {
-    fn eq(&self, other: &Self) -> bool {
-        self.AuthBufferLen == other.AuthBufferLen && self.AuthBuffer == other.AuthBuffer
-    }
-}
-impl Eq for SecPkgContext_ClientCreds {}
 impl Default for SecPkgContext_ClientCreds {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USERNAME_TARGET_CREDENTIAL_INFO {
     pub UserName: windows_core::PWSTR,
-}
-impl Copy for USERNAME_TARGET_CREDENTIAL_INFO {}
-impl Clone for USERNAME_TARGET_CREDENTIAL_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for USERNAME_TARGET_CREDENTIAL_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("USERNAME_TARGET_CREDENTIAL_INFO").field("UserName", &self.UserName).finish()
-    }
 }
 impl windows_core::TypeKind for USERNAME_TARGET_CREDENTIAL_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for USERNAME_TARGET_CREDENTIAL_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.UserName == other.UserName
-    }
-}
-impl Eq for USERNAME_TARGET_CREDENTIAL_INFO {}
 impl Default for USERNAME_TARGET_CREDENTIAL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

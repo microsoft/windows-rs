@@ -297,17 +297,13 @@ pub const InMemoryPropertyStore: windows_sys::core::GUID = windows_sys::core::GU
 pub const InMemoryPropertyStoreMarshalByValue: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd4ca0e2d_6da7_4b75_a97c_5f306f0eaedc);
 pub type PCUSERIALIZEDPROPSTORAGE = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROPERTYKEY {
     pub fmtid: windows_sys::core::GUID,
     pub pid: u32,
 }
-impl Copy for PROPERTYKEY {}
-impl Clone for PROPERTYKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PROPPRG {
     pub flPrg: u16,
     pub flPrgInit: u16,
@@ -321,12 +317,6 @@ pub struct PROPPRG {
     pub dwRealModeFlags: u32,
     pub achOtherFile: [i8; 80],
     pub achPIFFile: [i8; 260],
-}
-impl Copy for PROPPRG {}
-impl Clone for PROPPRG {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const PropertySystem: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb8967f85_58ae_4f46_9fb2_5d7904798f4b);
 pub type SERIALIZEDPROPSTORAGE = isize;

@@ -663,30 +663,14 @@ impl core::fmt::Debug for EAudioConstriction {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct APOInitBaseStruct {
     pub cbSize: u32,
     pub clsid: windows_core::GUID,
 }
-impl Copy for APOInitBaseStruct {}
-impl Clone for APOInitBaseStruct {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for APOInitBaseStruct {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("APOInitBaseStruct").field("cbSize", &self.cbSize).field("clsid", &self.clsid).finish()
-    }
-}
 impl windows_core::TypeKind for APOInitBaseStruct {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for APOInitBaseStruct {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.clsid == other.clsid
-    }
-}
-impl Eq for APOInitBaseStruct {}
 impl Default for APOInitBaseStruct {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -694,6 +678,7 @@ impl Default for APOInitBaseStruct {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct APOInitSystemEffects {
     pub APOInit: APOInitBaseStruct,
     pub pAPOEndpointProperties: std::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
@@ -708,23 +693,9 @@ impl Clone for APOInitSystemEffects {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl core::fmt::Debug for APOInitSystemEffects {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("APOInitSystemEffects").field("APOInit", &self.APOInit).field("pAPOEndpointProperties", &self.pAPOEndpointProperties).field("pAPOSystemEffectsProperties", &self.pAPOSystemEffectsProperties).field("pReserved", &self.pReserved).field("pDeviceCollection", &self.pDeviceCollection).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::TypeKind for APOInitSystemEffects {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl PartialEq for APOInitSystemEffects {
-    fn eq(&self, other: &Self) -> bool {
-        self.APOInit == other.APOInit && self.pAPOEndpointProperties == other.pAPOEndpointProperties && self.pAPOSystemEffectsProperties == other.pAPOSystemEffectsProperties && self.pReserved == other.pReserved && self.pDeviceCollection == other.pDeviceCollection
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Eq for APOInitSystemEffects {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Default for APOInitSystemEffects {
     fn default() -> Self {
@@ -733,6 +704,7 @@ impl Default for APOInitSystemEffects {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct APOInitSystemEffects2 {
     pub APOInit: APOInitBaseStruct,
     pub pAPOEndpointProperties: std::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
@@ -751,33 +723,9 @@ impl Clone for APOInitSystemEffects2 {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl core::fmt::Debug for APOInitSystemEffects2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("APOInitSystemEffects2")
-            .field("APOInit", &self.APOInit)
-            .field("pAPOEndpointProperties", &self.pAPOEndpointProperties)
-            .field("pAPOSystemEffectsProperties", &self.pAPOSystemEffectsProperties)
-            .field("pReserved", &self.pReserved)
-            .field("pDeviceCollection", &self.pDeviceCollection)
-            .field("nSoftwareIoDeviceInCollection", &self.nSoftwareIoDeviceInCollection)
-            .field("nSoftwareIoConnectorIndex", &self.nSoftwareIoConnectorIndex)
-            .field("AudioProcessingMode", &self.AudioProcessingMode)
-            .field("InitializeForDiscoveryOnly", &self.InitializeForDiscoveryOnly)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::TypeKind for APOInitSystemEffects2 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl PartialEq for APOInitSystemEffects2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.APOInit == other.APOInit && self.pAPOEndpointProperties == other.pAPOEndpointProperties && self.pAPOSystemEffectsProperties == other.pAPOSystemEffectsProperties && self.pReserved == other.pReserved && self.pDeviceCollection == other.pDeviceCollection && self.nSoftwareIoDeviceInCollection == other.nSoftwareIoDeviceInCollection && self.nSoftwareIoConnectorIndex == other.nSoftwareIoConnectorIndex && self.AudioProcessingMode == other.AudioProcessingMode && self.InitializeForDiscoveryOnly == other.InitializeForDiscoveryOnly
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Eq for APOInitSystemEffects2 {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Default for APOInitSystemEffects2 {
     fn default() -> Self {
@@ -786,6 +734,7 @@ impl Default for APOInitSystemEffects2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[derive(Debug, Eq, PartialEq)]
 pub struct APOInitSystemEffects3 {
     pub APOInit: APOInitBaseStruct,
     pub pAPOEndpointProperties: std::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
@@ -803,32 +752,9 @@ impl Clone for APOInitSystemEffects3 {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl core::fmt::Debug for APOInitSystemEffects3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("APOInitSystemEffects3")
-            .field("APOInit", &self.APOInit)
-            .field("pAPOEndpointProperties", &self.pAPOEndpointProperties)
-            .field("pServiceProvider", &self.pServiceProvider)
-            .field("pDeviceCollection", &self.pDeviceCollection)
-            .field("nSoftwareIoDeviceInCollection", &self.nSoftwareIoDeviceInCollection)
-            .field("nSoftwareIoConnectorIndex", &self.nSoftwareIoConnectorIndex)
-            .field("AudioProcessingMode", &self.AudioProcessingMode)
-            .field("InitializeForDiscoveryOnly", &self.InitializeForDiscoveryOnly)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl windows_core::TypeKind for APOInitSystemEffects3 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl PartialEq for APOInitSystemEffects3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.APOInit == other.APOInit && self.pAPOEndpointProperties == other.pAPOEndpointProperties && self.pServiceProvider == other.pServiceProvider && self.pDeviceCollection == other.pDeviceCollection && self.nSoftwareIoDeviceInCollection == other.nSoftwareIoDeviceInCollection && self.nSoftwareIoConnectorIndex == other.nSoftwareIoConnectorIndex && self.AudioProcessingMode == other.AudioProcessingMode && self.InitializeForDiscoveryOnly == other.InitializeForDiscoveryOnly
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl Eq for APOInitSystemEffects3 {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl Default for APOInitSystemEffects3 {
     fn default() -> Self {
@@ -836,6 +762,7 @@ impl Default for APOInitSystemEffects3 {
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct APO_CONNECTION_DESCRIPTOR {
     pub Type: APO_CONNECTION_BUFFER_TYPE,
     pub pBuffer: usize,
@@ -848,82 +775,39 @@ impl Clone for APO_CONNECTION_DESCRIPTOR {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for APO_CONNECTION_DESCRIPTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("APO_CONNECTION_DESCRIPTOR").field("Type", &self.Type).field("pBuffer", &self.pBuffer).field("u32MaxFrameCount", &self.u32MaxFrameCount).field("pFormat", &self.pFormat).field("u32Signature", &self.u32Signature).finish()
-    }
-}
 impl windows_core::TypeKind for APO_CONNECTION_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for APO_CONNECTION_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.pBuffer == other.pBuffer && self.u32MaxFrameCount == other.u32MaxFrameCount && self.pFormat == other.pFormat && self.u32Signature == other.u32Signature
-    }
-}
-impl Eq for APO_CONNECTION_DESCRIPTOR {}
 impl Default for APO_CONNECTION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct APO_CONNECTION_PROPERTY {
     pub pBuffer: usize,
     pub u32ValidFrameCount: u32,
     pub u32BufferFlags: APO_BUFFER_FLAGS,
     pub u32Signature: u32,
 }
-impl Copy for APO_CONNECTION_PROPERTY {}
-impl Clone for APO_CONNECTION_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for APO_CONNECTION_PROPERTY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("APO_CONNECTION_PROPERTY").field("pBuffer", &self.pBuffer).field("u32ValidFrameCount", &self.u32ValidFrameCount).field("u32BufferFlags", &self.u32BufferFlags).field("u32Signature", &self.u32Signature).finish()
-    }
-}
 impl windows_core::TypeKind for APO_CONNECTION_PROPERTY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for APO_CONNECTION_PROPERTY {
-    fn eq(&self, other: &Self) -> bool {
-        self.pBuffer == other.pBuffer && self.u32ValidFrameCount == other.u32ValidFrameCount && self.u32BufferFlags == other.u32BufferFlags && self.u32Signature == other.u32Signature
-    }
-}
-impl Eq for APO_CONNECTION_PROPERTY {}
 impl Default for APO_CONNECTION_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct APO_CONNECTION_PROPERTY_V2 {
     pub property: APO_CONNECTION_PROPERTY,
     pub u64QPCTime: u64,
 }
-impl Copy for APO_CONNECTION_PROPERTY_V2 {}
-impl Clone for APO_CONNECTION_PROPERTY_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for APO_CONNECTION_PROPERTY_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("APO_CONNECTION_PROPERTY_V2").field("property", &self.property).field("u64QPCTime", &self.u64QPCTime).finish()
-    }
-}
 impl windows_core::TypeKind for APO_CONNECTION_PROPERTY_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for APO_CONNECTION_PROPERTY_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.property == other.property && self.u64QPCTime == other.u64QPCTime
-    }
-}
-impl Eq for APO_CONNECTION_PROPERTY_V2 {}
 impl Default for APO_CONNECTION_PROPERTY_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1016,6 +900,7 @@ impl Default for APO_NOTIFICATION_DESCRIPTOR_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct APO_REG_PROPERTIES {
     pub clsid: windows_core::GUID,
     pub Flags: APO_FLAG,
@@ -1031,46 +916,16 @@ pub struct APO_REG_PROPERTIES {
     pub u32NumAPOInterfaces: u32,
     pub iidAPOInterfaceList: [windows_core::GUID; 1],
 }
-impl Copy for APO_REG_PROPERTIES {}
-impl Clone for APO_REG_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for APO_REG_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("APO_REG_PROPERTIES")
-            .field("clsid", &self.clsid)
-            .field("Flags", &self.Flags)
-            .field("szFriendlyName", &self.szFriendlyName)
-            .field("szCopyrightInfo", &self.szCopyrightInfo)
-            .field("u32MajorVersion", &self.u32MajorVersion)
-            .field("u32MinorVersion", &self.u32MinorVersion)
-            .field("u32MinInputConnections", &self.u32MinInputConnections)
-            .field("u32MaxInputConnections", &self.u32MaxInputConnections)
-            .field("u32MinOutputConnections", &self.u32MinOutputConnections)
-            .field("u32MaxOutputConnections", &self.u32MaxOutputConnections)
-            .field("u32MaxInstances", &self.u32MaxInstances)
-            .field("u32NumAPOInterfaces", &self.u32NumAPOInterfaces)
-            .field("iidAPOInterfaceList", &self.iidAPOInterfaceList)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for APO_REG_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for APO_REG_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.clsid == other.clsid && self.Flags == other.Flags && self.szFriendlyName == other.szFriendlyName && self.szCopyrightInfo == other.szCopyrightInfo && self.u32MajorVersion == other.u32MajorVersion && self.u32MinorVersion == other.u32MinorVersion && self.u32MinInputConnections == other.u32MinInputConnections && self.u32MaxInputConnections == other.u32MaxInputConnections && self.u32MinOutputConnections == other.u32MinOutputConnections && self.u32MaxOutputConnections == other.u32MaxOutputConnections && self.u32MaxInstances == other.u32MaxInstances && self.u32NumAPOInterfaces == other.u32NumAPOInterfaces && self.iidAPOInterfaceList == other.iidAPOInterfaceList
-    }
-}
-impl Eq for APO_REG_PROPERTIES {}
 impl Default for APO_REG_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
     pub device: std::mem::ManuallyDrop<Option<super::IMMDevice>>,
 }
@@ -1079,20 +934,9 @@ impl Clone for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR").field("device", &self.device).finish()
-    }
-}
 impl windows_core::TypeKind for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.device == other.device
-    }
-}
-impl Eq for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {}
 impl Default for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1100,6 +944,7 @@ impl Default for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
     pub endpoint: std::mem::ManuallyDrop<Option<super::IMMDevice>>,
     pub propertyStore: std::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
@@ -1112,23 +957,9 @@ impl Clone for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl core::fmt::Debug for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION").field("endpoint", &self.endpoint).field("propertyStore", &self.propertyStore).field("propertyKey", &self.propertyKey).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::TypeKind for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl PartialEq for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.endpoint == other.endpoint && self.propertyStore == other.propertyStore && self.propertyKey == other.propertyKey
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Eq for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Default for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
     fn default() -> Self {
@@ -1136,6 +967,7 @@ impl Default for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
     pub device: std::mem::ManuallyDrop<Option<super::IMMDevice>>,
 }
@@ -1144,26 +976,16 @@ impl Clone for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR").field("device", &self.device).finish()
-    }
-}
 impl windows_core::TypeKind for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.device == other.device
-    }
-}
-impl Eq for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {}
 impl Default for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
     pub endpoint: std::mem::ManuallyDrop<Option<super::IMMDevice>>,
     pub volume: *mut super::AUDIO_VOLUME_NOTIFICATION_DATA,
@@ -1173,26 +995,16 @@ impl Clone for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION").field("endpoint", &self.endpoint).field("volume", &self.volume).finish()
-    }
-}
 impl windows_core::TypeKind for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.endpoint == other.endpoint && self.volume == other.volume
-    }
-}
-impl Eq for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {}
 impl Default for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION2 {
     pub endpoint: std::mem::ManuallyDrop<Option<super::IMMDevice>>,
     pub volume: *mut AUDIO_VOLUME_NOTIFICATION_DATA2,
@@ -1202,26 +1014,16 @@ impl Clone for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION2 {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION2").field("endpoint", &self.endpoint).field("volume", &self.volume).finish()
-    }
-}
 impl windows_core::TypeKind for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.endpoint == other.endpoint && self.volume == other.volume
-    }
-}
-impl Eq for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION2 {}
 impl Default for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct AUDIO_MICROPHONE_BOOST_APO_NOTIFICATION_DESCRIPTOR {
     pub device: std::mem::ManuallyDrop<Option<super::IMMDevice>>,
 }
@@ -1230,26 +1032,16 @@ impl Clone for AUDIO_MICROPHONE_BOOST_APO_NOTIFICATION_DESCRIPTOR {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for AUDIO_MICROPHONE_BOOST_APO_NOTIFICATION_DESCRIPTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUDIO_MICROPHONE_BOOST_APO_NOTIFICATION_DESCRIPTOR").field("device", &self.device).finish()
-    }
-}
 impl windows_core::TypeKind for AUDIO_MICROPHONE_BOOST_APO_NOTIFICATION_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUDIO_MICROPHONE_BOOST_APO_NOTIFICATION_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.device == other.device
-    }
-}
-impl Eq for AUDIO_MICROPHONE_BOOST_APO_NOTIFICATION_DESCRIPTOR {}
 impl Default for AUDIO_MICROPHONE_BOOST_APO_NOTIFICATION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, PartialEq)]
 pub struct AUDIO_MICROPHONE_BOOST_NOTIFICATION {
     pub endpoint: std::mem::ManuallyDrop<Option<super::IMMDevice>>,
     pub eventContext: windows_core::GUID,
@@ -1266,57 +1058,31 @@ impl Clone for AUDIO_MICROPHONE_BOOST_NOTIFICATION {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for AUDIO_MICROPHONE_BOOST_NOTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUDIO_MICROPHONE_BOOST_NOTIFICATION").field("endpoint", &self.endpoint).field("eventContext", &self.eventContext).field("microphoneBoostEnabled", &self.microphoneBoostEnabled).field("levelInDb", &self.levelInDb).field("levelMinInDb", &self.levelMinInDb).field("levelMaxInDb", &self.levelMaxInDb).field("levelStepInDb", &self.levelStepInDb).field("muteSupported", &self.muteSupported).field("mute", &self.mute).finish()
-    }
-}
 impl windows_core::TypeKind for AUDIO_MICROPHONE_BOOST_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUDIO_MICROPHONE_BOOST_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.endpoint == other.endpoint && self.eventContext == other.eventContext && self.microphoneBoostEnabled == other.microphoneBoostEnabled && self.levelInDb == other.levelInDb && self.levelMinInDb == other.levelMinInDb && self.levelMaxInDb == other.levelMaxInDb && self.levelStepInDb == other.levelStepInDb && self.muteSupported == other.muteSupported && self.mute == other.mute
-    }
-}
-impl Eq for AUDIO_MICROPHONE_BOOST_NOTIFICATION {}
 impl Default for AUDIO_MICROPHONE_BOOST_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUDIO_SYSTEMEFFECT {
     pub id: windows_core::GUID,
     pub canSetState: super::super::super::Foundation::BOOL,
     pub state: AUDIO_SYSTEMEFFECT_STATE,
 }
-impl Copy for AUDIO_SYSTEMEFFECT {}
-impl Clone for AUDIO_SYSTEMEFFECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AUDIO_SYSTEMEFFECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUDIO_SYSTEMEFFECT").field("id", &self.id).field("canSetState", &self.canSetState).field("state", &self.state).finish()
-    }
-}
 impl windows_core::TypeKind for AUDIO_SYSTEMEFFECT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUDIO_SYSTEMEFFECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.canSetState == other.canSetState && self.state == other.state
-    }
-}
-impl Eq for AUDIO_SYSTEMEFFECT {}
 impl Default for AUDIO_SYSTEMEFFECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
     pub device: std::mem::ManuallyDrop<Option<super::IMMDevice>>,
     pub propertyStoreContext: windows_core::GUID,
@@ -1326,20 +1092,9 @@ impl Clone for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR").field("device", &self.device).field("propertyStoreContext", &self.propertyStoreContext).finish()
-    }
-}
 impl windows_core::TypeKind for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.device == other.device && self.propertyStoreContext == other.propertyStoreContext
-    }
-}
-impl Eq for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {}
 impl Default for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1347,6 +1102,7 @@ impl Default for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
     pub endpoint: std::mem::ManuallyDrop<Option<super::IMMDevice>>,
     pub propertyStoreContext: windows_core::GUID,
@@ -1361,23 +1117,9 @@ impl Clone for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl core::fmt::Debug for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION").field("endpoint", &self.endpoint).field("propertyStoreContext", &self.propertyStoreContext).field("propertyStoreType", &self.propertyStoreType).field("propertyStore", &self.propertyStore).field("propertyKey", &self.propertyKey).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::TypeKind for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl PartialEq for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.endpoint == other.endpoint && self.propertyStoreContext == other.propertyStoreContext && self.propertyStoreType == other.propertyStoreType && self.propertyStore == other.propertyStore && self.propertyKey == other.propertyKey
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Eq for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Default for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
     fn default() -> Self {
@@ -1385,6 +1127,7 @@ impl Default for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AUDIO_VOLUME_NOTIFICATION_DATA2 {
     pub notificationData: *mut super::AUDIO_VOLUME_NOTIFICATION_DATA,
     pub masterVolumeInDb: f32,
@@ -1395,26 +1138,9 @@ pub struct AUDIO_VOLUME_NOTIFICATION_DATA2 {
     pub stepCount: u32,
     pub channelVolumesInDb: [f32; 1],
 }
-impl Copy for AUDIO_VOLUME_NOTIFICATION_DATA2 {}
-impl Clone for AUDIO_VOLUME_NOTIFICATION_DATA2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AUDIO_VOLUME_NOTIFICATION_DATA2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AUDIO_VOLUME_NOTIFICATION_DATA2").field("notificationData", &self.notificationData).field("masterVolumeInDb", &self.masterVolumeInDb).field("volumeMinInDb", &self.volumeMinInDb).field("volumeMaxInDb", &self.volumeMaxInDb).field("volumeIncrementInDb", &self.volumeIncrementInDb).field("step", &self.step).field("stepCount", &self.stepCount).field("channelVolumesInDb", &self.channelVolumesInDb).finish()
-    }
-}
 impl windows_core::TypeKind for AUDIO_VOLUME_NOTIFICATION_DATA2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AUDIO_VOLUME_NOTIFICATION_DATA2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.notificationData == other.notificationData && self.masterVolumeInDb == other.masterVolumeInDb && self.volumeMinInDb == other.volumeMinInDb && self.volumeMaxInDb == other.volumeMaxInDb && self.volumeIncrementInDb == other.volumeIncrementInDb && self.step == other.step && self.stepCount == other.stepCount && self.channelVolumesInDb == other.channelVolumesInDb
-    }
-}
-impl Eq for AUDIO_VOLUME_NOTIFICATION_DATA2 {}
 impl Default for AUDIO_VOLUME_NOTIFICATION_DATA2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1422,6 +1148,7 @@ impl Default for AUDIO_VOLUME_NOTIFICATION_DATA2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[derive(Debug, Eq, PartialEq)]
 pub struct AudioFXExtensionParams {
     pub AddPageParam: super::super::super::Foundation::LPARAM,
     pub pwstrEndpointID: windows_core::PWSTR,
@@ -1434,23 +1161,9 @@ impl Clone for AudioFXExtensionParams {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl core::fmt::Debug for AudioFXExtensionParams {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AudioFXExtensionParams").field("AddPageParam", &self.AddPageParam).field("pwstrEndpointID", &self.pwstrEndpointID).field("pFxProperties", &self.pFxProperties).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::TypeKind for AudioFXExtensionParams {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl PartialEq for AudioFXExtensionParams {
-    fn eq(&self, other: &Self) -> bool {
-        self.AddPageParam == other.AddPageParam && self.pwstrEndpointID == other.pwstrEndpointID && self.pFxProperties == other.pFxProperties
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Eq for AudioFXExtensionParams {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Default for AudioFXExtensionParams {
     fn default() -> Self {
@@ -1458,6 +1171,7 @@ impl Default for AudioFXExtensionParams {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UNCOMPRESSEDAUDIOFORMAT {
     pub guidFormatType: windows_core::GUID,
     pub dwSamplesPerFrame: u32,
@@ -1466,26 +1180,9 @@ pub struct UNCOMPRESSEDAUDIOFORMAT {
     pub fFramesPerSecond: f32,
     pub dwChannelMask: u32,
 }
-impl Copy for UNCOMPRESSEDAUDIOFORMAT {}
-impl Clone for UNCOMPRESSEDAUDIOFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UNCOMPRESSEDAUDIOFORMAT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UNCOMPRESSEDAUDIOFORMAT").field("guidFormatType", &self.guidFormatType).field("dwSamplesPerFrame", &self.dwSamplesPerFrame).field("dwBytesPerSampleContainer", &self.dwBytesPerSampleContainer).field("dwValidBitsPerSample", &self.dwValidBitsPerSample).field("fFramesPerSecond", &self.fFramesPerSecond).field("dwChannelMask", &self.dwChannelMask).finish()
-    }
-}
 impl windows_core::TypeKind for UNCOMPRESSEDAUDIOFORMAT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UNCOMPRESSEDAUDIOFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.guidFormatType == other.guidFormatType && self.dwSamplesPerFrame == other.dwSamplesPerFrame && self.dwBytesPerSampleContainer == other.dwBytesPerSampleContainer && self.dwValidBitsPerSample == other.dwValidBitsPerSample && self.fFramesPerSecond == other.fFramesPerSecond && self.dwChannelMask == other.dwChannelMask
-    }
-}
-impl Eq for UNCOMPRESSEDAUDIOFORMAT {}
 impl Default for UNCOMPRESSEDAUDIOFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -371,6 +371,7 @@ impl core::fmt::Debug for PresentStatus {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CompositionFrameDisplayInstance {
     pub displayAdapterLUID: super::super::Foundation::LUID,
     pub displayVidPnSourceId: u32,
@@ -382,31 +383,9 @@ pub struct CompositionFrameDisplayInstance {
     pub colorSpace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Copy for CompositionFrameDisplayInstance {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Clone for CompositionFrameDisplayInstance {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl core::fmt::Debug for CompositionFrameDisplayInstance {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CompositionFrameDisplayInstance").field("displayAdapterLUID", &self.displayAdapterLUID).field("displayVidPnSourceId", &self.displayVidPnSourceId).field("displayUniqueId", &self.displayUniqueId).field("renderAdapterLUID", &self.renderAdapterLUID).field("instanceKind", &self.instanceKind).field("finalTransform", &self.finalTransform).field("requiredCrossAdapterCopy", &self.requiredCrossAdapterCopy).field("colorSpace", &self.colorSpace).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::TypeKind for CompositionFrameDisplayInstance {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl PartialEq for CompositionFrameDisplayInstance {
-    fn eq(&self, other: &Self) -> bool {
-        self.displayAdapterLUID == other.displayAdapterLUID && self.displayVidPnSourceId == other.displayVidPnSourceId && self.displayUniqueId == other.displayUniqueId && self.renderAdapterLUID == other.renderAdapterLUID && self.instanceKind == other.instanceKind && self.finalTransform == other.finalTransform && self.requiredCrossAdapterCopy == other.requiredCrossAdapterCopy && self.colorSpace == other.colorSpace
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Eq for CompositionFrameDisplayInstance {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for CompositionFrameDisplayInstance {
     fn default() -> Self {
@@ -414,6 +393,7 @@ impl Default for CompositionFrameDisplayInstance {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PresentationTransform {
     pub M11: f32,
     pub M12: f32,
@@ -422,55 +402,22 @@ pub struct PresentationTransform {
     pub M31: f32,
     pub M32: f32,
 }
-impl Copy for PresentationTransform {}
-impl Clone for PresentationTransform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PresentationTransform {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PresentationTransform").field("M11", &self.M11).field("M12", &self.M12).field("M21", &self.M21).field("M22", &self.M22).field("M31", &self.M31).field("M32", &self.M32).finish()
-    }
-}
 impl windows_core::TypeKind for PresentationTransform {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PresentationTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.M11 == other.M11 && self.M12 == other.M12 && self.M21 == other.M21 && self.M22 == other.M22 && self.M31 == other.M31 && self.M32 == other.M32
-    }
-}
-impl Eq for PresentationTransform {}
 impl Default for PresentationTransform {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SystemInterruptTime {
     pub value: u64,
-}
-impl Copy for SystemInterruptTime {}
-impl Clone for SystemInterruptTime {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SystemInterruptTime {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SystemInterruptTime").field("value", &self.value).finish()
-    }
 }
 impl windows_core::TypeKind for SystemInterruptTime {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SystemInterruptTime {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value
-    }
-}
-impl Eq for SystemInterruptTime {}
 impl Default for SystemInterruptTime {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

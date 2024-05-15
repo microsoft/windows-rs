@@ -2621,36 +2621,21 @@ impl core::fmt::Debug for WMDM_TAG_DATATYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MACINFO {
     pub fUsed: super::super::Foundation::BOOL,
     pub abMacState: [u8; 36],
 }
-impl Copy for MACINFO {}
-impl Clone for MACINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MACINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MACINFO").field("fUsed", &self.fUsed).field("abMacState", &self.abMacState).finish()
-    }
-}
 impl windows_core::TypeKind for MACINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MACINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.fUsed == other.fUsed && self.abMacState == other.abMacState
-    }
-}
-impl Eq for MACINFO {}
 impl Default for MACINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MTP_COMMAND_DATA_IN {
     pub OpCode: u16,
     pub NumParams: u32,
@@ -2658,12 +2643,6 @@ pub struct MTP_COMMAND_DATA_IN {
     pub NextPhase: u32,
     pub CommandWriteDataSize: u32,
     pub CommandWriteData: [u8; 1],
-}
-impl Copy for MTP_COMMAND_DATA_IN {}
-impl Clone for MTP_COMMAND_DATA_IN {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MTP_COMMAND_DATA_IN {
     type TypeKind = windows_core::CopyType;
@@ -2674,18 +2653,13 @@ impl Default for MTP_COMMAND_DATA_IN {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MTP_COMMAND_DATA_OUT {
     pub ResponseCode: u16,
     pub NumParams: u32,
     pub Params: [u32; 5],
     pub CommandReadDataSize: u32,
     pub CommandReadData: [u8; 1],
-}
-impl Copy for MTP_COMMAND_DATA_OUT {}
-impl Clone for MTP_COMMAND_DATA_OUT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MTP_COMMAND_DATA_OUT {
     type TypeKind = windows_core::CopyType;
@@ -2698,38 +2672,23 @@ impl Default for MTP_COMMAND_DATA_OUT {
 pub const MediaDevMgr: windows_core::GUID = windows_core::GUID::from_u128(0x25baad81_3560_11d3_8471_00c04f79dbc0);
 pub const MediaDevMgrClassFactory: windows_core::GUID = windows_core::GUID::from_u128(0x50040c1d_bdbf_4924_b873_f14d6c5bfd66);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OPAQUECOMMAND {
     pub guidCommand: windows_core::GUID,
     pub dwDataLen: u32,
     pub pData: *mut u8,
     pub abMAC: [u8; 20],
 }
-impl Copy for OPAQUECOMMAND {}
-impl Clone for OPAQUECOMMAND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OPAQUECOMMAND {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OPAQUECOMMAND").field("guidCommand", &self.guidCommand).field("dwDataLen", &self.dwDataLen).field("pData", &self.pData).field("abMAC", &self.abMAC).finish()
-    }
-}
 impl windows_core::TypeKind for OPAQUECOMMAND {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OPAQUECOMMAND {
-    fn eq(&self, other: &Self) -> bool {
-        self.guidCommand == other.guidCommand && self.dwDataLen == other.dwDataLen && self.pData == other.pData && self.abMAC == other.abMAC
-    }
-}
-impl Eq for OPAQUECOMMAND {}
 impl Default for OPAQUECOMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WMDMDATETIME {
     pub wYear: u16,
     pub wMonth: u16,
@@ -2738,32 +2697,16 @@ pub struct WMDMDATETIME {
     pub wMinute: u16,
     pub wSecond: u16,
 }
-impl Copy for WMDMDATETIME {}
-impl Clone for WMDMDATETIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WMDMDATETIME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WMDMDATETIME").field("wYear", &self.wYear).field("wMonth", &self.wMonth).field("wDay", &self.wDay).field("wHour", &self.wHour).field("wMinute", &self.wMinute).field("wSecond", &self.wSecond).finish()
-    }
-}
 impl windows_core::TypeKind for WMDMDATETIME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WMDMDATETIME {
-    fn eq(&self, other: &Self) -> bool {
-        self.wYear == other.wYear && self.wMonth == other.wMonth && self.wDay == other.wDay && self.wHour == other.wHour && self.wMinute == other.wMinute && self.wSecond == other.wSecond
-    }
-}
-impl Eq for WMDMDATETIME {}
 impl Default for WMDMDATETIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WMDMDetermineMaxPropStringLen {
     pub sz001: [u16; 27],
     pub sz002: [u16; 31],
@@ -2848,12 +2791,6 @@ pub union WMDMDetermineMaxPropStringLen {
     pub sz085: [u16; 18],
     pub sz086: [u16; 30],
 }
-impl Copy for WMDMDetermineMaxPropStringLen {}
-impl Clone for WMDMDetermineMaxPropStringLen {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for WMDMDetermineMaxPropStringLen {
     type TypeKind = windows_core::CopyType;
 }
@@ -2865,32 +2802,16 @@ impl Default for WMDMDetermineMaxPropStringLen {
 pub const WMDMDevice: windows_core::GUID = windows_core::GUID::from_u128(0x807b3cdf_357a_11d3_8471_00c04f79dbc0);
 pub const WMDMDeviceEnum: windows_core::GUID = windows_core::GUID::from_u128(0x430e35af_3971_11d3_8474_00c04f79dbc0);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WMDMID {
     pub cbSize: u32,
     pub dwVendorID: u32,
     pub pID: [u8; 128],
     pub SerialNumberLength: u32,
 }
-impl Copy for WMDMID {}
-impl Clone for WMDMID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WMDMID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WMDMID").field("cbSize", &self.cbSize).field("dwVendorID", &self.dwVendorID).field("pID", &self.pID).field("SerialNumberLength", &self.SerialNumberLength).finish()
-    }
-}
 impl windows_core::TypeKind for WMDMID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WMDMID {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwVendorID == other.dwVendorID && self.pID == other.pID && self.SerialNumberLength == other.SerialNumberLength
-    }
-}
-impl Eq for WMDMID {}
 impl Default for WMDMID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2898,37 +2819,22 @@ impl Default for WMDMID {
 }
 pub const WMDMLogger: windows_core::GUID = windows_core::GUID::from_u128(0x110a3202_5a79_11d3_8d78_444553540000);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WMDMMetadataView {
     pub pwszViewName: windows_core::PWSTR,
     pub nDepth: u32,
     pub ppwszTags: *mut *mut u16,
 }
-impl Copy for WMDMMetadataView {}
-impl Clone for WMDMMetadataView {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WMDMMetadataView {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WMDMMetadataView").field("pwszViewName", &self.pwszViewName).field("nDepth", &self.nDepth).field("ppwszTags", &self.ppwszTags).finish()
-    }
-}
 impl windows_core::TypeKind for WMDMMetadataView {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WMDMMetadataView {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszViewName == other.pwszViewName && self.nDepth == other.nDepth && self.ppwszTags == other.ppwszTags
-    }
-}
-impl Eq for WMDMMetadataView {}
 impl Default for WMDMMetadataView {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WMDMRIGHTS {
     pub cbSize: u32,
     pub dwContentType: u32,
@@ -2938,26 +2844,9 @@ pub struct WMDMRIGHTS {
     pub dwPlaybackCount: u32,
     pub ExpirationDate: WMDMDATETIME,
 }
-impl Copy for WMDMRIGHTS {}
-impl Clone for WMDMRIGHTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WMDMRIGHTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WMDMRIGHTS").field("cbSize", &self.cbSize).field("dwContentType", &self.dwContentType).field("fuFlags", &self.fuFlags).field("fuRights", &self.fuRights).field("dwAppSec", &self.dwAppSec).field("dwPlaybackCount", &self.dwPlaybackCount).field("ExpirationDate", &self.ExpirationDate).finish()
-    }
-}
 impl windows_core::TypeKind for WMDMRIGHTS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WMDMRIGHTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwContentType == other.dwContentType && self.fuFlags == other.fuFlags && self.fuRights == other.fuRights && self.dwAppSec == other.dwAppSec && self.dwPlaybackCount == other.dwPlaybackCount && self.ExpirationDate == other.ExpirationDate
-    }
-}
-impl Eq for WMDMRIGHTS {}
 impl Default for WMDMRIGHTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2967,61 +2856,29 @@ pub const WMDMStorage: windows_core::GUID = windows_core::GUID::from_u128(0x807b
 pub const WMDMStorageEnum: windows_core::GUID = windows_core::GUID::from_u128(0xeb401a3b_3af7_11d3_8474_00c04f79dbc0);
 pub const WMDMStorageGlobal: windows_core::GUID = windows_core::GUID::from_u128(0x807b3ce1_357a_11d3_8471_00c04f79dbc0);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WMDM_FORMAT_CAPABILITY {
     pub nPropConfig: u32,
     pub pConfigs: *mut WMDM_PROP_CONFIG,
 }
-impl Copy for WMDM_FORMAT_CAPABILITY {}
-impl Clone for WMDM_FORMAT_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WMDM_FORMAT_CAPABILITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WMDM_FORMAT_CAPABILITY").field("nPropConfig", &self.nPropConfig).field("pConfigs", &self.pConfigs).finish()
-    }
-}
 impl windows_core::TypeKind for WMDM_FORMAT_CAPABILITY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WMDM_FORMAT_CAPABILITY {
-    fn eq(&self, other: &Self) -> bool {
-        self.nPropConfig == other.nPropConfig && self.pConfigs == other.pConfigs
-    }
-}
-impl Eq for WMDM_FORMAT_CAPABILITY {}
 impl Default for WMDM_FORMAT_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WMDM_PROP_CONFIG {
     pub nPreference: u32,
     pub nPropDesc: u32,
     pub pPropDesc: *mut WMDM_PROP_DESC,
 }
-impl Copy for WMDM_PROP_CONFIG {}
-impl Clone for WMDM_PROP_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WMDM_PROP_CONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WMDM_PROP_CONFIG").field("nPreference", &self.nPreference).field("nPropDesc", &self.nPropDesc).field("pPropDesc", &self.pPropDesc).finish()
-    }
-}
 impl windows_core::TypeKind for WMDM_PROP_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WMDM_PROP_CONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.nPreference == other.nPreference && self.nPropDesc == other.nPropDesc && self.pPropDesc == other.pPropDesc
-    }
-}
-impl Eq for WMDM_PROP_CONFIG {}
 impl Default for WMDM_PROP_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3065,36 +2922,21 @@ impl Default for WMDM_PROP_DESC_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WMDM_PROP_VALUES_ENUM {
     pub cEnumValues: u32,
     pub pValues: *mut windows_core::PROPVARIANT,
 }
-impl Copy for WMDM_PROP_VALUES_ENUM {}
-impl Clone for WMDM_PROP_VALUES_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WMDM_PROP_VALUES_ENUM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WMDM_PROP_VALUES_ENUM").field("cEnumValues", &self.cEnumValues).field("pValues", &self.pValues).finish()
-    }
-}
 impl windows_core::TypeKind for WMDM_PROP_VALUES_ENUM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WMDM_PROP_VALUES_ENUM {
-    fn eq(&self, other: &Self) -> bool {
-        self.cEnumValues == other.cEnumValues && self.pValues == other.pValues
-    }
-}
-impl Eq for WMDM_PROP_VALUES_ENUM {}
 impl Default for WMDM_PROP_VALUES_ENUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct WMDM_PROP_VALUES_RANGE {
     pub rangeMin: std::mem::ManuallyDrop<windows_core::PROPVARIANT>,
     pub rangeMax: std::mem::ManuallyDrop<windows_core::PROPVARIANT>,
@@ -3105,50 +2947,23 @@ impl Clone for WMDM_PROP_VALUES_RANGE {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for WMDM_PROP_VALUES_RANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WMDM_PROP_VALUES_RANGE").field("rangeMin", &self.rangeMin).field("rangeMax", &self.rangeMax).field("rangeStep", &self.rangeStep).finish()
-    }
-}
 impl windows_core::TypeKind for WMDM_PROP_VALUES_RANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WMDM_PROP_VALUES_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.rangeMin == other.rangeMin && self.rangeMax == other.rangeMax && self.rangeStep == other.rangeStep
-    }
-}
-impl Eq for WMDM_PROP_VALUES_RANGE {}
 impl Default for WMDM_PROP_VALUES_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WMFILECAPABILITIES {
     pub pwszMimeType: windows_core::PWSTR,
     pub dwReserved: u32,
 }
-impl Copy for WMFILECAPABILITIES {}
-impl Clone for WMFILECAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WMFILECAPABILITIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WMFILECAPABILITIES").field("pwszMimeType", &self.pwszMimeType).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 impl windows_core::TypeKind for WMFILECAPABILITIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WMFILECAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszMimeType == other.pwszMimeType && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for WMFILECAPABILITIES {}
 impl Default for WMFILECAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

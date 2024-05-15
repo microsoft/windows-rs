@@ -84,18 +84,14 @@ pub const SESSION_ABORTED: u32 = 6u32;
 pub const SESSION_ESTABLISHED: u32 = 3u32;
 pub const UNIQUE_NAME: u32 = 0u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ACTION_HEADER {
     pub transport_id: u32,
     pub action_code: u16,
     pub reserved: u16,
 }
-impl Copy for ACTION_HEADER {}
-impl Clone for ACTION_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ADAPTER_STATUS {
     pub adapter_address: [u8; 6],
     pub rev_major: u8,
@@ -125,13 +121,8 @@ pub struct ADAPTER_STATUS {
     pub max_sess_pkt_size: u16,
     pub name_count: u16,
 }
-impl Copy for ADAPTER_STATUS {}
-impl Clone for ADAPTER_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FIND_NAME_BUFFER {
     pub length: u8,
     pub access_control: u8,
@@ -140,49 +131,29 @@ pub struct FIND_NAME_BUFFER {
     pub source_addr: [u8; 6],
     pub routing_info: [u8; 18],
 }
-impl Copy for FIND_NAME_BUFFER {}
-impl Clone for FIND_NAME_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FIND_NAME_HEADER {
     pub node_count: u16,
     pub reserved: u8,
     pub unique_group: u8,
 }
-impl Copy for FIND_NAME_HEADER {}
-impl Clone for FIND_NAME_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LANA_ENUM {
     pub length: u8,
     pub lana: [u8; 255],
 }
-impl Copy for LANA_ENUM {}
-impl Clone for LANA_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NAME_BUFFER {
     pub name: [u8; 16],
     pub name_num: u8,
     pub name_flags: u8,
 }
-impl Copy for NAME_BUFFER {}
-impl Clone for NAME_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct NCB {
     pub ncb_command: u8,
     pub ncb_retcode: u8,
@@ -200,16 +171,9 @@ pub struct NCB {
     pub ncb_reserve: [u8; 18],
     pub ncb_event: super::super::Foundation::HANDLE,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for NCB {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for NCB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct NCB {
     pub ncb_command: u8,
     pub ncb_retcode: u8,
@@ -227,15 +191,8 @@ pub struct NCB {
     pub ncb_reserve: [u8; 10],
     pub ncb_event: super::super::Foundation::HANDLE,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for NCB {}
-#[cfg(target_arch = "x86")]
-impl Clone for NCB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SESSION_BUFFER {
     pub lsn: u8,
     pub state: u8,
@@ -244,22 +201,11 @@ pub struct SESSION_BUFFER {
     pub rcvs_outstanding: u8,
     pub sends_outstanding: u8,
 }
-impl Copy for SESSION_BUFFER {}
-impl Clone for SESSION_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SESSION_HEADER {
     pub sess_name: u8,
     pub num_sess: u8,
     pub rcv_dg_outstanding: u8,
     pub rcv_any_outstanding: u8,
-}
-impl Copy for SESSION_HEADER {}
-impl Clone for SESSION_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

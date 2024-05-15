@@ -2944,36 +2944,15 @@ impl core::fmt::Debug for PFD_PIXEL_TYPE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMRPIXELFORMAT {
     pub emr: super::Gdi::EMR,
     pub pfd: PIXELFORMATDESCRIPTOR,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for EMRPIXELFORMAT {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for EMRPIXELFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for EMRPIXELFORMAT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EMRPIXELFORMAT").field("emr", &self.emr).field("pfd", &self.pfd).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for EMRPIXELFORMAT {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for EMRPIXELFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.emr == other.emr && self.pfd == other.pfd
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for EMRPIXELFORMAT {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for EMRPIXELFORMAT {
     fn default() -> Self {
@@ -3014,6 +2993,7 @@ impl windows_core::TypeKind for GLUtesselator {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GLYPHMETRICSFLOAT {
     pub gmfBlackBoxX: f32,
     pub gmfBlackBoxY: f32,
@@ -3021,26 +3001,9 @@ pub struct GLYPHMETRICSFLOAT {
     pub gmfCellIncX: f32,
     pub gmfCellIncY: f32,
 }
-impl Copy for GLYPHMETRICSFLOAT {}
-impl Clone for GLYPHMETRICSFLOAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GLYPHMETRICSFLOAT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GLYPHMETRICSFLOAT").field("gmfBlackBoxX", &self.gmfBlackBoxX).field("gmfBlackBoxY", &self.gmfBlackBoxY).field("gmfptGlyphOrigin", &self.gmfptGlyphOrigin).field("gmfCellIncX", &self.gmfCellIncX).field("gmfCellIncY", &self.gmfCellIncY).finish()
-    }
-}
 impl windows_core::TypeKind for GLYPHMETRICSFLOAT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GLYPHMETRICSFLOAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.gmfBlackBoxX == other.gmfBlackBoxX && self.gmfBlackBoxY == other.gmfBlackBoxY && self.gmfptGlyphOrigin == other.gmfptGlyphOrigin && self.gmfCellIncX == other.gmfCellIncX && self.gmfCellIncY == other.gmfCellIncY
-    }
-}
-impl Eq for GLYPHMETRICSFLOAT {}
 impl Default for GLYPHMETRICSFLOAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3070,6 +3033,7 @@ impl windows_core::TypeKind for HGLRC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LAYERPLANEDESCRIPTOR {
     pub nSize: u16,
     pub nVersion: u16,
@@ -3096,80 +3060,16 @@ pub struct LAYERPLANEDESCRIPTOR {
     pub bReserved: u8,
     pub crTransparent: super::super::Foundation::COLORREF,
 }
-impl Copy for LAYERPLANEDESCRIPTOR {}
-impl Clone for LAYERPLANEDESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LAYERPLANEDESCRIPTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LAYERPLANEDESCRIPTOR")
-            .field("nSize", &self.nSize)
-            .field("nVersion", &self.nVersion)
-            .field("dwFlags", &self.dwFlags)
-            .field("iPixelType", &self.iPixelType)
-            .field("cColorBits", &self.cColorBits)
-            .field("cRedBits", &self.cRedBits)
-            .field("cRedShift", &self.cRedShift)
-            .field("cGreenBits", &self.cGreenBits)
-            .field("cGreenShift", &self.cGreenShift)
-            .field("cBlueBits", &self.cBlueBits)
-            .field("cBlueShift", &self.cBlueShift)
-            .field("cAlphaBits", &self.cAlphaBits)
-            .field("cAlphaShift", &self.cAlphaShift)
-            .field("cAccumBits", &self.cAccumBits)
-            .field("cAccumRedBits", &self.cAccumRedBits)
-            .field("cAccumGreenBits", &self.cAccumGreenBits)
-            .field("cAccumBlueBits", &self.cAccumBlueBits)
-            .field("cAccumAlphaBits", &self.cAccumAlphaBits)
-            .field("cDepthBits", &self.cDepthBits)
-            .field("cStencilBits", &self.cStencilBits)
-            .field("cAuxBuffers", &self.cAuxBuffers)
-            .field("iLayerPlane", &self.iLayerPlane)
-            .field("bReserved", &self.bReserved)
-            .field("crTransparent", &self.crTransparent)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for LAYERPLANEDESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LAYERPLANEDESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.nSize == other.nSize
-            && self.nVersion == other.nVersion
-            && self.dwFlags == other.dwFlags
-            && self.iPixelType == other.iPixelType
-            && self.cColorBits == other.cColorBits
-            && self.cRedBits == other.cRedBits
-            && self.cRedShift == other.cRedShift
-            && self.cGreenBits == other.cGreenBits
-            && self.cGreenShift == other.cGreenShift
-            && self.cBlueBits == other.cBlueBits
-            && self.cBlueShift == other.cBlueShift
-            && self.cAlphaBits == other.cAlphaBits
-            && self.cAlphaShift == other.cAlphaShift
-            && self.cAccumBits == other.cAccumBits
-            && self.cAccumRedBits == other.cAccumRedBits
-            && self.cAccumGreenBits == other.cAccumGreenBits
-            && self.cAccumBlueBits == other.cAccumBlueBits
-            && self.cAccumAlphaBits == other.cAccumAlphaBits
-            && self.cDepthBits == other.cDepthBits
-            && self.cStencilBits == other.cStencilBits
-            && self.cAuxBuffers == other.cAuxBuffers
-            && self.iLayerPlane == other.iLayerPlane
-            && self.bReserved == other.bReserved
-            && self.crTransparent == other.crTransparent
-    }
-}
-impl Eq for LAYERPLANEDESCRIPTOR {}
 impl Default for LAYERPLANEDESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PIXELFORMATDESCRIPTOR {
     pub nSize: u16,
     pub nVersion: u16,
@@ -3198,108 +3098,23 @@ pub struct PIXELFORMATDESCRIPTOR {
     pub dwVisibleMask: u32,
     pub dwDamageMask: u32,
 }
-impl Copy for PIXELFORMATDESCRIPTOR {}
-impl Clone for PIXELFORMATDESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PIXELFORMATDESCRIPTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PIXELFORMATDESCRIPTOR")
-            .field("nSize", &self.nSize)
-            .field("nVersion", &self.nVersion)
-            .field("dwFlags", &self.dwFlags)
-            .field("iPixelType", &self.iPixelType)
-            .field("cColorBits", &self.cColorBits)
-            .field("cRedBits", &self.cRedBits)
-            .field("cRedShift", &self.cRedShift)
-            .field("cGreenBits", &self.cGreenBits)
-            .field("cGreenShift", &self.cGreenShift)
-            .field("cBlueBits", &self.cBlueBits)
-            .field("cBlueShift", &self.cBlueShift)
-            .field("cAlphaBits", &self.cAlphaBits)
-            .field("cAlphaShift", &self.cAlphaShift)
-            .field("cAccumBits", &self.cAccumBits)
-            .field("cAccumRedBits", &self.cAccumRedBits)
-            .field("cAccumGreenBits", &self.cAccumGreenBits)
-            .field("cAccumBlueBits", &self.cAccumBlueBits)
-            .field("cAccumAlphaBits", &self.cAccumAlphaBits)
-            .field("cDepthBits", &self.cDepthBits)
-            .field("cStencilBits", &self.cStencilBits)
-            .field("cAuxBuffers", &self.cAuxBuffers)
-            .field("iLayerType", &self.iLayerType)
-            .field("bReserved", &self.bReserved)
-            .field("dwLayerMask", &self.dwLayerMask)
-            .field("dwVisibleMask", &self.dwVisibleMask)
-            .field("dwDamageMask", &self.dwDamageMask)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PIXELFORMATDESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PIXELFORMATDESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.nSize == other.nSize
-            && self.nVersion == other.nVersion
-            && self.dwFlags == other.dwFlags
-            && self.iPixelType == other.iPixelType
-            && self.cColorBits == other.cColorBits
-            && self.cRedBits == other.cRedBits
-            && self.cRedShift == other.cRedShift
-            && self.cGreenBits == other.cGreenBits
-            && self.cGreenShift == other.cGreenShift
-            && self.cBlueBits == other.cBlueBits
-            && self.cBlueShift == other.cBlueShift
-            && self.cAlphaBits == other.cAlphaBits
-            && self.cAlphaShift == other.cAlphaShift
-            && self.cAccumBits == other.cAccumBits
-            && self.cAccumRedBits == other.cAccumRedBits
-            && self.cAccumGreenBits == other.cAccumGreenBits
-            && self.cAccumBlueBits == other.cAccumBlueBits
-            && self.cAccumAlphaBits == other.cAccumAlphaBits
-            && self.cDepthBits == other.cDepthBits
-            && self.cStencilBits == other.cStencilBits
-            && self.cAuxBuffers == other.cAuxBuffers
-            && self.iLayerType == other.iLayerType
-            && self.bReserved == other.bReserved
-            && self.dwLayerMask == other.dwLayerMask
-            && self.dwVisibleMask == other.dwVisibleMask
-            && self.dwDamageMask == other.dwDamageMask
-    }
-}
-impl Eq for PIXELFORMATDESCRIPTOR {}
 impl Default for PIXELFORMATDESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POINTFLOAT {
     pub x: f32,
     pub y: f32,
 }
-impl Copy for POINTFLOAT {}
-impl Clone for POINTFLOAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for POINTFLOAT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("POINTFLOAT").field("x", &self.x).field("y", &self.y).finish()
-    }
-}
 impl windows_core::TypeKind for POINTFLOAT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for POINTFLOAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y
-    }
-}
-impl Eq for POINTFLOAT {}
 impl Default for POINTFLOAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

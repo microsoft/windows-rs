@@ -5790,6 +5790,7 @@ impl core::fmt::Debug for WTS_VIRTUAL_CLASS {
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct AAAccountingData {
     pub userName: std::mem::ManuallyDrop<windows_core::BSTR>,
     pub clientName: std::mem::ManuallyDrop<windows_core::BSTR>,
@@ -5808,32 +5809,9 @@ impl Clone for AAAccountingData {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for AAAccountingData {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AAAccountingData")
-            .field("userName", &self.userName)
-            .field("clientName", &self.clientName)
-            .field("authType", &self.authType)
-            .field("resourceName", &self.resourceName)
-            .field("portNumber", &self.portNumber)
-            .field("protocolName", &self.protocolName)
-            .field("numberOfBytesReceived", &self.numberOfBytesReceived)
-            .field("numberOfBytesTransfered", &self.numberOfBytesTransfered)
-            .field("reasonForDisconnect", &self.reasonForDisconnect)
-            .field("mainSessionId", &self.mainSessionId)
-            .field("subSessionId", &self.subSessionId)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for AAAccountingData {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AAAccountingData {
-    fn eq(&self, other: &Self) -> bool {
-        self.userName == other.userName && self.clientName == other.clientName && self.authType == other.authType && self.resourceName == other.resourceName && self.portNumber == other.portNumber && self.protocolName == other.protocolName && self.numberOfBytesReceived == other.numberOfBytesReceived && self.numberOfBytesTransfered == other.numberOfBytesTransfered && self.reasonForDisconnect == other.reasonForDisconnect && self.mainSessionId == other.mainSessionId && self.subSessionId == other.subSessionId
-    }
-}
-impl Eq for AAAccountingData {}
 impl Default for AAAccountingData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5841,6 +5819,7 @@ impl Default for AAAccountingData {
 }
 pub const ADsTSUserEx: windows_core::GUID = windows_core::GUID::from_u128(0xe2e9cae6_1e7b_4b8e_babd_e9bf6292ac29);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AE_CURRENT_POSITION {
     pub u64DevicePosition: u64,
     pub u64StreamPosition: u64,
@@ -5849,71 +5828,33 @@ pub struct AE_CURRENT_POSITION {
     pub f32FramesPerSecond: f32,
     pub Flag: AE_POSITION_FLAGS,
 }
-impl Copy for AE_CURRENT_POSITION {}
-impl Clone for AE_CURRENT_POSITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for AE_CURRENT_POSITION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("AE_CURRENT_POSITION").field("u64DevicePosition", &self.u64DevicePosition).field("u64StreamPosition", &self.u64StreamPosition).field("u64PaddingFrames", &self.u64PaddingFrames).field("hnsQPCPosition", &self.hnsQPCPosition).field("f32FramesPerSecond", &self.f32FramesPerSecond).field("Flag", &self.Flag).finish()
-    }
-}
 impl windows_core::TypeKind for AE_CURRENT_POSITION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for AE_CURRENT_POSITION {
-    fn eq(&self, other: &Self) -> bool {
-        self.u64DevicePosition == other.u64DevicePosition && self.u64StreamPosition == other.u64StreamPosition && self.u64PaddingFrames == other.u64PaddingFrames && self.hnsQPCPosition == other.hnsQPCPosition && self.f32FramesPerSecond == other.f32FramesPerSecond && self.Flag == other.Flag
-    }
-}
-impl Eq for AE_CURRENT_POSITION {}
 impl Default for AE_CURRENT_POSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BITMAP_RENDERER_STATISTICS {
     pub dwFramesDelivered: u32,
     pub dwFramesDropped: u32,
 }
-impl Copy for BITMAP_RENDERER_STATISTICS {}
-impl Clone for BITMAP_RENDERER_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BITMAP_RENDERER_STATISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BITMAP_RENDERER_STATISTICS").field("dwFramesDelivered", &self.dwFramesDelivered).field("dwFramesDropped", &self.dwFramesDropped).finish()
-    }
-}
 impl windows_core::TypeKind for BITMAP_RENDERER_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BITMAP_RENDERER_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFramesDelivered == other.dwFramesDelivered && self.dwFramesDropped == other.dwFramesDropped
-    }
-}
-impl Eq for BITMAP_RENDERER_STATISTICS {}
 impl Default for BITMAP_RENDERER_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct CHANNEL_DEF {
     pub name: [i8; 8],
     pub options: u32,
-}
-impl Copy for CHANNEL_DEF {}
-impl Clone for CHANNEL_DEF {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for CHANNEL_DEF {
     type TypeKind = windows_core::CopyType;
@@ -5924,6 +5865,7 @@ impl Default for CHANNEL_DEF {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct CHANNEL_ENTRY_POINTS {
     pub cbSize: u32,
     pub protocolVersion: u32,
@@ -5931,17 +5873,6 @@ pub struct CHANNEL_ENTRY_POINTS {
     pub pVirtualChannelOpen: PVIRTUALCHANNELOPEN,
     pub pVirtualChannelClose: PVIRTUALCHANNELCLOSE,
     pub pVirtualChannelWrite: PVIRTUALCHANNELWRITE,
-}
-impl Copy for CHANNEL_ENTRY_POINTS {}
-impl Clone for CHANNEL_ENTRY_POINTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CHANNEL_ENTRY_POINTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CHANNEL_ENTRY_POINTS").field("cbSize", &self.cbSize).field("protocolVersion", &self.protocolVersion).finish()
-    }
 }
 impl windows_core::TypeKind for CHANNEL_ENTRY_POINTS {
     type TypeKind = windows_core::CopyType;
@@ -5952,127 +5883,64 @@ impl Default for CHANNEL_ENTRY_POINTS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CHANNEL_PDU_HEADER {
     pub length: u32,
     pub flags: u32,
 }
-impl Copy for CHANNEL_PDU_HEADER {}
-impl Clone for CHANNEL_PDU_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CHANNEL_PDU_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CHANNEL_PDU_HEADER").field("length", &self.length).field("flags", &self.flags).finish()
-    }
-}
 impl windows_core::TypeKind for CHANNEL_PDU_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CHANNEL_PDU_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.length == other.length && self.flags == other.flags
-    }
-}
-impl Eq for CHANNEL_PDU_HEADER {}
 impl Default for CHANNEL_PDU_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLIENT_DISPLAY {
     pub HorizontalResolution: u32,
     pub VerticalResolution: u32,
     pub ColorDepth: u32,
 }
-impl Copy for CLIENT_DISPLAY {}
-impl Clone for CLIENT_DISPLAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLIENT_DISPLAY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLIENT_DISPLAY").field("HorizontalResolution", &self.HorizontalResolution).field("VerticalResolution", &self.VerticalResolution).field("ColorDepth", &self.ColorDepth).finish()
-    }
-}
 impl windows_core::TypeKind for CLIENT_DISPLAY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLIENT_DISPLAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.HorizontalResolution == other.HorizontalResolution && self.VerticalResolution == other.VerticalResolution && self.ColorDepth == other.ColorDepth
-    }
-}
-impl Eq for CLIENT_DISPLAY {}
 impl Default for CLIENT_DISPLAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRODUCT_INFOA {
     pub CompanyName: [i8; 256],
     pub ProductID: [i8; 4],
 }
-impl Copy for PRODUCT_INFOA {}
-impl Clone for PRODUCT_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRODUCT_INFOA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRODUCT_INFOA").field("CompanyName", &self.CompanyName).field("ProductID", &self.ProductID).finish()
-    }
-}
 impl windows_core::TypeKind for PRODUCT_INFOA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRODUCT_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.CompanyName == other.CompanyName && self.ProductID == other.ProductID
-    }
-}
-impl Eq for PRODUCT_INFOA {}
 impl Default for PRODUCT_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRODUCT_INFOW {
     pub CompanyName: [u16; 256],
     pub ProductID: [u16; 4],
 }
-impl Copy for PRODUCT_INFOW {}
-impl Clone for PRODUCT_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRODUCT_INFOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRODUCT_INFOW").field("CompanyName", &self.CompanyName).field("ProductID", &self.ProductID).finish()
-    }
-}
 impl windows_core::TypeKind for PRODUCT_INFOW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRODUCT_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.CompanyName == other.CompanyName && self.ProductID == other.ProductID
-    }
-}
-impl Eq for PRODUCT_INFOW {}
 impl Default for PRODUCT_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RFX_GFX_MONITOR_INFO {
     pub left: i32,
     pub top: i32,
@@ -6083,12 +5951,6 @@ pub struct RFX_GFX_MONITOR_INFO {
     pub orientation: u32,
     pub primary: super::super::Foundation::BOOL,
 }
-impl Copy for RFX_GFX_MONITOR_INFO {}
-impl Clone for RFX_GFX_MONITOR_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for RFX_GFX_MONITOR_INFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -6098,14 +5960,9 @@ impl Default for RFX_GFX_MONITOR_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
     pub channelHdr: RFX_GFX_MSG_HEADER,
-}
-impl Copy for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {}
-impl Clone for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
     type TypeKind = windows_core::CopyType;
@@ -6116,18 +5973,13 @@ impl Default for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub reserved: u32,
     pub monitorCount: u32,
     pub MonitorData: [RFX_GFX_MONITOR_INFO; 16],
     pub clientUniqueId: [u16; 32],
-}
-impl Copy for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {}
-impl Clone for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
     type TypeKind = windows_core::CopyType;
@@ -6138,14 +5990,9 @@ impl Default for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
     pub channelHdr: RFX_GFX_MSG_HEADER,
-}
-impl Copy for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {}
-impl Clone for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
     type TypeKind = windows_core::CopyType;
@@ -6156,18 +6003,13 @@ impl Default for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub ulWidth: u32,
     pub ulHeight: u32,
     pub ulBpp: u32,
     pub Reserved: u32,
-}
-impl Copy for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {}
-impl Clone for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
     type TypeKind = windows_core::CopyType;
@@ -6178,16 +6020,11 @@ impl Default for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RFX_GFX_MSG_DESKTOP_INPUT_RESET {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub ulWidth: u32,
     pub ulHeight: u32,
-}
-impl Copy for RFX_GFX_MSG_DESKTOP_INPUT_RESET {}
-impl Clone for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
     type TypeKind = windows_core::CopyType;
@@ -6198,15 +6035,10 @@ impl Default for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub RedrawRect: RFX_GFX_RECT,
-}
-impl Copy for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {}
-impl Clone for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
     type TypeKind = windows_core::CopyType;
@@ -6217,15 +6049,10 @@ impl Default for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RFX_GFX_MSG_DISCONNECT_NOTIFY {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub DisconnectReason: u32,
-}
-impl Copy for RFX_GFX_MSG_DISCONNECT_NOTIFY {}
-impl Clone for RFX_GFX_MSG_DISCONNECT_NOTIFY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RFX_GFX_MSG_DISCONNECT_NOTIFY {
     type TypeKind = windows_core::CopyType;
@@ -6236,15 +6063,10 @@ impl Default for RFX_GFX_MSG_DISCONNECT_NOTIFY {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RFX_GFX_MSG_HEADER {
     pub uMSGType: u16,
     pub cbSize: u16,
-}
-impl Copy for RFX_GFX_MSG_HEADER {}
-impl Clone for RFX_GFX_MSG_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RFX_GFX_MSG_HEADER {
     type TypeKind = windows_core::CopyType;
@@ -6255,15 +6077,10 @@ impl Default for RFX_GFX_MSG_HEADER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RFX_GFX_MSG_RDP_DATA {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub rdpData: [u8; 1],
-}
-impl Copy for RFX_GFX_MSG_RDP_DATA {}
-impl Clone for RFX_GFX_MSG_RDP_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RFX_GFX_MSG_RDP_DATA {
     type TypeKind = windows_core::CopyType;
@@ -6274,17 +6091,12 @@ impl Default for RFX_GFX_MSG_RDP_DATA {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RFX_GFX_RECT {
     pub left: i32,
     pub top: i32,
     pub right: i32,
     pub bottom: i32,
-}
-impl Copy for RFX_GFX_RECT {}
-impl Clone for RFX_GFX_RECT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RFX_GFX_RECT {
     type TypeKind = windows_core::CopyType;
@@ -6295,32 +6107,16 @@ impl Default for RFX_GFX_RECT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TSSD_ConnectionPoint {
     pub ServerAddressB: [u8; 16],
     pub AddressType: TSSD_AddrV46Type,
     pub PortNumber: u16,
     pub AddressScope: u32,
 }
-impl Copy for TSSD_ConnectionPoint {}
-impl Clone for TSSD_ConnectionPoint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TSSD_ConnectionPoint {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TSSD_ConnectionPoint").field("ServerAddressB", &self.ServerAddressB).field("AddressType", &self.AddressType).field("PortNumber", &self.PortNumber).field("AddressScope", &self.AddressScope).finish()
-    }
-}
 impl windows_core::TypeKind for TSSD_ConnectionPoint {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TSSD_ConnectionPoint {
-    fn eq(&self, other: &Self) -> bool {
-        self.ServerAddressB == other.ServerAddressB && self.AddressType == other.AddressType && self.PortNumber == other.PortNumber && self.AddressScope == other.AddressScope
-    }
-}
-impl Eq for TSSD_ConnectionPoint {}
 impl Default for TSSD_ConnectionPoint {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6328,104 +6124,51 @@ impl Default for TSSD_ConnectionPoint {
 }
 pub const TSUserExInterfaces: windows_core::GUID = windows_core::GUID::from_u128(0x0910dd01_df8c_11d1_ae27_00c04fa35813);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VM_NOTIFY_ENTRY {
     pub VmName: [u16; 128],
     pub VmHost: [u16; 128],
 }
-impl Copy for VM_NOTIFY_ENTRY {}
-impl Clone for VM_NOTIFY_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VM_NOTIFY_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VM_NOTIFY_ENTRY").field("VmName", &self.VmName).field("VmHost", &self.VmHost).finish()
-    }
-}
 impl windows_core::TypeKind for VM_NOTIFY_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VM_NOTIFY_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.VmName == other.VmName && self.VmHost == other.VmHost
-    }
-}
-impl Eq for VM_NOTIFY_ENTRY {}
 impl Default for VM_NOTIFY_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VM_NOTIFY_INFO {
     pub dwNumEntries: u32,
     pub ppVmEntries: *mut *mut VM_NOTIFY_ENTRY,
 }
-impl Copy for VM_NOTIFY_INFO {}
-impl Clone for VM_NOTIFY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VM_NOTIFY_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VM_NOTIFY_INFO").field("dwNumEntries", &self.dwNumEntries).field("ppVmEntries", &self.ppVmEntries).finish()
-    }
-}
 impl windows_core::TypeKind for VM_NOTIFY_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VM_NOTIFY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumEntries == other.dwNumEntries && self.ppVmEntries == other.ppVmEntries
-    }
-}
-impl Eq for VM_NOTIFY_INFO {}
 impl Default for VM_NOTIFY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VM_PATCH_INFO {
     pub dwNumEntries: u32,
     pub pVmNames: *mut windows_core::PWSTR,
 }
-impl Copy for VM_PATCH_INFO {}
-impl Clone for VM_PATCH_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for VM_PATCH_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VM_PATCH_INFO").field("dwNumEntries", &self.dwNumEntries).field("pVmNames", &self.pVmNames).finish()
-    }
-}
 impl windows_core::TypeKind for VM_PATCH_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VM_PATCH_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumEntries == other.dwNumEntries && self.pVmNames == other.pVmNames
-    }
-}
-impl Eq for VM_PATCH_INFO {}
 impl Default for VM_PATCH_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WRDS_CONNECTION_SETTING {
     pub WRdsConnectionSettings1: WRDS_CONNECTION_SETTINGS_1,
-}
-impl Copy for WRDS_CONNECTION_SETTING {}
-impl Clone for WRDS_CONNECTION_SETTING {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WRDS_CONNECTION_SETTING {
     type TypeKind = windows_core::CopyType;
@@ -6436,15 +6179,10 @@ impl Default for WRDS_CONNECTION_SETTING {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WRDS_CONNECTION_SETTINGS {
     pub WRdsConnectionSettingLevel: WRDS_CONNECTION_SETTING_LEVEL,
     pub WRdsConnectionSetting: WRDS_CONNECTION_SETTING,
-}
-impl Copy for WRDS_CONNECTION_SETTINGS {}
-impl Clone for WRDS_CONNECTION_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WRDS_CONNECTION_SETTINGS {
     type TypeKind = windows_core::CopyType;
@@ -6455,6 +6193,7 @@ impl Default for WRDS_CONNECTION_SETTINGS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WRDS_CONNECTION_SETTINGS_1 {
     pub fInheritInitialProgram: super::super::Foundation::BOOLEAN,
     pub fInheritColorDepth: super::super::Foundation::BOOLEAN,
@@ -6522,12 +6261,6 @@ pub struct WRDS_CONNECTION_SETTINGS_1 {
     pub ContextSize: u32,
     pub ContextData: *mut u8,
 }
-impl Copy for WRDS_CONNECTION_SETTINGS_1 {}
-impl Clone for WRDS_CONNECTION_SETTINGS_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for WRDS_CONNECTION_SETTINGS_1 {
     type TypeKind = windows_core::CopyType;
 }
@@ -6537,6 +6270,7 @@ impl Default for WRDS_CONNECTION_SETTINGS_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
     pub Bias: i32,
     pub StandardName: [u16; 32],
@@ -6548,40 +6282,18 @@ pub struct WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
     pub TimeZoneKeyName: [u16; 128],
     pub DynamicDaylightTimeDisabled: u16,
 }
-impl Copy for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {}
-impl Clone for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WRDS_DYNAMIC_TIME_ZONE_INFORMATION").field("Bias", &self.Bias).field("StandardName", &self.StandardName).field("StandardDate", &self.StandardDate).field("StandardBias", &self.StandardBias).field("DaylightName", &self.DaylightName).field("DaylightDate", &self.DaylightDate).field("DaylightBias", &self.DaylightBias).field("TimeZoneKeyName", &self.TimeZoneKeyName).field("DynamicDaylightTimeDisabled", &self.DynamicDaylightTimeDisabled).finish()
-    }
-}
 impl windows_core::TypeKind for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Bias == other.Bias && self.StandardName == other.StandardName && self.StandardDate == other.StandardDate && self.StandardBias == other.StandardBias && self.DaylightName == other.DaylightName && self.DaylightDate == other.DaylightDate && self.DaylightBias == other.DaylightBias && self.TimeZoneKeyName == other.TimeZoneKeyName && self.DynamicDaylightTimeDisabled == other.DynamicDaylightTimeDisabled
-    }
-}
-impl Eq for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {}
 impl Default for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WRDS_LISTENER_SETTING {
     pub WRdsListenerSettings1: WRDS_LISTENER_SETTINGS_1,
-}
-impl Copy for WRDS_LISTENER_SETTING {}
-impl Clone for WRDS_LISTENER_SETTING {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WRDS_LISTENER_SETTING {
     type TypeKind = windows_core::CopyType;
@@ -6592,15 +6304,10 @@ impl Default for WRDS_LISTENER_SETTING {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WRDS_LISTENER_SETTINGS {
     pub WRdsListenerSettingLevel: WRDS_LISTENER_SETTING_LEVEL,
     pub WRdsListenerSetting: WRDS_LISTENER_SETTING,
-}
-impl Copy for WRDS_LISTENER_SETTINGS {}
-impl Clone for WRDS_LISTENER_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WRDS_LISTENER_SETTINGS {
     type TypeKind = windows_core::CopyType;
@@ -6611,45 +6318,24 @@ impl Default for WRDS_LISTENER_SETTINGS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WRDS_LISTENER_SETTINGS_1 {
     pub MaxProtocolListenerConnectionCount: u32,
     pub SecurityDescriptorSize: u32,
     pub pSecurityDescriptor: *mut u8,
 }
-impl Copy for WRDS_LISTENER_SETTINGS_1 {}
-impl Clone for WRDS_LISTENER_SETTINGS_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WRDS_LISTENER_SETTINGS_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WRDS_LISTENER_SETTINGS_1").field("MaxProtocolListenerConnectionCount", &self.MaxProtocolListenerConnectionCount).field("SecurityDescriptorSize", &self.SecurityDescriptorSize).field("pSecurityDescriptor", &self.pSecurityDescriptor).finish()
-    }
-}
 impl windows_core::TypeKind for WRDS_LISTENER_SETTINGS_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WRDS_LISTENER_SETTINGS_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.MaxProtocolListenerConnectionCount == other.MaxProtocolListenerConnectionCount && self.SecurityDescriptorSize == other.SecurityDescriptorSize && self.pSecurityDescriptor == other.pSecurityDescriptor
-    }
-}
-impl Eq for WRDS_LISTENER_SETTINGS_1 {}
 impl Default for WRDS_LISTENER_SETTINGS_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WRDS_SETTING {
     pub WRdsSettings1: WRDS_SETTINGS_1,
-}
-impl Copy for WRDS_SETTING {}
-impl Clone for WRDS_SETTING {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WRDS_SETTING {
     type TypeKind = windows_core::CopyType;
@@ -6660,16 +6346,11 @@ impl Default for WRDS_SETTING {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WRDS_SETTINGS {
     pub WRdsSettingType: WRDS_SETTING_TYPE,
     pub WRdsSettingLevel: WRDS_SETTING_LEVEL,
     pub WRdsSetting: WRDS_SETTING,
-}
-impl Copy for WRDS_SETTINGS {}
-impl Clone for WRDS_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WRDS_SETTINGS {
     type TypeKind = windows_core::CopyType;
@@ -6680,6 +6361,7 @@ impl Default for WRDS_SETTINGS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WRDS_SETTINGS_1 {
     pub WRdsDisableClipStatus: WRDS_SETTING_STATUS,
     pub WRdsDisableClipValue: u32,
@@ -6713,94 +6395,16 @@ pub struct WRDS_SETTINGS_1 {
     pub WRdsKeepAliveStartValue: super::super::Foundation::BOOLEAN,
     pub WRdsKeepAliveIntervalValue: u32,
 }
-impl Copy for WRDS_SETTINGS_1 {}
-impl Clone for WRDS_SETTINGS_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WRDS_SETTINGS_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WRDS_SETTINGS_1")
-            .field("WRdsDisableClipStatus", &self.WRdsDisableClipStatus)
-            .field("WRdsDisableClipValue", &self.WRdsDisableClipValue)
-            .field("WRdsDisableLPTStatus", &self.WRdsDisableLPTStatus)
-            .field("WRdsDisableLPTValue", &self.WRdsDisableLPTValue)
-            .field("WRdsDisableCcmStatus", &self.WRdsDisableCcmStatus)
-            .field("WRdsDisableCcmValue", &self.WRdsDisableCcmValue)
-            .field("WRdsDisableCdmStatus", &self.WRdsDisableCdmStatus)
-            .field("WRdsDisableCdmValue", &self.WRdsDisableCdmValue)
-            .field("WRdsDisableCpmStatus", &self.WRdsDisableCpmStatus)
-            .field("WRdsDisableCpmValue", &self.WRdsDisableCpmValue)
-            .field("WRdsDisablePnpStatus", &self.WRdsDisablePnpStatus)
-            .field("WRdsDisablePnpValue", &self.WRdsDisablePnpValue)
-            .field("WRdsEncryptionLevelStatus", &self.WRdsEncryptionLevelStatus)
-            .field("WRdsEncryptionValue", &self.WRdsEncryptionValue)
-            .field("WRdsColorDepthStatus", &self.WRdsColorDepthStatus)
-            .field("WRdsColorDepthValue", &self.WRdsColorDepthValue)
-            .field("WRdsDisableAutoReconnecetStatus", &self.WRdsDisableAutoReconnecetStatus)
-            .field("WRdsDisableAutoReconnecetValue", &self.WRdsDisableAutoReconnecetValue)
-            .field("WRdsDisableEncryptionStatus", &self.WRdsDisableEncryptionStatus)
-            .field("WRdsDisableEncryptionValue", &self.WRdsDisableEncryptionValue)
-            .field("WRdsResetBrokenStatus", &self.WRdsResetBrokenStatus)
-            .field("WRdsResetBrokenValue", &self.WRdsResetBrokenValue)
-            .field("WRdsMaxIdleTimeStatus", &self.WRdsMaxIdleTimeStatus)
-            .field("WRdsMaxIdleTimeValue", &self.WRdsMaxIdleTimeValue)
-            .field("WRdsMaxDisconnectTimeStatus", &self.WRdsMaxDisconnectTimeStatus)
-            .field("WRdsMaxDisconnectTimeValue", &self.WRdsMaxDisconnectTimeValue)
-            .field("WRdsMaxConnectTimeStatus", &self.WRdsMaxConnectTimeStatus)
-            .field("WRdsMaxConnectTimeValue", &self.WRdsMaxConnectTimeValue)
-            .field("WRdsKeepAliveStatus", &self.WRdsKeepAliveStatus)
-            .field("WRdsKeepAliveStartValue", &self.WRdsKeepAliveStartValue)
-            .field("WRdsKeepAliveIntervalValue", &self.WRdsKeepAliveIntervalValue)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WRDS_SETTINGS_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WRDS_SETTINGS_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.WRdsDisableClipStatus == other.WRdsDisableClipStatus
-            && self.WRdsDisableClipValue == other.WRdsDisableClipValue
-            && self.WRdsDisableLPTStatus == other.WRdsDisableLPTStatus
-            && self.WRdsDisableLPTValue == other.WRdsDisableLPTValue
-            && self.WRdsDisableCcmStatus == other.WRdsDisableCcmStatus
-            && self.WRdsDisableCcmValue == other.WRdsDisableCcmValue
-            && self.WRdsDisableCdmStatus == other.WRdsDisableCdmStatus
-            && self.WRdsDisableCdmValue == other.WRdsDisableCdmValue
-            && self.WRdsDisableCpmStatus == other.WRdsDisableCpmStatus
-            && self.WRdsDisableCpmValue == other.WRdsDisableCpmValue
-            && self.WRdsDisablePnpStatus == other.WRdsDisablePnpStatus
-            && self.WRdsDisablePnpValue == other.WRdsDisablePnpValue
-            && self.WRdsEncryptionLevelStatus == other.WRdsEncryptionLevelStatus
-            && self.WRdsEncryptionValue == other.WRdsEncryptionValue
-            && self.WRdsColorDepthStatus == other.WRdsColorDepthStatus
-            && self.WRdsColorDepthValue == other.WRdsColorDepthValue
-            && self.WRdsDisableAutoReconnecetStatus == other.WRdsDisableAutoReconnecetStatus
-            && self.WRdsDisableAutoReconnecetValue == other.WRdsDisableAutoReconnecetValue
-            && self.WRdsDisableEncryptionStatus == other.WRdsDisableEncryptionStatus
-            && self.WRdsDisableEncryptionValue == other.WRdsDisableEncryptionValue
-            && self.WRdsResetBrokenStatus == other.WRdsResetBrokenStatus
-            && self.WRdsResetBrokenValue == other.WRdsResetBrokenValue
-            && self.WRdsMaxIdleTimeStatus == other.WRdsMaxIdleTimeStatus
-            && self.WRdsMaxIdleTimeValue == other.WRdsMaxIdleTimeValue
-            && self.WRdsMaxDisconnectTimeStatus == other.WRdsMaxDisconnectTimeStatus
-            && self.WRdsMaxDisconnectTimeValue == other.WRdsMaxDisconnectTimeValue
-            && self.WRdsMaxConnectTimeStatus == other.WRdsMaxConnectTimeStatus
-            && self.WRdsMaxConnectTimeValue == other.WRdsMaxConnectTimeValue
-            && self.WRdsKeepAliveStatus == other.WRdsKeepAliveStatus
-            && self.WRdsKeepAliveStartValue == other.WRdsKeepAliveStartValue
-            && self.WRdsKeepAliveIntervalValue == other.WRdsKeepAliveIntervalValue
-    }
-}
-impl Eq for WRDS_SETTINGS_1 {}
 impl Default for WRDS_SETTINGS_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTSCLIENTA {
     pub ClientName: [i8; 21],
     pub Domain: [i8; 18],
@@ -6822,70 +6426,16 @@ pub struct WTSCLIENTA {
     pub OutBufLength: u16,
     pub DeviceId: [i8; 261],
 }
-impl Copy for WTSCLIENTA {}
-impl Clone for WTSCLIENTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTSCLIENTA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTSCLIENTA")
-            .field("ClientName", &self.ClientName)
-            .field("Domain", &self.Domain)
-            .field("UserName", &self.UserName)
-            .field("WorkDirectory", &self.WorkDirectory)
-            .field("InitialProgram", &self.InitialProgram)
-            .field("EncryptionLevel", &self.EncryptionLevel)
-            .field("ClientAddressFamily", &self.ClientAddressFamily)
-            .field("ClientAddress", &self.ClientAddress)
-            .field("HRes", &self.HRes)
-            .field("VRes", &self.VRes)
-            .field("ColorDepth", &self.ColorDepth)
-            .field("ClientDirectory", &self.ClientDirectory)
-            .field("ClientBuildNumber", &self.ClientBuildNumber)
-            .field("ClientHardwareId", &self.ClientHardwareId)
-            .field("ClientProductId", &self.ClientProductId)
-            .field("OutBufCountHost", &self.OutBufCountHost)
-            .field("OutBufCountClient", &self.OutBufCountClient)
-            .field("OutBufLength", &self.OutBufLength)
-            .field("DeviceId", &self.DeviceId)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WTSCLIENTA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTSCLIENTA {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClientName == other.ClientName
-            && self.Domain == other.Domain
-            && self.UserName == other.UserName
-            && self.WorkDirectory == other.WorkDirectory
-            && self.InitialProgram == other.InitialProgram
-            && self.EncryptionLevel == other.EncryptionLevel
-            && self.ClientAddressFamily == other.ClientAddressFamily
-            && self.ClientAddress == other.ClientAddress
-            && self.HRes == other.HRes
-            && self.VRes == other.VRes
-            && self.ColorDepth == other.ColorDepth
-            && self.ClientDirectory == other.ClientDirectory
-            && self.ClientBuildNumber == other.ClientBuildNumber
-            && self.ClientHardwareId == other.ClientHardwareId
-            && self.ClientProductId == other.ClientProductId
-            && self.OutBufCountHost == other.OutBufCountHost
-            && self.OutBufCountClient == other.OutBufCountClient
-            && self.OutBufLength == other.OutBufLength
-            && self.DeviceId == other.DeviceId
-    }
-}
-impl Eq for WTSCLIENTA {}
 impl Default for WTSCLIENTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTSCLIENTW {
     pub ClientName: [u16; 21],
     pub Domain: [u16; 18],
@@ -6907,70 +6457,16 @@ pub struct WTSCLIENTW {
     pub OutBufLength: u16,
     pub DeviceId: [u16; 261],
 }
-impl Copy for WTSCLIENTW {}
-impl Clone for WTSCLIENTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTSCLIENTW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTSCLIENTW")
-            .field("ClientName", &self.ClientName)
-            .field("Domain", &self.Domain)
-            .field("UserName", &self.UserName)
-            .field("WorkDirectory", &self.WorkDirectory)
-            .field("InitialProgram", &self.InitialProgram)
-            .field("EncryptionLevel", &self.EncryptionLevel)
-            .field("ClientAddressFamily", &self.ClientAddressFamily)
-            .field("ClientAddress", &self.ClientAddress)
-            .field("HRes", &self.HRes)
-            .field("VRes", &self.VRes)
-            .field("ColorDepth", &self.ColorDepth)
-            .field("ClientDirectory", &self.ClientDirectory)
-            .field("ClientBuildNumber", &self.ClientBuildNumber)
-            .field("ClientHardwareId", &self.ClientHardwareId)
-            .field("ClientProductId", &self.ClientProductId)
-            .field("OutBufCountHost", &self.OutBufCountHost)
-            .field("OutBufCountClient", &self.OutBufCountClient)
-            .field("OutBufLength", &self.OutBufLength)
-            .field("DeviceId", &self.DeviceId)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WTSCLIENTW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTSCLIENTW {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClientName == other.ClientName
-            && self.Domain == other.Domain
-            && self.UserName == other.UserName
-            && self.WorkDirectory == other.WorkDirectory
-            && self.InitialProgram == other.InitialProgram
-            && self.EncryptionLevel == other.EncryptionLevel
-            && self.ClientAddressFamily == other.ClientAddressFamily
-            && self.ClientAddress == other.ClientAddress
-            && self.HRes == other.HRes
-            && self.VRes == other.VRes
-            && self.ColorDepth == other.ColorDepth
-            && self.ClientDirectory == other.ClientDirectory
-            && self.ClientBuildNumber == other.ClientBuildNumber
-            && self.ClientHardwareId == other.ClientHardwareId
-            && self.ClientProductId == other.ClientProductId
-            && self.OutBufCountHost == other.OutBufCountHost
-            && self.OutBufCountClient == other.OutBufCountClient
-            && self.OutBufLength == other.OutBufLength
-            && self.DeviceId == other.DeviceId
-    }
-}
-impl Eq for WTSCLIENTW {}
 impl Default for WTSCLIENTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTSCONFIGINFOA {
     pub version: u32,
     pub fConnectClientDrivesAtLogon: u32,
@@ -6984,44 +6480,16 @@ pub struct WTSCONFIGINFOA {
     pub InitialProgram: [i8; 261],
     pub ApplicationName: [i8; 261],
 }
-impl Copy for WTSCONFIGINFOA {}
-impl Clone for WTSCONFIGINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTSCONFIGINFOA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTSCONFIGINFOA")
-            .field("version", &self.version)
-            .field("fConnectClientDrivesAtLogon", &self.fConnectClientDrivesAtLogon)
-            .field("fConnectPrinterAtLogon", &self.fConnectPrinterAtLogon)
-            .field("fDisablePrinterRedirection", &self.fDisablePrinterRedirection)
-            .field("fDisableDefaultMainClientPrinter", &self.fDisableDefaultMainClientPrinter)
-            .field("ShadowSettings", &self.ShadowSettings)
-            .field("LogonUserName", &self.LogonUserName)
-            .field("LogonDomain", &self.LogonDomain)
-            .field("WorkDirectory", &self.WorkDirectory)
-            .field("InitialProgram", &self.InitialProgram)
-            .field("ApplicationName", &self.ApplicationName)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WTSCONFIGINFOA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTSCONFIGINFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.version == other.version && self.fConnectClientDrivesAtLogon == other.fConnectClientDrivesAtLogon && self.fConnectPrinterAtLogon == other.fConnectPrinterAtLogon && self.fDisablePrinterRedirection == other.fDisablePrinterRedirection && self.fDisableDefaultMainClientPrinter == other.fDisableDefaultMainClientPrinter && self.ShadowSettings == other.ShadowSettings && self.LogonUserName == other.LogonUserName && self.LogonDomain == other.LogonDomain && self.WorkDirectory == other.WorkDirectory && self.InitialProgram == other.InitialProgram && self.ApplicationName == other.ApplicationName
-    }
-}
-impl Eq for WTSCONFIGINFOA {}
 impl Default for WTSCONFIGINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTSCONFIGINFOW {
     pub version: u32,
     pub fConnectClientDrivesAtLogon: u32,
@@ -7035,44 +6503,16 @@ pub struct WTSCONFIGINFOW {
     pub InitialProgram: [u16; 261],
     pub ApplicationName: [u16; 261],
 }
-impl Copy for WTSCONFIGINFOW {}
-impl Clone for WTSCONFIGINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTSCONFIGINFOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTSCONFIGINFOW")
-            .field("version", &self.version)
-            .field("fConnectClientDrivesAtLogon", &self.fConnectClientDrivesAtLogon)
-            .field("fConnectPrinterAtLogon", &self.fConnectPrinterAtLogon)
-            .field("fDisablePrinterRedirection", &self.fDisablePrinterRedirection)
-            .field("fDisableDefaultMainClientPrinter", &self.fDisableDefaultMainClientPrinter)
-            .field("ShadowSettings", &self.ShadowSettings)
-            .field("LogonUserName", &self.LogonUserName)
-            .field("LogonDomain", &self.LogonDomain)
-            .field("WorkDirectory", &self.WorkDirectory)
-            .field("InitialProgram", &self.InitialProgram)
-            .field("ApplicationName", &self.ApplicationName)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WTSCONFIGINFOW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTSCONFIGINFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.version == other.version && self.fConnectClientDrivesAtLogon == other.fConnectClientDrivesAtLogon && self.fConnectPrinterAtLogon == other.fConnectPrinterAtLogon && self.fDisablePrinterRedirection == other.fDisablePrinterRedirection && self.fDisableDefaultMainClientPrinter == other.fDisableDefaultMainClientPrinter && self.ShadowSettings == other.ShadowSettings && self.LogonUserName == other.LogonUserName && self.LogonDomain == other.LogonDomain && self.WorkDirectory == other.WorkDirectory && self.InitialProgram == other.InitialProgram && self.ApplicationName == other.ApplicationName
-    }
-}
-impl Eq for WTSCONFIGINFOW {}
 impl Default for WTSCONFIGINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTSINFOA {
     pub State: WTS_CONNECTSTATE_CLASS,
     pub SessionId: u32,
@@ -7091,58 +6531,19 @@ pub struct WTSINFOA {
     pub LogonTime: i64,
     pub CurrentTime: i64,
 }
-impl Copy for WTSINFOA {}
-impl Clone for WTSINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTSINFOA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTSINFOA")
-            .field("State", &self.State)
-            .field("SessionId", &self.SessionId)
-            .field("IncomingBytes", &self.IncomingBytes)
-            .field("OutgoingBytes", &self.OutgoingBytes)
-            .field("IncomingFrames", &self.IncomingFrames)
-            .field("OutgoingFrames", &self.OutgoingFrames)
-            .field("IncomingCompressedBytes", &self.IncomingCompressedBytes)
-            .field("OutgoingCompressedBy", &self.OutgoingCompressedBy)
-            .field("WinStationName", &self.WinStationName)
-            .field("Domain", &self.Domain)
-            .field("UserName", &self.UserName)
-            .field("ConnectTime", &self.ConnectTime)
-            .field("DisconnectTime", &self.DisconnectTime)
-            .field("LastInputTime", &self.LastInputTime)
-            .field("LogonTime", &self.LogonTime)
-            .field("CurrentTime", &self.CurrentTime)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WTSINFOA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTSINFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.State == other.State && self.SessionId == other.SessionId && self.IncomingBytes == other.IncomingBytes && self.OutgoingBytes == other.OutgoingBytes && self.IncomingFrames == other.IncomingFrames && self.OutgoingFrames == other.OutgoingFrames && self.IncomingCompressedBytes == other.IncomingCompressedBytes && self.OutgoingCompressedBy == other.OutgoingCompressedBy && self.WinStationName == other.WinStationName && self.Domain == other.Domain && self.UserName == other.UserName && self.ConnectTime == other.ConnectTime && self.DisconnectTime == other.DisconnectTime && self.LastInputTime == other.LastInputTime && self.LogonTime == other.LogonTime && self.CurrentTime == other.CurrentTime
-    }
-}
-impl Eq for WTSINFOA {}
 impl Default for WTSINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTSINFOEXA {
     pub Level: u32,
     pub Data: WTSINFOEX_LEVEL_A,
-}
-impl Copy for WTSINFOEXA {}
-impl Clone for WTSINFOEXA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WTSINFOEXA {
     type TypeKind = windows_core::CopyType;
@@ -7153,15 +6554,10 @@ impl Default for WTSINFOEXA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTSINFOEXW {
     pub Level: u32,
     pub Data: WTSINFOEX_LEVEL_W,
-}
-impl Copy for WTSINFOEXW {}
-impl Clone for WTSINFOEXW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WTSINFOEXW {
     type TypeKind = windows_core::CopyType;
@@ -7172,6 +6568,7 @@ impl Default for WTSINFOEXW {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTSINFOEX_LEVEL1_A {
     pub SessionId: u32,
     pub SessionState: WTS_CONNECTSTATE_CLASS,
@@ -7191,50 +6588,16 @@ pub struct WTSINFOEX_LEVEL1_A {
     pub IncomingCompressedBytes: u32,
     pub OutgoingCompressedBytes: u32,
 }
-impl Copy for WTSINFOEX_LEVEL1_A {}
-impl Clone for WTSINFOEX_LEVEL1_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTSINFOEX_LEVEL1_A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTSINFOEX_LEVEL1_A")
-            .field("SessionId", &self.SessionId)
-            .field("SessionState", &self.SessionState)
-            .field("SessionFlags", &self.SessionFlags)
-            .field("WinStationName", &self.WinStationName)
-            .field("UserName", &self.UserName)
-            .field("DomainName", &self.DomainName)
-            .field("LogonTime", &self.LogonTime)
-            .field("ConnectTime", &self.ConnectTime)
-            .field("DisconnectTime", &self.DisconnectTime)
-            .field("LastInputTime", &self.LastInputTime)
-            .field("CurrentTime", &self.CurrentTime)
-            .field("IncomingBytes", &self.IncomingBytes)
-            .field("OutgoingBytes", &self.OutgoingBytes)
-            .field("IncomingFrames", &self.IncomingFrames)
-            .field("OutgoingFrames", &self.OutgoingFrames)
-            .field("IncomingCompressedBytes", &self.IncomingCompressedBytes)
-            .field("OutgoingCompressedBytes", &self.OutgoingCompressedBytes)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WTSINFOEX_LEVEL1_A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTSINFOEX_LEVEL1_A {
-    fn eq(&self, other: &Self) -> bool {
-        self.SessionId == other.SessionId && self.SessionState == other.SessionState && self.SessionFlags == other.SessionFlags && self.WinStationName == other.WinStationName && self.UserName == other.UserName && self.DomainName == other.DomainName && self.LogonTime == other.LogonTime && self.ConnectTime == other.ConnectTime && self.DisconnectTime == other.DisconnectTime && self.LastInputTime == other.LastInputTime && self.CurrentTime == other.CurrentTime && self.IncomingBytes == other.IncomingBytes && self.OutgoingBytes == other.OutgoingBytes && self.IncomingFrames == other.IncomingFrames && self.OutgoingFrames == other.OutgoingFrames && self.IncomingCompressedBytes == other.IncomingCompressedBytes && self.OutgoingCompressedBytes == other.OutgoingCompressedBytes
-    }
-}
-impl Eq for WTSINFOEX_LEVEL1_A {}
 impl Default for WTSINFOEX_LEVEL1_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTSINFOEX_LEVEL1_W {
     pub SessionId: u32,
     pub SessionState: WTS_CONNECTSTATE_CLASS,
@@ -7254,58 +6617,18 @@ pub struct WTSINFOEX_LEVEL1_W {
     pub IncomingCompressedBytes: u32,
     pub OutgoingCompressedBytes: u32,
 }
-impl Copy for WTSINFOEX_LEVEL1_W {}
-impl Clone for WTSINFOEX_LEVEL1_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTSINFOEX_LEVEL1_W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTSINFOEX_LEVEL1_W")
-            .field("SessionId", &self.SessionId)
-            .field("SessionState", &self.SessionState)
-            .field("SessionFlags", &self.SessionFlags)
-            .field("WinStationName", &self.WinStationName)
-            .field("UserName", &self.UserName)
-            .field("DomainName", &self.DomainName)
-            .field("LogonTime", &self.LogonTime)
-            .field("ConnectTime", &self.ConnectTime)
-            .field("DisconnectTime", &self.DisconnectTime)
-            .field("LastInputTime", &self.LastInputTime)
-            .field("CurrentTime", &self.CurrentTime)
-            .field("IncomingBytes", &self.IncomingBytes)
-            .field("OutgoingBytes", &self.OutgoingBytes)
-            .field("IncomingFrames", &self.IncomingFrames)
-            .field("OutgoingFrames", &self.OutgoingFrames)
-            .field("IncomingCompressedBytes", &self.IncomingCompressedBytes)
-            .field("OutgoingCompressedBytes", &self.OutgoingCompressedBytes)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WTSINFOEX_LEVEL1_W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTSINFOEX_LEVEL1_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.SessionId == other.SessionId && self.SessionState == other.SessionState && self.SessionFlags == other.SessionFlags && self.WinStationName == other.WinStationName && self.UserName == other.UserName && self.DomainName == other.DomainName && self.LogonTime == other.LogonTime && self.ConnectTime == other.ConnectTime && self.DisconnectTime == other.DisconnectTime && self.LastInputTime == other.LastInputTime && self.CurrentTime == other.CurrentTime && self.IncomingBytes == other.IncomingBytes && self.OutgoingBytes == other.OutgoingBytes && self.IncomingFrames == other.IncomingFrames && self.OutgoingFrames == other.OutgoingFrames && self.IncomingCompressedBytes == other.IncomingCompressedBytes && self.OutgoingCompressedBytes == other.OutgoingCompressedBytes
-    }
-}
-impl Eq for WTSINFOEX_LEVEL1_W {}
 impl Default for WTSINFOEX_LEVEL1_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WTSINFOEX_LEVEL_A {
     pub WTSInfoExLevel1: WTSINFOEX_LEVEL1_A,
-}
-impl Copy for WTSINFOEX_LEVEL_A {}
-impl Clone for WTSINFOEX_LEVEL_A {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WTSINFOEX_LEVEL_A {
     type TypeKind = windows_core::CopyType;
@@ -7316,14 +6639,9 @@ impl Default for WTSINFOEX_LEVEL_A {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WTSINFOEX_LEVEL_W {
     pub WTSInfoExLevel1: WTSINFOEX_LEVEL1_W,
-}
-impl Copy for WTSINFOEX_LEVEL_W {}
-impl Clone for WTSINFOEX_LEVEL_W {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WTSINFOEX_LEVEL_W {
     type TypeKind = windows_core::CopyType;
@@ -7334,6 +6652,7 @@ impl Default for WTSINFOEX_LEVEL_W {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTSINFOW {
     pub State: WTS_CONNECTSTATE_CLASS,
     pub SessionId: u32,
@@ -7352,49 +6671,16 @@ pub struct WTSINFOW {
     pub LogonTime: i64,
     pub CurrentTime: i64,
 }
-impl Copy for WTSINFOW {}
-impl Clone for WTSINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTSINFOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTSINFOW")
-            .field("State", &self.State)
-            .field("SessionId", &self.SessionId)
-            .field("IncomingBytes", &self.IncomingBytes)
-            .field("OutgoingBytes", &self.OutgoingBytes)
-            .field("IncomingFrames", &self.IncomingFrames)
-            .field("OutgoingFrames", &self.OutgoingFrames)
-            .field("IncomingCompressedBytes", &self.IncomingCompressedBytes)
-            .field("OutgoingCompressedBytes", &self.OutgoingCompressedBytes)
-            .field("WinStationName", &self.WinStationName)
-            .field("Domain", &self.Domain)
-            .field("UserName", &self.UserName)
-            .field("ConnectTime", &self.ConnectTime)
-            .field("DisconnectTime", &self.DisconnectTime)
-            .field("LastInputTime", &self.LastInputTime)
-            .field("LogonTime", &self.LogonTime)
-            .field("CurrentTime", &self.CurrentTime)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WTSINFOW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTSINFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.State == other.State && self.SessionId == other.SessionId && self.IncomingBytes == other.IncomingBytes && self.OutgoingBytes == other.OutgoingBytes && self.IncomingFrames == other.IncomingFrames && self.OutgoingFrames == other.OutgoingFrames && self.IncomingCompressedBytes == other.IncomingCompressedBytes && self.OutgoingCompressedBytes == other.OutgoingCompressedBytes && self.WinStationName == other.WinStationName && self.Domain == other.Domain && self.UserName == other.UserName && self.ConnectTime == other.ConnectTime && self.DisconnectTime == other.DisconnectTime && self.LastInputTime == other.LastInputTime && self.LogonTime == other.LogonTime && self.CurrentTime == other.CurrentTime
-    }
-}
-impl Eq for WTSINFOW {}
 impl Default for WTSINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTSLISTENERCONFIGA {
     pub version: u32,
     pub fEnableListener: u32,
@@ -7428,94 +6714,16 @@ pub struct WTSLISTENERCONFIGA {
     pub WorkDirectory: [i8; 261],
     pub InitialProgram: [i8; 261],
 }
-impl Copy for WTSLISTENERCONFIGA {}
-impl Clone for WTSLISTENERCONFIGA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTSLISTENERCONFIGA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTSLISTENERCONFIGA")
-            .field("version", &self.version)
-            .field("fEnableListener", &self.fEnableListener)
-            .field("MaxConnectionCount", &self.MaxConnectionCount)
-            .field("fPromptForPassword", &self.fPromptForPassword)
-            .field("fInheritColorDepth", &self.fInheritColorDepth)
-            .field("ColorDepth", &self.ColorDepth)
-            .field("fInheritBrokenTimeoutSettings", &self.fInheritBrokenTimeoutSettings)
-            .field("BrokenTimeoutSettings", &self.BrokenTimeoutSettings)
-            .field("fDisablePrinterRedirection", &self.fDisablePrinterRedirection)
-            .field("fDisableDriveRedirection", &self.fDisableDriveRedirection)
-            .field("fDisableComPortRedirection", &self.fDisableComPortRedirection)
-            .field("fDisableLPTPortRedirection", &self.fDisableLPTPortRedirection)
-            .field("fDisableClipboardRedirection", &self.fDisableClipboardRedirection)
-            .field("fDisableAudioRedirection", &self.fDisableAudioRedirection)
-            .field("fDisablePNPRedirection", &self.fDisablePNPRedirection)
-            .field("fDisableDefaultMainClientPrinter", &self.fDisableDefaultMainClientPrinter)
-            .field("LanAdapter", &self.LanAdapter)
-            .field("PortNumber", &self.PortNumber)
-            .field("fInheritShadowSettings", &self.fInheritShadowSettings)
-            .field("ShadowSettings", &self.ShadowSettings)
-            .field("TimeoutSettingsConnection", &self.TimeoutSettingsConnection)
-            .field("TimeoutSettingsDisconnection", &self.TimeoutSettingsDisconnection)
-            .field("TimeoutSettingsIdle", &self.TimeoutSettingsIdle)
-            .field("SecurityLayer", &self.SecurityLayer)
-            .field("MinEncryptionLevel", &self.MinEncryptionLevel)
-            .field("UserAuthentication", &self.UserAuthentication)
-            .field("Comment", &self.Comment)
-            .field("LogonUserName", &self.LogonUserName)
-            .field("LogonDomain", &self.LogonDomain)
-            .field("WorkDirectory", &self.WorkDirectory)
-            .field("InitialProgram", &self.InitialProgram)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WTSLISTENERCONFIGA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTSLISTENERCONFIGA {
-    fn eq(&self, other: &Self) -> bool {
-        self.version == other.version
-            && self.fEnableListener == other.fEnableListener
-            && self.MaxConnectionCount == other.MaxConnectionCount
-            && self.fPromptForPassword == other.fPromptForPassword
-            && self.fInheritColorDepth == other.fInheritColorDepth
-            && self.ColorDepth == other.ColorDepth
-            && self.fInheritBrokenTimeoutSettings == other.fInheritBrokenTimeoutSettings
-            && self.BrokenTimeoutSettings == other.BrokenTimeoutSettings
-            && self.fDisablePrinterRedirection == other.fDisablePrinterRedirection
-            && self.fDisableDriveRedirection == other.fDisableDriveRedirection
-            && self.fDisableComPortRedirection == other.fDisableComPortRedirection
-            && self.fDisableLPTPortRedirection == other.fDisableLPTPortRedirection
-            && self.fDisableClipboardRedirection == other.fDisableClipboardRedirection
-            && self.fDisableAudioRedirection == other.fDisableAudioRedirection
-            && self.fDisablePNPRedirection == other.fDisablePNPRedirection
-            && self.fDisableDefaultMainClientPrinter == other.fDisableDefaultMainClientPrinter
-            && self.LanAdapter == other.LanAdapter
-            && self.PortNumber == other.PortNumber
-            && self.fInheritShadowSettings == other.fInheritShadowSettings
-            && self.ShadowSettings == other.ShadowSettings
-            && self.TimeoutSettingsConnection == other.TimeoutSettingsConnection
-            && self.TimeoutSettingsDisconnection == other.TimeoutSettingsDisconnection
-            && self.TimeoutSettingsIdle == other.TimeoutSettingsIdle
-            && self.SecurityLayer == other.SecurityLayer
-            && self.MinEncryptionLevel == other.MinEncryptionLevel
-            && self.UserAuthentication == other.UserAuthentication
-            && self.Comment == other.Comment
-            && self.LogonUserName == other.LogonUserName
-            && self.LogonDomain == other.LogonDomain
-            && self.WorkDirectory == other.WorkDirectory
-            && self.InitialProgram == other.InitialProgram
-    }
-}
-impl Eq for WTSLISTENERCONFIGA {}
 impl Default for WTSLISTENERCONFIGA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTSLISTENERCONFIGW {
     pub version: u32,
     pub fEnableListener: u32,
@@ -7549,158 +6757,48 @@ pub struct WTSLISTENERCONFIGW {
     pub WorkDirectory: [u16; 261],
     pub InitialProgram: [u16; 261],
 }
-impl Copy for WTSLISTENERCONFIGW {}
-impl Clone for WTSLISTENERCONFIGW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTSLISTENERCONFIGW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTSLISTENERCONFIGW")
-            .field("version", &self.version)
-            .field("fEnableListener", &self.fEnableListener)
-            .field("MaxConnectionCount", &self.MaxConnectionCount)
-            .field("fPromptForPassword", &self.fPromptForPassword)
-            .field("fInheritColorDepth", &self.fInheritColorDepth)
-            .field("ColorDepth", &self.ColorDepth)
-            .field("fInheritBrokenTimeoutSettings", &self.fInheritBrokenTimeoutSettings)
-            .field("BrokenTimeoutSettings", &self.BrokenTimeoutSettings)
-            .field("fDisablePrinterRedirection", &self.fDisablePrinterRedirection)
-            .field("fDisableDriveRedirection", &self.fDisableDriveRedirection)
-            .field("fDisableComPortRedirection", &self.fDisableComPortRedirection)
-            .field("fDisableLPTPortRedirection", &self.fDisableLPTPortRedirection)
-            .field("fDisableClipboardRedirection", &self.fDisableClipboardRedirection)
-            .field("fDisableAudioRedirection", &self.fDisableAudioRedirection)
-            .field("fDisablePNPRedirection", &self.fDisablePNPRedirection)
-            .field("fDisableDefaultMainClientPrinter", &self.fDisableDefaultMainClientPrinter)
-            .field("LanAdapter", &self.LanAdapter)
-            .field("PortNumber", &self.PortNumber)
-            .field("fInheritShadowSettings", &self.fInheritShadowSettings)
-            .field("ShadowSettings", &self.ShadowSettings)
-            .field("TimeoutSettingsConnection", &self.TimeoutSettingsConnection)
-            .field("TimeoutSettingsDisconnection", &self.TimeoutSettingsDisconnection)
-            .field("TimeoutSettingsIdle", &self.TimeoutSettingsIdle)
-            .field("SecurityLayer", &self.SecurityLayer)
-            .field("MinEncryptionLevel", &self.MinEncryptionLevel)
-            .field("UserAuthentication", &self.UserAuthentication)
-            .field("Comment", &self.Comment)
-            .field("LogonUserName", &self.LogonUserName)
-            .field("LogonDomain", &self.LogonDomain)
-            .field("WorkDirectory", &self.WorkDirectory)
-            .field("InitialProgram", &self.InitialProgram)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WTSLISTENERCONFIGW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTSLISTENERCONFIGW {
-    fn eq(&self, other: &Self) -> bool {
-        self.version == other.version
-            && self.fEnableListener == other.fEnableListener
-            && self.MaxConnectionCount == other.MaxConnectionCount
-            && self.fPromptForPassword == other.fPromptForPassword
-            && self.fInheritColorDepth == other.fInheritColorDepth
-            && self.ColorDepth == other.ColorDepth
-            && self.fInheritBrokenTimeoutSettings == other.fInheritBrokenTimeoutSettings
-            && self.BrokenTimeoutSettings == other.BrokenTimeoutSettings
-            && self.fDisablePrinterRedirection == other.fDisablePrinterRedirection
-            && self.fDisableDriveRedirection == other.fDisableDriveRedirection
-            && self.fDisableComPortRedirection == other.fDisableComPortRedirection
-            && self.fDisableLPTPortRedirection == other.fDisableLPTPortRedirection
-            && self.fDisableClipboardRedirection == other.fDisableClipboardRedirection
-            && self.fDisableAudioRedirection == other.fDisableAudioRedirection
-            && self.fDisablePNPRedirection == other.fDisablePNPRedirection
-            && self.fDisableDefaultMainClientPrinter == other.fDisableDefaultMainClientPrinter
-            && self.LanAdapter == other.LanAdapter
-            && self.PortNumber == other.PortNumber
-            && self.fInheritShadowSettings == other.fInheritShadowSettings
-            && self.ShadowSettings == other.ShadowSettings
-            && self.TimeoutSettingsConnection == other.TimeoutSettingsConnection
-            && self.TimeoutSettingsDisconnection == other.TimeoutSettingsDisconnection
-            && self.TimeoutSettingsIdle == other.TimeoutSettingsIdle
-            && self.SecurityLayer == other.SecurityLayer
-            && self.MinEncryptionLevel == other.MinEncryptionLevel
-            && self.UserAuthentication == other.UserAuthentication
-            && self.Comment == other.Comment
-            && self.LogonUserName == other.LogonUserName
-            && self.LogonDomain == other.LogonDomain
-            && self.WorkDirectory == other.WorkDirectory
-            && self.InitialProgram == other.InitialProgram
-    }
-}
-impl Eq for WTSLISTENERCONFIGW {}
 impl Default for WTSLISTENERCONFIGW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTSSBX_IP_ADDRESS {
     pub AddressFamily: WTSSBX_ADDRESS_FAMILY,
     pub Address: [u8; 16],
     pub PortNumber: u16,
     pub dwScope: u32,
 }
-impl Copy for WTSSBX_IP_ADDRESS {}
-impl Clone for WTSSBX_IP_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTSSBX_IP_ADDRESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTSSBX_IP_ADDRESS").field("AddressFamily", &self.AddressFamily).field("Address", &self.Address).field("PortNumber", &self.PortNumber).field("dwScope", &self.dwScope).finish()
-    }
-}
 impl windows_core::TypeKind for WTSSBX_IP_ADDRESS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTSSBX_IP_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.AddressFamily == other.AddressFamily && self.Address == other.Address && self.PortNumber == other.PortNumber && self.dwScope == other.dwScope
-    }
-}
-impl Eq for WTSSBX_IP_ADDRESS {}
 impl Default for WTSSBX_IP_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTSSBX_MACHINE_CONNECT_INFO {
     pub wczMachineFQDN: [u16; 257],
     pub wczMachineNetBiosName: [u16; 17],
     pub dwNumOfIPAddr: u32,
     pub IPaddr: [WTSSBX_IP_ADDRESS; 12],
 }
-impl Copy for WTSSBX_MACHINE_CONNECT_INFO {}
-impl Clone for WTSSBX_MACHINE_CONNECT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTSSBX_MACHINE_CONNECT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTSSBX_MACHINE_CONNECT_INFO").field("wczMachineFQDN", &self.wczMachineFQDN).field("wczMachineNetBiosName", &self.wczMachineNetBiosName).field("dwNumOfIPAddr", &self.dwNumOfIPAddr).field("IPaddr", &self.IPaddr).finish()
-    }
-}
 impl windows_core::TypeKind for WTSSBX_MACHINE_CONNECT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTSSBX_MACHINE_CONNECT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.wczMachineFQDN == other.wczMachineFQDN && self.wczMachineNetBiosName == other.wczMachineNetBiosName && self.dwNumOfIPAddr == other.dwNumOfIPAddr && self.IPaddr == other.IPaddr
-    }
-}
-impl Eq for WTSSBX_MACHINE_CONNECT_INFO {}
 impl Default for WTSSBX_MACHINE_CONNECT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTSSBX_MACHINE_INFO {
     pub ClientConnectInfo: WTSSBX_MACHINE_CONNECT_INFO,
     pub wczFarmName: [u16; 257],
@@ -7711,32 +6809,16 @@ pub struct WTSSBX_MACHINE_INFO {
     pub InDrain: WTSSBX_MACHINE_DRAIN,
     pub MachineState: WTSSBX_MACHINE_STATE,
 }
-impl Copy for WTSSBX_MACHINE_INFO {}
-impl Clone for WTSSBX_MACHINE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTSSBX_MACHINE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTSSBX_MACHINE_INFO").field("ClientConnectInfo", &self.ClientConnectInfo).field("wczFarmName", &self.wczFarmName).field("InternalIPAddress", &self.InternalIPAddress).field("dwMaxSessionsLimit", &self.dwMaxSessionsLimit).field("ServerWeight", &self.ServerWeight).field("SingleSessionMode", &self.SingleSessionMode).field("InDrain", &self.InDrain).field("MachineState", &self.MachineState).finish()
-    }
-}
 impl windows_core::TypeKind for WTSSBX_MACHINE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTSSBX_MACHINE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClientConnectInfo == other.ClientConnectInfo && self.wczFarmName == other.wczFarmName && self.InternalIPAddress == other.InternalIPAddress && self.dwMaxSessionsLimit == other.dwMaxSessionsLimit && self.ServerWeight == other.ServerWeight && self.SingleSessionMode == other.SingleSessionMode && self.InDrain == other.InDrain && self.MachineState == other.MachineState
-    }
-}
-impl Eq for WTSSBX_MACHINE_INFO {}
 impl Default for WTSSBX_MACHINE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTSSBX_SESSION_INFO {
     pub wszUserName: [u16; 105],
     pub wszDomainName: [u16; 257],
@@ -7746,62 +6828,30 @@ pub struct WTSSBX_SESSION_INFO {
     pub DisconnectTime: super::super::Foundation::FILETIME,
     pub SessionState: WTSSBX_SESSION_STATE,
 }
-impl Copy for WTSSBX_SESSION_INFO {}
-impl Clone for WTSSBX_SESSION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTSSBX_SESSION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTSSBX_SESSION_INFO").field("wszUserName", &self.wszUserName).field("wszDomainName", &self.wszDomainName).field("ApplicationType", &self.ApplicationType).field("dwSessionId", &self.dwSessionId).field("CreateTime", &self.CreateTime).field("DisconnectTime", &self.DisconnectTime).field("SessionState", &self.SessionState).finish()
-    }
-}
 impl windows_core::TypeKind for WTSSBX_SESSION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTSSBX_SESSION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.wszUserName == other.wszUserName && self.wszDomainName == other.wszDomainName && self.ApplicationType == other.ApplicationType && self.dwSessionId == other.dwSessionId && self.CreateTime == other.CreateTime && self.DisconnectTime == other.DisconnectTime && self.SessionState == other.SessionState
-    }
-}
-impl Eq for WTSSBX_SESSION_INFO {}
 impl Default for WTSSBX_SESSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTSSESSION_NOTIFICATION {
     pub cbSize: u32,
     pub dwSessionId: u32,
 }
-impl Copy for WTSSESSION_NOTIFICATION {}
-impl Clone for WTSSESSION_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTSSESSION_NOTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTSSESSION_NOTIFICATION").field("cbSize", &self.cbSize).field("dwSessionId", &self.dwSessionId).finish()
-    }
-}
 impl windows_core::TypeKind for WTSSESSION_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTSSESSION_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwSessionId == other.dwSessionId
-    }
-}
-impl Eq for WTSSESSION_NOTIFICATION {}
 impl Default for WTSSESSION_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTSUSERCONFIGA {
     pub Source: u32,
     pub InheritInitialProgram: u32,
@@ -7822,68 +6872,16 @@ pub struct WTSUSERCONFIGA {
     pub TerminalServerHomeDir: [i8; 261],
     pub TerminalServerHomeDirDrive: [i8; 4],
 }
-impl Copy for WTSUSERCONFIGA {}
-impl Clone for WTSUSERCONFIGA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTSUSERCONFIGA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTSUSERCONFIGA")
-            .field("Source", &self.Source)
-            .field("InheritInitialProgram", &self.InheritInitialProgram)
-            .field("AllowLogonTerminalServer", &self.AllowLogonTerminalServer)
-            .field("TimeoutSettingsConnections", &self.TimeoutSettingsConnections)
-            .field("TimeoutSettingsDisconnections", &self.TimeoutSettingsDisconnections)
-            .field("TimeoutSettingsIdle", &self.TimeoutSettingsIdle)
-            .field("DeviceClientDrives", &self.DeviceClientDrives)
-            .field("DeviceClientPrinters", &self.DeviceClientPrinters)
-            .field("ClientDefaultPrinter", &self.ClientDefaultPrinter)
-            .field("BrokenTimeoutSettings", &self.BrokenTimeoutSettings)
-            .field("ReconnectSettings", &self.ReconnectSettings)
-            .field("ShadowingSettings", &self.ShadowingSettings)
-            .field("TerminalServerRemoteHomeDir", &self.TerminalServerRemoteHomeDir)
-            .field("InitialProgram", &self.InitialProgram)
-            .field("WorkDirectory", &self.WorkDirectory)
-            .field("TerminalServerProfilePath", &self.TerminalServerProfilePath)
-            .field("TerminalServerHomeDir", &self.TerminalServerHomeDir)
-            .field("TerminalServerHomeDirDrive", &self.TerminalServerHomeDirDrive)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WTSUSERCONFIGA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTSUSERCONFIGA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Source == other.Source
-            && self.InheritInitialProgram == other.InheritInitialProgram
-            && self.AllowLogonTerminalServer == other.AllowLogonTerminalServer
-            && self.TimeoutSettingsConnections == other.TimeoutSettingsConnections
-            && self.TimeoutSettingsDisconnections == other.TimeoutSettingsDisconnections
-            && self.TimeoutSettingsIdle == other.TimeoutSettingsIdle
-            && self.DeviceClientDrives == other.DeviceClientDrives
-            && self.DeviceClientPrinters == other.DeviceClientPrinters
-            && self.ClientDefaultPrinter == other.ClientDefaultPrinter
-            && self.BrokenTimeoutSettings == other.BrokenTimeoutSettings
-            && self.ReconnectSettings == other.ReconnectSettings
-            && self.ShadowingSettings == other.ShadowingSettings
-            && self.TerminalServerRemoteHomeDir == other.TerminalServerRemoteHomeDir
-            && self.InitialProgram == other.InitialProgram
-            && self.WorkDirectory == other.WorkDirectory
-            && self.TerminalServerProfilePath == other.TerminalServerProfilePath
-            && self.TerminalServerHomeDir == other.TerminalServerHomeDir
-            && self.TerminalServerHomeDirDrive == other.TerminalServerHomeDirDrive
-    }
-}
-impl Eq for WTSUSERCONFIGA {}
 impl Default for WTSUSERCONFIGA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTSUSERCONFIGW {
     pub Source: u32,
     pub InheritInitialProgram: u32,
@@ -7904,79 +6902,21 @@ pub struct WTSUSERCONFIGW {
     pub TerminalServerHomeDir: [u16; 261],
     pub TerminalServerHomeDirDrive: [u16; 4],
 }
-impl Copy for WTSUSERCONFIGW {}
-impl Clone for WTSUSERCONFIGW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTSUSERCONFIGW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTSUSERCONFIGW")
-            .field("Source", &self.Source)
-            .field("InheritInitialProgram", &self.InheritInitialProgram)
-            .field("AllowLogonTerminalServer", &self.AllowLogonTerminalServer)
-            .field("TimeoutSettingsConnections", &self.TimeoutSettingsConnections)
-            .field("TimeoutSettingsDisconnections", &self.TimeoutSettingsDisconnections)
-            .field("TimeoutSettingsIdle", &self.TimeoutSettingsIdle)
-            .field("DeviceClientDrives", &self.DeviceClientDrives)
-            .field("DeviceClientPrinters", &self.DeviceClientPrinters)
-            .field("ClientDefaultPrinter", &self.ClientDefaultPrinter)
-            .field("BrokenTimeoutSettings", &self.BrokenTimeoutSettings)
-            .field("ReconnectSettings", &self.ReconnectSettings)
-            .field("ShadowingSettings", &self.ShadowingSettings)
-            .field("TerminalServerRemoteHomeDir", &self.TerminalServerRemoteHomeDir)
-            .field("InitialProgram", &self.InitialProgram)
-            .field("WorkDirectory", &self.WorkDirectory)
-            .field("TerminalServerProfilePath", &self.TerminalServerProfilePath)
-            .field("TerminalServerHomeDir", &self.TerminalServerHomeDir)
-            .field("TerminalServerHomeDirDrive", &self.TerminalServerHomeDirDrive)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WTSUSERCONFIGW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTSUSERCONFIGW {
-    fn eq(&self, other: &Self) -> bool {
-        self.Source == other.Source
-            && self.InheritInitialProgram == other.InheritInitialProgram
-            && self.AllowLogonTerminalServer == other.AllowLogonTerminalServer
-            && self.TimeoutSettingsConnections == other.TimeoutSettingsConnections
-            && self.TimeoutSettingsDisconnections == other.TimeoutSettingsDisconnections
-            && self.TimeoutSettingsIdle == other.TimeoutSettingsIdle
-            && self.DeviceClientDrives == other.DeviceClientDrives
-            && self.DeviceClientPrinters == other.DeviceClientPrinters
-            && self.ClientDefaultPrinter == other.ClientDefaultPrinter
-            && self.BrokenTimeoutSettings == other.BrokenTimeoutSettings
-            && self.ReconnectSettings == other.ReconnectSettings
-            && self.ShadowingSettings == other.ShadowingSettings
-            && self.TerminalServerRemoteHomeDir == other.TerminalServerRemoteHomeDir
-            && self.InitialProgram == other.InitialProgram
-            && self.WorkDirectory == other.WorkDirectory
-            && self.TerminalServerProfilePath == other.TerminalServerProfilePath
-            && self.TerminalServerHomeDir == other.TerminalServerHomeDir
-            && self.TerminalServerHomeDirDrive == other.TerminalServerHomeDirDrive
-    }
-}
-impl Eq for WTSUSERCONFIGW {}
 impl Default for WTSUSERCONFIGW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_CACHE_STATS {
     pub Specific: u32,
     pub Data: WTS_CACHE_STATS_UN,
     pub ProtocolType: u16,
     pub Length: u16,
-}
-impl Copy for WTS_CACHE_STATS {}
-impl Clone for WTS_CACHE_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WTS_CACHE_STATS {
     type TypeKind = windows_core::CopyType;
@@ -7987,16 +6927,11 @@ impl Default for WTS_CACHE_STATS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WTS_CACHE_STATS_UN {
     pub ProtocolCache: [WTS_PROTOCOL_CACHE; 4],
     pub TShareCacheStats: u32,
     pub Reserved: [u32; 20],
-}
-impl Copy for WTS_CACHE_STATS_UN {}
-impl Clone for WTS_CACHE_STATS_UN {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WTS_CACHE_STATS_UN {
     type TypeKind = windows_core::CopyType;
@@ -8007,36 +6942,21 @@ impl Default for WTS_CACHE_STATS_UN {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_CLIENT_ADDRESS {
     pub AddressFamily: u32,
     pub Address: [u8; 20],
 }
-impl Copy for WTS_CLIENT_ADDRESS {}
-impl Clone for WTS_CLIENT_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_CLIENT_ADDRESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_CLIENT_ADDRESS").field("AddressFamily", &self.AddressFamily).field("Address", &self.Address).finish()
-    }
-}
 impl windows_core::TypeKind for WTS_CLIENT_ADDRESS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_CLIENT_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.AddressFamily == other.AddressFamily && self.Address == other.Address
-    }
-}
-impl Eq for WTS_CLIENT_ADDRESS {}
 impl Default for WTS_CLIENT_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_CLIENT_DATA {
     pub fDisableCtrlAltDel: super::super::Foundation::BOOLEAN,
     pub fDoubleClickDetect: super::super::Foundation::BOOLEAN,
@@ -8094,12 +7014,6 @@ pub struct WTS_CLIENT_DATA {
     pub fDisableClip: super::super::Foundation::BOOLEAN,
     pub fDisablePNP: super::super::Foundation::BOOLEAN,
 }
-impl Copy for WTS_CLIENT_DATA {}
-impl Clone for WTS_CLIENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for WTS_CLIENT_DATA {
     type TypeKind = windows_core::CopyType;
 }
@@ -8109,67 +7023,36 @@ impl Default for WTS_CLIENT_DATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_CLIENT_DISPLAY {
     pub HorizontalResolution: u32,
     pub VerticalResolution: u32,
     pub ColorDepth: u32,
 }
-impl Copy for WTS_CLIENT_DISPLAY {}
-impl Clone for WTS_CLIENT_DISPLAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_CLIENT_DISPLAY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_CLIENT_DISPLAY").field("HorizontalResolution", &self.HorizontalResolution).field("VerticalResolution", &self.VerticalResolution).field("ColorDepth", &self.ColorDepth).finish()
-    }
-}
 impl windows_core::TypeKind for WTS_CLIENT_DISPLAY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_CLIENT_DISPLAY {
-    fn eq(&self, other: &Self) -> bool {
-        self.HorizontalResolution == other.HorizontalResolution && self.VerticalResolution == other.VerticalResolution && self.ColorDepth == other.ColorDepth
-    }
-}
-impl Eq for WTS_CLIENT_DISPLAY {}
 impl Default for WTS_CLIENT_DISPLAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_DISPLAY_IOCTL {
     pub pDisplayIOCtlData: [u8; 256],
     pub cbDisplayIOCtlData: u32,
 }
-impl Copy for WTS_DISPLAY_IOCTL {}
-impl Clone for WTS_DISPLAY_IOCTL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_DISPLAY_IOCTL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_DISPLAY_IOCTL").field("pDisplayIOCtlData", &self.pDisplayIOCtlData).field("cbDisplayIOCtlData", &self.cbDisplayIOCtlData).finish()
-    }
-}
 impl windows_core::TypeKind for WTS_DISPLAY_IOCTL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_DISPLAY_IOCTL {
-    fn eq(&self, other: &Self) -> bool {
-        self.pDisplayIOCtlData == other.pDisplayIOCtlData && self.cbDisplayIOCtlData == other.cbDisplayIOCtlData
-    }
-}
-impl Eq for WTS_DISPLAY_IOCTL {}
 impl Default for WTS_DISPLAY_IOCTL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_LICENSE_CAPABILITIES {
     pub KeyExchangeAlg: u32,
     pub ProtocolVer: u32,
@@ -8178,32 +7061,16 @@ pub struct WTS_LICENSE_CAPABILITIES {
     pub cbClientName: u32,
     pub rgbClientName: [u8; 42],
 }
-impl Copy for WTS_LICENSE_CAPABILITIES {}
-impl Clone for WTS_LICENSE_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_LICENSE_CAPABILITIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_LICENSE_CAPABILITIES").field("KeyExchangeAlg", &self.KeyExchangeAlg).field("ProtocolVer", &self.ProtocolVer).field("fAuthenticateServer", &self.fAuthenticateServer).field("CertType", &self.CertType).field("cbClientName", &self.cbClientName).field("rgbClientName", &self.rgbClientName).finish()
-    }
-}
 impl windows_core::TypeKind for WTS_LICENSE_CAPABILITIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_LICENSE_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.KeyExchangeAlg == other.KeyExchangeAlg && self.ProtocolVer == other.ProtocolVer && self.fAuthenticateServer == other.fAuthenticateServer && self.CertType == other.CertType && self.cbClientName == other.cbClientName && self.rgbClientName == other.rgbClientName
-    }
-}
-impl Eq for WTS_LICENSE_CAPABILITIES {}
 impl Default for WTS_LICENSE_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_POLICY_DATA {
     pub fDisableEncryption: super::super::Foundation::BOOLEAN,
     pub fDisableAutoReconnect: super::super::Foundation::BOOLEAN,
@@ -8216,107 +7083,48 @@ pub struct WTS_POLICY_DATA {
     pub fDisableClip: super::super::Foundation::BOOLEAN,
     pub fDisablePNPRedir: super::super::Foundation::BOOLEAN,
 }
-impl Copy for WTS_POLICY_DATA {}
-impl Clone for WTS_POLICY_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_POLICY_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_POLICY_DATA")
-            .field("fDisableEncryption", &self.fDisableEncryption)
-            .field("fDisableAutoReconnect", &self.fDisableAutoReconnect)
-            .field("ColorDepth", &self.ColorDepth)
-            .field("MinEncryptionLevel", &self.MinEncryptionLevel)
-            .field("fDisableCpm", &self.fDisableCpm)
-            .field("fDisableCdm", &self.fDisableCdm)
-            .field("fDisableCcm", &self.fDisableCcm)
-            .field("fDisableLPT", &self.fDisableLPT)
-            .field("fDisableClip", &self.fDisableClip)
-            .field("fDisablePNPRedir", &self.fDisablePNPRedir)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WTS_POLICY_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_POLICY_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.fDisableEncryption == other.fDisableEncryption && self.fDisableAutoReconnect == other.fDisableAutoReconnect && self.ColorDepth == other.ColorDepth && self.MinEncryptionLevel == other.MinEncryptionLevel && self.fDisableCpm == other.fDisableCpm && self.fDisableCdm == other.fDisableCdm && self.fDisableCcm == other.fDisableCcm && self.fDisableLPT == other.fDisableLPT && self.fDisableClip == other.fDisableClip && self.fDisablePNPRedir == other.fDisablePNPRedir
-    }
-}
-impl Eq for WTS_POLICY_DATA {}
 impl Default for WTS_POLICY_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_PROCESS_INFOA {
     pub SessionId: u32,
     pub ProcessId: u32,
     pub pProcessName: windows_core::PSTR,
     pub pUserSid: super::super::Foundation::PSID,
 }
-impl Copy for WTS_PROCESS_INFOA {}
-impl Clone for WTS_PROCESS_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_PROCESS_INFOA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_PROCESS_INFOA").field("SessionId", &self.SessionId).field("ProcessId", &self.ProcessId).field("pProcessName", &self.pProcessName).field("pUserSid", &self.pUserSid).finish()
-    }
-}
 impl windows_core::TypeKind for WTS_PROCESS_INFOA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_PROCESS_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.SessionId == other.SessionId && self.ProcessId == other.ProcessId && self.pProcessName == other.pProcessName && self.pUserSid == other.pUserSid
-    }
-}
-impl Eq for WTS_PROCESS_INFOA {}
 impl Default for WTS_PROCESS_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_PROCESS_INFOW {
     pub SessionId: u32,
     pub ProcessId: u32,
     pub pProcessName: windows_core::PWSTR,
     pub pUserSid: super::super::Foundation::PSID,
 }
-impl Copy for WTS_PROCESS_INFOW {}
-impl Clone for WTS_PROCESS_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_PROCESS_INFOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_PROCESS_INFOW").field("SessionId", &self.SessionId).field("ProcessId", &self.ProcessId).field("pProcessName", &self.pProcessName).field("pUserSid", &self.pUserSid).finish()
-    }
-}
 impl windows_core::TypeKind for WTS_PROCESS_INFOW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_PROCESS_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.SessionId == other.SessionId && self.ProcessId == other.ProcessId && self.pProcessName == other.pProcessName && self.pUserSid == other.pUserSid
-    }
-}
-impl Eq for WTS_PROCESS_INFOW {}
 impl Default for WTS_PROCESS_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_PROCESS_INFO_EXA {
     pub SessionId: u32,
     pub ProcessId: u32,
@@ -8331,45 +7139,16 @@ pub struct WTS_PROCESS_INFO_EXA {
     pub UserTime: i64,
     pub KernelTime: i64,
 }
-impl Copy for WTS_PROCESS_INFO_EXA {}
-impl Clone for WTS_PROCESS_INFO_EXA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_PROCESS_INFO_EXA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_PROCESS_INFO_EXA")
-            .field("SessionId", &self.SessionId)
-            .field("ProcessId", &self.ProcessId)
-            .field("pProcessName", &self.pProcessName)
-            .field("pUserSid", &self.pUserSid)
-            .field("NumberOfThreads", &self.NumberOfThreads)
-            .field("HandleCount", &self.HandleCount)
-            .field("PagefileUsage", &self.PagefileUsage)
-            .field("PeakPagefileUsage", &self.PeakPagefileUsage)
-            .field("WorkingSetSize", &self.WorkingSetSize)
-            .field("PeakWorkingSetSize", &self.PeakWorkingSetSize)
-            .field("UserTime", &self.UserTime)
-            .field("KernelTime", &self.KernelTime)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WTS_PROCESS_INFO_EXA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_PROCESS_INFO_EXA {
-    fn eq(&self, other: &Self) -> bool {
-        self.SessionId == other.SessionId && self.ProcessId == other.ProcessId && self.pProcessName == other.pProcessName && self.pUserSid == other.pUserSid && self.NumberOfThreads == other.NumberOfThreads && self.HandleCount == other.HandleCount && self.PagefileUsage == other.PagefileUsage && self.PeakPagefileUsage == other.PeakPagefileUsage && self.WorkingSetSize == other.WorkingSetSize && self.PeakWorkingSetSize == other.PeakWorkingSetSize && self.UserTime == other.UserTime && self.KernelTime == other.KernelTime
-    }
-}
-impl Eq for WTS_PROCESS_INFO_EXA {}
 impl Default for WTS_PROCESS_INFO_EXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_PROCESS_INFO_EXW {
     pub SessionId: u32,
     pub ProcessId: u32,
@@ -8384,54 +7163,19 @@ pub struct WTS_PROCESS_INFO_EXW {
     pub UserTime: i64,
     pub KernelTime: i64,
 }
-impl Copy for WTS_PROCESS_INFO_EXW {}
-impl Clone for WTS_PROCESS_INFO_EXW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_PROCESS_INFO_EXW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_PROCESS_INFO_EXW")
-            .field("SessionId", &self.SessionId)
-            .field("ProcessId", &self.ProcessId)
-            .field("pProcessName", &self.pProcessName)
-            .field("pUserSid", &self.pUserSid)
-            .field("NumberOfThreads", &self.NumberOfThreads)
-            .field("HandleCount", &self.HandleCount)
-            .field("PagefileUsage", &self.PagefileUsage)
-            .field("PeakPagefileUsage", &self.PeakPagefileUsage)
-            .field("WorkingSetSize", &self.WorkingSetSize)
-            .field("PeakWorkingSetSize", &self.PeakWorkingSetSize)
-            .field("UserTime", &self.UserTime)
-            .field("KernelTime", &self.KernelTime)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WTS_PROCESS_INFO_EXW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_PROCESS_INFO_EXW {
-    fn eq(&self, other: &Self) -> bool {
-        self.SessionId == other.SessionId && self.ProcessId == other.ProcessId && self.pProcessName == other.pProcessName && self.pUserSid == other.pUserSid && self.NumberOfThreads == other.NumberOfThreads && self.HandleCount == other.HandleCount && self.PagefileUsage == other.PagefileUsage && self.PeakPagefileUsage == other.PeakPagefileUsage && self.WorkingSetSize == other.WorkingSetSize && self.PeakWorkingSetSize == other.PeakWorkingSetSize && self.UserTime == other.UserTime && self.KernelTime == other.KernelTime
-    }
-}
-impl Eq for WTS_PROCESS_INFO_EXW {}
 impl Default for WTS_PROCESS_INFO_EXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_PROPERTY_VALUE {
     pub Type: u16,
     pub u: WTS_PROPERTY_VALUE_0,
-}
-impl Copy for WTS_PROPERTY_VALUE {}
-impl Clone for WTS_PROPERTY_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WTS_PROPERTY_VALUE {
     type TypeKind = windows_core::CopyType;
@@ -8442,17 +7186,12 @@ impl Default for WTS_PROPERTY_VALUE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WTS_PROPERTY_VALUE_0 {
     pub ulVal: u32,
     pub strVal: WTS_PROPERTY_VALUE_0_1,
     pub bVal: WTS_PROPERTY_VALUE_0_0,
     pub guidVal: windows_core::GUID,
-}
-impl Copy for WTS_PROPERTY_VALUE_0 {}
-impl Clone for WTS_PROPERTY_VALUE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WTS_PROPERTY_VALUE_0 {
     type TypeKind = windows_core::CopyType;
@@ -8463,96 +7202,49 @@ impl Default for WTS_PROPERTY_VALUE_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_PROPERTY_VALUE_0_0 {
     pub size: u32,
     pub pbVal: windows_core::PSTR,
 }
-impl Copy for WTS_PROPERTY_VALUE_0_0 {}
-impl Clone for WTS_PROPERTY_VALUE_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_PROPERTY_VALUE_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_PROPERTY_VALUE_0_0").field("size", &self.size).field("pbVal", &self.pbVal).finish()
-    }
-}
 impl windows_core::TypeKind for WTS_PROPERTY_VALUE_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_PROPERTY_VALUE_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.size == other.size && self.pbVal == other.pbVal
-    }
-}
-impl Eq for WTS_PROPERTY_VALUE_0_0 {}
 impl Default for WTS_PROPERTY_VALUE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_PROPERTY_VALUE_0_1 {
     pub size: u32,
     pub pstrVal: windows_core::PWSTR,
 }
-impl Copy for WTS_PROPERTY_VALUE_0_1 {}
-impl Clone for WTS_PROPERTY_VALUE_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_PROPERTY_VALUE_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_PROPERTY_VALUE_0_1").field("size", &self.size).field("pstrVal", &self.pstrVal).finish()
-    }
-}
 impl windows_core::TypeKind for WTS_PROPERTY_VALUE_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_PROPERTY_VALUE_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.size == other.size && self.pstrVal == other.pstrVal
-    }
-}
-impl Eq for WTS_PROPERTY_VALUE_0_1 {}
 impl Default for WTS_PROPERTY_VALUE_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_PROTOCOL_CACHE {
     pub CacheReads: u32,
     pub CacheHits: u32,
 }
-impl Copy for WTS_PROTOCOL_CACHE {}
-impl Clone for WTS_PROTOCOL_CACHE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_PROTOCOL_CACHE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_PROTOCOL_CACHE").field("CacheReads", &self.CacheReads).field("CacheHits", &self.CacheHits).finish()
-    }
-}
 impl windows_core::TypeKind for WTS_PROTOCOL_CACHE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_PROTOCOL_CACHE {
-    fn eq(&self, other: &Self) -> bool {
-        self.CacheReads == other.CacheReads && self.CacheHits == other.CacheHits
-    }
-}
-impl Eq for WTS_PROTOCOL_CACHE {}
 impl Default for WTS_PROTOCOL_CACHE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_PROTOCOL_COUNTERS {
     pub WdBytes: u32,
     pub WdFrames: u32,
@@ -8573,51 +7265,16 @@ pub struct WTS_PROTOCOL_COUNTERS {
     pub Specific: u16,
     pub Reserved: [u32; 100],
 }
-impl Copy for WTS_PROTOCOL_COUNTERS {}
-impl Clone for WTS_PROTOCOL_COUNTERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_PROTOCOL_COUNTERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_PROTOCOL_COUNTERS")
-            .field("WdBytes", &self.WdBytes)
-            .field("WdFrames", &self.WdFrames)
-            .field("WaitForOutBuf", &self.WaitForOutBuf)
-            .field("Frames", &self.Frames)
-            .field("Bytes", &self.Bytes)
-            .field("CompressedBytes", &self.CompressedBytes)
-            .field("CompressFlushes", &self.CompressFlushes)
-            .field("Errors", &self.Errors)
-            .field("Timeouts", &self.Timeouts)
-            .field("AsyncFramingError", &self.AsyncFramingError)
-            .field("AsyncOverrunError", &self.AsyncOverrunError)
-            .field("AsyncOverflowError", &self.AsyncOverflowError)
-            .field("AsyncParityError", &self.AsyncParityError)
-            .field("TdErrors", &self.TdErrors)
-            .field("ProtocolType", &self.ProtocolType)
-            .field("Length", &self.Length)
-            .field("Specific", &self.Specific)
-            .field("Reserved", &self.Reserved)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for WTS_PROTOCOL_COUNTERS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_PROTOCOL_COUNTERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.WdBytes == other.WdBytes && self.WdFrames == other.WdFrames && self.WaitForOutBuf == other.WaitForOutBuf && self.Frames == other.Frames && self.Bytes == other.Bytes && self.CompressedBytes == other.CompressedBytes && self.CompressFlushes == other.CompressFlushes && self.Errors == other.Errors && self.Timeouts == other.Timeouts && self.AsyncFramingError == other.AsyncFramingError && self.AsyncOverrunError == other.AsyncOverrunError && self.AsyncOverflowError == other.AsyncOverflowError && self.AsyncParityError == other.AsyncParityError && self.TdErrors == other.TdErrors && self.ProtocolType == other.ProtocolType && self.Length == other.Length && self.Specific == other.Specific && self.Reserved == other.Reserved
-    }
-}
-impl Eq for WTS_PROTOCOL_COUNTERS {}
 impl Default for WTS_PROTOCOL_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_PROTOCOL_STATUS {
     pub Output: WTS_PROTOCOL_COUNTERS,
     pub Input: WTS_PROTOCOL_COUNTERS,
@@ -8625,12 +7282,6 @@ pub struct WTS_PROTOCOL_STATUS {
     pub AsyncSignal: u32,
     pub AsyncSignalMask: u32,
     pub Counters: [i64; 100],
-}
-impl Copy for WTS_PROTOCOL_STATUS {}
-impl Clone for WTS_PROTOCOL_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WTS_PROTOCOL_STATUS {
     type TypeKind = windows_core::CopyType;
@@ -8641,216 +7292,105 @@ impl Default for WTS_PROTOCOL_STATUS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_SERVER_INFOA {
     pub pServerName: windows_core::PSTR,
-}
-impl Copy for WTS_SERVER_INFOA {}
-impl Clone for WTS_SERVER_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_SERVER_INFOA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_SERVER_INFOA").field("pServerName", &self.pServerName).finish()
-    }
 }
 impl windows_core::TypeKind for WTS_SERVER_INFOA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_SERVER_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pServerName == other.pServerName
-    }
-}
-impl Eq for WTS_SERVER_INFOA {}
 impl Default for WTS_SERVER_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_SERVER_INFOW {
     pub pServerName: windows_core::PWSTR,
-}
-impl Copy for WTS_SERVER_INFOW {}
-impl Clone for WTS_SERVER_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_SERVER_INFOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_SERVER_INFOW").field("pServerName", &self.pServerName).finish()
-    }
 }
 impl windows_core::TypeKind for WTS_SERVER_INFOW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_SERVER_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.pServerName == other.pServerName
-    }
-}
-impl Eq for WTS_SERVER_INFOW {}
 impl Default for WTS_SERVER_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_SERVICE_STATE {
     pub RcmServiceState: WTS_RCM_SERVICE_STATE,
     pub RcmDrainState: WTS_RCM_DRAIN_STATE,
 }
-impl Copy for WTS_SERVICE_STATE {}
-impl Clone for WTS_SERVICE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_SERVICE_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_SERVICE_STATE").field("RcmServiceState", &self.RcmServiceState).field("RcmDrainState", &self.RcmDrainState).finish()
-    }
-}
 impl windows_core::TypeKind for WTS_SERVICE_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_SERVICE_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.RcmServiceState == other.RcmServiceState && self.RcmDrainState == other.RcmDrainState
-    }
-}
-impl Eq for WTS_SERVICE_STATE {}
 impl Default for WTS_SERVICE_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_SESSION_ADDRESS {
     pub AddressFamily: u32,
     pub Address: [u8; 20],
 }
-impl Copy for WTS_SESSION_ADDRESS {}
-impl Clone for WTS_SESSION_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_SESSION_ADDRESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_SESSION_ADDRESS").field("AddressFamily", &self.AddressFamily).field("Address", &self.Address).finish()
-    }
-}
 impl windows_core::TypeKind for WTS_SESSION_ADDRESS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_SESSION_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.AddressFamily == other.AddressFamily && self.Address == other.Address
-    }
-}
-impl Eq for WTS_SESSION_ADDRESS {}
 impl Default for WTS_SESSION_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_SESSION_ID {
     pub SessionUniqueGuid: windows_core::GUID,
     pub SessionId: u32,
 }
-impl Copy for WTS_SESSION_ID {}
-impl Clone for WTS_SESSION_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_SESSION_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_SESSION_ID").field("SessionUniqueGuid", &self.SessionUniqueGuid).field("SessionId", &self.SessionId).finish()
-    }
-}
 impl windows_core::TypeKind for WTS_SESSION_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_SESSION_ID {
-    fn eq(&self, other: &Self) -> bool {
-        self.SessionUniqueGuid == other.SessionUniqueGuid && self.SessionId == other.SessionId
-    }
-}
-impl Eq for WTS_SESSION_ID {}
 impl Default for WTS_SESSION_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_SESSION_INFOA {
     pub SessionId: u32,
     pub pWinStationName: windows_core::PSTR,
     pub State: WTS_CONNECTSTATE_CLASS,
 }
-impl Copy for WTS_SESSION_INFOA {}
-impl Clone for WTS_SESSION_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_SESSION_INFOA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_SESSION_INFOA").field("SessionId", &self.SessionId).field("pWinStationName", &self.pWinStationName).field("State", &self.State).finish()
-    }
-}
 impl windows_core::TypeKind for WTS_SESSION_INFOA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_SESSION_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.SessionId == other.SessionId && self.pWinStationName == other.pWinStationName && self.State == other.State
-    }
-}
-impl Eq for WTS_SESSION_INFOA {}
 impl Default for WTS_SESSION_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_SESSION_INFOW {
     pub SessionId: u32,
     pub pWinStationName: windows_core::PWSTR,
     pub State: WTS_CONNECTSTATE_CLASS,
 }
-impl Copy for WTS_SESSION_INFOW {}
-impl Clone for WTS_SESSION_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_SESSION_INFOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_SESSION_INFOW").field("SessionId", &self.SessionId).field("pWinStationName", &self.pWinStationName).field("State", &self.State).finish()
-    }
-}
 impl windows_core::TypeKind for WTS_SESSION_INFOW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_SESSION_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.SessionId == other.SessionId && self.pWinStationName == other.pWinStationName && self.State == other.State
-    }
-}
-impl Eq for WTS_SESSION_INFOW {}
 impl Default for WTS_SESSION_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_SESSION_INFO_1A {
     pub ExecEnvId: u32,
     pub State: WTS_CONNECTSTATE_CLASS,
@@ -8861,32 +7401,16 @@ pub struct WTS_SESSION_INFO_1A {
     pub pDomainName: windows_core::PSTR,
     pub pFarmName: windows_core::PSTR,
 }
-impl Copy for WTS_SESSION_INFO_1A {}
-impl Clone for WTS_SESSION_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_SESSION_INFO_1A {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_SESSION_INFO_1A").field("ExecEnvId", &self.ExecEnvId).field("State", &self.State).field("SessionId", &self.SessionId).field("pSessionName", &self.pSessionName).field("pHostName", &self.pHostName).field("pUserName", &self.pUserName).field("pDomainName", &self.pDomainName).field("pFarmName", &self.pFarmName).finish()
-    }
-}
 impl windows_core::TypeKind for WTS_SESSION_INFO_1A {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_SESSION_INFO_1A {
-    fn eq(&self, other: &Self) -> bool {
-        self.ExecEnvId == other.ExecEnvId && self.State == other.State && self.SessionId == other.SessionId && self.pSessionName == other.pSessionName && self.pHostName == other.pHostName && self.pUserName == other.pUserName && self.pDomainName == other.pDomainName && self.pFarmName == other.pFarmName
-    }
-}
-impl Eq for WTS_SESSION_INFO_1A {}
 impl Default for WTS_SESSION_INFO_1A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_SESSION_INFO_1W {
     pub ExecEnvId: u32,
     pub State: WTS_CONNECTSTATE_CLASS,
@@ -8897,73 +7421,35 @@ pub struct WTS_SESSION_INFO_1W {
     pub pDomainName: windows_core::PWSTR,
     pub pFarmName: windows_core::PWSTR,
 }
-impl Copy for WTS_SESSION_INFO_1W {}
-impl Clone for WTS_SESSION_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_SESSION_INFO_1W {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_SESSION_INFO_1W").field("ExecEnvId", &self.ExecEnvId).field("State", &self.State).field("SessionId", &self.SessionId).field("pSessionName", &self.pSessionName).field("pHostName", &self.pHostName).field("pUserName", &self.pUserName).field("pDomainName", &self.pDomainName).field("pFarmName", &self.pFarmName).finish()
-    }
-}
 impl windows_core::TypeKind for WTS_SESSION_INFO_1W {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_SESSION_INFO_1W {
-    fn eq(&self, other: &Self) -> bool {
-        self.ExecEnvId == other.ExecEnvId && self.State == other.State && self.SessionId == other.SessionId && self.pSessionName == other.pSessionName && self.pHostName == other.pHostName && self.pUserName == other.pUserName && self.pDomainName == other.pDomainName && self.pFarmName == other.pFarmName
-    }
-}
-impl Eq for WTS_SESSION_INFO_1W {}
 impl Default for WTS_SESSION_INFO_1W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_SMALL_RECT {
     pub Left: i16,
     pub Top: i16,
     pub Right: i16,
     pub Bottom: i16,
 }
-impl Copy for WTS_SMALL_RECT {}
-impl Clone for WTS_SMALL_RECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_SMALL_RECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_SMALL_RECT").field("Left", &self.Left).field("Top", &self.Top).field("Right", &self.Right).field("Bottom", &self.Bottom).finish()
-    }
-}
 impl windows_core::TypeKind for WTS_SMALL_RECT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_SMALL_RECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Left == other.Left && self.Top == other.Top && self.Right == other.Right && self.Bottom == other.Bottom
-    }
-}
-impl Eq for WTS_SMALL_RECT {}
 impl Default for WTS_SMALL_RECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WTS_SOCKADDR {
     pub sin_family: u16,
     pub u: WTS_SOCKADDR_0,
-}
-impl Copy for WTS_SOCKADDR {}
-impl Clone for WTS_SOCKADDR {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WTS_SOCKADDR {
     type TypeKind = windows_core::CopyType;
@@ -8974,15 +7460,10 @@ impl Default for WTS_SOCKADDR {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union WTS_SOCKADDR_0 {
     pub ipv4: WTS_SOCKADDR_0_0,
     pub ipv6: WTS_SOCKADDR_0_1,
-}
-impl Copy for WTS_SOCKADDR_0 {}
-impl Clone for WTS_SOCKADDR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for WTS_SOCKADDR_0 {
     type TypeKind = windows_core::CopyType;
@@ -8993,69 +7474,38 @@ impl Default for WTS_SOCKADDR_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_SOCKADDR_0_0 {
     pub sin_port: u16,
     pub IN_ADDR: u32,
     pub sin_zero: [u8; 8],
 }
-impl Copy for WTS_SOCKADDR_0_0 {}
-impl Clone for WTS_SOCKADDR_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_SOCKADDR_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_SOCKADDR_0_0").field("sin_port", &self.sin_port).field("IN_ADDR", &self.IN_ADDR).field("sin_zero", &self.sin_zero).finish()
-    }
-}
 impl windows_core::TypeKind for WTS_SOCKADDR_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_SOCKADDR_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.sin_port == other.sin_port && self.IN_ADDR == other.IN_ADDR && self.sin_zero == other.sin_zero
-    }
-}
-impl Eq for WTS_SOCKADDR_0_0 {}
 impl Default for WTS_SOCKADDR_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_SOCKADDR_0_1 {
     pub sin6_port: u16,
     pub sin6_flowinfo: u32,
     pub sin6_addr: [u16; 8],
     pub sin6_scope_id: u32,
 }
-impl Copy for WTS_SOCKADDR_0_1 {}
-impl Clone for WTS_SOCKADDR_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_SOCKADDR_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_SOCKADDR_0_1").field("sin6_port", &self.sin6_port).field("sin6_flowinfo", &self.sin6_flowinfo).field("sin6_addr", &self.sin6_addr).field("sin6_scope_id", &self.sin6_scope_id).finish()
-    }
-}
 impl windows_core::TypeKind for WTS_SOCKADDR_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_SOCKADDR_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.sin6_port == other.sin6_port && self.sin6_flowinfo == other.sin6_flowinfo && self.sin6_addr == other.sin6_addr && self.sin6_scope_id == other.sin6_scope_id
-    }
-}
-impl Eq for WTS_SOCKADDR_0_1 {}
 impl Default for WTS_SOCKADDR_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_SYSTEMTIME {
     pub wYear: u16,
     pub wMonth: u16,
@@ -9066,32 +7516,16 @@ pub struct WTS_SYSTEMTIME {
     pub wSecond: u16,
     pub wMilliseconds: u16,
 }
-impl Copy for WTS_SYSTEMTIME {}
-impl Clone for WTS_SYSTEMTIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_SYSTEMTIME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_SYSTEMTIME").field("wYear", &self.wYear).field("wMonth", &self.wMonth).field("wDayOfWeek", &self.wDayOfWeek).field("wDay", &self.wDay).field("wHour", &self.wHour).field("wMinute", &self.wMinute).field("wSecond", &self.wSecond).field("wMilliseconds", &self.wMilliseconds).finish()
-    }
-}
 impl windows_core::TypeKind for WTS_SYSTEMTIME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_SYSTEMTIME {
-    fn eq(&self, other: &Self) -> bool {
-        self.wYear == other.wYear && self.wMonth == other.wMonth && self.wDayOfWeek == other.wDayOfWeek && self.wDay == other.wDay && self.wHour == other.wHour && self.wMinute == other.wMinute && self.wSecond == other.wSecond && self.wMilliseconds == other.wMilliseconds
-    }
-}
-impl Eq for WTS_SYSTEMTIME {}
 impl Default for WTS_SYSTEMTIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_TIME_ZONE_INFORMATION {
     pub Bias: i32,
     pub StandardName: [u16; 32],
@@ -9101,94 +7535,46 @@ pub struct WTS_TIME_ZONE_INFORMATION {
     pub DaylightDate: WTS_SYSTEMTIME,
     pub DaylightBias: i32,
 }
-impl Copy for WTS_TIME_ZONE_INFORMATION {}
-impl Clone for WTS_TIME_ZONE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_TIME_ZONE_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_TIME_ZONE_INFORMATION").field("Bias", &self.Bias).field("StandardName", &self.StandardName).field("StandardDate", &self.StandardDate).field("StandardBias", &self.StandardBias).field("DaylightName", &self.DaylightName).field("DaylightDate", &self.DaylightDate).field("DaylightBias", &self.DaylightBias).finish()
-    }
-}
 impl windows_core::TypeKind for WTS_TIME_ZONE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_TIME_ZONE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Bias == other.Bias && self.StandardName == other.StandardName && self.StandardDate == other.StandardDate && self.StandardBias == other.StandardBias && self.DaylightName == other.DaylightName && self.DaylightDate == other.DaylightDate && self.DaylightBias == other.DaylightBias
-    }
-}
-impl Eq for WTS_TIME_ZONE_INFORMATION {}
 impl Default for WTS_TIME_ZONE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_USER_CREDENTIAL {
     pub UserName: [u16; 256],
     pub Password: [u16; 256],
     pub Domain: [u16; 256],
 }
-impl Copy for WTS_USER_CREDENTIAL {}
-impl Clone for WTS_USER_CREDENTIAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_USER_CREDENTIAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_USER_CREDENTIAL").field("UserName", &self.UserName).field("Password", &self.Password).field("Domain", &self.Domain).finish()
-    }
-}
 impl windows_core::TypeKind for WTS_USER_CREDENTIAL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_USER_CREDENTIAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.UserName == other.UserName && self.Password == other.Password && self.Domain == other.Domain
-    }
-}
-impl Eq for WTS_USER_CREDENTIAL {}
 impl Default for WTS_USER_CREDENTIAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_USER_DATA {
     pub WorkDirectory: [u16; 257],
     pub InitialProgram: [u16; 257],
     pub UserTimeZone: WTS_TIME_ZONE_INFORMATION,
 }
-impl Copy for WTS_USER_DATA {}
-impl Clone for WTS_USER_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_USER_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_USER_DATA").field("WorkDirectory", &self.WorkDirectory).field("InitialProgram", &self.InitialProgram).field("UserTimeZone", &self.UserTimeZone).finish()
-    }
-}
 impl windows_core::TypeKind for WTS_USER_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_USER_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.WorkDirectory == other.WorkDirectory && self.InitialProgram == other.InitialProgram && self.UserTimeZone == other.UserTimeZone
-    }
-}
-impl Eq for WTS_USER_DATA {}
 impl Default for WTS_USER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_VALIDATION_INFORMATIONA {
     pub ProductInfo: PRODUCT_INFOA,
     pub License: [u8; 16384],
@@ -9196,32 +7582,16 @@ pub struct WTS_VALIDATION_INFORMATIONA {
     pub HardwareID: [u8; 20],
     pub HardwareIDLength: u32,
 }
-impl Copy for WTS_VALIDATION_INFORMATIONA {}
-impl Clone for WTS_VALIDATION_INFORMATIONA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_VALIDATION_INFORMATIONA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_VALIDATION_INFORMATIONA").field("ProductInfo", &self.ProductInfo).field("License", &self.License).field("LicenseLength", &self.LicenseLength).field("HardwareID", &self.HardwareID).field("HardwareIDLength", &self.HardwareIDLength).finish()
-    }
-}
 impl windows_core::TypeKind for WTS_VALIDATION_INFORMATIONA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_VALIDATION_INFORMATIONA {
-    fn eq(&self, other: &Self) -> bool {
-        self.ProductInfo == other.ProductInfo && self.License == other.License && self.LicenseLength == other.LicenseLength && self.HardwareID == other.HardwareID && self.HardwareIDLength == other.HardwareIDLength
-    }
-}
-impl Eq for WTS_VALIDATION_INFORMATIONA {}
 impl Default for WTS_VALIDATION_INFORMATIONA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_VALIDATION_INFORMATIONW {
     pub ProductInfo: PRODUCT_INFOW,
     pub License: [u8; 16384],
@@ -9229,26 +7599,9 @@ pub struct WTS_VALIDATION_INFORMATIONW {
     pub HardwareID: [u8; 20],
     pub HardwareIDLength: u32,
 }
-impl Copy for WTS_VALIDATION_INFORMATIONW {}
-impl Clone for WTS_VALIDATION_INFORMATIONW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WTS_VALIDATION_INFORMATIONW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WTS_VALIDATION_INFORMATIONW").field("ProductInfo", &self.ProductInfo).field("License", &self.License).field("LicenseLength", &self.LicenseLength).field("HardwareID", &self.HardwareID).field("HardwareIDLength", &self.HardwareIDLength).finish()
-    }
-}
 impl windows_core::TypeKind for WTS_VALIDATION_INFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WTS_VALIDATION_INFORMATIONW {
-    fn eq(&self, other: &Self) -> bool {
-        self.ProductInfo == other.ProductInfo && self.License == other.License && self.LicenseLength == other.LicenseLength && self.HardwareID == other.HardwareID && self.HardwareIDLength == other.HardwareIDLength
-    }
-}
-impl Eq for WTS_VALIDATION_INFORMATIONW {}
 impl Default for WTS_VALIDATION_INFORMATIONW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9256,6 +7609,7 @@ impl Default for WTS_VALIDATION_INFORMATIONW {
 }
 pub const Workspace: windows_core::GUID = windows_core::GUID::from_u128(0x4f1dfca6_3aad_48e1_8406_4bc21a501d7c);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct pluginResource {
     pub alias: [u16; 256],
     pub name: [u16; 256],
@@ -9269,44 +7623,16 @@ pub struct pluginResource {
     pub pcePluginBlobSize: u32,
     pub blobContents: *mut u8,
 }
-impl Copy for pluginResource {}
-impl Clone for pluginResource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for pluginResource {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("pluginResource")
-            .field("alias", &self.alias)
-            .field("name", &self.name)
-            .field("resourceFileContents", &self.resourceFileContents)
-            .field("fileExtension", &self.fileExtension)
-            .field("resourcePluginType", &self.resourcePluginType)
-            .field("isDiscoverable", &self.isDiscoverable)
-            .field("resourceType", &self.resourceType)
-            .field("pceIconSize", &self.pceIconSize)
-            .field("iconContents", &self.iconContents)
-            .field("pcePluginBlobSize", &self.pcePluginBlobSize)
-            .field("blobContents", &self.blobContents)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for pluginResource {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for pluginResource {
-    fn eq(&self, other: &Self) -> bool {
-        self.alias == other.alias && self.name == other.name && self.resourceFileContents == other.resourceFileContents && self.fileExtension == other.fileExtension && self.resourcePluginType == other.resourcePluginType && self.isDiscoverable == other.isDiscoverable && self.resourceType == other.resourceType && self.pceIconSize == other.pceIconSize && self.iconContents == other.iconContents && self.pcePluginBlobSize == other.pcePluginBlobSize && self.blobContents == other.blobContents
-    }
-}
-impl Eq for pluginResource {}
 impl Default for pluginResource {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct pluginResource2 {
     pub resourceV1: pluginResource,
     pub pceFileAssocListSize: u32,
@@ -9315,58 +7641,25 @@ pub struct pluginResource2 {
     pub pceFolderListSize: u32,
     pub folderList: *mut *mut u16,
 }
-impl Copy for pluginResource2 {}
-impl Clone for pluginResource2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for pluginResource2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("pluginResource2").field("resourceV1", &self.resourceV1).field("pceFileAssocListSize", &self.pceFileAssocListSize).field("fileAssocList", &self.fileAssocList).field("securityDescriptor", &self.securityDescriptor).field("pceFolderListSize", &self.pceFolderListSize).field("folderList", &self.folderList).finish()
-    }
-}
 impl windows_core::TypeKind for pluginResource2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for pluginResource2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.resourceV1 == other.resourceV1 && self.pceFileAssocListSize == other.pceFileAssocListSize && self.fileAssocList == other.fileAssocList && self.securityDescriptor == other.securityDescriptor && self.pceFolderListSize == other.pceFolderListSize && self.folderList == other.folderList
-    }
-}
-impl Eq for pluginResource2 {}
 impl Default for pluginResource2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct pluginResource2FileAssociation {
     pub extName: [u16; 256],
     pub primaryHandler: u8,
     pub pceIconSize: u32,
     pub iconContents: *mut u8,
 }
-impl Copy for pluginResource2FileAssociation {}
-impl Clone for pluginResource2FileAssociation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for pluginResource2FileAssociation {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("pluginResource2FileAssociation").field("extName", &self.extName).field("primaryHandler", &self.primaryHandler).field("pceIconSize", &self.pceIconSize).field("iconContents", &self.iconContents).finish()
-    }
-}
 impl windows_core::TypeKind for pluginResource2FileAssociation {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for pluginResource2FileAssociation {
-    fn eq(&self, other: &Self) -> bool {
-        self.extName == other.extName && self.primaryHandler == other.primaryHandler && self.pceIconSize == other.pceIconSize && self.iconContents == other.iconContents
-    }
-}
-impl Eq for pluginResource2FileAssociation {}
 impl Default for pluginResource2FileAssociation {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

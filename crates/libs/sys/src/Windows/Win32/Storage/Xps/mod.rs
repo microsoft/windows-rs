@@ -274,6 +274,7 @@ pub type XPS_STYLE_SIMULATION = i32;
 pub type XPS_THUMBNAIL_SIZE = i32;
 pub type XPS_TILE_MODE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DOCINFOA {
     pub cbSize: i32,
     pub lpszDocName: windows_sys::core::PCSTR,
@@ -281,13 +282,8 @@ pub struct DOCINFOA {
     pub lpszDatatype: windows_sys::core::PCSTR,
     pub fwType: u32,
 }
-impl Copy for DOCINFOA {}
-impl Clone for DOCINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DOCINFOW {
     pub cbSize: i32,
     pub lpszDocName: windows_sys::core::PCWSTR,
@@ -295,27 +291,17 @@ pub struct DOCINFOW {
     pub lpszDatatype: windows_sys::core::PCWSTR,
     pub fwType: u32,
 }
-impl Copy for DOCINFOW {}
-impl Clone for DOCINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRAWPATRECT {
     pub ptPosition: super::super::Foundation::POINT,
     pub ptSize: super::super::Foundation::POINT,
     pub wStyle: u16,
     pub wPattern: u16,
 }
-impl Copy for DRAWPATRECT {}
-impl Clone for DRAWPATRECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type HPTPROVIDER = isize;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSFEATURE_CUSTPAPER {
     pub lOrientation: i32,
     pub lWidth: i32,
@@ -323,133 +309,78 @@ pub struct PSFEATURE_CUSTPAPER {
     pub lWidthOffset: i32,
     pub lHeightOffset: i32,
 }
-impl Copy for PSFEATURE_CUSTPAPER {}
-impl Clone for PSFEATURE_CUSTPAPER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSFEATURE_OUTPUT {
     pub bPageIndependent: super::super::Foundation::BOOL,
     pub bSetPageDevice: super::super::Foundation::BOOL,
 }
-impl Copy for PSFEATURE_OUTPUT {}
-impl Clone for PSFEATURE_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSINJECTDATA {
     pub DataBytes: u32,
     pub InjectionPoint: PSINJECT_POINT,
     pub PageNumber: u16,
 }
-impl Copy for PSINJECTDATA {}
-impl Clone for PSINJECTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct XPS_COLOR {
     pub colorType: XPS_COLOR_TYPE,
     pub value: XPS_COLOR_0,
 }
-impl Copy for XPS_COLOR {}
-impl Clone for XPS_COLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union XPS_COLOR_0 {
     pub sRGB: XPS_COLOR_0_1,
     pub scRGB: XPS_COLOR_0_2,
     pub context: XPS_COLOR_0_0,
 }
-impl Copy for XPS_COLOR_0 {}
-impl Clone for XPS_COLOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct XPS_COLOR_0_0 {
     pub channelCount: u8,
     pub channels: [f32; 9],
 }
-impl Copy for XPS_COLOR_0_0 {}
-impl Clone for XPS_COLOR_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct XPS_COLOR_0_1 {
     pub alpha: u8,
     pub red: u8,
     pub green: u8,
     pub blue: u8,
 }
-impl Copy for XPS_COLOR_0_1 {}
-impl Clone for XPS_COLOR_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct XPS_COLOR_0_2 {
     pub alpha: f32,
     pub red: f32,
     pub green: f32,
     pub blue: f32,
 }
-impl Copy for XPS_COLOR_0_2 {}
-impl Clone for XPS_COLOR_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct XPS_DASH {
     pub length: f32,
     pub gap: f32,
 }
-impl Copy for XPS_DASH {}
-impl Clone for XPS_DASH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct XPS_GLYPH_INDEX {
     pub index: i32,
     pub advanceWidth: f32,
     pub horizontalOffset: f32,
     pub verticalOffset: f32,
 }
-impl Copy for XPS_GLYPH_INDEX {}
-impl Clone for XPS_GLYPH_INDEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct XPS_GLYPH_MAPPING {
     pub unicodeStringStart: u32,
     pub unicodeStringLength: u16,
     pub glyphIndicesStart: u32,
     pub glyphIndicesLength: u16,
 }
-impl Copy for XPS_GLYPH_MAPPING {}
-impl Clone for XPS_GLYPH_MAPPING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct XPS_MATRIX {
     pub m11: f32,
     pub m12: f32,
@@ -458,46 +389,25 @@ pub struct XPS_MATRIX {
     pub m31: f32,
     pub m32: f32,
 }
-impl Copy for XPS_MATRIX {}
-impl Clone for XPS_MATRIX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct XPS_POINT {
     pub x: f32,
     pub y: f32,
 }
-impl Copy for XPS_POINT {}
-impl Clone for XPS_POINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct XPS_RECT {
     pub x: f32,
     pub y: f32,
     pub width: f32,
     pub height: f32,
 }
-impl Copy for XPS_RECT {}
-impl Clone for XPS_RECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct XPS_SIZE {
     pub width: f32,
     pub height: f32,
-}
-impl Copy for XPS_SIZE {}
-impl Clone for XPS_SIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const XpsOMObjectFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe974d26d_3d9b_4d47_88cc_3872f2dc3585);
 pub const XpsOMThumbnailGenerator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7e4a23e2_b969_4761_be35_1a8ced58e323);

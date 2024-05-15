@@ -52,31 +52,22 @@ pub type RM_FILTER_TRIGGER = i32;
 pub type RM_REBOOT_REASON = i32;
 pub type RM_SHUTDOWN_TYPE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RM_FILTER_INFO {
     pub FilterAction: RM_FILTER_ACTION,
     pub FilterTrigger: RM_FILTER_TRIGGER,
     pub cbNextOffset: u32,
     pub Anonymous: RM_FILTER_INFO_0,
 }
-impl Copy for RM_FILTER_INFO {}
-impl Clone for RM_FILTER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union RM_FILTER_INFO_0 {
     pub strFilename: windows_sys::core::PWSTR,
     pub Process: RM_UNIQUE_PROCESS,
     pub strServiceShortName: windows_sys::core::PWSTR,
 }
-impl Copy for RM_FILTER_INFO_0 {}
-impl Clone for RM_FILTER_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RM_PROCESS_INFO {
     pub Process: RM_UNIQUE_PROCESS,
     pub strAppName: [u16; 256],
@@ -86,21 +77,10 @@ pub struct RM_PROCESS_INFO {
     pub TSSessionId: u32,
     pub bRestartable: super::super::Foundation::BOOL,
 }
-impl Copy for RM_PROCESS_INFO {}
-impl Clone for RM_PROCESS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RM_UNIQUE_PROCESS {
     pub dwProcessId: u32,
     pub ProcessStartTime: super::super::Foundation::FILETIME,
-}
-impl Copy for RM_UNIQUE_PROCESS {}
-impl Clone for RM_UNIQUE_PROCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type RM_WRITE_STATUS_CALLBACK = Option<unsafe extern "system" fn(npercentcomplete: u32)>;

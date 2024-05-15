@@ -14,19 +14,15 @@ pub const KeyWriteTimeInformation: KEY_SET_INFORMATION_CLASS = 0i32;
 pub const MaxKeySetInfoClass: KEY_SET_INFORMATION_CLASS = 7i32;
 pub type KEY_SET_INFORMATION_CLASS = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct KEY_VALUE_ENTRY {
     pub ValueName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
     pub DataLength: u32,
     pub DataOffset: u32,
     pub Type: u32,
 }
-impl Copy for KEY_VALUE_ENTRY {}
-impl Clone for KEY_VALUE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub ValueEntries: *mut KEY_VALUE_ENTRY,
@@ -38,13 +34,8 @@ pub struct REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl Copy for REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {}
-impl Clone for REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REG_SET_INFORMATION_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub KeySetInformationClass: KEY_SET_INFORMATION_CLASS,
@@ -53,10 +44,4 @@ pub struct REG_SET_INFORMATION_KEY_INFORMATION {
     pub CallContext: *mut core::ffi::c_void,
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
-}
-impl Copy for REG_SET_INFORMATION_KEY_INFORMATION {}
-impl Clone for REG_SET_INFORMATION_KEY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

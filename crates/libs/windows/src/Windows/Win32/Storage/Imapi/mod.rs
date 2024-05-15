@@ -4657,29 +4657,13 @@ pub const FsiFileItem: windows_core::GUID = windows_core::GUID::from_u128(0x2c94
 pub const FsiNamedStreams: windows_core::GUID = windows_core::GUID::from_u128(0xc6b6f8ed_6d19_44b4_b539_b159b793a32d);
 pub const FsiStream: windows_core::GUID = windows_core::GUID::from_u128(0x2c941fcd_975b_59be_a960_9a2a262853a5);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMMP_MPV_STORE_DRIVER_HANDLE {
     pub guidSignature: windows_core::GUID,
-}
-impl Copy for IMMP_MPV_STORE_DRIVER_HANDLE {}
-impl Clone for IMMP_MPV_STORE_DRIVER_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IMMP_MPV_STORE_DRIVER_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IMMP_MPV_STORE_DRIVER_HANDLE").field("guidSignature", &self.guidSignature).finish()
-    }
 }
 impl windows_core::TypeKind for IMMP_MPV_STORE_DRIVER_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IMMP_MPV_STORE_DRIVER_HANDLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.guidSignature == other.guidSignature
-    }
-}
-impl Eq for IMMP_MPV_STORE_DRIVER_HANDLE {}
 impl Default for IMMP_MPV_STORE_DRIVER_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4719,30 +4703,14 @@ pub const MsftWriteSpeedDescriptor: windows_core::GUID = windows_core::GUID::fro
 pub const ProgressItem: windows_core::GUID = windows_core::GUID::from_u128(0x2c941fcb_975b_59be_a960_9a2a262853a5);
 pub const ProgressItems: windows_core::GUID = windows_core::GUID::from_u128(0x2c941fc9_975b_59be_a960_9a2a262853a5);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPropAttrArray {
     pub cValues: u32,
     pub aPropAttr: [u32; 1],
 }
-impl Copy for SPropAttrArray {}
-impl Clone for SPropAttrArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SPropAttrArray {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SPropAttrArray").field("cValues", &self.cValues).field("aPropAttr", &self.aPropAttr).finish()
-    }
-}
 impl windows_core::TypeKind for SPropAttrArray {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SPropAttrArray {
-    fn eq(&self, other: &Self) -> bool {
-        self.cValues == other.cValues && self.aPropAttr == other.aPropAttr
-    }
-}
-impl Eq for SPropAttrArray {}
 impl Default for SPropAttrArray {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4750,31 +4718,15 @@ impl Default for SPropAttrArray {
 }
 pub const tagIMMPID_CPV_STRUCT: windows_core::GUID = windows_core::GUID::from_u128(0xa2a76b2a_e52d_11d1_aa64_00c04fa35b82);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagIMMPID_GUIDLIST_ITEM {
     pub pguid: *const windows_core::GUID,
     pub dwStart: u32,
     pub dwLast: u32,
 }
-impl Copy for tagIMMPID_GUIDLIST_ITEM {}
-impl Clone for tagIMMPID_GUIDLIST_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for tagIMMPID_GUIDLIST_ITEM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("tagIMMPID_GUIDLIST_ITEM").field("pguid", &self.pguid).field("dwStart", &self.dwStart).field("dwLast", &self.dwLast).finish()
-    }
-}
 impl windows_core::TypeKind for tagIMMPID_GUIDLIST_ITEM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for tagIMMPID_GUIDLIST_ITEM {
-    fn eq(&self, other: &Self) -> bool {
-        self.pguid == other.pguid && self.dwStart == other.dwStart && self.dwLast == other.dwLast
-    }
-}
-impl Eq for tagIMMPID_GUIDLIST_ITEM {}
 impl Default for tagIMMPID_GUIDLIST_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

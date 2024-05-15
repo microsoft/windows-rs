@@ -793,6 +793,7 @@ impl core::fmt::Debug for DRM_USAGEPOLICY_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRMBOUNDLICENSEPARAMS {
     pub uVersion: u32,
     pub hEnablingPrincipal: u32,
@@ -805,105 +806,46 @@ pub struct DRMBOUNDLICENSEPARAMS {
     pub wszDefaultEnablingPrincipalCredentials: windows_core::PWSTR,
     pub dwFlags: u32,
 }
-impl Copy for DRMBOUNDLICENSEPARAMS {}
-impl Clone for DRMBOUNDLICENSEPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DRMBOUNDLICENSEPARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DRMBOUNDLICENSEPARAMS")
-            .field("uVersion", &self.uVersion)
-            .field("hEnablingPrincipal", &self.hEnablingPrincipal)
-            .field("hSecureStore", &self.hSecureStore)
-            .field("wszRightsRequested", &self.wszRightsRequested)
-            .field("wszRightsGroup", &self.wszRightsGroup)
-            .field("idResource", &self.idResource)
-            .field("cAuthenticatorCount", &self.cAuthenticatorCount)
-            .field("rghAuthenticators", &self.rghAuthenticators)
-            .field("wszDefaultEnablingPrincipalCredentials", &self.wszDefaultEnablingPrincipalCredentials)
-            .field("dwFlags", &self.dwFlags)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DRMBOUNDLICENSEPARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DRMBOUNDLICENSEPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.uVersion == other.uVersion && self.hEnablingPrincipal == other.hEnablingPrincipal && self.hSecureStore == other.hSecureStore && self.wszRightsRequested == other.wszRightsRequested && self.wszRightsGroup == other.wszRightsGroup && self.idResource == other.idResource && self.cAuthenticatorCount == other.cAuthenticatorCount && self.rghAuthenticators == other.rghAuthenticators && self.wszDefaultEnablingPrincipalCredentials == other.wszDefaultEnablingPrincipalCredentials && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for DRMBOUNDLICENSEPARAMS {}
 impl Default for DRMBOUNDLICENSEPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRMID {
     pub uVersion: u32,
     pub wszIDType: windows_core::PWSTR,
     pub wszID: windows_core::PWSTR,
 }
-impl Copy for DRMID {}
-impl Clone for DRMID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DRMID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DRMID").field("uVersion", &self.uVersion).field("wszIDType", &self.wszIDType).field("wszID", &self.wszID).finish()
-    }
-}
 impl windows_core::TypeKind for DRMID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DRMID {
-    fn eq(&self, other: &Self) -> bool {
-        self.uVersion == other.uVersion && self.wszIDType == other.wszIDType && self.wszID == other.wszID
-    }
-}
-impl Eq for DRMID {}
 impl Default for DRMID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRM_ACTSERV_INFO {
     pub uVersion: u32,
     pub wszPubKey: windows_core::PWSTR,
     pub wszURL: windows_core::PWSTR,
 }
-impl Copy for DRM_ACTSERV_INFO {}
-impl Clone for DRM_ACTSERV_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DRM_ACTSERV_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DRM_ACTSERV_INFO").field("uVersion", &self.uVersion).field("wszPubKey", &self.wszPubKey).field("wszURL", &self.wszURL).finish()
-    }
-}
 impl windows_core::TypeKind for DRM_ACTSERV_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DRM_ACTSERV_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.uVersion == other.uVersion && self.wszPubKey == other.wszPubKey && self.wszURL == other.wszURL
-    }
-}
-impl Eq for DRM_ACTSERV_INFO {}
 impl Default for DRM_ACTSERV_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRM_CLIENT_VERSION_INFO {
     pub uStructVersion: u32,
     pub dwVersion: [u32; 4],
@@ -911,32 +853,16 @@ pub struct DRM_CLIENT_VERSION_INFO {
     pub wszProductId: [u16; 256],
     pub wszProductDescription: [u16; 256],
 }
-impl Copy for DRM_CLIENT_VERSION_INFO {}
-impl Clone for DRM_CLIENT_VERSION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DRM_CLIENT_VERSION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DRM_CLIENT_VERSION_INFO").field("uStructVersion", &self.uStructVersion).field("dwVersion", &self.dwVersion).field("wszHierarchy", &self.wszHierarchy).field("wszProductId", &self.wszProductId).field("wszProductDescription", &self.wszProductDescription).finish()
-    }
-}
 impl windows_core::TypeKind for DRM_CLIENT_VERSION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DRM_CLIENT_VERSION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.uStructVersion == other.uStructVersion && self.dwVersion == other.dwVersion && self.wszHierarchy == other.wszHierarchy && self.wszProductId == other.wszProductId && self.wszProductDescription == other.wszProductDescription
-    }
-}
-impl Eq for DRM_CLIENT_VERSION_INFO {}
 impl Default for DRM_CLIENT_VERSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRM_LICENSE_ACQ_DATA {
     pub uVersion: u32,
     pub wszURL: windows_core::PWSTR,
@@ -945,26 +871,9 @@ pub struct DRM_LICENSE_ACQ_DATA {
     pub dwPostDataSize: u32,
     pub wszFriendlyName: windows_core::PWSTR,
 }
-impl Copy for DRM_LICENSE_ACQ_DATA {}
-impl Clone for DRM_LICENSE_ACQ_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DRM_LICENSE_ACQ_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DRM_LICENSE_ACQ_DATA").field("uVersion", &self.uVersion).field("wszURL", &self.wszURL).field("wszLocalFilename", &self.wszLocalFilename).field("pbPostData", &self.pbPostData).field("dwPostDataSize", &self.dwPostDataSize).field("wszFriendlyName", &self.wszFriendlyName).finish()
-    }
-}
 impl windows_core::TypeKind for DRM_LICENSE_ACQ_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DRM_LICENSE_ACQ_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.uVersion == other.uVersion && self.wszURL == other.wszURL && self.wszLocalFilename == other.wszLocalFilename && self.pbPostData == other.pbPostData && self.dwPostDataSize == other.dwPostDataSize && self.wszFriendlyName == other.wszFriendlyName
-    }
-}
-impl Eq for DRM_LICENSE_ACQ_DATA {}
 impl Default for DRM_LICENSE_ACQ_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

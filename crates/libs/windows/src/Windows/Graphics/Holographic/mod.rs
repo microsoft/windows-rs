@@ -1977,20 +1977,10 @@ impl windows_core::RuntimeType for HolographicViewConfigurationKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicViewConfigurationKind;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HolographicAdapterId {
     pub LowPart: u32,
     pub HighPart: i32,
-}
-impl Copy for HolographicAdapterId {}
-impl Clone for HolographicAdapterId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HolographicAdapterId {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HolographicAdapterId").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
-    }
 }
 impl windows_core::TypeKind for HolographicAdapterId {
     type TypeKind = windows_core::CopyType;
@@ -1998,31 +1988,15 @@ impl windows_core::TypeKind for HolographicAdapterId {
 impl windows_core::RuntimeType for HolographicAdapterId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicAdapterId;u4;i4)");
 }
-impl PartialEq for HolographicAdapterId {
-    fn eq(&self, other: &Self) -> bool {
-        self.LowPart == other.LowPart && self.HighPart == other.HighPart
-    }
-}
-impl Eq for HolographicAdapterId {}
 impl Default for HolographicAdapterId {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HolographicFrameId {
     pub Value: u64,
-}
-impl Copy for HolographicFrameId {}
-impl Clone for HolographicFrameId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HolographicFrameId {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HolographicFrameId").field("Value", &self.Value).finish()
-    }
 }
 impl windows_core::TypeKind for HolographicFrameId {
     type TypeKind = windows_core::CopyType;
@@ -2030,12 +2004,6 @@ impl windows_core::TypeKind for HolographicFrameId {
 impl windows_core::RuntimeType for HolographicFrameId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicFrameId;u8)");
 }
-impl PartialEq for HolographicFrameId {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
-    }
-}
-impl Eq for HolographicFrameId {}
 impl Default for HolographicFrameId {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2043,23 +2011,10 @@ impl Default for HolographicFrameId {
 }
 #[repr(C)]
 #[cfg(feature = "Foundation_Numerics")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HolographicStereoTransform {
     pub Left: super::super::Foundation::Numerics::Matrix4x4,
     pub Right: super::super::Foundation::Numerics::Matrix4x4,
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Copy for HolographicStereoTransform {}
-#[cfg(feature = "Foundation_Numerics")]
-impl Clone for HolographicStereoTransform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl core::fmt::Debug for HolographicStereoTransform {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HolographicStereoTransform").field("Left", &self.Left).field("Right", &self.Right).finish()
-    }
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl windows_core::TypeKind for HolographicStereoTransform {
@@ -2069,14 +2024,6 @@ impl windows_core::TypeKind for HolographicStereoTransform {
 impl windows_core::RuntimeType for HolographicStereoTransform {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicStereoTransform;struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4);struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4))");
 }
-#[cfg(feature = "Foundation_Numerics")]
-impl PartialEq for HolographicStereoTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.Left == other.Left && self.Right == other.Right
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Eq for HolographicStereoTransform {}
 #[cfg(feature = "Foundation_Numerics")]
 impl Default for HolographicStereoTransform {
     fn default() -> Self {

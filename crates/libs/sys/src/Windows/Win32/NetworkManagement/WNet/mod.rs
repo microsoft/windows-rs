@@ -204,6 +204,7 @@ pub type UNC_INFO_LEVEL = u32;
 pub type WNET_OPEN_ENUM_USAGE = u32;
 pub type WNPERM_DLG = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CONNECTDLGSTRUCTA {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -211,13 +212,8 @@ pub struct CONNECTDLGSTRUCTA {
     pub dwFlags: CONNECTDLGSTRUCT_FLAGS,
     pub dwDevNum: u32,
 }
-impl Copy for CONNECTDLGSTRUCTA {}
-impl Clone for CONNECTDLGSTRUCTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CONNECTDLGSTRUCTW {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -225,13 +221,8 @@ pub struct CONNECTDLGSTRUCTW {
     pub dwFlags: CONNECTDLGSTRUCT_FLAGS,
     pub dwDevNum: u32,
 }
-impl Copy for CONNECTDLGSTRUCTW {}
-impl Clone for CONNECTDLGSTRUCTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DISCDLGSTRUCTA {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -239,13 +230,8 @@ pub struct DISCDLGSTRUCTA {
     pub lpRemoteName: windows_sys::core::PSTR,
     pub dwFlags: DISCDLGSTRUCT_FLAGS,
 }
-impl Copy for DISCDLGSTRUCTA {}
-impl Clone for DISCDLGSTRUCTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DISCDLGSTRUCTW {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -253,13 +239,8 @@ pub struct DISCDLGSTRUCTW {
     pub lpRemoteName: windows_sys::core::PWSTR,
     pub dwFlags: DISCDLGSTRUCT_FLAGS,
 }
-impl Copy for DISCDLGSTRUCTW {}
-impl Clone for DISCDLGSTRUCTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NETCONNECTINFOSTRUCT {
     pub cbStructure: u32,
     pub dwFlags: u32,
@@ -267,13 +248,8 @@ pub struct NETCONNECTINFOSTRUCT {
     pub dwDelay: u32,
     pub dwOptDataSize: u32,
 }
-impl Copy for NETCONNECTINFOSTRUCT {}
-impl Clone for NETCONNECTINFOSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NETINFOSTRUCT {
     pub cbStructure: u32,
     pub dwProviderVersion: u32,
@@ -284,13 +260,8 @@ pub struct NETINFOSTRUCT {
     pub dwPrinters: u32,
     pub dwDrives: u32,
 }
-impl Copy for NETINFOSTRUCT {}
-impl Clone for NETINFOSTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NETRESOURCEA {
     pub dwScope: NET_RESOURCE_SCOPE,
     pub dwType: NET_RESOURCE_TYPE,
@@ -301,13 +272,8 @@ pub struct NETRESOURCEA {
     pub lpComment: windows_sys::core::PSTR,
     pub lpProvider: windows_sys::core::PSTR,
 }
-impl Copy for NETRESOURCEA {}
-impl Clone for NETRESOURCEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NETRESOURCEW {
     pub dwScope: NET_RESOURCE_SCOPE,
     pub dwType: NET_RESOURCE_TYPE,
@@ -318,92 +284,51 @@ pub struct NETRESOURCEW {
     pub lpComment: windows_sys::core::PWSTR,
     pub lpProvider: windows_sys::core::PWSTR,
 }
-impl Copy for NETRESOURCEW {}
-impl Clone for NETRESOURCEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NOTIFYADD {
     pub hwndOwner: super::super::Foundation::HWND,
     pub NetResource: NETRESOURCEA,
     pub dwAddFlags: NET_USE_CONNECT_FLAGS,
 }
-impl Copy for NOTIFYADD {}
-impl Clone for NOTIFYADD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NOTIFYCANCEL {
     pub lpName: windows_sys::core::PWSTR,
     pub lpProvider: windows_sys::core::PWSTR,
     pub dwFlags: u32,
     pub fForce: super::super::Foundation::BOOL,
 }
-impl Copy for NOTIFYCANCEL {}
-impl Clone for NOTIFYCANCEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NOTIFYINFO {
     pub dwNotifyStatus: u32,
     pub dwOperationStatus: u32,
     pub lpContext: *mut core::ffi::c_void,
 }
-impl Copy for NOTIFYINFO {}
-impl Clone for NOTIFYINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REMOTE_NAME_INFOA {
     pub lpUniversalName: windows_sys::core::PSTR,
     pub lpConnectionName: windows_sys::core::PSTR,
     pub lpRemainingPath: windows_sys::core::PSTR,
 }
-impl Copy for REMOTE_NAME_INFOA {}
-impl Clone for REMOTE_NAME_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct REMOTE_NAME_INFOW {
     pub lpUniversalName: windows_sys::core::PWSTR,
     pub lpConnectionName: windows_sys::core::PWSTR,
     pub lpRemainingPath: windows_sys::core::PWSTR,
 }
-impl Copy for REMOTE_NAME_INFOW {}
-impl Clone for REMOTE_NAME_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UNIVERSAL_NAME_INFOA {
     pub lpUniversalName: windows_sys::core::PSTR,
 }
-impl Copy for UNIVERSAL_NAME_INFOA {}
-impl Clone for UNIVERSAL_NAME_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct UNIVERSAL_NAME_INFOW {
     pub lpUniversalName: windows_sys::core::PWSTR,
-}
-impl Copy for UNIVERSAL_NAME_INFOW {}
-impl Clone for UNIVERSAL_NAME_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type PF_AddConnectNotify = Option<unsafe extern "system" fn(lpnotifyinfo: *mut NOTIFYINFO, lpaddinfo: *const NOTIFYADD) -> u32>;
 pub type PF_CancelConnectNotify = Option<unsafe extern "system" fn(lpnotifyinfo: *mut NOTIFYINFO, lpcancelinfo: *const NOTIFYCANCEL) -> u32>;

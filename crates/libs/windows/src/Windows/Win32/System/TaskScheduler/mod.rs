@@ -3380,96 +3380,49 @@ impl core::fmt::Debug for TASK_TRIGGER_TYPE2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DAILY {
     pub DaysInterval: u16,
-}
-impl Copy for DAILY {}
-impl Clone for DAILY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DAILY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DAILY").field("DaysInterval", &self.DaysInterval).finish()
-    }
 }
 impl windows_core::TypeKind for DAILY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DAILY {
-    fn eq(&self, other: &Self) -> bool {
-        self.DaysInterval == other.DaysInterval
-    }
-}
-impl Eq for DAILY {}
 impl Default for DAILY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONTHLYDATE {
     pub rgfDays: u32,
     pub rgfMonths: u16,
 }
-impl Copy for MONTHLYDATE {}
-impl Clone for MONTHLYDATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MONTHLYDATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MONTHLYDATE").field("rgfDays", &self.rgfDays).field("rgfMonths", &self.rgfMonths).finish()
-    }
-}
 impl windows_core::TypeKind for MONTHLYDATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MONTHLYDATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.rgfDays == other.rgfDays && self.rgfMonths == other.rgfMonths
-    }
-}
-impl Eq for MONTHLYDATE {}
 impl Default for MONTHLYDATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONTHLYDOW {
     pub wWhichWeek: u16,
     pub rgfDaysOfTheWeek: u16,
     pub rgfMonths: u16,
 }
-impl Copy for MONTHLYDOW {}
-impl Clone for MONTHLYDOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MONTHLYDOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MONTHLYDOW").field("wWhichWeek", &self.wWhichWeek).field("rgfDaysOfTheWeek", &self.rgfDaysOfTheWeek).field("rgfMonths", &self.rgfMonths).finish()
-    }
-}
 impl windows_core::TypeKind for MONTHLYDOW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MONTHLYDOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.wWhichWeek == other.wWhichWeek && self.rgfDaysOfTheWeek == other.rgfDaysOfTheWeek && self.rgfMonths == other.rgfMonths
-    }
-}
-impl Eq for MONTHLYDOW {}
 impl Default for MONTHLYDOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TASK_TRIGGER {
     pub cbTriggerSize: u16,
     pub Reserved1: u16,
@@ -3489,12 +3442,6 @@ pub struct TASK_TRIGGER {
     pub Reserved2: u16,
     pub wRandomMinutesInterval: u16,
 }
-impl Copy for TASK_TRIGGER {}
-impl Clone for TASK_TRIGGER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for TASK_TRIGGER {
     type TypeKind = windows_core::CopyType;
 }
@@ -3504,17 +3451,12 @@ impl Default for TASK_TRIGGER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union TRIGGER_TYPE_UNION {
     pub Daily: DAILY,
     pub Weekly: WEEKLY,
     pub MonthlyDate: MONTHLYDATE,
     pub MonthlyDOW: MONTHLYDOW,
-}
-impl Copy for TRIGGER_TYPE_UNION {}
-impl Clone for TRIGGER_TYPE_UNION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for TRIGGER_TYPE_UNION {
     type TypeKind = windows_core::CopyType;
@@ -3528,30 +3470,14 @@ pub const TaskHandlerPS: windows_core::GUID = windows_core::GUID::from_u128(0xf2
 pub const TaskHandlerStatusPS: windows_core::GUID = windows_core::GUID::from_u128(0x9f15266d_d7ba_48f0_93c1_e6895f6fe5ac);
 pub const TaskScheduler: windows_core::GUID = windows_core::GUID::from_u128(0x0f87369f_a4e5_4cfc_bd3e_73e6154572dd);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEEKLY {
     pub WeeksInterval: u16,
     pub rgfDaysOfTheWeek: u16,
 }
-impl Copy for WEEKLY {}
-impl Clone for WEEKLY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WEEKLY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WEEKLY").field("WeeksInterval", &self.WeeksInterval).field("rgfDaysOfTheWeek", &self.rgfDaysOfTheWeek).finish()
-    }
-}
 impl windows_core::TypeKind for WEEKLY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WEEKLY {
-    fn eq(&self, other: &Self) -> bool {
-        self.WeeksInterval == other.WeeksInterval && self.rgfDaysOfTheWeek == other.rgfDaysOfTheWeek
-    }
-}
-impl Eq for WEEKLY {}
 impl Default for WEEKLY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

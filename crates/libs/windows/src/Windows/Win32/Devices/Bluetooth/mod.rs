@@ -1337,14 +1337,9 @@ impl core::fmt::Debug for SDP_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BLUETOOTH_ADDRESS {
     pub Anonymous: BLUETOOTH_ADDRESS_0,
-}
-impl Copy for BLUETOOTH_ADDRESS {}
-impl Clone for BLUETOOTH_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BLUETOOTH_ADDRESS {
     type TypeKind = windows_core::CopyType;
@@ -1355,15 +1350,10 @@ impl Default for BLUETOOTH_ADDRESS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union BLUETOOTH_ADDRESS_0 {
     pub ullLong: u64,
     pub rgBytes: [u8; 6],
-}
-impl Copy for BLUETOOTH_ADDRESS_0 {}
-impl Clone for BLUETOOTH_ADDRESS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BLUETOOTH_ADDRESS_0 {
     type TypeKind = windows_core::CopyType;
@@ -1374,17 +1364,12 @@ impl Default for BLUETOOTH_ADDRESS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BLUETOOTH_AUTHENTICATE_RESPONSE {
     pub bthAddressRemote: BLUETOOTH_ADDRESS,
     pub authMethod: BLUETOOTH_AUTHENTICATION_METHOD,
     pub Anonymous: BLUETOOTH_AUTHENTICATE_RESPONSE_0,
     pub negativeResponse: u8,
-}
-impl Copy for BLUETOOTH_AUTHENTICATE_RESPONSE {}
-impl Clone for BLUETOOTH_AUTHENTICATE_RESPONSE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BLUETOOTH_AUTHENTICATE_RESPONSE {
     type TypeKind = windows_core::CopyType;
@@ -1395,17 +1380,12 @@ impl Default for BLUETOOTH_AUTHENTICATE_RESPONSE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
     pub pinInfo: BLUETOOTH_PIN_INFO,
     pub oobInfo: BLUETOOTH_OOB_DATA_INFO,
     pub numericCompInfo: BLUETOOTH_NUMERIC_COMPARISON_INFO,
     pub passkeyInfo: BLUETOOTH_PASSKEY_INFO,
-}
-impl Copy for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {}
-impl Clone for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
     type TypeKind = windows_core::CopyType;
@@ -1416,18 +1396,13 @@ impl Default for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
     pub deviceInfo: BLUETOOTH_DEVICE_INFO,
     pub authenticationMethod: BLUETOOTH_AUTHENTICATION_METHOD,
     pub ioCapability: BLUETOOTH_IO_CAPABILITY,
     pub authenticationRequirements: BLUETOOTH_AUTHENTICATION_REQUIREMENTS,
     pub Anonymous: BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0,
-}
-impl Copy for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {}
-impl Clone for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
     type TypeKind = windows_core::CopyType;
@@ -1438,15 +1413,10 @@ impl Default for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
     pub Numeric_Value: u32,
     pub Passkey: u32,
-}
-impl Copy for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {}
-impl Clone for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
     type TypeKind = windows_core::CopyType;
@@ -1457,36 +1427,21 @@ impl Default for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BLUETOOTH_COD_PAIRS {
     pub ulCODMask: u32,
     pub pcszDescription: windows_core::PCWSTR,
 }
-impl Copy for BLUETOOTH_COD_PAIRS {}
-impl Clone for BLUETOOTH_COD_PAIRS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BLUETOOTH_COD_PAIRS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BLUETOOTH_COD_PAIRS").field("ulCODMask", &self.ulCODMask).field("pcszDescription", &self.pcszDescription).finish()
-    }
-}
 impl windows_core::TypeKind for BLUETOOTH_COD_PAIRS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BLUETOOTH_COD_PAIRS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulCODMask == other.ulCODMask && self.pcszDescription == other.pcszDescription
-    }
-}
-impl Eq for BLUETOOTH_COD_PAIRS {}
 impl Default for BLUETOOTH_COD_PAIRS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BLUETOOTH_DEVICE_INFO {
     pub dwSize: u32,
     pub Address: BLUETOOTH_ADDRESS,
@@ -1498,12 +1453,6 @@ pub struct BLUETOOTH_DEVICE_INFO {
     pub stLastUsed: super::super::Foundation::SYSTEMTIME,
     pub szName: [u16; 248],
 }
-impl Copy for BLUETOOTH_DEVICE_INFO {}
-impl Clone for BLUETOOTH_DEVICE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for BLUETOOTH_DEVICE_INFO {
     type TypeKind = windows_core::CopyType;
 }
@@ -1513,6 +1462,7 @@ impl Default for BLUETOOTH_DEVICE_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BLUETOOTH_DEVICE_SEARCH_PARAMS {
     pub dwSize: u32,
     pub fReturnAuthenticated: super::super::Foundation::BOOL,
@@ -1523,101 +1473,47 @@ pub struct BLUETOOTH_DEVICE_SEARCH_PARAMS {
     pub cTimeoutMultiplier: u8,
     pub hRadio: super::super::Foundation::HANDLE,
 }
-impl Copy for BLUETOOTH_DEVICE_SEARCH_PARAMS {}
-impl Clone for BLUETOOTH_DEVICE_SEARCH_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BLUETOOTH_DEVICE_SEARCH_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BLUETOOTH_DEVICE_SEARCH_PARAMS").field("dwSize", &self.dwSize).field("fReturnAuthenticated", &self.fReturnAuthenticated).field("fReturnRemembered", &self.fReturnRemembered).field("fReturnUnknown", &self.fReturnUnknown).field("fReturnConnected", &self.fReturnConnected).field("fIssueInquiry", &self.fIssueInquiry).field("cTimeoutMultiplier", &self.cTimeoutMultiplier).field("hRadio", &self.hRadio).finish()
-    }
-}
 impl windows_core::TypeKind for BLUETOOTH_DEVICE_SEARCH_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BLUETOOTH_DEVICE_SEARCH_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.fReturnAuthenticated == other.fReturnAuthenticated && self.fReturnRemembered == other.fReturnRemembered && self.fReturnUnknown == other.fReturnUnknown && self.fReturnConnected == other.fReturnConnected && self.fIssueInquiry == other.fIssueInquiry && self.cTimeoutMultiplier == other.cTimeoutMultiplier && self.hRadio == other.hRadio
-    }
-}
-impl Eq for BLUETOOTH_DEVICE_SEARCH_PARAMS {}
 impl Default for BLUETOOTH_DEVICE_SEARCH_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BLUETOOTH_FIND_RADIO_PARAMS {
     pub dwSize: u32,
-}
-impl Copy for BLUETOOTH_FIND_RADIO_PARAMS {}
-impl Clone for BLUETOOTH_FIND_RADIO_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BLUETOOTH_FIND_RADIO_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BLUETOOTH_FIND_RADIO_PARAMS").field("dwSize", &self.dwSize).finish()
-    }
 }
 impl windows_core::TypeKind for BLUETOOTH_FIND_RADIO_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BLUETOOTH_FIND_RADIO_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-    }
-}
-impl Eq for BLUETOOTH_FIND_RADIO_PARAMS {}
 impl Default for BLUETOOTH_FIND_RADIO_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
     pub ChangedAttributeHandle: u16,
     pub CharacteristicValueDataSize: usize,
     pub CharacteristicValue: *mut BTH_LE_GATT_CHARACTERISTIC_VALUE,
 }
-impl Copy for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {}
-impl Clone for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BLUETOOTH_GATT_VALUE_CHANGED_EVENT").field("ChangedAttributeHandle", &self.ChangedAttributeHandle).field("CharacteristicValueDataSize", &self.CharacteristicValueDataSize).field("CharacteristicValue", &self.CharacteristicValue).finish()
-    }
-}
 impl windows_core::TypeKind for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.ChangedAttributeHandle == other.ChangedAttributeHandle && self.CharacteristicValueDataSize == other.CharacteristicValueDataSize && self.CharacteristicValue == other.CharacteristicValue
-    }
-}
-impl Eq for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {}
 impl Default for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
     pub NumCharacteristics: u16,
     pub Characteristics: [BTH_LE_GATT_CHARACTERISTIC; 1],
-}
-impl Copy for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {}
-impl Clone for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
     type TypeKind = windows_core::CopyType;
@@ -1628,17 +1524,12 @@ impl Default for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BLUETOOTH_LOCAL_SERVICE_INFO {
     pub Enabled: super::super::Foundation::BOOL,
     pub btAddr: BLUETOOTH_ADDRESS,
     pub szName: [u16; 256],
     pub szDeviceString: [u16; 256],
-}
-impl Copy for BLUETOOTH_LOCAL_SERVICE_INFO {}
-impl Clone for BLUETOOTH_LOCAL_SERVICE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BLUETOOTH_LOCAL_SERVICE_INFO {
     type TypeKind = windows_core::CopyType;
@@ -1649,124 +1540,61 @@ impl Default for BLUETOOTH_LOCAL_SERVICE_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BLUETOOTH_NUMERIC_COMPARISON_INFO {
     pub NumericValue: u32,
-}
-impl Copy for BLUETOOTH_NUMERIC_COMPARISON_INFO {}
-impl Clone for BLUETOOTH_NUMERIC_COMPARISON_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BLUETOOTH_NUMERIC_COMPARISON_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BLUETOOTH_NUMERIC_COMPARISON_INFO").field("NumericValue", &self.NumericValue).finish()
-    }
 }
 impl windows_core::TypeKind for BLUETOOTH_NUMERIC_COMPARISON_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BLUETOOTH_NUMERIC_COMPARISON_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumericValue == other.NumericValue
-    }
-}
-impl Eq for BLUETOOTH_NUMERIC_COMPARISON_INFO {}
 impl Default for BLUETOOTH_NUMERIC_COMPARISON_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BLUETOOTH_OOB_DATA_INFO {
     pub C: [u8; 16],
     pub R: [u8; 16],
 }
-impl Copy for BLUETOOTH_OOB_DATA_INFO {}
-impl Clone for BLUETOOTH_OOB_DATA_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BLUETOOTH_OOB_DATA_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BLUETOOTH_OOB_DATA_INFO").field("C", &self.C).field("R", &self.R).finish()
-    }
-}
 impl windows_core::TypeKind for BLUETOOTH_OOB_DATA_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BLUETOOTH_OOB_DATA_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.C == other.C && self.R == other.R
-    }
-}
-impl Eq for BLUETOOTH_OOB_DATA_INFO {}
 impl Default for BLUETOOTH_OOB_DATA_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BLUETOOTH_PASSKEY_INFO {
     pub passkey: u32,
-}
-impl Copy for BLUETOOTH_PASSKEY_INFO {}
-impl Clone for BLUETOOTH_PASSKEY_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BLUETOOTH_PASSKEY_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BLUETOOTH_PASSKEY_INFO").field("passkey", &self.passkey).finish()
-    }
 }
 impl windows_core::TypeKind for BLUETOOTH_PASSKEY_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BLUETOOTH_PASSKEY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.passkey == other.passkey
-    }
-}
-impl Eq for BLUETOOTH_PASSKEY_INFO {}
 impl Default for BLUETOOTH_PASSKEY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BLUETOOTH_PIN_INFO {
     pub pin: [u8; 16],
     pub pinLength: u8,
 }
-impl Copy for BLUETOOTH_PIN_INFO {}
-impl Clone for BLUETOOTH_PIN_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BLUETOOTH_PIN_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BLUETOOTH_PIN_INFO").field("pin", &self.pin).field("pinLength", &self.pinLength).finish()
-    }
-}
 impl windows_core::TypeKind for BLUETOOTH_PIN_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BLUETOOTH_PIN_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pin == other.pin && self.pinLength == other.pinLength
-    }
-}
-impl Eq for BLUETOOTH_PIN_INFO {}
 impl Default for BLUETOOTH_PIN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BLUETOOTH_RADIO_INFO {
     pub dwSize: u32,
     pub address: BLUETOOTH_ADDRESS,
@@ -1774,12 +1602,6 @@ pub struct BLUETOOTH_RADIO_INFO {
     pub ulClassofDevice: u32,
     pub lmpSubversion: u16,
     pub manufacturer: u16,
-}
-impl Copy for BLUETOOTH_RADIO_INFO {}
-impl Clone for BLUETOOTH_RADIO_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BLUETOOTH_RADIO_INFO {
     type TypeKind = windows_core::CopyType;
@@ -1790,6 +1612,7 @@ impl Default for BLUETOOTH_RADIO_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct BLUETOOTH_SELECT_DEVICE_PARAMS {
     pub dwSize: u32,
     pub cNumOfClasses: u32,
@@ -1807,32 +1630,6 @@ pub struct BLUETOOTH_SELECT_DEVICE_PARAMS {
     pub cNumDevices: u32,
     pub pDevices: *mut BLUETOOTH_DEVICE_INFO,
 }
-impl Copy for BLUETOOTH_SELECT_DEVICE_PARAMS {}
-impl Clone for BLUETOOTH_SELECT_DEVICE_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BLUETOOTH_SELECT_DEVICE_PARAMS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BLUETOOTH_SELECT_DEVICE_PARAMS")
-            .field("dwSize", &self.dwSize)
-            .field("cNumOfClasses", &self.cNumOfClasses)
-            .field("prgClassOfDevices", &self.prgClassOfDevices)
-            .field("pszInfo", &self.pszInfo)
-            .field("hwndParent", &self.hwndParent)
-            .field("fForceAuthentication", &self.fForceAuthentication)
-            .field("fShowAuthenticated", &self.fShowAuthenticated)
-            .field("fShowRemembered", &self.fShowRemembered)
-            .field("fShowUnknown", &self.fShowUnknown)
-            .field("fAddNewDeviceWizard", &self.fAddNewDeviceWizard)
-            .field("fSkipServicesPage", &self.fSkipServicesPage)
-            .field("pvParam", &self.pvParam)
-            .field("cNumDevices", &self.cNumDevices)
-            .field("pDevices", &self.pDevices)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for BLUETOOTH_SELECT_DEVICE_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
@@ -1842,78 +1639,41 @@ impl Default for BLUETOOTH_SELECT_DEVICE_PARAMS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BTH_DEVICE_INFO {
     pub flags: u32,
     pub address: u64,
     pub classOfDevice: u32,
     pub name: [i8; 248],
 }
-impl Copy for BTH_DEVICE_INFO {}
-impl Clone for BTH_DEVICE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BTH_DEVICE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BTH_DEVICE_INFO").field("flags", &self.flags).field("address", &self.address).field("classOfDevice", &self.classOfDevice).field("name", &self.name).finish()
-    }
-}
 impl windows_core::TypeKind for BTH_DEVICE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BTH_DEVICE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.flags == other.flags && self.address == other.address && self.classOfDevice == other.classOfDevice && self.name == other.name
-    }
-}
-impl Eq for BTH_DEVICE_INFO {}
 impl Default for BTH_DEVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BTH_HCI_EVENT_INFO {
     pub bthAddress: u64,
     pub connectionType: u8,
     pub connected: u8,
 }
-impl Copy for BTH_HCI_EVENT_INFO {}
-impl Clone for BTH_HCI_EVENT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BTH_HCI_EVENT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BTH_HCI_EVENT_INFO").field("bthAddress", &self.bthAddress).field("connectionType", &self.connectionType).field("connected", &self.connected).finish()
-    }
-}
 impl windows_core::TypeKind for BTH_HCI_EVENT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BTH_HCI_EVENT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.bthAddress == other.bthAddress && self.connectionType == other.connectionType && self.connected == other.connected
-    }
-}
-impl Eq for BTH_HCI_EVENT_INFO {}
 impl Default for BTH_HCI_EVENT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct BTH_INFO_REQ {
     pub btAddr: u64,
     pub infoType: u16,
-}
-impl Copy for BTH_INFO_REQ {}
-impl Clone for BTH_INFO_REQ {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BTH_INFO_REQ {
     type TypeKind = windows_core::CopyType;
@@ -1924,16 +1684,11 @@ impl Default for BTH_INFO_REQ {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct BTH_INFO_RSP {
     pub result: u16,
     pub dataLen: u8,
     pub Anonymous: BTH_INFO_RSP_0,
-}
-impl Copy for BTH_INFO_RSP {}
-impl Clone for BTH_INFO_RSP {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BTH_INFO_RSP {
     type TypeKind = windows_core::CopyType;
@@ -1944,15 +1699,10 @@ impl Default for BTH_INFO_RSP {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub union BTH_INFO_RSP_0 {
     pub connectionlessMTU: u16,
     pub data: [u8; 44],
-}
-impl Copy for BTH_INFO_RSP_0 {}
-impl Clone for BTH_INFO_RSP_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BTH_INFO_RSP_0 {
     type TypeKind = windows_core::CopyType;
@@ -1963,38 +1713,23 @@ impl Default for BTH_INFO_RSP_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BTH_L2CAP_EVENT_INFO {
     pub bthAddress: u64,
     pub psm: u16,
     pub connected: u8,
     pub initiated: u8,
 }
-impl Copy for BTH_L2CAP_EVENT_INFO {}
-impl Clone for BTH_L2CAP_EVENT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BTH_L2CAP_EVENT_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BTH_L2CAP_EVENT_INFO").field("bthAddress", &self.bthAddress).field("psm", &self.psm).field("connected", &self.connected).field("initiated", &self.initiated).finish()
-    }
-}
 impl windows_core::TypeKind for BTH_L2CAP_EVENT_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BTH_L2CAP_EVENT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.bthAddress == other.bthAddress && self.psm == other.psm && self.connected == other.connected && self.initiated == other.initiated
-    }
-}
-impl Eq for BTH_L2CAP_EVENT_INFO {}
 impl Default for BTH_L2CAP_EVENT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BTH_LE_GATT_CHARACTERISTIC {
     pub ServiceHandle: u16,
     pub CharacteristicUuid: BTH_LE_UUID,
@@ -2009,12 +1744,6 @@ pub struct BTH_LE_GATT_CHARACTERISTIC {
     pub IsIndicatable: super::super::Foundation::BOOLEAN,
     pub HasExtendedProperties: super::super::Foundation::BOOLEAN,
 }
-impl Copy for BTH_LE_GATT_CHARACTERISTIC {}
-impl Clone for BTH_LE_GATT_CHARACTERISTIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for BTH_LE_GATT_CHARACTERISTIC {
     type TypeKind = windows_core::CopyType;
 }
@@ -2024,48 +1753,27 @@ impl Default for BTH_LE_GATT_CHARACTERISTIC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BTH_LE_GATT_CHARACTERISTIC_VALUE {
     pub DataSize: u32,
     pub Data: [u8; 1],
 }
-impl Copy for BTH_LE_GATT_CHARACTERISTIC_VALUE {}
-impl Clone for BTH_LE_GATT_CHARACTERISTIC_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BTH_LE_GATT_CHARACTERISTIC_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BTH_LE_GATT_CHARACTERISTIC_VALUE").field("DataSize", &self.DataSize).field("Data", &self.Data).finish()
-    }
-}
 impl windows_core::TypeKind for BTH_LE_GATT_CHARACTERISTIC_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BTH_LE_GATT_CHARACTERISTIC_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.DataSize == other.DataSize && self.Data == other.Data
-    }
-}
-impl Eq for BTH_LE_GATT_CHARACTERISTIC_VALUE {}
 impl Default for BTH_LE_GATT_CHARACTERISTIC_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BTH_LE_GATT_DESCRIPTOR {
     pub ServiceHandle: u16,
     pub CharacteristicHandle: u16,
     pub DescriptorType: BTH_LE_GATT_DESCRIPTOR_TYPE,
     pub DescriptorUuid: BTH_LE_UUID,
     pub AttributeHandle: u16,
-}
-impl Copy for BTH_LE_GATT_DESCRIPTOR {}
-impl Clone for BTH_LE_GATT_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BTH_LE_GATT_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
@@ -2076,18 +1784,13 @@ impl Default for BTH_LE_GATT_DESCRIPTOR {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE {
     pub DescriptorType: BTH_LE_GATT_DESCRIPTOR_TYPE,
     pub DescriptorUuid: BTH_LE_UUID,
     pub Anonymous: BTH_LE_GATT_DESCRIPTOR_VALUE_0,
     pub DataSize: u32,
     pub Data: [u8; 1],
-}
-impl Copy for BTH_LE_GATT_DESCRIPTOR_VALUE {}
-impl Clone for BTH_LE_GATT_DESCRIPTOR_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BTH_LE_GATT_DESCRIPTOR_VALUE {
     type TypeKind = windows_core::CopyType;
@@ -2098,17 +1801,12 @@ impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
     pub CharacteristicExtendedProperties: BTH_LE_GATT_DESCRIPTOR_VALUE_0_0,
     pub ClientCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_VALUE_0_2,
     pub ServerCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_VALUE_0_3,
     pub CharacteristicFormat: BTH_LE_GATT_DESCRIPTOR_VALUE_0_1,
-}
-impl Copy for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {}
-impl Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
     type TypeKind = windows_core::CopyType;
@@ -2119,48 +1817,27 @@ impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
     pub IsReliableWriteEnabled: super::super::Foundation::BOOLEAN,
     pub IsAuxiliariesWritable: super::super::Foundation::BOOLEAN,
 }
-impl Copy for BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {}
-impl Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BTH_LE_GATT_DESCRIPTOR_VALUE_0_0").field("IsReliableWriteEnabled", &self.IsReliableWriteEnabled).field("IsAuxiliariesWritable", &self.IsAuxiliariesWritable).finish()
-    }
-}
 impl windows_core::TypeKind for BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.IsReliableWriteEnabled == other.IsReliableWriteEnabled && self.IsAuxiliariesWritable == other.IsAuxiliariesWritable
-    }
-}
-impl Eq for BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {}
 impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
     pub Format: u8,
     pub Exponent: u8,
     pub Unit: BTH_LE_UUID,
     pub NameSpace: u8,
     pub Description: BTH_LE_UUID,
-}
-impl Copy for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {}
-impl Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
     type TypeKind = windows_core::CopyType;
@@ -2171,74 +1848,37 @@ impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
     pub IsSubscribeToNotification: super::super::Foundation::BOOLEAN,
     pub IsSubscribeToIndication: super::super::Foundation::BOOLEAN,
 }
-impl Copy for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {}
-impl Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BTH_LE_GATT_DESCRIPTOR_VALUE_0_2").field("IsSubscribeToNotification", &self.IsSubscribeToNotification).field("IsSubscribeToIndication", &self.IsSubscribeToIndication).finish()
-    }
-}
 impl windows_core::TypeKind for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.IsSubscribeToNotification == other.IsSubscribeToNotification && self.IsSubscribeToIndication == other.IsSubscribeToIndication
-    }
-}
-impl Eq for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {}
 impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
     pub IsBroadcast: super::super::Foundation::BOOLEAN,
-}
-impl Copy for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {}
-impl Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BTH_LE_GATT_DESCRIPTOR_VALUE_0_3").field("IsBroadcast", &self.IsBroadcast).finish()
-    }
 }
 impl windows_core::TypeKind for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.IsBroadcast == other.IsBroadcast
-    }
-}
-impl Eq for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {}
 impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BTH_LE_GATT_SERVICE {
     pub ServiceUuid: BTH_LE_UUID,
     pub AttributeHandle: u16,
-}
-impl Copy for BTH_LE_GATT_SERVICE {}
-impl Clone for BTH_LE_GATT_SERVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BTH_LE_GATT_SERVICE {
     type TypeKind = windows_core::CopyType;
@@ -2249,15 +1889,10 @@ impl Default for BTH_LE_GATT_SERVICE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BTH_LE_UUID {
     pub IsShortUuid: super::super::Foundation::BOOLEAN,
     pub Value: BTH_LE_UUID_0,
-}
-impl Copy for BTH_LE_UUID {}
-impl Clone for BTH_LE_UUID {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BTH_LE_UUID {
     type TypeKind = windows_core::CopyType;
@@ -2268,15 +1903,10 @@ impl Default for BTH_LE_UUID {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union BTH_LE_UUID_0 {
     pub ShortUuid: u16,
     pub LongUuid: windows_core::GUID,
-}
-impl Copy for BTH_LE_UUID_0 {}
-impl Clone for BTH_LE_UUID_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BTH_LE_UUID_0 {
     type TypeKind = windows_core::CopyType;
@@ -2287,16 +1917,11 @@ impl Default for BTH_LE_UUID_0 {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct BTH_PING_REQ {
     pub btAddr: u64,
     pub dataLen: u8,
     pub data: [u8; 44],
-}
-impl Copy for BTH_PING_REQ {}
-impl Clone for BTH_PING_REQ {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BTH_PING_REQ {
     type TypeKind = windows_core::CopyType;
@@ -2307,45 +1932,24 @@ impl Default for BTH_PING_REQ {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BTH_PING_RSP {
     pub dataLen: u8,
     pub data: [u8; 44],
 }
-impl Copy for BTH_PING_RSP {}
-impl Clone for BTH_PING_RSP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BTH_PING_RSP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BTH_PING_RSP").field("dataLen", &self.dataLen).field("data", &self.data).finish()
-    }
-}
 impl windows_core::TypeKind for BTH_PING_RSP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BTH_PING_RSP {
-    fn eq(&self, other: &Self) -> bool {
-        self.dataLen == other.dataLen && self.data == other.data
-    }
-}
-impl Eq for BTH_PING_RSP {}
 impl Default for BTH_PING_RSP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct BTH_QUERY_DEVICE {
     pub LAP: u32,
     pub length: u8,
-}
-impl Copy for BTH_QUERY_DEVICE {}
-impl Clone for BTH_QUERY_DEVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BTH_QUERY_DEVICE {
     type TypeKind = windows_core::CopyType;
@@ -2356,18 +1960,13 @@ impl Default for BTH_QUERY_DEVICE {
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct BTH_QUERY_SERVICE {
     pub r#type: u32,
     pub serviceHandle: u32,
     pub uuids: [SdpQueryUuid; 12],
     pub numRange: u32,
     pub pRange: [SdpAttributeRange; 1],
-}
-impl Copy for BTH_QUERY_SERVICE {}
-impl Clone for BTH_QUERY_SERVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BTH_QUERY_SERVICE {
     type TypeKind = windows_core::CopyType;
@@ -2378,36 +1977,21 @@ impl Default for BTH_QUERY_SERVICE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BTH_RADIO_IN_RANGE {
     pub deviceInfo: BTH_DEVICE_INFO,
     pub previousDeviceFlags: u32,
 }
-impl Copy for BTH_RADIO_IN_RANGE {}
-impl Clone for BTH_RADIO_IN_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BTH_RADIO_IN_RANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BTH_RADIO_IN_RANGE").field("deviceInfo", &self.deviceInfo).field("previousDeviceFlags", &self.previousDeviceFlags).finish()
-    }
-}
 impl windows_core::TypeKind for BTH_RADIO_IN_RANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BTH_RADIO_IN_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.deviceInfo == other.deviceInfo && self.previousDeviceFlags == other.previousDeviceFlags
-    }
-}
-impl Eq for BTH_RADIO_IN_RANGE {}
 impl Default for BTH_RADIO_IN_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct BTH_SET_SERVICE {
     pub pSdpVersion: *mut u32,
     pub pRecordHandle: *mut super::super::Foundation::HANDLE,
@@ -2415,12 +1999,6 @@ pub struct BTH_SET_SERVICE {
     pub Reserved: [u32; 5],
     pub ulRecordLength: u32,
     pub pRecord: [u8; 1],
-}
-impl Copy for BTH_SET_SERVICE {}
-impl Clone for BTH_SET_SERVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for BTH_SET_SERVICE {
     type TypeKind = windows_core::CopyType;
@@ -2493,15 +2071,10 @@ impl windows_core::TypeKind for HBLUETOOTH_RADIO_FIND {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct RFCOMM_COMMAND {
     pub CmdType: u32,
     pub Data: RFCOMM_COMMAND_0,
-}
-impl Copy for RFCOMM_COMMAND {}
-impl Clone for RFCOMM_COMMAND {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RFCOMM_COMMAND {
     type TypeKind = windows_core::CopyType;
@@ -2512,16 +2085,11 @@ impl Default for RFCOMM_COMMAND {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union RFCOMM_COMMAND_0 {
     pub MSC: RFCOMM_MSC_DATA,
     pub RLS: RFCOMM_RLS_DATA,
     pub RPN: RFCOMM_RPN_DATA,
-}
-impl Copy for RFCOMM_COMMAND_0 {}
-impl Clone for RFCOMM_COMMAND_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RFCOMM_COMMAND_0 {
     type TypeKind = windows_core::CopyType;
@@ -2532,65 +2100,34 @@ impl Default for RFCOMM_COMMAND_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RFCOMM_MSC_DATA {
     pub Signals: u8,
     pub Break: u8,
 }
-impl Copy for RFCOMM_MSC_DATA {}
-impl Clone for RFCOMM_MSC_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RFCOMM_MSC_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RFCOMM_MSC_DATA").field("Signals", &self.Signals).field("Break", &self.Break).finish()
-    }
-}
 impl windows_core::TypeKind for RFCOMM_MSC_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RFCOMM_MSC_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Signals == other.Signals && self.Break == other.Break
-    }
-}
-impl Eq for RFCOMM_MSC_DATA {}
 impl Default for RFCOMM_MSC_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RFCOMM_RLS_DATA {
     pub LineStatus: u8,
-}
-impl Copy for RFCOMM_RLS_DATA {}
-impl Clone for RFCOMM_RLS_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RFCOMM_RLS_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RFCOMM_RLS_DATA").field("LineStatus", &self.LineStatus).finish()
-    }
 }
 impl windows_core::TypeKind for RFCOMM_RLS_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RFCOMM_RLS_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.LineStatus == other.LineStatus
-    }
-}
-impl Eq for RFCOMM_RLS_DATA {}
 impl Default for RFCOMM_RLS_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RFCOMM_RPN_DATA {
     pub Baud: u8,
     pub Data: u8,
@@ -2600,42 +2137,20 @@ pub struct RFCOMM_RPN_DATA {
     pub ParameterMask1: u8,
     pub ParameterMask2: u8,
 }
-impl Copy for RFCOMM_RPN_DATA {}
-impl Clone for RFCOMM_RPN_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RFCOMM_RPN_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RFCOMM_RPN_DATA").field("Baud", &self.Baud).field("Data", &self.Data).field("FlowControl", &self.FlowControl).field("XonChar", &self.XonChar).field("XoffChar", &self.XoffChar).field("ParameterMask1", &self.ParameterMask1).field("ParameterMask2", &self.ParameterMask2).finish()
-    }
-}
 impl windows_core::TypeKind for RFCOMM_RPN_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RFCOMM_RPN_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Baud == other.Baud && self.Data == other.Data && self.FlowControl == other.FlowControl && self.XonChar == other.XonChar && self.XoffChar == other.XoffChar && self.ParameterMask1 == other.ParameterMask1 && self.ParameterMask2 == other.ParameterMask2
-    }
-}
-impl Eq for RFCOMM_RPN_DATA {}
 impl Default for RFCOMM_RPN_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SDP_ELEMENT_DATA {
     pub r#type: SDP_TYPE,
     pub specificType: SDP_SPECIFICTYPE,
     pub data: SDP_ELEMENT_DATA_0,
-}
-impl Copy for SDP_ELEMENT_DATA {}
-impl Clone for SDP_ELEMENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SDP_ELEMENT_DATA {
     type TypeKind = windows_core::CopyType;
@@ -2646,6 +2161,7 @@ impl Default for SDP_ELEMENT_DATA {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SDP_ELEMENT_DATA_0 {
     pub int128: SDP_LARGE_INTEGER_16,
     pub int64: i64,
@@ -2666,12 +2182,6 @@ pub union SDP_ELEMENT_DATA_0 {
     pub sequence: SDP_ELEMENT_DATA_0_1,
     pub alternative: SDP_ELEMENT_DATA_0_0,
 }
-impl Copy for SDP_ELEMENT_DATA_0 {}
-impl Clone for SDP_ELEMENT_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for SDP_ELEMENT_DATA_0 {
     type TypeKind = windows_core::CopyType;
 }
@@ -2681,228 +2191,111 @@ impl Default for SDP_ELEMENT_DATA_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SDP_ELEMENT_DATA_0_0 {
     pub value: *mut u8,
     pub length: u32,
 }
-impl Copy for SDP_ELEMENT_DATA_0_0 {}
-impl Clone for SDP_ELEMENT_DATA_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SDP_ELEMENT_DATA_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SDP_ELEMENT_DATA_0_0").field("value", &self.value).field("length", &self.length).finish()
-    }
-}
 impl windows_core::TypeKind for SDP_ELEMENT_DATA_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SDP_ELEMENT_DATA_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.length == other.length
-    }
-}
-impl Eq for SDP_ELEMENT_DATA_0_0 {}
 impl Default for SDP_ELEMENT_DATA_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SDP_ELEMENT_DATA_0_1 {
     pub value: *mut u8,
     pub length: u32,
 }
-impl Copy for SDP_ELEMENT_DATA_0_1 {}
-impl Clone for SDP_ELEMENT_DATA_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SDP_ELEMENT_DATA_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SDP_ELEMENT_DATA_0_1").field("value", &self.value).field("length", &self.length).finish()
-    }
-}
 impl windows_core::TypeKind for SDP_ELEMENT_DATA_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SDP_ELEMENT_DATA_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.length == other.length
-    }
-}
-impl Eq for SDP_ELEMENT_DATA_0_1 {}
 impl Default for SDP_ELEMENT_DATA_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SDP_ELEMENT_DATA_0_2 {
     pub value: *mut u8,
     pub length: u32,
 }
-impl Copy for SDP_ELEMENT_DATA_0_2 {}
-impl Clone for SDP_ELEMENT_DATA_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SDP_ELEMENT_DATA_0_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SDP_ELEMENT_DATA_0_2").field("value", &self.value).field("length", &self.length).finish()
-    }
-}
 impl windows_core::TypeKind for SDP_ELEMENT_DATA_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SDP_ELEMENT_DATA_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.length == other.length
-    }
-}
-impl Eq for SDP_ELEMENT_DATA_0_2 {}
 impl Default for SDP_ELEMENT_DATA_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SDP_ELEMENT_DATA_0_3 {
     pub value: *mut u8,
     pub length: u32,
 }
-impl Copy for SDP_ELEMENT_DATA_0_3 {}
-impl Clone for SDP_ELEMENT_DATA_0_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SDP_ELEMENT_DATA_0_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SDP_ELEMENT_DATA_0_3").field("value", &self.value).field("length", &self.length).finish()
-    }
-}
 impl windows_core::TypeKind for SDP_ELEMENT_DATA_0_3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SDP_ELEMENT_DATA_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value && self.length == other.length
-    }
-}
-impl Eq for SDP_ELEMENT_DATA_0_3 {}
 impl Default for SDP_ELEMENT_DATA_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SDP_LARGE_INTEGER_16 {
     pub LowPart: u64,
     pub HighPart: i64,
 }
-impl Copy for SDP_LARGE_INTEGER_16 {}
-impl Clone for SDP_LARGE_INTEGER_16 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SDP_LARGE_INTEGER_16 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SDP_LARGE_INTEGER_16").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
-    }
-}
 impl windows_core::TypeKind for SDP_LARGE_INTEGER_16 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SDP_LARGE_INTEGER_16 {
-    fn eq(&self, other: &Self) -> bool {
-        self.LowPart == other.LowPart && self.HighPart == other.HighPart
-    }
-}
-impl Eq for SDP_LARGE_INTEGER_16 {}
 impl Default for SDP_LARGE_INTEGER_16 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SDP_STRING_TYPE_DATA {
     pub encoding: u16,
     pub mibeNum: u16,
     pub attributeId: u16,
 }
-impl Copy for SDP_STRING_TYPE_DATA {}
-impl Clone for SDP_STRING_TYPE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SDP_STRING_TYPE_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SDP_STRING_TYPE_DATA").field("encoding", &self.encoding).field("mibeNum", &self.mibeNum).field("attributeId", &self.attributeId).finish()
-    }
-}
 impl windows_core::TypeKind for SDP_STRING_TYPE_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SDP_STRING_TYPE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.encoding == other.encoding && self.mibeNum == other.mibeNum && self.attributeId == other.attributeId
-    }
-}
-impl Eq for SDP_STRING_TYPE_DATA {}
 impl Default for SDP_STRING_TYPE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SDP_ULARGE_INTEGER_16 {
     pub LowPart: u64,
     pub HighPart: u64,
 }
-impl Copy for SDP_ULARGE_INTEGER_16 {}
-impl Clone for SDP_ULARGE_INTEGER_16 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SDP_ULARGE_INTEGER_16 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SDP_ULARGE_INTEGER_16").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
-    }
-}
 impl windows_core::TypeKind for SDP_ULARGE_INTEGER_16 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SDP_ULARGE_INTEGER_16 {
-    fn eq(&self, other: &Self) -> bool {
-        self.LowPart == other.LowPart && self.HighPart == other.HighPart
-    }
-}
-impl Eq for SDP_ULARGE_INTEGER_16 {}
 impl Default for SDP_ULARGE_INTEGER_16 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct SOCKADDR_BTH {
     pub addressFamily: u16,
     pub btAddr: u64,
     pub serviceClassId: windows_core::GUID,
     pub port: u32,
-}
-impl Copy for SOCKADDR_BTH {}
-impl Clone for SOCKADDR_BTH {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SOCKADDR_BTH {
     type TypeKind = windows_core::CopyType;
@@ -2913,45 +2306,24 @@ impl Default for SOCKADDR_BTH {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SdpAttributeRange {
     pub minAttribute: u16,
     pub maxAttribute: u16,
 }
-impl Copy for SdpAttributeRange {}
-impl Clone for SdpAttributeRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SdpAttributeRange {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SdpAttributeRange").field("minAttribute", &self.minAttribute).field("maxAttribute", &self.maxAttribute).finish()
-    }
-}
 impl windows_core::TypeKind for SdpAttributeRange {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SdpAttributeRange {
-    fn eq(&self, other: &Self) -> bool {
-        self.minAttribute == other.minAttribute && self.maxAttribute == other.maxAttribute
-    }
-}
-impl Eq for SdpAttributeRange {}
 impl Default for SdpAttributeRange {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SdpQueryUuid {
     pub u: SdpQueryUuidUnion,
     pub uuidType: u16,
-}
-impl Copy for SdpQueryUuid {}
-impl Clone for SdpQueryUuid {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SdpQueryUuid {
     type TypeKind = windows_core::CopyType;
@@ -2962,16 +2334,11 @@ impl Default for SdpQueryUuid {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union SdpQueryUuidUnion {
     pub uuid128: windows_core::GUID,
     pub uuid32: u32,
     pub uuid16: u16,
-}
-impl Copy for SdpQueryUuidUnion {}
-impl Clone for SdpQueryUuidUnion {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for SdpQueryUuidUnion {
     type TypeKind = windows_core::CopyType;

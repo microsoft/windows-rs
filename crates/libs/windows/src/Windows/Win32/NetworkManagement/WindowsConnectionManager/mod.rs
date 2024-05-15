@@ -146,128 +146,65 @@ impl core::fmt::Debug for WCM_PROPERTY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NET_INTERFACE_CONTEXT {
     pub InterfaceIndex: u32,
     pub ConfigurationName: windows_core::PWSTR,
 }
-impl Copy for NET_INTERFACE_CONTEXT {}
-impl Clone for NET_INTERFACE_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NET_INTERFACE_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NET_INTERFACE_CONTEXT").field("InterfaceIndex", &self.InterfaceIndex).field("ConfigurationName", &self.ConfigurationName).finish()
-    }
-}
 impl windows_core::TypeKind for NET_INTERFACE_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NET_INTERFACE_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.InterfaceIndex == other.InterfaceIndex && self.ConfigurationName == other.ConfigurationName
-    }
-}
-impl Eq for NET_INTERFACE_CONTEXT {}
 impl Default for NET_INTERFACE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NET_INTERFACE_CONTEXT_TABLE {
     pub InterfaceContextHandle: super::super::Foundation::HANDLE,
     pub NumberOfEntries: u32,
     pub InterfaceContextArray: *mut NET_INTERFACE_CONTEXT,
 }
-impl Copy for NET_INTERFACE_CONTEXT_TABLE {}
-impl Clone for NET_INTERFACE_CONTEXT_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NET_INTERFACE_CONTEXT_TABLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NET_INTERFACE_CONTEXT_TABLE").field("InterfaceContextHandle", &self.InterfaceContextHandle).field("NumberOfEntries", &self.NumberOfEntries).field("InterfaceContextArray", &self.InterfaceContextArray).finish()
-    }
-}
 impl windows_core::TypeKind for NET_INTERFACE_CONTEXT_TABLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NET_INTERFACE_CONTEXT_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.InterfaceContextHandle == other.InterfaceContextHandle && self.NumberOfEntries == other.NumberOfEntries && self.InterfaceContextArray == other.InterfaceContextArray
-    }
-}
-impl Eq for NET_INTERFACE_CONTEXT_TABLE {}
 impl Default for NET_INTERFACE_CONTEXT_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WCM_BILLING_CYCLE_INFO {
     pub StartDate: super::super::Foundation::FILETIME,
     pub Duration: WCM_TIME_INTERVAL,
     pub Reset: super::super::Foundation::BOOL,
 }
-impl Copy for WCM_BILLING_CYCLE_INFO {}
-impl Clone for WCM_BILLING_CYCLE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WCM_BILLING_CYCLE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WCM_BILLING_CYCLE_INFO").field("StartDate", &self.StartDate).field("Duration", &self.Duration).field("Reset", &self.Reset).finish()
-    }
-}
 impl windows_core::TypeKind for WCM_BILLING_CYCLE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WCM_BILLING_CYCLE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartDate == other.StartDate && self.Duration == other.Duration && self.Reset == other.Reset
-    }
-}
-impl Eq for WCM_BILLING_CYCLE_INFO {}
 impl Default for WCM_BILLING_CYCLE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WCM_CONNECTION_COST_DATA {
     pub ConnectionCost: u32,
     pub CostSource: WCM_CONNECTION_COST_SOURCE,
 }
-impl Copy for WCM_CONNECTION_COST_DATA {}
-impl Clone for WCM_CONNECTION_COST_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WCM_CONNECTION_COST_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WCM_CONNECTION_COST_DATA").field("ConnectionCost", &self.ConnectionCost).field("CostSource", &self.CostSource).finish()
-    }
-}
 impl windows_core::TypeKind for WCM_CONNECTION_COST_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WCM_CONNECTION_COST_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.ConnectionCost == other.ConnectionCost && self.CostSource == other.CostSource
-    }
-}
-impl Eq for WCM_CONNECTION_COST_DATA {}
 impl Default for WCM_CONNECTION_COST_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WCM_DATAPLAN_STATUS {
     pub UsageData: WCM_USAGE_DATA,
     pub DataLimitInMegabytes: u32,
@@ -277,123 +214,59 @@ pub struct WCM_DATAPLAN_STATUS {
     pub MaxTransferSizeInMegabytes: u32,
     pub Reserved: u32,
 }
-impl Copy for WCM_DATAPLAN_STATUS {}
-impl Clone for WCM_DATAPLAN_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WCM_DATAPLAN_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WCM_DATAPLAN_STATUS").field("UsageData", &self.UsageData).field("DataLimitInMegabytes", &self.DataLimitInMegabytes).field("InboundBandwidthInKbps", &self.InboundBandwidthInKbps).field("OutboundBandwidthInKbps", &self.OutboundBandwidthInKbps).field("BillingCycle", &self.BillingCycle).field("MaxTransferSizeInMegabytes", &self.MaxTransferSizeInMegabytes).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for WCM_DATAPLAN_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WCM_DATAPLAN_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.UsageData == other.UsageData && self.DataLimitInMegabytes == other.DataLimitInMegabytes && self.InboundBandwidthInKbps == other.InboundBandwidthInKbps && self.OutboundBandwidthInKbps == other.OutboundBandwidthInKbps && self.BillingCycle == other.BillingCycle && self.MaxTransferSizeInMegabytes == other.MaxTransferSizeInMegabytes && self.Reserved == other.Reserved
-    }
-}
-impl Eq for WCM_DATAPLAN_STATUS {}
 impl Default for WCM_DATAPLAN_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WCM_POLICY_VALUE {
     pub fValue: super::super::Foundation::BOOL,
     pub fIsGroupPolicy: super::super::Foundation::BOOL,
 }
-impl Copy for WCM_POLICY_VALUE {}
-impl Clone for WCM_POLICY_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WCM_POLICY_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WCM_POLICY_VALUE").field("fValue", &self.fValue).field("fIsGroupPolicy", &self.fIsGroupPolicy).finish()
-    }
-}
 impl windows_core::TypeKind for WCM_POLICY_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WCM_POLICY_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.fValue == other.fValue && self.fIsGroupPolicy == other.fIsGroupPolicy
-    }
-}
-impl Eq for WCM_POLICY_VALUE {}
 impl Default for WCM_POLICY_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WCM_PROFILE_INFO {
     pub strProfileName: [u16; 256],
     pub AdapterGUID: windows_core::GUID,
     pub Media: WCM_MEDIA_TYPE,
 }
-impl Copy for WCM_PROFILE_INFO {}
-impl Clone for WCM_PROFILE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WCM_PROFILE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WCM_PROFILE_INFO").field("strProfileName", &self.strProfileName).field("AdapterGUID", &self.AdapterGUID).field("Media", &self.Media).finish()
-    }
-}
 impl windows_core::TypeKind for WCM_PROFILE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WCM_PROFILE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.strProfileName == other.strProfileName && self.AdapterGUID == other.AdapterGUID && self.Media == other.Media
-    }
-}
-impl Eq for WCM_PROFILE_INFO {}
 impl Default for WCM_PROFILE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WCM_PROFILE_INFO_LIST {
     pub dwNumberOfItems: u32,
     pub ProfileInfo: [WCM_PROFILE_INFO; 1],
 }
-impl Copy for WCM_PROFILE_INFO_LIST {}
-impl Clone for WCM_PROFILE_INFO_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WCM_PROFILE_INFO_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WCM_PROFILE_INFO_LIST").field("dwNumberOfItems", &self.dwNumberOfItems).field("ProfileInfo", &self.ProfileInfo).finish()
-    }
-}
 impl windows_core::TypeKind for WCM_PROFILE_INFO_LIST {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WCM_PROFILE_INFO_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumberOfItems == other.dwNumberOfItems && self.ProfileInfo == other.ProfileInfo
-    }
-}
-impl Eq for WCM_PROFILE_INFO_LIST {}
 impl Default for WCM_PROFILE_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WCM_TIME_INTERVAL {
     pub wYear: u16,
     pub wMonth: u16,
@@ -403,56 +276,23 @@ pub struct WCM_TIME_INTERVAL {
     pub wSecond: u16,
     pub wMilliseconds: u16,
 }
-impl Copy for WCM_TIME_INTERVAL {}
-impl Clone for WCM_TIME_INTERVAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WCM_TIME_INTERVAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WCM_TIME_INTERVAL").field("wYear", &self.wYear).field("wMonth", &self.wMonth).field("wDay", &self.wDay).field("wHour", &self.wHour).field("wMinute", &self.wMinute).field("wSecond", &self.wSecond).field("wMilliseconds", &self.wMilliseconds).finish()
-    }
-}
 impl windows_core::TypeKind for WCM_TIME_INTERVAL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WCM_TIME_INTERVAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.wYear == other.wYear && self.wMonth == other.wMonth && self.wDay == other.wDay && self.wHour == other.wHour && self.wMinute == other.wMinute && self.wSecond == other.wSecond && self.wMilliseconds == other.wMilliseconds
-    }
-}
-impl Eq for WCM_TIME_INTERVAL {}
 impl Default for WCM_TIME_INTERVAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WCM_USAGE_DATA {
     pub UsageInMegabytes: u32,
     pub LastSyncTime: super::super::Foundation::FILETIME,
 }
-impl Copy for WCM_USAGE_DATA {}
-impl Clone for WCM_USAGE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WCM_USAGE_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WCM_USAGE_DATA").field("UsageInMegabytes", &self.UsageInMegabytes).field("LastSyncTime", &self.LastSyncTime).finish()
-    }
-}
 impl windows_core::TypeKind for WCM_USAGE_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WCM_USAGE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.UsageInMegabytes == other.UsageInMegabytes && self.LastSyncTime == other.LastSyncTime
-    }
-}
-impl Eq for WCM_USAGE_DATA {}
 impl Default for WCM_USAGE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

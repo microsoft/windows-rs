@@ -1611,60 +1611,28 @@ impl windows_core::TypeKind for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DispatcherQueueOptions {
     pub dwSize: u32,
     pub threadType: DISPATCHERQUEUE_THREAD_TYPE,
     pub apartmentType: DISPATCHERQUEUE_THREAD_APARTMENTTYPE,
 }
-impl Copy for DispatcherQueueOptions {}
-impl Clone for DispatcherQueueOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DispatcherQueueOptions {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DispatcherQueueOptions").field("dwSize", &self.dwSize).field("threadType", &self.threadType).field("apartmentType", &self.apartmentType).finish()
-    }
-}
 impl windows_core::TypeKind for DispatcherQueueOptions {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DispatcherQueueOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.threadType == other.threadType && self.apartmentType == other.apartmentType
-    }
-}
-impl Eq for DispatcherQueueOptions {}
 impl Default for DispatcherQueueOptions {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EventRegistrationToken {
     pub value: i64,
-}
-impl Copy for EventRegistrationToken {}
-impl Clone for EventRegistrationToken {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for EventRegistrationToken {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EventRegistrationToken").field("value", &self.value).finish()
-    }
 }
 impl windows_core::TypeKind for EventRegistrationToken {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for EventRegistrationToken {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value
-    }
-}
-impl Eq for EventRegistrationToken {}
 impl Default for EventRegistrationToken {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1687,6 +1655,7 @@ impl windows_core::TypeKind for HSTRING_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSTRING_HEADER {
     pub flags: u32,
     pub length: u32,
@@ -1694,26 +1663,9 @@ pub struct HSTRING_HEADER {
     pub padding2: u32,
     pub data: isize,
 }
-impl Copy for HSTRING_HEADER {}
-impl Clone for HSTRING_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HSTRING_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HSTRING_HEADER").field("flags", &self.flags).field("length", &self.length).field("padding1", &self.padding1).field("padding2", &self.padding2).field("data", &self.data).finish()
-    }
-}
 impl windows_core::TypeKind for HSTRING_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HSTRING_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.flags == other.flags && self.length == other.length && self.padding1 == other.padding1 && self.padding2 == other.padding2 && self.data == other.data
-    }
-}
-impl Eq for HSTRING_HEADER {}
 impl Default for HSTRING_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1747,31 +1699,15 @@ impl windows_core::TypeKind for RO_REGISTRATION_COOKIE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ServerInformation {
     pub dwServerPid: u32,
     pub dwServerTid: u32,
     pub ui64ServerAddress: u64,
 }
-impl Copy for ServerInformation {}
-impl Clone for ServerInformation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ServerInformation {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ServerInformation").field("dwServerPid", &self.dwServerPid).field("dwServerTid", &self.dwServerTid).field("ui64ServerAddress", &self.ui64ServerAddress).finish()
-    }
-}
 impl windows_core::TypeKind for ServerInformation {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ServerInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwServerPid == other.dwServerPid && self.dwServerTid == other.dwServerTid && self.ui64ServerAddress == other.ui64ServerAddress
-    }
-}
-impl Eq for ServerInformation {}
 impl Default for ServerInformation {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

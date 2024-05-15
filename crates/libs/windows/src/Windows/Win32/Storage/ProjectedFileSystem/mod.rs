@@ -487,6 +487,7 @@ impl core::ops::Not for PRJ_UPDATE_TYPES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct PRJ_CALLBACKS {
     pub StartDirectoryEnumerationCallback: PRJ_START_DIRECTORY_ENUMERATION_CB,
     pub EndDirectoryEnumerationCallback: PRJ_END_DIRECTORY_ENUMERATION_CB,
@@ -497,17 +498,6 @@ pub struct PRJ_CALLBACKS {
     pub NotificationCallback: PRJ_NOTIFICATION_CB,
     pub CancelCommandCallback: PRJ_CANCEL_COMMAND_CB,
 }
-impl Copy for PRJ_CALLBACKS {}
-impl Clone for PRJ_CALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRJ_CALLBACKS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRJ_CALLBACKS").finish()
-    }
-}
 impl windows_core::TypeKind for PRJ_CALLBACKS {
     type TypeKind = windows_core::CopyType;
 }
@@ -517,6 +507,7 @@ impl Default for PRJ_CALLBACKS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_CALLBACK_DATA {
     pub Size: u32,
     pub Flags: PRJ_CALLBACK_DATA_FLAGS,
@@ -530,53 +521,19 @@ pub struct PRJ_CALLBACK_DATA {
     pub TriggeringProcessImageFileName: windows_core::PCWSTR,
     pub InstanceContext: *mut core::ffi::c_void,
 }
-impl Copy for PRJ_CALLBACK_DATA {}
-impl Clone for PRJ_CALLBACK_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRJ_CALLBACK_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRJ_CALLBACK_DATA")
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("NamespaceVirtualizationContext", &self.NamespaceVirtualizationContext)
-            .field("CommandId", &self.CommandId)
-            .field("FileId", &self.FileId)
-            .field("DataStreamId", &self.DataStreamId)
-            .field("FilePathName", &self.FilePathName)
-            .field("VersionInfo", &self.VersionInfo)
-            .field("TriggeringProcessId", &self.TriggeringProcessId)
-            .field("TriggeringProcessImageFileName", &self.TriggeringProcessImageFileName)
-            .field("InstanceContext", &self.InstanceContext)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PRJ_CALLBACK_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRJ_CALLBACK_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Flags == other.Flags && self.NamespaceVirtualizationContext == other.NamespaceVirtualizationContext && self.CommandId == other.CommandId && self.FileId == other.FileId && self.DataStreamId == other.DataStreamId && self.FilePathName == other.FilePathName && self.VersionInfo == other.VersionInfo && self.TriggeringProcessId == other.TriggeringProcessId && self.TriggeringProcessImageFileName == other.TriggeringProcessImageFileName && self.InstanceContext == other.InstanceContext
-    }
-}
-impl Eq for PRJ_CALLBACK_DATA {}
 impl Default for PRJ_CALLBACK_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
     pub CommandType: PRJ_COMPLETE_COMMAND_TYPE,
     pub Anonymous: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0,
-}
-impl Copy for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {}
-impl Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -587,15 +544,10 @@ impl Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
     pub Notification: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1,
     pub Enumeration: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0,
-}
-impl Copy for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {}
-impl Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
@@ -606,58 +558,26 @@ impl Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
     pub DirEntryBufferHandle: PRJ_DIR_ENTRY_BUFFER_HANDLE,
-}
-impl Copy for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {}
-impl Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0").field("DirEntryBufferHandle", &self.DirEntryBufferHandle).finish()
-    }
 }
 impl windows_core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.DirEntryBufferHandle == other.DirEntryBufferHandle
-    }
-}
-impl Eq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {}
 impl Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
-}
-impl Copy for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {}
-impl Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1").field("NotificationMask", &self.NotificationMask).finish()
-    }
 }
 impl windows_core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.NotificationMask == other.NotificationMask
-    }
-}
-impl Eq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {}
 impl Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -680,16 +600,11 @@ impl windows_core::TypeKind for PRJ_DIR_ENTRY_BUFFER_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PRJ_EXTENDED_INFO {
     pub InfoType: PRJ_EXT_INFO_TYPE,
     pub NextInfoOffset: u32,
     pub Anonymous: PRJ_EXTENDED_INFO_0,
-}
-impl Copy for PRJ_EXTENDED_INFO {}
-impl Clone for PRJ_EXTENDED_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PRJ_EXTENDED_INFO {
     type TypeKind = windows_core::CopyType;
@@ -700,14 +615,9 @@ impl Default for PRJ_EXTENDED_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PRJ_EXTENDED_INFO_0 {
     pub Symlink: PRJ_EXTENDED_INFO_0_0,
-}
-impl Copy for PRJ_EXTENDED_INFO_0 {}
-impl Clone for PRJ_EXTENDED_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PRJ_EXTENDED_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -718,35 +628,20 @@ impl Default for PRJ_EXTENDED_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_EXTENDED_INFO_0_0 {
     pub TargetName: windows_core::PCWSTR,
-}
-impl Copy for PRJ_EXTENDED_INFO_0_0 {}
-impl Clone for PRJ_EXTENDED_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRJ_EXTENDED_INFO_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRJ_EXTENDED_INFO_0_0").field("TargetName", &self.TargetName).finish()
-    }
 }
 impl windows_core::TypeKind for PRJ_EXTENDED_INFO_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRJ_EXTENDED_INFO_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.TargetName == other.TargetName
-    }
-}
-impl Eq for PRJ_EXTENDED_INFO_0_0 {}
 impl Default for PRJ_EXTENDED_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_FILE_BASIC_INFO {
     pub IsDirectory: super::super::Foundation::BOOLEAN,
     pub FileSize: i64,
@@ -756,26 +651,9 @@ pub struct PRJ_FILE_BASIC_INFO {
     pub ChangeTime: i64,
     pub FileAttributes: u32,
 }
-impl Copy for PRJ_FILE_BASIC_INFO {}
-impl Clone for PRJ_FILE_BASIC_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRJ_FILE_BASIC_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRJ_FILE_BASIC_INFO").field("IsDirectory", &self.IsDirectory).field("FileSize", &self.FileSize).field("CreationTime", &self.CreationTime).field("LastAccessTime", &self.LastAccessTime).field("LastWriteTime", &self.LastWriteTime).field("ChangeTime", &self.ChangeTime).field("FileAttributes", &self.FileAttributes).finish()
-    }
-}
 impl windows_core::TypeKind for PRJ_FILE_BASIC_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRJ_FILE_BASIC_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.IsDirectory == other.IsDirectory && self.FileSize == other.FileSize && self.CreationTime == other.CreationTime && self.LastAccessTime == other.LastAccessTime && self.LastWriteTime == other.LastWriteTime && self.ChangeTime == other.ChangeTime && self.FileAttributes == other.FileAttributes
-    }
-}
-impl Eq for PRJ_FILE_BASIC_INFO {}
 impl Default for PRJ_FILE_BASIC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -798,46 +676,25 @@ impl windows_core::TypeKind for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_NOTIFICATION_MAPPING {
     pub NotificationBitMask: PRJ_NOTIFY_TYPES,
     pub NotificationRoot: windows_core::PCWSTR,
 }
-impl Copy for PRJ_NOTIFICATION_MAPPING {}
-impl Clone for PRJ_NOTIFICATION_MAPPING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRJ_NOTIFICATION_MAPPING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRJ_NOTIFICATION_MAPPING").field("NotificationBitMask", &self.NotificationBitMask).field("NotificationRoot", &self.NotificationRoot).finish()
-    }
-}
 impl windows_core::TypeKind for PRJ_NOTIFICATION_MAPPING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRJ_NOTIFICATION_MAPPING {
-    fn eq(&self, other: &Self) -> bool {
-        self.NotificationBitMask == other.NotificationBitMask && self.NotificationRoot == other.NotificationRoot
-    }
-}
-impl Eq for PRJ_NOTIFICATION_MAPPING {}
 impl Default for PRJ_NOTIFICATION_MAPPING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PRJ_NOTIFICATION_PARAMETERS {
     pub PostCreate: PRJ_NOTIFICATION_PARAMETERS_2,
     pub FileRenamed: PRJ_NOTIFICATION_PARAMETERS_1,
     pub FileDeletedOnHandleClose: PRJ_NOTIFICATION_PARAMETERS_0,
-}
-impl Copy for PRJ_NOTIFICATION_PARAMETERS {}
-impl Clone for PRJ_NOTIFICATION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PRJ_NOTIFICATION_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -848,93 +705,46 @@ impl Default for PRJ_NOTIFICATION_PARAMETERS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_NOTIFICATION_PARAMETERS_0 {
     pub IsFileModified: super::super::Foundation::BOOLEAN,
-}
-impl Copy for PRJ_NOTIFICATION_PARAMETERS_0 {}
-impl Clone for PRJ_NOTIFICATION_PARAMETERS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRJ_NOTIFICATION_PARAMETERS_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRJ_NOTIFICATION_PARAMETERS_0").field("IsFileModified", &self.IsFileModified).finish()
-    }
 }
 impl windows_core::TypeKind for PRJ_NOTIFICATION_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRJ_NOTIFICATION_PARAMETERS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.IsFileModified == other.IsFileModified
-    }
-}
-impl Eq for PRJ_NOTIFICATION_PARAMETERS_0 {}
 impl Default for PRJ_NOTIFICATION_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_NOTIFICATION_PARAMETERS_1 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
-}
-impl Copy for PRJ_NOTIFICATION_PARAMETERS_1 {}
-impl Clone for PRJ_NOTIFICATION_PARAMETERS_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRJ_NOTIFICATION_PARAMETERS_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRJ_NOTIFICATION_PARAMETERS_1").field("NotificationMask", &self.NotificationMask).finish()
-    }
 }
 impl windows_core::TypeKind for PRJ_NOTIFICATION_PARAMETERS_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRJ_NOTIFICATION_PARAMETERS_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.NotificationMask == other.NotificationMask
-    }
-}
-impl Eq for PRJ_NOTIFICATION_PARAMETERS_1 {}
 impl Default for PRJ_NOTIFICATION_PARAMETERS_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_NOTIFICATION_PARAMETERS_2 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
-}
-impl Copy for PRJ_NOTIFICATION_PARAMETERS_2 {}
-impl Clone for PRJ_NOTIFICATION_PARAMETERS_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRJ_NOTIFICATION_PARAMETERS_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRJ_NOTIFICATION_PARAMETERS_2").field("NotificationMask", &self.NotificationMask).finish()
-    }
 }
 impl windows_core::TypeKind for PRJ_NOTIFICATION_PARAMETERS_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRJ_NOTIFICATION_PARAMETERS_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.NotificationMask == other.NotificationMask
-    }
-}
-impl Eq for PRJ_NOTIFICATION_PARAMETERS_2 {}
 impl Default for PRJ_NOTIFICATION_PARAMETERS_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_PLACEHOLDER_INFO {
     pub FileBasicInfo: PRJ_FILE_BASIC_INFO,
     pub EaInformation: PRJ_PLACEHOLDER_INFO_0,
@@ -943,152 +753,72 @@ pub struct PRJ_PLACEHOLDER_INFO {
     pub VersionInfo: PRJ_PLACEHOLDER_VERSION_INFO,
     pub VariableData: [u8; 1],
 }
-impl Copy for PRJ_PLACEHOLDER_INFO {}
-impl Clone for PRJ_PLACEHOLDER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRJ_PLACEHOLDER_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRJ_PLACEHOLDER_INFO").field("FileBasicInfo", &self.FileBasicInfo).field("EaInformation", &self.EaInformation).field("SecurityInformation", &self.SecurityInformation).field("StreamsInformation", &self.StreamsInformation).field("VersionInfo", &self.VersionInfo).field("VariableData", &self.VariableData).finish()
-    }
-}
 impl windows_core::TypeKind for PRJ_PLACEHOLDER_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRJ_PLACEHOLDER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.FileBasicInfo == other.FileBasicInfo && self.EaInformation == other.EaInformation && self.SecurityInformation == other.SecurityInformation && self.StreamsInformation == other.StreamsInformation && self.VersionInfo == other.VersionInfo && self.VariableData == other.VariableData
-    }
-}
-impl Eq for PRJ_PLACEHOLDER_INFO {}
 impl Default for PRJ_PLACEHOLDER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_PLACEHOLDER_INFO_0 {
     pub EaBufferSize: u32,
     pub OffsetToFirstEa: u32,
 }
-impl Copy for PRJ_PLACEHOLDER_INFO_0 {}
-impl Clone for PRJ_PLACEHOLDER_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRJ_PLACEHOLDER_INFO_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRJ_PLACEHOLDER_INFO_0").field("EaBufferSize", &self.EaBufferSize).field("OffsetToFirstEa", &self.OffsetToFirstEa).finish()
-    }
-}
 impl windows_core::TypeKind for PRJ_PLACEHOLDER_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRJ_PLACEHOLDER_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EaBufferSize == other.EaBufferSize && self.OffsetToFirstEa == other.OffsetToFirstEa
-    }
-}
-impl Eq for PRJ_PLACEHOLDER_INFO_0 {}
 impl Default for PRJ_PLACEHOLDER_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_PLACEHOLDER_INFO_1 {
     pub SecurityBufferSize: u32,
     pub OffsetToSecurityDescriptor: u32,
 }
-impl Copy for PRJ_PLACEHOLDER_INFO_1 {}
-impl Clone for PRJ_PLACEHOLDER_INFO_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRJ_PLACEHOLDER_INFO_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRJ_PLACEHOLDER_INFO_1").field("SecurityBufferSize", &self.SecurityBufferSize).field("OffsetToSecurityDescriptor", &self.OffsetToSecurityDescriptor).finish()
-    }
-}
 impl windows_core::TypeKind for PRJ_PLACEHOLDER_INFO_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRJ_PLACEHOLDER_INFO_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.SecurityBufferSize == other.SecurityBufferSize && self.OffsetToSecurityDescriptor == other.OffsetToSecurityDescriptor
-    }
-}
-impl Eq for PRJ_PLACEHOLDER_INFO_1 {}
 impl Default for PRJ_PLACEHOLDER_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_PLACEHOLDER_INFO_2 {
     pub StreamsInfoBufferSize: u32,
     pub OffsetToFirstStreamInfo: u32,
 }
-impl Copy for PRJ_PLACEHOLDER_INFO_2 {}
-impl Clone for PRJ_PLACEHOLDER_INFO_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRJ_PLACEHOLDER_INFO_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRJ_PLACEHOLDER_INFO_2").field("StreamsInfoBufferSize", &self.StreamsInfoBufferSize).field("OffsetToFirstStreamInfo", &self.OffsetToFirstStreamInfo).finish()
-    }
-}
 impl windows_core::TypeKind for PRJ_PLACEHOLDER_INFO_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRJ_PLACEHOLDER_INFO_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.StreamsInfoBufferSize == other.StreamsInfoBufferSize && self.OffsetToFirstStreamInfo == other.OffsetToFirstStreamInfo
-    }
-}
-impl Eq for PRJ_PLACEHOLDER_INFO_2 {}
 impl Default for PRJ_PLACEHOLDER_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_PLACEHOLDER_VERSION_INFO {
     pub ProviderID: [u8; 128],
     pub ContentID: [u8; 128],
 }
-impl Copy for PRJ_PLACEHOLDER_VERSION_INFO {}
-impl Clone for PRJ_PLACEHOLDER_VERSION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRJ_PLACEHOLDER_VERSION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRJ_PLACEHOLDER_VERSION_INFO").field("ProviderID", &self.ProviderID).field("ContentID", &self.ContentID).finish()
-    }
-}
 impl windows_core::TypeKind for PRJ_PLACEHOLDER_VERSION_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRJ_PLACEHOLDER_VERSION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ProviderID == other.ProviderID && self.ContentID == other.ContentID
-    }
-}
-impl Eq for PRJ_PLACEHOLDER_VERSION_INFO {}
 impl Default for PRJ_PLACEHOLDER_VERSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_STARTVIRTUALIZING_OPTIONS {
     pub Flags: PRJ_STARTVIRTUALIZING_FLAGS,
     pub PoolThreadCount: u32,
@@ -1096,56 +826,23 @@ pub struct PRJ_STARTVIRTUALIZING_OPTIONS {
     pub NotificationMappings: *mut PRJ_NOTIFICATION_MAPPING,
     pub NotificationMappingsCount: u32,
 }
-impl Copy for PRJ_STARTVIRTUALIZING_OPTIONS {}
-impl Clone for PRJ_STARTVIRTUALIZING_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRJ_STARTVIRTUALIZING_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRJ_STARTVIRTUALIZING_OPTIONS").field("Flags", &self.Flags).field("PoolThreadCount", &self.PoolThreadCount).field("ConcurrentThreadCount", &self.ConcurrentThreadCount).field("NotificationMappings", &self.NotificationMappings).field("NotificationMappingsCount", &self.NotificationMappingsCount).finish()
-    }
-}
 impl windows_core::TypeKind for PRJ_STARTVIRTUALIZING_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRJ_STARTVIRTUALIZING_OPTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.PoolThreadCount == other.PoolThreadCount && self.ConcurrentThreadCount == other.ConcurrentThreadCount && self.NotificationMappings == other.NotificationMappings && self.NotificationMappingsCount == other.NotificationMappingsCount
-    }
-}
-impl Eq for PRJ_STARTVIRTUALIZING_OPTIONS {}
 impl Default for PRJ_STARTVIRTUALIZING_OPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_VIRTUALIZATION_INSTANCE_INFO {
     pub InstanceID: windows_core::GUID,
     pub WriteAlignment: u32,
 }
-impl Copy for PRJ_VIRTUALIZATION_INSTANCE_INFO {}
-impl Clone for PRJ_VIRTUALIZATION_INSTANCE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PRJ_VIRTUALIZATION_INSTANCE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PRJ_VIRTUALIZATION_INSTANCE_INFO").field("InstanceID", &self.InstanceID).field("WriteAlignment", &self.WriteAlignment).finish()
-    }
-}
 impl windows_core::TypeKind for PRJ_VIRTUALIZATION_INSTANCE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PRJ_VIRTUALIZATION_INSTANCE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.InstanceID == other.InstanceID && self.WriteAlignment == other.WriteAlignment
-    }
-}
-impl Eq for PRJ_VIRTUALIZATION_INSTANCE_INFO {}
 impl Default for PRJ_VIRTUALIZATION_INSTANCE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

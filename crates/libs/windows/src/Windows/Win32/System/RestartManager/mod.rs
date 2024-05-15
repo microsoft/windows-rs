@@ -175,17 +175,12 @@ impl core::fmt::Debug for RM_SHUTDOWN_TYPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RM_FILTER_INFO {
     pub FilterAction: RM_FILTER_ACTION,
     pub FilterTrigger: RM_FILTER_TRIGGER,
     pub cbNextOffset: u32,
     pub Anonymous: RM_FILTER_INFO_0,
-}
-impl Copy for RM_FILTER_INFO {}
-impl Clone for RM_FILTER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RM_FILTER_INFO {
     type TypeKind = windows_core::CopyType;
@@ -196,16 +191,11 @@ impl Default for RM_FILTER_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union RM_FILTER_INFO_0 {
     pub strFilename: windows_core::PWSTR,
     pub Process: RM_UNIQUE_PROCESS,
     pub strServiceShortName: windows_core::PWSTR,
-}
-impl Copy for RM_FILTER_INFO_0 {}
-impl Clone for RM_FILTER_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for RM_FILTER_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -216,6 +206,7 @@ impl Default for RM_FILTER_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RM_PROCESS_INFO {
     pub Process: RM_UNIQUE_PROCESS,
     pub strAppName: [u16; 256],
@@ -225,56 +216,23 @@ pub struct RM_PROCESS_INFO {
     pub TSSessionId: u32,
     pub bRestartable: super::super::Foundation::BOOL,
 }
-impl Copy for RM_PROCESS_INFO {}
-impl Clone for RM_PROCESS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RM_PROCESS_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RM_PROCESS_INFO").field("Process", &self.Process).field("strAppName", &self.strAppName).field("strServiceShortName", &self.strServiceShortName).field("ApplicationType", &self.ApplicationType).field("AppStatus", &self.AppStatus).field("TSSessionId", &self.TSSessionId).field("bRestartable", &self.bRestartable).finish()
-    }
-}
 impl windows_core::TypeKind for RM_PROCESS_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RM_PROCESS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Process == other.Process && self.strAppName == other.strAppName && self.strServiceShortName == other.strServiceShortName && self.ApplicationType == other.ApplicationType && self.AppStatus == other.AppStatus && self.TSSessionId == other.TSSessionId && self.bRestartable == other.bRestartable
-    }
-}
-impl Eq for RM_PROCESS_INFO {}
 impl Default for RM_PROCESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RM_UNIQUE_PROCESS {
     pub dwProcessId: u32,
     pub ProcessStartTime: super::super::Foundation::FILETIME,
 }
-impl Copy for RM_UNIQUE_PROCESS {}
-impl Clone for RM_UNIQUE_PROCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RM_UNIQUE_PROCESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RM_UNIQUE_PROCESS").field("dwProcessId", &self.dwProcessId).field("ProcessStartTime", &self.ProcessStartTime).finish()
-    }
-}
 impl windows_core::TypeKind for RM_UNIQUE_PROCESS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RM_UNIQUE_PROCESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwProcessId == other.dwProcessId && self.ProcessStartTime == other.ProcessStartTime
-    }
-}
-impl Eq for RM_UNIQUE_PROCESS {}
 impl Default for RM_UNIQUE_PROCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

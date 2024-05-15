@@ -1246,28 +1246,19 @@ pub type IPSEC_TOKEN_TYPE = i32;
 pub type IPSEC_TRAFFIC_TYPE = i32;
 pub type IPSEC_TRANSFORM_TYPE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_ACTION0 {
     pub r#type: FWP_ACTION_TYPE,
     pub Anonymous: FWPM_ACTION0_0,
 }
-impl Copy for FWPM_ACTION0 {}
-impl Clone for FWPM_ACTION0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union FWPM_ACTION0_0 {
     pub filterType: windows_sys::core::GUID,
     pub calloutKey: windows_sys::core::GUID,
 }
-impl Copy for FWPM_ACTION0_0 {}
-impl Clone for FWPM_ACTION0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_CALLOUT0 {
     pub calloutKey: windows_sys::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -1277,76 +1268,42 @@ pub struct FWPM_CALLOUT0 {
     pub applicableLayer: windows_sys::core::GUID,
     pub calloutId: u32,
 }
-impl Copy for FWPM_CALLOUT0 {}
-impl Clone for FWPM_CALLOUT0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_CALLOUT_CHANGE0 {
     pub changeType: FWPM_CHANGE_TYPE,
     pub calloutKey: windows_sys::core::GUID,
     pub calloutId: u32,
 }
-impl Copy for FWPM_CALLOUT_CHANGE0 {}
-impl Clone for FWPM_CALLOUT_CHANGE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_CALLOUT_ENUM_TEMPLATE0 {
     pub providerKey: *mut windows_sys::core::GUID,
     pub layerKey: windows_sys::core::GUID,
 }
-impl Copy for FWPM_CALLOUT_ENUM_TEMPLATE0 {}
-impl Clone for FWPM_CALLOUT_ENUM_TEMPLATE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_CALLOUT_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_CALLOUT_ENUM_TEMPLATE0,
     pub flags: u32,
     pub sessionKey: windows_sys::core::GUID,
 }
-impl Copy for FWPM_CALLOUT_SUBSCRIPTION0 {}
-impl Clone for FWPM_CALLOUT_SUBSCRIPTION0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_CLASSIFY_OPTION0 {
     pub r#type: FWP_CLASSIFY_OPTION_TYPE,
     pub value: FWP_VALUE0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_CLASSIFY_OPTION0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_CLASSIFY_OPTION0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_CLASSIFY_OPTIONS0 {
     pub numOptions: u32,
     pub options: *mut FWPM_CLASSIFY_OPTION0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_CLASSIFY_OPTIONS0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_CLASSIFY_OPTIONS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_CONNECTION0 {
     pub connectionId: u64,
     pub ipVersion: FWP_IP_VERSION,
@@ -1363,82 +1320,47 @@ pub struct FWPM_CONNECTION0 {
     pub bytesTransferredTotal: u64,
     pub startSysTime: super::super::Foundation::FILETIME,
 }
-impl Copy for FWPM_CONNECTION0 {}
-impl Clone for FWPM_CONNECTION0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union FWPM_CONNECTION0_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
 }
-impl Copy for FWPM_CONNECTION0_0 {}
-impl Clone for FWPM_CONNECTION0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union FWPM_CONNECTION0_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
 }
-impl Copy for FWPM_CONNECTION0_1 {}
-impl Clone for FWPM_CONNECTION0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_CONNECTION_ENUM_TEMPLATE0 {
     pub connectionId: u64,
     pub flags: u32,
 }
-impl Copy for FWPM_CONNECTION_ENUM_TEMPLATE0 {}
-impl Clone for FWPM_CONNECTION_ENUM_TEMPLATE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_CONNECTION_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_CONNECTION_ENUM_TEMPLATE0,
     pub flags: u32,
     pub sessionKey: windows_sys::core::GUID,
 }
-impl Copy for FWPM_CONNECTION_SUBSCRIPTION0 {}
-impl Clone for FWPM_CONNECTION_SUBSCRIPTION0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_DISPLAY_DATA0 {
     pub name: windows_sys::core::PWSTR,
     pub description: windows_sys::core::PWSTR,
 }
-impl Copy for FWPM_DISPLAY_DATA0 {}
-impl Clone for FWPM_DISPLAY_DATA0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_FIELD0 {
     pub fieldKey: *mut windows_sys::core::GUID,
     pub r#type: FWPM_FIELD_TYPE,
     pub dataType: FWP_DATA_TYPE,
 }
-impl Copy for FWPM_FIELD0 {}
-impl Clone for FWPM_FIELD0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_FILTER0 {
     pub filterKey: windows_sys::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -1456,57 +1378,31 @@ pub struct FWPM_FILTER0 {
     pub filterId: u64,
     pub effectiveWeight: FWP_VALUE0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_FILTER0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_FILTER0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWPM_FILTER0_0 {
     pub rawContext: u64,
     pub providerContextKey: windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_FILTER0_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_FILTER0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_FILTER_CHANGE0 {
     pub changeType: FWPM_CHANGE_TYPE,
     pub filterKey: windows_sys::core::GUID,
     pub filterId: u64,
 }
-impl Copy for FWPM_FILTER_CHANGE0 {}
-impl Clone for FWPM_FILTER_CHANGE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_FILTER_CONDITION0 {
     pub fieldKey: windows_sys::core::GUID,
     pub matchType: FWP_MATCH_TYPE,
     pub conditionValue: FWP_CONDITION_VALUE0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_FILTER_CONDITION0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_FILTER_CONDITION0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_FILTER_ENUM_TEMPLATE0 {
     pub providerKey: *mut windows_sys::core::GUID,
     pub layerKey: windows_sys::core::GUID,
@@ -1518,30 +1414,16 @@ pub struct FWPM_FILTER_ENUM_TEMPLATE0 {
     pub actionMask: u32,
     pub calloutKey: *mut windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_FILTER_ENUM_TEMPLATE0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_FILTER_ENUM_TEMPLATE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_FILTER_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_FILTER_ENUM_TEMPLATE0,
     pub flags: u32,
     pub sessionKey: windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_FILTER_SUBSCRIPTION0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_FILTER_SUBSCRIPTION0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_LAYER0 {
     pub layerKey: windows_sys::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -1551,23 +1433,13 @@ pub struct FWPM_LAYER0 {
     pub defaultSubLayerKey: windows_sys::core::GUID,
     pub layerId: u16,
 }
-impl Copy for FWPM_LAYER0 {}
-impl Clone for FWPM_LAYER0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_LAYER_ENUM_TEMPLATE0 {
     pub reserved: u64,
 }
-impl Copy for FWPM_LAYER_ENUM_TEMPLATE0 {}
-impl Clone for FWPM_LAYER_ENUM_TEMPLATE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_LAYER_STATISTICS0 {
     pub layerId: windows_sys::core::GUID,
     pub classifyPermitCount: u32,
@@ -1575,57 +1447,31 @@ pub struct FWPM_LAYER_STATISTICS0 {
     pub classifyVetoCount: u32,
     pub numCacheEntries: u32,
 }
-impl Copy for FWPM_LAYER_STATISTICS0 {}
-impl Clone for FWPM_LAYER_STATISTICS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_NETWORK_CONNECTION_POLICY_SETTING0 {
     pub r#type: FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE,
     pub value: FWP_VALUE0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NETWORK_CONNECTION_POLICY_SETTING0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NETWORK_CONNECTION_POLICY_SETTING0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0 {
     pub numSettings: u32,
     pub settings: *mut FWPM_NETWORK_CONNECTION_POLICY_SETTING0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT0 {
     pub header: FWPM_NET_EVENT_HEADER0,
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT0_0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT0_0 {
     pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE0,
     pub ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE0,
@@ -1634,31 +1480,17 @@ pub union FWPM_NET_EVENT0_0 {
     pub ipsecDrop: *mut FWPM_NET_EVENT_IPSEC_KERNEL_DROP0,
     pub idpDrop: *mut FWPM_NET_EVENT_IPSEC_DOSP_DROP0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT0_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT1 {
     pub header: FWPM_NET_EVENT_HEADER1,
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT1_0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT1 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT1_0 {
     pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE1,
     pub ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE0,
@@ -1667,31 +1499,17 @@ pub union FWPM_NET_EVENT1_0 {
     pub ipsecDrop: *mut FWPM_NET_EVENT_IPSEC_KERNEL_DROP0,
     pub idpDrop: *mut FWPM_NET_EVENT_IPSEC_DOSP_DROP0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT1_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT2 {
     pub header: FWPM_NET_EVENT_HEADER2,
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT2_0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT2 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT2_0 {
     pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE1,
     pub ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE0,
@@ -1704,31 +1522,17 @@ pub union FWPM_NET_EVENT2_0 {
     pub capabilityAllow: *mut FWPM_NET_EVENT_CAPABILITY_ALLOW0,
     pub classifyDropMac: *mut FWPM_NET_EVENT_CLASSIFY_DROP_MAC0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT2_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT3 {
     pub header: FWPM_NET_EVENT_HEADER3,
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT3_0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT3 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT3_0 {
     pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE1,
     pub ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE0,
@@ -1741,31 +1545,17 @@ pub union FWPM_NET_EVENT3_0 {
     pub capabilityAllow: *mut FWPM_NET_EVENT_CAPABILITY_ALLOW0,
     pub classifyDropMac: *mut FWPM_NET_EVENT_CLASSIFY_DROP_MAC0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT3_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT3_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT4 {
     pub header: FWPM_NET_EVENT_HEADER3,
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT4_0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT4 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT4_0 {
     pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE2,
     pub ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE1,
@@ -1778,31 +1568,17 @@ pub union FWPM_NET_EVENT4_0 {
     pub capabilityAllow: *mut FWPM_NET_EVENT_CAPABILITY_ALLOW0,
     pub classifyDropMac: *mut FWPM_NET_EVENT_CLASSIFY_DROP_MAC0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT4_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT4_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT5 {
     pub header: FWPM_NET_EVENT_HEADER3,
     pub r#type: FWPM_NET_EVENT_TYPE,
     pub Anonymous: FWPM_NET_EVENT5_0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT5 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT5_0 {
     pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE2,
     pub ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE1,
@@ -1816,39 +1592,22 @@ pub union FWPM_NET_EVENT5_0 {
     pub classifyDropMac: *mut FWPM_NET_EVENT_CLASSIFY_DROP_MAC0,
     pub lpmPacketArrival: *mut FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT5_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT5_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
     pub networkCapabilityId: FWPM_APPC_NETWORK_CAPABILITY_TYPE,
     pub filterId: u64,
     pub isLoopback: super::super::Foundation::BOOL,
 }
-impl Copy for FWPM_NET_EVENT_CAPABILITY_ALLOW0 {}
-impl Clone for FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_CAPABILITY_DROP0 {
     pub networkCapabilityId: FWPM_APPC_NETWORK_CAPABILITY_TYPE,
     pub filterId: u64,
     pub isLoopback: super::super::Foundation::BOOL,
 }
-impl Copy for FWPM_NET_EVENT_CAPABILITY_DROP0 {}
-impl Clone for FWPM_NET_EVENT_CAPABILITY_DROP0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
     pub filterId: u64,
     pub layerId: u16,
@@ -1858,24 +1617,14 @@ pub struct FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
     pub msFwpDirection: u32,
     pub isLoopback: super::super::Foundation::BOOL,
 }
-impl Copy for FWPM_NET_EVENT_CLASSIFY_ALLOW0 {}
-impl Clone for FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP0 {
     pub filterId: u64,
     pub layerId: u16,
 }
-impl Copy for FWPM_NET_EVENT_CLASSIFY_DROP0 {}
-impl Clone for FWPM_NET_EVENT_CLASSIFY_DROP0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP1 {
     pub filterId: u64,
     pub layerId: u16,
@@ -1885,13 +1634,8 @@ pub struct FWPM_NET_EVENT_CLASSIFY_DROP1 {
     pub msFwpDirection: u32,
     pub isLoopback: super::super::Foundation::BOOL,
 }
-impl Copy for FWPM_NET_EVENT_CLASSIFY_DROP1 {}
-impl Clone for FWPM_NET_EVENT_CLASSIFY_DROP1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP2 {
     pub filterId: u64,
     pub layerId: u16,
@@ -1904,13 +1648,8 @@ pub struct FWPM_NET_EVENT_CLASSIFY_DROP2 {
     pub vSwitchSourcePort: u32,
     pub vSwitchDestinationPort: u32,
 }
-impl Copy for FWPM_NET_EVENT_CLASSIFY_DROP2 {}
-impl Clone for FWPM_NET_EVENT_CLASSIFY_DROP2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
     pub localMacAddr: FWP_BYTE_ARRAY6,
     pub remoteMacAddr: FWP_BYTE_ARRAY6,
@@ -1932,30 +1671,18 @@ pub struct FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
     pub vSwitchSourcePort: u32,
     pub vSwitchDestinationPort: u32,
 }
-impl Copy for FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {}
-impl Clone for FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_ENUM_TEMPLATE0 {
     pub startTime: super::super::Foundation::FILETIME,
     pub endTime: super::super::Foundation::FILETIME,
     pub numFilterConditions: u32,
     pub filterCondition: *mut FWPM_FILTER_CONDITION0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT_ENUM_TEMPLATE0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT_ENUM_TEMPLATE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_HEADER0 {
     pub timeStamp: super::super::Foundation::FILETIME,
     pub flags: u32,
@@ -1969,44 +1696,23 @@ pub struct FWPM_NET_EVENT_HEADER0 {
     pub appId: FWP_BYTE_BLOB,
     pub userId: *mut super::super::Security::SID,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT_HEADER0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT_HEADER0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER0_0 {
     pub localAddrV4: u32,
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT_HEADER0_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT_HEADER0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER0_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT_HEADER0_1 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT_HEADER0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_HEADER1 {
     pub timeStamp: super::super::Foundation::FILETIME,
     pub flags: u32,
@@ -2021,84 +1727,42 @@ pub struct FWPM_NET_EVENT_HEADER1 {
     pub userId: *mut super::super::Security::SID,
     pub Anonymous3: FWPM_NET_EVENT_HEADER1_2,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT_HEADER1 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT_HEADER1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER1_0 {
     pub localAddrV4: u32,
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT_HEADER1_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT_HEADER1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER1_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT_HEADER1_1 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT_HEADER1_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER1_2 {
     pub Anonymous: FWPM_NET_EVENT_HEADER1_2_0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT_HEADER1_2 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT_HEADER1_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_HEADER1_2_0 {
     pub reserved1: FWP_AF,
     pub Anonymous: FWPM_NET_EVENT_HEADER1_2_0_0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT_HEADER1_2_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT_HEADER1_2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER1_2_0_0 {
     pub Anonymous: FWPM_NET_EVENT_HEADER1_2_0_0_0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT_HEADER1_2_0_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT_HEADER1_2_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     pub reserved2: FWP_BYTE_ARRAY6,
     pub reserved3: FWP_BYTE_ARRAY6,
@@ -2110,16 +1774,9 @@ pub struct FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     pub reserved9: u16,
     pub reserved10: u64,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT_HEADER1_2_0_0_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT_HEADER1_2_0_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_HEADER2 {
     pub timeStamp: super::super::Foundation::FILETIME,
     pub flags: u32,
@@ -2135,44 +1792,23 @@ pub struct FWPM_NET_EVENT_HEADER2 {
     pub addressFamily: FWP_AF,
     pub packageSid: *mut super::super::Security::SID,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT_HEADER2 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT_HEADER2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER2_0 {
     pub localAddrV4: u32,
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT_HEADER2_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT_HEADER2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER2_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT_HEADER2_1 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT_HEADER2_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_HEADER3 {
     pub timeStamp: super::super::Foundation::FILETIME,
     pub flags: u32,
@@ -2191,43 +1827,22 @@ pub struct FWPM_NET_EVENT_HEADER3 {
     pub policyFlags: u64,
     pub effectiveName: FWP_BYTE_BLOB,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT_HEADER3 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT_HEADER3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER3_0 {
     pub localAddrV4: u32,
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT_HEADER3_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT_HEADER3_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER3_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT_HEADER3_1 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT_HEADER3_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
     pub failureErrorCode: u32,
     pub failurePoint: IPSEC_FAILURE_POINT,
@@ -2239,13 +1854,8 @@ pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
     pub mmId: u64,
     pub qmFilterId: u64,
 }
-impl Copy for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {}
-impl Clone for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
     pub failureErrorCode: u32,
     pub failurePoint: IPSEC_FAILURE_POINT,
@@ -2264,13 +1874,8 @@ pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
     pub remotePrincipalGroupSids: *mut windows_sys::core::PWSTR,
     pub saTrafficType: IPSEC_TRAFFIC_TYPE,
 }
-impl Copy for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {}
-impl Clone for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
     pub failureErrorCode: u32,
     pub failurePoint: IPSEC_FAILURE_POINT,
@@ -2283,13 +1888,8 @@ pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
     pub mmId: u64,
     pub mmFilterId: u64,
 }
-impl Copy for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {}
-impl Clone for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
     pub failureErrorCode: u32,
     pub failurePoint: IPSEC_FAILURE_POINT,
@@ -2308,13 +1908,8 @@ pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
     pub numRemotePrincipalGroupSids: u32,
     pub remotePrincipalGroupSids: *mut windows_sys::core::PWSTR,
 }
-impl Copy for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {}
-impl Clone for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {
     pub failureErrorCode: u32,
     pub failurePoint: IPSEC_FAILURE_POINT,
@@ -2334,14 +1929,9 @@ pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {
     pub remotePrincipalGroupSids: *mut windows_sys::core::PWSTR,
     pub providerContextKey: *mut windows_sys::core::GUID,
 }
-impl Copy for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {}
-impl Clone for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
     pub failureErrorCode: u32,
     pub failurePoint: IPSEC_FAILURE_POINT,
@@ -2353,42 +1943,21 @@ pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
     pub Anonymous2: FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1,
     pub qmFilterId: u64,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
     pub localSubNet: FWP_CONDITION_VALUE0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
     pub remoteSubNet: FWP_CONDITION_VALUE0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {
     pub failureErrorCode: u32,
     pub failurePoint: IPSEC_FAILURE_POINT,
@@ -2402,41 +1971,20 @@ pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {
     pub mmSaLuid: u64,
     pub mmProviderContextKey: windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0 {
     pub localSubNet: FWP_CONDITION_VALUE0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1 {
     pub remoteSubNet: FWP_CONDITION_VALUE0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
     pub ipVersion: FWP_IP_VERSION,
     pub Anonymous1: FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0,
@@ -2444,35 +1992,20 @@ pub struct FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
     pub failureStatus: i32,
     pub direction: FWP_DIRECTION,
 }
-impl Copy for FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {}
-impl Clone for FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {
     pub publicHostV4Addr: u32,
     pub publicHostV6Addr: [u8; 16],
 }
-impl Copy for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {}
-impl Clone for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {
     pub internalHostV4Addr: u32,
     pub internalHostV6Addr: [u8; 16],
 }
-impl Copy for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {}
-impl Clone for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
     pub failureStatus: i32,
     pub direction: FWP_DIRECTION,
@@ -2480,38 +2013,21 @@ pub struct FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
     pub filterId: u64,
     pub layerId: u16,
 }
-impl Copy for FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {}
-impl Clone for FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0 {
     pub spi: u32,
 }
-impl Copy for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0 {}
-impl Clone for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_NET_EVENT_ENUM_TEMPLATE0,
     pub flags: u32,
     pub sessionKey: windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_NET_EVENT_SUBSCRIPTION0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_NET_EVENT_SUBSCRIPTION0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_PROVIDER0 {
     pub providerKey: windows_sys::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -2519,25 +2035,15 @@ pub struct FWPM_PROVIDER0 {
     pub providerData: FWP_BYTE_BLOB,
     pub serviceName: windows_sys::core::PWSTR,
 }
-impl Copy for FWPM_PROVIDER0 {}
-impl Clone for FWPM_PROVIDER0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_PROVIDER_CHANGE0 {
     pub changeType: FWPM_CHANGE_TYPE,
     pub providerKey: windows_sys::core::GUID,
 }
-impl Copy for FWPM_PROVIDER_CHANGE0 {}
-impl Clone for FWPM_PROVIDER_CHANGE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_PROVIDER_CONTEXT0 {
     pub providerContextKey: windows_sys::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -2548,16 +2054,9 @@ pub struct FWPM_PROVIDER_CONTEXT0 {
     pub Anonymous: FWPM_PROVIDER_CONTEXT0_0,
     pub providerContextId: u64,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_PROVIDER_CONTEXT0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_PROVIDER_CONTEXT0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWPM_PROVIDER_CONTEXT0_0 {
     pub keyingPolicy: *mut IPSEC_KEYING_POLICY0,
     pub ikeQmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY0,
@@ -2569,16 +2068,9 @@ pub union FWPM_PROVIDER_CONTEXT0_0 {
     pub dataBuffer: *mut FWP_BYTE_BLOB,
     pub classifyOptions: *mut FWPM_CLASSIFY_OPTIONS0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_PROVIDER_CONTEXT0_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_PROVIDER_CONTEXT0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_PROVIDER_CONTEXT1 {
     pub providerContextKey: windows_sys::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -2589,16 +2081,9 @@ pub struct FWPM_PROVIDER_CONTEXT1 {
     pub Anonymous: FWPM_PROVIDER_CONTEXT1_0,
     pub providerContextId: u64,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_PROVIDER_CONTEXT1 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_PROVIDER_CONTEXT1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWPM_PROVIDER_CONTEXT1_0 {
     pub keyingPolicy: *mut IPSEC_KEYING_POLICY0,
     pub ikeQmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY1,
@@ -2613,16 +2098,9 @@ pub union FWPM_PROVIDER_CONTEXT1_0 {
     pub ikeV2MmPolicy: *mut IKEEXT_POLICY1,
     pub idpOptions: *mut IPSEC_DOSP_OPTIONS0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_PROVIDER_CONTEXT1_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_PROVIDER_CONTEXT1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_PROVIDER_CONTEXT2 {
     pub providerContextKey: windows_sys::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -2633,16 +2111,9 @@ pub struct FWPM_PROVIDER_CONTEXT2 {
     pub Anonymous: FWPM_PROVIDER_CONTEXT2_0,
     pub providerContextId: u64,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_PROVIDER_CONTEXT2 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_PROVIDER_CONTEXT2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWPM_PROVIDER_CONTEXT2_0 {
     pub keyingPolicy: *mut IPSEC_KEYING_POLICY1,
     pub ikeQmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY2,
@@ -2658,16 +2129,9 @@ pub union FWPM_PROVIDER_CONTEXT2_0 {
     pub ikeV2MmPolicy: *mut IKEEXT_POLICY2,
     pub idpOptions: *mut IPSEC_DOSP_OPTIONS0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_PROVIDER_CONTEXT2_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_PROVIDER_CONTEXT2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_PROVIDER_CONTEXT3 {
     pub providerContextKey: windows_sys::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -2678,16 +2142,9 @@ pub struct FWPM_PROVIDER_CONTEXT3 {
     pub Anonymous: FWPM_PROVIDER_CONTEXT3_0,
     pub providerContextId: u64,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_PROVIDER_CONTEXT3 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_PROVIDER_CONTEXT3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWPM_PROVIDER_CONTEXT3_0 {
     pub keyingPolicy: *mut IPSEC_KEYING_POLICY1,
     pub ikeQmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY2,
@@ -2704,73 +2161,41 @@ pub union FWPM_PROVIDER_CONTEXT3_0 {
     pub idpOptions: *mut IPSEC_DOSP_OPTIONS0,
     pub networkConnectionPolicy: *mut FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_PROVIDER_CONTEXT3_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_PROVIDER_CONTEXT3_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_PROVIDER_CONTEXT_CHANGE0 {
     pub changeType: FWPM_CHANGE_TYPE,
     pub providerContextKey: windows_sys::core::GUID,
     pub providerContextId: u64,
 }
-impl Copy for FWPM_PROVIDER_CONTEXT_CHANGE0 {}
-impl Clone for FWPM_PROVIDER_CONTEXT_CHANGE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
     pub providerKey: *mut windows_sys::core::GUID,
     pub providerContextType: FWPM_PROVIDER_CONTEXT_TYPE,
 }
-impl Copy for FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {}
-impl Clone for FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0,
     pub flags: FWPM_SUBSCRIPTION_FLAGS,
     pub sessionKey: windows_sys::core::GUID,
 }
-impl Copy for FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {}
-impl Clone for FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_PROVIDER_ENUM_TEMPLATE0 {
     pub reserved: u64,
 }
-impl Copy for FWPM_PROVIDER_ENUM_TEMPLATE0 {}
-impl Clone for FWPM_PROVIDER_ENUM_TEMPLATE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_PROVIDER_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_PROVIDER_ENUM_TEMPLATE0,
     pub flags: u32,
     pub sessionKey: windows_sys::core::GUID,
 }
-impl Copy for FWPM_PROVIDER_SUBSCRIPTION0 {}
-impl Clone for FWPM_PROVIDER_SUBSCRIPTION0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWPM_SESSION0 {
     pub sessionKey: windows_sys::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -2781,25 +2206,13 @@ pub struct FWPM_SESSION0 {
     pub username: windows_sys::core::PWSTR,
     pub kernelMode: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWPM_SESSION0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWPM_SESSION0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_SESSION_ENUM_TEMPLATE0 {
     pub reserved: u64,
 }
-impl Copy for FWPM_SESSION_ENUM_TEMPLATE0 {}
-impl Clone for FWPM_SESSION_ENUM_TEMPLATE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_STATISTICS0 {
     pub numLayerStatistics: u32,
     pub layerStatistics: *mut FWPM_LAYER_STATISTICS0,
@@ -2838,13 +2251,8 @@ pub struct FWPM_STATISTICS0 {
     pub reauthReasonEDPPolicyChanged: u64,
     pub reauthReasonProxyHandleChanged: u64,
 }
-impl Copy for FWPM_STATISTICS0 {}
-impl Clone for FWPM_STATISTICS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_SUBLAYER0 {
     pub subLayerKey: windows_sys::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -2853,172 +2261,95 @@ pub struct FWPM_SUBLAYER0 {
     pub providerData: FWP_BYTE_BLOB,
     pub weight: u16,
 }
-impl Copy for FWPM_SUBLAYER0 {}
-impl Clone for FWPM_SUBLAYER0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_SUBLAYER_CHANGE0 {
     pub changeType: FWPM_CHANGE_TYPE,
     pub subLayerKey: windows_sys::core::GUID,
 }
-impl Copy for FWPM_SUBLAYER_CHANGE0 {}
-impl Clone for FWPM_SUBLAYER_CHANGE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_SUBLAYER_ENUM_TEMPLATE0 {
     pub providerKey: *mut windows_sys::core::GUID,
 }
-impl Copy for FWPM_SUBLAYER_ENUM_TEMPLATE0 {}
-impl Clone for FWPM_SUBLAYER_ENUM_TEMPLATE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_SUBLAYER_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_SUBLAYER_ENUM_TEMPLATE0,
     pub flags: FWPM_SUBSCRIPTION_FLAGS,
     pub sessionKey: windows_sys::core::GUID,
 }
-impl Copy for FWPM_SUBLAYER_SUBSCRIPTION0 {}
-impl Clone for FWPM_SUBLAYER_SUBSCRIPTION0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_SYSTEM_PORTS0 {
     pub numTypes: u32,
     pub types: *mut FWPM_SYSTEM_PORTS_BY_TYPE0,
 }
-impl Copy for FWPM_SYSTEM_PORTS0 {}
-impl Clone for FWPM_SYSTEM_PORTS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_SYSTEM_PORTS_BY_TYPE0 {
     pub r#type: FWPM_SYSTEM_PORT_TYPE,
     pub numPorts: u32,
     pub ports: *mut u16,
 }
-impl Copy for FWPM_SYSTEM_PORTS_BY_TYPE0 {}
-impl Clone for FWPM_SYSTEM_PORTS_BY_TYPE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_VSWITCH_EVENT0 {
     pub eventType: FWPM_VSWITCH_EVENT_TYPE,
     pub vSwitchId: windows_sys::core::PWSTR,
     pub Anonymous: FWPM_VSWITCH_EVENT0_0,
 }
-impl Copy for FWPM_VSWITCH_EVENT0 {}
-impl Clone for FWPM_VSWITCH_EVENT0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union FWPM_VSWITCH_EVENT0_0 {
     pub positionInfo: FWPM_VSWITCH_EVENT0_0_0,
     pub reorderInfo: FWPM_VSWITCH_EVENT0_0_1,
 }
-impl Copy for FWPM_VSWITCH_EVENT0_0 {}
-impl Clone for FWPM_VSWITCH_EVENT0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_VSWITCH_EVENT0_0_0 {
     pub numvSwitchFilterExtensions: u32,
     pub vSwitchFilterExtensions: *mut windows_sys::core::PWSTR,
 }
-impl Copy for FWPM_VSWITCH_EVENT0_0_0 {}
-impl Clone for FWPM_VSWITCH_EVENT0_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_VSWITCH_EVENT0_0_1 {
     pub inRequiredPosition: super::super::Foundation::BOOL,
     pub numvSwitchFilterExtensions: u32,
     pub vSwitchFilterExtensions: *mut windows_sys::core::PWSTR,
 }
-impl Copy for FWPM_VSWITCH_EVENT0_0_1 {}
-impl Clone for FWPM_VSWITCH_EVENT0_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {
     pub flags: u32,
     pub sessionKey: windows_sys::core::GUID,
 }
-impl Copy for FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {}
-impl Clone for FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWP_BYTE_ARRAY16 {
     pub byteArray16: [u8; 16],
 }
-impl Copy for FWP_BYTE_ARRAY16 {}
-impl Clone for FWP_BYTE_ARRAY16 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWP_BYTE_ARRAY6 {
     pub byteArray6: [u8; 6],
 }
-impl Copy for FWP_BYTE_ARRAY6 {}
-impl Clone for FWP_BYTE_ARRAY6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWP_BYTE_BLOB {
     pub size: u32,
     pub data: *mut u8,
 }
-impl Copy for FWP_BYTE_BLOB {}
-impl Clone for FWP_BYTE_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWP_CONDITION_VALUE0 {
     pub r#type: FWP_DATA_TYPE,
     pub Anonymous: FWP_CONDITION_VALUE0_0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWP_CONDITION_VALUE0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWP_CONDITION_VALUE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWP_CONDITION_VALUE0_0 {
     pub uint8: u8,
     pub uint16: u16,
@@ -3042,82 +2373,44 @@ pub union FWP_CONDITION_VALUE0_0 {
     pub v6AddrMask: *mut FWP_V6_ADDR_AND_MASK,
     pub rangeValue: *mut FWP_RANGE0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWP_CONDITION_VALUE0_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWP_CONDITION_VALUE0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWP_RANGE0 {
     pub valueLow: FWP_VALUE0,
     pub valueHigh: FWP_VALUE0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWP_RANGE0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWP_RANGE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWP_TOKEN_INFORMATION {
     pub sidCount: u32,
     pub sids: *mut super::super::Security::SID_AND_ATTRIBUTES,
     pub restrictedSidCount: u32,
     pub restrictedSids: *mut super::super::Security::SID_AND_ATTRIBUTES,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWP_TOKEN_INFORMATION {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWP_TOKEN_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWP_V4_ADDR_AND_MASK {
     pub addr: u32,
     pub mask: u32,
 }
-impl Copy for FWP_V4_ADDR_AND_MASK {}
-impl Clone for FWP_V4_ADDR_AND_MASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FWP_V6_ADDR_AND_MASK {
     pub addr: [u8; 16],
     pub prefixLength: u8,
 }
-impl Copy for FWP_V6_ADDR_AND_MASK {}
-impl Clone for FWP_V6_ADDR_AND_MASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct FWP_VALUE0 {
     pub r#type: FWP_DATA_TYPE,
     pub Anonymous: FWP_VALUE0_0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWP_VALUE0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWP_VALUE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union FWP_VALUE0_0 {
     pub uint8: u8,
     pub uint16: u16,
@@ -3138,26 +2431,14 @@ pub union FWP_VALUE0_0 {
     pub unicodeString: windows_sys::core::PWSTR,
     pub byteArray6: *mut FWP_BYTE_ARRAY6,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for FWP_VALUE0_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for FWP_VALUE0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_AUTHENTICATION_METHOD0 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub Anonymous: IKEEXT_AUTHENTICATION_METHOD0_0,
 }
-impl Copy for IKEEXT_AUTHENTICATION_METHOD0 {}
-impl Clone for IKEEXT_AUTHENTICATION_METHOD0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IKEEXT_AUTHENTICATION_METHOD0_0 {
     pub presharedKeyAuthentication: IKEEXT_PRESHARED_KEY_AUTHENTICATION0,
     pub certificateAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION0,
@@ -3166,24 +2447,14 @@ pub union IKEEXT_AUTHENTICATION_METHOD0_0 {
     pub sslAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION0,
     pub cgaAuthentication: IKEEXT_IPV6_CGA_AUTHENTICATION0,
 }
-impl Copy for IKEEXT_AUTHENTICATION_METHOD0_0 {}
-impl Clone for IKEEXT_AUTHENTICATION_METHOD0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_AUTHENTICATION_METHOD1 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub Anonymous: IKEEXT_AUTHENTICATION_METHOD1_0,
 }
-impl Copy for IKEEXT_AUTHENTICATION_METHOD1 {}
-impl Clone for IKEEXT_AUTHENTICATION_METHOD1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IKEEXT_AUTHENTICATION_METHOD1_0 {
     pub presharedKeyAuthentication: IKEEXT_PRESHARED_KEY_AUTHENTICATION1,
     pub certificateAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION1,
@@ -3193,24 +2464,14 @@ pub union IKEEXT_AUTHENTICATION_METHOD1_0 {
     pub cgaAuthentication: IKEEXT_IPV6_CGA_AUTHENTICATION0,
     pub eapAuthentication: IKEEXT_EAP_AUTHENTICATION0,
 }
-impl Copy for IKEEXT_AUTHENTICATION_METHOD1_0 {}
-impl Clone for IKEEXT_AUTHENTICATION_METHOD1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_AUTHENTICATION_METHOD2 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub Anonymous: IKEEXT_AUTHENTICATION_METHOD2_0,
 }
-impl Copy for IKEEXT_AUTHENTICATION_METHOD2 {}
-impl Clone for IKEEXT_AUTHENTICATION_METHOD2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IKEEXT_AUTHENTICATION_METHOD2_0 {
     pub presharedKeyAuthentication: IKEEXT_PRESHARED_KEY_AUTHENTICATION1,
     pub certificateAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION2,
@@ -3221,13 +2482,8 @@ pub union IKEEXT_AUTHENTICATION_METHOD2_0 {
     pub cgaAuthentication: IKEEXT_IPV6_CGA_AUTHENTICATION0,
     pub eapAuthentication: IKEEXT_EAP_AUTHENTICATION0,
 }
-impl Copy for IKEEXT_AUTHENTICATION_METHOD2_0 {}
-impl Clone for IKEEXT_AUTHENTICATION_METHOD2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0 {
     pub inboundConfigType: IKEEXT_CERT_CONFIG_TYPE,
     pub Anonymous1: IKEEXT_CERTIFICATE_AUTHENTICATION0_0,
@@ -3235,59 +2491,34 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0 {
     pub Anonymous2: IKEEXT_CERTIFICATE_AUTHENTICATION0_1,
     pub flags: IKEEXT_CERT_AUTH,
 }
-impl Copy for IKEEXT_CERTIFICATE_AUTHENTICATION0 {}
-impl Clone for IKEEXT_CERTIFICATE_AUTHENTICATION0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
     pub Anonymous: IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0,
     pub inboundEnterpriseStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
     pub inboundTrustedRootStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
-impl Copy for IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {}
-impl Clone for IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
     pub inboundRootArraySize: u32,
     pub inboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
-impl Copy for IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {}
-impl Clone for IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {
     pub Anonymous: IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0,
     pub outboundEnterpriseStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
     pub outboundTrustedRootStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
-impl Copy for IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {}
-impl Clone for IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
     pub outboundRootArraySize: u32,
     pub outboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
-impl Copy for IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {}
-impl Clone for IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1 {
     pub inboundConfigType: IKEEXT_CERT_CONFIG_TYPE,
     pub Anonymous1: IKEEXT_CERTIFICATE_AUTHENTICATION1_0,
@@ -3296,59 +2527,34 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1 {
     pub flags: IKEEXT_CERT_AUTH,
     pub localCertLocationUrl: FWP_BYTE_BLOB,
 }
-impl Copy for IKEEXT_CERTIFICATE_AUTHENTICATION1 {}
-impl Clone for IKEEXT_CERTIFICATE_AUTHENTICATION1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
     pub Anonymous: IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0,
     pub inboundEnterpriseStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
     pub inboundTrustedRootStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
-impl Copy for IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {}
-impl Clone for IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
     pub inboundRootArraySize: u32,
     pub inboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
-impl Copy for IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {}
-impl Clone for IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {
     pub Anonymous: IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0,
     pub outboundEnterpriseStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
     pub outboundTrustedRootStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
-impl Copy for IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {}
-impl Clone for IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
     pub outboundRootArraySize: u32,
     pub outboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
-impl Copy for IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {}
-impl Clone for IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2 {
     pub inboundConfigType: IKEEXT_CERT_CONFIG_TYPE,
     pub Anonymous1: IKEEXT_CERTIFICATE_AUTHENTICATION2_0,
@@ -3357,128 +2563,73 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2 {
     pub flags: IKEEXT_CERT_AUTH,
     pub localCertLocationUrl: FWP_BYTE_BLOB,
 }
-impl Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2 {}
-impl Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
     pub Anonymous1: IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0,
     pub Anonymous2: IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1,
     pub Anonymous3: IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2,
 }
-impl Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {}
-impl Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
     pub inboundRootArraySize: u32,
     pub inboundRootCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
-impl Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {}
-impl Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
     pub inboundEnterpriseStoreArraySize: u32,
     pub inboundEnterpriseStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
-impl Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {}
-impl Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
     pub inboundRootStoreArraySize: u32,
     pub inboundTrustedRootStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
-impl Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {}
-impl Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
     pub Anonymous1: IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0,
     pub Anonymous2: IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1,
     pub Anonymous3: IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2,
 }
-impl Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {}
-impl Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
     pub outboundRootArraySize: u32,
     pub outboundRootCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
-impl Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {}
-impl Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
     pub outboundEnterpriseStoreArraySize: u32,
     pub outboundEnterpriseStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
-impl Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {}
-impl Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
     pub outboundRootStoreArraySize: u32,
     pub outboundTrustedRootStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
-impl Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {}
-impl Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_CREDENTIAL0 {
     pub subjectName: FWP_BYTE_BLOB,
     pub certHash: FWP_BYTE_BLOB,
     pub flags: u32,
 }
-impl Copy for IKEEXT_CERTIFICATE_CREDENTIAL0 {}
-impl Clone for IKEEXT_CERTIFICATE_CREDENTIAL0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_CREDENTIAL1 {
     pub subjectName: FWP_BYTE_BLOB,
     pub certHash: FWP_BYTE_BLOB,
     pub flags: u32,
     pub certificate: FWP_BYTE_BLOB,
 }
-impl Copy for IKEEXT_CERTIFICATE_CREDENTIAL1 {}
-impl Clone for IKEEXT_CERTIFICATE_CREDENTIAL1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_CRITERIA0 {
     pub certData: FWP_BYTE_BLOB,
     pub certHash: FWP_BYTE_BLOB,
@@ -3486,58 +2637,33 @@ pub struct IKEEXT_CERTIFICATE_CRITERIA0 {
     pub name: *mut IKEEXT_CERT_NAME0,
     pub flags: u32,
 }
-impl Copy for IKEEXT_CERTIFICATE_CRITERIA0 {}
-impl Clone for IKEEXT_CERTIFICATE_CRITERIA0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CERT_EKUS0 {
     pub numEku: u32,
     pub eku: *mut windows_sys::core::PSTR,
 }
-impl Copy for IKEEXT_CERT_EKUS0 {}
-impl Clone for IKEEXT_CERT_EKUS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CERT_NAME0 {
     pub nameType: IKEEXT_CERT_CRITERIA_NAME_TYPE,
     pub certName: windows_sys::core::PWSTR,
 }
-impl Copy for IKEEXT_CERT_NAME0 {}
-impl Clone for IKEEXT_CERT_NAME0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CERT_ROOT_CONFIG0 {
     pub certData: FWP_BYTE_BLOB,
     pub flags: IKEEXT_CERT_FLAGS,
 }
-impl Copy for IKEEXT_CERT_ROOT_CONFIG0 {}
-impl Clone for IKEEXT_CERT_ROOT_CONFIG0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CIPHER_ALGORITHM0 {
     pub algoIdentifier: IKEEXT_CIPHER_TYPE,
     pub keyLen: u32,
     pub rounds: u32,
 }
-impl Copy for IKEEXT_CIPHER_ALGORITHM0 {}
-impl Clone for IKEEXT_CIPHER_ALGORITHM0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_COMMON_STATISTICS0 {
     pub v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0,
     pub v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0,
@@ -3545,13 +2671,8 @@ pub struct IKEEXT_COMMON_STATISTICS0 {
     pub totalInvalidPacketsReceived: u32,
     pub currentQueuedWorkitems: u32,
 }
-impl Copy for IKEEXT_COMMON_STATISTICS0 {}
-impl Clone for IKEEXT_COMMON_STATISTICS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_COMMON_STATISTICS1 {
     pub v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1,
     pub v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1,
@@ -3559,218 +2680,123 @@ pub struct IKEEXT_COMMON_STATISTICS1 {
     pub totalInvalidPacketsReceived: u32,
     pub currentQueuedWorkitems: u32,
 }
-impl Copy for IKEEXT_COMMON_STATISTICS1 {}
-impl Clone for IKEEXT_COMMON_STATISTICS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_COOKIE_PAIR0 {
     pub initiator: u64,
     pub responder: u64,
 }
-impl Copy for IKEEXT_COOKIE_PAIR0 {}
-impl Clone for IKEEXT_COOKIE_PAIR0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CREDENTIAL0 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub impersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
     pub Anonymous: IKEEXT_CREDENTIAL0_0,
 }
-impl Copy for IKEEXT_CREDENTIAL0 {}
-impl Clone for IKEEXT_CREDENTIAL0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IKEEXT_CREDENTIAL0_0 {
     pub presharedKey: *mut IKEEXT_PRESHARED_KEY_AUTHENTICATION0,
     pub certificate: *mut IKEEXT_CERTIFICATE_CREDENTIAL0,
     pub name: *mut IKEEXT_NAME_CREDENTIAL0,
 }
-impl Copy for IKEEXT_CREDENTIAL0_0 {}
-impl Clone for IKEEXT_CREDENTIAL0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CREDENTIAL1 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub impersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
     pub Anonymous: IKEEXT_CREDENTIAL1_0,
 }
-impl Copy for IKEEXT_CREDENTIAL1 {}
-impl Clone for IKEEXT_CREDENTIAL1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IKEEXT_CREDENTIAL1_0 {
     pub presharedKey: *mut IKEEXT_PRESHARED_KEY_AUTHENTICATION1,
     pub certificate: *mut IKEEXT_CERTIFICATE_CREDENTIAL1,
     pub name: *mut IKEEXT_NAME_CREDENTIAL0,
 }
-impl Copy for IKEEXT_CREDENTIAL1_0 {}
-impl Clone for IKEEXT_CREDENTIAL1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CREDENTIAL2 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub impersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
     pub Anonymous: IKEEXT_CREDENTIAL2_0,
 }
-impl Copy for IKEEXT_CREDENTIAL2 {}
-impl Clone for IKEEXT_CREDENTIAL2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IKEEXT_CREDENTIAL2_0 {
     pub presharedKey: *mut IKEEXT_PRESHARED_KEY_AUTHENTICATION1,
     pub certificate: *mut IKEEXT_CERTIFICATE_CREDENTIAL1,
     pub name: *mut IKEEXT_NAME_CREDENTIAL0,
 }
-impl Copy for IKEEXT_CREDENTIAL2_0 {}
-impl Clone for IKEEXT_CREDENTIAL2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CREDENTIALS0 {
     pub numCredentials: u32,
     pub credentials: *mut IKEEXT_CREDENTIAL_PAIR0,
 }
-impl Copy for IKEEXT_CREDENTIALS0 {}
-impl Clone for IKEEXT_CREDENTIALS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CREDENTIALS1 {
     pub numCredentials: u32,
     pub credentials: *mut IKEEXT_CREDENTIAL_PAIR1,
 }
-impl Copy for IKEEXT_CREDENTIALS1 {}
-impl Clone for IKEEXT_CREDENTIALS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CREDENTIALS2 {
     pub numCredentials: u32,
     pub credentials: *mut IKEEXT_CREDENTIAL_PAIR2,
 }
-impl Copy for IKEEXT_CREDENTIALS2 {}
-impl Clone for IKEEXT_CREDENTIALS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CREDENTIAL_PAIR0 {
     pub localCredentials: IKEEXT_CREDENTIAL0,
     pub peerCredentials: IKEEXT_CREDENTIAL0,
 }
-impl Copy for IKEEXT_CREDENTIAL_PAIR0 {}
-impl Clone for IKEEXT_CREDENTIAL_PAIR0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CREDENTIAL_PAIR1 {
     pub localCredentials: IKEEXT_CREDENTIAL1,
     pub peerCredentials: IKEEXT_CREDENTIAL1,
 }
-impl Copy for IKEEXT_CREDENTIAL_PAIR1 {}
-impl Clone for IKEEXT_CREDENTIAL_PAIR1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_CREDENTIAL_PAIR2 {
     pub localCredentials: IKEEXT_CREDENTIAL2,
     pub peerCredentials: IKEEXT_CREDENTIAL2,
 }
-impl Copy for IKEEXT_CREDENTIAL_PAIR2 {}
-impl Clone for IKEEXT_CREDENTIAL_PAIR2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_EAP_AUTHENTICATION0 {
     pub flags: IKEEXT_EAP_AUTHENTICATION_FLAGS,
 }
-impl Copy for IKEEXT_EAP_AUTHENTICATION0 {}
-impl Clone for IKEEXT_EAP_AUTHENTICATION0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_EM_POLICY0 {
     pub numAuthenticationMethods: u32,
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD0,
     pub initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
 }
-impl Copy for IKEEXT_EM_POLICY0 {}
-impl Clone for IKEEXT_EM_POLICY0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_EM_POLICY1 {
     pub numAuthenticationMethods: u32,
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD1,
     pub initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
 }
-impl Copy for IKEEXT_EM_POLICY1 {}
-impl Clone for IKEEXT_EM_POLICY1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_EM_POLICY2 {
     pub numAuthenticationMethods: u32,
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD2,
     pub initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
 }
-impl Copy for IKEEXT_EM_POLICY2 {}
-impl Clone for IKEEXT_EM_POLICY2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_INTEGRITY_ALGORITHM0 {
     pub algoIdentifier: IKEEXT_INTEGRITY_TYPE,
 }
-impl Copy for IKEEXT_INTEGRITY_ALGORITHM0 {}
-impl Clone for IKEEXT_INTEGRITY_ALGORITHM0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_IPV6_CGA_AUTHENTICATION0 {
     pub keyContainerName: windows_sys::core::PWSTR,
     pub cspName: windows_sys::core::PWSTR,
@@ -3778,35 +2804,20 @@ pub struct IKEEXT_IPV6_CGA_AUTHENTICATION0 {
     pub cgaModifier: FWP_BYTE_ARRAY16,
     pub cgaCollisionCount: u8,
 }
-impl Copy for IKEEXT_IPV6_CGA_AUTHENTICATION0 {}
-impl Clone for IKEEXT_IPV6_CGA_AUTHENTICATION0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {
     pub totalSocketReceiveFailures: u32,
     pub totalSocketSendFailures: u32,
 }
-impl Copy for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {}
-impl Clone for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {
     pub totalSocketReceiveFailures: u32,
     pub totalSocketSendFailures: u32,
 }
-impl Copy for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {}
-impl Clone for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
     pub currentActiveMainModes: u32,
     pub totalMainModesStarted: u32,
@@ -3827,13 +2838,8 @@ pub struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
     pub totalImpersonationExtendedModes: u32,
     pub totalImpersonationMainModes: u32,
 }
-impl Copy for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {}
-impl Clone for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
     pub currentActiveMainModes: u32,
     pub totalMainModesStarted: u32,
@@ -3854,34 +2860,19 @@ pub struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
     pub totalImpersonationExtendedModes: u32,
     pub totalImpersonationMainModes: u32,
 }
-impl Copy for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {}
-impl Clone for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_KERBEROS_AUTHENTICATION0 {
     pub flags: IKEEXT_KERBEROS_AUTHENTICATION_FLAGS,
 }
-impl Copy for IKEEXT_KERBEROS_AUTHENTICATION0 {}
-impl Clone for IKEEXT_KERBEROS_AUTHENTICATION0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_KERBEROS_AUTHENTICATION1 {
     pub flags: IKEEXT_KERBEROS_AUTHENTICATION_FLAGS,
     pub proxyServer: windows_sys::core::PWSTR,
 }
-impl Copy for IKEEXT_KERBEROS_AUTHENTICATION1 {}
-impl Clone for IKEEXT_KERBEROS_AUTHENTICATION1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_KEYMODULE_STATISTICS0 {
     pub v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0,
     pub v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0,
@@ -3890,13 +2881,8 @@ pub struct IKEEXT_KEYMODULE_STATISTICS0 {
     pub quickModeNegotiationTime: u32,
     pub extendedModeNegotiationTime: u32,
 }
-impl Copy for IKEEXT_KEYMODULE_STATISTICS0 {}
-impl Clone for IKEEXT_KEYMODULE_STATISTICS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_KEYMODULE_STATISTICS1 {
     pub v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1,
     pub v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1,
@@ -3905,33 +2891,18 @@ pub struct IKEEXT_KEYMODULE_STATISTICS1 {
     pub quickModeNegotiationTime: u32,
     pub extendedModeNegotiationTime: u32,
 }
-impl Copy for IKEEXT_KEYMODULE_STATISTICS1 {}
-impl Clone for IKEEXT_KEYMODULE_STATISTICS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_NAME_CREDENTIAL0 {
     pub principalName: windows_sys::core::PWSTR,
 }
-impl Copy for IKEEXT_NAME_CREDENTIAL0 {}
-impl Clone for IKEEXT_NAME_CREDENTIAL0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_NTLM_V2_AUTHENTICATION0 {
     pub flags: u32,
 }
-impl Copy for IKEEXT_NTLM_V2_AUTHENTICATION0 {}
-impl Clone for IKEEXT_NTLM_V2_AUTHENTICATION0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_POLICY0 {
     pub softExpirationTime: u32,
     pub numAuthenticationMethods: u32,
@@ -3942,13 +2913,8 @@ pub struct IKEEXT_POLICY0 {
     pub flags: IKEEXT_POLICY_FLAG,
     pub maxDynamicFilters: u32,
 }
-impl Copy for IKEEXT_POLICY0 {}
-impl Clone for IKEEXT_POLICY0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_POLICY1 {
     pub softExpirationTime: u32,
     pub numAuthenticationMethods: u32,
@@ -3960,13 +2926,8 @@ pub struct IKEEXT_POLICY1 {
     pub maxDynamicFilters: u32,
     pub retransmitDurationSecs: u32,
 }
-impl Copy for IKEEXT_POLICY1 {}
-impl Clone for IKEEXT_POLICY1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_POLICY2 {
     pub softExpirationTime: u32,
     pub numAuthenticationMethods: u32,
@@ -3978,34 +2939,19 @@ pub struct IKEEXT_POLICY2 {
     pub maxDynamicFilters: u32,
     pub retransmitDurationSecs: u32,
 }
-impl Copy for IKEEXT_POLICY2 {}
-impl Clone for IKEEXT_POLICY2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {
     pub presharedKey: FWP_BYTE_BLOB,
 }
-impl Copy for IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {}
-impl Clone for IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {
     pub presharedKey: FWP_BYTE_BLOB,
     pub flags: IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS,
 }
-impl Copy for IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {}
-impl Clone for IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_PROPOSAL0 {
     pub cipherAlgorithm: IKEEXT_CIPHER_ALGORITHM0,
     pub integrityAlgorithm: IKEEXT_INTEGRITY_ALGORITHM0,
@@ -4013,23 +2959,13 @@ pub struct IKEEXT_PROPOSAL0 {
     pub dhGroup: IKEEXT_DH_GROUP,
     pub quickModeLimit: u32,
 }
-impl Copy for IKEEXT_PROPOSAL0 {}
-impl Clone for IKEEXT_PROPOSAL0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_RESERVED_AUTHENTICATION0 {
     pub flags: IKEEXT_RESERVED_AUTHENTICATION_FLAGS,
 }
-impl Copy for IKEEXT_RESERVED_AUTHENTICATION0 {}
-impl Clone for IKEEXT_RESERVED_AUTHENTICATION0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_SA_DETAILS0 {
     pub saId: u64,
     pub keyModuleType: IKEEXT_KEY_MODULE_TYPE,
@@ -4042,23 +2978,13 @@ pub struct IKEEXT_SA_DETAILS0 {
     pub ikePolicyKey: windows_sys::core::GUID,
     pub virtualIfTunnelId: u64,
 }
-impl Copy for IKEEXT_SA_DETAILS0 {}
-impl Clone for IKEEXT_SA_DETAILS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IKEEXT_SA_DETAILS0_0 {
     pub v4UdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
-impl Copy for IKEEXT_SA_DETAILS0_0 {}
-impl Clone for IKEEXT_SA_DETAILS0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_SA_DETAILS1 {
     pub saId: u64,
     pub keyModuleType: IKEEXT_KEY_MODULE_TYPE,
@@ -4072,23 +2998,13 @@ pub struct IKEEXT_SA_DETAILS1 {
     pub virtualIfTunnelId: u64,
     pub correlationKey: FWP_BYTE_BLOB,
 }
-impl Copy for IKEEXT_SA_DETAILS1 {}
-impl Clone for IKEEXT_SA_DETAILS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IKEEXT_SA_DETAILS1_0 {
     pub v4UdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
-impl Copy for IKEEXT_SA_DETAILS1_0 {}
-impl Clone for IKEEXT_SA_DETAILS1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_SA_DETAILS2 {
     pub saId: u64,
     pub keyModuleType: IKEEXT_KEY_MODULE_TYPE,
@@ -4102,111 +3018,64 @@ pub struct IKEEXT_SA_DETAILS2 {
     pub virtualIfTunnelId: u64,
     pub correlationKey: FWP_BYTE_BLOB,
 }
-impl Copy for IKEEXT_SA_DETAILS2 {}
-impl Clone for IKEEXT_SA_DETAILS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IKEEXT_SA_DETAILS2_0 {
     pub v4UdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
-impl Copy for IKEEXT_SA_DETAILS2_0 {}
-impl Clone for IKEEXT_SA_DETAILS2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_SA_ENUM_TEMPLATE0 {
     pub localSubNet: FWP_CONDITION_VALUE0,
     pub remoteSubNet: FWP_CONDITION_VALUE0,
     pub localMainModeCertHash: FWP_BYTE_BLOB,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for IKEEXT_SA_ENUM_TEMPLATE0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for IKEEXT_SA_ENUM_TEMPLATE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_STATISTICS0 {
     pub ikeStatistics: IKEEXT_KEYMODULE_STATISTICS0,
     pub authipStatistics: IKEEXT_KEYMODULE_STATISTICS0,
     pub commonStatistics: IKEEXT_COMMON_STATISTICS0,
 }
-impl Copy for IKEEXT_STATISTICS0 {}
-impl Clone for IKEEXT_STATISTICS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_STATISTICS1 {
     pub ikeStatistics: IKEEXT_KEYMODULE_STATISTICS1,
     pub authipStatistics: IKEEXT_KEYMODULE_STATISTICS1,
     pub ikeV2Statistics: IKEEXT_KEYMODULE_STATISTICS1,
     pub commonStatistics: IKEEXT_COMMON_STATISTICS1,
 }
-impl Copy for IKEEXT_STATISTICS1 {}
-impl Clone for IKEEXT_STATISTICS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IKEEXT_TRAFFIC0 {
     pub ipVersion: FWP_IP_VERSION,
     pub Anonymous1: IKEEXT_TRAFFIC0_0,
     pub Anonymous2: IKEEXT_TRAFFIC0_1,
     pub authIpFilterId: u64,
 }
-impl Copy for IKEEXT_TRAFFIC0 {}
-impl Clone for IKEEXT_TRAFFIC0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IKEEXT_TRAFFIC0_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
 }
-impl Copy for IKEEXT_TRAFFIC0_0 {}
-impl Clone for IKEEXT_TRAFFIC0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IKEEXT_TRAFFIC0_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
 }
-impl Copy for IKEEXT_TRAFFIC0_1 {}
-impl Clone for IKEEXT_TRAFFIC0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_ADDRESS_INFO0 {
     pub numV4Addresses: u32,
     pub v4Addresses: *mut u32,
     pub numV6Addresses: u32,
     pub v6Addresses: *mut FWP_BYTE_ARRAY16,
 }
-impl Copy for IPSEC_ADDRESS_INFO0 {}
-impl Clone for IPSEC_ADDRESS_INFO0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
     pub invalidSpisOnInbound: u32,
     pub decryptionFailuresOnInbound: u32,
@@ -4218,13 +3087,8 @@ pub struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
     pub receiveOverIncorrectSaInbound: u32,
     pub secureReceivesNotMatchingFilters: u32,
 }
-impl Copy for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {}
-impl Clone for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
     pub invalidSpisOnInbound: u32,
     pub decryptionFailuresOnInbound: u32,
@@ -4237,13 +3101,8 @@ pub struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
     pub secureReceivesNotMatchingFilters: u32,
     pub totalDropPacketsInbound: u32,
 }
-impl Copy for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {}
-impl Clone for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_AGGREGATE_SA_STATISTICS0 {
     pub activeSas: u32,
     pub pendingSaNegotiations: u32,
@@ -4253,81 +3112,46 @@ pub struct IPSEC_AGGREGATE_SA_STATISTICS0 {
     pub activeTunnels: u32,
     pub offloadedSas: u32,
 }
-impl Copy for IPSEC_AGGREGATE_SA_STATISTICS0 {}
-impl Clone for IPSEC_AGGREGATE_SA_STATISTICS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_AH_DROP_PACKET_STATISTICS0 {
     pub invalidSpisOnInbound: u32,
     pub authenticationFailuresOnInbound: u32,
     pub replayCheckFailuresOnInbound: u32,
     pub saNotInitializedOnInbound: u32,
 }
-impl Copy for IPSEC_AH_DROP_PACKET_STATISTICS0 {}
-impl Clone for IPSEC_AH_DROP_PACKET_STATISTICS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {
     pub authTransform: IPSEC_AUTH_TRANSFORM0,
     pub cipherTransform: IPSEC_CIPHER_TRANSFORM0,
 }
-impl Copy for IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {}
-impl Clone for IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_AUTH_TRANSFORM0 {
     pub authTransformId: IPSEC_AUTH_TRANSFORM_ID0,
     pub cryptoModuleId: *mut windows_sys::core::GUID,
 }
-impl Copy for IPSEC_AUTH_TRANSFORM0 {}
-impl Clone for IPSEC_AUTH_TRANSFORM0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_AUTH_TRANSFORM_ID0 {
     pub authType: IPSEC_AUTH_TYPE,
     pub authConfig: u8,
 }
-impl Copy for IPSEC_AUTH_TRANSFORM_ID0 {}
-impl Clone for IPSEC_AUTH_TRANSFORM_ID0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_CIPHER_TRANSFORM0 {
     pub cipherTransformId: IPSEC_CIPHER_TRANSFORM_ID0,
     pub cryptoModuleId: *mut windows_sys::core::GUID,
 }
-impl Copy for IPSEC_CIPHER_TRANSFORM0 {}
-impl Clone for IPSEC_CIPHER_TRANSFORM0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_CIPHER_TRANSFORM_ID0 {
     pub cipherType: IPSEC_CIPHER_TYPE,
     pub cipherConfig: u8,
 }
-impl Copy for IPSEC_CIPHER_TRANSFORM_ID0 {}
-impl Clone for IPSEC_CIPHER_TRANSFORM_ID0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_DOSP_OPTIONS0 {
     pub stateIdleTimeoutSeconds: u32,
     pub perIPRateLimitQueueIdleTimeoutSeconds: u32,
@@ -4352,13 +3176,8 @@ pub struct IPSEC_DOSP_OPTIONS0 {
     pub publicV6AddrMask: FWP_V6_ADDR_AND_MASK,
     pub internalV6AddrMask: FWP_V6_ADDR_AND_MASK,
 }
-impl Copy for IPSEC_DOSP_OPTIONS0 {}
-impl Clone for IPSEC_DOSP_OPTIONS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_DOSP_STATE0 {
     pub publicHostV6Addr: [u8; 16],
     pub internalHostV6Addr: [u8; 16],
@@ -4366,24 +3185,14 @@ pub struct IPSEC_DOSP_STATE0 {
     pub totalOutboundIPv6IPsecAuthPackets: u64,
     pub durationSecs: u32,
 }
-impl Copy for IPSEC_DOSP_STATE0 {}
-impl Clone for IPSEC_DOSP_STATE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {
     pub publicV6AddrMask: FWP_V6_ADDR_AND_MASK,
     pub internalV6AddrMask: FWP_V6_ADDR_AND_MASK,
 }
-impl Copy for IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {}
-impl Clone for IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_DOSP_STATISTICS0 {
     pub totalStateEntriesCreated: u64,
     pub currentStateEntries: u64,
@@ -4404,13 +3213,8 @@ pub struct IPSEC_DOSP_STATISTICS0 {
     pub totalInboundDiscardedDefBlockPkts: u64,
     pub currentInboundIPv6IPsecUnauthPerIPRateLimitQueues: u64,
 }
-impl Copy for IPSEC_DOSP_STATISTICS0 {}
-impl Clone for IPSEC_DOSP_STATISTICS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_ESP_DROP_PACKET_STATISTICS0 {
     pub invalidSpisOnInbound: u32,
     pub decryptionFailuresOnInbound: u32,
@@ -4418,59 +3222,34 @@ pub struct IPSEC_ESP_DROP_PACKET_STATISTICS0 {
     pub replayCheckFailuresOnInbound: u32,
     pub saNotInitializedOnInbound: u32,
 }
-impl Copy for IPSEC_ESP_DROP_PACKET_STATISTICS0 {}
-impl Clone for IPSEC_ESP_DROP_PACKET_STATISTICS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_GETSPI0 {
     pub inboundIpsecTraffic: IPSEC_TRAFFIC0,
     pub ipVersion: FWP_IP_VERSION,
     pub Anonymous: IPSEC_GETSPI0_0,
     pub rngCryptoModuleID: *mut windows_sys::core::GUID,
 }
-impl Copy for IPSEC_GETSPI0 {}
-impl Clone for IPSEC_GETSPI0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IPSEC_GETSPI0_0 {
     pub inboundUdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
-impl Copy for IPSEC_GETSPI0_0 {}
-impl Clone for IPSEC_GETSPI0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_GETSPI1 {
     pub inboundIpsecTraffic: IPSEC_TRAFFIC1,
     pub ipVersion: FWP_IP_VERSION,
     pub Anonymous: IPSEC_GETSPI1_0,
     pub rngCryptoModuleID: *mut windows_sys::core::GUID,
 }
-impl Copy for IPSEC_GETSPI1 {}
-impl Clone for IPSEC_GETSPI1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IPSEC_GETSPI1_0 {
     pub inboundUdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
-impl Copy for IPSEC_GETSPI1_0 {}
-impl Clone for IPSEC_GETSPI1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_ID0 {
     pub mmTargetName: windows_sys::core::PWSTR,
     pub emTargetName: windows_sys::core::PWSTR,
@@ -4479,61 +3258,36 @@ pub struct IPSEC_ID0 {
     pub explicitCredentials: u64,
     pub logonId: u64,
 }
-impl Copy for IPSEC_ID0 {}
-impl Clone for IPSEC_ID0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_KEYING_POLICY0 {
     pub numKeyMods: u32,
     pub keyModKeys: *mut windows_sys::core::GUID,
 }
-impl Copy for IPSEC_KEYING_POLICY0 {}
-impl Clone for IPSEC_KEYING_POLICY0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_KEYING_POLICY1 {
     pub numKeyMods: u32,
     pub keyModKeys: *mut windows_sys::core::GUID,
     pub flags: u32,
 }
-impl Copy for IPSEC_KEYING_POLICY1 {}
-impl Clone for IPSEC_KEYING_POLICY1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_KEYMODULE_STATE0 {
     pub keyModuleKey: windows_sys::core::GUID,
     pub stateBlob: FWP_BYTE_BLOB,
 }
-impl Copy for IPSEC_KEYMODULE_STATE0 {}
-impl Clone for IPSEC_KEYMODULE_STATE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_KEY_MANAGER0 {
     pub keyManagerKey: windows_sys::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
     pub flags: u32,
     pub keyDictationTimeoutHint: u8,
 }
-impl Copy for IPSEC_KEY_MANAGER0 {}
-impl Clone for IPSEC_KEY_MANAGER0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct IPSEC_KEY_MANAGER_CALLBACKS0 {
     pub reserved: windows_sys::core::GUID,
     pub flags: u32,
@@ -4541,40 +3295,23 @@ pub struct IPSEC_KEY_MANAGER_CALLBACKS0 {
     pub keyDictation: IPSEC_KEY_MANAGER_DICTATE_KEY0,
     pub keyNotify: IPSEC_KEY_MANAGER_NOTIFY_KEY0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for IPSEC_KEY_MANAGER_CALLBACKS0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for IPSEC_KEY_MANAGER_CALLBACKS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_PROPOSAL0 {
     pub lifetime: IPSEC_SA_LIFETIME0,
     pub numSaTransforms: u32,
     pub saTransforms: *mut IPSEC_SA_TRANSFORM0,
     pub pfsGroup: IPSEC_PFS_GROUP,
 }
-impl Copy for IPSEC_PROPOSAL0 {}
-impl Clone for IPSEC_PROPOSAL0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_SA0 {
     pub spi: u32,
     pub saTransformType: IPSEC_TRANSFORM_TYPE,
     pub Anonymous: IPSEC_SA0_0,
 }
-impl Copy for IPSEC_SA0 {}
-impl Clone for IPSEC_SA0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IPSEC_SA0_0 {
     pub ahInformation: *mut IPSEC_SA_AUTH_INFORMATION0,
     pub espAuthInformation: *mut IPSEC_SA_AUTH_INFORMATION0,
@@ -4582,35 +3319,20 @@ pub union IPSEC_SA0_0 {
     pub espAuthAndCipherInformation: *mut IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0,
     pub espAuthFwInformation: *mut IPSEC_SA_AUTH_INFORMATION0,
 }
-impl Copy for IPSEC_SA0_0 {}
-impl Clone for IPSEC_SA0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {
     pub saCipherInformation: IPSEC_SA_CIPHER_INFORMATION0,
     pub saAuthInformation: IPSEC_SA_AUTH_INFORMATION0,
 }
-impl Copy for IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {}
-impl Clone for IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_SA_AUTH_INFORMATION0 {
     pub authTransform: IPSEC_AUTH_TRANSFORM0,
     pub authKey: FWP_BYTE_BLOB,
 }
-impl Copy for IPSEC_SA_AUTH_INFORMATION0 {}
-impl Clone for IPSEC_SA_AUTH_INFORMATION0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_SA_BUNDLE0 {
     pub flags: IPSEC_SA_BUNDLE_FLAGS,
     pub lifetime: IPSEC_SA_LIFETIME0,
@@ -4627,23 +3349,13 @@ pub struct IPSEC_SA_BUNDLE0 {
     pub mmSaId: u64,
     pub pfsGroup: IPSEC_PFS_GROUP,
 }
-impl Copy for IPSEC_SA_BUNDLE0 {}
-impl Clone for IPSEC_SA_BUNDLE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IPSEC_SA_BUNDLE0_0 {
     pub peerV4PrivateAddress: u32,
 }
-impl Copy for IPSEC_SA_BUNDLE0_0 {}
-impl Clone for IPSEC_SA_BUNDLE0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_SA_BUNDLE1 {
     pub flags: IPSEC_SA_BUNDLE_FLAGS,
     pub lifetime: IPSEC_SA_LIFETIME0,
@@ -4662,105 +3374,57 @@ pub struct IPSEC_SA_BUNDLE1 {
     pub saLookupContext: windows_sys::core::GUID,
     pub qmFilterId: u64,
 }
-impl Copy for IPSEC_SA_BUNDLE1 {}
-impl Clone for IPSEC_SA_BUNDLE1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IPSEC_SA_BUNDLE1_0 {
     pub peerV4PrivateAddress: u32,
 }
-impl Copy for IPSEC_SA_BUNDLE1_0 {}
-impl Clone for IPSEC_SA_BUNDLE1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_SA_CIPHER_INFORMATION0 {
     pub cipherTransform: IPSEC_CIPHER_TRANSFORM0,
     pub cipherKey: FWP_BYTE_BLOB,
 }
-impl Copy for IPSEC_SA_CIPHER_INFORMATION0 {}
-impl Clone for IPSEC_SA_CIPHER_INFORMATION0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct IPSEC_SA_CONTEXT0 {
     pub saContextId: u64,
     pub inboundSa: *mut IPSEC_SA_DETAILS0,
     pub outboundSa: *mut IPSEC_SA_DETAILS0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for IPSEC_SA_CONTEXT0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for IPSEC_SA_CONTEXT0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct IPSEC_SA_CONTEXT1 {
     pub saContextId: u64,
     pub inboundSa: *mut IPSEC_SA_DETAILS1,
     pub outboundSa: *mut IPSEC_SA_DETAILS1,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for IPSEC_SA_CONTEXT1 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for IPSEC_SA_CONTEXT1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_SA_CONTEXT_CHANGE0 {
     pub changeType: IPSEC_SA_CONTEXT_EVENT_TYPE0,
     pub saContextId: u64,
 }
-impl Copy for IPSEC_SA_CONTEXT_CHANGE0 {}
-impl Clone for IPSEC_SA_CONTEXT_CHANGE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
     pub localSubNet: FWP_CONDITION_VALUE0,
     pub remoteSubNet: FWP_CONDITION_VALUE0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
     pub enumTemplate: *mut IPSEC_SA_CONTEXT_ENUM_TEMPLATE0,
     pub flags: u32,
     pub sessionKey: windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for IPSEC_SA_CONTEXT_SUBSCRIPTION0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct IPSEC_SA_DETAILS0 {
     pub ipVersion: FWP_IP_VERSION,
     pub saDirection: FWP_DIRECTION,
@@ -4769,29 +3433,15 @@ pub struct IPSEC_SA_DETAILS0 {
     pub Anonymous: IPSEC_SA_DETAILS0_0,
     pub transportFilter: *mut FWPM_FILTER0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for IPSEC_SA_DETAILS0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for IPSEC_SA_DETAILS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union IPSEC_SA_DETAILS0_0 {
     pub udpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for IPSEC_SA_DETAILS0_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for IPSEC_SA_DETAILS0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub struct IPSEC_SA_DETAILS1 {
     pub ipVersion: FWP_IP_VERSION,
     pub saDirection: FWP_DIRECTION,
@@ -4801,72 +3451,38 @@ pub struct IPSEC_SA_DETAILS1 {
     pub transportFilter: *mut FWPM_FILTER0,
     pub virtualIfTunnelInfo: IPSEC_VIRTUAL_IF_TUNNEL_INFO0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for IPSEC_SA_DETAILS1 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for IPSEC_SA_DETAILS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy)]
 pub union IPSEC_SA_DETAILS1_0 {
     pub udpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
-#[cfg(feature = "Win32_Security")]
-impl Copy for IPSEC_SA_DETAILS1_0 {}
-#[cfg(feature = "Win32_Security")]
-impl Clone for IPSEC_SA_DETAILS1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_SA_ENUM_TEMPLATE0 {
     pub saDirection: FWP_DIRECTION,
 }
-impl Copy for IPSEC_SA_ENUM_TEMPLATE0 {}
-impl Clone for IPSEC_SA_ENUM_TEMPLATE0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_SA_IDLE_TIMEOUT0 {
     pub idleTimeoutSeconds: u32,
     pub idleTimeoutSecondsFailOver: u32,
 }
-impl Copy for IPSEC_SA_IDLE_TIMEOUT0 {}
-impl Clone for IPSEC_SA_IDLE_TIMEOUT0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_SA_LIFETIME0 {
     pub lifetimeSeconds: u32,
     pub lifetimeKilobytes: u32,
     pub lifetimePackets: u32,
 }
-impl Copy for IPSEC_SA_LIFETIME0 {}
-impl Clone for IPSEC_SA_LIFETIME0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_SA_TRANSFORM0 {
     pub ipsecTransformType: IPSEC_TRANSFORM_TYPE,
     pub Anonymous: IPSEC_SA_TRANSFORM0_0,
 }
-impl Copy for IPSEC_SA_TRANSFORM0 {}
-impl Clone for IPSEC_SA_TRANSFORM0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IPSEC_SA_TRANSFORM0_0 {
     pub ahTransform: *mut IPSEC_AUTH_TRANSFORM0,
     pub espAuthTransform: *mut IPSEC_AUTH_TRANSFORM0,
@@ -4874,13 +3490,8 @@ pub union IPSEC_SA_TRANSFORM0_0 {
     pub espAuthAndCipherTransform: *mut IPSEC_AUTH_AND_CIPHER_TRANSFORM0,
     pub espAuthFwTransform: *mut IPSEC_AUTH_TRANSFORM0,
 }
-impl Copy for IPSEC_SA_TRANSFORM0_0 {}
-impl Clone for IPSEC_SA_TRANSFORM0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_STATISTICS0 {
     pub aggregateSaStatistics: IPSEC_AGGREGATE_SA_STATISTICS0,
     pub espDropPacketStatistics: IPSEC_ESP_DROP_PACKET_STATISTICS0,
@@ -4889,13 +3500,8 @@ pub struct IPSEC_STATISTICS0 {
     pub inboundTrafficStatistics: IPSEC_TRAFFIC_STATISTICS0,
     pub outboundTrafficStatistics: IPSEC_TRAFFIC_STATISTICS0,
 }
-impl Copy for IPSEC_STATISTICS0 {}
-impl Clone for IPSEC_STATISTICS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_STATISTICS1 {
     pub aggregateSaStatistics: IPSEC_AGGREGATE_SA_STATISTICS0,
     pub espDropPacketStatistics: IPSEC_ESP_DROP_PACKET_STATISTICS0,
@@ -4904,26 +3510,16 @@ pub struct IPSEC_STATISTICS1 {
     pub inboundTrafficStatistics: IPSEC_TRAFFIC_STATISTICS1,
     pub outboundTrafficStatistics: IPSEC_TRAFFIC_STATISTICS1,
 }
-impl Copy for IPSEC_STATISTICS1 {}
-impl Clone for IPSEC_STATISTICS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_TOKEN0 {
     pub r#type: IPSEC_TOKEN_TYPE,
     pub principal: IPSEC_TOKEN_PRINCIPAL,
     pub mode: IPSEC_TOKEN_MODE,
     pub token: u64,
 }
-impl Copy for IPSEC_TOKEN0 {}
-impl Clone for IPSEC_TOKEN0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_TRAFFIC0 {
     pub ipVersion: FWP_IP_VERSION,
     pub Anonymous1: IPSEC_TRAFFIC0_0,
@@ -4932,46 +3528,26 @@ pub struct IPSEC_TRAFFIC0 {
     pub Anonymous3: IPSEC_TRAFFIC0_2,
     pub remotePort: u16,
 }
-impl Copy for IPSEC_TRAFFIC0 {}
-impl Clone for IPSEC_TRAFFIC0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IPSEC_TRAFFIC0_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
 }
-impl Copy for IPSEC_TRAFFIC0_0 {}
-impl Clone for IPSEC_TRAFFIC0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IPSEC_TRAFFIC0_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
 }
-impl Copy for IPSEC_TRAFFIC0_1 {}
-impl Clone for IPSEC_TRAFFIC0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IPSEC_TRAFFIC0_2 {
     pub ipsecFilterId: u64,
     pub tunnelPolicyId: u64,
 }
-impl Copy for IPSEC_TRAFFIC0_2 {}
-impl Clone for IPSEC_TRAFFIC0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_TRAFFIC1 {
     pub ipVersion: FWP_IP_VERSION,
     pub Anonymous1: IPSEC_TRAFFIC1_0,
@@ -4984,46 +3560,26 @@ pub struct IPSEC_TRAFFIC1 {
     pub localIfLuid: u64,
     pub realIfProfileId: u32,
 }
-impl Copy for IPSEC_TRAFFIC1 {}
-impl Clone for IPSEC_TRAFFIC1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IPSEC_TRAFFIC1_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
 }
-impl Copy for IPSEC_TRAFFIC1_0 {}
-impl Clone for IPSEC_TRAFFIC1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IPSEC_TRAFFIC1_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
 }
-impl Copy for IPSEC_TRAFFIC1_1 {}
-impl Clone for IPSEC_TRAFFIC1_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IPSEC_TRAFFIC1_2 {
     pub ipsecFilterId: u64,
     pub tunnelPolicyId: u64,
 }
-impl Copy for IPSEC_TRAFFIC1_2 {}
-impl Clone for IPSEC_TRAFFIC1_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_TRAFFIC_SELECTOR0 {
     pub protocolId: u8,
     pub portStart: u16,
@@ -5032,35 +3588,20 @@ pub struct IPSEC_TRAFFIC_SELECTOR0 {
     pub Anonymous1: IPSEC_TRAFFIC_SELECTOR0_0,
     pub Anonymous2: IPSEC_TRAFFIC_SELECTOR0_1,
 }
-impl Copy for IPSEC_TRAFFIC_SELECTOR0 {}
-impl Clone for IPSEC_TRAFFIC_SELECTOR0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IPSEC_TRAFFIC_SELECTOR0_0 {
     pub startV4Address: u32,
     pub startV6Address: [u8; 16],
 }
-impl Copy for IPSEC_TRAFFIC_SELECTOR0_0 {}
-impl Clone for IPSEC_TRAFFIC_SELECTOR0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IPSEC_TRAFFIC_SELECTOR0_1 {
     pub endV4Address: u32,
     pub endV6Address: [u8; 16],
 }
-impl Copy for IPSEC_TRAFFIC_SELECTOR0_1 {}
-impl Clone for IPSEC_TRAFFIC_SELECTOR0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_TRAFFIC_SELECTOR_POLICY0 {
     pub flags: u32,
     pub numLocalTrafficSelectors: u32,
@@ -5068,13 +3609,8 @@ pub struct IPSEC_TRAFFIC_SELECTOR_POLICY0 {
     pub numRemoteTrafficSelectors: u32,
     pub remoteTrafficSelectors: *mut IPSEC_TRAFFIC_SELECTOR0,
 }
-impl Copy for IPSEC_TRAFFIC_SELECTOR_POLICY0 {}
-impl Clone for IPSEC_TRAFFIC_SELECTOR_POLICY0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_TRAFFIC_STATISTICS0 {
     pub encryptedByteCount: u64,
     pub authenticatedAHByteCount: u64,
@@ -5083,13 +3619,8 @@ pub struct IPSEC_TRAFFIC_STATISTICS0 {
     pub tunnelByteCount: u64,
     pub offloadByteCount: u64,
 }
-impl Copy for IPSEC_TRAFFIC_STATISTICS0 {}
-impl Clone for IPSEC_TRAFFIC_STATISTICS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_TRAFFIC_STATISTICS1 {
     pub encryptedByteCount: u64,
     pub authenticatedAHByteCount: u64,
@@ -5099,13 +3630,8 @@ pub struct IPSEC_TRAFFIC_STATISTICS1 {
     pub offloadByteCount: u64,
     pub totalSuccessfulPackets: u64,
 }
-impl Copy for IPSEC_TRAFFIC_STATISTICS1 {}
-impl Clone for IPSEC_TRAFFIC_STATISTICS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_TRANSPORT_POLICY0 {
     pub numIpsecProposals: u32,
     pub ipsecProposals: *mut IPSEC_PROPOSAL0,
@@ -5114,13 +3640,8 @@ pub struct IPSEC_TRANSPORT_POLICY0 {
     pub saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
     pub emPolicy: *mut IKEEXT_EM_POLICY0,
 }
-impl Copy for IPSEC_TRANSPORT_POLICY0 {}
-impl Clone for IPSEC_TRANSPORT_POLICY0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_TRANSPORT_POLICY1 {
     pub numIpsecProposals: u32,
     pub ipsecProposals: *mut IPSEC_PROPOSAL0,
@@ -5129,13 +3650,8 @@ pub struct IPSEC_TRANSPORT_POLICY1 {
     pub saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
     pub emPolicy: *mut IKEEXT_EM_POLICY1,
 }
-impl Copy for IPSEC_TRANSPORT_POLICY1 {}
-impl Clone for IPSEC_TRANSPORT_POLICY1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_TRANSPORT_POLICY2 {
     pub numIpsecProposals: u32,
     pub ipsecProposals: *mut IPSEC_PROPOSAL0,
@@ -5144,104 +3660,59 @@ pub struct IPSEC_TRANSPORT_POLICY2 {
     pub saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
     pub emPolicy: *mut IKEEXT_EM_POLICY2,
 }
-impl Copy for IPSEC_TRANSPORT_POLICY2 {}
-impl Clone for IPSEC_TRANSPORT_POLICY2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_TUNNEL_ENDPOINT0 {
     pub ipVersion: FWP_IP_VERSION,
     pub Anonymous: IPSEC_TUNNEL_ENDPOINT0_0,
 }
-impl Copy for IPSEC_TUNNEL_ENDPOINT0 {}
-impl Clone for IPSEC_TUNNEL_ENDPOINT0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IPSEC_TUNNEL_ENDPOINT0_0 {
     pub v4Address: u32,
     pub v6Address: [u8; 16],
 }
-impl Copy for IPSEC_TUNNEL_ENDPOINT0_0 {}
-impl Clone for IPSEC_TUNNEL_ENDPOINT0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_TUNNEL_ENDPOINTS0 {
     pub ipVersion: FWP_IP_VERSION,
     pub Anonymous1: IPSEC_TUNNEL_ENDPOINTS0_0,
     pub Anonymous2: IPSEC_TUNNEL_ENDPOINTS0_1,
 }
-impl Copy for IPSEC_TUNNEL_ENDPOINTS0 {}
-impl Clone for IPSEC_TUNNEL_ENDPOINTS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IPSEC_TUNNEL_ENDPOINTS0_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
 }
-impl Copy for IPSEC_TUNNEL_ENDPOINTS0_0 {}
-impl Clone for IPSEC_TUNNEL_ENDPOINTS0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IPSEC_TUNNEL_ENDPOINTS0_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
 }
-impl Copy for IPSEC_TUNNEL_ENDPOINTS0_1 {}
-impl Clone for IPSEC_TUNNEL_ENDPOINTS0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_TUNNEL_ENDPOINTS1 {
     pub ipVersion: FWP_IP_VERSION,
     pub Anonymous1: IPSEC_TUNNEL_ENDPOINTS1_0,
     pub Anonymous2: IPSEC_TUNNEL_ENDPOINTS1_1,
     pub localIfLuid: u64,
 }
-impl Copy for IPSEC_TUNNEL_ENDPOINTS1 {}
-impl Clone for IPSEC_TUNNEL_ENDPOINTS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IPSEC_TUNNEL_ENDPOINTS1_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
 }
-impl Copy for IPSEC_TUNNEL_ENDPOINTS1_0 {}
-impl Clone for IPSEC_TUNNEL_ENDPOINTS1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IPSEC_TUNNEL_ENDPOINTS1_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
 }
-impl Copy for IPSEC_TUNNEL_ENDPOINTS1_1 {}
-impl Clone for IPSEC_TUNNEL_ENDPOINTS1_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_TUNNEL_ENDPOINTS2 {
     pub ipVersion: FWP_IP_VERSION,
     pub Anonymous1: IPSEC_TUNNEL_ENDPOINTS2_0,
@@ -5251,35 +3722,20 @@ pub struct IPSEC_TUNNEL_ENDPOINTS2 {
     pub numAddresses: u32,
     pub remoteAddresses: *mut IPSEC_TUNNEL_ENDPOINT0,
 }
-impl Copy for IPSEC_TUNNEL_ENDPOINTS2 {}
-impl Clone for IPSEC_TUNNEL_ENDPOINTS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IPSEC_TUNNEL_ENDPOINTS2_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
 }
-impl Copy for IPSEC_TUNNEL_ENDPOINTS2_0 {}
-impl Clone for IPSEC_TUNNEL_ENDPOINTS2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union IPSEC_TUNNEL_ENDPOINTS2_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
 }
-impl Copy for IPSEC_TUNNEL_ENDPOINTS2_1 {}
-impl Clone for IPSEC_TUNNEL_ENDPOINTS2_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_TUNNEL_POLICY0 {
     pub flags: IPSEC_POLICY_FLAG,
     pub numIpsecProposals: u32,
@@ -5288,13 +3744,8 @@ pub struct IPSEC_TUNNEL_POLICY0 {
     pub saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
     pub emPolicy: *mut IKEEXT_EM_POLICY0,
 }
-impl Copy for IPSEC_TUNNEL_POLICY0 {}
-impl Clone for IPSEC_TUNNEL_POLICY0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_TUNNEL_POLICY1 {
     pub flags: IPSEC_POLICY_FLAG,
     pub numIpsecProposals: u32,
@@ -5303,13 +3754,8 @@ pub struct IPSEC_TUNNEL_POLICY1 {
     pub saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
     pub emPolicy: *mut IKEEXT_EM_POLICY1,
 }
-impl Copy for IPSEC_TUNNEL_POLICY1 {}
-impl Clone for IPSEC_TUNNEL_POLICY1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_TUNNEL_POLICY2 {
     pub flags: IPSEC_POLICY_FLAG,
     pub numIpsecProposals: u32,
@@ -5319,13 +3765,8 @@ pub struct IPSEC_TUNNEL_POLICY2 {
     pub emPolicy: *mut IKEEXT_EM_POLICY2,
     pub fwdPathSaLifetime: u32,
 }
-impl Copy for IPSEC_TUNNEL_POLICY2 {}
-impl Clone for IPSEC_TUNNEL_POLICY2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_TUNNEL_POLICY3 {
     pub flags: u32,
     pub numIpsecProposals: u32,
@@ -5338,33 +3779,17 @@ pub struct IPSEC_TUNNEL_POLICY3 {
     pub numTrafficSelectorPolicy: u32,
     pub trafficSelectorPolicies: *mut IPSEC_TRAFFIC_SELECTOR_POLICY0,
 }
-impl Copy for IPSEC_TUNNEL_POLICY3 {}
-impl Clone for IPSEC_TUNNEL_POLICY3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_V4_UDP_ENCAPSULATION0 {
     pub localUdpEncapPort: u16,
     pub remoteUdpEncapPort: u16,
 }
-impl Copy for IPSEC_V4_UDP_ENCAPSULATION0 {}
-impl Clone for IPSEC_V4_UDP_ENCAPSULATION0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
     pub virtualIfTunnelId: u64,
     pub trafficSelectorId: u64,
-}
-impl Copy for IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {}
-impl Clone for IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type FWPM_CALLOUT_CHANGE_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, change: *const FWPM_CALLOUT_CHANGE0)>;
 pub type FWPM_CONNECTION_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, eventtype: FWPM_CONNECTION_EVENT_TYPE, connection: *const FWPM_CONNECTION0)>;

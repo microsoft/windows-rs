@@ -432,32 +432,16 @@ impl core::fmt::Debug for USER_OBJECT_INFORMATION_INDEX {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BSMINFO {
     pub cbSize: u32,
     pub hdesk: HDESK,
     pub hwnd: super::super::Foundation::HWND,
     pub luid: super::super::Foundation::LUID,
 }
-impl Copy for BSMINFO {}
-impl Clone for BSMINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BSMINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BSMINFO").field("cbSize", &self.cbSize).field("hdesk", &self.hdesk).field("hwnd", &self.hwnd).field("luid", &self.luid).finish()
-    }
-}
 impl windows_core::TypeKind for BSMINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BSMINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.hdesk == other.hdesk && self.hwnd == other.hwnd && self.luid == other.luid
-    }
-}
-impl Eq for BSMINFO {}
 impl Default for BSMINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -510,31 +494,15 @@ impl windows_core::TypeKind for HWINSTA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USEROBJECTFLAGS {
     pub fInherit: super::super::Foundation::BOOL,
     pub fReserved: super::super::Foundation::BOOL,
     pub dwFlags: u32,
 }
-impl Copy for USEROBJECTFLAGS {}
-impl Clone for USEROBJECTFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for USEROBJECTFLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("USEROBJECTFLAGS").field("fInherit", &self.fInherit).field("fReserved", &self.fReserved).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for USEROBJECTFLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for USEROBJECTFLAGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.fInherit == other.fInherit && self.fReserved == other.fReserved && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for USEROBJECTFLAGS {}
 impl Default for USEROBJECTFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

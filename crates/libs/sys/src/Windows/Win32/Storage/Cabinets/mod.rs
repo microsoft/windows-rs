@@ -81,6 +81,7 @@ pub type FDIDECRYPTTYPE = i32;
 pub type FDIERROR = i32;
 pub type FDINOTIFICATIONTYPE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CCAB {
     pub cb: u32,
     pub cbFolderThresh: u32,
@@ -95,25 +96,15 @@ pub struct CCAB {
     pub szCab: [i8; 256],
     pub szCabPath: [i8; 256],
 }
-impl Copy for CCAB {}
-impl Clone for CCAB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ERF {
     pub erfOper: i32,
     pub erfType: i32,
     pub fError: super::super::Foundation::BOOL,
 }
-impl Copy for ERF {}
-impl Clone for ERF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FDICABINETINFO {
     pub cbCabinet: i32,
     pub cFolders: u16,
@@ -124,50 +115,30 @@ pub struct FDICABINETINFO {
     pub hasprev: super::super::Foundation::BOOL,
     pub hasnext: super::super::Foundation::BOOL,
 }
-impl Copy for FDICABINETINFO {}
-impl Clone for FDICABINETINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FDIDECRYPT {
     pub fdidt: FDIDECRYPTTYPE,
     pub pvUser: *mut core::ffi::c_void,
     pub Anonymous: FDIDECRYPT_0,
 }
-impl Copy for FDIDECRYPT {}
-impl Clone for FDIDECRYPT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union FDIDECRYPT_0 {
     pub cabinet: FDIDECRYPT_0_0,
     pub folder: FDIDECRYPT_0_2,
     pub decrypt: FDIDECRYPT_0_1,
 }
-impl Copy for FDIDECRYPT_0 {}
-impl Clone for FDIDECRYPT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FDIDECRYPT_0_0 {
     pub pHeaderReserve: *mut core::ffi::c_void,
     pub cbHeaderReserve: u16,
     pub setID: u16,
     pub iCabinet: i32,
 }
-impl Copy for FDIDECRYPT_0_0 {}
-impl Clone for FDIDECRYPT_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FDIDECRYPT_0_1 {
     pub pDataReserve: *mut core::ffi::c_void,
     pub cbDataReserve: u16,
@@ -176,25 +147,15 @@ pub struct FDIDECRYPT_0_1 {
     pub fSplit: super::super::Foundation::BOOL,
     pub cbPartial: u16,
 }
-impl Copy for FDIDECRYPT_0_1 {}
-impl Clone for FDIDECRYPT_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FDIDECRYPT_0_2 {
     pub pFolderReserve: *mut core::ffi::c_void,
     pub cbFolderReserve: u16,
     pub iFolder: u16,
 }
-impl Copy for FDIDECRYPT_0_2 {}
-impl Clone for FDIDECRYPT_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FDINOTIFICATION {
     pub cb: i32,
     pub psz1: windows_sys::core::PSTR,
@@ -210,39 +171,19 @@ pub struct FDINOTIFICATION {
     pub iFolder: u16,
     pub fdie: FDIERROR,
 }
-impl Copy for FDINOTIFICATION {}
-impl Clone for FDINOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct FDISPILLFILE {
     pub ach: [i8; 2],
     pub cbFile: i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for FDISPILLFILE {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for FDISPILLFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct FDISPILLFILE {
     pub ach: [i8; 2],
     pub cbFile: i32,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for FDISPILLFILE {}
-#[cfg(target_arch = "x86")]
-impl Clone for FDISPILLFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type PFNALLOC = Option<unsafe extern "system" fn(cb: u32) -> *mut core::ffi::c_void>;
 pub type PFNCLOSE = Option<unsafe extern "system" fn(hf: isize) -> i32>;

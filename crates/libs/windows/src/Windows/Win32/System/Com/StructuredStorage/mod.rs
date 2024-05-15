@@ -1700,780 +1700,364 @@ impl core::fmt::Debug for STGMOVE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BSTRBLOB {
     pub cbSize: u32,
     pub pData: *mut u8,
 }
-impl Copy for BSTRBLOB {}
-impl Clone for BSTRBLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BSTRBLOB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BSTRBLOB").field("cbSize", &self.cbSize).field("pData", &self.pData).finish()
-    }
-}
 impl windows_core::TypeKind for BSTRBLOB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BSTRBLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pData == other.pData
-    }
-}
-impl Eq for BSTRBLOB {}
 impl Default for BSTRBLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CABOOL {
     pub cElems: u32,
     pub pElems: *mut super::super::super::Foundation::VARIANT_BOOL,
 }
-impl Copy for CABOOL {}
-impl Clone for CABOOL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CABOOL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CABOOL").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 impl windows_core::TypeKind for CABOOL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CABOOL {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl Eq for CABOOL {}
 impl Default for CABOOL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CABSTR {
     pub cElems: u32,
     pub pElems: *mut windows_core::BSTR,
 }
-impl Copy for CABSTR {}
-impl Clone for CABSTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CABSTR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CABSTR").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 impl windows_core::TypeKind for CABSTR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CABSTR {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl Eq for CABSTR {}
 impl Default for CABSTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CABSTRBLOB {
     pub cElems: u32,
     pub pElems: *mut BSTRBLOB,
 }
-impl Copy for CABSTRBLOB {}
-impl Clone for CABSTRBLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CABSTRBLOB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CABSTRBLOB").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 impl windows_core::TypeKind for CABSTRBLOB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CABSTRBLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl Eq for CABSTRBLOB {}
 impl Default for CABSTRBLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAC {
     pub cElems: u32,
     pub pElems: windows_core::PSTR,
 }
-impl Copy for CAC {}
-impl Clone for CAC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CAC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CAC").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 impl windows_core::TypeKind for CAC {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CAC {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl Eq for CAC {}
 impl Default for CAC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CACLIPDATA {
     pub cElems: u32,
     pub pElems: *mut CLIPDATA,
 }
-impl Copy for CACLIPDATA {}
-impl Clone for CACLIPDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CACLIPDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CACLIPDATA").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 impl windows_core::TypeKind for CACLIPDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CACLIPDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl Eq for CACLIPDATA {}
 impl Default for CACLIPDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CACLSID {
     pub cElems: u32,
     pub pElems: *mut windows_core::GUID,
 }
-impl Copy for CACLSID {}
-impl Clone for CACLSID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CACLSID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CACLSID").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 impl windows_core::TypeKind for CACLSID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CACLSID {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl Eq for CACLSID {}
 impl Default for CACLSID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CACY {
     pub cElems: u32,
     pub pElems: *mut super::CY,
 }
-impl Copy for CACY {}
-impl Clone for CACY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CACY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CACY").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 impl windows_core::TypeKind for CACY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CACY {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl Eq for CACY {}
 impl Default for CACY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CADATE {
     pub cElems: u32,
     pub pElems: *mut f64,
 }
-impl Copy for CADATE {}
-impl Clone for CADATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CADATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CADATE").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 impl windows_core::TypeKind for CADATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CADATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl Eq for CADATE {}
 impl Default for CADATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CADBL {
     pub cElems: u32,
     pub pElems: *mut f64,
 }
-impl Copy for CADBL {}
-impl Clone for CADBL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CADBL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CADBL").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 impl windows_core::TypeKind for CADBL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CADBL {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl Eq for CADBL {}
 impl Default for CADBL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAFILETIME {
     pub cElems: u32,
     pub pElems: *mut super::super::super::Foundation::FILETIME,
 }
-impl Copy for CAFILETIME {}
-impl Clone for CAFILETIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CAFILETIME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CAFILETIME").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 impl windows_core::TypeKind for CAFILETIME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CAFILETIME {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl Eq for CAFILETIME {}
 impl Default for CAFILETIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAFLT {
     pub cElems: u32,
     pub pElems: *mut f32,
 }
-impl Copy for CAFLT {}
-impl Clone for CAFLT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CAFLT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CAFLT").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 impl windows_core::TypeKind for CAFLT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CAFLT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl Eq for CAFLT {}
 impl Default for CAFLT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAH {
     pub cElems: u32,
     pub pElems: *mut i64,
 }
-impl Copy for CAH {}
-impl Clone for CAH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CAH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CAH").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 impl windows_core::TypeKind for CAH {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CAH {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl Eq for CAH {}
 impl Default for CAH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAI {
     pub cElems: u32,
     pub pElems: *mut i16,
 }
-impl Copy for CAI {}
-impl Clone for CAI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CAI {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CAI").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 impl windows_core::TypeKind for CAI {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CAI {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl Eq for CAI {}
 impl Default for CAI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAL {
     pub cElems: u32,
     pub pElems: *mut i32,
 }
-impl Copy for CAL {}
-impl Clone for CAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CAL").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 impl windows_core::TypeKind for CAL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl Eq for CAL {}
 impl Default for CAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CALPSTR {
     pub cElems: u32,
     pub pElems: *mut windows_core::PSTR,
 }
-impl Copy for CALPSTR {}
-impl Clone for CALPSTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CALPSTR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CALPSTR").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 impl windows_core::TypeKind for CALPSTR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CALPSTR {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl Eq for CALPSTR {}
 impl Default for CALPSTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CALPWSTR {
     pub cElems: u32,
     pub pElems: *mut windows_core::PWSTR,
 }
-impl Copy for CALPWSTR {}
-impl Clone for CALPWSTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CALPWSTR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CALPWSTR").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 impl windows_core::TypeKind for CALPWSTR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CALPWSTR {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl Eq for CALPWSTR {}
 impl Default for CALPWSTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAPROPVARIANT {
     pub cElems: u32,
     pub pElems: *mut windows_core::PROPVARIANT,
 }
-impl Copy for CAPROPVARIANT {}
-impl Clone for CAPROPVARIANT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CAPROPVARIANT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CAPROPVARIANT").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 impl windows_core::TypeKind for CAPROPVARIANT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CAPROPVARIANT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl Eq for CAPROPVARIANT {}
 impl Default for CAPROPVARIANT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CASCODE {
     pub cElems: u32,
     pub pElems: *mut i32,
 }
-impl Copy for CASCODE {}
-impl Clone for CASCODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CASCODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CASCODE").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 impl windows_core::TypeKind for CASCODE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CASCODE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl Eq for CASCODE {}
 impl Default for CASCODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAUB {
     pub cElems: u32,
     pub pElems: *mut u8,
 }
-impl Copy for CAUB {}
-impl Clone for CAUB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CAUB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CAUB").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 impl windows_core::TypeKind for CAUB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CAUB {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl Eq for CAUB {}
 impl Default for CAUB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAUH {
     pub cElems: u32,
     pub pElems: *mut u64,
 }
-impl Copy for CAUH {}
-impl Clone for CAUH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CAUH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CAUH").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 impl windows_core::TypeKind for CAUH {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CAUH {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl Eq for CAUH {}
 impl Default for CAUH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAUI {
     pub cElems: u32,
     pub pElems: *mut u16,
 }
-impl Copy for CAUI {}
-impl Clone for CAUI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CAUI {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CAUI").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 impl windows_core::TypeKind for CAUI {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CAUI {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl Eq for CAUI {}
 impl Default for CAUI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAUL {
     pub cElems: u32,
     pub pElems: *mut u32,
 }
-impl Copy for CAUL {}
-impl Clone for CAUL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CAUL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CAUL").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 impl windows_core::TypeKind for CAUL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CAUL {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl Eq for CAUL {}
 impl Default for CAUL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLIPDATA {
     pub cbSize: u32,
     pub ulClipFmt: i32,
     pub pClipData: *mut u8,
 }
-impl Copy for CLIPDATA {}
-impl Clone for CLIPDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLIPDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLIPDATA").field("cbSize", &self.cbSize).field("ulClipFmt", &self.ulClipFmt).field("pClipData", &self.pClipData).finish()
-    }
-}
 impl windows_core::TypeKind for CLIPDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLIPDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.ulClipFmt == other.ulClipFmt && self.pClipData == other.pClipData
-    }
-}
-impl Eq for CLIPDATA {}
 impl Default for CLIPDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLESTREAM {
     pub lpstbl: *mut OLESTREAMVTBL,
-}
-impl Copy for OLESTREAM {}
-impl Clone for OLESTREAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OLESTREAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OLESTREAM").field("lpstbl", &self.lpstbl).finish()
-    }
 }
 impl windows_core::TypeKind for OLESTREAM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OLESTREAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpstbl == other.lpstbl
-    }
-}
-impl Eq for OLESTREAM {}
 impl Default for OLESTREAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLESTREAMVTBL {
     pub Get: isize,
     pub Put: isize,
 }
-impl Copy for OLESTREAMVTBL {}
-impl Clone for OLESTREAMVTBL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for OLESTREAMVTBL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("OLESTREAMVTBL").field("Get", &self.Get).field("Put", &self.Put).finish()
-    }
-}
 impl windows_core::TypeKind for OLESTREAMVTBL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for OLESTREAMVTBL {
-    fn eq(&self, other: &Self) -> bool {
-        self.Get == other.Get && self.Put == other.Put
-    }
-}
-impl Eq for OLESTREAMVTBL {}
 impl Default for OLESTREAMVTBL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2481,6 +2065,7 @@ impl Default for OLESTREAMVTBL {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROPBAG2 {
     pub dwType: u32,
     pub vt: super::super::Variant::VARENUM,
@@ -2490,31 +2075,9 @@ pub struct PROPBAG2 {
     pub clsid: windows_core::GUID,
 }
 #[cfg(feature = "Win32_System_Variant")]
-impl Copy for PROPBAG2 {}
-#[cfg(feature = "Win32_System_Variant")]
-impl Clone for PROPBAG2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl core::fmt::Debug for PROPBAG2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROPBAG2").field("dwType", &self.dwType).field("vt", &self.vt).field("cfType", &self.cfType).field("dwHint", &self.dwHint).field("pstrName", &self.pstrName).field("clsid", &self.clsid).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
 impl windows_core::TypeKind for PROPBAG2 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl PartialEq for PROPBAG2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwType == other.dwType && self.vt == other.vt && self.cfType == other.cfType && self.dwHint == other.dwHint && self.pstrName == other.pstrName && self.clsid == other.clsid
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl Eq for PROPBAG2 {}
 #[cfg(feature = "Win32_System_Variant")]
 impl Default for PROPBAG2 {
     fn default() -> Self {
@@ -2522,15 +2085,10 @@ impl Default for PROPBAG2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROPSPEC {
     pub ulKind: PROPSPEC_KIND,
     pub Anonymous: PROPSPEC_0,
-}
-impl Copy for PROPSPEC {}
-impl Clone for PROPSPEC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROPSPEC {
     type TypeKind = windows_core::CopyType;
@@ -2541,15 +2099,10 @@ impl Default for PROPSPEC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PROPSPEC_0 {
     pub propid: u32,
     pub lpwstr: windows_core::PWSTR,
-}
-impl Copy for PROPSPEC_0 {}
-impl Clone for PROPSPEC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for PROPSPEC_0 {
     type TypeKind = windows_core::CopyType;
@@ -2560,67 +2113,36 @@ impl Default for PROPSPEC_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RemSNB {
     pub ulCntStr: u32,
     pub ulCntChar: u32,
     pub rgString: [u16; 1],
 }
-impl Copy for RemSNB {}
-impl Clone for RemSNB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RemSNB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RemSNB").field("ulCntStr", &self.ulCntStr).field("ulCntChar", &self.ulCntChar).field("rgString", &self.rgString).finish()
-    }
-}
 impl windows_core::TypeKind for RemSNB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RemSNB {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulCntStr == other.ulCntStr && self.ulCntChar == other.ulCntChar && self.rgString == other.rgString
-    }
-}
-impl Eq for RemSNB {}
 impl Default for RemSNB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIALIZEDPROPERTYVALUE {
     pub dwType: u32,
     pub rgb: [u8; 1],
 }
-impl Copy for SERIALIZEDPROPERTYVALUE {}
-impl Clone for SERIALIZEDPROPERTYVALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERIALIZEDPROPERTYVALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERIALIZEDPROPERTYVALUE").field("dwType", &self.dwType).field("rgb", &self.rgb).finish()
-    }
-}
 impl windows_core::TypeKind for SERIALIZEDPROPERTYVALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERIALIZEDPROPERTYVALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwType == other.dwType && self.rgb == other.rgb
-    }
-}
-impl Eq for SERIALIZEDPROPERTYVALUE {}
 impl Default for SERIALIZEDPROPERTYVALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STATPROPSETSTG {
     pub fmtid: windows_core::GUID,
     pub clsid: windows_core::GUID,
@@ -2630,26 +2152,9 @@ pub struct STATPROPSETSTG {
     pub atime: super::super::super::Foundation::FILETIME,
     pub dwOSVersion: u32,
 }
-impl Copy for STATPROPSETSTG {}
-impl Clone for STATPROPSETSTG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STATPROPSETSTG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STATPROPSETSTG").field("fmtid", &self.fmtid).field("clsid", &self.clsid).field("grfFlags", &self.grfFlags).field("mtime", &self.mtime).field("ctime", &self.ctime).field("atime", &self.atime).field("dwOSVersion", &self.dwOSVersion).finish()
-    }
-}
 impl windows_core::TypeKind for STATPROPSETSTG {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STATPROPSETSTG {
-    fn eq(&self, other: &Self) -> bool {
-        self.fmtid == other.fmtid && self.clsid == other.clsid && self.grfFlags == other.grfFlags && self.mtime == other.mtime && self.ctime == other.ctime && self.atime == other.atime && self.dwOSVersion == other.dwOSVersion
-    }
-}
-impl Eq for STATPROPSETSTG {}
 impl Default for STATPROPSETSTG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2657,37 +2162,16 @@ impl Default for STATPROPSETSTG {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STATPROPSTG {
     pub lpwstrName: windows_core::PWSTR,
     pub propid: u32,
     pub vt: super::super::Variant::VARENUM,
 }
 #[cfg(feature = "Win32_System_Variant")]
-impl Copy for STATPROPSTG {}
-#[cfg(feature = "Win32_System_Variant")]
-impl Clone for STATPROPSTG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl core::fmt::Debug for STATPROPSTG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STATPROPSTG").field("lpwstrName", &self.lpwstrName).field("propid", &self.propid).field("vt", &self.vt).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
 impl windows_core::TypeKind for STATPROPSTG {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl PartialEq for STATPROPSTG {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpwstrName == other.lpwstrName && self.propid == other.propid && self.vt == other.vt
-    }
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl Eq for STATPROPSTG {}
 #[cfg(feature = "Win32_System_Variant")]
 impl Default for STATPROPSTG {
     fn default() -> Self {
@@ -2695,38 +2179,23 @@ impl Default for STATPROPSTG {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STGOPTIONS {
     pub usVersion: u16,
     pub reserved: u16,
     pub ulSectorSize: u32,
     pub pwcsTemplateFile: windows_core::PCWSTR,
 }
-impl Copy for STGOPTIONS {}
-impl Clone for STGOPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STGOPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STGOPTIONS").field("usVersion", &self.usVersion).field("reserved", &self.reserved).field("ulSectorSize", &self.ulSectorSize).field("pwcsTemplateFile", &self.pwcsTemplateFile).finish()
-    }
-}
 impl windows_core::TypeKind for STGOPTIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STGOPTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.usVersion == other.usVersion && self.reserved == other.reserved && self.ulSectorSize == other.ulSectorSize && self.pwcsTemplateFile == other.pwcsTemplateFile
-    }
-}
-impl Eq for STGOPTIONS {}
 impl Default for STGOPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct VERSIONEDSTREAM {
     pub guidVersion: windows_core::GUID,
     pub pStream: std::mem::ManuallyDrop<Option<super::IStream>>,
@@ -2736,20 +2205,9 @@ impl Clone for VERSIONEDSTREAM {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for VERSIONEDSTREAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("VERSIONEDSTREAM").field("guidVersion", &self.guidVersion).field("pStream", &self.pStream).finish()
-    }
-}
 impl windows_core::TypeKind for VERSIONEDSTREAM {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for VERSIONEDSTREAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.guidVersion == other.guidVersion && self.pStream == other.pStream
-    }
-}
-impl Eq for VERSIONEDSTREAM {}
 impl Default for VERSIONEDSTREAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

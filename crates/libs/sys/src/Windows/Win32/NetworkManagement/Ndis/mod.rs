@@ -2182,84 +2182,50 @@ pub type OFFLOAD_OPERATION_E = i32;
 pub type TUNNEL_TYPE = i32;
 pub type UDP_ENCAP_TYPE = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BSSID_INFO {
     pub BSSID: [u8; 6],
     pub PMKID: [u8; 16],
 }
-impl Copy for BSSID_INFO {}
-impl Clone for BSSID_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GEN_GET_NETCARD_TIME {
     pub ReadTime: u64,
 }
-impl Copy for GEN_GET_NETCARD_TIME {}
-impl Clone for GEN_GET_NETCARD_TIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GEN_GET_TIME_CAPS {
     pub Flags: u32,
     pub ClockPrecision: u32,
 }
-impl Copy for GEN_GET_TIME_CAPS {}
-impl Clone for GEN_GET_TIME_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IF_COUNTED_STRING_LH {
     pub Length: u16,
     pub String: [u16; 257],
 }
-impl Copy for IF_COUNTED_STRING_LH {}
-impl Clone for IF_COUNTED_STRING_LH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IF_PHYSICAL_ADDRESS_LH {
     pub Length: u16,
     pub Address: [u8; 32],
 }
-impl Copy for IF_PHYSICAL_ADDRESS_LH {}
-impl Clone for IF_PHYSICAL_ADDRESS_LH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_AI_REQFI {
     pub Capabilities: u16,
     pub ListenInterval: u16,
     pub CurrentAPAddress: [u8; 6],
 }
-impl Copy for NDIS_802_11_AI_REQFI {}
-impl Clone for NDIS_802_11_AI_REQFI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_AI_RESFI {
     pub Capabilities: u16,
     pub StatusCode: u16,
     pub AssociationId: u16,
 }
-impl Copy for NDIS_802_11_AI_RESFI {}
-impl Clone for NDIS_802_11_AI_RESFI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_ASSOCIATION_INFORMATION {
     pub Length: u32,
     pub AvailableRequestFixedIEs: u16,
@@ -2271,69 +2237,39 @@ pub struct NDIS_802_11_ASSOCIATION_INFORMATION {
     pub ResponseIELength: u32,
     pub OffsetResponseIEs: u32,
 }
-impl Copy for NDIS_802_11_ASSOCIATION_INFORMATION {}
-impl Clone for NDIS_802_11_ASSOCIATION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_AUTHENTICATION_ENCRYPTION {
     pub AuthModeSupported: NDIS_802_11_AUTHENTICATION_MODE,
     pub EncryptStatusSupported: NDIS_802_11_WEP_STATUS,
 }
-impl Copy for NDIS_802_11_AUTHENTICATION_ENCRYPTION {}
-impl Clone for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_AUTHENTICATION_EVENT {
     pub Status: NDIS_802_11_STATUS_INDICATION,
     pub Request: [NDIS_802_11_AUTHENTICATION_REQUEST; 1],
 }
-impl Copy for NDIS_802_11_AUTHENTICATION_EVENT {}
-impl Clone for NDIS_802_11_AUTHENTICATION_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_AUTHENTICATION_REQUEST {
     pub Length: u32,
     pub Bssid: [u8; 6],
     pub Flags: u32,
 }
-impl Copy for NDIS_802_11_AUTHENTICATION_REQUEST {}
-impl Clone for NDIS_802_11_AUTHENTICATION_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_BSSID_LIST {
     pub NumberOfItems: u32,
     pub Bssid: [NDIS_WLAN_BSSID; 1],
 }
-impl Copy for NDIS_802_11_BSSID_LIST {}
-impl Clone for NDIS_802_11_BSSID_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_BSSID_LIST_EX {
     pub NumberOfItems: u32,
     pub Bssid: [NDIS_WLAN_BSSID_EX; 1],
 }
-impl Copy for NDIS_802_11_BSSID_LIST_EX {}
-impl Clone for NDIS_802_11_BSSID_LIST_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_CAPABILITY {
     pub Length: u32,
     pub Version: u32,
@@ -2341,13 +2277,8 @@ pub struct NDIS_802_11_CAPABILITY {
     pub NoOfAuthEncryptPairsSupported: u32,
     pub AuthenticationEncryptionSupported: [NDIS_802_11_AUTHENTICATION_ENCRYPTION; 1],
 }
-impl Copy for NDIS_802_11_CAPABILITY {}
-impl Clone for NDIS_802_11_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_CONFIGURATION {
     pub Length: u32,
     pub BeaconPeriod: u32,
@@ -2355,38 +2286,23 @@ pub struct NDIS_802_11_CONFIGURATION {
     pub DSConfig: u32,
     pub FHConfig: NDIS_802_11_CONFIGURATION_FH,
 }
-impl Copy for NDIS_802_11_CONFIGURATION {}
-impl Clone for NDIS_802_11_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_CONFIGURATION_FH {
     pub Length: u32,
     pub HopPattern: u32,
     pub HopSet: u32,
     pub DwellTime: u32,
 }
-impl Copy for NDIS_802_11_CONFIGURATION_FH {}
-impl Clone for NDIS_802_11_CONFIGURATION_FH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_FIXED_IEs {
     pub Timestamp: [u8; 8],
     pub BeaconInterval: u16,
     pub Capabilities: u16,
 }
-impl Copy for NDIS_802_11_FIXED_IEs {}
-impl Clone for NDIS_802_11_FIXED_IEs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_KEY {
     pub Length: u32,
     pub KeyIndex: u32,
@@ -2395,82 +2311,47 @@ pub struct NDIS_802_11_KEY {
     pub KeyRSC: u64,
     pub KeyMaterial: [u8; 1],
 }
-impl Copy for NDIS_802_11_KEY {}
-impl Clone for NDIS_802_11_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_NETWORK_TYPE_LIST {
     pub NumberOfItems: u32,
     pub NetworkType: [NDIS_802_11_NETWORK_TYPE; 1],
 }
-impl Copy for NDIS_802_11_NETWORK_TYPE_LIST {}
-impl Clone for NDIS_802_11_NETWORK_TYPE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_NON_BCAST_SSID_LIST {
     pub NumberOfItems: u32,
     pub Non_Bcast_Ssid: [NDIS_802_11_SSID; 1],
 }
-impl Copy for NDIS_802_11_NON_BCAST_SSID_LIST {}
-impl Clone for NDIS_802_11_NON_BCAST_SSID_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_PMKID {
     pub Length: u32,
     pub BSSIDInfoCount: u32,
     pub BSSIDInfo: [BSSID_INFO; 1],
 }
-impl Copy for NDIS_802_11_PMKID {}
-impl Clone for NDIS_802_11_PMKID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_PMKID_CANDIDATE_LIST {
     pub Version: u32,
     pub NumCandidates: u32,
     pub CandidateList: [PMKID_CANDIDATE; 1],
 }
-impl Copy for NDIS_802_11_PMKID_CANDIDATE_LIST {}
-impl Clone for NDIS_802_11_PMKID_CANDIDATE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_REMOVE_KEY {
     pub Length: u32,
     pub KeyIndex: u32,
     pub BSSID: [u8; 6],
 }
-impl Copy for NDIS_802_11_REMOVE_KEY {}
-impl Clone for NDIS_802_11_REMOVE_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_SSID {
     pub SsidLength: u32,
     pub Ssid: [u8; 32],
 }
-impl Copy for NDIS_802_11_SSID {}
-impl Clone for NDIS_802_11_SSID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_STATISTICS {
     pub Length: u32,
     pub TransmittedFragmentCount: i64,
@@ -2498,71 +2379,41 @@ pub struct NDIS_802_11_STATISTICS {
     pub DecryptSuccessCount: i64,
     pub DecryptFailureCount: i64,
 }
-impl Copy for NDIS_802_11_STATISTICS {}
-impl Clone for NDIS_802_11_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_STATUS_INDICATION {
     pub StatusType: NDIS_802_11_STATUS_TYPE,
 }
-impl Copy for NDIS_802_11_STATUS_INDICATION {}
-impl Clone for NDIS_802_11_STATUS_INDICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_TEST {
     pub Length: u32,
     pub Type: u32,
     pub Anonymous: NDIS_802_11_TEST_0,
 }
-impl Copy for NDIS_802_11_TEST {}
-impl Clone for NDIS_802_11_TEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union NDIS_802_11_TEST_0 {
     pub AuthenticationEvent: NDIS_802_11_AUTHENTICATION_EVENT,
     pub RssiTrigger: i32,
 }
-impl Copy for NDIS_802_11_TEST_0 {}
-impl Clone for NDIS_802_11_TEST_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_VARIABLE_IEs {
     pub ElementID: u8,
     pub Length: u8,
     pub data: [u8; 1],
 }
-impl Copy for NDIS_802_11_VARIABLE_IEs {}
-impl Clone for NDIS_802_11_VARIABLE_IEs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_802_11_WEP {
     pub Length: u32,
     pub KeyIndex: u32,
     pub KeyLength: u32,
     pub KeyMaterial: [u8; 1],
 }
-impl Copy for NDIS_802_11_WEP {}
-impl Clone for NDIS_802_11_WEP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_CO_DEVICE_PROFILE {
     pub DeviceDescription: NDIS_VAR_DATA_DESC,
     pub DevSpecificInfo: NDIS_VAR_DATA_DESC,
@@ -2593,48 +2444,28 @@ pub struct NDIS_CO_DEVICE_PROFILE {
     pub ulUUISendUserUserInfoSize: u32,
     pub ulUUICallInfoSize: u32,
 }
-impl Copy for NDIS_CO_DEVICE_PROFILE {}
-impl Clone for NDIS_CO_DEVICE_PROFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_CO_LINK_SPEED {
     pub Outbound: u32,
     pub Inbound: u32,
 }
-impl Copy for NDIS_CO_LINK_SPEED {}
-impl Clone for NDIS_CO_LINK_SPEED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_GUID {
     pub Guid: windows_sys::core::GUID,
     pub Anonymous: NDIS_GUID_0,
     pub Size: u32,
     pub Flags: u32,
 }
-impl Copy for NDIS_GUID {}
-impl Clone for NDIS_GUID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union NDIS_GUID_0 {
     pub Oid: u32,
     pub Status: i32,
 }
-impl Copy for NDIS_GUID_0 {}
-impl Clone for NDIS_GUID_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_HARDWARE_CROSSTIMESTAMP {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u32,
@@ -2642,13 +2473,8 @@ pub struct NDIS_HARDWARE_CROSSTIMESTAMP {
     pub HardwareClockTimestamp: u64,
     pub SystemTimestamp2: u64,
 }
-impl Copy for NDIS_HARDWARE_CROSSTIMESTAMP {}
-impl Clone for NDIS_HARDWARE_CROSSTIMESTAMP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_INTERFACE_INFORMATION {
     pub ifOperStatus: NET_IF_OPER_STATUS,
     pub ifOperStatusFlags: u32,
@@ -2683,57 +2509,32 @@ pub struct NDIS_INTERFACE_INFORMATION {
     pub CompartmentId: u32,
     pub SupportedStatistics: u32,
 }
-impl Copy for NDIS_INTERFACE_INFORMATION {}
-impl Clone for NDIS_INTERFACE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_INTERRUPT_MODERATION_PARAMETERS {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u32,
     pub InterruptModeration: NDIS_INTERRUPT_MODERATION,
 }
-impl Copy for NDIS_INTERRUPT_MODERATION_PARAMETERS {}
-impl Clone for NDIS_INTERRUPT_MODERATION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_IPSEC_OFFLOAD_V1 {
     pub Supported: NDIS_IPSEC_OFFLOAD_V1_2,
     pub IPv4AH: NDIS_IPSEC_OFFLOAD_V1_0,
     pub IPv4ESP: NDIS_IPSEC_OFFLOAD_V1_1,
 }
-impl Copy for NDIS_IPSEC_OFFLOAD_V1 {}
-impl Clone for NDIS_IPSEC_OFFLOAD_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_IPSEC_OFFLOAD_V1_0 {
     pub _bitfield: u32,
 }
-impl Copy for NDIS_IPSEC_OFFLOAD_V1_0 {}
-impl Clone for NDIS_IPSEC_OFFLOAD_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_IPSEC_OFFLOAD_V1_1 {
     pub _bitfield: u32,
 }
-impl Copy for NDIS_IPSEC_OFFLOAD_V1_1 {}
-impl Clone for NDIS_IPSEC_OFFLOAD_V1_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_IPSEC_OFFLOAD_V1_2 {
     pub Encapsulation: u32,
     pub AhEspCombined: u32,
@@ -2741,61 +2542,36 @@ pub struct NDIS_IPSEC_OFFLOAD_V1_2 {
     pub IPv4Options: u32,
     pub Flags: u32,
 }
-impl Copy for NDIS_IPSEC_OFFLOAD_V1_2 {}
-impl Clone for NDIS_IPSEC_OFFLOAD_V1_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_IP_OPER_STATE {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u32,
     pub IpOperationalStatus: NDIS_IP_OPER_STATUS,
 }
-impl Copy for NDIS_IP_OPER_STATE {}
-impl Clone for NDIS_IP_OPER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_IP_OPER_STATUS {
     pub AddressFamily: u32,
     pub OperationalStatus: NET_IF_OPER_STATUS,
     pub OperationalStatusFlags: u32,
 }
-impl Copy for NDIS_IP_OPER_STATUS {}
-impl Clone for NDIS_IP_OPER_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_IP_OPER_STATUS_INFO {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u32,
     pub NumberofAddressFamiliesReturned: u32,
     pub IpOperationalStatus: [NDIS_IP_OPER_STATUS; 32],
 }
-impl Copy for NDIS_IP_OPER_STATUS_INFO {}
-impl Clone for NDIS_IP_OPER_STATUS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_IRDA_PACKET_INFO {
     pub ExtraBOFs: u32,
     pub MinTurnAroundTime: u32,
 }
-impl Copy for NDIS_IRDA_PACKET_INFO {}
-impl Clone for NDIS_IRDA_PACKET_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_LINK_PARAMETERS {
     pub Header: NDIS_OBJECT_HEADER,
     pub MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE,
@@ -2804,24 +2580,14 @@ pub struct NDIS_LINK_PARAMETERS {
     pub PauseFunctions: NDIS_SUPPORTED_PAUSE_FUNCTIONS,
     pub AutoNegotiationFlags: u32,
 }
-impl Copy for NDIS_LINK_PARAMETERS {}
-impl Clone for NDIS_LINK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_LINK_SPEED {
     pub XmitLinkSpeed: u64,
     pub RcvLinkSpeed: u64,
 }
-impl Copy for NDIS_LINK_SPEED {}
-impl Clone for NDIS_LINK_SPEED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_LINK_STATE {
     pub Header: NDIS_OBJECT_HEADER,
     pub MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
@@ -2831,25 +2597,15 @@ pub struct NDIS_LINK_STATE {
     pub PauseFunctions: NDIS_SUPPORTED_PAUSE_FUNCTIONS,
     pub AutoNegotiationFlags: u32,
 }
-impl Copy for NDIS_LINK_STATE {}
-impl Clone for NDIS_LINK_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_OBJECT_HEADER {
     pub Type: u8,
     pub Revision: u8,
     pub Size: u16,
 }
-impl Copy for NDIS_OBJECT_HEADER {}
-impl Clone for NDIS_OBJECT_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_OFFLOAD {
     pub Header: NDIS_OBJECT_HEADER,
     pub Checksum: NDIS_TCP_IP_CHECKSUM_OFFLOAD,
@@ -2858,13 +2614,8 @@ pub struct NDIS_OFFLOAD {
     pub LsoV2: NDIS_TCP_LARGE_SEND_OFFLOAD_V2,
     pub Flags: u32,
 }
-impl Copy for NDIS_OFFLOAD {}
-impl Clone for NDIS_OFFLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_OFFLOAD_PARAMETERS {
     pub Header: NDIS_OBJECT_HEADER,
     pub IPv4Checksum: u8,
@@ -2880,25 +2631,15 @@ pub struct NDIS_OFFLOAD_PARAMETERS {
     pub TcpConnectionIPv6: u8,
     pub Flags: u32,
 }
-impl Copy for NDIS_OFFLOAD_PARAMETERS {}
-impl Clone for NDIS_OFFLOAD_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_OPER_STATE {
     pub Header: NDIS_OBJECT_HEADER,
     pub OperationalStatus: NET_IF_OPER_STATUS,
     pub OperationalStatusFlags: u32,
 }
-impl Copy for NDIS_OPER_STATE {}
-impl Clone for NDIS_OPER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
     pub Header: NDIS_OBJECT_HEADER,
     pub DeviceType: u32,
@@ -2914,13 +2655,8 @@ pub struct NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
     pub InterruptType: u32,
     pub MaxInterruptMessages: u32,
 }
-impl Copy for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {}
-impl Clone for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_PM_PACKET_PATTERN {
     pub Priority: u32,
     pub Reserved: u32,
@@ -2929,36 +2665,21 @@ pub struct NDIS_PM_PACKET_PATTERN {
     pub PatternSize: u32,
     pub PatternFlags: u32,
 }
-impl Copy for NDIS_PM_PACKET_PATTERN {}
-impl Clone for NDIS_PM_PACKET_PATTERN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_PM_WAKE_UP_CAPABILITIES {
     pub MinMagicPacketWakeUp: NDIS_DEVICE_POWER_STATE,
     pub MinPatternWakeUp: NDIS_DEVICE_POWER_STATE,
     pub MinLinkChangeWakeUp: NDIS_DEVICE_POWER_STATE,
 }
-impl Copy for NDIS_PM_WAKE_UP_CAPABILITIES {}
-impl Clone for NDIS_PM_WAKE_UP_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_PNP_CAPABILITIES {
     pub Flags: u32,
     pub WakeUpCapabilities: NDIS_PM_WAKE_UP_CAPABILITIES,
 }
-impl Copy for NDIS_PNP_CAPABILITIES {}
-impl Clone for NDIS_PNP_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_PORT {
     pub Next: *mut NDIS_PORT,
     pub NdisReserved: *mut core::ffi::c_void,
@@ -2966,13 +2687,8 @@ pub struct NDIS_PORT {
     pub ProtocolReserved: *mut core::ffi::c_void,
     pub PortCharacteristics: NDIS_PORT_CHARACTERISTICS,
 }
-impl Copy for NDIS_PORT {}
-impl Clone for NDIS_PORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_PORT_ARRAY {
     pub Header: NDIS_OBJECT_HEADER,
     pub NumberOfPorts: u32,
@@ -2980,13 +2696,8 @@ pub struct NDIS_PORT_ARRAY {
     pub ElementSize: u32,
     pub Ports: [NDIS_PORT_CHARACTERISTICS; 1],
 }
-impl Copy for NDIS_PORT_ARRAY {}
-impl Clone for NDIS_PORT_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_PORT_AUTHENTICATION_PARAMETERS {
     pub Header: NDIS_OBJECT_HEADER,
     pub SendControlState: NDIS_PORT_CONTROL_STATE,
@@ -2994,13 +2705,8 @@ pub struct NDIS_PORT_AUTHENTICATION_PARAMETERS {
     pub SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
     pub RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
 }
-impl Copy for NDIS_PORT_AUTHENTICATION_PARAMETERS {}
-impl Clone for NDIS_PORT_AUTHENTICATION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_PORT_CHARACTERISTICS {
     pub Header: NDIS_OBJECT_HEADER,
     pub PortNumber: u32,
@@ -3015,13 +2721,8 @@ pub struct NDIS_PORT_CHARACTERISTICS {
     pub SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
     pub RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
 }
-impl Copy for NDIS_PORT_CHARACTERISTICS {}
-impl Clone for NDIS_PORT_CHARACTERISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_PORT_STATE {
     pub Header: NDIS_OBJECT_HEADER,
     pub MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
@@ -3034,13 +2735,8 @@ pub struct NDIS_PORT_STATE {
     pub RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
     pub Flags: u32,
 }
-impl Copy for NDIS_PORT_STATE {}
-impl Clone for NDIS_PORT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_RECEIVE_HASH_PARAMETERS {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u32,
@@ -3048,26 +2744,16 @@ pub struct NDIS_RECEIVE_HASH_PARAMETERS {
     pub HashSecretKeySize: u16,
     pub HashSecretKeyOffset: u32,
 }
-impl Copy for NDIS_RECEIVE_HASH_PARAMETERS {}
-impl Clone for NDIS_RECEIVE_HASH_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_RECEIVE_SCALE_CAPABILITIES {
     pub Header: NDIS_OBJECT_HEADER,
     pub CapabilitiesFlags: u32,
     pub NumberOfInterruptMessages: u32,
     pub NumberOfReceiveQueues: u32,
 }
-impl Copy for NDIS_RECEIVE_SCALE_CAPABILITIES {}
-impl Clone for NDIS_RECEIVE_SCALE_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_RECEIVE_SCALE_PARAMETERS {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u16,
@@ -3078,13 +2764,8 @@ pub struct NDIS_RECEIVE_SCALE_PARAMETERS {
     pub HashSecretKeySize: u16,
     pub HashSecretKeyOffset: u32,
 }
-impl Copy for NDIS_RECEIVE_SCALE_PARAMETERS {}
-impl Clone for NDIS_RECEIVE_SCALE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_STATISTICS_INFO {
     pub Header: NDIS_OBJECT_HEADER,
     pub SupportedStatistics: u32,
@@ -3107,38 +2788,23 @@ pub struct NDIS_STATISTICS_INFO {
     pub ifHCOutMulticastOctets: u64,
     pub ifHCOutBroadcastOctets: u64,
 }
-impl Copy for NDIS_STATISTICS_INFO {}
-impl Clone for NDIS_STATISTICS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_STATISTICS_VALUE {
     pub Oid: u32,
     pub DataLength: u32,
     pub Data: [u8; 1],
 }
-impl Copy for NDIS_STATISTICS_VALUE {}
-impl Clone for NDIS_STATISTICS_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_STATISTICS_VALUE_EX {
     pub Oid: u32,
     pub DataLength: u32,
     pub Length: u32,
     pub Data: [u8; 1],
 }
-impl Copy for NDIS_STATISTICS_VALUE_EX {}
-impl Clone for NDIS_STATISTICS_VALUE_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_TCP_CONNECTION_OFFLOAD {
     pub Header: NDIS_OBJECT_HEADER,
     pub Encapsulation: u32,
@@ -3146,142 +2812,82 @@ pub struct NDIS_TCP_CONNECTION_OFFLOAD {
     pub TcpConnectionOffloadCapacity: u32,
     pub Flags: u32,
 }
-impl Copy for NDIS_TCP_CONNECTION_OFFLOAD {}
-impl Clone for NDIS_TCP_CONNECTION_OFFLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD {
     pub IPv4Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_1,
     pub IPv4Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_0,
     pub IPv6Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_3,
     pub IPv6Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_2,
 }
-impl Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD {}
-impl Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
 }
-impl Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {}
-impl Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
 }
-impl Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {}
-impl Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
 }
-impl Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {}
-impl Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
 }
-impl Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {}
-impl Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
     pub IPv4: NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0,
 }
-impl Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {}
-impl Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     pub Encapsulation: u32,
     pub MaxOffLoadSize: u32,
     pub MinSegmentCount: u32,
     pub _bitfield: u32,
 }
-impl Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {}
-impl Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
     pub IPv4: NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0,
     pub IPv6: NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1,
 }
-impl Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {}
-impl Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     pub Encapsulation: u32,
     pub MaxOffLoadSize: u32,
     pub MinSegmentCount: u32,
 }
-impl Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {}
-impl Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     pub Encapsulation: u32,
     pub MaxOffLoadSize: u32,
     pub MinSegmentCount: u32,
     pub _bitfield: u32,
 }
-impl Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {}
-impl Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u32,
     pub TimeoutArrayLength: u32,
     pub TimeoutArray: [u32; 1],
 }
-impl Copy for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {}
-impl Clone for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_TIMESTAMP_CAPABILITIES {
     pub Header: NDIS_OBJECT_HEADER,
     pub HardwareClockFrequencyHz: u64,
@@ -3290,13 +2896,8 @@ pub struct NDIS_TIMESTAMP_CAPABILITIES {
     pub Reserved2: u64,
     pub TimestampFlags: NDIS_TIMESTAMP_CAPABILITY_FLAGS,
 }
-impl Copy for NDIS_TIMESTAMP_CAPABILITIES {}
-impl Clone for NDIS_TIMESTAMP_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_TIMESTAMP_CAPABILITY_FLAGS {
     pub PtpV2OverUdpIPv4EventMsgReceiveHw: super::super::Foundation::BOOLEAN,
     pub PtpV2OverUdpIPv4AllMsgReceiveHw: super::super::Foundation::BOOLEAN,
@@ -3313,36 +2914,21 @@ pub struct NDIS_TIMESTAMP_CAPABILITY_FLAGS {
     pub AllTransmitSw: super::super::Foundation::BOOLEAN,
     pub TaggedTransmitSw: super::super::Foundation::BOOLEAN,
 }
-impl Copy for NDIS_TIMESTAMP_CAPABILITY_FLAGS {}
-impl Clone for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_VAR_DATA_DESC {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Offset: usize,
 }
-impl Copy for NDIS_VAR_DATA_DESC {}
-impl Clone for NDIS_VAR_DATA_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_WAN_PROTOCOL_CAPS {
     pub Flags: u32,
     pub Reserved: u32,
 }
-impl Copy for NDIS_WAN_PROTOCOL_CAPS {}
-impl Clone for NDIS_WAN_PROTOCOL_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_WLAN_BSSID {
     pub Length: u32,
     pub MacAddress: [u8; 6],
@@ -3355,13 +2941,8 @@ pub struct NDIS_WLAN_BSSID {
     pub InfrastructureMode: NDIS_802_11_NETWORK_INFRASTRUCTURE,
     pub SupportedRates: [u8; 8],
 }
-impl Copy for NDIS_WLAN_BSSID {}
-impl Clone for NDIS_WLAN_BSSID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_WLAN_BSSID_EX {
     pub Length: u32,
     pub MacAddress: [u8; 6],
@@ -3376,13 +2957,8 @@ pub struct NDIS_WLAN_BSSID_EX {
     pub IELength: u32,
     pub IEs: [u8; 1],
 }
-impl Copy for NDIS_WLAN_BSSID_EX {}
-impl Clone for NDIS_WLAN_BSSID_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_WMI_ENUM_ADAPTER {
     pub Header: NDIS_OBJECT_HEADER,
     pub IfIndex: u32,
@@ -3390,13 +2966,8 @@ pub struct NDIS_WMI_ENUM_ADAPTER {
     pub DeviceNameLength: u16,
     pub DeviceName: [i8; 1],
 }
-impl Copy for NDIS_WMI_ENUM_ADAPTER {}
-impl Clone for NDIS_WMI_ENUM_ADAPTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_WMI_EVENT_HEADER {
     pub Header: NDIS_OBJECT_HEADER,
     pub IfIndex: u32,
@@ -3407,25 +2978,15 @@ pub struct NDIS_WMI_EVENT_HEADER {
     pub DeviceNameOffset: u32,
     pub Padding: [u8; 4],
 }
-impl Copy for NDIS_WMI_EVENT_HEADER {}
-impl Clone for NDIS_WMI_EVENT_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1 {
     pub Supported: NDIS_WMI_IPSEC_OFFLOAD_V1_2,
     pub IPv4AH: NDIS_WMI_IPSEC_OFFLOAD_V1_0,
     pub IPv4ESP: NDIS_WMI_IPSEC_OFFLOAD_V1_1,
 }
-impl Copy for NDIS_WMI_IPSEC_OFFLOAD_V1 {}
-impl Clone for NDIS_WMI_IPSEC_OFFLOAD_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     pub Md5: u32,
     pub Sha_1: u32,
@@ -3434,13 +2995,8 @@ pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     pub Send: u32,
     pub Receive: u32,
 }
-impl Copy for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {}
-impl Clone for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
     pub Des: u32,
     pub Reserved: u32,
@@ -3451,13 +3007,8 @@ pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
     pub Send: u32,
     pub Receive: u32,
 }
-impl Copy for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {}
-impl Clone for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
     pub Encapsulation: u32,
     pub AhEspCombined: u32,
@@ -3465,13 +3016,8 @@ pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
     pub IPv4Options: u32,
     pub Flags: u32,
 }
-impl Copy for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {}
-impl Clone for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_WMI_METHOD_HEADER {
     pub Header: NDIS_OBJECT_HEADER,
     pub PortNumber: u32,
@@ -3480,13 +3026,8 @@ pub struct NDIS_WMI_METHOD_HEADER {
     pub Timeout: u32,
     pub Padding: [u8; 4],
 }
-impl Copy for NDIS_WMI_METHOD_HEADER {}
-impl Clone for NDIS_WMI_METHOD_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_WMI_OFFLOAD {
     pub Header: NDIS_OBJECT_HEADER,
     pub Checksum: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD,
@@ -3495,26 +3036,16 @@ pub struct NDIS_WMI_OFFLOAD {
     pub LsoV2: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2,
     pub Flags: u32,
 }
-impl Copy for NDIS_WMI_OFFLOAD {}
-impl Clone for NDIS_WMI_OFFLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_WMI_OUTPUT_INFO {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u32,
     pub SupportedRevision: u8,
     pub DataOffset: u32,
 }
-impl Copy for NDIS_WMI_OUTPUT_INFO {}
-impl Clone for NDIS_WMI_OUTPUT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_WMI_SET_HEADER {
     pub Header: NDIS_OBJECT_HEADER,
     pub PortNumber: u32,
@@ -3523,13 +3054,8 @@ pub struct NDIS_WMI_SET_HEADER {
     pub Timeout: u32,
     pub Padding: [u8; 4],
 }
-impl Copy for NDIS_WMI_SET_HEADER {}
-impl Clone for NDIS_WMI_SET_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_WMI_TCP_CONNECTION_OFFLOAD {
     pub Header: NDIS_OBJECT_HEADER,
     pub Encapsulation: u32,
@@ -3540,26 +3066,16 @@ pub struct NDIS_WMI_TCP_CONNECTION_OFFLOAD {
     pub TcpConnectionOffloadCapacity: u32,
     pub Flags: u32,
 }
-impl Copy for NDIS_WMI_TCP_CONNECTION_OFFLOAD {}
-impl Clone for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
     pub IPv4Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1,
     pub IPv4Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0,
     pub IPv6Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3,
     pub IPv6Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2,
 }
-impl Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {}
-impl Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     pub Encapsulation: u32,
     pub IpOptionsSupported: u32,
@@ -3568,13 +3084,8 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     pub UdpChecksum: u32,
     pub IpChecksum: u32,
 }
-impl Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {}
-impl Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
     pub Encapsulation: u32,
     pub IpOptionsSupported: u32,
@@ -3583,13 +3094,8 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
     pub UdpChecksum: u32,
     pub IpChecksum: u32,
 }
-impl Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {}
-impl Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
     pub Encapsulation: u32,
     pub IpExtensionHeadersSupported: u32,
@@ -3597,13 +3103,8 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
     pub TcpChecksum: u32,
     pub UdpChecksum: u32,
 }
-impl Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {}
-impl Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
     pub Encapsulation: u32,
     pub IpExtensionHeadersSupported: u32,
@@ -3611,23 +3112,13 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
     pub TcpChecksum: u32,
     pub UdpChecksum: u32,
 }
-impl Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {}
-impl Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
     pub IPv4: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0,
 }
-impl Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {}
-impl Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     pub Encapsulation: u32,
     pub MaxOffLoadSize: u32,
@@ -3635,36 +3126,21 @@ pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     pub TcpOptions: u32,
     pub IpOptions: u32,
 }
-impl Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {}
-impl Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
     pub IPv4: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0,
     pub IPv6: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1,
 }
-impl Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {}
-impl Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     pub Encapsulation: u32,
     pub MaxOffLoadSize: u32,
     pub MinSegmentCount: u32,
 }
-impl Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {}
-impl Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     pub Encapsulation: u32,
     pub MaxOffLoadSize: u32,
@@ -3672,13 +3148,8 @@ pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     pub IpExtensionHeadersSupported: u32,
     pub TcpOptionsSupported: u32,
 }
-impl Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {}
-impl Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDK_ADAPTER_INFO {
     pub Version: NDK_VERSION,
     pub VendorId: u32,
@@ -3703,153 +3174,88 @@ pub struct NDK_ADAPTER_INFO {
     pub AdapterFlags: u32,
     pub RdmaTechnology: NDK_RDMA_TECHNOLOGY,
 }
-impl Copy for NDK_ADAPTER_INFO {}
-impl Clone for NDK_ADAPTER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDK_VERSION {
     pub Major: u16,
     pub Minor: u16,
 }
-impl Copy for NDK_VERSION {}
-impl Clone for NDK_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NETWORK_ADDRESS {
     pub AddressLength: u16,
     pub AddressType: u16,
     pub Address: [u8; 1],
 }
-impl Copy for NETWORK_ADDRESS {}
-impl Clone for NETWORK_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NETWORK_ADDRESS_IP {
     pub sin_port: u16,
     pub IN_ADDR: u32,
     pub sin_zero: [u8; 8],
 }
-impl Copy for NETWORK_ADDRESS_IP {}
-impl Clone for NETWORK_ADDRESS_IP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NETWORK_ADDRESS_IP6 {
     pub sin6_port: u16,
     pub sin6_flowinfo: u32,
     pub sin6_addr: [u16; 8],
     pub sin6_scope_id: u32,
 }
-impl Copy for NETWORK_ADDRESS_IP6 {}
-impl Clone for NETWORK_ADDRESS_IP6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NETWORK_ADDRESS_IPX {
     pub NetworkAddress: u32,
     pub NodeAddress: [u8; 6],
     pub Socket: u16,
 }
-impl Copy for NETWORK_ADDRESS_IPX {}
-impl Clone for NETWORK_ADDRESS_IPX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NETWORK_ADDRESS_LIST {
     pub AddressCount: i32,
     pub AddressType: u16,
     pub Address: [NETWORK_ADDRESS; 1],
 }
-impl Copy for NETWORK_ADDRESS_LIST {}
-impl Clone for NETWORK_ADDRESS_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NET_IF_ALIAS_LH {
     pub ifAliasLength: u16,
     pub ifAliasOffset: u16,
 }
-impl Copy for NET_IF_ALIAS_LH {}
-impl Clone for NET_IF_ALIAS_LH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NET_IF_RCV_ADDRESS_LH {
     pub ifRcvAddressType: NET_IF_RCV_ADDRESS_TYPE,
     pub ifRcvAddressLength: u16,
     pub ifRcvAddressOffset: u16,
 }
-impl Copy for NET_IF_RCV_ADDRESS_LH {}
-impl Clone for NET_IF_RCV_ADDRESS_LH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union NET_LUID_LH {
     pub Value: u64,
     pub Info: NET_LUID_LH_0,
 }
-impl Copy for NET_LUID_LH {}
-impl Clone for NET_LUID_LH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NET_LUID_LH_0 {
     pub _bitfield: u64,
 }
-impl Copy for NET_LUID_LH_0 {}
-impl Clone for NET_LUID_LH_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NET_PHYSICAL_LOCATION_LH {
     pub BusNumber: u32,
     pub SlotNumber: u32,
     pub FunctionNumber: u32,
 }
-impl Copy for NET_PHYSICAL_LOCATION_LH {}
-impl Clone for NET_PHYSICAL_LOCATION_LH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OFFLOAD_ALGO_INFO {
     pub algoIdentifier: u32,
     pub algoKeylen: u32,
     pub algoRounds: u32,
 }
-impl Copy for OFFLOAD_ALGO_INFO {}
-impl Clone for OFFLOAD_ALGO_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OFFLOAD_IPSEC_ADD_SA {
     pub SrcAddr: u32,
     pub SrcMask: u32,
@@ -3867,13 +3273,8 @@ pub struct OFFLOAD_IPSEC_ADD_SA {
     pub KeyLen: u32,
     pub KeyMat: [u8; 1],
 }
-impl Copy for OFFLOAD_IPSEC_ADD_SA {}
-impl Clone for OFFLOAD_IPSEC_ADD_SA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OFFLOAD_IPSEC_ADD_UDPESP_SA {
     pub SrcAddr: u32,
     pub SrcMask: u32,
@@ -3893,45 +3294,25 @@ pub struct OFFLOAD_IPSEC_ADD_UDPESP_SA {
     pub KeyLen: u32,
     pub KeyMat: [u8; 1],
 }
-impl Copy for OFFLOAD_IPSEC_ADD_UDPESP_SA {}
-impl Clone for OFFLOAD_IPSEC_ADD_UDPESP_SA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OFFLOAD_IPSEC_DELETE_SA {
     pub OffloadHandle: super::super::Foundation::HANDLE,
 }
-impl Copy for OFFLOAD_IPSEC_DELETE_SA {}
-impl Clone for OFFLOAD_IPSEC_DELETE_SA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OFFLOAD_IPSEC_DELETE_UDPESP_SA {
     pub OffloadHandle: super::super::Foundation::HANDLE,
     pub EncapTypeEntryOffldHandle: super::super::Foundation::HANDLE,
 }
-impl Copy for OFFLOAD_IPSEC_DELETE_UDPESP_SA {}
-impl Clone for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
     pub UdpEncapType: UDP_ENCAP_TYPE,
     pub DstEncapPort: u16,
 }
-impl Copy for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {}
-impl Clone for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct OFFLOAD_SECURITY_ASSOCIATION {
     pub Operation: OFFLOAD_OPERATION_E,
     pub SPI: u32,
@@ -3939,31 +3320,15 @@ pub struct OFFLOAD_SECURITY_ASSOCIATION {
     pub ConfAlgo: OFFLOAD_ALGO_INFO,
     pub Reserved: OFFLOAD_ALGO_INFO,
 }
-impl Copy for OFFLOAD_SECURITY_ASSOCIATION {}
-impl Clone for OFFLOAD_SECURITY_ASSOCIATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PMKID_CANDIDATE {
     pub BSSID: [u8; 6],
     pub Flags: u32,
 }
-impl Copy for PMKID_CANDIDATE {}
-impl Clone for PMKID_CANDIDATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TRANSPORT_HEADER_OFFSET {
     pub ProtocolType: u16,
     pub HeaderOffset: u16,
-}
-impl Copy for TRANSPORT_HEADER_OFFSET {}
-impl Clone for TRANSPORT_HEADER_OFFSET {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

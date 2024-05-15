@@ -65,6 +65,7 @@ pub type HCN_NOTIFICATIONS = i32;
 pub type HCN_PORT_ACCESS = i32;
 pub type HCN_PORT_PROTOCOL = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HCN_PORT_RANGE_ENTRY {
     pub OwningPartitionId: windows_sys::core::GUID,
     pub TargetPartitionId: windows_sys::core::GUID,
@@ -76,21 +77,10 @@ pub struct HCN_PORT_RANGE_ENTRY {
     pub StartingPort: u16,
     pub EndingPort: u16,
 }
-impl Copy for HCN_PORT_RANGE_ENTRY {}
-impl Clone for HCN_PORT_RANGE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HCN_PORT_RANGE_RESERVATION {
     pub startingPort: u16,
     pub endingPort: u16,
-}
-impl Copy for HCN_PORT_RANGE_RESERVATION {}
-impl Clone for HCN_PORT_RANGE_RESERVATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type HCN_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(notificationtype: u32, context: *const core::ffi::c_void, notificationstatus: windows_sys::core::HRESULT, notificationdata: windows_sys::core::PCWSTR)>;

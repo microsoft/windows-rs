@@ -9492,31 +9492,15 @@ impl core::fmt::Debug for ZoomUnit {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACCESSTIMEOUT {
     pub cbSize: u32,
     pub dwFlags: u32,
     pub iTimeOutMSec: u32,
 }
-impl Copy for ACCESSTIMEOUT {}
-impl Clone for ACCESSTIMEOUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ACCESSTIMEOUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ACCESSTIMEOUT").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("iTimeOutMSec", &self.iTimeOutMSec).finish()
-    }
-}
 impl windows_core::TypeKind for ACCESSTIMEOUT {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ACCESSTIMEOUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.iTimeOutMSec == other.iTimeOutMSec
-    }
-}
-impl Eq for ACCESSTIMEOUT {}
 impl Default for ACCESSTIMEOUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9527,6 +9511,7 @@ pub const CUIAutomation: windows_core::GUID = windows_core::GUID::from_u128(0xff
 pub const CUIAutomation8: windows_core::GUID = windows_core::GUID::from_u128(0xe22ad333_b25f_460c_83d0_0581107395c9);
 pub const CUIAutomationRegistrar: windows_core::GUID = windows_core::GUID::from_u128(0x6e29fabf_9977_42d1_8d0e_ca7e61ad87e6);
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct ExtendedProperty {
     pub PropertyName: std::mem::ManuallyDrop<windows_core::BSTR>,
     pub PropertyValue: std::mem::ManuallyDrop<windows_core::BSTR>,
@@ -9536,26 +9521,16 @@ impl Clone for ExtendedProperty {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for ExtendedProperty {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ExtendedProperty").field("PropertyName", &self.PropertyName).field("PropertyValue", &self.PropertyValue).finish()
-    }
-}
 impl windows_core::TypeKind for ExtendedProperty {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ExtendedProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.PropertyName == other.PropertyName && self.PropertyValue == other.PropertyValue
-    }
-}
-impl Eq for ExtendedProperty {}
 impl Default for ExtendedProperty {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILTERKEYS {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -9564,88 +9539,39 @@ pub struct FILTERKEYS {
     pub iRepeatMSec: u32,
     pub iBounceMSec: u32,
 }
-impl Copy for FILTERKEYS {}
-impl Clone for FILTERKEYS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FILTERKEYS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FILTERKEYS").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("iWaitMSec", &self.iWaitMSec).field("iDelayMSec", &self.iDelayMSec).field("iRepeatMSec", &self.iRepeatMSec).field("iBounceMSec", &self.iBounceMSec).finish()
-    }
-}
 impl windows_core::TypeKind for FILTERKEYS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FILTERKEYS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.iWaitMSec == other.iWaitMSec && self.iDelayMSec == other.iDelayMSec && self.iRepeatMSec == other.iRepeatMSec && self.iBounceMSec == other.iBounceMSec
-    }
-}
-impl Eq for FILTERKEYS {}
 impl Default for FILTERKEYS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HIGHCONTRASTA {
     pub cbSize: u32,
     pub dwFlags: HIGHCONTRASTW_FLAGS,
     pub lpszDefaultScheme: windows_core::PSTR,
 }
-impl Copy for HIGHCONTRASTA {}
-impl Clone for HIGHCONTRASTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HIGHCONTRASTA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HIGHCONTRASTA").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpszDefaultScheme", &self.lpszDefaultScheme).finish()
-    }
-}
 impl windows_core::TypeKind for HIGHCONTRASTA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HIGHCONTRASTA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.lpszDefaultScheme == other.lpszDefaultScheme
-    }
-}
-impl Eq for HIGHCONTRASTA {}
 impl Default for HIGHCONTRASTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HIGHCONTRASTW {
     pub cbSize: u32,
     pub dwFlags: HIGHCONTRASTW_FLAGS,
     pub lpszDefaultScheme: windows_core::PWSTR,
 }
-impl Copy for HIGHCONTRASTW {}
-impl Clone for HIGHCONTRASTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HIGHCONTRASTW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HIGHCONTRASTW").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpszDefaultScheme", &self.lpszDefaultScheme).finish()
-    }
-}
 impl windows_core::TypeKind for HIGHCONTRASTW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HIGHCONTRASTW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.lpszDefaultScheme == other.lpszDefaultScheme
-    }
-}
-impl Eq for HIGHCONTRASTW {}
 impl Default for HIGHCONTRASTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9739,6 +9665,7 @@ impl windows_core::TypeKind for HWINEVENTHOOK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MOUSEKEYS {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -9748,63 +9675,31 @@ pub struct MOUSEKEYS {
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
-impl Copy for MOUSEKEYS {}
-impl Clone for MOUSEKEYS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MOUSEKEYS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MOUSEKEYS").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("iMaxSpeed", &self.iMaxSpeed).field("iTimeToMaxSpeed", &self.iTimeToMaxSpeed).field("iCtrlSpeed", &self.iCtrlSpeed).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
-    }
-}
 impl windows_core::TypeKind for MOUSEKEYS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MOUSEKEYS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.iMaxSpeed == other.iMaxSpeed && self.iTimeToMaxSpeed == other.iTimeToMaxSpeed && self.iCtrlSpeed == other.iCtrlSpeed && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
-    }
-}
-impl Eq for MOUSEKEYS {}
 impl Default for MOUSEKEYS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSAAMENUINFO {
     pub dwMSAASignature: u32,
     pub cchWText: u32,
     pub pszWText: windows_core::PWSTR,
 }
-impl Copy for MSAAMENUINFO {}
-impl Clone for MSAAMENUINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MSAAMENUINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MSAAMENUINFO").field("dwMSAASignature", &self.dwMSAASignature).field("cchWText", &self.cchWText).field("pszWText", &self.pszWText).finish()
-    }
-}
 impl windows_core::TypeKind for MSAAMENUINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MSAAMENUINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMSAASignature == other.dwMSAASignature && self.cchWText == other.cchWText && self.pszWText == other.pszWText
-    }
-}
-impl Eq for MSAAMENUINFO {}
 impl Default for MSAAMENUINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIALKEYSA {
     pub cbSize: u32,
     pub dwFlags: SERIALKEYS_FLAGS,
@@ -9814,32 +9709,16 @@ pub struct SERIALKEYSA {
     pub iPortState: u32,
     pub iActive: u32,
 }
-impl Copy for SERIALKEYSA {}
-impl Clone for SERIALKEYSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERIALKEYSA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERIALKEYSA").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpszActivePort", &self.lpszActivePort).field("lpszPort", &self.lpszPort).field("iBaudRate", &self.iBaudRate).field("iPortState", &self.iPortState).field("iActive", &self.iActive).finish()
-    }
-}
 impl windows_core::TypeKind for SERIALKEYSA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERIALKEYSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.lpszActivePort == other.lpszActivePort && self.lpszPort == other.lpszPort && self.iBaudRate == other.iBaudRate && self.iPortState == other.iPortState && self.iActive == other.iActive
-    }
-}
-impl Eq for SERIALKEYSA {}
 impl Default for SERIALKEYSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIALKEYSW {
     pub cbSize: u32,
     pub dwFlags: SERIALKEYS_FLAGS,
@@ -9849,32 +9728,16 @@ pub struct SERIALKEYSW {
     pub iPortState: u32,
     pub iActive: u32,
 }
-impl Copy for SERIALKEYSW {}
-impl Clone for SERIALKEYSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SERIALKEYSW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SERIALKEYSW").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpszActivePort", &self.lpszActivePort).field("lpszPort", &self.lpszPort).field("iBaudRate", &self.iBaudRate).field("iPortState", &self.iPortState).field("iActive", &self.iActive).finish()
-    }
-}
 impl windows_core::TypeKind for SERIALKEYSW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SERIALKEYSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.lpszActivePort == other.lpszActivePort && self.lpszPort == other.lpszPort && self.iBaudRate == other.iBaudRate && self.iPortState == other.iPortState && self.iActive == other.iActive
-    }
-}
-impl Eq for SERIALKEYSW {}
 impl Default for SERIALKEYSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOUNDSENTRYA {
     pub cbSize: u32,
     pub dwFlags: SOUNDSENTRY_FLAGS,
@@ -9889,45 +9752,16 @@ pub struct SOUNDSENTRYA {
     pub lpszWindowsEffectDLL: windows_core::PSTR,
     pub iWindowsEffectOrdinal: u32,
 }
-impl Copy for SOUNDSENTRYA {}
-impl Clone for SOUNDSENTRYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SOUNDSENTRYA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SOUNDSENTRYA")
-            .field("cbSize", &self.cbSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("iFSTextEffect", &self.iFSTextEffect)
-            .field("iFSTextEffectMSec", &self.iFSTextEffectMSec)
-            .field("iFSTextEffectColorBits", &self.iFSTextEffectColorBits)
-            .field("iFSGrafEffect", &self.iFSGrafEffect)
-            .field("iFSGrafEffectMSec", &self.iFSGrafEffectMSec)
-            .field("iFSGrafEffectColor", &self.iFSGrafEffectColor)
-            .field("iWindowsEffect", &self.iWindowsEffect)
-            .field("iWindowsEffectMSec", &self.iWindowsEffectMSec)
-            .field("lpszWindowsEffectDLL", &self.lpszWindowsEffectDLL)
-            .field("iWindowsEffectOrdinal", &self.iWindowsEffectOrdinal)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for SOUNDSENTRYA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SOUNDSENTRYA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.iFSTextEffect == other.iFSTextEffect && self.iFSTextEffectMSec == other.iFSTextEffectMSec && self.iFSTextEffectColorBits == other.iFSTextEffectColorBits && self.iFSGrafEffect == other.iFSGrafEffect && self.iFSGrafEffectMSec == other.iFSGrafEffectMSec && self.iFSGrafEffectColor == other.iFSGrafEffectColor && self.iWindowsEffect == other.iWindowsEffect && self.iWindowsEffectMSec == other.iWindowsEffectMSec && self.lpszWindowsEffectDLL == other.lpszWindowsEffectDLL && self.iWindowsEffectOrdinal == other.iWindowsEffectOrdinal
-    }
-}
-impl Eq for SOUNDSENTRYA {}
 impl Default for SOUNDSENTRYA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOUNDSENTRYW {
     pub cbSize: u32,
     pub dwFlags: SOUNDSENTRY_FLAGS,
@@ -9942,135 +9776,58 @@ pub struct SOUNDSENTRYW {
     pub lpszWindowsEffectDLL: windows_core::PWSTR,
     pub iWindowsEffectOrdinal: u32,
 }
-impl Copy for SOUNDSENTRYW {}
-impl Clone for SOUNDSENTRYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SOUNDSENTRYW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SOUNDSENTRYW")
-            .field("cbSize", &self.cbSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("iFSTextEffect", &self.iFSTextEffect)
-            .field("iFSTextEffectMSec", &self.iFSTextEffectMSec)
-            .field("iFSTextEffectColorBits", &self.iFSTextEffectColorBits)
-            .field("iFSGrafEffect", &self.iFSGrafEffect)
-            .field("iFSGrafEffectMSec", &self.iFSGrafEffectMSec)
-            .field("iFSGrafEffectColor", &self.iFSGrafEffectColor)
-            .field("iWindowsEffect", &self.iWindowsEffect)
-            .field("iWindowsEffectMSec", &self.iWindowsEffectMSec)
-            .field("lpszWindowsEffectDLL", &self.lpszWindowsEffectDLL)
-            .field("iWindowsEffectOrdinal", &self.iWindowsEffectOrdinal)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for SOUNDSENTRYW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SOUNDSENTRYW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.iFSTextEffect == other.iFSTextEffect && self.iFSTextEffectMSec == other.iFSTextEffectMSec && self.iFSTextEffectColorBits == other.iFSTextEffectColorBits && self.iFSGrafEffect == other.iFSGrafEffect && self.iFSGrafEffectMSec == other.iFSGrafEffectMSec && self.iFSGrafEffectColor == other.iFSGrafEffectColor && self.iWindowsEffect == other.iWindowsEffect && self.iWindowsEffectMSec == other.iWindowsEffectMSec && self.lpszWindowsEffectDLL == other.lpszWindowsEffectDLL && self.iWindowsEffectOrdinal == other.iWindowsEffectOrdinal
-    }
-}
-impl Eq for SOUNDSENTRYW {}
 impl Default for SOUNDSENTRYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STICKYKEYS {
     pub cbSize: u32,
     pub dwFlags: STICKYKEYS_FLAGS,
 }
-impl Copy for STICKYKEYS {}
-impl Clone for STICKYKEYS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for STICKYKEYS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("STICKYKEYS").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for STICKYKEYS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for STICKYKEYS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for STICKYKEYS {}
 impl Default for STICKYKEYS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOGGLEKEYS {
     pub cbSize: u32,
     pub dwFlags: u32,
 }
-impl Copy for TOGGLEKEYS {}
-impl Clone for TOGGLEKEYS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TOGGLEKEYS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TOGGLEKEYS").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 impl windows_core::TypeKind for TOGGLEKEYS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TOGGLEKEYS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags
-    }
-}
-impl Eq for TOGGLEKEYS {}
 impl Default for TOGGLEKEYS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UIAutomationEventInfo {
     pub guid: windows_core::GUID,
     pub pProgrammaticName: windows_core::PCWSTR,
 }
-impl Copy for UIAutomationEventInfo {}
-impl Clone for UIAutomationEventInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UIAutomationEventInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UIAutomationEventInfo").field("guid", &self.guid).field("pProgrammaticName", &self.pProgrammaticName).finish()
-    }
-}
 impl windows_core::TypeKind for UIAutomationEventInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UIAutomationEventInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.guid == other.guid && self.pProgrammaticName == other.pProgrammaticName
-    }
-}
-impl Eq for UIAutomationEventInfo {}
 impl Default for UIAutomationEventInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UIAutomationMethodInfo {
     pub pProgrammaticName: windows_core::PCWSTR,
     pub doSetFocus: super::super::Foundation::BOOL,
@@ -10079,62 +9836,30 @@ pub struct UIAutomationMethodInfo {
     pub pParameterTypes: *mut UIAutomationType,
     pub pParameterNames: *const windows_core::PCWSTR,
 }
-impl Copy for UIAutomationMethodInfo {}
-impl Clone for UIAutomationMethodInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UIAutomationMethodInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UIAutomationMethodInfo").field("pProgrammaticName", &self.pProgrammaticName).field("doSetFocus", &self.doSetFocus).field("cInParameters", &self.cInParameters).field("cOutParameters", &self.cOutParameters).field("pParameterTypes", &self.pParameterTypes).field("pParameterNames", &self.pParameterNames).finish()
-    }
-}
 impl windows_core::TypeKind for UIAutomationMethodInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UIAutomationMethodInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.pProgrammaticName == other.pProgrammaticName && self.doSetFocus == other.doSetFocus && self.cInParameters == other.cInParameters && self.cOutParameters == other.cOutParameters && self.pParameterTypes == other.pParameterTypes && self.pParameterNames == other.pParameterNames
-    }
-}
-impl Eq for UIAutomationMethodInfo {}
 impl Default for UIAutomationMethodInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UIAutomationParameter {
     pub r#type: UIAutomationType,
     pub pData: *mut core::ffi::c_void,
 }
-impl Copy for UIAutomationParameter {}
-impl Clone for UIAutomationParameter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UIAutomationParameter {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UIAutomationParameter").field("type", &self.r#type).field("pData", &self.pData).finish()
-    }
-}
 impl windows_core::TypeKind for UIAutomationParameter {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UIAutomationParameter {
-    fn eq(&self, other: &Self) -> bool {
-        self.r#type == other.r#type && self.pData == other.pData
-    }
-}
-impl Eq for UIAutomationParameter {}
 impl Default for UIAutomationParameter {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct UIAutomationPatternInfo {
     pub guid: windows_core::GUID,
     pub pProgrammaticName: windows_core::PCWSTR,
@@ -10153,132 +9878,62 @@ impl Clone for UIAutomationPatternInfo {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for UIAutomationPatternInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UIAutomationPatternInfo")
-            .field("guid", &self.guid)
-            .field("pProgrammaticName", &self.pProgrammaticName)
-            .field("providerInterfaceId", &self.providerInterfaceId)
-            .field("clientInterfaceId", &self.clientInterfaceId)
-            .field("cProperties", &self.cProperties)
-            .field("pProperties", &self.pProperties)
-            .field("cMethods", &self.cMethods)
-            .field("pMethods", &self.pMethods)
-            .field("cEvents", &self.cEvents)
-            .field("pEvents", &self.pEvents)
-            .field("pPatternHandler", &self.pPatternHandler)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for UIAutomationPatternInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UIAutomationPatternInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.guid == other.guid && self.pProgrammaticName == other.pProgrammaticName && self.providerInterfaceId == other.providerInterfaceId && self.clientInterfaceId == other.clientInterfaceId && self.cProperties == other.cProperties && self.pProperties == other.pProperties && self.cMethods == other.cMethods && self.pMethods == other.pMethods && self.cEvents == other.cEvents && self.pEvents == other.pEvents && self.pPatternHandler == other.pPatternHandler
-    }
-}
-impl Eq for UIAutomationPatternInfo {}
 impl Default for UIAutomationPatternInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UIAutomationPropertyInfo {
     pub guid: windows_core::GUID,
     pub pProgrammaticName: windows_core::PCWSTR,
     pub r#type: UIAutomationType,
 }
-impl Copy for UIAutomationPropertyInfo {}
-impl Clone for UIAutomationPropertyInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UIAutomationPropertyInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UIAutomationPropertyInfo").field("guid", &self.guid).field("pProgrammaticName", &self.pProgrammaticName).field("type", &self.r#type).finish()
-    }
-}
 impl windows_core::TypeKind for UIAutomationPropertyInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UIAutomationPropertyInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.guid == other.guid && self.pProgrammaticName == other.pProgrammaticName && self.r#type == other.r#type
-    }
-}
-impl Eq for UIAutomationPropertyInfo {}
 impl Default for UIAutomationPropertyInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UiaAndOrCondition {
     pub ConditionType: ConditionType,
     pub ppConditions: *mut *mut UiaCondition,
     pub cConditions: i32,
 }
-impl Copy for UiaAndOrCondition {}
-impl Clone for UiaAndOrCondition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UiaAndOrCondition {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UiaAndOrCondition").field("ConditionType", &self.ConditionType).field("ppConditions", &self.ppConditions).field("cConditions", &self.cConditions).finish()
-    }
-}
 impl windows_core::TypeKind for UiaAndOrCondition {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UiaAndOrCondition {
-    fn eq(&self, other: &Self) -> bool {
-        self.ConditionType == other.ConditionType && self.ppConditions == other.ppConditions && self.cConditions == other.cConditions
-    }
-}
-impl Eq for UiaAndOrCondition {}
 impl Default for UiaAndOrCondition {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UiaAsyncContentLoadedEventArgs {
     pub Type: EventArgsType,
     pub EventId: i32,
     pub AsyncContentLoadedState: AsyncContentLoadedState,
     pub PercentComplete: f64,
 }
-impl Copy for UiaAsyncContentLoadedEventArgs {}
-impl Clone for UiaAsyncContentLoadedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UiaAsyncContentLoadedEventArgs {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UiaAsyncContentLoadedEventArgs").field("Type", &self.Type).field("EventId", &self.EventId).field("AsyncContentLoadedState", &self.AsyncContentLoadedState).field("PercentComplete", &self.PercentComplete).finish()
-    }
-}
 impl windows_core::TypeKind for UiaAsyncContentLoadedEventArgs {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UiaAsyncContentLoadedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.EventId == other.EventId && self.AsyncContentLoadedState == other.AsyncContentLoadedState && self.PercentComplete == other.PercentComplete
-    }
-}
-impl Eq for UiaAsyncContentLoadedEventArgs {}
 impl Default for UiaAsyncContentLoadedEventArgs {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UiaCacheRequest {
     pub pViewCondition: *mut UiaCondition,
     pub Scope: TreeScope,
@@ -10288,32 +9943,16 @@ pub struct UiaCacheRequest {
     pub cPatterns: i32,
     pub automationElementMode: AutomationElementMode,
 }
-impl Copy for UiaCacheRequest {}
-impl Clone for UiaCacheRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UiaCacheRequest {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UiaCacheRequest").field("pViewCondition", &self.pViewCondition).field("Scope", &self.Scope).field("pProperties", &self.pProperties).field("cProperties", &self.cProperties).field("pPatterns", &self.pPatterns).field("cPatterns", &self.cPatterns).field("automationElementMode", &self.automationElementMode).finish()
-    }
-}
 impl windows_core::TypeKind for UiaCacheRequest {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UiaCacheRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.pViewCondition == other.pViewCondition && self.Scope == other.Scope && self.pProperties == other.pProperties && self.cProperties == other.cProperties && self.pPatterns == other.pPatterns && self.cPatterns == other.cPatterns && self.automationElementMode == other.automationElementMode
-    }
-}
-impl Eq for UiaCacheRequest {}
 impl Default for UiaCacheRequest {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct UiaChangeInfo {
     pub uiaId: i32,
     pub payload: std::mem::ManuallyDrop<windows_core::VARIANT>,
@@ -10324,209 +9963,103 @@ impl Clone for UiaChangeInfo {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for UiaChangeInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UiaChangeInfo").field("uiaId", &self.uiaId).field("payload", &self.payload).field("extraInfo", &self.extraInfo).finish()
-    }
-}
 impl windows_core::TypeKind for UiaChangeInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UiaChangeInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.uiaId == other.uiaId && self.payload == other.payload && self.extraInfo == other.extraInfo
-    }
-}
-impl Eq for UiaChangeInfo {}
 impl Default for UiaChangeInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UiaChangesEventArgs {
     pub Type: EventArgsType,
     pub EventId: i32,
     pub EventIdCount: i32,
     pub pUiaChanges: *mut UiaChangeInfo,
 }
-impl Copy for UiaChangesEventArgs {}
-impl Clone for UiaChangesEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UiaChangesEventArgs {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UiaChangesEventArgs").field("Type", &self.Type).field("EventId", &self.EventId).field("EventIdCount", &self.EventIdCount).field("pUiaChanges", &self.pUiaChanges).finish()
-    }
-}
 impl windows_core::TypeKind for UiaChangesEventArgs {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UiaChangesEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.EventId == other.EventId && self.EventIdCount == other.EventIdCount && self.pUiaChanges == other.pUiaChanges
-    }
-}
-impl Eq for UiaChangesEventArgs {}
 impl Default for UiaChangesEventArgs {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UiaCondition {
     pub ConditionType: ConditionType,
-}
-impl Copy for UiaCondition {}
-impl Clone for UiaCondition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UiaCondition {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UiaCondition").field("ConditionType", &self.ConditionType).finish()
-    }
 }
 impl windows_core::TypeKind for UiaCondition {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UiaCondition {
-    fn eq(&self, other: &Self) -> bool {
-        self.ConditionType == other.ConditionType
-    }
-}
-impl Eq for UiaCondition {}
 impl Default for UiaCondition {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UiaEventArgs {
     pub Type: EventArgsType,
     pub EventId: i32,
 }
-impl Copy for UiaEventArgs {}
-impl Clone for UiaEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UiaEventArgs {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UiaEventArgs").field("Type", &self.Type).field("EventId", &self.EventId).finish()
-    }
-}
 impl windows_core::TypeKind for UiaEventArgs {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UiaEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.EventId == other.EventId
-    }
-}
-impl Eq for UiaEventArgs {}
 impl Default for UiaEventArgs {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UiaFindParams {
     pub MaxDepth: i32,
     pub FindFirst: super::super::Foundation::BOOL,
     pub ExcludeRoot: super::super::Foundation::BOOL,
     pub pFindCondition: *mut UiaCondition,
 }
-impl Copy for UiaFindParams {}
-impl Clone for UiaFindParams {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UiaFindParams {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UiaFindParams").field("MaxDepth", &self.MaxDepth).field("FindFirst", &self.FindFirst).field("ExcludeRoot", &self.ExcludeRoot).field("pFindCondition", &self.pFindCondition).finish()
-    }
-}
 impl windows_core::TypeKind for UiaFindParams {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UiaFindParams {
-    fn eq(&self, other: &Self) -> bool {
-        self.MaxDepth == other.MaxDepth && self.FindFirst == other.FindFirst && self.ExcludeRoot == other.ExcludeRoot && self.pFindCondition == other.pFindCondition
-    }
-}
-impl Eq for UiaFindParams {}
 impl Default for UiaFindParams {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UiaNotCondition {
     pub ConditionType: ConditionType,
     pub pCondition: *mut UiaCondition,
 }
-impl Copy for UiaNotCondition {}
-impl Clone for UiaNotCondition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UiaNotCondition {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UiaNotCondition").field("ConditionType", &self.ConditionType).field("pCondition", &self.pCondition).finish()
-    }
-}
 impl windows_core::TypeKind for UiaNotCondition {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UiaNotCondition {
-    fn eq(&self, other: &Self) -> bool {
-        self.ConditionType == other.ConditionType && self.pCondition == other.pCondition
-    }
-}
-impl Eq for UiaNotCondition {}
 impl Default for UiaNotCondition {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UiaPoint {
     pub x: f64,
     pub y: f64,
 }
-impl Copy for UiaPoint {}
-impl Clone for UiaPoint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UiaPoint {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UiaPoint").field("x", &self.x).field("y", &self.y).finish()
-    }
-}
 impl windows_core::TypeKind for UiaPoint {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UiaPoint {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y
-    }
-}
-impl Eq for UiaPoint {}
 impl Default for UiaPoint {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct UiaPropertyChangedEventArgs {
     pub Type: EventArgsType,
     pub EventId: UIA_EVENT_ID,
@@ -10539,26 +10072,16 @@ impl Clone for UiaPropertyChangedEventArgs {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for UiaPropertyChangedEventArgs {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UiaPropertyChangedEventArgs").field("Type", &self.Type).field("EventId", &self.EventId).field("PropertyId", &self.PropertyId).field("OldValue", &self.OldValue).field("NewValue", &self.NewValue).finish()
-    }
-}
 impl windows_core::TypeKind for UiaPropertyChangedEventArgs {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UiaPropertyChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.EventId == other.EventId && self.PropertyId == other.PropertyId && self.OldValue == other.OldValue && self.NewValue == other.NewValue
-    }
-}
-impl Eq for UiaPropertyChangedEventArgs {}
 impl Default for UiaPropertyChangedEventArgs {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct UiaPropertyCondition {
     pub ConditionType: ConditionType,
     pub PropertyId: UIA_PROPERTY_ID,
@@ -10570,58 +10093,32 @@ impl Clone for UiaPropertyCondition {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for UiaPropertyCondition {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UiaPropertyCondition").field("ConditionType", &self.ConditionType).field("PropertyId", &self.PropertyId).field("Value", &self.Value).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for UiaPropertyCondition {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UiaPropertyCondition {
-    fn eq(&self, other: &Self) -> bool {
-        self.ConditionType == other.ConditionType && self.PropertyId == other.PropertyId && self.Value == other.Value && self.Flags == other.Flags
-    }
-}
-impl Eq for UiaPropertyCondition {}
 impl Default for UiaPropertyCondition {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UiaRect {
     pub left: f64,
     pub top: f64,
     pub width: f64,
     pub height: f64,
 }
-impl Copy for UiaRect {}
-impl Clone for UiaRect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UiaRect {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UiaRect").field("left", &self.left).field("top", &self.top).field("width", &self.width).field("height", &self.height).finish()
-    }
-}
 impl windows_core::TypeKind for UiaRect {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UiaRect {
-    fn eq(&self, other: &Self) -> bool {
-        self.left == other.left && self.top == other.top && self.width == other.width && self.height == other.height
-    }
-}
-impl Eq for UiaRect {}
 impl Default for UiaRect {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UiaStructureChangedEventArgs {
     pub Type: EventArgsType,
     pub EventId: i32,
@@ -10629,26 +10126,9 @@ pub struct UiaStructureChangedEventArgs {
     pub pRuntimeId: *mut i32,
     pub cRuntimeIdLen: i32,
 }
-impl Copy for UiaStructureChangedEventArgs {}
-impl Clone for UiaStructureChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UiaStructureChangedEventArgs {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UiaStructureChangedEventArgs").field("Type", &self.Type).field("EventId", &self.EventId).field("StructureChangeType", &self.StructureChangeType).field("pRuntimeId", &self.pRuntimeId).field("cRuntimeIdLen", &self.cRuntimeIdLen).finish()
-    }
-}
 impl windows_core::TypeKind for UiaStructureChangedEventArgs {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UiaStructureChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.EventId == other.EventId && self.StructureChangeType == other.StructureChangeType && self.pRuntimeId == other.pRuntimeId && self.cRuntimeIdLen == other.cRuntimeIdLen
-    }
-}
-impl Eq for UiaStructureChangedEventArgs {}
 impl Default for UiaStructureChangedEventArgs {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10656,6 +10136,7 @@ impl Default for UiaStructureChangedEventArgs {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UiaTextEditTextChangedEventArgs {
     pub Type: EventArgsType,
     pub EventId: i32,
@@ -10663,31 +10144,9 @@ pub struct UiaTextEditTextChangedEventArgs {
     pub pTextChange: *mut super::super::System::Com::SAFEARRAY,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Copy for UiaTextEditTextChangedEventArgs {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for UiaTextEditTextChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl core::fmt::Debug for UiaTextEditTextChangedEventArgs {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UiaTextEditTextChangedEventArgs").field("Type", &self.Type).field("EventId", &self.EventId).field("TextEditChangeType", &self.TextEditChangeType).field("pTextChange", &self.pTextChange).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for UiaTextEditTextChangedEventArgs {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl PartialEq for UiaTextEditTextChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.EventId == other.EventId && self.TextEditChangeType == other.TextEditChangeType && self.pTextChange == other.pTextChange
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Eq for UiaTextEditTextChangedEventArgs {}
 #[cfg(feature = "Win32_System_Com")]
 impl Default for UiaTextEditTextChangedEventArgs {
     fn default() -> Self {
@@ -10695,32 +10154,16 @@ impl Default for UiaTextEditTextChangedEventArgs {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UiaWindowClosedEventArgs {
     pub Type: EventArgsType,
     pub EventId: i32,
     pub pRuntimeId: *mut i32,
     pub cRuntimeIdLen: i32,
 }
-impl Copy for UiaWindowClosedEventArgs {}
-impl Clone for UiaWindowClosedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for UiaWindowClosedEventArgs {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("UiaWindowClosedEventArgs").field("Type", &self.Type).field("EventId", &self.EventId).field("pRuntimeId", &self.pRuntimeId).field("cRuntimeIdLen", &self.cRuntimeIdLen).finish()
-    }
-}
 impl windows_core::TypeKind for UiaWindowClosedEventArgs {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for UiaWindowClosedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.EventId == other.EventId && self.pRuntimeId == other.pRuntimeId && self.cRuntimeIdLen == other.cRuntimeIdLen
-    }
-}
-impl Eq for UiaWindowClosedEventArgs {}
 impl Default for UiaWindowClosedEventArgs {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

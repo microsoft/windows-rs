@@ -59,6 +59,7 @@ pub const LIST_MODULES_DEFAULT: ENUM_PROCESS_MODULES_EX_FLAGS = 0u32;
 pub const PSAPI_VERSION: u32 = 2u32;
 pub type ENUM_PROCESS_MODULES_EX_FLAGS = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ENUM_PAGE_FILE_INFORMATION {
     pub cb: u32,
     pub Reserved: u32,
@@ -66,25 +67,15 @@ pub struct ENUM_PAGE_FILE_INFORMATION {
     pub TotalInUse: usize,
     pub PeakUsage: usize,
 }
-impl Copy for ENUM_PAGE_FILE_INFORMATION {}
-impl Clone for ENUM_PAGE_FILE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MODULEINFO {
     pub lpBaseOfDll: *mut core::ffi::c_void,
     pub SizeOfImage: u32,
     pub EntryPoint: *mut core::ffi::c_void,
 }
-impl Copy for MODULEINFO {}
-impl Clone for MODULEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PERFORMANCE_INFORMATION {
     pub cb: u32,
     pub CommitTotal: usize,
@@ -101,13 +92,8 @@ pub struct PERFORMANCE_INFORMATION {
     pub ProcessCount: u32,
     pub ThreadCount: u32,
 }
-impl Copy for PERFORMANCE_INFORMATION {}
-impl Clone for PERFORMANCE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_MEMORY_COUNTERS {
     pub cb: u32,
     pub PageFaultCount: u32,
@@ -120,13 +106,8 @@ pub struct PROCESS_MEMORY_COUNTERS {
     pub PagefileUsage: usize,
     pub PeakPagefileUsage: usize,
 }
-impl Copy for PROCESS_MEMORY_COUNTERS {}
-impl Clone for PROCESS_MEMORY_COUNTERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_MEMORY_COUNTERS_EX {
     pub cb: u32,
     pub PageFaultCount: u32,
@@ -140,13 +121,8 @@ pub struct PROCESS_MEMORY_COUNTERS_EX {
     pub PeakPagefileUsage: usize,
     pub PrivateUsage: usize,
 }
-impl Copy for PROCESS_MEMORY_COUNTERS_EX {}
-impl Clone for PROCESS_MEMORY_COUNTERS_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_MEMORY_COUNTERS_EX2 {
     pub cb: u32,
     pub PageFaultCount: u32,
@@ -162,119 +138,63 @@ pub struct PROCESS_MEMORY_COUNTERS_EX2 {
     pub PrivateWorkingSetSize: usize,
     pub SharedCommitUsage: u64,
 }
-impl Copy for PROCESS_MEMORY_COUNTERS_EX2 {}
-impl Clone for PROCESS_MEMORY_COUNTERS_EX2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PSAPI_WORKING_SET_BLOCK {
     pub Flags: usize,
     pub Anonymous: PSAPI_WORKING_SET_BLOCK_0,
 }
-impl Copy for PSAPI_WORKING_SET_BLOCK {}
-impl Clone for PSAPI_WORKING_SET_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSAPI_WORKING_SET_BLOCK_0 {
     pub _bitfield: usize,
 }
-impl Copy for PSAPI_WORKING_SET_BLOCK_0 {}
-impl Clone for PSAPI_WORKING_SET_BLOCK_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PSAPI_WORKING_SET_EX_BLOCK {
     pub Flags: usize,
     pub Anonymous: PSAPI_WORKING_SET_EX_BLOCK_0,
 }
-impl Copy for PSAPI_WORKING_SET_EX_BLOCK {}
-impl Clone for PSAPI_WORKING_SET_EX_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union PSAPI_WORKING_SET_EX_BLOCK_0 {
     pub Anonymous: PSAPI_WORKING_SET_EX_BLOCK_0_0,
     pub Invalid: PSAPI_WORKING_SET_EX_BLOCK_0_1,
 }
-impl Copy for PSAPI_WORKING_SET_EX_BLOCK_0 {}
-impl Clone for PSAPI_WORKING_SET_EX_BLOCK_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSAPI_WORKING_SET_EX_BLOCK_0_0 {
     pub _bitfield: usize,
 }
-impl Copy for PSAPI_WORKING_SET_EX_BLOCK_0_0 {}
-impl Clone for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSAPI_WORKING_SET_EX_BLOCK_0_1 {
     pub _bitfield: usize,
 }
-impl Copy for PSAPI_WORKING_SET_EX_BLOCK_0_1 {}
-impl Clone for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSAPI_WORKING_SET_EX_INFORMATION {
     pub VirtualAddress: *mut core::ffi::c_void,
     pub VirtualAttributes: PSAPI_WORKING_SET_EX_BLOCK,
 }
-impl Copy for PSAPI_WORKING_SET_EX_INFORMATION {}
-impl Clone for PSAPI_WORKING_SET_EX_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSAPI_WORKING_SET_INFORMATION {
     pub NumberOfEntries: usize,
     pub WorkingSetInfo: [PSAPI_WORKING_SET_BLOCK; 1],
 }
-impl Copy for PSAPI_WORKING_SET_INFORMATION {}
-impl Clone for PSAPI_WORKING_SET_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSAPI_WS_WATCH_INFORMATION {
     pub FaultingPc: *mut core::ffi::c_void,
     pub FaultingVa: *mut core::ffi::c_void,
 }
-impl Copy for PSAPI_WS_WATCH_INFORMATION {}
-impl Clone for PSAPI_WS_WATCH_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSAPI_WS_WATCH_INFORMATION_EX {
     pub BasicInfo: PSAPI_WS_WATCH_INFORMATION,
     pub FaultingThreadId: usize,
     pub Flags: usize,
-}
-impl Copy for PSAPI_WS_WATCH_INFORMATION_EX {}
-impl Clone for PSAPI_WS_WATCH_INFORMATION_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type PENUM_PAGE_FILE_CALLBACKA = Option<unsafe extern "system" fn(pcontext: *mut core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: windows_sys::core::PCSTR) -> super::super::Foundation::BOOL>;
 pub type PENUM_PAGE_FILE_CALLBACKW = Option<unsafe extern "system" fn(pcontext: *mut core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;

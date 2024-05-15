@@ -2368,6 +2368,7 @@ pub type SP_COPY_STYLE = u32;
 pub type SetupFileLogInfo = i32;
 pub type UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS = u32;
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct BUSNUMBER_DES {
     pub BUSD_Count: u32,
     pub BUSD_Type: u32,
@@ -2375,38 +2376,23 @@ pub struct BUSNUMBER_DES {
     pub BUSD_Alloc_Base: u32,
     pub BUSD_Alloc_End: u32,
 }
-impl Copy for BUSNUMBER_DES {}
-impl Clone for BUSNUMBER_DES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct BUSNUMBER_RANGE {
     pub BUSR_Min: u32,
     pub BUSR_Max: u32,
     pub BUSR_nBusNumbers: u32,
     pub BUSR_Flags: u32,
 }
-impl Copy for BUSNUMBER_RANGE {}
-impl Clone for BUSNUMBER_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct BUSNUMBER_RESOURCE {
     pub BusNumber_Header: BUSNUMBER_DES,
     pub BusNumber_Data: [BUSNUMBER_RANGE; 1],
 }
-impl Copy for BUSNUMBER_RESOURCE {}
-impl Clone for BUSNUMBER_RESOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct CABINET_INFO_A {
     pub CabinetPath: windows_sys::core::PCSTR,
     pub CabinetFile: windows_sys::core::PCSTR,
@@ -2414,16 +2400,9 @@ pub struct CABINET_INFO_A {
     pub SetId: u16,
     pub CabinetNumber: u16,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for CABINET_INFO_A {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for CABINET_INFO_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct CABINET_INFO_A {
     pub CabinetPath: windows_sys::core::PCSTR,
     pub CabinetFile: windows_sys::core::PCSTR,
@@ -2431,33 +2410,19 @@ pub struct CABINET_INFO_A {
     pub SetId: u16,
     pub CabinetNumber: u16,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for CABINET_INFO_A {}
-#[cfg(target_arch = "x86")]
-impl Clone for CABINET_INFO_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct CABINET_INFO_W {
     pub CabinetPath: windows_sys::core::PCWSTR,
     pub CabinetFile: windows_sys::core::PCWSTR,
     pub DiskName: windows_sys::core::PCWSTR,
     pub SetId: u16,
     pub CabinetNumber: u16,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for CABINET_INFO_W {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for CABINET_INFO_W {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct CABINET_INFO_W {
     pub CabinetPath: windows_sys::core::PCWSTR,
     pub CabinetFile: windows_sys::core::PCWSTR,
@@ -2465,73 +2430,41 @@ pub struct CABINET_INFO_W {
     pub SetId: u16,
     pub CabinetNumber: u16,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for CABINET_INFO_W {}
-#[cfg(target_arch = "x86")]
-impl Clone for CABINET_INFO_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_NOTIFY_EVENT_DATA {
     pub FilterType: CM_NOTIFY_FILTER_TYPE,
     pub Reserved: u32,
     pub u: CM_NOTIFY_EVENT_DATA_0,
 }
-impl Copy for CM_NOTIFY_EVENT_DATA {}
-impl Clone for CM_NOTIFY_EVENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CM_NOTIFY_EVENT_DATA_0 {
     pub DeviceInterface: CM_NOTIFY_EVENT_DATA_0_2,
     pub DeviceHandle: CM_NOTIFY_EVENT_DATA_0_0,
     pub DeviceInstance: CM_NOTIFY_EVENT_DATA_0_1,
 }
-impl Copy for CM_NOTIFY_EVENT_DATA_0 {}
-impl Clone for CM_NOTIFY_EVENT_DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_NOTIFY_EVENT_DATA_0_0 {
     pub EventGuid: windows_sys::core::GUID,
     pub NameOffset: i32,
     pub DataSize: u32,
     pub Data: [u8; 1],
 }
-impl Copy for CM_NOTIFY_EVENT_DATA_0_0 {}
-impl Clone for CM_NOTIFY_EVENT_DATA_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_NOTIFY_EVENT_DATA_0_1 {
     pub InstanceId: [u16; 1],
 }
-impl Copy for CM_NOTIFY_EVENT_DATA_0_1 {}
-impl Clone for CM_NOTIFY_EVENT_DATA_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_NOTIFY_EVENT_DATA_0_2 {
     pub ClassGuid: windows_sys::core::GUID,
     pub SymbolicLink: [u16; 1],
 }
-impl Copy for CM_NOTIFY_EVENT_DATA_0_2 {}
-impl Clone for CM_NOTIFY_EVENT_DATA_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_NOTIFY_FILTER {
     pub cbSize: u32,
     pub Flags: u32,
@@ -2539,85 +2472,46 @@ pub struct CM_NOTIFY_FILTER {
     pub Reserved: u32,
     pub u: CM_NOTIFY_FILTER_0,
 }
-impl Copy for CM_NOTIFY_FILTER {}
-impl Clone for CM_NOTIFY_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CM_NOTIFY_FILTER_0 {
     pub DeviceInterface: CM_NOTIFY_FILTER_0_2,
     pub DeviceHandle: CM_NOTIFY_FILTER_0_0,
     pub DeviceInstance: CM_NOTIFY_FILTER_0_1,
 }
-impl Copy for CM_NOTIFY_FILTER_0 {}
-impl Clone for CM_NOTIFY_FILTER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_NOTIFY_FILTER_0_0 {
     pub hTarget: super::super::Foundation::HANDLE,
 }
-impl Copy for CM_NOTIFY_FILTER_0_0 {}
-impl Clone for CM_NOTIFY_FILTER_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_NOTIFY_FILTER_0_1 {
     pub InstanceId: [u16; 200],
 }
-impl Copy for CM_NOTIFY_FILTER_0_1 {}
-impl Clone for CM_NOTIFY_FILTER_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_NOTIFY_FILTER_0_2 {
     pub ClassGuid: windows_sys::core::GUID,
 }
-impl Copy for CM_NOTIFY_FILTER_0_2 {}
-impl Clone for CM_NOTIFY_FILTER_0_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct COINSTALLER_CONTEXT_DATA {
     pub PostProcessing: super::super::Foundation::BOOL,
     pub InstallResult: u32,
     pub PrivateData: *mut core::ffi::c_void,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for COINSTALLER_CONTEXT_DATA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for COINSTALLER_CONTEXT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct COINSTALLER_CONTEXT_DATA {
     pub PostProcessing: super::super::Foundation::BOOL,
     pub InstallResult: u32,
     pub PrivateData: *mut core::ffi::c_void,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for COINSTALLER_CONTEXT_DATA {}
-#[cfg(target_arch = "x86")]
-impl Clone for COINSTALLER_CONTEXT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CONFLICT_DETAILS_A {
     pub CD_ulSize: u32,
     pub CD_ulMask: CM_CDMASK,
@@ -2626,13 +2520,8 @@ pub struct CONFLICT_DETAILS_A {
     pub CD_ulFlags: CM_CDFLAGS,
     pub CD_szDescription: [i8; 260],
 }
-impl Copy for CONFLICT_DETAILS_A {}
-impl Clone for CONFLICT_DETAILS_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CONFLICT_DETAILS_W {
     pub CD_ulSize: u32,
     pub CD_ulMask: CM_CDMASK,
@@ -2641,13 +2530,8 @@ pub struct CONFLICT_DETAILS_W {
     pub CD_ulFlags: CM_CDFLAGS,
     pub CD_szDescription: [u16; 260],
 }
-impl Copy for CONFLICT_DETAILS_W {}
-impl Clone for CONFLICT_DETAILS_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct CONNECTION_DES {
     pub COND_Type: u32,
     pub COND_Flags: u32,
@@ -2657,23 +2541,13 @@ pub struct CONNECTION_DES {
     pub COND_Reserved2: u8,
     pub COND_Id: i64,
 }
-impl Copy for CONNECTION_DES {}
-impl Clone for CONNECTION_DES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct CONNECTION_RESOURCE {
     pub Connection_Header: CONNECTION_DES,
 }
-impl Copy for CONNECTION_RESOURCE {}
-impl Clone for CONNECTION_RESOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct CS_DES {
     pub CSD_SignatureLength: u32,
     pub CSD_LegacyDataOffset: u32,
@@ -2682,23 +2556,13 @@ pub struct CS_DES {
     pub CSD_ClassGuid: windows_sys::core::GUID,
     pub CSD_Signature: [u8; 1],
 }
-impl Copy for CS_DES {}
-impl Clone for CS_DES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct CS_RESOURCE {
     pub CS_Header: CS_DES,
 }
-impl Copy for CS_RESOURCE {}
-impl Clone for CS_RESOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DEVPRIVATE_DES {
     pub PD_Count: u32,
     pub PD_Type: u32,
@@ -2707,105 +2571,61 @@ pub struct DEVPRIVATE_DES {
     pub PD_Data3: u32,
     pub PD_Flags: u32,
 }
-impl Copy for DEVPRIVATE_DES {}
-impl Clone for DEVPRIVATE_DES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DEVPRIVATE_RANGE {
     pub PR_Data1: u32,
     pub PR_Data2: u32,
     pub PR_Data3: u32,
 }
-impl Copy for DEVPRIVATE_RANGE {}
-impl Clone for DEVPRIVATE_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DEVPRIVATE_RESOURCE {
     pub PRV_Header: DEVPRIVATE_DES,
     pub PRV_Data: [DEVPRIVATE_RANGE; 1],
 }
-impl Copy for DEVPRIVATE_RESOURCE {}
-impl Clone for DEVPRIVATE_RESOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DMA_DES {
     pub DD_Count: u32,
     pub DD_Type: u32,
     pub DD_Flags: DD_FLAGS,
     pub DD_Alloc_Chan: u32,
 }
-impl Copy for DMA_DES {}
-impl Clone for DMA_DES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DMA_RANGE {
     pub DR_Min: u32,
     pub DR_Max: u32,
     pub DR_Flags: DD_FLAGS,
 }
-impl Copy for DMA_RANGE {}
-impl Clone for DMA_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DMA_RESOURCE {
     pub DMA_Header: DMA_DES,
     pub DMA_Data: [DMA_RANGE; 1],
 }
-impl Copy for DMA_RESOURCE {}
-impl Clone for DMA_RESOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct FILEPATHS_A {
     pub Target: windows_sys::core::PCSTR,
     pub Source: windows_sys::core::PCSTR,
     pub Win32Error: u32,
     pub Flags: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for FILEPATHS_A {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for FILEPATHS_A {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct FILEPATHS_A {
     pub Target: windows_sys::core::PCSTR,
     pub Source: windows_sys::core::PCSTR,
     pub Win32Error: u32,
     pub Flags: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for FILEPATHS_A {}
-#[cfg(target_arch = "x86")]
-impl Clone for FILEPATHS_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct FILEPATHS_SIGNERINFO_A {
     pub Target: windows_sys::core::PCSTR,
     pub Source: windows_sys::core::PCSTR,
@@ -2815,16 +2635,9 @@ pub struct FILEPATHS_SIGNERINFO_A {
     pub Version: windows_sys::core::PCSTR,
     pub CatalogFile: windows_sys::core::PCSTR,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for FILEPATHS_SIGNERINFO_A {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for FILEPATHS_SIGNERINFO_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct FILEPATHS_SIGNERINFO_A {
     pub Target: windows_sys::core::PCSTR,
     pub Source: windows_sys::core::PCSTR,
@@ -2834,16 +2647,9 @@ pub struct FILEPATHS_SIGNERINFO_A {
     pub Version: windows_sys::core::PCSTR,
     pub CatalogFile: windows_sys::core::PCSTR,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for FILEPATHS_SIGNERINFO_A {}
-#[cfg(target_arch = "x86")]
-impl Clone for FILEPATHS_SIGNERINFO_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct FILEPATHS_SIGNERINFO_W {
     pub Target: windows_sys::core::PCWSTR,
     pub Source: windows_sys::core::PCWSTR,
@@ -2853,16 +2659,9 @@ pub struct FILEPATHS_SIGNERINFO_W {
     pub Version: windows_sys::core::PCWSTR,
     pub CatalogFile: windows_sys::core::PCWSTR,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for FILEPATHS_SIGNERINFO_W {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for FILEPATHS_SIGNERINFO_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct FILEPATHS_SIGNERINFO_W {
     pub Target: windows_sys::core::PCWSTR,
     pub Source: windows_sys::core::PCWSTR,
@@ -2872,48 +2671,27 @@ pub struct FILEPATHS_SIGNERINFO_W {
     pub Version: windows_sys::core::PCWSTR,
     pub CatalogFile: windows_sys::core::PCWSTR,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for FILEPATHS_SIGNERINFO_W {}
-#[cfg(target_arch = "x86")]
-impl Clone for FILEPATHS_SIGNERINFO_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct FILEPATHS_W {
     pub Target: windows_sys::core::PCWSTR,
     pub Source: windows_sys::core::PCWSTR,
     pub Win32Error: u32,
     pub Flags: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for FILEPATHS_W {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for FILEPATHS_W {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct FILEPATHS_W {
     pub Target: windows_sys::core::PCWSTR,
     pub Source: windows_sys::core::PCWSTR,
     pub Win32Error: u32,
     pub Flags: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for FILEPATHS_W {}
-#[cfg(target_arch = "x86")]
-impl Clone for FILEPATHS_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct FILE_IN_CABINET_INFO_A {
     pub NameInCabinet: windows_sys::core::PCSTR,
     pub FileSize: u32,
@@ -2923,16 +2701,9 @@ pub struct FILE_IN_CABINET_INFO_A {
     pub DosAttribs: u16,
     pub FullTargetName: [i8; 260],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for FILE_IN_CABINET_INFO_A {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for FILE_IN_CABINET_INFO_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct FILE_IN_CABINET_INFO_A {
     pub NameInCabinet: windows_sys::core::PCSTR,
     pub FileSize: u32,
@@ -2942,16 +2713,9 @@ pub struct FILE_IN_CABINET_INFO_A {
     pub DosAttribs: u16,
     pub FullTargetName: [i8; 260],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for FILE_IN_CABINET_INFO_A {}
-#[cfg(target_arch = "x86")]
-impl Clone for FILE_IN_CABINET_INFO_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct FILE_IN_CABINET_INFO_W {
     pub NameInCabinet: windows_sys::core::PCWSTR,
     pub FileSize: u32,
@@ -2960,17 +2724,10 @@ pub struct FILE_IN_CABINET_INFO_W {
     pub DosTime: u16,
     pub DosAttribs: u16,
     pub FullTargetName: [u16; 260],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for FILE_IN_CABINET_INFO_W {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for FILE_IN_CABINET_INFO_W {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct FILE_IN_CABINET_INFO_W {
     pub NameInCabinet: windows_sys::core::PCWSTR,
     pub FileSize: u32,
@@ -2979,74 +2736,43 @@ pub struct FILE_IN_CABINET_INFO_W {
     pub DosTime: u16,
     pub DosAttribs: u16,
     pub FullTargetName: [u16; 260],
-}
-#[cfg(target_arch = "x86")]
-impl Copy for FILE_IN_CABINET_INFO_W {}
-#[cfg(target_arch = "x86")]
-impl Clone for FILE_IN_CABINET_INFO_W {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type HCMNOTIFICATION = isize;
 pub type HDEVINFO = isize;
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct HWPROFILEINFO_A {
     pub HWPI_ulHWProfile: u32,
     pub HWPI_szFriendlyName: [i8; 80],
     pub HWPI_dwFlags: u32,
 }
-impl Copy for HWPROFILEINFO_A {}
-impl Clone for HWPROFILEINFO_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct HWPROFILEINFO_W {
     pub HWPI_ulHWProfile: u32,
     pub HWPI_szFriendlyName: [u16; 80],
     pub HWPI_dwFlags: u32,
 }
-impl Copy for HWPROFILEINFO_W {}
-impl Clone for HWPROFILEINFO_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct INFCONTEXT {
     pub Inf: *mut core::ffi::c_void,
     pub CurrentInf: *mut core::ffi::c_void,
     pub Section: u32,
     pub Line: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for INFCONTEXT {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for INFCONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct INFCONTEXT {
     pub Inf: *mut core::ffi::c_void,
     pub CurrentInf: *mut core::ffi::c_void,
     pub Section: u32,
     pub Line: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for INFCONTEXT {}
-#[cfg(target_arch = "x86")]
-impl Clone for INFCONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IO_DES {
     pub IOD_Count: u32,
     pub IOD_Type: u32,
@@ -3054,13 +2780,8 @@ pub struct IO_DES {
     pub IOD_Alloc_End: u64,
     pub IOD_DesFlags: IOD_DESFLAGS,
 }
-impl Copy for IO_DES {}
-impl Clone for IO_DES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IO_RANGE {
     pub IOR_Align: u64,
     pub IOR_nPorts: u32,
@@ -3069,24 +2790,14 @@ pub struct IO_RANGE {
     pub IOR_RangeFlags: IOD_DESFLAGS,
     pub IOR_Alias: u64,
 }
-impl Copy for IO_RANGE {}
-impl Clone for IO_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE {
     pub IO_Header: IO_DES,
     pub IO_Data: [IO_RANGE; 1],
 }
-impl Copy for IO_RESOURCE {}
-impl Clone for IO_RESOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IRQ_DES_32 {
     pub IRQD_Count: u32,
     pub IRQD_Type: u32,
@@ -3094,13 +2805,8 @@ pub struct IRQ_DES_32 {
     pub IRQD_Alloc_Num: u32,
     pub IRQD_Affinity: u32,
 }
-impl Copy for IRQ_DES_32 {}
-impl Clone for IRQ_DES_32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IRQ_DES_64 {
     pub IRQD_Count: u32,
     pub IRQD_Type: u32,
@@ -3108,47 +2814,27 @@ pub struct IRQ_DES_64 {
     pub IRQD_Alloc_Num: u32,
     pub IRQD_Affinity: u64,
 }
-impl Copy for IRQ_DES_64 {}
-impl Clone for IRQ_DES_64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IRQ_RANGE {
     pub IRQR_Min: u32,
     pub IRQR_Max: u32,
     pub IRQR_Flags: IRQD_FLAGS,
 }
-impl Copy for IRQ_RANGE {}
-impl Clone for IRQ_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IRQ_RESOURCE_32 {
     pub IRQ_Header: IRQ_DES_32,
     pub IRQ_Data: [IRQ_RANGE; 1],
 }
-impl Copy for IRQ_RESOURCE_32 {}
-impl Clone for IRQ_RESOURCE_32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IRQ_RESOURCE_64 {
     pub IRQ_Header: IRQ_DES_64,
     pub IRQ_Data: [IRQ_RANGE; 1],
 }
-impl Copy for IRQ_RESOURCE_64 {}
-impl Clone for IRQ_RESOURCE_64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MEM_DES {
     pub MD_Count: u32,
     pub MD_Type: u32,
@@ -3157,13 +2843,8 @@ pub struct MEM_DES {
     pub MD_Flags: MD_FLAGS,
     pub MD_Reserved: u32,
 }
-impl Copy for MEM_DES {}
-impl Clone for MEM_DES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MEM_LARGE_DES {
     pub MLD_Count: u32,
     pub MLD_Type: u32,
@@ -3172,13 +2853,8 @@ pub struct MEM_LARGE_DES {
     pub MLD_Flags: u32,
     pub MLD_Reserved: u32,
 }
-impl Copy for MEM_LARGE_DES {}
-impl Clone for MEM_LARGE_DES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MEM_LARGE_RANGE {
     pub MLR_Align: u64,
     pub MLR_nBytes: u64,
@@ -3187,24 +2863,14 @@ pub struct MEM_LARGE_RANGE {
     pub MLR_Flags: u32,
     pub MLR_Reserved: u32,
 }
-impl Copy for MEM_LARGE_RANGE {}
-impl Clone for MEM_LARGE_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MEM_LARGE_RESOURCE {
     pub MEM_LARGE_Header: MEM_LARGE_DES,
     pub MEM_LARGE_Data: [MEM_LARGE_RANGE; 1],
 }
-impl Copy for MEM_LARGE_RESOURCE {}
-impl Clone for MEM_LARGE_RESOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MEM_RANGE {
     pub MR_Align: u64,
     pub MR_nBytes: u32,
@@ -3213,24 +2879,14 @@ pub struct MEM_RANGE {
     pub MR_Flags: MD_FLAGS,
     pub MR_Reserved: u32,
 }
-impl Copy for MEM_RANGE {}
-impl Clone for MEM_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MEM_RESOURCE {
     pub MEM_Header: MEM_DES,
     pub MEM_Data: [MEM_RANGE; 1],
 }
-impl Copy for MEM_RESOURCE {}
-impl Clone for MEM_RESOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MFCARD_DES {
     pub PMF_Count: u32,
     pub PMF_Type: u32,
@@ -3240,23 +2896,13 @@ pub struct MFCARD_DES {
     pub PMF_Reserved: [u8; 2],
     pub PMF_ConfigRegisterBase: u32,
 }
-impl Copy for MFCARD_DES {}
-impl Clone for MFCARD_DES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MFCARD_RESOURCE {
     pub MfCard_Header: MFCARD_DES,
 }
-impl Copy for MFCARD_RESOURCE {}
-impl Clone for MFCARD_RESOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PCCARD_DES {
     pub PCD_Count: u32,
     pub PCD_Type: u32,
@@ -3269,24 +2915,14 @@ pub struct PCCARD_DES {
     pub PCD_MemoryFlags: [u16; 2],
     pub PCD_IoFlags: [u8; 2],
 }
-impl Copy for PCCARD_DES {}
-impl Clone for PCCARD_DES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PCCARD_RESOURCE {
     pub PcCard_Header: PCCARD_DES,
 }
-impl Copy for PCCARD_RESOURCE {}
-impl Clone for PCCARD_RESOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SOURCE_MEDIA_A {
     pub Reserved: windows_sys::core::PCSTR,
     pub Tagfile: windows_sys::core::PCSTR,
@@ -3295,16 +2931,9 @@ pub struct SOURCE_MEDIA_A {
     pub SourceFile: windows_sys::core::PCSTR,
     pub Flags: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SOURCE_MEDIA_A {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SOURCE_MEDIA_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SOURCE_MEDIA_A {
     pub Reserved: windows_sys::core::PCSTR,
     pub Tagfile: windows_sys::core::PCSTR,
@@ -3313,16 +2942,9 @@ pub struct SOURCE_MEDIA_A {
     pub SourceFile: windows_sys::core::PCSTR,
     pub Flags: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SOURCE_MEDIA_A {}
-#[cfg(target_arch = "x86")]
-impl Clone for SOURCE_MEDIA_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SOURCE_MEDIA_W {
     pub Reserved: windows_sys::core::PCWSTR,
     pub Tagfile: windows_sys::core::PCWSTR,
@@ -3331,16 +2953,9 @@ pub struct SOURCE_MEDIA_W {
     pub SourceFile: windows_sys::core::PCWSTR,
     pub Flags: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SOURCE_MEDIA_W {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SOURCE_MEDIA_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SOURCE_MEDIA_W {
     pub Reserved: windows_sys::core::PCWSTR,
     pub Tagfile: windows_sys::core::PCWSTR,
@@ -3349,17 +2964,10 @@ pub struct SOURCE_MEDIA_W {
     pub SourceFile: windows_sys::core::PCWSTR,
     pub Flags: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SOURCE_MEDIA_W {}
-#[cfg(target_arch = "x86")]
-impl Clone for SOURCE_MEDIA_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
 pub struct SP_ALTPLATFORM_INFO_V1 {
     pub cbSize: u32,
     pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
@@ -3367,20 +2975,11 @@ pub struct SP_ALTPLATFORM_INFO_V1 {
     pub MinorVersion: u32,
     pub ProcessorArchitecture: u16,
     pub Reserved: u16,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Copy for SP_ALTPLATFORM_INFO_V1 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Clone for SP_ALTPLATFORM_INFO_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Clone, Copy)]
 pub struct SP_ALTPLATFORM_INFO_V1 {
     pub cbSize: u32,
     pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
@@ -3388,20 +2987,11 @@ pub struct SP_ALTPLATFORM_INFO_V1 {
     pub MinorVersion: u32,
     pub ProcessorArchitecture: u16,
     pub Reserved: u16,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Copy for SP_ALTPLATFORM_INFO_V1 {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Clone for SP_ALTPLATFORM_INFO_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
+#[derive(Clone, Copy)]
 pub struct SP_ALTPLATFORM_INFO_V2 {
     pub cbSize: u32,
     pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
@@ -3412,36 +3002,18 @@ pub struct SP_ALTPLATFORM_INFO_V2 {
     pub FirstValidatedMajorVersion: u32,
     pub FirstValidatedMinorVersion: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-impl Copy for SP_ALTPLATFORM_INFO_V2 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-impl Clone for SP_ALTPLATFORM_INFO_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
+#[derive(Clone, Copy)]
 pub union SP_ALTPLATFORM_INFO_V2_0 {
     pub Reserved: u16,
     pub Flags: u16,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-impl Copy for SP_ALTPLATFORM_INFO_V2_0 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-impl Clone for SP_ALTPLATFORM_INFO_V2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
+#[derive(Clone, Copy)]
 pub struct SP_ALTPLATFORM_INFO_V2 {
     pub cbSize: u32,
     pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
@@ -3452,35 +3024,17 @@ pub struct SP_ALTPLATFORM_INFO_V2 {
     pub FirstValidatedMajorVersion: u32,
     pub FirstValidatedMinorVersion: u32,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-impl Copy for SP_ALTPLATFORM_INFO_V2 {}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-impl Clone for SP_ALTPLATFORM_INFO_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
+#[derive(Clone, Copy)]
 pub union SP_ALTPLATFORM_INFO_V2_0 {
     pub Reserved: u16,
     pub Flags: u16,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-impl Copy for SP_ALTPLATFORM_INFO_V2_0 {}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-impl Clone for SP_ALTPLATFORM_INFO_V2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_ALTPLATFORM_INFO_V3 {
     pub cbSize: u32,
     pub Platform: u32,
@@ -3494,30 +3048,16 @@ pub struct SP_ALTPLATFORM_INFO_V3 {
     pub SuiteMask: u16,
     pub BuildNumber: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_ALTPLATFORM_INFO_V3 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_ALTPLATFORM_INFO_V3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub union SP_ALTPLATFORM_INFO_V3_0 {
     pub Reserved: u16,
     pub Flags: u16,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_ALTPLATFORM_INFO_V3_0 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_ALTPLATFORM_INFO_V3_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_ALTPLATFORM_INFO_V3 {
     pub cbSize: u32,
     pub Platform: u32,
@@ -3531,432 +3071,232 @@ pub struct SP_ALTPLATFORM_INFO_V3 {
     pub SuiteMask: u16,
     pub BuildNumber: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_ALTPLATFORM_INFO_V3 {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_ALTPLATFORM_INFO_V3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub union SP_ALTPLATFORM_INFO_V3_0 {
     pub Reserved: u16,
     pub Flags: u16,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_ALTPLATFORM_INFO_V3_0 {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_ALTPLATFORM_INFO_V3_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_A {
     pub cbSize: u32,
     pub FullInfPath: [i8; 260],
     pub FilenameOffset: i32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_BACKUP_QUEUE_PARAMS_V1_A {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_BACKUP_QUEUE_PARAMS_V1_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_A {
     pub cbSize: u32,
     pub FullInfPath: [i8; 260],
     pub FilenameOffset: i32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_BACKUP_QUEUE_PARAMS_V1_A {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_BACKUP_QUEUE_PARAMS_V1_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_W {
     pub cbSize: u32,
     pub FullInfPath: [u16; 260],
     pub FilenameOffset: i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_BACKUP_QUEUE_PARAMS_V1_W {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_BACKUP_QUEUE_PARAMS_V1_W {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_W {
     pub cbSize: u32,
     pub FullInfPath: [u16; 260],
     pub FilenameOffset: i32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_BACKUP_QUEUE_PARAMS_V1_W {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_BACKUP_QUEUE_PARAMS_V1_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_A {
     pub cbSize: u32,
     pub FullInfPath: [i8; 260],
     pub FilenameOffset: i32,
     pub ReinstallInstance: [i8; 260],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_BACKUP_QUEUE_PARAMS_V2_A {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_BACKUP_QUEUE_PARAMS_V2_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_A {
     pub cbSize: u32,
     pub FullInfPath: [i8; 260],
     pub FilenameOffset: i32,
     pub ReinstallInstance: [i8; 260],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_BACKUP_QUEUE_PARAMS_V2_A {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_BACKUP_QUEUE_PARAMS_V2_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_W {
     pub cbSize: u32,
     pub FullInfPath: [u16; 260],
     pub FilenameOffset: i32,
     pub ReinstallInstance: [u16; 260],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_BACKUP_QUEUE_PARAMS_V2_W {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_BACKUP_QUEUE_PARAMS_V2_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_W {
     pub cbSize: u32,
     pub FullInfPath: [u16; 260],
     pub FilenameOffset: i32,
     pub ReinstallInstance: [u16; 260],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_BACKUP_QUEUE_PARAMS_V2_W {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_BACKUP_QUEUE_PARAMS_V2_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_Controls")]
+#[derive(Clone, Copy)]
 pub struct SP_CLASSIMAGELIST_DATA {
     pub cbSize: u32,
     pub ImageList: super::super::UI::Controls::HIMAGELIST,
     pub Reserved: usize,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_Controls")]
-impl Copy for SP_CLASSIMAGELIST_DATA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_Controls")]
-impl Clone for SP_CLASSIMAGELIST_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_Controls")]
+#[derive(Clone, Copy)]
 pub struct SP_CLASSIMAGELIST_DATA {
     pub cbSize: u32,
     pub ImageList: super::super::UI::Controls::HIMAGELIST,
     pub Reserved: usize,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_Controls")]
-impl Copy for SP_CLASSIMAGELIST_DATA {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_Controls")]
-impl Clone for SP_CLASSIMAGELIST_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_CLASSINSTALL_HEADER {
     pub cbSize: u32,
     pub InstallFunction: DI_FUNCTION,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_CLASSINSTALL_HEADER {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_CLASSINSTALL_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_CLASSINSTALL_HEADER {
     pub cbSize: u32,
     pub InstallFunction: DI_FUNCTION,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_CLASSINSTALL_HEADER {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_CLASSINSTALL_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_DETECTDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub DetectProgressNotify: PDETECT_PROGRESS_NOTIFY,
     pub ProgressNotifyParam: *mut core::ffi::c_void,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_DETECTDEVICE_PARAMS {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_DETECTDEVICE_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_DETECTDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub DetectProgressNotify: PDETECT_PROGRESS_NOTIFY,
     pub ProgressNotifyParam: *mut core::ffi::c_void,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_DETECTDEVICE_PARAMS {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_DETECTDEVICE_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_DEVICE_INTERFACE_DATA {
     pub cbSize: u32,
     pub InterfaceClassGuid: windows_sys::core::GUID,
     pub Flags: u32,
     pub Reserved: usize,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_DEVICE_INTERFACE_DATA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_DEVICE_INTERFACE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_DEVICE_INTERFACE_DATA {
     pub cbSize: u32,
     pub InterfaceClassGuid: windows_sys::core::GUID,
     pub Flags: u32,
     pub Reserved: usize,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_DEVICE_INTERFACE_DATA {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_DEVICE_INTERFACE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     pub cbSize: u32,
     pub DevicePath: [i8; 1],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_DEVICE_INTERFACE_DETAIL_DATA_A {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     pub cbSize: u32,
     pub DevicePath: [i8; 1],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_DEVICE_INTERFACE_DETAIL_DATA_A {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     pub cbSize: u32,
     pub DevicePath: [u16; 1],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_DEVICE_INTERFACE_DETAIL_DATA_W {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     pub cbSize: u32,
     pub DevicePath: [u16; 1],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_DEVICE_INTERFACE_DETAIL_DATA_W {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINFO_DATA {
     pub cbSize: u32,
     pub ClassGuid: windows_sys::core::GUID,
     pub DevInst: u32,
     pub Reserved: usize,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_DEVINFO_DATA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_DEVINFO_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINFO_DATA {
     pub cbSize: u32,
     pub ClassGuid: windows_sys::core::GUID,
     pub DevInst: u32,
     pub Reserved: usize,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_DEVINFO_DATA {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_DEVINFO_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_A {
     pub cbSize: u32,
     pub ClassGuid: windows_sys::core::GUID,
     pub RemoteMachineHandle: super::super::Foundation::HANDLE,
     pub RemoteMachineName: [i8; 263],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_DEVINFO_LIST_DETAIL_DATA_A {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_DEVINFO_LIST_DETAIL_DATA_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_A {
     pub cbSize: u32,
     pub ClassGuid: windows_sys::core::GUID,
     pub RemoteMachineHandle: super::super::Foundation::HANDLE,
     pub RemoteMachineName: [i8; 263],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_DEVINFO_LIST_DETAIL_DATA_A {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_DEVINFO_LIST_DETAIL_DATA_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_W {
     pub cbSize: u32,
     pub ClassGuid: windows_sys::core::GUID,
     pub RemoteMachineHandle: super::super::Foundation::HANDLE,
     pub RemoteMachineName: [u16; 263],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_DEVINFO_LIST_DETAIL_DATA_W {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_DEVINFO_LIST_DETAIL_DATA_W {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_W {
     pub cbSize: u32,
     pub ClassGuid: windows_sys::core::GUID,
     pub RemoteMachineHandle: super::super::Foundation::HANDLE,
     pub RemoteMachineName: [u16; 263],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_DEVINFO_LIST_DETAIL_DATA_W {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_DEVINFO_LIST_DETAIL_DATA_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINSTALL_PARAMS_A {
     pub cbSize: u32,
     pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,
@@ -3969,16 +3309,9 @@ pub struct SP_DEVINSTALL_PARAMS_A {
     pub Reserved: u32,
     pub DriverPath: [i8; 260],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_DEVINSTALL_PARAMS_A {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_DEVINSTALL_PARAMS_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINSTALL_PARAMS_A {
     pub cbSize: u32,
     pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,
@@ -3991,16 +3324,9 @@ pub struct SP_DEVINSTALL_PARAMS_A {
     pub Reserved: u32,
     pub DriverPath: [i8; 260],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_DEVINSTALL_PARAMS_A {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_DEVINSTALL_PARAMS_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINSTALL_PARAMS_W {
     pub cbSize: u32,
     pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,
@@ -4013,16 +3339,9 @@ pub struct SP_DEVINSTALL_PARAMS_W {
     pub Reserved: u32,
     pub DriverPath: [u16; 260],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_DEVINSTALL_PARAMS_W {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_DEVINSTALL_PARAMS_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINSTALL_PARAMS_W {
     pub cbSize: u32,
     pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,
@@ -4035,16 +3354,9 @@ pub struct SP_DEVINSTALL_PARAMS_W {
     pub Reserved: u32,
     pub DriverPath: [u16; 260],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_DEVINSTALL_PARAMS_W {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_DEVINSTALL_PARAMS_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V1_A {
     pub cbSize: u32,
     pub DriverType: u32,
@@ -4053,16 +3365,9 @@ pub struct SP_DRVINFO_DATA_V1_A {
     pub MfgName: [i8; 256],
     pub ProviderName: [i8; 256],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_DRVINFO_DATA_V1_A {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_DRVINFO_DATA_V1_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V1_A {
     pub cbSize: u32,
     pub DriverType: u32,
@@ -4071,16 +3376,9 @@ pub struct SP_DRVINFO_DATA_V1_A {
     pub MfgName: [i8; 256],
     pub ProviderName: [i8; 256],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_DRVINFO_DATA_V1_A {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_DRVINFO_DATA_V1_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V1_W {
     pub cbSize: u32,
     pub DriverType: u32,
@@ -4088,17 +3386,10 @@ pub struct SP_DRVINFO_DATA_V1_W {
     pub Description: [u16; 256],
     pub MfgName: [u16; 256],
     pub ProviderName: [u16; 256],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_DRVINFO_DATA_V1_W {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_DRVINFO_DATA_V1_W {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V1_W {
     pub cbSize: u32,
     pub DriverType: u32,
@@ -4107,16 +3398,9 @@ pub struct SP_DRVINFO_DATA_V1_W {
     pub MfgName: [u16; 256],
     pub ProviderName: [u16; 256],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_DRVINFO_DATA_V1_W {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_DRVINFO_DATA_V1_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V2_A {
     pub cbSize: u32,
     pub DriverType: u32,
@@ -4127,16 +3411,9 @@ pub struct SP_DRVINFO_DATA_V2_A {
     pub DriverDate: super::super::Foundation::FILETIME,
     pub DriverVersion: u64,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_DRVINFO_DATA_V2_A {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_DRVINFO_DATA_V2_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V2_A {
     pub cbSize: u32,
     pub DriverType: u32,
@@ -4147,16 +3424,9 @@ pub struct SP_DRVINFO_DATA_V2_A {
     pub DriverDate: super::super::Foundation::FILETIME,
     pub DriverVersion: u64,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_DRVINFO_DATA_V2_A {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_DRVINFO_DATA_V2_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V2_W {
     pub cbSize: u32,
     pub DriverType: u32,
@@ -4166,17 +3436,10 @@ pub struct SP_DRVINFO_DATA_V2_W {
     pub ProviderName: [u16; 256],
     pub DriverDate: super::super::Foundation::FILETIME,
     pub DriverVersion: u64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_DRVINFO_DATA_V2_W {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_DRVINFO_DATA_V2_W {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V2_W {
     pub cbSize: u32,
     pub DriverType: u32,
@@ -4187,16 +3450,9 @@ pub struct SP_DRVINFO_DATA_V2_W {
     pub DriverDate: super::super::Foundation::FILETIME,
     pub DriverVersion: u64,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_DRVINFO_DATA_V2_W {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_DRVINFO_DATA_V2_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DETAIL_DATA_A {
     pub cbSize: u32,
     pub InfDate: super::super::Foundation::FILETIME,
@@ -4208,16 +3464,9 @@ pub struct SP_DRVINFO_DETAIL_DATA_A {
     pub DrvDescription: [i8; 256],
     pub HardwareID: [i8; 1],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_DRVINFO_DETAIL_DATA_A {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_DRVINFO_DETAIL_DATA_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DETAIL_DATA_A {
     pub cbSize: u32,
     pub InfDate: super::super::Foundation::FILETIME,
@@ -4229,16 +3478,9 @@ pub struct SP_DRVINFO_DETAIL_DATA_A {
     pub DrvDescription: [i8; 256],
     pub HardwareID: [i8; 1],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_DRVINFO_DETAIL_DATA_A {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_DRVINFO_DETAIL_DATA_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DETAIL_DATA_W {
     pub cbSize: u32,
     pub InfDate: super::super::Foundation::FILETIME,
@@ -4250,16 +3492,9 @@ pub struct SP_DRVINFO_DETAIL_DATA_W {
     pub DrvDescription: [u16; 256],
     pub HardwareID: [u16; 1],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_DRVINFO_DETAIL_DATA_W {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_DRVINFO_DETAIL_DATA_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DETAIL_DATA_W {
     pub cbSize: u32,
     pub InfDate: super::super::Foundation::FILETIME,
@@ -4271,16 +3506,9 @@ pub struct SP_DRVINFO_DETAIL_DATA_W {
     pub DrvDescription: [u16; 256],
     pub HardwareID: [u16; 1],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_DRVINFO_DETAIL_DATA_W {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_DRVINFO_DETAIL_DATA_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINSTALL_PARAMS {
     pub cbSize: u32,
     pub Rank: u32,
@@ -4288,16 +3516,9 @@ pub struct SP_DRVINSTALL_PARAMS {
     pub PrivateData: usize,
     pub Reserved: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_DRVINSTALL_PARAMS {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_DRVINSTALL_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINSTALL_PARAMS {
     pub cbSize: u32,
     pub Rank: u32,
@@ -4305,46 +3526,25 @@ pub struct SP_DRVINSTALL_PARAMS {
     pub PrivateData: usize,
     pub Reserved: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_DRVINSTALL_PARAMS {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_DRVINSTALL_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_ENABLECLASS_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub ClassGuid: windows_sys::core::GUID,
     pub EnableMessage: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_ENABLECLASS_PARAMS {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_ENABLECLASS_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_ENABLECLASS_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub ClassGuid: windows_sys::core::GUID,
     pub EnableMessage: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_ENABLECLASS_PARAMS {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_ENABLECLASS_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_FILE_COPY_PARAMS_A {
     pub cbSize: u32,
     pub QueueHandle: *mut core::ffi::c_void,
@@ -4359,16 +3559,9 @@ pub struct SP_FILE_COPY_PARAMS_A {
     pub LayoutInf: *mut core::ffi::c_void,
     pub SecurityDescriptor: windows_sys::core::PCSTR,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_FILE_COPY_PARAMS_A {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_FILE_COPY_PARAMS_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_FILE_COPY_PARAMS_A {
     pub cbSize: u32,
     pub QueueHandle: *mut core::ffi::c_void,
@@ -4383,16 +3576,9 @@ pub struct SP_FILE_COPY_PARAMS_A {
     pub LayoutInf: *mut core::ffi::c_void,
     pub SecurityDescriptor: windows_sys::core::PCSTR,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_FILE_COPY_PARAMS_A {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_FILE_COPY_PARAMS_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_FILE_COPY_PARAMS_W {
     pub cbSize: u32,
     pub QueueHandle: *mut core::ffi::c_void,
@@ -4407,16 +3593,9 @@ pub struct SP_FILE_COPY_PARAMS_W {
     pub LayoutInf: *mut core::ffi::c_void,
     pub SecurityDescriptor: windows_sys::core::PCWSTR,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_FILE_COPY_PARAMS_W {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_FILE_COPY_PARAMS_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_FILE_COPY_PARAMS_W {
     pub cbSize: u32,
     pub QueueHandle: *mut core::ffi::c_void,
@@ -4431,110 +3610,61 @@ pub struct SP_FILE_COPY_PARAMS_W {
     pub LayoutInf: *mut core::ffi::c_void,
     pub SecurityDescriptor: windows_sys::core::PCWSTR,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_FILE_COPY_PARAMS_W {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_FILE_COPY_PARAMS_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_INF_INFORMATION {
     pub InfStyle: INF_STYLE,
     pub InfCount: u32,
     pub VersionData: [u8; 1],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_INF_INFORMATION {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_INF_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_INF_INFORMATION {
     pub InfStyle: INF_STYLE,
     pub InfCount: u32,
     pub VersionData: [u8; 1],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_INF_INFORMATION {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_INF_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V1_A {
     pub cbSize: u32,
     pub CatalogFile: [i8; 260],
     pub DigitalSigner: [i8; 260],
     pub DigitalSignerVersion: [i8; 260],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_INF_SIGNER_INFO_V1_A {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_INF_SIGNER_INFO_V1_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V1_A {
     pub cbSize: u32,
     pub CatalogFile: [i8; 260],
     pub DigitalSigner: [i8; 260],
     pub DigitalSignerVersion: [i8; 260],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_INF_SIGNER_INFO_V1_A {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_INF_SIGNER_INFO_V1_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V1_W {
     pub cbSize: u32,
     pub CatalogFile: [u16; 260],
     pub DigitalSigner: [u16; 260],
     pub DigitalSignerVersion: [u16; 260],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_INF_SIGNER_INFO_V1_W {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_INF_SIGNER_INFO_V1_W {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V1_W {
     pub cbSize: u32,
     pub CatalogFile: [u16; 260],
     pub DigitalSigner: [u16; 260],
     pub DigitalSignerVersion: [u16; 260],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_INF_SIGNER_INFO_V1_W {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_INF_SIGNER_INFO_V1_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V2_A {
     pub cbSize: u32,
     pub CatalogFile: [i8; 260],
@@ -4542,16 +3672,9 @@ pub struct SP_INF_SIGNER_INFO_V2_A {
     pub DigitalSignerVersion: [i8; 260],
     pub SignerScore: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_INF_SIGNER_INFO_V2_A {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_INF_SIGNER_INFO_V2_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V2_A {
     pub cbSize: u32,
     pub CatalogFile: [i8; 260],
@@ -4559,51 +3682,30 @@ pub struct SP_INF_SIGNER_INFO_V2_A {
     pub DigitalSignerVersion: [i8; 260],
     pub SignerScore: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_INF_SIGNER_INFO_V2_A {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_INF_SIGNER_INFO_V2_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V2_W {
     pub cbSize: u32,
     pub CatalogFile: [u16; 260],
     pub DigitalSigner: [u16; 260],
     pub DigitalSignerVersion: [u16; 260],
     pub SignerScore: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_INF_SIGNER_INFO_V2_W {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_INF_SIGNER_INFO_V2_W {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V2_W {
     pub cbSize: u32,
     pub CatalogFile: [u16; 260],
     pub DigitalSigner: [u16; 260],
     pub DigitalSignerVersion: [u16; 260],
     pub SignerScore: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for SP_INF_SIGNER_INFO_V2_W {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_INF_SIGNER_INFO_V2_W {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_Controls")]
+#[derive(Clone, Copy)]
 pub struct SP_INSTALLWIZARD_DATA {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Flags: u32,
@@ -4614,19 +3716,10 @@ pub struct SP_INSTALLWIZARD_DATA {
     pub PrivateData: super::super::Foundation::LPARAM,
     pub hwndWizardDlg: super::super::Foundation::HWND,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_Controls")]
-impl Copy for SP_INSTALLWIZARD_DATA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_Controls")]
-impl Clone for SP_INSTALLWIZARD_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_Controls")]
+#[derive(Clone, Copy)]
 pub struct SP_INSTALLWIZARD_DATA {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Flags: u32,
@@ -4637,19 +3730,10 @@ pub struct SP_INSTALLWIZARD_DATA {
     pub PrivateData: super::super::Foundation::LPARAM,
     pub hwndWizardDlg: super::super::Foundation::HWND,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_Controls")]
-impl Copy for SP_INSTALLWIZARD_DATA {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_Controls")]
-impl Clone for SP_INSTALLWIZARD_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_Controls")]
+#[derive(Clone, Copy)]
 pub struct SP_NEWDEVICEWIZARD_DATA {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Flags: u32,
@@ -4657,19 +3741,10 @@ pub struct SP_NEWDEVICEWIZARD_DATA {
     pub NumDynamicPages: u32,
     pub hwndWizardDlg: super::super::Foundation::HWND,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_Controls")]
-impl Copy for SP_NEWDEVICEWIZARD_DATA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_Controls")]
-impl Clone for SP_NEWDEVICEWIZARD_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_Controls")]
+#[derive(Clone, Copy)]
 pub struct SP_NEWDEVICEWIZARD_DATA {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Flags: u32,
@@ -4677,274 +3752,148 @@ pub struct SP_NEWDEVICEWIZARD_DATA {
     pub NumDynamicPages: u32,
     pub hwndWizardDlg: super::super::Foundation::HWND,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_Controls")]
-impl Copy for SP_NEWDEVICEWIZARD_DATA {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_Controls")]
-impl Clone for SP_NEWDEVICEWIZARD_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_ORIGINAL_FILE_INFO_A {
     pub cbSize: u32,
     pub OriginalInfName: [i8; 260],
     pub OriginalCatalogName: [i8; 260],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_ORIGINAL_FILE_INFO_A {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_ORIGINAL_FILE_INFO_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_ORIGINAL_FILE_INFO_A {
     pub cbSize: u32,
     pub OriginalInfName: [i8; 260],
     pub OriginalCatalogName: [i8; 260],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_ORIGINAL_FILE_INFO_A {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_ORIGINAL_FILE_INFO_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_ORIGINAL_FILE_INFO_W {
     pub cbSize: u32,
     pub OriginalInfName: [u16; 260],
     pub OriginalCatalogName: [u16; 260],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_ORIGINAL_FILE_INFO_W {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_ORIGINAL_FILE_INFO_W {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_ORIGINAL_FILE_INFO_W {
     pub cbSize: u32,
     pub OriginalInfName: [u16; 260],
     pub OriginalCatalogName: [u16; 260],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_ORIGINAL_FILE_INFO_W {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_ORIGINAL_FILE_INFO_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_A {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub PowerMessageWake: [i8; 512],
 }
-impl Copy for SP_POWERMESSAGEWAKE_PARAMS_A {}
-impl Clone for SP_POWERMESSAGEWAKE_PARAMS_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub PowerMessageWake: [u16; 512],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_POWERMESSAGEWAKE_PARAMS_W {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_POWERMESSAGEWAKE_PARAMS_W {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub PowerMessageWake: [u16; 512],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_POWERMESSAGEWAKE_PARAMS_W {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_POWERMESSAGEWAKE_PARAMS_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_PROPCHANGE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub StateChange: SETUP_DI_STATE_CHANGE,
     pub Scope: SETUP_DI_PROPERTY_CHANGE_SCOPE,
     pub HwProfile: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_PROPCHANGE_PARAMS {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_PROPCHANGE_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_PROPCHANGE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub StateChange: SETUP_DI_STATE_CHANGE,
     pub Scope: SETUP_DI_PROPERTY_CHANGE_SCOPE,
     pub HwProfile: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_PROPCHANGE_PARAMS {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_PROPCHANGE_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_PROPSHEETPAGE_REQUEST {
     pub cbSize: u32,
     pub PageRequested: u32,
     pub DeviceInfoSet: HDEVINFO,
     pub DeviceInfoData: *mut SP_DEVINFO_DATA,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_PROPSHEETPAGE_REQUEST {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_PROPSHEETPAGE_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_PROPSHEETPAGE_REQUEST {
     pub cbSize: u32,
     pub PageRequested: u32,
     pub DeviceInfoSet: HDEVINFO,
     pub DeviceInfoData: *mut SP_DEVINFO_DATA,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_PROPSHEETPAGE_REQUEST {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_PROPSHEETPAGE_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_REGISTER_CONTROL_STATUSA {
     pub cbSize: u32,
     pub FileName: windows_sys::core::PCSTR,
     pub Win32Error: u32,
     pub FailureCode: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_REGISTER_CONTROL_STATUSA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_REGISTER_CONTROL_STATUSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_REGISTER_CONTROL_STATUSA {
     pub cbSize: u32,
     pub FileName: windows_sys::core::PCSTR,
     pub Win32Error: u32,
     pub FailureCode: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_REGISTER_CONTROL_STATUSA {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_REGISTER_CONTROL_STATUSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_REGISTER_CONTROL_STATUSW {
     pub cbSize: u32,
     pub FileName: windows_sys::core::PCWSTR,
     pub Win32Error: u32,
     pub FailureCode: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_REGISTER_CONTROL_STATUSW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_REGISTER_CONTROL_STATUSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_REGISTER_CONTROL_STATUSW {
     pub cbSize: u32,
     pub FileName: windows_sys::core::PCWSTR,
     pub Win32Error: u32,
     pub FailureCode: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_REGISTER_CONTROL_STATUSW {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_REGISTER_CONTROL_STATUSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_REMOVEDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Scope: SETUP_DI_REMOVE_DEVICE_SCOPE,
     pub HwProfile: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_REMOVEDEVICE_PARAMS {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_REMOVEDEVICE_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_REMOVEDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Scope: SETUP_DI_REMOVE_DEVICE_SCOPE,
     pub HwProfile: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_REMOVEDEVICE_PARAMS {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_REMOVEDEVICE_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SP_SELECTDEVICE_PARAMS_A {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Title: [i8; 60],
@@ -4953,31 +3902,19 @@ pub struct SP_SELECTDEVICE_PARAMS_A {
     pub SubTitle: [i8; 256],
     pub Reserved: [u8; 2],
 }
-impl Copy for SP_SELECTDEVICE_PARAMS_A {}
-impl Clone for SP_SELECTDEVICE_PARAMS_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_SELECTDEVICE_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Title: [u16; 60],
     pub Instructions: [u16; 256],
     pub ListLabel: [u16; 30],
     pub SubTitle: [u16; 256],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_SELECTDEVICE_PARAMS_W {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_SELECTDEVICE_PARAMS_W {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_SELECTDEVICE_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Title: [u16; 60],
@@ -4985,85 +3922,44 @@ pub struct SP_SELECTDEVICE_PARAMS_W {
     pub ListLabel: [u16; 30],
     pub SubTitle: [u16; 256],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_SELECTDEVICE_PARAMS_W {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_SELECTDEVICE_PARAMS_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SP_TROUBLESHOOTER_PARAMS_A {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub ChmFile: [i8; 260],
     pub HtmlTroubleShooter: [i8; 260],
 }
-impl Copy for SP_TROUBLESHOOTER_PARAMS_A {}
-impl Clone for SP_TROUBLESHOOTER_PARAMS_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_TROUBLESHOOTER_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub ChmFile: [u16; 260],
     pub HtmlTroubleShooter: [u16; 260],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_TROUBLESHOOTER_PARAMS_W {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_TROUBLESHOOTER_PARAMS_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_TROUBLESHOOTER_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub ChmFile: [u16; 260],
     pub HtmlTroubleShooter: [u16; 260],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for SP_TROUBLESHOOTER_PARAMS_W {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_TROUBLESHOOTER_PARAMS_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct SP_UNREMOVEDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Scope: u32,
     pub HwProfile: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for SP_UNREMOVEDEVICE_PARAMS {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for SP_UNREMOVEDEVICE_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct SP_UNREMOVEDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Scope: u32,
     pub HwProfile: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Copy for SP_UNREMOVEDEVICE_PARAMS {}
-#[cfg(target_arch = "x86")]
-impl Clone for SP_UNREMOVEDEVICE_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type PCM_NOTIFY_CALLBACK = Option<unsafe extern "system" fn(hnotify: HCMNOTIFICATION, context: *const core::ffi::c_void, action: CM_NOTIFY_ACTION, eventdata: *const CM_NOTIFY_EVENT_DATA, eventdatasize: u32) -> u32>;
 pub type PDETECT_PROGRESS_NOTIFY = Option<unsafe extern "system" fn(progressnotifyparam: *const core::ffi::c_void, detectcomplete: u32) -> super::super::Foundation::BOOL>;

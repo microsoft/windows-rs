@@ -684,30 +684,14 @@ impl core::fmt::Debug for RdcNeedType {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FindSimilarFileIndexResults {
     pub m_FileIndex: u32,
     pub m_MatchCount: u32,
 }
-impl Copy for FindSimilarFileIndexResults {}
-impl Clone for FindSimilarFileIndexResults {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FindSimilarFileIndexResults {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FindSimilarFileIndexResults").field("m_FileIndex", &self.m_FileIndex).field("m_MatchCount", &self.m_MatchCount).finish()
-    }
-}
 impl windows_core::TypeKind for FindSimilarFileIndexResults {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FindSimilarFileIndexResults {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_FileIndex == other.m_FileIndex && self.m_MatchCount == other.m_MatchCount
-    }
-}
-impl Eq for FindSimilarFileIndexResults {}
 impl Default for FindSimilarFileIndexResults {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -715,31 +699,15 @@ impl Default for FindSimilarFileIndexResults {
 }
 pub const FindSimilarResults: windows_core::GUID = windows_core::GUID::from_u128(0x96236a93_9dbc_11da_9e3f_0011114ae311);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RdcBufferPointer {
     pub m_Size: u32,
     pub m_Used: u32,
     pub m_Data: *mut u8,
 }
-impl Copy for RdcBufferPointer {}
-impl Clone for RdcBufferPointer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RdcBufferPointer {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RdcBufferPointer").field("m_Size", &self.m_Size).field("m_Used", &self.m_Used).field("m_Data", &self.m_Data).finish()
-    }
-}
 impl windows_core::TypeKind for RdcBufferPointer {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RdcBufferPointer {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_Size == other.m_Size && self.m_Used == other.m_Used && self.m_Data == other.m_Data
-    }
-}
-impl Eq for RdcBufferPointer {}
 impl Default for RdcBufferPointer {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -752,123 +720,59 @@ pub const RdcGeneratorFilterMaxParameters: windows_core::GUID = windows_core::GU
 pub const RdcGeneratorParameters: windows_core::GUID = windows_core::GUID::from_u128(0x96236a86_9dbc_11da_9e3f_0011114ae311);
 pub const RdcLibrary: windows_core::GUID = windows_core::GUID::from_u128(0x96236a85_9dbc_11da_9e3f_0011114ae311);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RdcNeed {
     pub m_BlockType: RdcNeedType,
     pub m_FileOffset: u64,
     pub m_BlockLength: u64,
 }
-impl Copy for RdcNeed {}
-impl Clone for RdcNeed {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RdcNeed {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RdcNeed").field("m_BlockType", &self.m_BlockType).field("m_FileOffset", &self.m_FileOffset).field("m_BlockLength", &self.m_BlockLength).finish()
-    }
-}
 impl windows_core::TypeKind for RdcNeed {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RdcNeed {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_BlockType == other.m_BlockType && self.m_FileOffset == other.m_FileOffset && self.m_BlockLength == other.m_BlockLength
-    }
-}
-impl Eq for RdcNeed {}
 impl Default for RdcNeed {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RdcNeedPointer {
     pub m_Size: u32,
     pub m_Used: u32,
     pub m_Data: *mut RdcNeed,
 }
-impl Copy for RdcNeedPointer {}
-impl Clone for RdcNeedPointer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RdcNeedPointer {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RdcNeedPointer").field("m_Size", &self.m_Size).field("m_Used", &self.m_Used).field("m_Data", &self.m_Data).finish()
-    }
-}
 impl windows_core::TypeKind for RdcNeedPointer {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RdcNeedPointer {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_Size == other.m_Size && self.m_Used == other.m_Used && self.m_Data == other.m_Data
-    }
-}
-impl Eq for RdcNeedPointer {}
 impl Default for RdcNeedPointer {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RdcSignature {
     pub m_Signature: [u8; 16],
     pub m_BlockLength: u16,
 }
-impl Copy for RdcSignature {}
-impl Clone for RdcSignature {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RdcSignature {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RdcSignature").field("m_Signature", &self.m_Signature).field("m_BlockLength", &self.m_BlockLength).finish()
-    }
-}
 impl windows_core::TypeKind for RdcSignature {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RdcSignature {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_Signature == other.m_Signature && self.m_BlockLength == other.m_BlockLength
-    }
-}
-impl Eq for RdcSignature {}
 impl Default for RdcSignature {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RdcSignaturePointer {
     pub m_Size: u32,
     pub m_Used: u32,
     pub m_Data: *mut RdcSignature,
 }
-impl Copy for RdcSignaturePointer {}
-impl Clone for RdcSignaturePointer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RdcSignaturePointer {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RdcSignaturePointer").field("m_Size", &self.m_Size).field("m_Used", &self.m_Used).field("m_Data", &self.m_Data).finish()
-    }
-}
 impl windows_core::TypeKind for RdcSignaturePointer {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RdcSignaturePointer {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_Size == other.m_Size && self.m_Used == other.m_Used && self.m_Data == other.m_Data
-    }
-}
-impl Eq for RdcSignaturePointer {}
 impl Default for RdcSignaturePointer {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -878,88 +782,40 @@ pub const RdcSignatureReader: windows_core::GUID = windows_core::GUID::from_u128
 pub const RdcSimilarityGenerator: windows_core::GUID = windows_core::GUID::from_u128(0x96236a92_9dbc_11da_9e3f_0011114ae311);
 pub const Similarity: windows_core::GUID = windows_core::GUID::from_u128(0x96236a91_9dbc_11da_9e3f_0011114ae311);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SimilarityData {
     pub m_Data: [u8; 16],
-}
-impl Copy for SimilarityData {}
-impl Clone for SimilarityData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SimilarityData {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SimilarityData").field("m_Data", &self.m_Data).finish()
-    }
 }
 impl windows_core::TypeKind for SimilarityData {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SimilarityData {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_Data == other.m_Data
-    }
-}
-impl Eq for SimilarityData {}
 impl Default for SimilarityData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SimilarityDumpData {
     pub m_FileIndex: u32,
     pub m_Data: SimilarityData,
 }
-impl Copy for SimilarityDumpData {}
-impl Clone for SimilarityDumpData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SimilarityDumpData {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SimilarityDumpData").field("m_FileIndex", &self.m_FileIndex).field("m_Data", &self.m_Data).finish()
-    }
-}
 impl windows_core::TypeKind for SimilarityDumpData {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SimilarityDumpData {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_FileIndex == other.m_FileIndex && self.m_Data == other.m_Data
-    }
-}
-impl Eq for SimilarityDumpData {}
 impl Default for SimilarityDumpData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SimilarityFileId {
     pub m_FileId: [u8; 32],
-}
-impl Copy for SimilarityFileId {}
-impl Clone for SimilarityFileId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SimilarityFileId {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SimilarityFileId").field("m_FileId", &self.m_FileId).finish()
-    }
 }
 impl windows_core::TypeKind for SimilarityFileId {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SimilarityFileId {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_FileId == other.m_FileId
-    }
-}
-impl Eq for SimilarityFileId {}
 impl Default for SimilarityFileId {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -967,30 +823,14 @@ impl Default for SimilarityFileId {
 }
 pub const SimilarityFileIdTable: windows_core::GUID = windows_core::GUID::from_u128(0x96236a90_9dbc_11da_9e3f_0011114ae311);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SimilarityMappedViewInfo {
     pub m_Data: *mut u8,
     pub m_Length: u32,
 }
-impl Copy for SimilarityMappedViewInfo {}
-impl Clone for SimilarityMappedViewInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for SimilarityMappedViewInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("SimilarityMappedViewInfo").field("m_Data", &self.m_Data).field("m_Length", &self.m_Length).finish()
-    }
-}
 impl windows_core::TypeKind for SimilarityMappedViewInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for SimilarityMappedViewInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_Data == other.m_Data && self.m_Length == other.m_Length
-    }
-}
-impl Eq for SimilarityMappedViewInfo {}
 impl Default for SimilarityMappedViewInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

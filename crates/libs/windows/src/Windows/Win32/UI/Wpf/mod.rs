@@ -675,6 +675,7 @@ pub const CLSID_MILBitmapEffectGroup: windows_core::GUID = windows_core::GUID::f
 pub const CLSID_MILBitmapEffectOuterGlow: windows_core::GUID = windows_core::GUID::from_u128(0xe2161bdd_7eb6_4725_9c0b_8a2a1b4f0667);
 pub const MILBITMAPEFFECT_SDK_VERSION: u32 = 16777216u32;
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MILMatrixF {
     pub _11: f64,
     pub _12: f64,
@@ -693,88 +694,39 @@ pub struct MILMatrixF {
     pub _43: f64,
     pub _44: f64,
 }
-impl Copy for MILMatrixF {}
-impl Clone for MILMatrixF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MILMatrixF {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MILMatrixF").field("_11", &self._11).field("_12", &self._12).field("_13", &self._13).field("_14", &self._14).field("_21", &self._21).field("_22", &self._22).field("_23", &self._23).field("_24", &self._24).field("_31", &self._31).field("_32", &self._32).field("_33", &self._33).field("_34", &self._34).field("_41", &self._41).field("_42", &self._42).field("_43", &self._43).field("_44", &self._44).finish()
-    }
-}
 impl windows_core::TypeKind for MILMatrixF {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MILMatrixF {
-    fn eq(&self, other: &Self) -> bool {
-        self._11 == other._11 && self._12 == other._12 && self._13 == other._13 && self._14 == other._14 && self._21 == other._21 && self._22 == other._22 && self._23 == other._23 && self._24 == other._24 && self._31 == other._31 && self._32 == other._32 && self._33 == other._33 && self._34 == other._34 && self._41 == other._41 && self._42 == other._42 && self._43 == other._43 && self._44 == other._44
-    }
-}
-impl Eq for MILMatrixF {}
 impl Default for MILMatrixF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MilPoint2D {
     pub X: f64,
     pub Y: f64,
 }
-impl Copy for MilPoint2D {}
-impl Clone for MilPoint2D {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MilPoint2D {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MilPoint2D").field("X", &self.X).field("Y", &self.Y).finish()
-    }
-}
 impl windows_core::TypeKind for MilPoint2D {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MilPoint2D {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y
-    }
-}
-impl Eq for MilPoint2D {}
 impl Default for MilPoint2D {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MilRectD {
     pub left: f64,
     pub top: f64,
     pub right: f64,
     pub bottom: f64,
 }
-impl Copy for MilRectD {}
-impl Clone for MilRectD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MilRectD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MilRectD").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
-    }
-}
 impl windows_core::TypeKind for MilRectD {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MilRectD {
-    fn eq(&self, other: &Self) -> bool {
-        self.left == other.left && self.top == other.top && self.right == other.right && self.bottom == other.bottom
-    }
-}
-impl Eq for MilRectD {}
 impl Default for MilRectD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

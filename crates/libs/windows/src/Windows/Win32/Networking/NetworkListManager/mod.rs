@@ -711,6 +711,7 @@ impl core::fmt::Debug for NLM_NETWORK_PROPERTY_CHANGE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NLM_DATAPLAN_STATUS {
     pub InterfaceGuid: windows_core::GUID,
     pub UsageData: NLM_USAGE_DATA,
@@ -721,117 +722,52 @@ pub struct NLM_DATAPLAN_STATUS {
     pub MaxTransferSizeInMegabytes: u32,
     pub Reserved: u32,
 }
-impl Copy for NLM_DATAPLAN_STATUS {}
-impl Clone for NLM_DATAPLAN_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NLM_DATAPLAN_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NLM_DATAPLAN_STATUS").field("InterfaceGuid", &self.InterfaceGuid).field("UsageData", &self.UsageData).field("DataLimitInMegabytes", &self.DataLimitInMegabytes).field("InboundBandwidthInKbps", &self.InboundBandwidthInKbps).field("OutboundBandwidthInKbps", &self.OutboundBandwidthInKbps).field("NextBillingCycle", &self.NextBillingCycle).field("MaxTransferSizeInMegabytes", &self.MaxTransferSizeInMegabytes).field("Reserved", &self.Reserved).finish()
-    }
-}
 impl windows_core::TypeKind for NLM_DATAPLAN_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NLM_DATAPLAN_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.InterfaceGuid == other.InterfaceGuid && self.UsageData == other.UsageData && self.DataLimitInMegabytes == other.DataLimitInMegabytes && self.InboundBandwidthInKbps == other.InboundBandwidthInKbps && self.OutboundBandwidthInKbps == other.OutboundBandwidthInKbps && self.NextBillingCycle == other.NextBillingCycle && self.MaxTransferSizeInMegabytes == other.MaxTransferSizeInMegabytes && self.Reserved == other.Reserved
-    }
-}
-impl Eq for NLM_DATAPLAN_STATUS {}
 impl Default for NLM_DATAPLAN_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NLM_SIMULATED_PROFILE_INFO {
     pub ProfileName: [u16; 256],
     pub cost: NLM_CONNECTION_COST,
     pub UsageInMegabytes: u32,
     pub DataLimitInMegabytes: u32,
 }
-impl Copy for NLM_SIMULATED_PROFILE_INFO {}
-impl Clone for NLM_SIMULATED_PROFILE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NLM_SIMULATED_PROFILE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NLM_SIMULATED_PROFILE_INFO").field("ProfileName", &self.ProfileName).field("cost", &self.cost).field("UsageInMegabytes", &self.UsageInMegabytes).field("DataLimitInMegabytes", &self.DataLimitInMegabytes).finish()
-    }
-}
 impl windows_core::TypeKind for NLM_SIMULATED_PROFILE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NLM_SIMULATED_PROFILE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ProfileName == other.ProfileName && self.cost == other.cost && self.UsageInMegabytes == other.UsageInMegabytes && self.DataLimitInMegabytes == other.DataLimitInMegabytes
-    }
-}
-impl Eq for NLM_SIMULATED_PROFILE_INFO {}
 impl Default for NLM_SIMULATED_PROFILE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NLM_SOCKADDR {
     pub data: [u8; 128],
-}
-impl Copy for NLM_SOCKADDR {}
-impl Clone for NLM_SOCKADDR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NLM_SOCKADDR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NLM_SOCKADDR").field("data", &self.data).finish()
-    }
 }
 impl windows_core::TypeKind for NLM_SOCKADDR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NLM_SOCKADDR {
-    fn eq(&self, other: &Self) -> bool {
-        self.data == other.data
-    }
-}
-impl Eq for NLM_SOCKADDR {}
 impl Default for NLM_SOCKADDR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NLM_USAGE_DATA {
     pub UsageInMegabytes: u32,
     pub LastSyncTime: super::super::Foundation::FILETIME,
 }
-impl Copy for NLM_USAGE_DATA {}
-impl Clone for NLM_USAGE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NLM_USAGE_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NLM_USAGE_DATA").field("UsageInMegabytes", &self.UsageInMegabytes).field("LastSyncTime", &self.LastSyncTime).finish()
-    }
-}
 impl windows_core::TypeKind for NLM_USAGE_DATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NLM_USAGE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.UsageInMegabytes == other.UsageInMegabytes && self.LastSyncTime == other.LastSyncTime
-    }
-}
-impl Eq for NLM_USAGE_DATA {}
 impl Default for NLM_USAGE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

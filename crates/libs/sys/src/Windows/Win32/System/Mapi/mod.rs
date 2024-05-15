@@ -55,6 +55,7 @@ pub const MAPI_UNREAD_ONLY: u32 = 32u32;
 pub const MAPI_USER_ABORT: u32 = 1u32;
 pub const SUCCESS_SUCCESS: u32 = 0u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MapiFileDesc {
     pub ulReserved: u32,
     pub flFlags: u32,
@@ -63,13 +64,8 @@ pub struct MapiFileDesc {
     pub lpszFileName: windows_sys::core::PSTR,
     pub lpFileType: *mut core::ffi::c_void,
 }
-impl Copy for MapiFileDesc {}
-impl Clone for MapiFileDesc {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MapiFileDescW {
     pub ulReserved: u32,
     pub flFlags: u32,
@@ -78,13 +74,8 @@ pub struct MapiFileDescW {
     pub lpszFileName: windows_sys::core::PWSTR,
     pub lpFileType: *mut core::ffi::c_void,
 }
-impl Copy for MapiFileDescW {}
-impl Clone for MapiFileDescW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MapiFileTagExt {
     pub ulReserved: u32,
     pub cbTag: u32,
@@ -92,13 +83,8 @@ pub struct MapiFileTagExt {
     pub cbEncoding: u32,
     pub lpEncoding: *mut u8,
 }
-impl Copy for MapiFileTagExt {}
-impl Clone for MapiFileTagExt {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MapiMessage {
     pub ulReserved: u32,
     pub lpszSubject: windows_sys::core::PSTR,
@@ -113,13 +99,8 @@ pub struct MapiMessage {
     pub nFileCount: u32,
     pub lpFiles: *mut MapiFileDesc,
 }
-impl Copy for MapiMessage {}
-impl Clone for MapiMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MapiMessageW {
     pub ulReserved: u32,
     pub lpszSubject: windows_sys::core::PWSTR,
@@ -134,13 +115,8 @@ pub struct MapiMessageW {
     pub nFileCount: u32,
     pub lpFiles: *mut MapiFileDescW,
 }
-impl Copy for MapiMessageW {}
-impl Clone for MapiMessageW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MapiRecipDesc {
     pub ulReserved: u32,
     pub ulRecipClass: u32,
@@ -149,13 +125,8 @@ pub struct MapiRecipDesc {
     pub ulEIDSize: u32,
     pub lpEntryID: *mut core::ffi::c_void,
 }
-impl Copy for MapiRecipDesc {}
-impl Clone for MapiRecipDesc {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MapiRecipDescW {
     pub ulReserved: u32,
     pub ulRecipClass: u32,
@@ -163,12 +134,6 @@ pub struct MapiRecipDescW {
     pub lpszAddress: windows_sys::core::PWSTR,
     pub ulEIDSize: u32,
     pub lpEntryID: *mut core::ffi::c_void,
-}
-impl Copy for MapiRecipDescW {}
-impl Clone for MapiRecipDescW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type LPMAPIADDRESS = Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszcaption: windows_sys::core::PCSTR, neditfields: u32, lpszlabels: windows_sys::core::PCSTR, nrecips: u32, lprecips: *mut MapiRecipDesc, flflags: u32, ulreserved: u32, lpnnewrecips: *mut u32, lppnewrecips: *mut *mut MapiRecipDesc) -> u32>;
 pub type LPMAPIDELETEMAIL = Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszmessageid: windows_sys::core::PCSTR, flflags: u32, ulreserved: u32) -> u32>;

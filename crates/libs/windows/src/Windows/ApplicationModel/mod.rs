@@ -3212,19 +3212,9 @@ impl windows_core::RuntimeType for StartupTaskState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.StartupTaskState;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PackageInstallProgress {
     pub PercentComplete: u32,
-}
-impl Copy for PackageInstallProgress {}
-impl Clone for PackageInstallProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PackageInstallProgress {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PackageInstallProgress").field("PercentComplete", &self.PercentComplete).finish()
-    }
 }
 impl windows_core::TypeKind for PackageInstallProgress {
     type TypeKind = windows_core::CopyType;
@@ -3232,34 +3222,18 @@ impl windows_core::TypeKind for PackageInstallProgress {
 impl windows_core::RuntimeType for PackageInstallProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.ApplicationModel.PackageInstallProgress;u4)");
 }
-impl PartialEq for PackageInstallProgress {
-    fn eq(&self, other: &Self) -> bool {
-        self.PercentComplete == other.PercentComplete
-    }
-}
-impl Eq for PackageInstallProgress {}
 impl Default for PackageInstallProgress {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PackageVersion {
     pub Major: u16,
     pub Minor: u16,
     pub Build: u16,
     pub Revision: u16,
-}
-impl Copy for PackageVersion {}
-impl Clone for PackageVersion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PackageVersion {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PackageVersion").field("Major", &self.Major).field("Minor", &self.Minor).field("Build", &self.Build).field("Revision", &self.Revision).finish()
-    }
 }
 impl windows_core::TypeKind for PackageVersion {
     type TypeKind = windows_core::CopyType;
@@ -3267,12 +3241,6 @@ impl windows_core::TypeKind for PackageVersion {
 impl windows_core::RuntimeType for PackageVersion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.ApplicationModel.PackageVersion;u2;u2;u2;u2)");
 }
-impl PartialEq for PackageVersion {
-    fn eq(&self, other: &Self) -> bool {
-        self.Major == other.Major && self.Minor == other.Minor && self.Build == other.Build && self.Revision == other.Revision
-    }
-}
-impl Eq for PackageVersion {}
 impl Default for PackageVersion {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

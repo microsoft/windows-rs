@@ -4842,86 +4842,47 @@ pub const WODM_SETVOLUME: u32 = 17u32;
 pub const WODM_UNPREPARE: u32 = 8u32;
 pub const WODM_WRITE: u32 = 9u32;
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct ADPCMCOEFSET {
     pub iCoef1: i16,
     pub iCoef2: i16,
 }
-impl Copy for ADPCMCOEFSET {}
-impl Clone for ADPCMCOEFSET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct ADPCMEWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for ADPCMEWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for ADPCMEWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct ADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
     pub wNumCoef: u16,
     pub aCoef: [ADPCMCOEFSET; 1],
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for ADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for ADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct APTXWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for APTXWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for APTXWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct AUDIOFILE_AF10WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for AUDIOFILE_AF10WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for AUDIOFILE_AF10WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct AUDIOFILE_AF36WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for AUDIOFILE_AF36WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for AUDIOFILE_AF36WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AVICOMPRESSOPTIONS {
     pub fccType: u32,
     pub fccHandler: u32,
@@ -4935,13 +4896,8 @@ pub struct AVICOMPRESSOPTIONS {
     pub cbParms: u32,
     pub dwInterleaveEvery: u32,
 }
-impl Copy for AVICOMPRESSOPTIONS {}
-impl Clone for AVICOMPRESSOPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AVIFILEINFOA {
     pub dwMaxBytesPerSec: u32,
     pub dwFlags: u32,
@@ -4956,13 +4912,8 @@ pub struct AVIFILEINFOA {
     pub dwEditCount: u32,
     pub szFileType: [i8; 64],
 }
-impl Copy for AVIFILEINFOA {}
-impl Clone for AVIFILEINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AVIFILEINFOW {
     pub dwMaxBytesPerSec: u32,
     pub dwFlags: u32,
@@ -4977,13 +4928,8 @@ pub struct AVIFILEINFOW {
     pub dwEditCount: u32,
     pub szFileType: [u16; 64],
 }
-impl Copy for AVIFILEINFOW {}
-impl Clone for AVIFILEINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AVISTREAMINFOA {
     pub fccType: u32,
     pub fccHandler: u32,
@@ -5004,13 +4950,8 @@ pub struct AVISTREAMINFOA {
     pub dwFormatChangeCount: u32,
     pub szName: [i8; 64],
 }
-impl Copy for AVISTREAMINFOA {}
-impl Clone for AVISTREAMINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct AVISTREAMINFOW {
     pub fccType: u32,
     pub fccHandler: u32,
@@ -5031,13 +4972,8 @@ pub struct AVISTREAMINFOW {
     pub dwFormatChangeCount: u32,
     pub szName: [u16; 64],
 }
-impl Copy for AVISTREAMINFOW {}
-impl Clone for AVISTREAMINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CAPDRIVERCAPS {
     pub wDeviceIndex: u32,
     pub fHasOverlay: super::super::Foundation::BOOL,
@@ -5051,26 +4987,16 @@ pub struct CAPDRIVERCAPS {
     pub hVideoExtIn: super::super::Foundation::HANDLE,
     pub hVideoExtOut: super::super::Foundation::HANDLE,
 }
-impl Copy for CAPDRIVERCAPS {}
-impl Clone for CAPDRIVERCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CAPINFOCHUNK {
     pub fccInfoID: u32,
     pub lpData: *mut core::ffi::c_void,
     pub cbData: i32,
 }
-impl Copy for CAPINFOCHUNK {}
-impl Clone for CAPINFOCHUNK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct CAPSTATUS {
     pub uiImageWidth: u32,
     pub uiImageHeight: u32,
@@ -5091,15 +5017,8 @@ pub struct CAPSTATUS {
     pub wNumVideoAllocated: u32,
     pub wNumAudioAllocated: u32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for CAPSTATUS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for CAPSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CAPTUREPARMS {
     pub dwRequestMicroSecPerFrame: u32,
     pub fMakeUserHitOKToCapture: super::super::Foundation::BOOL,
@@ -5126,13 +5045,8 @@ pub struct CAPTUREPARMS {
     pub fDisableWriteCache: super::super::Foundation::BOOL,
     pub AVStreamMaster: u32,
 }
-impl Copy for CAPTUREPARMS {}
-impl Clone for CAPTUREPARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CHANNEL_CAPS {
     pub dwFlags: u32,
     pub dwSrcRectXMod: u32,
@@ -5144,14 +5058,9 @@ pub struct CHANNEL_CAPS {
     pub dwDstRectWidthMod: u32,
     pub dwDstRectHeightMod: u32,
 }
-impl Copy for CHANNEL_CAPS {}
-impl Clone for CHANNEL_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct COMPVARS {
     pub cbSize: i32,
     pub dwFlags: u32,
@@ -5170,179 +5079,88 @@ pub struct COMPVARS {
     pub lpState: *mut core::ffi::c_void,
     pub cbState: i32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for COMPVARS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for COMPVARS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct CONTRESCR10WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for CONTRESCR10WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for CONTRESCR10WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct CONTRESVQLPCWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for CONTRESVQLPCWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for CONTRESVQLPCWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct CREATIVEADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wRevision: u16,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for CREATIVEADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for CREATIVEADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct CREATIVEFASTSPEECH10WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wRevision: u16,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for CREATIVEFASTSPEECH10WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for CREATIVEFASTSPEECH10WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct CREATIVEFASTSPEECH8WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wRevision: u16,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for CREATIVEFASTSPEECH8WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for CREATIVEFASTSPEECH8WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct CSIMAADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for CSIMAADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for CSIMAADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct DIALOGICOKIADPCMWAVEFORMAT {
     pub ewf: super::Audio::WAVEFORMATEX,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for DIALOGICOKIADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for DIALOGICOKIADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct DIGIADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for DIGIADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for DIGIADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct DIGIFIXWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for DIGIFIXWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for DIGIFIXWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct DIGIREALWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for DIGIREALWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for DIGIREALWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct DIGISTDWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for DIGISTDWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for DIGISTDWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct DOLBYAC2WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub nAuxBitsCode: u16,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for DOLBYAC2WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for DOLBYAC2WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DRAWDIBTIME {
     pub timeCount: i32,
     pub timeDraw: i32,
@@ -5352,161 +5170,84 @@ pub struct DRAWDIBTIME {
     pub timeBlt: i32,
     pub timeSetDIBits: i32,
 }
-impl Copy for DRAWDIBTIME {}
-impl Clone for DRAWDIBTIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct DRMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wReserved: u16,
     pub ulContentId: u32,
     pub wfxSecure: super::Audio::WAVEFORMATEX,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for DRMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for DRMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DRVCONFIGINFO {
     pub dwDCISize: u32,
     pub lpszDCISectionName: windows_sys::core::PCWSTR,
     pub lpszDCIAliasName: windows_sys::core::PCWSTR,
 }
-impl Copy for DRVCONFIGINFO {}
-impl Clone for DRVCONFIGINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DRVCONFIGINFOEX {
     pub dwDCISize: u32,
     pub lpszDCISectionName: windows_sys::core::PCWSTR,
     pub lpszDCIAliasName: windows_sys::core::PCWSTR,
     pub dnDevNode: u32,
 }
-impl Copy for DRVCONFIGINFOEX {}
-impl Clone for DRVCONFIGINFOEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct DRVM_IOCTL_DATA {
     pub dwSize: u32,
     pub dwCmd: u32,
 }
-impl Copy for DRVM_IOCTL_DATA {}
-impl Clone for DRVM_IOCTL_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct DVIADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for DVIADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for DVIADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct ECHOSC1WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for ECHOSC1WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for ECHOSC1WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct EXBMINFOHEADER {
     pub bmi: super::super::Graphics::Gdi::BITMAPINFOHEADER,
     pub biExtDataOffset: u32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for EXBMINFOHEADER {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for EXBMINFOHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct FMTOWNS_SND_WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wRevision: u16,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for FMTOWNS_SND_WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for FMTOWNS_SND_WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct G721_ADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub nAuxBlockSize: u16,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for G721_ADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for G721_ADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct G723_ADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub cbExtraSize: u16,
     pub nAuxBlockSize: u16,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for G723_ADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for G723_ADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct GSM610WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for GSM610WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for GSM610WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type HDRVR = isize;
 pub type HIC = isize;
@@ -5514,6 +5255,7 @@ pub type HMMIO = isize;
 pub type HVIDEO = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct ICCOMPRESS {
     pub dwFlags: u32,
     pub lpbiOutput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
@@ -5528,16 +5270,9 @@ pub struct ICCOMPRESS {
     pub lpbiPrev: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
     pub lpPrev: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for ICCOMPRESS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for ICCOMPRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct ICCOMPRESSFRAMES {
     pub dwFlags: u32,
     pub lpbiOutput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
@@ -5556,16 +5291,9 @@ pub struct ICCOMPRESSFRAMES {
     pub GetData: isize,
     pub PutData: isize,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for ICCOMPRESSFRAMES {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for ICCOMPRESSFRAMES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct ICDECOMPRESS {
     pub dwFlags: u32,
     pub lpbiInput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
@@ -5574,16 +5302,9 @@ pub struct ICDECOMPRESS {
     pub lpOutput: *mut core::ffi::c_void,
     pub ckid: u32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for ICDECOMPRESS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for ICDECOMPRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct ICDECOMPRESSEX {
     pub dwFlags: u32,
     pub lpbiSrc: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
@@ -5599,15 +5320,8 @@ pub struct ICDECOMPRESSEX {
     pub dxSrc: i32,
     pub dySrc: i32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for ICDECOMPRESSEX {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for ICDECOMPRESSEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ICDRAW {
     pub dwFlags: u32,
     pub lpFormat: *mut core::ffi::c_void,
@@ -5615,14 +5329,9 @@ pub struct ICDRAW {
     pub cbData: u32,
     pub lTime: i32,
 }
-impl Copy for ICDRAW {}
-impl Clone for ICDRAW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct ICDRAWBEGIN {
     pub dwFlags: u32,
     pub hpal: super::super::Graphics::Gdi::HPALETTE,
@@ -5640,16 +5349,9 @@ pub struct ICDRAWBEGIN {
     pub dwRate: u32,
     pub dwScale: u32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for ICDRAWBEGIN {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for ICDRAWBEGIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct ICDRAWSUGGEST {
     pub lpbiIn: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
     pub lpbiSuggest: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
@@ -5659,15 +5361,8 @@ pub struct ICDRAWSUGGEST {
     pub dyDst: i32,
     pub hicDecompressor: HIC,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for ICDRAWSUGGEST {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for ICDRAWSUGGEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ICINFO {
     pub dwSize: u32,
     pub fccType: u32,
@@ -5679,13 +5374,8 @@ pub struct ICINFO {
     pub szDescription: [u16; 128],
     pub szDriver: [u16; 128],
 }
-impl Copy for ICINFO {}
-impl Clone for ICINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ICOPEN {
     pub dwSize: u32,
     pub fccType: u32,
@@ -5697,55 +5387,31 @@ pub struct ICOPEN {
     pub pV2Reserved: *mut core::ffi::c_void,
     pub dnDevNode: u32,
 }
-impl Copy for ICOPEN {}
-impl Clone for ICOPEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct ICPALETTE {
     pub dwFlags: u32,
     pub iStart: i32,
     pub iLen: i32,
     pub lppe: *mut super::super::Graphics::Gdi::PALETTEENTRY,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for ICPALETTE {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for ICPALETTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ICSETSTATUSPROC {
     pub dwFlags: u32,
     pub lParam: super::super::Foundation::LPARAM,
     pub Status: isize,
 }
-impl Copy for ICSETSTATUSPROC {}
-impl Clone for ICSETSTATUSPROC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct IMAADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for IMAADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for IMAADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct JOYCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
@@ -5775,13 +5441,8 @@ pub struct JOYCAPS2A {
     pub ProductGuid: windows_sys::core::GUID,
     pub NameGuid: windows_sys::core::GUID,
 }
-impl Copy for JOYCAPS2A {}
-impl Clone for JOYCAPS2A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct JOYCAPS2W {
     pub wMid: u16,
     pub wPid: u16,
@@ -5811,13 +5472,8 @@ pub struct JOYCAPS2W {
     pub ProductGuid: windows_sys::core::GUID,
     pub NameGuid: windows_sys::core::GUID,
 }
-impl Copy for JOYCAPS2W {}
-impl Clone for JOYCAPS2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct JOYCAPSA {
     pub wMid: u16,
     pub wPid: u16,
@@ -5844,13 +5500,8 @@ pub struct JOYCAPSA {
     pub szRegKey: [i8; 32],
     pub szOEMVxD: [i8; 260],
 }
-impl Copy for JOYCAPSA {}
-impl Clone for JOYCAPSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct JOYCAPSW {
     pub wMid: u16,
     pub wPid: u16,
@@ -5877,26 +5528,16 @@ pub struct JOYCAPSW {
     pub szRegKey: [u16; 32],
     pub szOEMVxD: [u16; 260],
 }
-impl Copy for JOYCAPSW {}
-impl Clone for JOYCAPSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct JOYINFO {
     pub wXpos: u32,
     pub wYpos: u32,
     pub wZpos: u32,
     pub wButtons: u32,
 }
-impl Copy for JOYINFO {}
-impl Clone for JOYINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct JOYINFOEX {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -5912,13 +5553,8 @@ pub struct JOYINFOEX {
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
-impl Copy for JOYINFOEX {}
-impl Clone for JOYINFOEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct JPEGINFOHEADER {
     pub JPEGSize: u32,
     pub JPEGProcess: u32,
@@ -5927,14 +5563,9 @@ pub struct JPEGINFOHEADER {
     pub JPEGHSubSampling: u32,
     pub JPEGVSubSampling: u32,
 }
-impl Copy for JPEGINFOHEADER {}
-impl Clone for JPEGINFOHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000003_0000_0010_8000_00aa00389b71);
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_ANIM_OPEN_PARMSA {
     pub dwCallback: usize,
     pub wDeviceID: u32,
@@ -5944,13 +5575,8 @@ pub struct MCI_ANIM_OPEN_PARMSA {
     pub dwStyle: u32,
     pub hWndParent: super::super::Foundation::HWND,
 }
-impl Copy for MCI_ANIM_OPEN_PARMSA {}
-impl Clone for MCI_ANIM_OPEN_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_ANIM_OPEN_PARMSW {
     pub dwCallback: usize,
     pub wDeviceID: u32,
@@ -5960,125 +5586,73 @@ pub struct MCI_ANIM_OPEN_PARMSW {
     pub dwStyle: u32,
     pub hWndParent: super::super::Foundation::HWND,
 }
-impl Copy for MCI_ANIM_OPEN_PARMSW {}
-impl Clone for MCI_ANIM_OPEN_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_ANIM_PLAY_PARMS {
     pub dwCallback: usize,
     pub dwFrom: u32,
     pub dwTo: u32,
     pub dwSpeed: u32,
 }
-impl Copy for MCI_ANIM_PLAY_PARMS {}
-impl Clone for MCI_ANIM_PLAY_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_ANIM_RECT_PARMS {
     pub dwCallback: usize,
     pub rc: super::super::Foundation::RECT,
 }
-impl Copy for MCI_ANIM_RECT_PARMS {}
-impl Clone for MCI_ANIM_RECT_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_ANIM_STEP_PARMS {
     pub dwCallback: usize,
     pub dwFrames: u32,
 }
-impl Copy for MCI_ANIM_STEP_PARMS {}
-impl Clone for MCI_ANIM_STEP_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct MCI_ANIM_UPDATE_PARMS {
     pub dwCallback: usize,
     pub rc: super::super::Foundation::RECT,
     pub hDC: super::super::Graphics::Gdi::HDC,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for MCI_ANIM_UPDATE_PARMS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for MCI_ANIM_UPDATE_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_ANIM_WINDOW_PARMSA {
     pub dwCallback: usize,
     pub hWnd: super::super::Foundation::HWND,
     pub nCmdShow: u32,
     pub lpstrText: windows_sys::core::PCSTR,
 }
-impl Copy for MCI_ANIM_WINDOW_PARMSA {}
-impl Clone for MCI_ANIM_WINDOW_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_ANIM_WINDOW_PARMSW {
     pub dwCallback: usize,
     pub hWnd: super::super::Foundation::HWND,
     pub nCmdShow: u32,
     pub lpstrText: windows_sys::core::PCWSTR,
 }
-impl Copy for MCI_ANIM_WINDOW_PARMSW {}
-impl Clone for MCI_ANIM_WINDOW_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_BREAK_PARMS {
     pub dwCallback: usize,
     pub nVirtKey: i32,
     pub hwndBreak: super::super::Foundation::HWND,
 }
-impl Copy for MCI_BREAK_PARMS {}
-impl Clone for MCI_BREAK_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_CAPTURE_PARMSA {
     pub dwCallback: usize,
     pub lpstrFileName: windows_sys::core::PSTR,
     pub rc: super::super::Foundation::RECT,
 }
-impl Copy for MCI_DGV_CAPTURE_PARMSA {}
-impl Clone for MCI_DGV_CAPTURE_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_CAPTURE_PARMSW {
     pub dwCallback: usize,
     pub lpstrFileName: windows_sys::core::PWSTR,
     pub rc: super::super::Foundation::RECT,
 }
-impl Copy for MCI_DGV_CAPTURE_PARMSW {}
-impl Clone for MCI_DGV_CAPTURE_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_COPY_PARMS {
     pub dwCallback: usize,
     pub dwFrom: u32,
@@ -6087,24 +5661,14 @@ pub struct MCI_DGV_COPY_PARMS {
     pub dwAudioStream: u32,
     pub dwVideoStream: u32,
 }
-impl Copy for MCI_DGV_COPY_PARMS {}
-impl Clone for MCI_DGV_COPY_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_CUE_PARMS {
     pub dwCallback: usize,
     pub dwTo: u32,
 }
-impl Copy for MCI_DGV_CUE_PARMS {}
-impl Clone for MCI_DGV_CUE_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_CUT_PARMS {
     pub dwCallback: usize,
     pub dwFrom: u32,
@@ -6113,13 +5677,8 @@ pub struct MCI_DGV_CUT_PARMS {
     pub dwAudioStream: u32,
     pub dwVideoStream: u32,
 }
-impl Copy for MCI_DGV_CUT_PARMS {}
-impl Clone for MCI_DGV_CUT_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_DELETE_PARMS {
     pub dwCallback: usize,
     pub dwFrom: u32,
@@ -6128,39 +5687,24 @@ pub struct MCI_DGV_DELETE_PARMS {
     pub dwAudioStream: u32,
     pub dwVideoStream: u32,
 }
-impl Copy for MCI_DGV_DELETE_PARMS {}
-impl Clone for MCI_DGV_DELETE_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_INFO_PARMSA {
     pub dwCallback: usize,
     pub lpstrReturn: windows_sys::core::PSTR,
     pub dwRetSize: u32,
     pub dwItem: u32,
 }
-impl Copy for MCI_DGV_INFO_PARMSA {}
-impl Clone for MCI_DGV_INFO_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_INFO_PARMSW {
     pub dwCallback: usize,
     pub lpstrReturn: windows_sys::core::PWSTR,
     pub dwRetSize: u32,
     pub dwItem: u32,
 }
-impl Copy for MCI_DGV_INFO_PARMSW {}
-impl Clone for MCI_DGV_INFO_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_LIST_PARMSA {
     pub dwCallback: usize,
     pub lpstrReturn: windows_sys::core::PSTR,
@@ -6169,13 +5713,8 @@ pub struct MCI_DGV_LIST_PARMSA {
     pub dwItem: u32,
     pub lpstrAlgorithm: windows_sys::core::PSTR,
 }
-impl Copy for MCI_DGV_LIST_PARMSA {}
-impl Clone for MCI_DGV_LIST_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_LIST_PARMSW {
     pub dwCallback: usize,
     pub lpstrReturn: windows_sys::core::PWSTR,
@@ -6184,25 +5723,15 @@ pub struct MCI_DGV_LIST_PARMSW {
     pub dwItem: u32,
     pub lpstrAlgorithm: windows_sys::core::PWSTR,
 }
-impl Copy for MCI_DGV_LIST_PARMSW {}
-impl Clone for MCI_DGV_LIST_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_MONITOR_PARMS {
     pub dwCallback: usize,
     pub dwSource: u32,
     pub dwMethod: u32,
 }
-impl Copy for MCI_DGV_MONITOR_PARMS {}
-impl Clone for MCI_DGV_MONITOR_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_OPEN_PARMSA {
     pub dwCallback: usize,
     pub wDeviceID: u32,
@@ -6212,13 +5741,8 @@ pub struct MCI_DGV_OPEN_PARMSA {
     pub dwStyle: u32,
     pub hWndParent: super::super::Foundation::HWND,
 }
-impl Copy for MCI_DGV_OPEN_PARMSA {}
-impl Clone for MCI_DGV_OPEN_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_OPEN_PARMSW {
     pub dwCallback: usize,
     pub wDeviceID: u32,
@@ -6228,13 +5752,8 @@ pub struct MCI_DGV_OPEN_PARMSW {
     pub dwStyle: u32,
     pub hWndParent: super::super::Foundation::HWND,
 }
-impl Copy for MCI_DGV_OPEN_PARMSW {}
-impl Clone for MCI_DGV_OPEN_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_PASTE_PARMS {
     pub dwCallback: usize,
     pub dwTo: u32,
@@ -6242,13 +5761,8 @@ pub struct MCI_DGV_PASTE_PARMS {
     pub dwAudioStream: u32,
     pub dwVideoStream: u32,
 }
-impl Copy for MCI_DGV_PASTE_PARMS {}
-impl Clone for MCI_DGV_PASTE_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_QUALITY_PARMSA {
     pub dwCallback: usize,
     pub dwItem: u32,
@@ -6256,13 +5770,8 @@ pub struct MCI_DGV_QUALITY_PARMSA {
     pub lpstrAlgorithm: u32,
     pub dwHandle: u32,
 }
-impl Copy for MCI_DGV_QUALITY_PARMSA {}
-impl Clone for MCI_DGV_QUALITY_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_QUALITY_PARMSW {
     pub dwCallback: usize,
     pub dwItem: u32,
@@ -6270,13 +5779,8 @@ pub struct MCI_DGV_QUALITY_PARMSW {
     pub lpstrAlgorithm: u32,
     pub dwHandle: u32,
 }
-impl Copy for MCI_DGV_QUALITY_PARMSW {}
-impl Clone for MCI_DGV_QUALITY_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_RECORD_PARMS {
     pub dwCallback: usize,
     pub dwFrom: u32,
@@ -6285,96 +5789,56 @@ pub struct MCI_DGV_RECORD_PARMS {
     pub dwAudioStream: u32,
     pub dwVideoStream: u32,
 }
-impl Copy for MCI_DGV_RECORD_PARMS {}
-impl Clone for MCI_DGV_RECORD_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_RECT_PARMS {
     pub dwCallback: usize,
     pub rc: super::super::Foundation::RECT,
 }
-impl Copy for MCI_DGV_RECT_PARMS {}
-impl Clone for MCI_DGV_RECT_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_RESERVE_PARMSA {
     pub dwCallback: usize,
     pub lpstrPath: windows_sys::core::PSTR,
     pub dwSize: u32,
 }
-impl Copy for MCI_DGV_RESERVE_PARMSA {}
-impl Clone for MCI_DGV_RESERVE_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_RESERVE_PARMSW {
     pub dwCallback: usize,
     pub lpstrPath: windows_sys::core::PWSTR,
     pub dwSize: u32,
 }
-impl Copy for MCI_DGV_RESERVE_PARMSW {}
-impl Clone for MCI_DGV_RESERVE_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_RESTORE_PARMSA {
     pub dwCallback: usize,
     pub lpstrFileName: windows_sys::core::PSTR,
     pub rc: super::super::Foundation::RECT,
 }
-impl Copy for MCI_DGV_RESTORE_PARMSA {}
-impl Clone for MCI_DGV_RESTORE_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_RESTORE_PARMSW {
     pub dwCallback: usize,
     pub lpstrFileName: windows_sys::core::PWSTR,
     pub rc: super::super::Foundation::RECT,
 }
-impl Copy for MCI_DGV_RESTORE_PARMSW {}
-impl Clone for MCI_DGV_RESTORE_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_SAVE_PARMSA {
     pub dwCallback: usize,
     pub lpstrFileName: windows_sys::core::PSTR,
     pub rc: super::super::Foundation::RECT,
 }
-impl Copy for MCI_DGV_SAVE_PARMSA {}
-impl Clone for MCI_DGV_SAVE_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_SAVE_PARMSW {
     pub dwCallback: usize,
     pub lpstrFileName: windows_sys::core::PWSTR,
     pub rc: super::super::Foundation::RECT,
 }
-impl Copy for MCI_DGV_SAVE_PARMSW {}
-impl Clone for MCI_DGV_SAVE_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_SETAUDIO_PARMSA {
     pub dwCallback: usize,
     pub dwItem: u32,
@@ -6383,13 +5847,8 @@ pub struct MCI_DGV_SETAUDIO_PARMSA {
     pub lpstrAlgorithm: windows_sys::core::PSTR,
     pub lpstrQuality: windows_sys::core::PSTR,
 }
-impl Copy for MCI_DGV_SETAUDIO_PARMSA {}
-impl Clone for MCI_DGV_SETAUDIO_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_SETAUDIO_PARMSW {
     pub dwCallback: usize,
     pub dwItem: u32,
@@ -6398,13 +5857,8 @@ pub struct MCI_DGV_SETAUDIO_PARMSW {
     pub lpstrAlgorithm: windows_sys::core::PWSTR,
     pub lpstrQuality: windows_sys::core::PWSTR,
 }
-impl Copy for MCI_DGV_SETAUDIO_PARMSW {}
-impl Clone for MCI_DGV_SETAUDIO_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_SETVIDEO_PARMSA {
     pub dwCallback: usize,
     pub dwItem: u32,
@@ -6414,13 +5868,8 @@ pub struct MCI_DGV_SETVIDEO_PARMSA {
     pub lpstrQuality: windows_sys::core::PSTR,
     pub dwSourceNumber: u32,
 }
-impl Copy for MCI_DGV_SETVIDEO_PARMSA {}
-impl Clone for MCI_DGV_SETVIDEO_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_SETVIDEO_PARMSW {
     pub dwCallback: usize,
     pub dwItem: u32,
@@ -6430,13 +5879,8 @@ pub struct MCI_DGV_SETVIDEO_PARMSW {
     pub lpstrQuality: windows_sys::core::PWSTR,
     pub dwSourceNumber: u32,
 }
-impl Copy for MCI_DGV_SETVIDEO_PARMSW {}
-impl Clone for MCI_DGV_SETVIDEO_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_SET_PARMS {
     pub dwCallback: usize,
     pub dwTimeFormat: u32,
@@ -6444,26 +5888,16 @@ pub struct MCI_DGV_SET_PARMS {
     pub dwFileFormat: u32,
     pub dwSpeed: u32,
 }
-impl Copy for MCI_DGV_SET_PARMS {}
-impl Clone for MCI_DGV_SET_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_SIGNAL_PARMS {
     pub dwCallback: usize,
     pub dwPosition: u32,
     pub dwPeriod: u32,
     pub dwUserParm: u32,
 }
-impl Copy for MCI_DGV_SIGNAL_PARMS {}
-impl Clone for MCI_DGV_SIGNAL_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_STATUS_PARMSA {
     pub dwCallback: usize,
     pub dwReturn: usize,
@@ -6472,13 +5906,8 @@ pub struct MCI_DGV_STATUS_PARMSA {
     pub lpstrDrive: windows_sys::core::PSTR,
     pub dwReference: u32,
 }
-impl Copy for MCI_DGV_STATUS_PARMSA {}
-impl Clone for MCI_DGV_STATUS_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_STATUS_PARMSW {
     pub dwCallback: usize,
     pub dwReturn: usize,
@@ -6487,146 +5916,84 @@ pub struct MCI_DGV_STATUS_PARMSW {
     pub lpstrDrive: windows_sys::core::PWSTR,
     pub dwReference: u32,
 }
-impl Copy for MCI_DGV_STATUS_PARMSW {}
-impl Clone for MCI_DGV_STATUS_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_STEP_PARMS {
     pub dwCallback: usize,
     pub dwFrames: u32,
 }
-impl Copy for MCI_DGV_STEP_PARMS {}
-impl Clone for MCI_DGV_STEP_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_UPDATE_PARMS {
     pub dwCallback: usize,
     pub rc: super::super::Foundation::RECT,
     pub hDC: super::super::Graphics::Gdi::HDC,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for MCI_DGV_UPDATE_PARMS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for MCI_DGV_UPDATE_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_WINDOW_PARMSA {
     pub dwCallback: usize,
     pub hWnd: super::super::Foundation::HWND,
     pub nCmdShow: u32,
     pub lpstrText: windows_sys::core::PSTR,
 }
-impl Copy for MCI_DGV_WINDOW_PARMSA {}
-impl Clone for MCI_DGV_WINDOW_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_WINDOW_PARMSW {
     pub dwCallback: usize,
     pub hWnd: super::super::Foundation::HWND,
     pub nCmdShow: u32,
     pub lpstrText: windows_sys::core::PWSTR,
 }
-impl Copy for MCI_DGV_WINDOW_PARMSW {}
-impl Clone for MCI_DGV_WINDOW_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_GENERIC_PARMS {
     pub dwCallback: usize,
 }
-impl Copy for MCI_GENERIC_PARMS {}
-impl Clone for MCI_GENERIC_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_GETDEVCAPS_PARMS {
     pub dwCallback: usize,
     pub dwReturn: u32,
     pub dwItem: u32,
 }
-impl Copy for MCI_GETDEVCAPS_PARMS {}
-impl Clone for MCI_GETDEVCAPS_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_INFO_PARMSA {
     pub dwCallback: usize,
     pub lpstrReturn: windows_sys::core::PSTR,
     pub dwRetSize: u32,
 }
-impl Copy for MCI_INFO_PARMSA {}
-impl Clone for MCI_INFO_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_INFO_PARMSW {
     pub dwCallback: usize,
     pub lpstrReturn: windows_sys::core::PWSTR,
     pub dwRetSize: u32,
 }
-impl Copy for MCI_INFO_PARMSW {}
-impl Clone for MCI_INFO_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_LOAD_PARMSA {
     pub dwCallback: usize,
     pub lpfilename: windows_sys::core::PCSTR,
 }
-impl Copy for MCI_LOAD_PARMSA {}
-impl Clone for MCI_LOAD_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_LOAD_PARMSW {
     pub dwCallback: usize,
     pub lpfilename: windows_sys::core::PCWSTR,
 }
-impl Copy for MCI_LOAD_PARMSW {}
-impl Clone for MCI_LOAD_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_OPEN_DRIVER_PARMS {
     pub wDeviceID: u32,
     pub lpstrParams: windows_sys::core::PCWSTR,
     pub wCustomCommandTable: u32,
     pub wType: u32,
 }
-impl Copy for MCI_OPEN_DRIVER_PARMS {}
-impl Clone for MCI_OPEN_DRIVER_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_OPEN_PARMSA {
     pub dwCallback: usize,
     pub wDeviceID: u32,
@@ -6634,13 +6001,8 @@ pub struct MCI_OPEN_PARMSA {
     pub lpstrElementName: windows_sys::core::PCSTR,
     pub lpstrAlias: windows_sys::core::PCSTR,
 }
-impl Copy for MCI_OPEN_PARMSA {}
-impl Clone for MCI_OPEN_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_OPEN_PARMSW {
     pub dwCallback: usize,
     pub wDeviceID: u32,
@@ -6648,37 +6010,22 @@ pub struct MCI_OPEN_PARMSW {
     pub lpstrElementName: windows_sys::core::PCWSTR,
     pub lpstrAlias: windows_sys::core::PCWSTR,
 }
-impl Copy for MCI_OPEN_PARMSW {}
-impl Clone for MCI_OPEN_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_OVLY_LOAD_PARMSA {
     pub dwCallback: usize,
     pub lpfilename: windows_sys::core::PCSTR,
     pub rc: super::super::Foundation::RECT,
 }
-impl Copy for MCI_OVLY_LOAD_PARMSA {}
-impl Clone for MCI_OVLY_LOAD_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_OVLY_LOAD_PARMSW {
     pub dwCallback: usize,
     pub lpfilename: windows_sys::core::PCWSTR,
     pub rc: super::super::Foundation::RECT,
 }
-impl Copy for MCI_OVLY_LOAD_PARMSW {}
-impl Clone for MCI_OVLY_LOAD_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_OVLY_OPEN_PARMSA {
     pub dwCallback: usize,
     pub wDeviceID: u32,
@@ -6688,13 +6035,8 @@ pub struct MCI_OVLY_OPEN_PARMSA {
     pub dwStyle: u32,
     pub hWndParent: super::super::Foundation::HWND,
 }
-impl Copy for MCI_OVLY_OPEN_PARMSA {}
-impl Clone for MCI_OVLY_OPEN_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_OVLY_OPEN_PARMSW {
     pub dwCallback: usize,
     pub wDeviceID: u32,
@@ -6704,131 +6046,76 @@ pub struct MCI_OVLY_OPEN_PARMSW {
     pub dwStyle: u32,
     pub hWndParent: super::super::Foundation::HWND,
 }
-impl Copy for MCI_OVLY_OPEN_PARMSW {}
-impl Clone for MCI_OVLY_OPEN_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_OVLY_RECT_PARMS {
     pub dwCallback: usize,
     pub rc: super::super::Foundation::RECT,
 }
-impl Copy for MCI_OVLY_RECT_PARMS {}
-impl Clone for MCI_OVLY_RECT_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_OVLY_SAVE_PARMSA {
     pub dwCallback: usize,
     pub lpfilename: windows_sys::core::PCSTR,
     pub rc: super::super::Foundation::RECT,
 }
-impl Copy for MCI_OVLY_SAVE_PARMSA {}
-impl Clone for MCI_OVLY_SAVE_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_OVLY_SAVE_PARMSW {
     pub dwCallback: usize,
     pub lpfilename: windows_sys::core::PCWSTR,
     pub rc: super::super::Foundation::RECT,
 }
-impl Copy for MCI_OVLY_SAVE_PARMSW {}
-impl Clone for MCI_OVLY_SAVE_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_OVLY_WINDOW_PARMSA {
     pub dwCallback: usize,
     pub hWnd: super::super::Foundation::HWND,
     pub nCmdShow: u32,
     pub lpstrText: windows_sys::core::PCSTR,
 }
-impl Copy for MCI_OVLY_WINDOW_PARMSA {}
-impl Clone for MCI_OVLY_WINDOW_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_OVLY_WINDOW_PARMSW {
     pub dwCallback: usize,
     pub hWnd: super::super::Foundation::HWND,
     pub nCmdShow: u32,
     pub lpstrText: windows_sys::core::PCWSTR,
 }
-impl Copy for MCI_OVLY_WINDOW_PARMSW {}
-impl Clone for MCI_OVLY_WINDOW_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_PLAY_PARMS {
     pub dwCallback: usize,
     pub dwFrom: u32,
     pub dwTo: u32,
 }
-impl Copy for MCI_PLAY_PARMS {}
-impl Clone for MCI_PLAY_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_RECORD_PARMS {
     pub dwCallback: usize,
     pub dwFrom: u32,
     pub dwTo: u32,
 }
-impl Copy for MCI_RECORD_PARMS {}
-impl Clone for MCI_RECORD_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_SAVE_PARMSA {
     pub dwCallback: usize,
     pub lpfilename: windows_sys::core::PCSTR,
 }
-impl Copy for MCI_SAVE_PARMSA {}
-impl Clone for MCI_SAVE_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_SAVE_PARMSW {
     pub dwCallback: usize,
     pub lpfilename: windows_sys::core::PCWSTR,
 }
-impl Copy for MCI_SAVE_PARMSW {}
-impl Clone for MCI_SAVE_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_SEEK_PARMS {
     pub dwCallback: usize,
     pub dwTo: u32,
 }
-impl Copy for MCI_SEEK_PARMS {}
-impl Clone for MCI_SEEK_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_SEQ_SET_PARMS {
     pub dwCallback: usize,
     pub dwTimeFormat: u32,
@@ -6839,38 +6126,23 @@ pub struct MCI_SEQ_SET_PARMS {
     pub dwMaster: u32,
     pub dwOffset: u32,
 }
-impl Copy for MCI_SEQ_SET_PARMS {}
-impl Clone for MCI_SEQ_SET_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_SET_PARMS {
     pub dwCallback: usize,
     pub dwTimeFormat: u32,
     pub dwAudio: u32,
 }
-impl Copy for MCI_SET_PARMS {}
-impl Clone for MCI_SET_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_STATUS_PARMS {
     pub dwCallback: usize,
     pub dwReturn: usize,
     pub dwItem: u32,
     pub dwTrack: u32,
 }
-impl Copy for MCI_STATUS_PARMS {}
-impl Clone for MCI_STATUS_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_SYSINFO_PARMSA {
     pub dwCallback: usize,
     pub lpstrReturn: windows_sys::core::PSTR,
@@ -6878,13 +6150,8 @@ pub struct MCI_SYSINFO_PARMSA {
     pub dwNumber: u32,
     pub wDeviceType: u32,
 }
-impl Copy for MCI_SYSINFO_PARMSA {}
-impl Clone for MCI_SYSINFO_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_SYSINFO_PARMSW {
     pub dwCallback: usize,
     pub lpstrReturn: windows_sys::core::PWSTR,
@@ -6892,71 +6159,41 @@ pub struct MCI_SYSINFO_PARMSW {
     pub dwNumber: u32,
     pub wDeviceType: u32,
 }
-impl Copy for MCI_SYSINFO_PARMSW {}
-impl Clone for MCI_SYSINFO_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_VD_ESCAPE_PARMSA {
     pub dwCallback: usize,
     pub lpstrCommand: windows_sys::core::PCSTR,
 }
-impl Copy for MCI_VD_ESCAPE_PARMSA {}
-impl Clone for MCI_VD_ESCAPE_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_VD_ESCAPE_PARMSW {
     pub dwCallback: usize,
     pub lpstrCommand: windows_sys::core::PCWSTR,
 }
-impl Copy for MCI_VD_ESCAPE_PARMSW {}
-impl Clone for MCI_VD_ESCAPE_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_VD_PLAY_PARMS {
     pub dwCallback: usize,
     pub dwFrom: u32,
     pub dwTo: u32,
     pub dwSpeed: u32,
 }
-impl Copy for MCI_VD_PLAY_PARMS {}
-impl Clone for MCI_VD_PLAY_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_VD_STEP_PARMS {
     pub dwCallback: usize,
     pub dwFrames: u32,
 }
-impl Copy for MCI_VD_STEP_PARMS {}
-impl Clone for MCI_VD_STEP_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_WAVE_DELETE_PARMS {
     pub dwCallback: usize,
     pub dwFrom: u32,
     pub dwTo: u32,
 }
-impl Copy for MCI_WAVE_DELETE_PARMS {}
-impl Clone for MCI_WAVE_DELETE_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_WAVE_OPEN_PARMSA {
     pub dwCallback: usize,
     pub wDeviceID: u32,
@@ -6965,13 +6202,8 @@ pub struct MCI_WAVE_OPEN_PARMSA {
     pub lpstrAlias: windows_sys::core::PCSTR,
     pub dwBufferSeconds: u32,
 }
-impl Copy for MCI_WAVE_OPEN_PARMSA {}
-impl Clone for MCI_WAVE_OPEN_PARMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_WAVE_OPEN_PARMSW {
     pub dwCallback: usize,
     pub wDeviceID: u32,
@@ -6980,13 +6212,8 @@ pub struct MCI_WAVE_OPEN_PARMSW {
     pub lpstrAlias: windows_sys::core::PCWSTR,
     pub dwBufferSeconds: u32,
 }
-impl Copy for MCI_WAVE_OPEN_PARMSW {}
-impl Clone for MCI_WAVE_OPEN_PARMSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MCI_WAVE_SET_PARMS {
     pub dwCallback: usize,
     pub dwTimeFormat: u32,
@@ -7004,39 +6231,22 @@ pub struct MCI_WAVE_SET_PARMS {
     pub wBitsPerSample: u16,
     pub wReserved5: u16,
 }
-impl Copy for MCI_WAVE_SET_PARMS {}
-impl Clone for MCI_WAVE_SET_PARMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct MEDIASPACEADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wRevision: u16,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for MEDIASPACEADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for MEDIASPACEADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MIDIOPENSTRMID {
     pub dwStreamID: u32,
     pub uDeviceID: u32,
 }
-impl Copy for MIDIOPENSTRMID {}
-impl Clone for MIDIOPENSTRMID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct MIXEROPENDESC {
     pub hmx: super::Audio::HMIXER,
     pub pReserved0: *mut core::ffi::c_void,
@@ -7044,15 +6254,8 @@ pub struct MIXEROPENDESC {
     pub dwInstance: usize,
     pub dnDevNode: usize,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for MIXEROPENDESC {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for MIXEROPENDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MMCKINFO {
     pub ckid: u32,
     pub cksize: u32,
@@ -7060,13 +6263,8 @@ pub struct MMCKINFO {
     pub dwDataOffset: u32,
     pub dwFlags: u32,
 }
-impl Copy for MMCKINFO {}
-impl Clone for MMCKINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct MMIOINFO {
     pub dwFlags: u32,
     pub fccIOProc: u32,
@@ -7085,135 +6283,67 @@ pub struct MMIOINFO {
     pub dwReserved2: u32,
     pub hmmio: HMMIO,
 }
-impl Copy for MMIOINFO {}
-impl Clone for MMIOINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct MSAUDIO1WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
     pub wEncodeOptions: u16,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for MSAUDIO1WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for MSAUDIO1WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct NMS_VBXADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for NMS_VBXADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for NMS_VBXADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct OLIADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for OLIADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for OLIADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct OLICELPWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for OLICELPWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for OLICELPWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct OLIGSMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for OLIGSMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for OLIGSMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct OLIOPRWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for OLIOPRWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for OLIOPRWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct OLISBCWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for OLISBCWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for OLISBCWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct SIERRAADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wRevision: u16,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for SIERRAADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for SIERRAADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct SONARCWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wCompType: u16,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for SONARCWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for SONARCWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct TIMEREVENT {
     pub wDelay: u16,
     pub wResolution: u16,
@@ -7222,29 +6352,17 @@ pub struct TIMEREVENT {
     pub wFlags: u16,
     pub wReserved1: u16,
 }
-impl Copy for TIMEREVENT {}
-impl Clone for TIMEREVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct TRUESPEECHWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wRevision: u16,
     pub nSamplesPerBlock: u16,
     pub abReserved: [u8; 28],
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for TRUESPEECHWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for TRUESPEECHWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VIDEOHDR {
     pub lpData: *mut u8,
     pub dwBufferLength: u32,
@@ -7254,14 +6372,9 @@ pub struct VIDEOHDR {
     pub dwFlags: u32,
     pub dwReserved: [usize; 4],
 }
-impl Copy for VIDEOHDR {}
-impl Clone for VIDEOHDR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct WAVEOPENDESC {
     pub hWave: super::Audio::HWAVE,
     pub lpFormat: *mut super::Audio::WAVEFORMAT,
@@ -7270,32 +6383,18 @@ pub struct WAVEOPENDESC {
     pub uMappedDeviceID: u32,
     pub dnDevNode: usize,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for WAVEOPENDESC {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for WAVEOPENDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct WMAUDIO2WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub dwSamplesPerBlock: u32,
     pub wEncodeOptions: u16,
     pub dwSuperBlockAlign: u32,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for WMAUDIO2WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for WMAUDIO2WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct WMAUDIO3WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wValidBitsPerSample: u16,
@@ -7305,28 +6404,14 @@ pub struct WMAUDIO3WAVEFORMAT {
     pub wEncodeOptions: u16,
     pub wReserved3: u16,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for WMAUDIO3WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for WMAUDIO3WAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
+#[derive(Clone, Copy)]
 pub struct YAMAHA_ADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl Copy for YAMAHA_ADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
-impl Clone for YAMAHA_ADPCMWAVEFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct s_RIFFWAVE_inst {
     pub bUnshiftedNote: u8,
     pub chFineTune: i8,
@@ -7335,12 +6420,6 @@ pub struct s_RIFFWAVE_inst {
     pub bHighNote: u8,
     pub bLowVelocity: u8,
     pub bHighVelocity: u8,
-}
-impl Copy for s_RIFFWAVE_inst {}
-impl Clone for s_RIFFWAVE_inst {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type AVISAVECALLBACK = Option<unsafe extern "system" fn(param0: i32) -> super::super::Foundation::BOOL>;
 pub type CAPCONTROLCALLBACK = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nstate: i32) -> super::super::Foundation::LRESULT>;

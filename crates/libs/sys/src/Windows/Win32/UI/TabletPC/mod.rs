@@ -1302,59 +1302,34 @@ pub type TabletHardwareCapabilities = i32;
 pub type TabletPropertyMetricUnit = i32;
 pub type VisualState = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CHARACTER_RANGE {
     pub wcLow: u16,
     pub cChars: u16,
 }
-impl Copy for CHARACTER_RANGE {}
-impl Clone for CHARACTER_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DYNAMIC_RENDERER_CACHED_DATA {
     pub strokeId: i32,
     pub dynamicRenderer: *mut core::ffi::c_void,
 }
-impl Copy for DYNAMIC_RENDERER_CACHED_DATA {}
-impl Clone for DYNAMIC_RENDERER_CACHED_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const DynamicRenderer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xecd32aea_746f_4dcb_bf68_082757faff18);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FLICK_DATA {
     pub _bitfield: i32,
 }
-impl Copy for FLICK_DATA {}
-impl Clone for FLICK_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FLICK_POINT {
     pub _bitfield: i32,
 }
-impl Copy for FLICK_POINT {}
-impl Clone for FLICK_POINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GESTURE_DATA {
     pub gestureId: i32,
     pub recoConfidence: i32,
     pub strokeCount: i32,
-}
-impl Copy for GESTURE_DATA {}
-impl Clone for GESTURE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const GestureRecognizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xea30c654_c62c_441f_ac00_95f9a196782c);
 pub type HRECOALT = isize;
@@ -1365,62 +1340,36 @@ pub type HRECOWORDLIST = isize;
 pub const HandwrittenTextInsertion: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9f074ee2_e6e9_4d8a_a047_eb5b5c3c55da);
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
+#[derive(Clone, Copy)]
 pub struct IEC_GESTUREINFO {
     pub nmhdr: super::Controls::NMHDR,
     pub Cursor: *mut core::ffi::c_void,
     pub Strokes: *mut core::ffi::c_void,
     pub Gestures: super::super::System::Variant::VARIANT,
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
-impl Copy for IEC_GESTUREINFO {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
-impl Clone for IEC_GESTUREINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls")]
+#[derive(Clone, Copy)]
 pub struct IEC_RECOGNITIONRESULTINFO {
     pub nmhdr: super::Controls::NMHDR,
     pub RecognitionResult: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_UI_Controls")]
-impl Copy for IEC_RECOGNITIONRESULTINFO {}
-#[cfg(feature = "Win32_UI_Controls")]
-impl Clone for IEC_RECOGNITIONRESULTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls")]
+#[derive(Clone, Copy)]
 pub struct IEC_STROKEINFO {
     pub nmhdr: super::Controls::NMHDR,
     pub Cursor: *mut core::ffi::c_void,
     pub Stroke: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_UI_Controls")]
-impl Copy for IEC_STROKEINFO {}
-#[cfg(feature = "Win32_UI_Controls")]
-impl Clone for IEC_STROKEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct INKMETRIC {
     pub iHeight: i32,
     pub iFontAscent: i32,
     pub iFontDescent: i32,
     pub dwFlags: u32,
     pub color: super::super::Foundation::COLORREF,
-}
-impl Copy for INKMETRIC {}
-impl Clone for INKMETRIC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const Ink: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x13de4a42_8d21_4c8e_bf9c_8f69cb068fca);
 pub const InkCollector: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x43fb1553_ad74_4ee8_88e4_3e6daac915db);
@@ -1431,18 +1380,13 @@ pub const InkEdit: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(
 pub const InkOverlay: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x65d00646_cde3_4a88_9163_6769f0f1a97d);
 pub const InkPicture: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x04a1e553_fe36_4fde_865e_344194e69424);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct InkRecoGuide {
     pub rectWritingBox: super::super::Foundation::RECT,
     pub rectDrawnBox: super::super::Foundation::RECT,
     pub cRows: i32,
     pub cColumns: i32,
     pub midline: i32,
-}
-impl Copy for InkRecoGuide {}
-impl Clone for InkRecoGuide {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const InkRecognizerContext: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaac46a37_9229_4fc0_8cce_4497569bf4d1);
 pub const InkRecognizerGuide: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8770d941_a63a_4671_a375_2855a18eba73);
@@ -1454,29 +1398,20 @@ pub const InkTablets: windows_sys::core::GUID = windows_sys::core::GUID::from_u1
 pub const InkTransform: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe3d5d93c_1663_4a78_a1a7_22375dfebaee);
 pub const InkWordList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9de85094_f71f_44f1_8471_15a2fa76fcf3);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LATTICE_METRICS {
     pub lsBaseline: LINE_SEGMENT,
     pub iMidlineOffset: i16,
 }
-impl Copy for LATTICE_METRICS {}
-impl Clone for LATTICE_METRICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LINE_SEGMENT {
     pub PtA: super::super::Foundation::POINT,
     pub PtB: super::super::Foundation::POINT,
 }
-impl Copy for LINE_SEGMENT {}
-impl Clone for LINE_SEGMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const MathInputControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc561816c_14d8_4090_830c_98d994b21c7b);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PACKET_DESCRIPTION {
     pub cbPacketSize: u32,
     pub cPacketProperties: u32,
@@ -1484,52 +1419,32 @@ pub struct PACKET_DESCRIPTION {
     pub cButtons: u32,
     pub pguidButtons: *mut windows_sys::core::GUID,
 }
-impl Copy for PACKET_DESCRIPTION {}
-impl Clone for PACKET_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PACKET_PROPERTY {
     pub guid: windows_sys::core::GUID,
     pub PropertyMetrics: PROPERTY_METRICS,
 }
-impl Copy for PACKET_PROPERTY {}
-impl Clone for PACKET_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PROPERTY_METRICS {
     pub nLogicalMin: i32,
     pub nLogicalMax: i32,
     pub Units: PROPERTY_UNITS,
     pub fResolution: f32,
 }
-impl Copy for PROPERTY_METRICS {}
-impl Clone for PROPERTY_METRICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const PenInputPanel: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf744e496_1b5a_489e_81dc_fbd7ac6298a8);
 pub const PenInputPanel_Internal: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x802b1fb9_056b_4720_b0cc_80d23b71171e);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RECO_ATTRS {
     pub dwRecoCapabilityFlags: u32,
     pub awcVendorName: [u16; 32],
     pub awcFriendlyName: [u16; 64],
     pub awLanguageId: [u16; 64],
 }
-impl Copy for RECO_ATTRS {}
-impl Clone for RECO_ATTRS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RECO_GUIDE {
     pub xOrigin: i32,
     pub yOrigin: i32,
@@ -1541,13 +1456,8 @@ pub struct RECO_GUIDE {
     pub cVertBox: i32,
     pub cyMid: i32,
 }
-impl Copy for RECO_GUIDE {}
-impl Clone for RECO_GUIDE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RECO_LATTICE {
     pub ulColumnCount: u32,
     pub pLatticeColumns: *mut RECO_LATTICE_COLUMN,
@@ -1557,13 +1467,8 @@ pub struct RECO_LATTICE {
     pub pulBestResultColumns: *mut u32,
     pub pulBestResultIndexes: *mut u32,
 }
-impl Copy for RECO_LATTICE {}
-impl Clone for RECO_LATTICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RECO_LATTICE_COLUMN {
     pub key: u32,
     pub cpProp: RECO_LATTICE_PROPERTIES,
@@ -1572,13 +1477,8 @@ pub struct RECO_LATTICE_COLUMN {
     pub cLatticeElements: u32,
     pub pLatticeElements: *mut RECO_LATTICE_ELEMENT,
 }
-impl Copy for RECO_LATTICE_COLUMN {}
-impl Clone for RECO_LATTICE_COLUMN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RECO_LATTICE_ELEMENT {
     pub score: i32,
     pub r#type: u16,
@@ -1587,59 +1487,34 @@ pub struct RECO_LATTICE_ELEMENT {
     pub ulStrokeNumber: u32,
     pub epProp: RECO_LATTICE_PROPERTIES,
 }
-impl Copy for RECO_LATTICE_ELEMENT {}
-impl Clone for RECO_LATTICE_ELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RECO_LATTICE_PROPERTIES {
     pub cProperties: u32,
     pub apProps: *mut *mut RECO_LATTICE_PROPERTY,
 }
-impl Copy for RECO_LATTICE_PROPERTIES {}
-impl Clone for RECO_LATTICE_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RECO_LATTICE_PROPERTY {
     pub guidProperty: windows_sys::core::GUID,
     pub cbPropertyValue: u16,
     pub pPropertyValue: *mut u8,
 }
-impl Copy for RECO_LATTICE_PROPERTY {}
-impl Clone for RECO_LATTICE_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RECO_RANGE {
     pub iwcBegin: u32,
     pub cCount: u32,
 }
-impl Copy for RECO_RANGE {}
-impl Clone for RECO_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const RealTimeStylus: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe26b366d_f998_43ce_836f_cb6d904432b0);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STROKE_RANGE {
     pub iStrokeBegin: u32,
     pub iStrokeEnd: u32,
 }
-impl Copy for STROKE_RANGE {}
-impl Clone for STROKE_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_EVENT_DATA {
     pub bModifier: u8,
     pub wKey: u16,
@@ -1648,25 +1523,14 @@ pub struct SYSTEM_EVENT_DATA {
     pub bCursorMode: u8,
     pub dwButtonState: u32,
 }
-impl Copy for SYSTEM_EVENT_DATA {}
-impl Clone for SYSTEM_EVENT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub const SketchInk: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf0291081_e87c_4e07_97da_a0a03761e586);
 pub const StrokeBuilder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe810cee7_6e51_4cb0_aa3a_0b985b70daf7);
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct StylusInfo {
     pub tcid: u32,
     pub cid: u32,
     pub bIsInvertedCursor: super::super::Foundation::BOOL,
-}
-impl Copy for StylusInfo {}
-impl Clone for StylusInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub const TextInputPanel: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf9b189d7_228b_4f2b_8650_b97f59e02c8c);
 pub const TipAutoCompleteClient: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x807c1e6c_1d00_453f_b920_b61bb7cdd997);

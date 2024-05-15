@@ -105,95 +105,47 @@ impl core::fmt::Debug for AUTHNEXTSTEP {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DAV_CALLBACK_AUTH_BLOB {
     pub pBuffer: *mut core::ffi::c_void,
     pub ulSize: u32,
     pub ulType: u32,
 }
-impl Copy for DAV_CALLBACK_AUTH_BLOB {}
-impl Clone for DAV_CALLBACK_AUTH_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DAV_CALLBACK_AUTH_BLOB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DAV_CALLBACK_AUTH_BLOB").field("pBuffer", &self.pBuffer).field("ulSize", &self.ulSize).field("ulType", &self.ulType).finish()
-    }
-}
 impl windows_core::TypeKind for DAV_CALLBACK_AUTH_BLOB {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DAV_CALLBACK_AUTH_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.pBuffer == other.pBuffer && self.ulSize == other.ulSize && self.ulType == other.ulType
-    }
-}
-impl Eq for DAV_CALLBACK_AUTH_BLOB {}
 impl Default for DAV_CALLBACK_AUTH_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DAV_CALLBACK_AUTH_UNP {
     pub pszUserName: windows_core::PWSTR,
     pub ulUserNameLength: u32,
     pub pszPassword: windows_core::PWSTR,
     pub ulPasswordLength: u32,
 }
-impl Copy for DAV_CALLBACK_AUTH_UNP {}
-impl Clone for DAV_CALLBACK_AUTH_UNP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DAV_CALLBACK_AUTH_UNP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DAV_CALLBACK_AUTH_UNP").field("pszUserName", &self.pszUserName).field("ulUserNameLength", &self.ulUserNameLength).field("pszPassword", &self.pszPassword).field("ulPasswordLength", &self.ulPasswordLength).finish()
-    }
-}
 impl windows_core::TypeKind for DAV_CALLBACK_AUTH_UNP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DAV_CALLBACK_AUTH_UNP {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszUserName == other.pszUserName && self.ulUserNameLength == other.ulUserNameLength && self.pszPassword == other.pszPassword && self.ulPasswordLength == other.ulPasswordLength
-    }
-}
-impl Eq for DAV_CALLBACK_AUTH_UNP {}
 impl Default for DAV_CALLBACK_AUTH_UNP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DAV_CALLBACK_CRED {
     pub AuthBlob: DAV_CALLBACK_AUTH_BLOB,
     pub UNPBlob: DAV_CALLBACK_AUTH_UNP,
     pub bAuthBlobValid: super::super::Foundation::BOOL,
     pub bSave: super::super::Foundation::BOOL,
 }
-impl Copy for DAV_CALLBACK_CRED {}
-impl Clone for DAV_CALLBACK_CRED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DAV_CALLBACK_CRED {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DAV_CALLBACK_CRED").field("AuthBlob", &self.AuthBlob).field("UNPBlob", &self.UNPBlob).field("bAuthBlobValid", &self.bAuthBlobValid).field("bSave", &self.bSave).finish()
-    }
-}
 impl windows_core::TypeKind for DAV_CALLBACK_CRED {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DAV_CALLBACK_CRED {
-    fn eq(&self, other: &Self) -> bool {
-        self.AuthBlob == other.AuthBlob && self.UNPBlob == other.UNPBlob && self.bAuthBlobValid == other.bAuthBlobValid && self.bSave == other.bSave
-    }
-}
-impl Eq for DAV_CALLBACK_CRED {}
 impl Default for DAV_CALLBACK_CRED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

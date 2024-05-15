@@ -5637,64 +5637,32 @@ impl core::fmt::Debug for TransactionVote {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct APPDATA {
     pub m_idApp: u32,
     pub m_szAppGuid: [u16; 40],
     pub m_dwAppProcessId: u32,
     pub m_AppStatistics: APPSTATISTICS,
 }
-impl Copy for APPDATA {}
-impl Clone for APPDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for APPDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("APPDATA").field("m_idApp", &self.m_idApp).field("m_szAppGuid", &self.m_szAppGuid).field("m_dwAppProcessId", &self.m_dwAppProcessId).field("m_AppStatistics", &self.m_AppStatistics).finish()
-    }
-}
 impl windows_core::TypeKind for APPDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for APPDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_idApp == other.m_idApp && self.m_szAppGuid == other.m_szAppGuid && self.m_dwAppProcessId == other.m_dwAppProcessId && self.m_AppStatistics == other.m_AppStatistics
-    }
-}
-impl Eq for APPDATA {}
 impl Default for APPDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct APPSTATISTICS {
     pub m_cTotalCalls: u32,
     pub m_cTotalInstances: u32,
     pub m_cTotalClasses: u32,
     pub m_cCallsPerSecond: u32,
 }
-impl Copy for APPSTATISTICS {}
-impl Clone for APPSTATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for APPSTATISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("APPSTATISTICS").field("m_cTotalCalls", &self.m_cTotalCalls).field("m_cTotalInstances", &self.m_cTotalInstances).field("m_cTotalClasses", &self.m_cTotalClasses).field("m_cCallsPerSecond", &self.m_cCallsPerSecond).finish()
-    }
-}
 impl windows_core::TypeKind for APPSTATISTICS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for APPSTATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_cTotalCalls == other.m_cTotalCalls && self.m_cTotalInstances == other.m_cTotalInstances && self.m_cTotalClasses == other.m_cTotalClasses && self.m_cCallsPerSecond == other.m_cCallsPerSecond
-    }
-}
-impl Eq for APPSTATISTICS {}
 impl Default for APPSTATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5702,6 +5670,7 @@ impl Default for APPSTATISTICS {
 }
 pub const AppDomainHelper: windows_core::GUID = windows_core::GUID::from_u128(0xef24f689_14f8_4d92_b4af_d7b1f0e70fd4);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ApplicationProcessRecycleInfo {
     pub IsRecyclable: super::super::Foundation::BOOL,
     pub IsRecycled: super::super::Foundation::BOOL,
@@ -5718,47 +5687,16 @@ pub struct ApplicationProcessRecycleInfo {
     pub CallLimit: u32,
     pub NumCallsLastReported: u32,
 }
-impl Copy for ApplicationProcessRecycleInfo {}
-impl Clone for ApplicationProcessRecycleInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ApplicationProcessRecycleInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ApplicationProcessRecycleInfo")
-            .field("IsRecyclable", &self.IsRecyclable)
-            .field("IsRecycled", &self.IsRecycled)
-            .field("TimeRecycled", &self.TimeRecycled)
-            .field("TimeToTerminate", &self.TimeToTerminate)
-            .field("RecycleReasonCode", &self.RecycleReasonCode)
-            .field("IsPendingRecycle", &self.IsPendingRecycle)
-            .field("HasAutomaticLifetimeRecycling", &self.HasAutomaticLifetimeRecycling)
-            .field("TimeForAutomaticRecycling", &self.TimeForAutomaticRecycling)
-            .field("MemoryLimitInKB", &self.MemoryLimitInKB)
-            .field("MemoryUsageInKBLastCheck", &self.MemoryUsageInKBLastCheck)
-            .field("ActivationLimit", &self.ActivationLimit)
-            .field("NumActivationsLastReported", &self.NumActivationsLastReported)
-            .field("CallLimit", &self.CallLimit)
-            .field("NumCallsLastReported", &self.NumCallsLastReported)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for ApplicationProcessRecycleInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ApplicationProcessRecycleInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.IsRecyclable == other.IsRecyclable && self.IsRecycled == other.IsRecycled && self.TimeRecycled == other.TimeRecycled && self.TimeToTerminate == other.TimeToTerminate && self.RecycleReasonCode == other.RecycleReasonCode && self.IsPendingRecycle == other.IsPendingRecycle && self.HasAutomaticLifetimeRecycling == other.HasAutomaticLifetimeRecycling && self.TimeForAutomaticRecycling == other.TimeForAutomaticRecycling && self.MemoryLimitInKB == other.MemoryLimitInKB && self.MemoryUsageInKBLastCheck == other.MemoryUsageInKBLastCheck && self.ActivationLimit == other.ActivationLimit && self.NumActivationsLastReported == other.NumActivationsLastReported && self.CallLimit == other.CallLimit && self.NumCallsLastReported == other.NumCallsLastReported
-    }
-}
-impl Eq for ApplicationProcessRecycleInfo {}
 impl Default for ApplicationProcessRecycleInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ApplicationProcessStatistics {
     pub NumCallsOutstanding: u32,
     pub NumTrackedComponents: u32,
@@ -5769,32 +5707,16 @@ pub struct ApplicationProcessStatistics {
     pub Reserved3: u32,
     pub Reserved4: u32,
 }
-impl Copy for ApplicationProcessStatistics {}
-impl Clone for ApplicationProcessStatistics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ApplicationProcessStatistics {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ApplicationProcessStatistics").field("NumCallsOutstanding", &self.NumCallsOutstanding).field("NumTrackedComponents", &self.NumTrackedComponents).field("NumComponentInstances", &self.NumComponentInstances).field("AvgCallsPerSecond", &self.AvgCallsPerSecond).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("Reserved4", &self.Reserved4).finish()
-    }
-}
 impl windows_core::TypeKind for ApplicationProcessStatistics {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ApplicationProcessStatistics {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumCallsOutstanding == other.NumCallsOutstanding && self.NumTrackedComponents == other.NumTrackedComponents && self.NumComponentInstances == other.NumComponentInstances && self.AvgCallsPerSecond == other.AvgCallsPerSecond && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3 && self.Reserved4 == other.Reserved4
-    }
-}
-impl Eq for ApplicationProcessStatistics {}
 impl Default for ApplicationProcessStatistics {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ApplicationProcessSummary {
     pub PartitionIdPrimaryApplication: windows_core::GUID,
     pub ApplicationIdPrimaryApplication: windows_core::GUID,
@@ -5806,42 +5728,16 @@ pub struct ApplicationProcessSummary {
     pub IsPaused: super::super::Foundation::BOOL,
     pub IsRecycled: super::super::Foundation::BOOL,
 }
-impl Copy for ApplicationProcessSummary {}
-impl Clone for ApplicationProcessSummary {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ApplicationProcessSummary {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ApplicationProcessSummary")
-            .field("PartitionIdPrimaryApplication", &self.PartitionIdPrimaryApplication)
-            .field("ApplicationIdPrimaryApplication", &self.ApplicationIdPrimaryApplication)
-            .field("ApplicationInstanceId", &self.ApplicationInstanceId)
-            .field("ProcessId", &self.ProcessId)
-            .field("Type", &self.Type)
-            .field("ProcessExeName", &self.ProcessExeName)
-            .field("IsService", &self.IsService)
-            .field("IsPaused", &self.IsPaused)
-            .field("IsRecycled", &self.IsRecycled)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for ApplicationProcessSummary {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ApplicationProcessSummary {
-    fn eq(&self, other: &Self) -> bool {
-        self.PartitionIdPrimaryApplication == other.PartitionIdPrimaryApplication && self.ApplicationIdPrimaryApplication == other.ApplicationIdPrimaryApplication && self.ApplicationInstanceId == other.ApplicationInstanceId && self.ProcessId == other.ProcessId && self.Type == other.Type && self.ProcessExeName == other.ProcessExeName && self.IsService == other.IsService && self.IsPaused == other.IsPaused && self.IsRecycled == other.IsRecycled
-    }
-}
-impl Eq for ApplicationProcessSummary {}
 impl Default for ApplicationProcessSummary {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ApplicationSummary {
     pub ApplicationInstanceId: windows_core::GUID,
     pub PartitionId: windows_core::GUID,
@@ -5851,26 +5747,9 @@ pub struct ApplicationSummary {
     pub NumTrackedComponents: u32,
     pub NumComponentInstances: u32,
 }
-impl Copy for ApplicationSummary {}
-impl Clone for ApplicationSummary {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ApplicationSummary {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ApplicationSummary").field("ApplicationInstanceId", &self.ApplicationInstanceId).field("PartitionId", &self.PartitionId).field("ApplicationId", &self.ApplicationId).field("Type", &self.Type).field("ApplicationName", &self.ApplicationName).field("NumTrackedComponents", &self.NumTrackedComponents).field("NumComponentInstances", &self.NumComponentInstances).finish()
-    }
-}
 impl windows_core::TypeKind for ApplicationSummary {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ApplicationSummary {
-    fn eq(&self, other: &Self) -> bool {
-        self.ApplicationInstanceId == other.ApplicationInstanceId && self.PartitionId == other.PartitionId && self.ApplicationId == other.ApplicationId && self.Type == other.Type && self.ApplicationName == other.ApplicationName && self.NumTrackedComponents == other.NumTrackedComponents && self.NumComponentInstances == other.NumComponentInstances
-    }
-}
-impl Eq for ApplicationSummary {}
 impl Default for ApplicationSummary {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5878,6 +5757,7 @@ impl Default for ApplicationSummary {
 }
 pub const ByotServerEx: windows_core::GUID = windows_core::GUID::from_u128(0xecabb0aa_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLSIDDATA {
     pub m_clsid: windows_core::GUID,
     pub m_cReferences: u32,
@@ -5888,32 +5768,16 @@ pub struct CLSIDDATA {
     pub m_cCallsCompleted: u32,
     pub m_cCallsFailed: u32,
 }
-impl Copy for CLSIDDATA {}
-impl Clone for CLSIDDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLSIDDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLSIDDATA").field("m_clsid", &self.m_clsid).field("m_cReferences", &self.m_cReferences).field("m_cBound", &self.m_cBound).field("m_cPooled", &self.m_cPooled).field("m_cInCall", &self.m_cInCall).field("m_dwRespTime", &self.m_dwRespTime).field("m_cCallsCompleted", &self.m_cCallsCompleted).field("m_cCallsFailed", &self.m_cCallsFailed).finish()
-    }
-}
 impl windows_core::TypeKind for CLSIDDATA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLSIDDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_clsid == other.m_clsid && self.m_cReferences == other.m_cReferences && self.m_cBound == other.m_cBound && self.m_cPooled == other.m_cPooled && self.m_cInCall == other.m_cInCall && self.m_dwRespTime == other.m_dwRespTime && self.m_cCallsCompleted == other.m_cCallsCompleted && self.m_cCallsFailed == other.m_cCallsFailed
-    }
-}
-impl Eq for CLSIDDATA {}
 impl Default for CLSIDDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLSIDDATA2 {
     pub m_clsid: windows_core::GUID,
     pub m_appid: windows_core::GUID,
@@ -5929,40 +5793,9 @@ pub struct CLSIDDATA2 {
     pub m_cCallsCompleted: u32,
     pub m_cCallsFailed: u32,
 }
-impl Copy for CLSIDDATA2 {}
-impl Clone for CLSIDDATA2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CLSIDDATA2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CLSIDDATA2")
-            .field("m_clsid", &self.m_clsid)
-            .field("m_appid", &self.m_appid)
-            .field("m_partid", &self.m_partid)
-            .field("m_pwszAppName", &self.m_pwszAppName)
-            .field("m_pwszCtxName", &self.m_pwszCtxName)
-            .field("m_eAppType", &self.m_eAppType)
-            .field("m_cReferences", &self.m_cReferences)
-            .field("m_cBound", &self.m_cBound)
-            .field("m_cPooled", &self.m_cPooled)
-            .field("m_cInCall", &self.m_cInCall)
-            .field("m_dwRespTime", &self.m_dwRespTime)
-            .field("m_cCallsCompleted", &self.m_cCallsCompleted)
-            .field("m_cCallsFailed", &self.m_cCallsFailed)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for CLSIDDATA2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CLSIDDATA2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_clsid == other.m_clsid && self.m_appid == other.m_appid && self.m_partid == other.m_partid && self.m_pwszAppName == other.m_pwszAppName && self.m_pwszCtxName == other.m_pwszCtxName && self.m_eAppType == other.m_eAppType && self.m_cReferences == other.m_cReferences && self.m_cBound == other.m_cBound && self.m_cPooled == other.m_cPooled && self.m_cInCall == other.m_cInCall && self.m_dwRespTime == other.m_dwRespTime && self.m_cCallsCompleted == other.m_cCallsCompleted && self.m_cCallsFailed == other.m_cCallsFailed
-    }
-}
-impl Eq for CLSIDDATA2 {}
 impl Default for CLSIDDATA2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5973,6 +5806,7 @@ pub const COMAdminCatalogCollection: windows_core::GUID = windows_core::GUID::fr
 pub const COMAdminCatalogObject: windows_core::GUID = windows_core::GUID::from_u128(0xf618c515_dfb8_11d1_a2cf_00805fc79235);
 pub const COMEvents: windows_core::GUID = windows_core::GUID::from_u128(0xecabb0ab_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMSVCSEVENTINFO {
     pub cbSize: u32,
     pub dwPid: u32,
@@ -5982,26 +5816,9 @@ pub struct COMSVCSEVENTINFO {
     pub guidApp: windows_core::GUID,
     pub sMachineName: windows_core::PWSTR,
 }
-impl Copy for COMSVCSEVENTINFO {}
-impl Clone for COMSVCSEVENTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COMSVCSEVENTINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COMSVCSEVENTINFO").field("cbSize", &self.cbSize).field("dwPid", &self.dwPid).field("lTime", &self.lTime).field("lMicroTime", &self.lMicroTime).field("perfCount", &self.perfCount).field("guidApp", &self.guidApp).field("sMachineName", &self.sMachineName).finish()
-    }
-}
 impl windows_core::TypeKind for COMSVCSEVENTINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COMSVCSEVENTINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwPid == other.dwPid && self.lTime == other.lTime && self.lMicroTime == other.lMicroTime && self.perfCount == other.perfCount && self.guidApp == other.guidApp && self.sMachineName == other.sMachineName
-    }
-}
-impl Eq for COMSVCSEVENTINFO {}
 impl Default for COMSVCSEVENTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6015,37 +5832,22 @@ pub const CoMTSLocator: windows_core::GUID = windows_core::GUID::from_u128(0xeca
 pub const ComServiceEvents: windows_core::GUID = windows_core::GUID::from_u128(0xecabb0c3_7f19_11d2_978e_0000f8757e2a);
 pub const ComSystemAppEventData: windows_core::GUID = windows_core::GUID::from_u128(0xecabb0c6_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ComponentHangMonitorInfo {
     pub IsMonitored: super::super::Foundation::BOOL,
     pub TerminateOnHang: super::super::Foundation::BOOL,
     pub AvgCallThresholdInMs: u32,
 }
-impl Copy for ComponentHangMonitorInfo {}
-impl Clone for ComponentHangMonitorInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ComponentHangMonitorInfo {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ComponentHangMonitorInfo").field("IsMonitored", &self.IsMonitored).field("TerminateOnHang", &self.TerminateOnHang).field("AvgCallThresholdInMs", &self.AvgCallThresholdInMs).finish()
-    }
-}
 impl windows_core::TypeKind for ComponentHangMonitorInfo {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ComponentHangMonitorInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.IsMonitored == other.IsMonitored && self.TerminateOnHang == other.TerminateOnHang && self.AvgCallThresholdInMs == other.AvgCallThresholdInMs
-    }
-}
-impl Eq for ComponentHangMonitorInfo {}
 impl Default for ComponentHangMonitorInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ComponentStatistics {
     pub NumInstances: u32,
     pub NumBoundReferences: u32,
@@ -6061,46 +5863,16 @@ pub struct ComponentStatistics {
     pub Reserved3: u32,
     pub Reserved4: u32,
 }
-impl Copy for ComponentStatistics {}
-impl Clone for ComponentStatistics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ComponentStatistics {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ComponentStatistics")
-            .field("NumInstances", &self.NumInstances)
-            .field("NumBoundReferences", &self.NumBoundReferences)
-            .field("NumPooledObjects", &self.NumPooledObjects)
-            .field("NumObjectsInCall", &self.NumObjectsInCall)
-            .field("AvgResponseTimeInMs", &self.AvgResponseTimeInMs)
-            .field("NumCallsCompletedRecent", &self.NumCallsCompletedRecent)
-            .field("NumCallsFailedRecent", &self.NumCallsFailedRecent)
-            .field("NumCallsCompletedTotal", &self.NumCallsCompletedTotal)
-            .field("NumCallsFailedTotal", &self.NumCallsFailedTotal)
-            .field("Reserved1", &self.Reserved1)
-            .field("Reserved2", &self.Reserved2)
-            .field("Reserved3", &self.Reserved3)
-            .field("Reserved4", &self.Reserved4)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for ComponentStatistics {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ComponentStatistics {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumInstances == other.NumInstances && self.NumBoundReferences == other.NumBoundReferences && self.NumPooledObjects == other.NumPooledObjects && self.NumObjectsInCall == other.NumObjectsInCall && self.AvgResponseTimeInMs == other.AvgResponseTimeInMs && self.NumCallsCompletedRecent == other.NumCallsCompletedRecent && self.NumCallsFailedRecent == other.NumCallsFailedRecent && self.NumCallsCompletedTotal == other.NumCallsCompletedTotal && self.NumCallsFailedTotal == other.NumCallsFailedTotal && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3 && self.Reserved4 == other.Reserved4
-    }
-}
-impl Eq for ComponentStatistics {}
 impl Default for ComponentStatistics {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ComponentSummary {
     pub ApplicationInstanceId: windows_core::GUID,
     pub PartitionId: windows_core::GUID,
@@ -6109,26 +5881,9 @@ pub struct ComponentSummary {
     pub ClassName: windows_core::PWSTR,
     pub ApplicationName: windows_core::PWSTR,
 }
-impl Copy for ComponentSummary {}
-impl Clone for ComponentSummary {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ComponentSummary {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ComponentSummary").field("ApplicationInstanceId", &self.ApplicationInstanceId).field("PartitionId", &self.PartitionId).field("ApplicationId", &self.ApplicationId).field("Clsid", &self.Clsid).field("ClassName", &self.ClassName).field("ApplicationName", &self.ApplicationName).finish()
-    }
-}
 impl windows_core::TypeKind for ComponentSummary {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ComponentSummary {
-    fn eq(&self, other: &Self) -> bool {
-        self.ApplicationInstanceId == other.ApplicationInstanceId && self.PartitionId == other.PartitionId && self.ApplicationId == other.ApplicationId && self.Clsid == other.Clsid && self.ClassName == other.ClassName && self.ApplicationName == other.ApplicationName
-    }
-}
-impl Eq for ComponentSummary {}
 impl Default for ComponentSummary {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6136,37 +5891,16 @@ impl Default for ComponentSummary {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CrmLogRecordRead {
     pub dwCrmFlags: u32,
     pub dwSequenceNumber: u32,
     pub blobUserData: super::Com::BLOB,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Copy for CrmLogRecordRead {}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for CrmLogRecordRead {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl core::fmt::Debug for CrmLogRecordRead {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CrmLogRecordRead").field("dwCrmFlags", &self.dwCrmFlags).field("dwSequenceNumber", &self.dwSequenceNumber).field("blobUserData", &self.blobUserData).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for CrmLogRecordRead {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl PartialEq for CrmLogRecordRead {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwCrmFlags == other.dwCrmFlags && self.dwSequenceNumber == other.dwSequenceNumber && self.blobUserData == other.blobUserData
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Eq for CrmLogRecordRead {}
 #[cfg(feature = "Win32_System_Com")]
 impl Default for CrmLogRecordRead {
     fn default() -> Self {
@@ -6178,6 +5912,7 @@ pub const Dummy30040732: windows_core::GUID = windows_core::GUID::from_u128(0xec
 pub const EventServer: windows_core::GUID = windows_core::GUID::from_u128(0xecabafbc_7f19_11d2_978e_0000f8757e2a);
 pub const GetSecurityCallContextAppObject: windows_core::GUID = windows_core::GUID::from_u128(0xecabb0a8_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HANG_INFO {
     pub fAppHangMonitorEnabled: super::super::Foundation::BOOL,
     pub fTerminateOnHang: super::super::Foundation::BOOL,
@@ -6186,26 +5921,9 @@ pub struct HANG_INFO {
     pub dwDumpCount: u32,
     pub dwInfoMsgCount: u32,
 }
-impl Copy for HANG_INFO {}
-impl Clone for HANG_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HANG_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HANG_INFO").field("fAppHangMonitorEnabled", &self.fAppHangMonitorEnabled).field("fTerminateOnHang", &self.fTerminateOnHang).field("DumpType", &self.DumpType).field("dwHangTimeout", &self.dwHangTimeout).field("dwDumpCount", &self.dwDumpCount).field("dwInfoMsgCount", &self.dwInfoMsgCount).finish()
-    }
-}
 impl windows_core::TypeKind for HANG_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HANG_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.fAppHangMonitorEnabled == other.fAppHangMonitorEnabled && self.fTerminateOnHang == other.fTerminateOnHang && self.DumpType == other.DumpType && self.dwHangTimeout == other.dwHangTimeout && self.dwDumpCount == other.dwDumpCount && self.dwInfoMsgCount == other.dwInfoMsgCount
-    }
-}
-impl Eq for HANG_INFO {}
 impl Default for HANG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6216,6 +5934,7 @@ pub const MessageMover: windows_core::GUID = windows_core::GUID::from_u128(0xeca
 pub const MtsGrp: windows_core::GUID = windows_core::GUID::from_u128(0x4b2e958d_0393_11d1_b1ab_00aa00ba3258);
 pub const PoolMgr: windows_core::GUID = windows_core::GUID::from_u128(0xecabafb5_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RECYCLE_INFO {
     pub guidCombaseProcessIdentifier: windows_core::GUID,
     pub ProcessStartTime: i64,
@@ -6223,26 +5942,9 @@ pub struct RECYCLE_INFO {
     pub dwRecycleMemoryLimit: u32,
     pub dwRecycleExpirationTimeout: u32,
 }
-impl Copy for RECYCLE_INFO {}
-impl Clone for RECYCLE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RECYCLE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RECYCLE_INFO").field("guidCombaseProcessIdentifier", &self.guidCombaseProcessIdentifier).field("ProcessStartTime", &self.ProcessStartTime).field("dwRecycleLifetimeLimit", &self.dwRecycleLifetimeLimit).field("dwRecycleMemoryLimit", &self.dwRecycleMemoryLimit).field("dwRecycleExpirationTimeout", &self.dwRecycleExpirationTimeout).finish()
-    }
-}
 impl windows_core::TypeKind for RECYCLE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RECYCLE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.guidCombaseProcessIdentifier == other.guidCombaseProcessIdentifier && self.ProcessStartTime == other.ProcessStartTime && self.dwRecycleLifetimeLimit == other.dwRecycleLifetimeLimit && self.dwRecycleMemoryLimit == other.dwRecycleMemoryLimit && self.dwRecycleExpirationTimeout == other.dwRecycleExpirationTimeout
-    }
-}
-impl Eq for RECYCLE_INFO {}
 impl Default for RECYCLE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

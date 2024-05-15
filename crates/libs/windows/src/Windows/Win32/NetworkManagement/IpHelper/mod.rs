@@ -2157,66 +2157,35 @@ impl core::fmt::Debug for UDP_TABLE_CLASS {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ARP_SEND_REPLY {
     pub DestAddress: u32,
     pub SrcAddress: u32,
 }
-impl Copy for ARP_SEND_REPLY {}
-impl Clone for ARP_SEND_REPLY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ARP_SEND_REPLY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ARP_SEND_REPLY").field("DestAddress", &self.DestAddress).field("SrcAddress", &self.SrcAddress).finish()
-    }
-}
 impl windows_core::TypeKind for ARP_SEND_REPLY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ARP_SEND_REPLY {
-    fn eq(&self, other: &Self) -> bool {
-        self.DestAddress == other.DestAddress && self.SrcAddress == other.SrcAddress
-    }
-}
-impl Eq for ARP_SEND_REPLY {}
 impl Default for ARP_SEND_REPLY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_DOH_SERVER_SETTINGS {
     pub Template: windows_core::PWSTR,
     pub Flags: u64,
 }
-impl Copy for DNS_DOH_SERVER_SETTINGS {}
-impl Clone for DNS_DOH_SERVER_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_DOH_SERVER_SETTINGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_DOH_SERVER_SETTINGS").field("Template", &self.Template).field("Flags", &self.Flags).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_DOH_SERVER_SETTINGS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_DOH_SERVER_SETTINGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Template == other.Template && self.Flags == other.Flags
-    }
-}
-impl Eq for DNS_DOH_SERVER_SETTINGS {}
 impl Default for DNS_DOH_SERVER_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_INTERFACE_SETTINGS {
     pub Version: u32,
     pub Flags: u64,
@@ -2229,32 +2198,16 @@ pub struct DNS_INTERFACE_SETTINGS {
     pub QueryAdapterName: u32,
     pub ProfileNameServer: windows_core::PWSTR,
 }
-impl Copy for DNS_INTERFACE_SETTINGS {}
-impl Clone for DNS_INTERFACE_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_INTERFACE_SETTINGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_INTERFACE_SETTINGS").field("Version", &self.Version).field("Flags", &self.Flags).field("Domain", &self.Domain).field("NameServer", &self.NameServer).field("SearchList", &self.SearchList).field("RegistrationEnabled", &self.RegistrationEnabled).field("RegisterAdapterName", &self.RegisterAdapterName).field("EnableLLMNR", &self.EnableLLMNR).field("QueryAdapterName", &self.QueryAdapterName).field("ProfileNameServer", &self.ProfileNameServer).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_INTERFACE_SETTINGS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_INTERFACE_SETTINGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Flags == other.Flags && self.Domain == other.Domain && self.NameServer == other.NameServer && self.SearchList == other.SearchList && self.RegistrationEnabled == other.RegistrationEnabled && self.RegisterAdapterName == other.RegisterAdapterName && self.EnableLLMNR == other.EnableLLMNR && self.QueryAdapterName == other.QueryAdapterName && self.ProfileNameServer == other.ProfileNameServer
-    }
-}
-impl Eq for DNS_INTERFACE_SETTINGS {}
 impl Default for DNS_INTERFACE_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_INTERFACE_SETTINGS3 {
     pub Version: u32,
     pub Flags: u64,
@@ -2273,64 +2226,16 @@ pub struct DNS_INTERFACE_SETTINGS3 {
     pub cProfileServerProperties: u32,
     pub ProfileServerProperties: *mut DNS_SERVER_PROPERTY,
 }
-impl Copy for DNS_INTERFACE_SETTINGS3 {}
-impl Clone for DNS_INTERFACE_SETTINGS3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_INTERFACE_SETTINGS3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_INTERFACE_SETTINGS3")
-            .field("Version", &self.Version)
-            .field("Flags", &self.Flags)
-            .field("Domain", &self.Domain)
-            .field("NameServer", &self.NameServer)
-            .field("SearchList", &self.SearchList)
-            .field("RegistrationEnabled", &self.RegistrationEnabled)
-            .field("RegisterAdapterName", &self.RegisterAdapterName)
-            .field("EnableLLMNR", &self.EnableLLMNR)
-            .field("QueryAdapterName", &self.QueryAdapterName)
-            .field("ProfileNameServer", &self.ProfileNameServer)
-            .field("DisableUnconstrainedQueries", &self.DisableUnconstrainedQueries)
-            .field("SupplementalSearchList", &self.SupplementalSearchList)
-            .field("cServerProperties", &self.cServerProperties)
-            .field("ServerProperties", &self.ServerProperties)
-            .field("cProfileServerProperties", &self.cProfileServerProperties)
-            .field("ProfileServerProperties", &self.ProfileServerProperties)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DNS_INTERFACE_SETTINGS3 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_INTERFACE_SETTINGS3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Flags == other.Flags
-            && self.Domain == other.Domain
-            && self.NameServer == other.NameServer
-            && self.SearchList == other.SearchList
-            && self.RegistrationEnabled == other.RegistrationEnabled
-            && self.RegisterAdapterName == other.RegisterAdapterName
-            && self.EnableLLMNR == other.EnableLLMNR
-            && self.QueryAdapterName == other.QueryAdapterName
-            && self.ProfileNameServer == other.ProfileNameServer
-            && self.DisableUnconstrainedQueries == other.DisableUnconstrainedQueries
-            && self.SupplementalSearchList == other.SupplementalSearchList
-            && self.cServerProperties == other.cServerProperties
-            && self.ServerProperties == other.ServerProperties
-            && self.cProfileServerProperties == other.cProfileServerProperties
-            && self.ProfileServerProperties == other.ProfileServerProperties
-    }
-}
-impl Eq for DNS_INTERFACE_SETTINGS3 {}
 impl Default for DNS_INTERFACE_SETTINGS3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_INTERFACE_SETTINGS4 {
     pub Version: u32,
     pub Flags: u64,
@@ -2350,108 +2255,36 @@ pub struct DNS_INTERFACE_SETTINGS4 {
     pub ProfileServerProperties: *mut DNS_SERVER_PROPERTY,
     pub EncryptedDnsAdapterFlags: u32,
 }
-impl Copy for DNS_INTERFACE_SETTINGS4 {}
-impl Clone for DNS_INTERFACE_SETTINGS4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_INTERFACE_SETTINGS4 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_INTERFACE_SETTINGS4")
-            .field("Version", &self.Version)
-            .field("Flags", &self.Flags)
-            .field("Domain", &self.Domain)
-            .field("NameServer", &self.NameServer)
-            .field("SearchList", &self.SearchList)
-            .field("RegistrationEnabled", &self.RegistrationEnabled)
-            .field("RegisterAdapterName", &self.RegisterAdapterName)
-            .field("EnableLLMNR", &self.EnableLLMNR)
-            .field("QueryAdapterName", &self.QueryAdapterName)
-            .field("ProfileNameServer", &self.ProfileNameServer)
-            .field("DisableUnconstrainedQueries", &self.DisableUnconstrainedQueries)
-            .field("SupplementalSearchList", &self.SupplementalSearchList)
-            .field("cServerProperties", &self.cServerProperties)
-            .field("ServerProperties", &self.ServerProperties)
-            .field("cProfileServerProperties", &self.cProfileServerProperties)
-            .field("ProfileServerProperties", &self.ProfileServerProperties)
-            .field("EncryptedDnsAdapterFlags", &self.EncryptedDnsAdapterFlags)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for DNS_INTERFACE_SETTINGS4 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_INTERFACE_SETTINGS4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Flags == other.Flags
-            && self.Domain == other.Domain
-            && self.NameServer == other.NameServer
-            && self.SearchList == other.SearchList
-            && self.RegistrationEnabled == other.RegistrationEnabled
-            && self.RegisterAdapterName == other.RegisterAdapterName
-            && self.EnableLLMNR == other.EnableLLMNR
-            && self.QueryAdapterName == other.QueryAdapterName
-            && self.ProfileNameServer == other.ProfileNameServer
-            && self.DisableUnconstrainedQueries == other.DisableUnconstrainedQueries
-            && self.SupplementalSearchList == other.SupplementalSearchList
-            && self.cServerProperties == other.cServerProperties
-            && self.ServerProperties == other.ServerProperties
-            && self.cProfileServerProperties == other.cProfileServerProperties
-            && self.ProfileServerProperties == other.ProfileServerProperties
-            && self.EncryptedDnsAdapterFlags == other.EncryptedDnsAdapterFlags
-    }
-}
-impl Eq for DNS_INTERFACE_SETTINGS4 {}
 impl Default for DNS_INTERFACE_SETTINGS4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_INTERFACE_SETTINGS_EX {
     pub SettingsV1: DNS_INTERFACE_SETTINGS,
     pub DisableUnconstrainedQueries: u32,
     pub SupplementalSearchList: windows_core::PWSTR,
 }
-impl Copy for DNS_INTERFACE_SETTINGS_EX {}
-impl Clone for DNS_INTERFACE_SETTINGS_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_INTERFACE_SETTINGS_EX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_INTERFACE_SETTINGS_EX").field("SettingsV1", &self.SettingsV1).field("DisableUnconstrainedQueries", &self.DisableUnconstrainedQueries).field("SupplementalSearchList", &self.SupplementalSearchList).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_INTERFACE_SETTINGS_EX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_INTERFACE_SETTINGS_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.SettingsV1 == other.SettingsV1 && self.DisableUnconstrainedQueries == other.DisableUnconstrainedQueries && self.SupplementalSearchList == other.SupplementalSearchList
-    }
-}
-impl Eq for DNS_INTERFACE_SETTINGS_EX {}
 impl Default for DNS_INTERFACE_SETTINGS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DNS_SERVER_PROPERTY {
     pub Version: u32,
     pub ServerIndex: u32,
     pub Type: DNS_SERVER_PROPERTY_TYPE,
     pub Property: DNS_SERVER_PROPERTY_TYPES,
-}
-impl Copy for DNS_SERVER_PROPERTY {}
-impl Clone for DNS_SERVER_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_SERVER_PROPERTY {
     type TypeKind = windows_core::CopyType;
@@ -2462,14 +2295,9 @@ impl Default for DNS_SERVER_PROPERTY {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_SERVER_PROPERTY_TYPES {
     pub DohSettings: *mut DNS_DOH_SERVER_SETTINGS,
-}
-impl Copy for DNS_SERVER_PROPERTY_TYPES {}
-impl Clone for DNS_SERVER_PROPERTY_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for DNS_SERVER_PROPERTY_TYPES {
     type TypeKind = windows_core::CopyType;
@@ -2480,6 +2308,7 @@ impl Default for DNS_SERVER_PROPERTY_TYPES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_SETTINGS {
     pub Version: u32,
     pub Flags: u64,
@@ -2487,32 +2316,16 @@ pub struct DNS_SETTINGS {
     pub Domain: windows_core::PWSTR,
     pub SearchList: windows_core::PWSTR,
 }
-impl Copy for DNS_SETTINGS {}
-impl Clone for DNS_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_SETTINGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_SETTINGS").field("Version", &self.Version).field("Flags", &self.Flags).field("Hostname", &self.Hostname).field("Domain", &self.Domain).field("SearchList", &self.SearchList).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_SETTINGS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_SETTINGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Flags == other.Flags && self.Hostname == other.Hostname && self.Domain == other.Domain && self.SearchList == other.SearchList
-    }
-}
-impl Eq for DNS_SETTINGS {}
 impl Default for DNS_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_SETTINGS2 {
     pub Version: u32,
     pub Flags: u64,
@@ -2521,32 +2334,16 @@ pub struct DNS_SETTINGS2 {
     pub SearchList: windows_core::PWSTR,
     pub SettingFlags: u64,
 }
-impl Copy for DNS_SETTINGS2 {}
-impl Clone for DNS_SETTINGS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DNS_SETTINGS2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DNS_SETTINGS2").field("Version", &self.Version).field("Flags", &self.Flags).field("Hostname", &self.Hostname).field("Domain", &self.Domain).field("SearchList", &self.SearchList).field("SettingFlags", &self.SettingFlags).finish()
-    }
-}
 impl windows_core::TypeKind for DNS_SETTINGS2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DNS_SETTINGS2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Flags == other.Flags && self.Hostname == other.Hostname && self.Domain == other.Domain && self.SearchList == other.SearchList && self.SettingFlags == other.SettingFlags
-    }
-}
-impl Eq for DNS_SETTINGS2 {}
 impl Default for DNS_SETTINGS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FIXED_INFO_W2KSP1 {
     pub HostName: [i8; 132],
     pub DomainName: [i8; 132],
@@ -2558,26 +2355,9 @@ pub struct FIXED_INFO_W2KSP1 {
     pub EnableProxy: u32,
     pub EnableDns: u32,
 }
-impl Copy for FIXED_INFO_W2KSP1 {}
-impl Clone for FIXED_INFO_W2KSP1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for FIXED_INFO_W2KSP1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("FIXED_INFO_W2KSP1").field("HostName", &self.HostName).field("DomainName", &self.DomainName).field("CurrentDnsServer", &self.CurrentDnsServer).field("DnsServerList", &self.DnsServerList).field("NodeType", &self.NodeType).field("ScopeId", &self.ScopeId).field("EnableRouting", &self.EnableRouting).field("EnableProxy", &self.EnableProxy).field("EnableDns", &self.EnableDns).finish()
-    }
-}
 impl windows_core::TypeKind for FIXED_INFO_W2KSP1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for FIXED_INFO_W2KSP1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.HostName == other.HostName && self.DomainName == other.DomainName && self.CurrentDnsServer == other.CurrentDnsServer && self.DnsServerList == other.DnsServerList && self.NodeType == other.NodeType && self.ScopeId == other.ScopeId && self.EnableRouting == other.EnableRouting && self.EnableProxy == other.EnableProxy && self.EnableDns == other.EnableDns
-    }
-}
-impl Eq for FIXED_INFO_W2KSP1 {}
 impl Default for FIXED_INFO_W2KSP1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2600,16 +2380,11 @@ impl windows_core::TypeKind for HIFTIMESTAMPCHANGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ICMPV6_ECHO_REPLY_LH {
     pub Address: IPV6_ADDRESS_EX,
     pub Status: u32,
     pub RoundTripTime: u32,
-}
-impl Copy for ICMPV6_ECHO_REPLY_LH {}
-impl Clone for ICMPV6_ECHO_REPLY_LH {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for ICMPV6_ECHO_REPLY_LH {
     type TypeKind = windows_core::CopyType;
@@ -2620,6 +2395,7 @@ impl Default for ICMPV6_ECHO_REPLY_LH {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICMP_ECHO_REPLY {
     pub Address: u32,
     pub Status: u32,
@@ -2629,26 +2405,9 @@ pub struct ICMP_ECHO_REPLY {
     pub Data: *mut core::ffi::c_void,
     pub Options: IP_OPTION_INFORMATION,
 }
-impl Copy for ICMP_ECHO_REPLY {}
-impl Clone for ICMP_ECHO_REPLY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ICMP_ECHO_REPLY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ICMP_ECHO_REPLY").field("Address", &self.Address).field("Status", &self.Status).field("RoundTripTime", &self.RoundTripTime).field("DataSize", &self.DataSize).field("Reserved", &self.Reserved).field("Data", &self.Data).field("Options", &self.Options).finish()
-    }
-}
 impl windows_core::TypeKind for ICMP_ECHO_REPLY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ICMP_ECHO_REPLY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Address == other.Address && self.Status == other.Status && self.RoundTripTime == other.RoundTripTime && self.DataSize == other.DataSize && self.Reserved == other.Reserved && self.Data == other.Data && self.Options == other.Options
-    }
-}
-impl Eq for ICMP_ECHO_REPLY {}
 impl Default for ICMP_ECHO_REPLY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2656,6 +2415,7 @@ impl Default for ICMP_ECHO_REPLY {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICMP_ECHO_REPLY32 {
     pub Address: u32,
     pub Status: u32,
@@ -2666,31 +2426,9 @@ pub struct ICMP_ECHO_REPLY32 {
     pub Options: IP_OPTION_INFORMATION32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for ICMP_ECHO_REPLY32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for ICMP_ECHO_REPLY32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl core::fmt::Debug for ICMP_ECHO_REPLY32 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ICMP_ECHO_REPLY32").field("Address", &self.Address).field("Status", &self.Status).field("RoundTripTime", &self.RoundTripTime).field("DataSize", &self.DataSize).field("Reserved", &self.Reserved).field("Data", &self.Data).field("Options", &self.Options).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for ICMP_ECHO_REPLY32 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl PartialEq for ICMP_ECHO_REPLY32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Address == other.Address && self.Status == other.Status && self.RoundTripTime == other.RoundTripTime && self.DataSize == other.DataSize && self.Reserved == other.Reserved && self.Data == other.Data && self.Options == other.Options
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Eq for ICMP_ECHO_REPLY32 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for ICMP_ECHO_REPLY32 {
     fn default() -> Self {
@@ -2698,37 +2436,22 @@ impl Default for ICMP_ECHO_REPLY32 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INTERFACE_HARDWARE_CROSSTIMESTAMP {
     pub SystemTimestamp1: u64,
     pub HardwareClockTimestamp: u64,
     pub SystemTimestamp2: u64,
 }
-impl Copy for INTERFACE_HARDWARE_CROSSTIMESTAMP {}
-impl Clone for INTERFACE_HARDWARE_CROSSTIMESTAMP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INTERFACE_HARDWARE_CROSSTIMESTAMP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INTERFACE_HARDWARE_CROSSTIMESTAMP").field("SystemTimestamp1", &self.SystemTimestamp1).field("HardwareClockTimestamp", &self.HardwareClockTimestamp).field("SystemTimestamp2", &self.SystemTimestamp2).finish()
-    }
-}
 impl windows_core::TypeKind for INTERFACE_HARDWARE_CROSSTIMESTAMP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INTERFACE_HARDWARE_CROSSTIMESTAMP {
-    fn eq(&self, other: &Self) -> bool {
-        self.SystemTimestamp1 == other.SystemTimestamp1 && self.HardwareClockTimestamp == other.HardwareClockTimestamp && self.SystemTimestamp2 == other.SystemTimestamp2
-    }
-}
-impl Eq for INTERFACE_HARDWARE_CROSSTIMESTAMP {}
 impl Default for INTERFACE_HARDWARE_CROSSTIMESTAMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
     pub PtpV2OverUdpIPv4EventMessageReceive: super::super::Foundation::BOOLEAN,
     pub PtpV2OverUdpIPv4AllMessageReceive: super::super::Foundation::BOOLEAN,
@@ -2742,128 +2465,52 @@ pub struct INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
     pub AllTransmit: super::super::Foundation::BOOLEAN,
     pub TaggedTransmit: super::super::Foundation::BOOLEAN,
 }
-impl Copy for INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {}
-impl Clone for INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES")
-            .field("PtpV2OverUdpIPv4EventMessageReceive", &self.PtpV2OverUdpIPv4EventMessageReceive)
-            .field("PtpV2OverUdpIPv4AllMessageReceive", &self.PtpV2OverUdpIPv4AllMessageReceive)
-            .field("PtpV2OverUdpIPv4EventMessageTransmit", &self.PtpV2OverUdpIPv4EventMessageTransmit)
-            .field("PtpV2OverUdpIPv4AllMessageTransmit", &self.PtpV2OverUdpIPv4AllMessageTransmit)
-            .field("PtpV2OverUdpIPv6EventMessageReceive", &self.PtpV2OverUdpIPv6EventMessageReceive)
-            .field("PtpV2OverUdpIPv6AllMessageReceive", &self.PtpV2OverUdpIPv6AllMessageReceive)
-            .field("PtpV2OverUdpIPv6EventMessageTransmit", &self.PtpV2OverUdpIPv6EventMessageTransmit)
-            .field("PtpV2OverUdpIPv6AllMessageTransmit", &self.PtpV2OverUdpIPv6AllMessageTransmit)
-            .field("AllReceive", &self.AllReceive)
-            .field("AllTransmit", &self.AllTransmit)
-            .field("TaggedTransmit", &self.TaggedTransmit)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.PtpV2OverUdpIPv4EventMessageReceive == other.PtpV2OverUdpIPv4EventMessageReceive
-            && self.PtpV2OverUdpIPv4AllMessageReceive == other.PtpV2OverUdpIPv4AllMessageReceive
-            && self.PtpV2OverUdpIPv4EventMessageTransmit == other.PtpV2OverUdpIPv4EventMessageTransmit
-            && self.PtpV2OverUdpIPv4AllMessageTransmit == other.PtpV2OverUdpIPv4AllMessageTransmit
-            && self.PtpV2OverUdpIPv6EventMessageReceive == other.PtpV2OverUdpIPv6EventMessageReceive
-            && self.PtpV2OverUdpIPv6AllMessageReceive == other.PtpV2OverUdpIPv6AllMessageReceive
-            && self.PtpV2OverUdpIPv6EventMessageTransmit == other.PtpV2OverUdpIPv6EventMessageTransmit
-            && self.PtpV2OverUdpIPv6AllMessageTransmit == other.PtpV2OverUdpIPv6AllMessageTransmit
-            && self.AllReceive == other.AllReceive
-            && self.AllTransmit == other.AllTransmit
-            && self.TaggedTransmit == other.TaggedTransmit
-    }
-}
-impl Eq for INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {}
 impl Default for INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {
     pub AllReceive: super::super::Foundation::BOOLEAN,
     pub AllTransmit: super::super::Foundation::BOOLEAN,
     pub TaggedTransmit: super::super::Foundation::BOOLEAN,
 }
-impl Copy for INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {}
-impl Clone for INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES").field("AllReceive", &self.AllReceive).field("AllTransmit", &self.AllTransmit).field("TaggedTransmit", &self.TaggedTransmit).finish()
-    }
-}
 impl windows_core::TypeKind for INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.AllReceive == other.AllReceive && self.AllTransmit == other.AllTransmit && self.TaggedTransmit == other.TaggedTransmit
-    }
-}
-impl Eq for INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {}
 impl Default for INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INTERFACE_TIMESTAMP_CAPABILITIES {
     pub HardwareClockFrequencyHz: u64,
     pub SupportsCrossTimestamp: super::super::Foundation::BOOLEAN,
     pub HardwareCapabilities: INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES,
     pub SoftwareCapabilities: INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES,
 }
-impl Copy for INTERFACE_TIMESTAMP_CAPABILITIES {}
-impl Clone for INTERFACE_TIMESTAMP_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for INTERFACE_TIMESTAMP_CAPABILITIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("INTERFACE_TIMESTAMP_CAPABILITIES").field("HardwareClockFrequencyHz", &self.HardwareClockFrequencyHz).field("SupportsCrossTimestamp", &self.SupportsCrossTimestamp).field("HardwareCapabilities", &self.HardwareCapabilities).field("SoftwareCapabilities", &self.SoftwareCapabilities).finish()
-    }
-}
 impl windows_core::TypeKind for INTERFACE_TIMESTAMP_CAPABILITIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for INTERFACE_TIMESTAMP_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.HardwareClockFrequencyHz == other.HardwareClockFrequencyHz && self.SupportsCrossTimestamp == other.SupportsCrossTimestamp && self.HardwareCapabilities == other.HardwareCapabilities && self.SoftwareCapabilities == other.SoftwareCapabilities
-    }
-}
-impl Eq for INTERFACE_TIMESTAMP_CAPABILITIES {}
 impl Default for INTERFACE_TIMESTAMP_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IPV6_ADDRESS_EX {
     pub sin6_port: u16,
     pub sin6_flowinfo: u32,
     pub sin6_addr: [u16; 8],
     pub sin6_scope_id: u32,
-}
-impl Copy for IPV6_ADDRESS_EX {}
-impl Clone for IPV6_ADDRESS_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for IPV6_ADDRESS_EX {
     type TypeKind = windows_core::CopyType;
@@ -2875,6 +2522,7 @@ impl Default for IPV6_ADDRESS_EX {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy)]
 pub struct IP_ADAPTER_ADDRESSES_LH {
     pub Anonymous1: IP_ADAPTER_ADDRESSES_LH_0,
     pub Next: *mut IP_ADAPTER_ADDRESSES_LH,
@@ -2914,14 +2562,6 @@ pub struct IP_ADAPTER_ADDRESSES_LH {
     pub FirstDnsSuffix: *mut IP_ADAPTER_DNS_SUFFIX,
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for IP_ADAPTER_ADDRESSES_LH {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for IP_ADAPTER_ADDRESSES_LH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for IP_ADAPTER_ADDRESSES_LH {
     type TypeKind = windows_core::CopyType;
 }
@@ -2933,17 +2573,10 @@ impl Default for IP_ADAPTER_ADDRESSES_LH {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy)]
 pub union IP_ADAPTER_ADDRESSES_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_ADDRESSES_LH_0_0,
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for IP_ADAPTER_ADDRESSES_LH_0 {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for IP_ADAPTER_ADDRESSES_LH_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for IP_ADAPTER_ADDRESSES_LH_0 {
@@ -2957,36 +2590,15 @@ impl Default for IP_ADAPTER_ADDRESSES_LH_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_ADDRESSES_LH_0_0 {
     pub Length: u32,
     pub IfIndex: u32,
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for IP_ADAPTER_ADDRESSES_LH_0_0 {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for IP_ADAPTER_ADDRESSES_LH_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl core::fmt::Debug for IP_ADAPTER_ADDRESSES_LH_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IP_ADAPTER_ADDRESSES_LH_0_0").field("Length", &self.Length).field("IfIndex", &self.IfIndex).finish()
-    }
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for IP_ADAPTER_ADDRESSES_LH_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl PartialEq for IP_ADAPTER_ADDRESSES_LH_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.IfIndex == other.IfIndex
-    }
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Eq for IP_ADAPTER_ADDRESSES_LH_0_0 {}
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for IP_ADAPTER_ADDRESSES_LH_0_0 {
     fn default() -> Self {
@@ -2995,17 +2607,10 @@ impl Default for IP_ADAPTER_ADDRESSES_LH_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy)]
 pub union IP_ADAPTER_ADDRESSES_LH_1 {
     pub Flags: u32,
     pub Anonymous: IP_ADAPTER_ADDRESSES_LH_1_0,
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for IP_ADAPTER_ADDRESSES_LH_1 {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for IP_ADAPTER_ADDRESSES_LH_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for IP_ADAPTER_ADDRESSES_LH_1 {
@@ -3019,35 +2624,14 @@ impl Default for IP_ADAPTER_ADDRESSES_LH_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_ADDRESSES_LH_1_0 {
     pub _bitfield: u32,
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for IP_ADAPTER_ADDRESSES_LH_1_0 {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for IP_ADAPTER_ADDRESSES_LH_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl core::fmt::Debug for IP_ADAPTER_ADDRESSES_LH_1_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IP_ADAPTER_ADDRESSES_LH_1_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for IP_ADAPTER_ADDRESSES_LH_1_0 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl PartialEq for IP_ADAPTER_ADDRESSES_LH_1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Eq for IP_ADAPTER_ADDRESSES_LH_1_0 {}
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for IP_ADAPTER_ADDRESSES_LH_1_0 {
     fn default() -> Self {
@@ -3056,6 +2640,7 @@ impl Default for IP_ADAPTER_ADDRESSES_LH_1_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy)]
 pub struct IP_ADAPTER_ADDRESSES_XP {
     pub Anonymous: IP_ADAPTER_ADDRESSES_XP_0,
     pub Next: *mut IP_ADAPTER_ADDRESSES_XP,
@@ -3078,14 +2663,6 @@ pub struct IP_ADAPTER_ADDRESSES_XP {
     pub FirstPrefix: *mut IP_ADAPTER_PREFIX_XP,
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for IP_ADAPTER_ADDRESSES_XP {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for IP_ADAPTER_ADDRESSES_XP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for IP_ADAPTER_ADDRESSES_XP {
     type TypeKind = windows_core::CopyType;
 }
@@ -3097,17 +2674,10 @@ impl Default for IP_ADAPTER_ADDRESSES_XP {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy)]
 pub union IP_ADAPTER_ADDRESSES_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_ADDRESSES_XP_0_0,
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for IP_ADAPTER_ADDRESSES_XP_0 {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for IP_ADAPTER_ADDRESSES_XP_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for IP_ADAPTER_ADDRESSES_XP_0 {
@@ -3121,36 +2691,15 @@ impl Default for IP_ADAPTER_ADDRESSES_XP_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_ADDRESSES_XP_0_0 {
     pub Length: u32,
     pub IfIndex: u32,
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for IP_ADAPTER_ADDRESSES_XP_0_0 {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for IP_ADAPTER_ADDRESSES_XP_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl core::fmt::Debug for IP_ADAPTER_ADDRESSES_XP_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IP_ADAPTER_ADDRESSES_XP_0_0").field("Length", &self.Length).field("IfIndex", &self.IfIndex).finish()
-    }
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for IP_ADAPTER_ADDRESSES_XP_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl PartialEq for IP_ADAPTER_ADDRESSES_XP_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.IfIndex == other.IfIndex
-    }
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Eq for IP_ADAPTER_ADDRESSES_XP_0_0 {}
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for IP_ADAPTER_ADDRESSES_XP_0_0 {
     fn default() -> Self {
@@ -3159,18 +2708,11 @@ impl Default for IP_ADAPTER_ADDRESSES_XP_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct IP_ADAPTER_ANYCAST_ADDRESS_XP {
     pub Anonymous: IP_ADAPTER_ANYCAST_ADDRESS_XP_0,
     pub Next: *mut IP_ADAPTER_ANYCAST_ADDRESS_XP,
     pub Address: super::super::Networking::WinSock::SOCKET_ADDRESS,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for IP_ADAPTER_ANYCAST_ADDRESS_XP {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for IP_ADAPTER_ANYCAST_ADDRESS_XP {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for IP_ADAPTER_ANYCAST_ADDRESS_XP {
@@ -3184,17 +2726,10 @@ impl Default for IP_ADAPTER_ANYCAST_ADDRESS_XP {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub union IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
@@ -3208,36 +2743,15 @@ impl Default for IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl core::fmt::Debug for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0").field("Length", &self.Length).field("Flags", &self.Flags).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl PartialEq for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.Flags == other.Flags
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Eq for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
     fn default() -> Self {
@@ -3246,18 +2760,11 @@ impl Default for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
     pub Anonymous: IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0,
     pub Next: *mut IP_ADAPTER_DNS_SERVER_ADDRESS_XP,
     pub Address: super::super::Networking::WinSock::SOCKET_ADDRESS,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for IP_ADAPTER_DNS_SERVER_ADDRESS_XP {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
@@ -3271,17 +2778,10 @@ impl Default for IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub union IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
@@ -3295,36 +2795,15 @@ impl Default for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Reserved: u32,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl core::fmt::Debug for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0").field("Length", &self.Length).field("Reserved", &self.Reserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl PartialEq for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.Reserved == other.Reserved
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Eq for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
     fn default() -> Self {
@@ -3332,30 +2811,14 @@ impl Default for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_DNS_SUFFIX {
     pub Next: *mut IP_ADAPTER_DNS_SUFFIX,
     pub String: [u16; 256],
 }
-impl Copy for IP_ADAPTER_DNS_SUFFIX {}
-impl Clone for IP_ADAPTER_DNS_SUFFIX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IP_ADAPTER_DNS_SUFFIX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IP_ADAPTER_DNS_SUFFIX").field("Next", &self.Next).field("String", &self.String).finish()
-    }
-}
 impl windows_core::TypeKind for IP_ADAPTER_DNS_SUFFIX {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IP_ADAPTER_DNS_SUFFIX {
-    fn eq(&self, other: &Self) -> bool {
-        self.Next == other.Next && self.String == other.String
-    }
-}
-impl Eq for IP_ADAPTER_DNS_SUFFIX {}
 impl Default for IP_ADAPTER_DNS_SUFFIX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3363,18 +2826,11 @@ impl Default for IP_ADAPTER_DNS_SUFFIX {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct IP_ADAPTER_GATEWAY_ADDRESS_LH {
     pub Anonymous: IP_ADAPTER_GATEWAY_ADDRESS_LH_0,
     pub Next: *mut IP_ADAPTER_GATEWAY_ADDRESS_LH,
     pub Address: super::super::Networking::WinSock::SOCKET_ADDRESS,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for IP_ADAPTER_GATEWAY_ADDRESS_LH {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for IP_ADAPTER_GATEWAY_ADDRESS_LH {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for IP_ADAPTER_GATEWAY_ADDRESS_LH {
@@ -3388,17 +2844,10 @@ impl Default for IP_ADAPTER_GATEWAY_ADDRESS_LH {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub union IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
@@ -3412,36 +2861,15 @@ impl Default for IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
     pub Length: u32,
     pub Reserved: u32,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl core::fmt::Debug for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0").field("Length", &self.Length).field("Reserved", &self.Reserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl PartialEq for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.Reserved == other.Reserved
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Eq for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
     fn default() -> Self {
@@ -3449,36 +2877,21 @@ impl Default for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_INDEX_MAP {
     pub Index: u32,
     pub Name: [u16; 128],
 }
-impl Copy for IP_ADAPTER_INDEX_MAP {}
-impl Clone for IP_ADAPTER_INDEX_MAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IP_ADAPTER_INDEX_MAP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IP_ADAPTER_INDEX_MAP").field("Index", &self.Index).field("Name", &self.Name).finish()
-    }
-}
 impl windows_core::TypeKind for IP_ADAPTER_INDEX_MAP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IP_ADAPTER_INDEX_MAP {
-    fn eq(&self, other: &Self) -> bool {
-        self.Index == other.Index && self.Name == other.Name
-    }
-}
-impl Eq for IP_ADAPTER_INDEX_MAP {}
 impl Default for IP_ADAPTER_INDEX_MAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_INFO {
     pub Next: *mut IP_ADAPTER_INFO,
     pub ComboIndex: u32,
@@ -3499,45 +2912,9 @@ pub struct IP_ADAPTER_INFO {
     pub LeaseObtained: i64,
     pub LeaseExpires: i64,
 }
-impl Copy for IP_ADAPTER_INFO {}
-impl Clone for IP_ADAPTER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IP_ADAPTER_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IP_ADAPTER_INFO")
-            .field("Next", &self.Next)
-            .field("ComboIndex", &self.ComboIndex)
-            .field("AdapterName", &self.AdapterName)
-            .field("Description", &self.Description)
-            .field("AddressLength", &self.AddressLength)
-            .field("Address", &self.Address)
-            .field("Index", &self.Index)
-            .field("Type", &self.Type)
-            .field("DhcpEnabled", &self.DhcpEnabled)
-            .field("CurrentIpAddress", &self.CurrentIpAddress)
-            .field("IpAddressList", &self.IpAddressList)
-            .field("GatewayList", &self.GatewayList)
-            .field("DhcpServer", &self.DhcpServer)
-            .field("HaveWins", &self.HaveWins)
-            .field("PrimaryWinsServer", &self.PrimaryWinsServer)
-            .field("SecondaryWinsServer", &self.SecondaryWinsServer)
-            .field("LeaseObtained", &self.LeaseObtained)
-            .field("LeaseExpires", &self.LeaseExpires)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for IP_ADAPTER_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IP_ADAPTER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Next == other.Next && self.ComboIndex == other.ComboIndex && self.AdapterName == other.AdapterName && self.Description == other.Description && self.AddressLength == other.AddressLength && self.Address == other.Address && self.Index == other.Index && self.Type == other.Type && self.DhcpEnabled == other.DhcpEnabled && self.CurrentIpAddress == other.CurrentIpAddress && self.IpAddressList == other.IpAddressList && self.GatewayList == other.GatewayList && self.DhcpServer == other.DhcpServer && self.HaveWins == other.HaveWins && self.PrimaryWinsServer == other.PrimaryWinsServer && self.SecondaryWinsServer == other.SecondaryWinsServer && self.LeaseObtained == other.LeaseObtained && self.LeaseExpires == other.LeaseExpires
-    }
-}
-impl Eq for IP_ADAPTER_INFO {}
 impl Default for IP_ADAPTER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3545,18 +2922,11 @@ impl Default for IP_ADAPTER_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct IP_ADAPTER_MULTICAST_ADDRESS_XP {
     pub Anonymous: IP_ADAPTER_MULTICAST_ADDRESS_XP_0,
     pub Next: *mut IP_ADAPTER_MULTICAST_ADDRESS_XP,
     pub Address: super::super::Networking::WinSock::SOCKET_ADDRESS,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for IP_ADAPTER_MULTICAST_ADDRESS_XP {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for IP_ADAPTER_MULTICAST_ADDRESS_XP {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for IP_ADAPTER_MULTICAST_ADDRESS_XP {
@@ -3570,17 +2940,10 @@ impl Default for IP_ADAPTER_MULTICAST_ADDRESS_XP {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub union IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
@@ -3594,36 +2957,15 @@ impl Default for IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl core::fmt::Debug for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0").field("Length", &self.Length).field("Flags", &self.Flags).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl PartialEq for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.Flags == other.Flags
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Eq for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
     fn default() -> Self {
@@ -3631,30 +2973,14 @@ impl Default for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_ORDER_MAP {
     pub NumAdapters: u32,
     pub AdapterOrder: [u32; 1],
 }
-impl Copy for IP_ADAPTER_ORDER_MAP {}
-impl Clone for IP_ADAPTER_ORDER_MAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IP_ADAPTER_ORDER_MAP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IP_ADAPTER_ORDER_MAP").field("NumAdapters", &self.NumAdapters).field("AdapterOrder", &self.AdapterOrder).finish()
-    }
-}
 impl windows_core::TypeKind for IP_ADAPTER_ORDER_MAP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IP_ADAPTER_ORDER_MAP {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumAdapters == other.NumAdapters && self.AdapterOrder == other.AdapterOrder
-    }
-}
-impl Eq for IP_ADAPTER_ORDER_MAP {}
 impl Default for IP_ADAPTER_ORDER_MAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3662,19 +2988,12 @@ impl Default for IP_ADAPTER_ORDER_MAP {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct IP_ADAPTER_PREFIX_XP {
     pub Anonymous: IP_ADAPTER_PREFIX_XP_0,
     pub Next: *mut IP_ADAPTER_PREFIX_XP,
     pub Address: super::super::Networking::WinSock::SOCKET_ADDRESS,
     pub PrefixLength: u32,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for IP_ADAPTER_PREFIX_XP {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for IP_ADAPTER_PREFIX_XP {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for IP_ADAPTER_PREFIX_XP {
@@ -3688,17 +3007,10 @@ impl Default for IP_ADAPTER_PREFIX_XP {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub union IP_ADAPTER_PREFIX_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_PREFIX_XP_0_0,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for IP_ADAPTER_PREFIX_XP_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for IP_ADAPTER_PREFIX_XP_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for IP_ADAPTER_PREFIX_XP_0 {
@@ -3712,36 +3024,15 @@ impl Default for IP_ADAPTER_PREFIX_XP_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_PREFIX_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for IP_ADAPTER_PREFIX_XP_0_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for IP_ADAPTER_PREFIX_XP_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl core::fmt::Debug for IP_ADAPTER_PREFIX_XP_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IP_ADAPTER_PREFIX_XP_0_0").field("Length", &self.Length).field("Flags", &self.Flags).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for IP_ADAPTER_PREFIX_XP_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl PartialEq for IP_ADAPTER_PREFIX_XP_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.Flags == other.Flags
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Eq for IP_ADAPTER_PREFIX_XP_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_PREFIX_XP_0_0 {
     fn default() -> Self {
@@ -3750,6 +3041,7 @@ impl Default for IP_ADAPTER_PREFIX_XP_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_LH {
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_LH_0,
     pub Next: *mut IP_ADAPTER_UNICAST_ADDRESS_LH,
@@ -3763,14 +3055,6 @@ pub struct IP_ADAPTER_UNICAST_ADDRESS_LH {
     pub OnLinkPrefixLength: u8,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for IP_ADAPTER_UNICAST_ADDRESS_LH {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for IP_ADAPTER_UNICAST_ADDRESS_LH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for IP_ADAPTER_UNICAST_ADDRESS_LH {
     type TypeKind = windows_core::CopyType;
 }
@@ -3782,17 +3066,10 @@ impl Default for IP_ADAPTER_UNICAST_ADDRESS_LH {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub union IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_LH_0_0,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for IP_ADAPTER_UNICAST_ADDRESS_LH_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
@@ -3806,36 +3083,15 @@ impl Default for IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
     pub Length: u32,
     pub Flags: u32,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl core::fmt::Debug for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IP_ADAPTER_UNICAST_ADDRESS_LH_0_0").field("Length", &self.Length).field("Flags", &self.Flags).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl PartialEq for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.Flags == other.Flags
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Eq for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
     fn default() -> Self {
@@ -3844,6 +3100,7 @@ impl Default for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_XP {
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_XP_0,
     pub Next: *mut IP_ADAPTER_UNICAST_ADDRESS_XP,
@@ -3854,14 +3111,6 @@ pub struct IP_ADAPTER_UNICAST_ADDRESS_XP {
     pub ValidLifetime: u32,
     pub PreferredLifetime: u32,
     pub LeaseLifetime: u32,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for IP_ADAPTER_UNICAST_ADDRESS_XP {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for IP_ADAPTER_UNICAST_ADDRESS_XP {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for IP_ADAPTER_UNICAST_ADDRESS_XP {
@@ -3875,17 +3124,10 @@ impl Default for IP_ADAPTER_UNICAST_ADDRESS_XP {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub union IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_XP_0_0,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for IP_ADAPTER_UNICAST_ADDRESS_XP_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
@@ -3899,36 +3141,15 @@ impl Default for IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl core::fmt::Debug for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IP_ADAPTER_UNICAST_ADDRESS_XP_0_0").field("Length", &self.Length).field("Flags", &self.Flags).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl PartialEq for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.Flags == other.Flags
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Eq for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
     fn default() -> Self {
@@ -3937,18 +3158,11 @@ impl Default for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
     pub Anonymous: IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0,
     pub Next: *mut IP_ADAPTER_WINS_SERVER_ADDRESS_LH,
     pub Address: super::super::Networking::WinSock::SOCKET_ADDRESS,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for IP_ADAPTER_WINS_SERVER_ADDRESS_LH {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
@@ -3962,17 +3176,10 @@ impl Default for IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub union IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
@@ -3986,36 +3193,15 @@ impl Default for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
     pub Length: u32,
     pub Reserved: u32,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl core::fmt::Debug for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0").field("Length", &self.Length).field("Reserved", &self.Reserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl PartialEq for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.Reserved == other.Reserved
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Eq for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
     fn default() -> Self {
@@ -4024,17 +3210,10 @@ impl Default for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct IP_ADDRESS_PREFIX {
     pub Prefix: super::super::Networking::WinSock::SOCKADDR_INET,
     pub PrefixLength: u8,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for IP_ADDRESS_PREFIX {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for IP_ADDRESS_PREFIX {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for IP_ADDRESS_PREFIX {
@@ -4047,97 +3226,50 @@ impl Default for IP_ADDRESS_PREFIX {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADDRESS_STRING {
     pub String: [i8; 16],
-}
-impl Copy for IP_ADDRESS_STRING {}
-impl Clone for IP_ADDRESS_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IP_ADDRESS_STRING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IP_ADDRESS_STRING").field("String", &self.String).finish()
-    }
 }
 impl windows_core::TypeKind for IP_ADDRESS_STRING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IP_ADDRESS_STRING {
-    fn eq(&self, other: &Self) -> bool {
-        self.String == other.String
-    }
-}
-impl Eq for IP_ADDRESS_STRING {}
 impl Default for IP_ADDRESS_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADDR_STRING {
     pub Next: *mut IP_ADDR_STRING,
     pub IpAddress: IP_ADDRESS_STRING,
     pub IpMask: IP_ADDRESS_STRING,
     pub Context: u32,
 }
-impl Copy for IP_ADDR_STRING {}
-impl Clone for IP_ADDR_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IP_ADDR_STRING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IP_ADDR_STRING").field("Next", &self.Next).field("IpAddress", &self.IpAddress).field("IpMask", &self.IpMask).field("Context", &self.Context).finish()
-    }
-}
 impl windows_core::TypeKind for IP_ADDR_STRING {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IP_ADDR_STRING {
-    fn eq(&self, other: &Self) -> bool {
-        self.Next == other.Next && self.IpAddress == other.IpAddress && self.IpMask == other.IpMask && self.Context == other.Context
-    }
-}
-impl Eq for IP_ADDR_STRING {}
 impl Default for IP_ADDR_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_INTERFACE_INFO {
     pub NumAdapters: i32,
     pub Adapter: [IP_ADAPTER_INDEX_MAP; 1],
 }
-impl Copy for IP_INTERFACE_INFO {}
-impl Clone for IP_INTERFACE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IP_INTERFACE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IP_INTERFACE_INFO").field("NumAdapters", &self.NumAdapters).field("Adapter", &self.Adapter).finish()
-    }
-}
 impl windows_core::TypeKind for IP_INTERFACE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IP_INTERFACE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumAdapters == other.NumAdapters && self.Adapter == other.Adapter
-    }
-}
-impl Eq for IP_INTERFACE_INFO {}
 impl Default for IP_INTERFACE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_INTERFACE_NAME_INFO_W2KSP1 {
     pub Index: u32,
     pub MediaType: u32,
@@ -4146,64 +3278,32 @@ pub struct IP_INTERFACE_NAME_INFO_W2KSP1 {
     pub DeviceGuid: windows_core::GUID,
     pub InterfaceGuid: windows_core::GUID,
 }
-impl Copy for IP_INTERFACE_NAME_INFO_W2KSP1 {}
-impl Clone for IP_INTERFACE_NAME_INFO_W2KSP1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IP_INTERFACE_NAME_INFO_W2KSP1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IP_INTERFACE_NAME_INFO_W2KSP1").field("Index", &self.Index).field("MediaType", &self.MediaType).field("ConnectionType", &self.ConnectionType).field("AccessType", &self.AccessType).field("DeviceGuid", &self.DeviceGuid).field("InterfaceGuid", &self.InterfaceGuid).finish()
-    }
-}
 impl windows_core::TypeKind for IP_INTERFACE_NAME_INFO_W2KSP1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IP_INTERFACE_NAME_INFO_W2KSP1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Index == other.Index && self.MediaType == other.MediaType && self.ConnectionType == other.ConnectionType && self.AccessType == other.AccessType && self.DeviceGuid == other.DeviceGuid && self.InterfaceGuid == other.InterfaceGuid
-    }
-}
-impl Eq for IP_INTERFACE_NAME_INFO_W2KSP1 {}
 impl Default for IP_INTERFACE_NAME_INFO_W2KSP1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_MCAST_COUNTER_INFO {
     pub InMcastOctets: u64,
     pub OutMcastOctets: u64,
     pub InMcastPkts: u64,
     pub OutMcastPkts: u64,
 }
-impl Copy for IP_MCAST_COUNTER_INFO {}
-impl Clone for IP_MCAST_COUNTER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IP_MCAST_COUNTER_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IP_MCAST_COUNTER_INFO").field("InMcastOctets", &self.InMcastOctets).field("OutMcastOctets", &self.OutMcastOctets).field("InMcastPkts", &self.InMcastPkts).field("OutMcastPkts", &self.OutMcastPkts).finish()
-    }
-}
 impl windows_core::TypeKind for IP_MCAST_COUNTER_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IP_MCAST_COUNTER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.InMcastOctets == other.InMcastOctets && self.OutMcastOctets == other.OutMcastOctets && self.InMcastPkts == other.InMcastPkts && self.OutMcastPkts == other.OutMcastPkts
-    }
-}
-impl Eq for IP_MCAST_COUNTER_INFO {}
 impl Default for IP_MCAST_COUNTER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_OPTION_INFORMATION {
     pub Ttl: u8,
     pub Tos: u8,
@@ -4211,26 +3311,9 @@ pub struct IP_OPTION_INFORMATION {
     pub OptionsSize: u8,
     pub OptionsData: *mut u8,
 }
-impl Copy for IP_OPTION_INFORMATION {}
-impl Clone for IP_OPTION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IP_OPTION_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IP_OPTION_INFORMATION").field("Ttl", &self.Ttl).field("Tos", &self.Tos).field("Flags", &self.Flags).field("OptionsSize", &self.OptionsSize).field("OptionsData", &self.OptionsData).finish()
-    }
-}
 impl windows_core::TypeKind for IP_OPTION_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IP_OPTION_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Ttl == other.Ttl && self.Tos == other.Tos && self.Flags == other.Flags && self.OptionsSize == other.OptionsSize && self.OptionsData == other.OptionsData
-    }
-}
-impl Eq for IP_OPTION_INFORMATION {}
 impl Default for IP_OPTION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4238,6 +3321,7 @@ impl Default for IP_OPTION_INFORMATION {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_OPTION_INFORMATION32 {
     pub Ttl: u8,
     pub Tos: u8,
@@ -4246,31 +3330,9 @@ pub struct IP_OPTION_INFORMATION32 {
     pub OptionsData: *mut u8,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for IP_OPTION_INFORMATION32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for IP_OPTION_INFORMATION32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl core::fmt::Debug for IP_OPTION_INFORMATION32 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IP_OPTION_INFORMATION32").field("Ttl", &self.Ttl).field("Tos", &self.Tos).field("Flags", &self.Flags).field("OptionsSize", &self.OptionsSize).field("OptionsData", &self.OptionsData).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for IP_OPTION_INFORMATION32 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl PartialEq for IP_OPTION_INFORMATION32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Ttl == other.Ttl && self.Tos == other.Tos && self.Flags == other.Flags && self.OptionsSize == other.OptionsSize && self.OptionsData == other.OptionsData
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Eq for IP_OPTION_INFORMATION32 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for IP_OPTION_INFORMATION32 {
     fn default() -> Self {
@@ -4278,98 +3340,51 @@ impl Default for IP_OPTION_INFORMATION32 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_PER_ADAPTER_INFO_W2KSP1 {
     pub AutoconfigEnabled: u32,
     pub AutoconfigActive: u32,
     pub CurrentDnsServer: *mut IP_ADDR_STRING,
     pub DnsServerList: IP_ADDR_STRING,
 }
-impl Copy for IP_PER_ADAPTER_INFO_W2KSP1 {}
-impl Clone for IP_PER_ADAPTER_INFO_W2KSP1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IP_PER_ADAPTER_INFO_W2KSP1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IP_PER_ADAPTER_INFO_W2KSP1").field("AutoconfigEnabled", &self.AutoconfigEnabled).field("AutoconfigActive", &self.AutoconfigActive).field("CurrentDnsServer", &self.CurrentDnsServer).field("DnsServerList", &self.DnsServerList).finish()
-    }
-}
 impl windows_core::TypeKind for IP_PER_ADAPTER_INFO_W2KSP1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IP_PER_ADAPTER_INFO_W2KSP1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.AutoconfigEnabled == other.AutoconfigEnabled && self.AutoconfigActive == other.AutoconfigActive && self.CurrentDnsServer == other.CurrentDnsServer && self.DnsServerList == other.DnsServerList
-    }
-}
-impl Eq for IP_PER_ADAPTER_INFO_W2KSP1 {}
 impl Default for IP_PER_ADAPTER_INFO_W2KSP1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
     pub NumAdapters: u32,
     pub Address: [u32; 1],
 }
-impl Copy for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {}
-impl Clone for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("IP_UNIDIRECTIONAL_ADAPTER_ADDRESS").field("NumAdapters", &self.NumAdapters).field("Address", &self.Address).finish()
-    }
-}
 impl windows_core::TypeKind for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumAdapters == other.NumAdapters && self.Address == other.Address
-    }
-}
-impl Eq for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {}
 impl Default for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIBICMPINFO {
     pub icmpInStats: MIBICMPSTATS,
     pub icmpOutStats: MIBICMPSTATS,
 }
-impl Copy for MIBICMPINFO {}
-impl Clone for MIBICMPINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIBICMPINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIBICMPINFO").field("icmpInStats", &self.icmpInStats).field("icmpOutStats", &self.icmpOutStats).finish()
-    }
-}
 impl windows_core::TypeKind for MIBICMPINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIBICMPINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.icmpInStats == other.icmpInStats && self.icmpOutStats == other.icmpOutStats
-    }
-}
-impl Eq for MIBICMPINFO {}
 impl Default for MIBICMPINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIBICMPSTATS {
     pub dwMsgs: u32,
     pub dwErrors: u32,
@@ -4385,71 +3400,24 @@ pub struct MIBICMPSTATS {
     pub dwAddrMasks: u32,
     pub dwAddrMaskReps: u32,
 }
-impl Copy for MIBICMPSTATS {}
-impl Clone for MIBICMPSTATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIBICMPSTATS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIBICMPSTATS")
-            .field("dwMsgs", &self.dwMsgs)
-            .field("dwErrors", &self.dwErrors)
-            .field("dwDestUnreachs", &self.dwDestUnreachs)
-            .field("dwTimeExcds", &self.dwTimeExcds)
-            .field("dwParmProbs", &self.dwParmProbs)
-            .field("dwSrcQuenchs", &self.dwSrcQuenchs)
-            .field("dwRedirects", &self.dwRedirects)
-            .field("dwEchos", &self.dwEchos)
-            .field("dwEchoReps", &self.dwEchoReps)
-            .field("dwTimestamps", &self.dwTimestamps)
-            .field("dwTimestampReps", &self.dwTimestampReps)
-            .field("dwAddrMasks", &self.dwAddrMasks)
-            .field("dwAddrMaskReps", &self.dwAddrMaskReps)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MIBICMPSTATS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIBICMPSTATS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMsgs == other.dwMsgs && self.dwErrors == other.dwErrors && self.dwDestUnreachs == other.dwDestUnreachs && self.dwTimeExcds == other.dwTimeExcds && self.dwParmProbs == other.dwParmProbs && self.dwSrcQuenchs == other.dwSrcQuenchs && self.dwRedirects == other.dwRedirects && self.dwEchos == other.dwEchos && self.dwEchoReps == other.dwEchoReps && self.dwTimestamps == other.dwTimestamps && self.dwTimestampReps == other.dwTimestampReps && self.dwAddrMasks == other.dwAddrMasks && self.dwAddrMaskReps == other.dwAddrMaskReps
-    }
-}
-impl Eq for MIBICMPSTATS {}
 impl Default for MIBICMPSTATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIBICMPSTATS_EX_XPSP1 {
     pub dwMsgs: u32,
     pub dwErrors: u32,
     pub rgdwTypeCount: [u32; 256],
 }
-impl Copy for MIBICMPSTATS_EX_XPSP1 {}
-impl Clone for MIBICMPSTATS_EX_XPSP1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIBICMPSTATS_EX_XPSP1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIBICMPSTATS_EX_XPSP1").field("dwMsgs", &self.dwMsgs).field("dwErrors", &self.dwErrors).field("rgdwTypeCount", &self.rgdwTypeCount).finish()
-    }
-}
 impl windows_core::TypeKind for MIBICMPSTATS_EX_XPSP1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIBICMPSTATS_EX_XPSP1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMsgs == other.dwMsgs && self.dwErrors == other.dwErrors && self.rgdwTypeCount == other.rgdwTypeCount
-    }
-}
-impl Eq for MIBICMPSTATS_EX_XPSP1 {}
 impl Default for MIBICMPSTATS_EX_XPSP1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4457,19 +3425,12 @@ impl Default for MIBICMPSTATS_EX_XPSP1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy)]
 pub struct MIB_ANYCASTIPADDRESS_ROW {
     pub Address: super::super::Networking::WinSock::SOCKADDR_INET,
     pub InterfaceLuid: super::Ndis::NET_LUID_LH,
     pub InterfaceIndex: u32,
     pub ScopeId: super::super::Networking::WinSock::SCOPE_ID,
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for MIB_ANYCASTIPADDRESS_ROW {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for MIB_ANYCASTIPADDRESS_ROW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for MIB_ANYCASTIPADDRESS_ROW {
@@ -4483,17 +3444,10 @@ impl Default for MIB_ANYCASTIPADDRESS_ROW {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy)]
 pub struct MIB_ANYCASTIPADDRESS_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_ANYCASTIPADDRESS_ROW; 1],
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for MIB_ANYCASTIPADDRESS_TABLE {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for MIB_ANYCASTIPADDRESS_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for MIB_ANYCASTIPADDRESS_TABLE {
@@ -4506,154 +3460,75 @@ impl Default for MIB_ANYCASTIPADDRESS_TABLE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_BEST_IF {
     pub dwDestAddr: u32,
     pub dwIfIndex: u32,
 }
-impl Copy for MIB_BEST_IF {}
-impl Clone for MIB_BEST_IF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_BEST_IF {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_BEST_IF").field("dwDestAddr", &self.dwDestAddr).field("dwIfIndex", &self.dwIfIndex).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_BEST_IF {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_BEST_IF {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwDestAddr == other.dwDestAddr && self.dwIfIndex == other.dwIfIndex
-    }
-}
-impl Eq for MIB_BEST_IF {}
 impl Default for MIB_BEST_IF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_BOUNDARYROW {
     pub dwGroupAddress: u32,
     pub dwGroupMask: u32,
 }
-impl Copy for MIB_BOUNDARYROW {}
-impl Clone for MIB_BOUNDARYROW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_BOUNDARYROW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_BOUNDARYROW").field("dwGroupAddress", &self.dwGroupAddress).field("dwGroupMask", &self.dwGroupMask).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_BOUNDARYROW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_BOUNDARYROW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwGroupAddress == other.dwGroupAddress && self.dwGroupMask == other.dwGroupMask
-    }
-}
-impl Eq for MIB_BOUNDARYROW {}
 impl Default for MIB_BOUNDARYROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_ICMP {
     pub stats: MIBICMPINFO,
-}
-impl Copy for MIB_ICMP {}
-impl Clone for MIB_ICMP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_ICMP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_ICMP").field("stats", &self.stats).finish()
-    }
 }
 impl windows_core::TypeKind for MIB_ICMP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_ICMP {
-    fn eq(&self, other: &Self) -> bool {
-        self.stats == other.stats
-    }
-}
-impl Eq for MIB_ICMP {}
 impl Default for MIB_ICMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_ICMP_EX_XPSP1 {
     pub icmpInStats: MIBICMPSTATS_EX_XPSP1,
     pub icmpOutStats: MIBICMPSTATS_EX_XPSP1,
 }
-impl Copy for MIB_ICMP_EX_XPSP1 {}
-impl Clone for MIB_ICMP_EX_XPSP1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_ICMP_EX_XPSP1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_ICMP_EX_XPSP1").field("icmpInStats", &self.icmpInStats).field("icmpOutStats", &self.icmpOutStats).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_ICMP_EX_XPSP1 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_ICMP_EX_XPSP1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.icmpInStats == other.icmpInStats && self.icmpOutStats == other.icmpOutStats
-    }
-}
-impl Eq for MIB_ICMP_EX_XPSP1 {}
 impl Default for MIB_ICMP_EX_XPSP1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IFNUMBER {
     pub dwValue: u32,
-}
-impl Copy for MIB_IFNUMBER {}
-impl Clone for MIB_IFNUMBER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_IFNUMBER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IFNUMBER").field("dwValue", &self.dwValue).finish()
-    }
 }
 impl windows_core::TypeKind for MIB_IFNUMBER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_IFNUMBER {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwValue == other.dwValue
-    }
-}
-impl Eq for MIB_IFNUMBER {}
 impl Default for MIB_IFNUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IFROW {
     pub wszName: [u16; 256],
     pub dwIndex: u32,
@@ -4680,140 +3555,44 @@ pub struct MIB_IFROW {
     pub dwDescrLen: u32,
     pub bDescr: [u8; 256],
 }
-impl Copy for MIB_IFROW {}
-impl Clone for MIB_IFROW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_IFROW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IFROW")
-            .field("wszName", &self.wszName)
-            .field("dwIndex", &self.dwIndex)
-            .field("dwType", &self.dwType)
-            .field("dwMtu", &self.dwMtu)
-            .field("dwSpeed", &self.dwSpeed)
-            .field("dwPhysAddrLen", &self.dwPhysAddrLen)
-            .field("bPhysAddr", &self.bPhysAddr)
-            .field("dwAdminStatus", &self.dwAdminStatus)
-            .field("dwOperStatus", &self.dwOperStatus)
-            .field("dwLastChange", &self.dwLastChange)
-            .field("dwInOctets", &self.dwInOctets)
-            .field("dwInUcastPkts", &self.dwInUcastPkts)
-            .field("dwInNUcastPkts", &self.dwInNUcastPkts)
-            .field("dwInDiscards", &self.dwInDiscards)
-            .field("dwInErrors", &self.dwInErrors)
-            .field("dwInUnknownProtos", &self.dwInUnknownProtos)
-            .field("dwOutOctets", &self.dwOutOctets)
-            .field("dwOutUcastPkts", &self.dwOutUcastPkts)
-            .field("dwOutNUcastPkts", &self.dwOutNUcastPkts)
-            .field("dwOutDiscards", &self.dwOutDiscards)
-            .field("dwOutErrors", &self.dwOutErrors)
-            .field("dwOutQLen", &self.dwOutQLen)
-            .field("dwDescrLen", &self.dwDescrLen)
-            .field("bDescr", &self.bDescr)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MIB_IFROW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_IFROW {
-    fn eq(&self, other: &Self) -> bool {
-        self.wszName == other.wszName
-            && self.dwIndex == other.dwIndex
-            && self.dwType == other.dwType
-            && self.dwMtu == other.dwMtu
-            && self.dwSpeed == other.dwSpeed
-            && self.dwPhysAddrLen == other.dwPhysAddrLen
-            && self.bPhysAddr == other.bPhysAddr
-            && self.dwAdminStatus == other.dwAdminStatus
-            && self.dwOperStatus == other.dwOperStatus
-            && self.dwLastChange == other.dwLastChange
-            && self.dwInOctets == other.dwInOctets
-            && self.dwInUcastPkts == other.dwInUcastPkts
-            && self.dwInNUcastPkts == other.dwInNUcastPkts
-            && self.dwInDiscards == other.dwInDiscards
-            && self.dwInErrors == other.dwInErrors
-            && self.dwInUnknownProtos == other.dwInUnknownProtos
-            && self.dwOutOctets == other.dwOutOctets
-            && self.dwOutUcastPkts == other.dwOutUcastPkts
-            && self.dwOutNUcastPkts == other.dwOutNUcastPkts
-            && self.dwOutDiscards == other.dwOutDiscards
-            && self.dwOutErrors == other.dwOutErrors
-            && self.dwOutQLen == other.dwOutQLen
-            && self.dwDescrLen == other.dwDescrLen
-            && self.bDescr == other.bDescr
-    }
-}
-impl Eq for MIB_IFROW {}
 impl Default for MIB_IFROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IFSTACK_ROW {
     pub HigherLayerInterfaceIndex: u32,
     pub LowerLayerInterfaceIndex: u32,
 }
-impl Copy for MIB_IFSTACK_ROW {}
-impl Clone for MIB_IFSTACK_ROW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_IFSTACK_ROW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IFSTACK_ROW").field("HigherLayerInterfaceIndex", &self.HigherLayerInterfaceIndex).field("LowerLayerInterfaceIndex", &self.LowerLayerInterfaceIndex).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_IFSTACK_ROW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_IFSTACK_ROW {
-    fn eq(&self, other: &Self) -> bool {
-        self.HigherLayerInterfaceIndex == other.HigherLayerInterfaceIndex && self.LowerLayerInterfaceIndex == other.LowerLayerInterfaceIndex
-    }
-}
-impl Eq for MIB_IFSTACK_ROW {}
 impl Default for MIB_IFSTACK_ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IFSTACK_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_IFSTACK_ROW; 1],
 }
-impl Copy for MIB_IFSTACK_TABLE {}
-impl Clone for MIB_IFSTACK_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_IFSTACK_TABLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IFSTACK_TABLE").field("NumEntries", &self.NumEntries).field("Table", &self.Table).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_IFSTACK_TABLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_IFSTACK_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumEntries == other.NumEntries && self.Table == other.Table
-    }
-}
-impl Eq for MIB_IFSTACK_TABLE {}
 impl Default for MIB_IFSTACK_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IFSTATUS {
     pub dwIfIndex: u32,
     pub dwAdminStatus: u32,
@@ -4821,56 +3600,23 @@ pub struct MIB_IFSTATUS {
     pub bMHbeatActive: super::super::Foundation::BOOL,
     pub bMHbeatAlive: super::super::Foundation::BOOL,
 }
-impl Copy for MIB_IFSTATUS {}
-impl Clone for MIB_IFSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_IFSTATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IFSTATUS").field("dwIfIndex", &self.dwIfIndex).field("dwAdminStatus", &self.dwAdminStatus).field("dwOperationalStatus", &self.dwOperationalStatus).field("bMHbeatActive", &self.bMHbeatActive).field("bMHbeatAlive", &self.bMHbeatAlive).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_IFSTATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_IFSTATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIfIndex == other.dwIfIndex && self.dwAdminStatus == other.dwAdminStatus && self.dwOperationalStatus == other.dwOperationalStatus && self.bMHbeatActive == other.bMHbeatActive && self.bMHbeatAlive == other.bMHbeatAlive
-    }
-}
-impl Eq for MIB_IFSTATUS {}
 impl Default for MIB_IFSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IFTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IFROW; 1],
 }
-impl Copy for MIB_IFTABLE {}
-impl Clone for MIB_IFTABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_IFTABLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IFTABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_IFTABLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_IFTABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumEntries == other.dwNumEntries && self.table == other.table
-    }
-}
-impl Eq for MIB_IFTABLE {}
 impl Default for MIB_IFTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4878,6 +3624,7 @@ impl Default for MIB_IFTABLE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy)]
 pub struct MIB_IF_ROW2 {
     pub InterfaceLuid: super::Ndis::NET_LUID_LH,
     pub InterfaceIndex: u32,
@@ -4922,14 +3669,6 @@ pub struct MIB_IF_ROW2 {
     pub OutQLen: u64,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for MIB_IF_ROW2 {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for MIB_IF_ROW2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for MIB_IF_ROW2 {
     type TypeKind = windows_core::CopyType;
 }
@@ -4941,35 +3680,14 @@ impl Default for MIB_IF_ROW2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IF_ROW2_0 {
     pub _bitfield: u8,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for MIB_IF_ROW2_0 {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for MIB_IF_ROW2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl core::fmt::Debug for MIB_IF_ROW2_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IF_ROW2_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for MIB_IF_ROW2_0 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl PartialEq for MIB_IF_ROW2_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Eq for MIB_IF_ROW2_0 {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for MIB_IF_ROW2_0 {
     fn default() -> Self {
@@ -4978,17 +3696,10 @@ impl Default for MIB_IF_ROW2_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy)]
 pub struct MIB_IF_TABLE2 {
     pub NumEntries: u32,
     pub Table: [MIB_IF_ROW2; 1],
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Copy for MIB_IF_TABLE2 {}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Clone for MIB_IF_TABLE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl windows_core::TypeKind for MIB_IF_TABLE2 {
@@ -5001,66 +3712,35 @@ impl Default for MIB_IF_TABLE2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_INVERTEDIFSTACK_ROW {
     pub LowerLayerInterfaceIndex: u32,
     pub HigherLayerInterfaceIndex: u32,
 }
-impl Copy for MIB_INVERTEDIFSTACK_ROW {}
-impl Clone for MIB_INVERTEDIFSTACK_ROW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_INVERTEDIFSTACK_ROW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_INVERTEDIFSTACK_ROW").field("LowerLayerInterfaceIndex", &self.LowerLayerInterfaceIndex).field("HigherLayerInterfaceIndex", &self.HigherLayerInterfaceIndex).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_INVERTEDIFSTACK_ROW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_INVERTEDIFSTACK_ROW {
-    fn eq(&self, other: &Self) -> bool {
-        self.LowerLayerInterfaceIndex == other.LowerLayerInterfaceIndex && self.HigherLayerInterfaceIndex == other.HigherLayerInterfaceIndex
-    }
-}
-impl Eq for MIB_INVERTEDIFSTACK_ROW {}
 impl Default for MIB_INVERTEDIFSTACK_ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_INVERTEDIFSTACK_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_INVERTEDIFSTACK_ROW; 1],
 }
-impl Copy for MIB_INVERTEDIFSTACK_TABLE {}
-impl Clone for MIB_INVERTEDIFSTACK_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_INVERTEDIFSTACK_TABLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_INVERTEDIFSTACK_TABLE").field("NumEntries", &self.NumEntries).field("Table", &self.Table).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_INVERTEDIFSTACK_TABLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_INVERTEDIFSTACK_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumEntries == other.NumEntries && self.Table == other.Table
-    }
-}
-impl Eq for MIB_INVERTEDIFSTACK_TABLE {}
 impl Default for MIB_INVERTEDIFSTACK_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPADDRROW_W2K {
     pub dwAddr: u32,
     pub dwIndex: u32,
@@ -5070,32 +3750,16 @@ pub struct MIB_IPADDRROW_W2K {
     pub unused1: u16,
     pub unused2: u16,
 }
-impl Copy for MIB_IPADDRROW_W2K {}
-impl Clone for MIB_IPADDRROW_W2K {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_IPADDRROW_W2K {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IPADDRROW_W2K").field("dwAddr", &self.dwAddr).field("dwIndex", &self.dwIndex).field("dwMask", &self.dwMask).field("dwBCastAddr", &self.dwBCastAddr).field("dwReasmSize", &self.dwReasmSize).field("unused1", &self.unused1).field("unused2", &self.unused2).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_IPADDRROW_W2K {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_IPADDRROW_W2K {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwAddr == other.dwAddr && self.dwIndex == other.dwIndex && self.dwMask == other.dwMask && self.dwBCastAddr == other.dwBCastAddr && self.dwReasmSize == other.dwReasmSize && self.unused1 == other.unused1 && self.unused2 == other.unused2
-    }
-}
-impl Eq for MIB_IPADDRROW_W2K {}
 impl Default for MIB_IPADDRROW_W2K {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPADDRROW_XP {
     pub dwAddr: u32,
     pub dwIndex: u32,
@@ -5105,56 +3769,23 @@ pub struct MIB_IPADDRROW_XP {
     pub unused1: u16,
     pub wType: u16,
 }
-impl Copy for MIB_IPADDRROW_XP {}
-impl Clone for MIB_IPADDRROW_XP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_IPADDRROW_XP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IPADDRROW_XP").field("dwAddr", &self.dwAddr).field("dwIndex", &self.dwIndex).field("dwMask", &self.dwMask).field("dwBCastAddr", &self.dwBCastAddr).field("dwReasmSize", &self.dwReasmSize).field("unused1", &self.unused1).field("wType", &self.wType).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_IPADDRROW_XP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_IPADDRROW_XP {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwAddr == other.dwAddr && self.dwIndex == other.dwIndex && self.dwMask == other.dwMask && self.dwBCastAddr == other.dwBCastAddr && self.dwReasmSize == other.dwReasmSize && self.unused1 == other.unused1 && self.wType == other.wType
-    }
-}
-impl Eq for MIB_IPADDRROW_XP {}
 impl Default for MIB_IPADDRROW_XP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPADDRTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPADDRROW_XP; 1],
 }
-impl Copy for MIB_IPADDRTABLE {}
-impl Clone for MIB_IPADDRTABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_IPADDRTABLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IPADDRTABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_IPADDRTABLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_IPADDRTABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumEntries == other.dwNumEntries && self.table == other.table
-    }
-}
-impl Eq for MIB_IPADDRTABLE {}
 impl Default for MIB_IPADDRTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5162,18 +3793,11 @@ impl Default for MIB_IPADDRTABLE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct MIB_IPDESTROW {
     pub ForwardRow: MIB_IPFORWARDROW,
     pub dwForwardPreference: u32,
     pub dwForwardViewSet: u32,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for MIB_IPDESTROW {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for MIB_IPDESTROW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for MIB_IPDESTROW {
@@ -5187,17 +3811,10 @@ impl Default for MIB_IPDESTROW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct MIB_IPDESTTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPDESTROW; 1],
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for MIB_IPDESTTABLE {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for MIB_IPDESTTABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for MIB_IPDESTTABLE {
@@ -5210,29 +3827,13 @@ impl Default for MIB_IPDESTTABLE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPFORWARDNUMBER {
     pub dwValue: u32,
-}
-impl Copy for MIB_IPFORWARDNUMBER {}
-impl Clone for MIB_IPFORWARDNUMBER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_IPFORWARDNUMBER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IPFORWARDNUMBER").field("dwValue", &self.dwValue).finish()
-    }
 }
 impl windows_core::TypeKind for MIB_IPFORWARDNUMBER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_IPFORWARDNUMBER {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwValue == other.dwValue
-    }
-}
-impl Eq for MIB_IPFORWARDNUMBER {}
 impl Default for MIB_IPFORWARDNUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5240,6 +3841,7 @@ impl Default for MIB_IPFORWARDNUMBER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct MIB_IPFORWARDROW {
     pub dwForwardDest: u32,
     pub dwForwardMask: u32,
@@ -5257,14 +3859,6 @@ pub struct MIB_IPFORWARDROW {
     pub dwForwardMetric5: u32,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for MIB_IPFORWARDROW {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for MIB_IPFORWARDROW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for MIB_IPFORWARDROW {
     type TypeKind = windows_core::CopyType;
 }
@@ -5276,17 +3870,10 @@ impl Default for MIB_IPFORWARDROW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub union MIB_IPFORWARDROW_0 {
     pub dwForwardType: u32,
     pub ForwardType: MIB_IPFORWARD_TYPE,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for MIB_IPFORWARDROW_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for MIB_IPFORWARDROW_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for MIB_IPFORWARDROW_0 {
@@ -5300,17 +3887,10 @@ impl Default for MIB_IPFORWARDROW_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub union MIB_IPFORWARDROW_1 {
     pub dwForwardProto: u32,
     pub ForwardProto: super::super::Networking::WinSock::NL_ROUTE_PROTOCOL,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for MIB_IPFORWARDROW_1 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for MIB_IPFORWARDROW_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for MIB_IPFORWARDROW_1 {
@@ -5324,17 +3904,10 @@ impl Default for MIB_IPFORWARDROW_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct MIB_IPFORWARDTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPFORWARDROW; 1],
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for MIB_IPFORWARDTABLE {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for MIB_IPFORWARDTABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for MIB_IPFORWARDTABLE {
@@ -5348,6 +3921,7 @@ impl Default for MIB_IPFORWARDTABLE {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy)]
 pub struct MIB_IPFORWARD_ROW2 {
     pub InterfaceLuid: super::Ndis::NET_LUID_LH,
     pub InterfaceIndex: u32,
@@ -5366,14 +3940,6 @@ pub struct MIB_IPFORWARD_ROW2 {
     pub Origin: super::super::Networking::WinSock::NL_ROUTE_ORIGIN,
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for MIB_IPFORWARD_ROW2 {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for MIB_IPFORWARD_ROW2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for MIB_IPFORWARD_ROW2 {
     type TypeKind = windows_core::CopyType;
 }
@@ -5385,17 +3951,10 @@ impl Default for MIB_IPFORWARD_ROW2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy)]
 pub struct MIB_IPFORWARD_TABLE2 {
     pub NumEntries: u32,
     pub Table: [MIB_IPFORWARD_ROW2; 1],
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for MIB_IPFORWARD_TABLE2 {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for MIB_IPFORWARD_TABLE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for MIB_IPFORWARD_TABLE2 {
@@ -5409,6 +3968,7 @@ impl Default for MIB_IPFORWARD_TABLE2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy)]
 pub struct MIB_IPINTERFACE_ROW {
     pub Family: super::super::Networking::WinSock::ADDRESS_FAMILY,
     pub InterfaceLuid: super::Ndis::NET_LUID_LH,
@@ -5447,14 +4007,6 @@ pub struct MIB_IPINTERFACE_ROW {
     pub DisableDefaultRoutes: super::super::Foundation::BOOLEAN,
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for MIB_IPINTERFACE_ROW {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for MIB_IPINTERFACE_ROW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for MIB_IPINTERFACE_ROW {
     type TypeKind = windows_core::CopyType;
 }
@@ -5466,17 +4018,10 @@ impl Default for MIB_IPINTERFACE_ROW {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy)]
 pub struct MIB_IPINTERFACE_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_IPINTERFACE_ROW; 1],
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for MIB_IPINTERFACE_TABLE {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for MIB_IPINTERFACE_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for MIB_IPINTERFACE_TABLE {
@@ -5489,97 +4034,50 @@ impl Default for MIB_IPINTERFACE_TABLE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_BOUNDARY {
     pub dwIfIndex: u32,
     pub dwGroupAddress: u32,
     pub dwGroupMask: u32,
     pub dwStatus: u32,
 }
-impl Copy for MIB_IPMCAST_BOUNDARY {}
-impl Clone for MIB_IPMCAST_BOUNDARY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_IPMCAST_BOUNDARY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IPMCAST_BOUNDARY").field("dwIfIndex", &self.dwIfIndex).field("dwGroupAddress", &self.dwGroupAddress).field("dwGroupMask", &self.dwGroupMask).field("dwStatus", &self.dwStatus).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_IPMCAST_BOUNDARY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_IPMCAST_BOUNDARY {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIfIndex == other.dwIfIndex && self.dwGroupAddress == other.dwGroupAddress && self.dwGroupMask == other.dwGroupMask && self.dwStatus == other.dwStatus
-    }
-}
-impl Eq for MIB_IPMCAST_BOUNDARY {}
 impl Default for MIB_IPMCAST_BOUNDARY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_BOUNDARY_TABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPMCAST_BOUNDARY; 1],
 }
-impl Copy for MIB_IPMCAST_BOUNDARY_TABLE {}
-impl Clone for MIB_IPMCAST_BOUNDARY_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_IPMCAST_BOUNDARY_TABLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IPMCAST_BOUNDARY_TABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_IPMCAST_BOUNDARY_TABLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_IPMCAST_BOUNDARY_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumEntries == other.dwNumEntries && self.table == other.table
-    }
-}
-impl Eq for MIB_IPMCAST_BOUNDARY_TABLE {}
 impl Default for MIB_IPMCAST_BOUNDARY_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_GLOBAL {
     pub dwEnable: u32,
-}
-impl Copy for MIB_IPMCAST_GLOBAL {}
-impl Clone for MIB_IPMCAST_GLOBAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_IPMCAST_GLOBAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IPMCAST_GLOBAL").field("dwEnable", &self.dwEnable).finish()
-    }
 }
 impl windows_core::TypeKind for MIB_IPMCAST_GLOBAL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_IPMCAST_GLOBAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwEnable == other.dwEnable
-    }
-}
-impl Eq for MIB_IPMCAST_GLOBAL {}
 impl Default for MIB_IPMCAST_GLOBAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_IF_ENTRY {
     pub dwIfIndex: u32,
     pub dwTtl: u32,
@@ -5588,62 +4086,30 @@ pub struct MIB_IPMCAST_IF_ENTRY {
     pub ulInMcastOctets: u32,
     pub ulOutMcastOctets: u32,
 }
-impl Copy for MIB_IPMCAST_IF_ENTRY {}
-impl Clone for MIB_IPMCAST_IF_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_IPMCAST_IF_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IPMCAST_IF_ENTRY").field("dwIfIndex", &self.dwIfIndex).field("dwTtl", &self.dwTtl).field("dwProtocol", &self.dwProtocol).field("dwRateLimit", &self.dwRateLimit).field("ulInMcastOctets", &self.ulInMcastOctets).field("ulOutMcastOctets", &self.ulOutMcastOctets).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_IPMCAST_IF_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_IPMCAST_IF_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIfIndex == other.dwIfIndex && self.dwTtl == other.dwTtl && self.dwProtocol == other.dwProtocol && self.dwRateLimit == other.dwRateLimit && self.ulInMcastOctets == other.ulInMcastOctets && self.ulOutMcastOctets == other.ulOutMcastOctets
-    }
-}
-impl Eq for MIB_IPMCAST_IF_ENTRY {}
 impl Default for MIB_IPMCAST_IF_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_IF_TABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPMCAST_IF_ENTRY; 1],
 }
-impl Copy for MIB_IPMCAST_IF_TABLE {}
-impl Clone for MIB_IPMCAST_IF_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_IPMCAST_IF_TABLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IPMCAST_IF_TABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_IPMCAST_IF_TABLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_IPMCAST_IF_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumEntries == other.dwNumEntries && self.table == other.table
-    }
-}
-impl Eq for MIB_IPMCAST_IF_TABLE {}
 impl Default for MIB_IPMCAST_IF_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_MFE {
     pub dwGroup: u32,
     pub dwSource: u32,
@@ -5662,49 +4128,16 @@ pub struct MIB_IPMCAST_MFE {
     pub dwReserved: u32,
     pub rgmioOutInfo: [MIB_IPMCAST_OIF_XP; 1],
 }
-impl Copy for MIB_IPMCAST_MFE {}
-impl Clone for MIB_IPMCAST_MFE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_IPMCAST_MFE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IPMCAST_MFE")
-            .field("dwGroup", &self.dwGroup)
-            .field("dwSource", &self.dwSource)
-            .field("dwSrcMask", &self.dwSrcMask)
-            .field("dwUpStrmNgbr", &self.dwUpStrmNgbr)
-            .field("dwInIfIndex", &self.dwInIfIndex)
-            .field("dwInIfProtocol", &self.dwInIfProtocol)
-            .field("dwRouteProtocol", &self.dwRouteProtocol)
-            .field("dwRouteNetwork", &self.dwRouteNetwork)
-            .field("dwRouteMask", &self.dwRouteMask)
-            .field("ulUpTime", &self.ulUpTime)
-            .field("ulExpiryTime", &self.ulExpiryTime)
-            .field("ulTimeOut", &self.ulTimeOut)
-            .field("ulNumOutIf", &self.ulNumOutIf)
-            .field("fFlags", &self.fFlags)
-            .field("dwReserved", &self.dwReserved)
-            .field("rgmioOutInfo", &self.rgmioOutInfo)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MIB_IPMCAST_MFE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_IPMCAST_MFE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwGroup == other.dwGroup && self.dwSource == other.dwSource && self.dwSrcMask == other.dwSrcMask && self.dwUpStrmNgbr == other.dwUpStrmNgbr && self.dwInIfIndex == other.dwInIfIndex && self.dwInIfProtocol == other.dwInIfProtocol && self.dwRouteProtocol == other.dwRouteProtocol && self.dwRouteNetwork == other.dwRouteNetwork && self.dwRouteMask == other.dwRouteMask && self.ulUpTime == other.ulUpTime && self.ulExpiryTime == other.ulExpiryTime && self.ulTimeOut == other.ulTimeOut && self.ulNumOutIf == other.ulNumOutIf && self.fFlags == other.fFlags && self.dwReserved == other.dwReserved && self.rgmioOutInfo == other.rgmioOutInfo
-    }
-}
-impl Eq for MIB_IPMCAST_MFE {}
 impl Default for MIB_IPMCAST_MFE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_MFE_STATS {
     pub dwGroup: u32,
     pub dwSource: u32,
@@ -5724,50 +4157,16 @@ pub struct MIB_IPMCAST_MFE_STATS {
     pub ulQueueOverflow: u32,
     pub rgmiosOutStats: [MIB_IPMCAST_OIF_STATS_LH; 1],
 }
-impl Copy for MIB_IPMCAST_MFE_STATS {}
-impl Clone for MIB_IPMCAST_MFE_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_IPMCAST_MFE_STATS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IPMCAST_MFE_STATS")
-            .field("dwGroup", &self.dwGroup)
-            .field("dwSource", &self.dwSource)
-            .field("dwSrcMask", &self.dwSrcMask)
-            .field("dwUpStrmNgbr", &self.dwUpStrmNgbr)
-            .field("dwInIfIndex", &self.dwInIfIndex)
-            .field("dwInIfProtocol", &self.dwInIfProtocol)
-            .field("dwRouteProtocol", &self.dwRouteProtocol)
-            .field("dwRouteNetwork", &self.dwRouteNetwork)
-            .field("dwRouteMask", &self.dwRouteMask)
-            .field("ulUpTime", &self.ulUpTime)
-            .field("ulExpiryTime", &self.ulExpiryTime)
-            .field("ulNumOutIf", &self.ulNumOutIf)
-            .field("ulInPkts", &self.ulInPkts)
-            .field("ulInOctets", &self.ulInOctets)
-            .field("ulPktsDifferentIf", &self.ulPktsDifferentIf)
-            .field("ulQueueOverflow", &self.ulQueueOverflow)
-            .field("rgmiosOutStats", &self.rgmiosOutStats)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MIB_IPMCAST_MFE_STATS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_IPMCAST_MFE_STATS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwGroup == other.dwGroup && self.dwSource == other.dwSource && self.dwSrcMask == other.dwSrcMask && self.dwUpStrmNgbr == other.dwUpStrmNgbr && self.dwInIfIndex == other.dwInIfIndex && self.dwInIfProtocol == other.dwInIfProtocol && self.dwRouteProtocol == other.dwRouteProtocol && self.dwRouteNetwork == other.dwRouteNetwork && self.dwRouteMask == other.dwRouteMask && self.ulUpTime == other.ulUpTime && self.ulExpiryTime == other.ulExpiryTime && self.ulNumOutIf == other.ulNumOutIf && self.ulInPkts == other.ulInPkts && self.ulInOctets == other.ulInOctets && self.ulPktsDifferentIf == other.ulPktsDifferentIf && self.ulQueueOverflow == other.ulQueueOverflow && self.rgmiosOutStats == other.rgmiosOutStats
-    }
-}
-impl Eq for MIB_IPMCAST_MFE_STATS {}
 impl Default for MIB_IPMCAST_MFE_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_MFE_STATS_EX_XP {
     pub dwGroup: u32,
     pub dwSource: u32,
@@ -5792,76 +4191,16 @@ pub struct MIB_IPMCAST_MFE_STATS_EX_XP {
     pub ulTotalOutPackets: u32,
     pub rgmiosOutStats: [MIB_IPMCAST_OIF_STATS_LH; 1],
 }
-impl Copy for MIB_IPMCAST_MFE_STATS_EX_XP {}
-impl Clone for MIB_IPMCAST_MFE_STATS_EX_XP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_IPMCAST_MFE_STATS_EX_XP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IPMCAST_MFE_STATS_EX_XP")
-            .field("dwGroup", &self.dwGroup)
-            .field("dwSource", &self.dwSource)
-            .field("dwSrcMask", &self.dwSrcMask)
-            .field("dwUpStrmNgbr", &self.dwUpStrmNgbr)
-            .field("dwInIfIndex", &self.dwInIfIndex)
-            .field("dwInIfProtocol", &self.dwInIfProtocol)
-            .field("dwRouteProtocol", &self.dwRouteProtocol)
-            .field("dwRouteNetwork", &self.dwRouteNetwork)
-            .field("dwRouteMask", &self.dwRouteMask)
-            .field("ulUpTime", &self.ulUpTime)
-            .field("ulExpiryTime", &self.ulExpiryTime)
-            .field("ulNumOutIf", &self.ulNumOutIf)
-            .field("ulInPkts", &self.ulInPkts)
-            .field("ulInOctets", &self.ulInOctets)
-            .field("ulPktsDifferentIf", &self.ulPktsDifferentIf)
-            .field("ulQueueOverflow", &self.ulQueueOverflow)
-            .field("ulUninitMfe", &self.ulUninitMfe)
-            .field("ulNegativeMfe", &self.ulNegativeMfe)
-            .field("ulInDiscards", &self.ulInDiscards)
-            .field("ulInHdrErrors", &self.ulInHdrErrors)
-            .field("ulTotalOutPackets", &self.ulTotalOutPackets)
-            .field("rgmiosOutStats", &self.rgmiosOutStats)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MIB_IPMCAST_MFE_STATS_EX_XP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_IPMCAST_MFE_STATS_EX_XP {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwGroup == other.dwGroup
-            && self.dwSource == other.dwSource
-            && self.dwSrcMask == other.dwSrcMask
-            && self.dwUpStrmNgbr == other.dwUpStrmNgbr
-            && self.dwInIfIndex == other.dwInIfIndex
-            && self.dwInIfProtocol == other.dwInIfProtocol
-            && self.dwRouteProtocol == other.dwRouteProtocol
-            && self.dwRouteNetwork == other.dwRouteNetwork
-            && self.dwRouteMask == other.dwRouteMask
-            && self.ulUpTime == other.ulUpTime
-            && self.ulExpiryTime == other.ulExpiryTime
-            && self.ulNumOutIf == other.ulNumOutIf
-            && self.ulInPkts == other.ulInPkts
-            && self.ulInOctets == other.ulInOctets
-            && self.ulPktsDifferentIf == other.ulPktsDifferentIf
-            && self.ulQueueOverflow == other.ulQueueOverflow
-            && self.ulUninitMfe == other.ulUninitMfe
-            && self.ulNegativeMfe == other.ulNegativeMfe
-            && self.ulInDiscards == other.ulInDiscards
-            && self.ulInHdrErrors == other.ulInHdrErrors
-            && self.ulTotalOutPackets == other.ulTotalOutPackets
-            && self.rgmiosOutStats == other.rgmiosOutStats
-    }
-}
-impl Eq for MIB_IPMCAST_MFE_STATS_EX_XP {}
 impl Default for MIB_IPMCAST_MFE_STATS_EX_XP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_OIF_STATS_LH {
     pub dwOutIfIndex: u32,
     pub dwNextHopAddr: u32,
@@ -5871,32 +4210,16 @@ pub struct MIB_IPMCAST_OIF_STATS_LH {
     pub ulOutPackets: u32,
     pub ulOutDiscards: u32,
 }
-impl Copy for MIB_IPMCAST_OIF_STATS_LH {}
-impl Clone for MIB_IPMCAST_OIF_STATS_LH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_IPMCAST_OIF_STATS_LH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IPMCAST_OIF_STATS_LH").field("dwOutIfIndex", &self.dwOutIfIndex).field("dwNextHopAddr", &self.dwNextHopAddr).field("dwDialContext", &self.dwDialContext).field("ulTtlTooLow", &self.ulTtlTooLow).field("ulFragNeeded", &self.ulFragNeeded).field("ulOutPackets", &self.ulOutPackets).field("ulOutDiscards", &self.ulOutDiscards).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_IPMCAST_OIF_STATS_LH {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_IPMCAST_OIF_STATS_LH {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwOutIfIndex == other.dwOutIfIndex && self.dwNextHopAddr == other.dwNextHopAddr && self.dwDialContext == other.dwDialContext && self.ulTtlTooLow == other.ulTtlTooLow && self.ulFragNeeded == other.ulFragNeeded && self.ulOutPackets == other.ulOutPackets && self.ulOutDiscards == other.ulOutDiscards
-    }
-}
-impl Eq for MIB_IPMCAST_OIF_STATS_LH {}
 impl Default for MIB_IPMCAST_OIF_STATS_LH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_OIF_STATS_W2K {
     pub dwOutIfIndex: u32,
     pub dwNextHopAddr: u32,
@@ -5906,140 +4229,70 @@ pub struct MIB_IPMCAST_OIF_STATS_W2K {
     pub ulOutPackets: u32,
     pub ulOutDiscards: u32,
 }
-impl Copy for MIB_IPMCAST_OIF_STATS_W2K {}
-impl Clone for MIB_IPMCAST_OIF_STATS_W2K {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_IPMCAST_OIF_STATS_W2K {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IPMCAST_OIF_STATS_W2K").field("dwOutIfIndex", &self.dwOutIfIndex).field("dwNextHopAddr", &self.dwNextHopAddr).field("pvDialContext", &self.pvDialContext).field("ulTtlTooLow", &self.ulTtlTooLow).field("ulFragNeeded", &self.ulFragNeeded).field("ulOutPackets", &self.ulOutPackets).field("ulOutDiscards", &self.ulOutDiscards).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_IPMCAST_OIF_STATS_W2K {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_IPMCAST_OIF_STATS_W2K {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwOutIfIndex == other.dwOutIfIndex && self.dwNextHopAddr == other.dwNextHopAddr && self.pvDialContext == other.pvDialContext && self.ulTtlTooLow == other.ulTtlTooLow && self.ulFragNeeded == other.ulFragNeeded && self.ulOutPackets == other.ulOutPackets && self.ulOutDiscards == other.ulOutDiscards
-    }
-}
-impl Eq for MIB_IPMCAST_OIF_STATS_W2K {}
 impl Default for MIB_IPMCAST_OIF_STATS_W2K {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_OIF_W2K {
     pub dwOutIfIndex: u32,
     pub dwNextHopAddr: u32,
     pub pvReserved: *mut core::ffi::c_void,
     pub dwReserved: u32,
 }
-impl Copy for MIB_IPMCAST_OIF_W2K {}
-impl Clone for MIB_IPMCAST_OIF_W2K {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_IPMCAST_OIF_W2K {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IPMCAST_OIF_W2K").field("dwOutIfIndex", &self.dwOutIfIndex).field("dwNextHopAddr", &self.dwNextHopAddr).field("pvReserved", &self.pvReserved).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_IPMCAST_OIF_W2K {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_IPMCAST_OIF_W2K {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwOutIfIndex == other.dwOutIfIndex && self.dwNextHopAddr == other.dwNextHopAddr && self.pvReserved == other.pvReserved && self.dwReserved == other.dwReserved
-    }
-}
-impl Eq for MIB_IPMCAST_OIF_W2K {}
 impl Default for MIB_IPMCAST_OIF_W2K {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_OIF_XP {
     pub dwOutIfIndex: u32,
     pub dwNextHopAddr: u32,
     pub dwReserved: u32,
     pub dwReserved1: u32,
 }
-impl Copy for MIB_IPMCAST_OIF_XP {}
-impl Clone for MIB_IPMCAST_OIF_XP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_IPMCAST_OIF_XP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IPMCAST_OIF_XP").field("dwOutIfIndex", &self.dwOutIfIndex).field("dwNextHopAddr", &self.dwNextHopAddr).field("dwReserved", &self.dwReserved).field("dwReserved1", &self.dwReserved1).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_IPMCAST_OIF_XP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_IPMCAST_OIF_XP {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwOutIfIndex == other.dwOutIfIndex && self.dwNextHopAddr == other.dwNextHopAddr && self.dwReserved == other.dwReserved && self.dwReserved1 == other.dwReserved1
-    }
-}
-impl Eq for MIB_IPMCAST_OIF_XP {}
 impl Default for MIB_IPMCAST_OIF_XP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_SCOPE {
     pub dwGroupAddress: u32,
     pub dwGroupMask: u32,
     pub snNameBuffer: [u16; 256],
     pub dwStatus: u32,
 }
-impl Copy for MIB_IPMCAST_SCOPE {}
-impl Clone for MIB_IPMCAST_SCOPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_IPMCAST_SCOPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IPMCAST_SCOPE").field("dwGroupAddress", &self.dwGroupAddress).field("dwGroupMask", &self.dwGroupMask).field("snNameBuffer", &self.snNameBuffer).field("dwStatus", &self.dwStatus).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_IPMCAST_SCOPE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_IPMCAST_SCOPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwGroupAddress == other.dwGroupAddress && self.dwGroupMask == other.dwGroupMask && self.snNameBuffer == other.snNameBuffer && self.dwStatus == other.dwStatus
-    }
-}
-impl Eq for MIB_IPMCAST_SCOPE {}
 impl Default for MIB_IPMCAST_SCOPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MIB_IPNETROW_LH {
     pub dwIndex: u32,
     pub dwPhysAddrLen: u32,
     pub bPhysAddr: [u8; 8],
     pub dwAddr: u32,
     pub Anonymous: MIB_IPNETROW_LH_0,
-}
-impl Copy for MIB_IPNETROW_LH {}
-impl Clone for MIB_IPNETROW_LH {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MIB_IPNETROW_LH {
     type TypeKind = windows_core::CopyType;
@@ -6050,15 +4303,10 @@ impl Default for MIB_IPNETROW_LH {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MIB_IPNETROW_LH_0 {
     pub dwType: u32,
     pub Type: MIB_IPNET_TYPE,
-}
-impl Copy for MIB_IPNETROW_LH_0 {}
-impl Clone for MIB_IPNETROW_LH_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MIB_IPNETROW_LH_0 {
     type TypeKind = windows_core::CopyType;
@@ -6069,6 +4317,7 @@ impl Default for MIB_IPNETROW_LH_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPNETROW_W2K {
     pub dwIndex: u32,
     pub dwPhysAddrLen: u32,
@@ -6076,41 +4325,19 @@ pub struct MIB_IPNETROW_W2K {
     pub dwAddr: u32,
     pub dwType: u32,
 }
-impl Copy for MIB_IPNETROW_W2K {}
-impl Clone for MIB_IPNETROW_W2K {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_IPNETROW_W2K {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IPNETROW_W2K").field("dwIndex", &self.dwIndex).field("dwPhysAddrLen", &self.dwPhysAddrLen).field("bPhysAddr", &self.bPhysAddr).field("dwAddr", &self.dwAddr).field("dwType", &self.dwType).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_IPNETROW_W2K {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_IPNETROW_W2K {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIndex == other.dwIndex && self.dwPhysAddrLen == other.dwPhysAddrLen && self.bPhysAddr == other.bPhysAddr && self.dwAddr == other.dwAddr && self.dwType == other.dwType
-    }
-}
-impl Eq for MIB_IPNETROW_W2K {}
 impl Default for MIB_IPNETROW_W2K {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MIB_IPNETTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPNETROW_LH; 1],
-}
-impl Copy for MIB_IPNETTABLE {}
-impl Clone for MIB_IPNETTABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MIB_IPNETTABLE {
     type TypeKind = windows_core::CopyType;
@@ -6122,6 +4349,7 @@ impl Default for MIB_IPNETTABLE {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy)]
 pub struct MIB_IPNET_ROW2 {
     pub Address: super::super::Networking::WinSock::SOCKADDR_INET,
     pub InterfaceIndex: u32,
@@ -6131,14 +4359,6 @@ pub struct MIB_IPNET_ROW2 {
     pub State: super::super::Networking::WinSock::NL_NEIGHBOR_STATE,
     pub Anonymous: MIB_IPNET_ROW2_0,
     pub ReachabilityTime: MIB_IPNET_ROW2_1,
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for MIB_IPNET_ROW2 {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for MIB_IPNET_ROW2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for MIB_IPNET_ROW2 {
@@ -6152,17 +4372,10 @@ impl Default for MIB_IPNET_ROW2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy)]
 pub union MIB_IPNET_ROW2_0 {
     pub Anonymous: MIB_IPNET_ROW2_0_0,
     pub Flags: u8,
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for MIB_IPNET_ROW2_0 {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for MIB_IPNET_ROW2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for MIB_IPNET_ROW2_0 {
@@ -6176,35 +4389,14 @@ impl Default for MIB_IPNET_ROW2_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPNET_ROW2_0_0 {
     pub _bitfield: u8,
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for MIB_IPNET_ROW2_0_0 {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for MIB_IPNET_ROW2_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl core::fmt::Debug for MIB_IPNET_ROW2_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IPNET_ROW2_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for MIB_IPNET_ROW2_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl PartialEq for MIB_IPNET_ROW2_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Eq for MIB_IPNET_ROW2_0_0 {}
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for MIB_IPNET_ROW2_0_0 {
     fn default() -> Self {
@@ -6213,17 +4405,10 @@ impl Default for MIB_IPNET_ROW2_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy)]
 pub union MIB_IPNET_ROW2_1 {
     pub LastReachable: u32,
     pub LastUnreachable: u32,
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for MIB_IPNET_ROW2_1 {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for MIB_IPNET_ROW2_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for MIB_IPNET_ROW2_1 {
@@ -6237,17 +4422,10 @@ impl Default for MIB_IPNET_ROW2_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy)]
 pub struct MIB_IPNET_TABLE2 {
     pub NumEntries: u32,
     pub Table: [MIB_IPNET_ROW2; 1],
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for MIB_IPNET_TABLE2 {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for MIB_IPNET_TABLE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for MIB_IPNET_TABLE2 {
@@ -6261,6 +4439,7 @@ impl Default for MIB_IPNET_TABLE2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy)]
 pub struct MIB_IPPATH_ROW {
     pub Source: super::super::Networking::WinSock::SOCKADDR_INET,
     pub Destination: super::super::Networking::WinSock::SOCKADDR_INET,
@@ -6276,14 +4455,6 @@ pub struct MIB_IPPATH_ROW {
     pub LinkReceiveSpeed: u64,
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for MIB_IPPATH_ROW {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for MIB_IPPATH_ROW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for MIB_IPPATH_ROW {
     type TypeKind = windows_core::CopyType;
 }
@@ -6295,17 +4466,10 @@ impl Default for MIB_IPPATH_ROW {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy)]
 pub union MIB_IPPATH_ROW_0 {
     pub LastReachable: u32,
     pub LastUnreachable: u32,
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for MIB_IPPATH_ROW_0 {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for MIB_IPPATH_ROW_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for MIB_IPPATH_ROW_0 {
@@ -6319,17 +4483,10 @@ impl Default for MIB_IPPATH_ROW_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy)]
 pub struct MIB_IPPATH_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_IPPATH_ROW; 1],
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for MIB_IPPATH_TABLE {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for MIB_IPPATH_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for MIB_IPPATH_TABLE {
@@ -6342,6 +4499,7 @@ impl Default for MIB_IPPATH_TABLE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MIB_IPSTATS_LH {
     pub Anonymous: MIB_IPSTATS_LH_0,
     pub dwDefaultTTL: u32,
@@ -6367,12 +4525,6 @@ pub struct MIB_IPSTATS_LH {
     pub dwNumAddr: u32,
     pub dwNumRoutes: u32,
 }
-impl Copy for MIB_IPSTATS_LH {}
-impl Clone for MIB_IPSTATS_LH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for MIB_IPSTATS_LH {
     type TypeKind = windows_core::CopyType;
 }
@@ -6382,15 +4534,10 @@ impl Default for MIB_IPSTATS_LH {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MIB_IPSTATS_LH_0 {
     pub dwForwarding: u32,
     pub Forwarding: MIB_IPSTATS_FORWARDING,
-}
-impl Copy for MIB_IPSTATS_LH_0 {}
-impl Clone for MIB_IPSTATS_LH_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MIB_IPSTATS_LH_0 {
     type TypeKind = windows_core::CopyType;
@@ -6401,6 +4548,7 @@ impl Default for MIB_IPSTATS_LH_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPSTATS_W2K {
     pub dwForwarding: u32,
     pub dwDefaultTTL: u32,
@@ -6426,72 +4574,9 @@ pub struct MIB_IPSTATS_W2K {
     pub dwNumAddr: u32,
     pub dwNumRoutes: u32,
 }
-impl Copy for MIB_IPSTATS_W2K {}
-impl Clone for MIB_IPSTATS_W2K {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_IPSTATS_W2K {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IPSTATS_W2K")
-            .field("dwForwarding", &self.dwForwarding)
-            .field("dwDefaultTTL", &self.dwDefaultTTL)
-            .field("dwInReceives", &self.dwInReceives)
-            .field("dwInHdrErrors", &self.dwInHdrErrors)
-            .field("dwInAddrErrors", &self.dwInAddrErrors)
-            .field("dwForwDatagrams", &self.dwForwDatagrams)
-            .field("dwInUnknownProtos", &self.dwInUnknownProtos)
-            .field("dwInDiscards", &self.dwInDiscards)
-            .field("dwInDelivers", &self.dwInDelivers)
-            .field("dwOutRequests", &self.dwOutRequests)
-            .field("dwRoutingDiscards", &self.dwRoutingDiscards)
-            .field("dwOutDiscards", &self.dwOutDiscards)
-            .field("dwOutNoRoutes", &self.dwOutNoRoutes)
-            .field("dwReasmTimeout", &self.dwReasmTimeout)
-            .field("dwReasmReqds", &self.dwReasmReqds)
-            .field("dwReasmOks", &self.dwReasmOks)
-            .field("dwReasmFails", &self.dwReasmFails)
-            .field("dwFragOks", &self.dwFragOks)
-            .field("dwFragFails", &self.dwFragFails)
-            .field("dwFragCreates", &self.dwFragCreates)
-            .field("dwNumIf", &self.dwNumIf)
-            .field("dwNumAddr", &self.dwNumAddr)
-            .field("dwNumRoutes", &self.dwNumRoutes)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MIB_IPSTATS_W2K {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_IPSTATS_W2K {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwForwarding == other.dwForwarding
-            && self.dwDefaultTTL == other.dwDefaultTTL
-            && self.dwInReceives == other.dwInReceives
-            && self.dwInHdrErrors == other.dwInHdrErrors
-            && self.dwInAddrErrors == other.dwInAddrErrors
-            && self.dwForwDatagrams == other.dwForwDatagrams
-            && self.dwInUnknownProtos == other.dwInUnknownProtos
-            && self.dwInDiscards == other.dwInDiscards
-            && self.dwInDelivers == other.dwInDelivers
-            && self.dwOutRequests == other.dwOutRequests
-            && self.dwRoutingDiscards == other.dwRoutingDiscards
-            && self.dwOutDiscards == other.dwOutDiscards
-            && self.dwOutNoRoutes == other.dwOutNoRoutes
-            && self.dwReasmTimeout == other.dwReasmTimeout
-            && self.dwReasmReqds == other.dwReasmReqds
-            && self.dwReasmOks == other.dwReasmOks
-            && self.dwReasmFails == other.dwReasmFails
-            && self.dwFragOks == other.dwFragOks
-            && self.dwFragFails == other.dwFragFails
-            && self.dwFragCreates == other.dwFragCreates
-            && self.dwNumIf == other.dwNumIf
-            && self.dwNumAddr == other.dwNumAddr
-            && self.dwNumRoutes == other.dwNumRoutes
-    }
-}
-impl Eq for MIB_IPSTATS_W2K {}
 impl Default for MIB_IPSTATS_W2K {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6499,36 +4584,15 @@ impl Default for MIB_IPSTATS_W2K {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
     pub InboundBandwidthInformation: super::super::Networking::WinSock::NL_BANDWIDTH_INFORMATION,
     pub OutboundBandwidthInformation: super::super::Networking::WinSock::NL_BANDWIDTH_INFORMATION,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl core::fmt::Debug for MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES").field("InboundBandwidthInformation", &self.InboundBandwidthInformation).field("OutboundBandwidthInformation", &self.OutboundBandwidthInformation).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl PartialEq for MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
-    fn eq(&self, other: &Self) -> bool {
-        self.InboundBandwidthInformation == other.InboundBandwidthInformation && self.OutboundBandwidthInformation == other.OutboundBandwidthInformation
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Eq for MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
     fn default() -> Self {
@@ -6536,120 +4600,56 @@ impl Default for MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_MCAST_LIMIT_ROW {
     pub dwTtl: u32,
     pub dwRateLimit: u32,
 }
-impl Copy for MIB_MCAST_LIMIT_ROW {}
-impl Clone for MIB_MCAST_LIMIT_ROW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_MCAST_LIMIT_ROW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_MCAST_LIMIT_ROW").field("dwTtl", &self.dwTtl).field("dwRateLimit", &self.dwRateLimit).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_MCAST_LIMIT_ROW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_MCAST_LIMIT_ROW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwTtl == other.dwTtl && self.dwRateLimit == other.dwRateLimit
-    }
-}
-impl Eq for MIB_MCAST_LIMIT_ROW {}
 impl Default for MIB_MCAST_LIMIT_ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_MFE_STATS_TABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPMCAST_MFE_STATS; 1],
 }
-impl Copy for MIB_MFE_STATS_TABLE {}
-impl Clone for MIB_MFE_STATS_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_MFE_STATS_TABLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_MFE_STATS_TABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_MFE_STATS_TABLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_MFE_STATS_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumEntries == other.dwNumEntries && self.table == other.table
-    }
-}
-impl Eq for MIB_MFE_STATS_TABLE {}
 impl Default for MIB_MFE_STATS_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_MFE_STATS_TABLE_EX_XP {
     pub dwNumEntries: u32,
     pub table: [*mut MIB_IPMCAST_MFE_STATS_EX_XP; 1],
 }
-impl Copy for MIB_MFE_STATS_TABLE_EX_XP {}
-impl Clone for MIB_MFE_STATS_TABLE_EX_XP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_MFE_STATS_TABLE_EX_XP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_MFE_STATS_TABLE_EX_XP").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_MFE_STATS_TABLE_EX_XP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_MFE_STATS_TABLE_EX_XP {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumEntries == other.dwNumEntries && self.table == other.table
-    }
-}
-impl Eq for MIB_MFE_STATS_TABLE_EX_XP {}
 impl Default for MIB_MFE_STATS_TABLE_EX_XP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_MFE_TABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPMCAST_MFE; 1],
 }
-impl Copy for MIB_MFE_TABLE {}
-impl Clone for MIB_MFE_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_MFE_TABLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_MFE_TABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_MFE_TABLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_MFE_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumEntries == other.dwNumEntries && self.table == other.table
-    }
-}
-impl Eq for MIB_MFE_TABLE {}
 impl Default for MIB_MFE_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6657,19 +4657,12 @@ impl Default for MIB_MFE_TABLE {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy)]
 pub struct MIB_MULTICASTIPADDRESS_ROW {
     pub Address: super::super::Networking::WinSock::SOCKADDR_INET,
     pub InterfaceIndex: u32,
     pub InterfaceLuid: super::Ndis::NET_LUID_LH,
     pub ScopeId: super::super::Networking::WinSock::SCOPE_ID,
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for MIB_MULTICASTIPADDRESS_ROW {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for MIB_MULTICASTIPADDRESS_ROW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for MIB_MULTICASTIPADDRESS_ROW {
@@ -6683,17 +4676,10 @@ impl Default for MIB_MULTICASTIPADDRESS_ROW {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy)]
 pub struct MIB_MULTICASTIPADDRESS_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_MULTICASTIPADDRESS_ROW; 1],
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for MIB_MULTICASTIPADDRESS_TABLE {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for MIB_MULTICASTIPADDRESS_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for MIB_MULTICASTIPADDRESS_TABLE {
@@ -6706,15 +4692,10 @@ impl Default for MIB_MULTICASTIPADDRESS_TABLE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MIB_OPAQUE_INFO {
     pub dwId: u32,
     pub Anonymous: MIB_OPAQUE_INFO_0,
-}
-impl Copy for MIB_OPAQUE_INFO {}
-impl Clone for MIB_OPAQUE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MIB_OPAQUE_INFO {
     type TypeKind = windows_core::CopyType;
@@ -6725,15 +4706,10 @@ impl Default for MIB_OPAQUE_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MIB_OPAQUE_INFO_0 {
     pub ullAlign: u64,
     pub rgbyData: [u8; 1],
-}
-impl Copy for MIB_OPAQUE_INFO_0 {}
-impl Clone for MIB_OPAQUE_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MIB_OPAQUE_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -6744,90 +4720,42 @@ impl Default for MIB_OPAQUE_INFO_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_OPAQUE_QUERY {
     pub dwVarId: u32,
     pub rgdwVarIndex: [u32; 1],
 }
-impl Copy for MIB_OPAQUE_QUERY {}
-impl Clone for MIB_OPAQUE_QUERY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_OPAQUE_QUERY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_OPAQUE_QUERY").field("dwVarId", &self.dwVarId).field("rgdwVarIndex", &self.rgdwVarIndex).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_OPAQUE_QUERY {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_OPAQUE_QUERY {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVarId == other.dwVarId && self.rgdwVarIndex == other.rgdwVarIndex
-    }
-}
-impl Eq for MIB_OPAQUE_QUERY {}
 impl Default for MIB_OPAQUE_QUERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_PROXYARP {
     pub dwAddress: u32,
     pub dwMask: u32,
     pub dwIfIndex: u32,
 }
-impl Copy for MIB_PROXYARP {}
-impl Clone for MIB_PROXYARP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_PROXYARP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_PROXYARP").field("dwAddress", &self.dwAddress).field("dwMask", &self.dwMask).field("dwIfIndex", &self.dwIfIndex).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_PROXYARP {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_PROXYARP {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwAddress == other.dwAddress && self.dwMask == other.dwMask && self.dwIfIndex == other.dwIfIndex
-    }
-}
-impl Eq for MIB_PROXYARP {}
 impl Default for MIB_PROXYARP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_ROUTESTATE {
     pub bRoutesSetToStack: super::super::Foundation::BOOL,
-}
-impl Copy for MIB_ROUTESTATE {}
-impl Clone for MIB_ROUTESTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_ROUTESTATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_ROUTESTATE").field("bRoutesSetToStack", &self.bRoutesSetToStack).finish()
-    }
 }
 impl windows_core::TypeKind for MIB_ROUTESTATE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_ROUTESTATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.bRoutesSetToStack == other.bRoutesSetToStack
-    }
-}
-impl Eq for MIB_ROUTESTATE {}
 impl Default for MIB_ROUTESTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6835,6 +4763,7 @@ impl Default for MIB_ROUTESTATE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct MIB_TCP6ROW {
     pub State: MIB_TCP_STATE,
     pub LocalAddr: super::super::Networking::WinSock::IN6_ADDR,
@@ -6843,14 +4772,6 @@ pub struct MIB_TCP6ROW {
     pub RemoteAddr: super::super::Networking::WinSock::IN6_ADDR,
     pub dwRemoteScopeId: u32,
     pub dwRemotePort: u32,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for MIB_TCP6ROW {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for MIB_TCP6ROW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for MIB_TCP6ROW {
@@ -6864,6 +4785,7 @@ impl Default for MIB_TCP6ROW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct MIB_TCP6ROW2 {
     pub LocalAddr: super::super::Networking::WinSock::IN6_ADDR,
     pub dwLocalScopeId: u32,
@@ -6876,14 +4798,6 @@ pub struct MIB_TCP6ROW2 {
     pub dwOffloadState: TCP_CONNECTION_OFFLOAD_STATE,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for MIB_TCP6ROW2 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for MIB_TCP6ROW2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for MIB_TCP6ROW2 {
     type TypeKind = windows_core::CopyType;
 }
@@ -6894,6 +4808,7 @@ impl Default for MIB_TCP6ROW2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCP6ROW_OWNER_MODULE {
     pub ucLocalAddr: [u8; 16],
     pub dwLocalScopeId: u32,
@@ -6906,43 +4821,16 @@ pub struct MIB_TCP6ROW_OWNER_MODULE {
     pub liCreateTimestamp: i64,
     pub OwningModuleInfo: [u64; 16],
 }
-impl Copy for MIB_TCP6ROW_OWNER_MODULE {}
-impl Clone for MIB_TCP6ROW_OWNER_MODULE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_TCP6ROW_OWNER_MODULE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_TCP6ROW_OWNER_MODULE")
-            .field("ucLocalAddr", &self.ucLocalAddr)
-            .field("dwLocalScopeId", &self.dwLocalScopeId)
-            .field("dwLocalPort", &self.dwLocalPort)
-            .field("ucRemoteAddr", &self.ucRemoteAddr)
-            .field("dwRemoteScopeId", &self.dwRemoteScopeId)
-            .field("dwRemotePort", &self.dwRemotePort)
-            .field("dwState", &self.dwState)
-            .field("dwOwningPid", &self.dwOwningPid)
-            .field("liCreateTimestamp", &self.liCreateTimestamp)
-            .field("OwningModuleInfo", &self.OwningModuleInfo)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MIB_TCP6ROW_OWNER_MODULE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_TCP6ROW_OWNER_MODULE {
-    fn eq(&self, other: &Self) -> bool {
-        self.ucLocalAddr == other.ucLocalAddr && self.dwLocalScopeId == other.dwLocalScopeId && self.dwLocalPort == other.dwLocalPort && self.ucRemoteAddr == other.ucRemoteAddr && self.dwRemoteScopeId == other.dwRemoteScopeId && self.dwRemotePort == other.dwRemotePort && self.dwState == other.dwState && self.dwOwningPid == other.dwOwningPid && self.liCreateTimestamp == other.liCreateTimestamp && self.OwningModuleInfo == other.OwningModuleInfo
-    }
-}
-impl Eq for MIB_TCP6ROW_OWNER_MODULE {}
 impl Default for MIB_TCP6ROW_OWNER_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCP6ROW_OWNER_PID {
     pub ucLocalAddr: [u8; 16],
     pub dwLocalScopeId: u32,
@@ -6953,26 +4841,9 @@ pub struct MIB_TCP6ROW_OWNER_PID {
     pub dwState: u32,
     pub dwOwningPid: u32,
 }
-impl Copy for MIB_TCP6ROW_OWNER_PID {}
-impl Clone for MIB_TCP6ROW_OWNER_PID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_TCP6ROW_OWNER_PID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_TCP6ROW_OWNER_PID").field("ucLocalAddr", &self.ucLocalAddr).field("dwLocalScopeId", &self.dwLocalScopeId).field("dwLocalPort", &self.dwLocalPort).field("ucRemoteAddr", &self.ucRemoteAddr).field("dwRemoteScopeId", &self.dwRemoteScopeId).field("dwRemotePort", &self.dwRemotePort).field("dwState", &self.dwState).field("dwOwningPid", &self.dwOwningPid).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_TCP6ROW_OWNER_PID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_TCP6ROW_OWNER_PID {
-    fn eq(&self, other: &Self) -> bool {
-        self.ucLocalAddr == other.ucLocalAddr && self.dwLocalScopeId == other.dwLocalScopeId && self.dwLocalPort == other.dwLocalPort && self.ucRemoteAddr == other.ucRemoteAddr && self.dwRemoteScopeId == other.dwRemoteScopeId && self.dwRemotePort == other.dwRemotePort && self.dwState == other.dwState && self.dwOwningPid == other.dwOwningPid
-    }
-}
-impl Eq for MIB_TCP6ROW_OWNER_PID {}
 impl Default for MIB_TCP6ROW_OWNER_PID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6980,17 +4851,10 @@ impl Default for MIB_TCP6ROW_OWNER_PID {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct MIB_TCP6TABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_TCP6ROW; 1],
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for MIB_TCP6TABLE {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for MIB_TCP6TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for MIB_TCP6TABLE {
@@ -7004,17 +4868,10 @@ impl Default for MIB_TCP6TABLE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct MIB_TCP6TABLE2 {
     pub dwNumEntries: u32,
     pub table: [MIB_TCP6ROW2; 1],
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for MIB_TCP6TABLE2 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for MIB_TCP6TABLE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for MIB_TCP6TABLE2 {
@@ -7027,66 +4884,35 @@ impl Default for MIB_TCP6TABLE2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCP6TABLE_OWNER_MODULE {
     pub dwNumEntries: u32,
     pub table: [MIB_TCP6ROW_OWNER_MODULE; 1],
 }
-impl Copy for MIB_TCP6TABLE_OWNER_MODULE {}
-impl Clone for MIB_TCP6TABLE_OWNER_MODULE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_TCP6TABLE_OWNER_MODULE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_TCP6TABLE_OWNER_MODULE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_TCP6TABLE_OWNER_MODULE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_TCP6TABLE_OWNER_MODULE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumEntries == other.dwNumEntries && self.table == other.table
-    }
-}
-impl Eq for MIB_TCP6TABLE_OWNER_MODULE {}
 impl Default for MIB_TCP6TABLE_OWNER_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCP6TABLE_OWNER_PID {
     pub dwNumEntries: u32,
     pub table: [MIB_TCP6ROW_OWNER_PID; 1],
 }
-impl Copy for MIB_TCP6TABLE_OWNER_PID {}
-impl Clone for MIB_TCP6TABLE_OWNER_PID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_TCP6TABLE_OWNER_PID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_TCP6TABLE_OWNER_PID").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_TCP6TABLE_OWNER_PID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_TCP6TABLE_OWNER_PID {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumEntries == other.dwNumEntries && self.table == other.table
-    }
-}
-impl Eq for MIB_TCP6TABLE_OWNER_PID {}
 impl Default for MIB_TCP6TABLE_OWNER_PID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCPROW2 {
     pub dwState: u32,
     pub dwLocalAddr: u32,
@@ -7096,44 +4922,22 @@ pub struct MIB_TCPROW2 {
     pub dwOwningPid: u32,
     pub dwOffloadState: TCP_CONNECTION_OFFLOAD_STATE,
 }
-impl Copy for MIB_TCPROW2 {}
-impl Clone for MIB_TCPROW2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_TCPROW2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_TCPROW2").field("dwState", &self.dwState).field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).field("dwRemoteAddr", &self.dwRemoteAddr).field("dwRemotePort", &self.dwRemotePort).field("dwOwningPid", &self.dwOwningPid).field("dwOffloadState", &self.dwOffloadState).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_TCPROW2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_TCPROW2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwState == other.dwState && self.dwLocalAddr == other.dwLocalAddr && self.dwLocalPort == other.dwLocalPort && self.dwRemoteAddr == other.dwRemoteAddr && self.dwRemotePort == other.dwRemotePort && self.dwOwningPid == other.dwOwningPid && self.dwOffloadState == other.dwOffloadState
-    }
-}
-impl Eq for MIB_TCPROW2 {}
 impl Default for MIB_TCPROW2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MIB_TCPROW_LH {
     pub Anonymous: MIB_TCPROW_LH_0,
     pub dwLocalAddr: u32,
     pub dwLocalPort: u32,
     pub dwRemoteAddr: u32,
     pub dwRemotePort: u32,
-}
-impl Copy for MIB_TCPROW_LH {}
-impl Clone for MIB_TCPROW_LH {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MIB_TCPROW_LH {
     type TypeKind = windows_core::CopyType;
@@ -7144,15 +4948,10 @@ impl Default for MIB_TCPROW_LH {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MIB_TCPROW_LH_0 {
     pub dwState: u32,
     pub State: MIB_TCP_STATE,
-}
-impl Copy for MIB_TCPROW_LH_0 {}
-impl Clone for MIB_TCPROW_LH_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MIB_TCPROW_LH_0 {
     type TypeKind = windows_core::CopyType;
@@ -7163,6 +4962,7 @@ impl Default for MIB_TCPROW_LH_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCPROW_OWNER_MODULE {
     pub dwState: u32,
     pub dwLocalAddr: u32,
@@ -7173,32 +4973,16 @@ pub struct MIB_TCPROW_OWNER_MODULE {
     pub liCreateTimestamp: i64,
     pub OwningModuleInfo: [u64; 16],
 }
-impl Copy for MIB_TCPROW_OWNER_MODULE {}
-impl Clone for MIB_TCPROW_OWNER_MODULE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_TCPROW_OWNER_MODULE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_TCPROW_OWNER_MODULE").field("dwState", &self.dwState).field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).field("dwRemoteAddr", &self.dwRemoteAddr).field("dwRemotePort", &self.dwRemotePort).field("dwOwningPid", &self.dwOwningPid).field("liCreateTimestamp", &self.liCreateTimestamp).field("OwningModuleInfo", &self.OwningModuleInfo).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_TCPROW_OWNER_MODULE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_TCPROW_OWNER_MODULE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwState == other.dwState && self.dwLocalAddr == other.dwLocalAddr && self.dwLocalPort == other.dwLocalPort && self.dwRemoteAddr == other.dwRemoteAddr && self.dwRemotePort == other.dwRemotePort && self.dwOwningPid == other.dwOwningPid && self.liCreateTimestamp == other.liCreateTimestamp && self.OwningModuleInfo == other.OwningModuleInfo
-    }
-}
-impl Eq for MIB_TCPROW_OWNER_MODULE {}
 impl Default for MIB_TCPROW_OWNER_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCPROW_OWNER_PID {
     pub dwState: u32,
     pub dwLocalAddr: u32,
@@ -7207,32 +4991,16 @@ pub struct MIB_TCPROW_OWNER_PID {
     pub dwRemotePort: u32,
     pub dwOwningPid: u32,
 }
-impl Copy for MIB_TCPROW_OWNER_PID {}
-impl Clone for MIB_TCPROW_OWNER_PID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_TCPROW_OWNER_PID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_TCPROW_OWNER_PID").field("dwState", &self.dwState).field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).field("dwRemoteAddr", &self.dwRemoteAddr).field("dwRemotePort", &self.dwRemotePort).field("dwOwningPid", &self.dwOwningPid).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_TCPROW_OWNER_PID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_TCPROW_OWNER_PID {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwState == other.dwState && self.dwLocalAddr == other.dwLocalAddr && self.dwLocalPort == other.dwLocalPort && self.dwRemoteAddr == other.dwRemoteAddr && self.dwRemotePort == other.dwRemotePort && self.dwOwningPid == other.dwOwningPid
-    }
-}
-impl Eq for MIB_TCPROW_OWNER_PID {}
 impl Default for MIB_TCPROW_OWNER_PID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCPROW_W2K {
     pub dwState: u32,
     pub dwLocalAddr: u32,
@@ -7240,32 +5008,16 @@ pub struct MIB_TCPROW_W2K {
     pub dwRemoteAddr: u32,
     pub dwRemotePort: u32,
 }
-impl Copy for MIB_TCPROW_W2K {}
-impl Clone for MIB_TCPROW_W2K {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_TCPROW_W2K {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_TCPROW_W2K").field("dwState", &self.dwState).field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).field("dwRemoteAddr", &self.dwRemoteAddr).field("dwRemotePort", &self.dwRemotePort).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_TCPROW_W2K {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_TCPROW_W2K {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwState == other.dwState && self.dwLocalAddr == other.dwLocalAddr && self.dwLocalPort == other.dwLocalPort && self.dwRemoteAddr == other.dwRemoteAddr && self.dwRemotePort == other.dwRemotePort
-    }
-}
-impl Eq for MIB_TCPROW_W2K {}
 impl Default for MIB_TCPROW_W2K {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCPSTATS2 {
     pub RtoAlgorithm: TCP_RTO_ALGORITHM,
     pub dwRtoMin: u32,
@@ -7283,48 +5035,16 @@ pub struct MIB_TCPSTATS2 {
     pub dwOutRsts: u32,
     pub dwNumConns: u32,
 }
-impl Copy for MIB_TCPSTATS2 {}
-impl Clone for MIB_TCPSTATS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_TCPSTATS2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_TCPSTATS2")
-            .field("RtoAlgorithm", &self.RtoAlgorithm)
-            .field("dwRtoMin", &self.dwRtoMin)
-            .field("dwRtoMax", &self.dwRtoMax)
-            .field("dwMaxConn", &self.dwMaxConn)
-            .field("dwActiveOpens", &self.dwActiveOpens)
-            .field("dwPassiveOpens", &self.dwPassiveOpens)
-            .field("dwAttemptFails", &self.dwAttemptFails)
-            .field("dwEstabResets", &self.dwEstabResets)
-            .field("dwCurrEstab", &self.dwCurrEstab)
-            .field("dw64InSegs", &self.dw64InSegs)
-            .field("dw64OutSegs", &self.dw64OutSegs)
-            .field("dwRetransSegs", &self.dwRetransSegs)
-            .field("dwInErrs", &self.dwInErrs)
-            .field("dwOutRsts", &self.dwOutRsts)
-            .field("dwNumConns", &self.dwNumConns)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MIB_TCPSTATS2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_TCPSTATS2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.RtoAlgorithm == other.RtoAlgorithm && self.dwRtoMin == other.dwRtoMin && self.dwRtoMax == other.dwRtoMax && self.dwMaxConn == other.dwMaxConn && self.dwActiveOpens == other.dwActiveOpens && self.dwPassiveOpens == other.dwPassiveOpens && self.dwAttemptFails == other.dwAttemptFails && self.dwEstabResets == other.dwEstabResets && self.dwCurrEstab == other.dwCurrEstab && self.dw64InSegs == other.dw64InSegs && self.dw64OutSegs == other.dw64OutSegs && self.dwRetransSegs == other.dwRetransSegs && self.dwInErrs == other.dwInErrs && self.dwOutRsts == other.dwOutRsts && self.dwNumConns == other.dwNumConns
-    }
-}
-impl Eq for MIB_TCPSTATS2 {}
 impl Default for MIB_TCPSTATS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MIB_TCPSTATS_LH {
     pub Anonymous: MIB_TCPSTATS_LH_0,
     pub dwRtoMin: u32,
@@ -7342,12 +5062,6 @@ pub struct MIB_TCPSTATS_LH {
     pub dwOutRsts: u32,
     pub dwNumConns: u32,
 }
-impl Copy for MIB_TCPSTATS_LH {}
-impl Clone for MIB_TCPSTATS_LH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for MIB_TCPSTATS_LH {
     type TypeKind = windows_core::CopyType;
 }
@@ -7357,15 +5071,10 @@ impl Default for MIB_TCPSTATS_LH {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MIB_TCPSTATS_LH_0 {
     pub dwRtoAlgorithm: u32,
     pub RtoAlgorithm: TCP_RTO_ALGORITHM,
-}
-impl Copy for MIB_TCPSTATS_LH_0 {}
-impl Clone for MIB_TCPSTATS_LH_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MIB_TCPSTATS_LH_0 {
     type TypeKind = windows_core::CopyType;
@@ -7376,6 +5085,7 @@ impl Default for MIB_TCPSTATS_LH_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCPSTATS_W2K {
     pub dwRtoAlgorithm: u32,
     pub dwRtoMin: u32,
@@ -7393,57 +5103,19 @@ pub struct MIB_TCPSTATS_W2K {
     pub dwOutRsts: u32,
     pub dwNumConns: u32,
 }
-impl Copy for MIB_TCPSTATS_W2K {}
-impl Clone for MIB_TCPSTATS_W2K {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_TCPSTATS_W2K {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_TCPSTATS_W2K")
-            .field("dwRtoAlgorithm", &self.dwRtoAlgorithm)
-            .field("dwRtoMin", &self.dwRtoMin)
-            .field("dwRtoMax", &self.dwRtoMax)
-            .field("dwMaxConn", &self.dwMaxConn)
-            .field("dwActiveOpens", &self.dwActiveOpens)
-            .field("dwPassiveOpens", &self.dwPassiveOpens)
-            .field("dwAttemptFails", &self.dwAttemptFails)
-            .field("dwEstabResets", &self.dwEstabResets)
-            .field("dwCurrEstab", &self.dwCurrEstab)
-            .field("dwInSegs", &self.dwInSegs)
-            .field("dwOutSegs", &self.dwOutSegs)
-            .field("dwRetransSegs", &self.dwRetransSegs)
-            .field("dwInErrs", &self.dwInErrs)
-            .field("dwOutRsts", &self.dwOutRsts)
-            .field("dwNumConns", &self.dwNumConns)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for MIB_TCPSTATS_W2K {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_TCPSTATS_W2K {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwRtoAlgorithm == other.dwRtoAlgorithm && self.dwRtoMin == other.dwRtoMin && self.dwRtoMax == other.dwRtoMax && self.dwMaxConn == other.dwMaxConn && self.dwActiveOpens == other.dwActiveOpens && self.dwPassiveOpens == other.dwPassiveOpens && self.dwAttemptFails == other.dwAttemptFails && self.dwEstabResets == other.dwEstabResets && self.dwCurrEstab == other.dwCurrEstab && self.dwInSegs == other.dwInSegs && self.dwOutSegs == other.dwOutSegs && self.dwRetransSegs == other.dwRetransSegs && self.dwInErrs == other.dwInErrs && self.dwOutRsts == other.dwOutRsts && self.dwNumConns == other.dwNumConns
-    }
-}
-impl Eq for MIB_TCPSTATS_W2K {}
 impl Default for MIB_TCPSTATS_W2K {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MIB_TCPTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_TCPROW_LH; 1],
-}
-impl Copy for MIB_TCPTABLE {}
-impl Clone for MIB_TCPTABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MIB_TCPTABLE {
     type TypeKind = windows_core::CopyType;
@@ -7454,90 +5126,42 @@ impl Default for MIB_TCPTABLE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCPTABLE2 {
     pub dwNumEntries: u32,
     pub table: [MIB_TCPROW2; 1],
 }
-impl Copy for MIB_TCPTABLE2 {}
-impl Clone for MIB_TCPTABLE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_TCPTABLE2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_TCPTABLE2").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_TCPTABLE2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_TCPTABLE2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumEntries == other.dwNumEntries && self.table == other.table
-    }
-}
-impl Eq for MIB_TCPTABLE2 {}
 impl Default for MIB_TCPTABLE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCPTABLE_OWNER_MODULE {
     pub dwNumEntries: u32,
     pub table: [MIB_TCPROW_OWNER_MODULE; 1],
 }
-impl Copy for MIB_TCPTABLE_OWNER_MODULE {}
-impl Clone for MIB_TCPTABLE_OWNER_MODULE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_TCPTABLE_OWNER_MODULE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_TCPTABLE_OWNER_MODULE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_TCPTABLE_OWNER_MODULE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_TCPTABLE_OWNER_MODULE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumEntries == other.dwNumEntries && self.table == other.table
-    }
-}
-impl Eq for MIB_TCPTABLE_OWNER_MODULE {}
 impl Default for MIB_TCPTABLE_OWNER_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCPTABLE_OWNER_PID {
     pub dwNumEntries: u32,
     pub table: [MIB_TCPROW_OWNER_PID; 1],
 }
-impl Copy for MIB_TCPTABLE_OWNER_PID {}
-impl Clone for MIB_TCPTABLE_OWNER_PID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_TCPTABLE_OWNER_PID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_TCPTABLE_OWNER_PID").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_TCPTABLE_OWNER_PID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_TCPTABLE_OWNER_PID {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumEntries == other.dwNumEntries && self.table == other.table
-    }
-}
-impl Eq for MIB_TCPTABLE_OWNER_PID {}
 impl Default for MIB_TCPTABLE_OWNER_PID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7545,18 +5169,11 @@ impl Default for MIB_TCPTABLE_OWNER_PID {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct MIB_UDP6ROW {
     pub dwLocalAddr: super::super::Networking::WinSock::IN6_ADDR,
     pub dwLocalScopeId: u32,
     pub dwLocalPort: u32,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for MIB_UDP6ROW {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for MIB_UDP6ROW {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for MIB_UDP6ROW {
@@ -7569,6 +5186,7 @@ impl Default for MIB_UDP6ROW {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MIB_UDP6ROW2 {
     pub ucLocalAddr: [u8; 16],
     pub dwLocalScopeId: u32,
@@ -7581,12 +5199,6 @@ pub struct MIB_UDP6ROW2 {
     pub dwRemoteScopeId: u32,
     pub dwRemotePort: u32,
 }
-impl Copy for MIB_UDP6ROW2 {}
-impl Clone for MIB_UDP6ROW2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for MIB_UDP6ROW2 {
     type TypeKind = windows_core::CopyType;
 }
@@ -7596,15 +5208,10 @@ impl Default for MIB_UDP6ROW2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MIB_UDP6ROW2_0 {
     pub Anonymous: MIB_UDP6ROW2_0_0,
     pub dwFlags: i32,
-}
-impl Copy for MIB_UDP6ROW2_0 {}
-impl Clone for MIB_UDP6ROW2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MIB_UDP6ROW2_0 {
     type TypeKind = windows_core::CopyType;
@@ -7615,35 +5222,20 @@ impl Default for MIB_UDP6ROW2_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDP6ROW2_0_0 {
     pub _bitfield: i32,
-}
-impl Copy for MIB_UDP6ROW2_0_0 {}
-impl Clone for MIB_UDP6ROW2_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_UDP6ROW2_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_UDP6ROW2_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for MIB_UDP6ROW2_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_UDP6ROW2_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for MIB_UDP6ROW2_0_0 {}
 impl Default for MIB_UDP6ROW2_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MIB_UDP6ROW_OWNER_MODULE {
     pub ucLocalAddr: [u8; 16],
     pub dwLocalScopeId: u32,
@@ -7652,12 +5244,6 @@ pub struct MIB_UDP6ROW_OWNER_MODULE {
     pub liCreateTimestamp: i64,
     pub Anonymous: MIB_UDP6ROW_OWNER_MODULE_0,
     pub OwningModuleInfo: [u64; 16],
-}
-impl Copy for MIB_UDP6ROW_OWNER_MODULE {}
-impl Clone for MIB_UDP6ROW_OWNER_MODULE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MIB_UDP6ROW_OWNER_MODULE {
     type TypeKind = windows_core::CopyType;
@@ -7668,15 +5254,10 @@ impl Default for MIB_UDP6ROW_OWNER_MODULE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MIB_UDP6ROW_OWNER_MODULE_0 {
     pub Anonymous: MIB_UDP6ROW_OWNER_MODULE_0_0,
     pub dwFlags: i32,
-}
-impl Copy for MIB_UDP6ROW_OWNER_MODULE_0 {}
-impl Clone for MIB_UDP6ROW_OWNER_MODULE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MIB_UDP6ROW_OWNER_MODULE_0 {
     type TypeKind = windows_core::CopyType;
@@ -7687,61 +5268,29 @@ impl Default for MIB_UDP6ROW_OWNER_MODULE_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDP6ROW_OWNER_MODULE_0_0 {
     pub _bitfield: i32,
-}
-impl Copy for MIB_UDP6ROW_OWNER_MODULE_0_0 {}
-impl Clone for MIB_UDP6ROW_OWNER_MODULE_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_UDP6ROW_OWNER_MODULE_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_UDP6ROW_OWNER_MODULE_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for MIB_UDP6ROW_OWNER_MODULE_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_UDP6ROW_OWNER_MODULE_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for MIB_UDP6ROW_OWNER_MODULE_0_0 {}
 impl Default for MIB_UDP6ROW_OWNER_MODULE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDP6ROW_OWNER_PID {
     pub ucLocalAddr: [u8; 16],
     pub dwLocalScopeId: u32,
     pub dwLocalPort: u32,
     pub dwOwningPid: u32,
 }
-impl Copy for MIB_UDP6ROW_OWNER_PID {}
-impl Clone for MIB_UDP6ROW_OWNER_PID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_UDP6ROW_OWNER_PID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_UDP6ROW_OWNER_PID").field("ucLocalAddr", &self.ucLocalAddr).field("dwLocalScopeId", &self.dwLocalScopeId).field("dwLocalPort", &self.dwLocalPort).field("dwOwningPid", &self.dwOwningPid).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_UDP6ROW_OWNER_PID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_UDP6ROW_OWNER_PID {
-    fn eq(&self, other: &Self) -> bool {
-        self.ucLocalAddr == other.ucLocalAddr && self.dwLocalScopeId == other.dwLocalScopeId && self.dwLocalPort == other.dwLocalPort && self.dwOwningPid == other.dwOwningPid
-    }
-}
-impl Eq for MIB_UDP6ROW_OWNER_PID {}
 impl Default for MIB_UDP6ROW_OWNER_PID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7749,17 +5298,10 @@ impl Default for MIB_UDP6ROW_OWNER_PID {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct MIB_UDP6TABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_UDP6ROW; 1],
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for MIB_UDP6TABLE {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for MIB_UDP6TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for MIB_UDP6TABLE {
@@ -7772,15 +5314,10 @@ impl Default for MIB_UDP6TABLE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MIB_UDP6TABLE2 {
     pub dwNumEntries: u32,
     pub table: [MIB_UDP6ROW2; 1],
-}
-impl Copy for MIB_UDP6TABLE2 {}
-impl Clone for MIB_UDP6TABLE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MIB_UDP6TABLE2 {
     type TypeKind = windows_core::CopyType;
@@ -7791,15 +5328,10 @@ impl Default for MIB_UDP6TABLE2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MIB_UDP6TABLE_OWNER_MODULE {
     pub dwNumEntries: u32,
     pub table: [MIB_UDP6ROW_OWNER_MODULE; 1],
-}
-impl Copy for MIB_UDP6TABLE_OWNER_MODULE {}
-impl Clone for MIB_UDP6TABLE_OWNER_MODULE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MIB_UDP6TABLE_OWNER_MODULE {
     type TypeKind = windows_core::CopyType;
@@ -7810,66 +5342,35 @@ impl Default for MIB_UDP6TABLE_OWNER_MODULE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDP6TABLE_OWNER_PID {
     pub dwNumEntries: u32,
     pub table: [MIB_UDP6ROW_OWNER_PID; 1],
 }
-impl Copy for MIB_UDP6TABLE_OWNER_PID {}
-impl Clone for MIB_UDP6TABLE_OWNER_PID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_UDP6TABLE_OWNER_PID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_UDP6TABLE_OWNER_PID").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_UDP6TABLE_OWNER_PID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_UDP6TABLE_OWNER_PID {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumEntries == other.dwNumEntries && self.table == other.table
-    }
-}
-impl Eq for MIB_UDP6TABLE_OWNER_PID {}
 impl Default for MIB_UDP6TABLE_OWNER_PID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDPROW {
     pub dwLocalAddr: u32,
     pub dwLocalPort: u32,
 }
-impl Copy for MIB_UDPROW {}
-impl Clone for MIB_UDPROW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_UDPROW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_UDPROW").field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_UDPROW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_UDPROW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwLocalAddr == other.dwLocalAddr && self.dwLocalPort == other.dwLocalPort
-    }
-}
-impl Eq for MIB_UDPROW {}
 impl Default for MIB_UDPROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MIB_UDPROW2 {
     pub dwLocalAddr: u32,
     pub dwLocalPort: u32,
@@ -7880,12 +5381,6 @@ pub struct MIB_UDPROW2 {
     pub dwRemoteAddr: u32,
     pub dwRemotePort: u32,
 }
-impl Copy for MIB_UDPROW2 {}
-impl Clone for MIB_UDPROW2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for MIB_UDPROW2 {
     type TypeKind = windows_core::CopyType;
 }
@@ -7895,15 +5390,10 @@ impl Default for MIB_UDPROW2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MIB_UDPROW2_0 {
     pub Anonymous: MIB_UDPROW2_0_0,
     pub dwFlags: i32,
-}
-impl Copy for MIB_UDPROW2_0 {}
-impl Clone for MIB_UDPROW2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MIB_UDPROW2_0 {
     type TypeKind = windows_core::CopyType;
@@ -7914,35 +5404,20 @@ impl Default for MIB_UDPROW2_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDPROW2_0_0 {
     pub _bitfield: i32,
-}
-impl Copy for MIB_UDPROW2_0_0 {}
-impl Clone for MIB_UDPROW2_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_UDPROW2_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_UDPROW2_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for MIB_UDPROW2_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_UDPROW2_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for MIB_UDPROW2_0_0 {}
 impl Default for MIB_UDPROW2_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MIB_UDPROW_OWNER_MODULE {
     pub dwLocalAddr: u32,
     pub dwLocalPort: u32,
@@ -7950,12 +5425,6 @@ pub struct MIB_UDPROW_OWNER_MODULE {
     pub liCreateTimestamp: i64,
     pub Anonymous: MIB_UDPROW_OWNER_MODULE_0,
     pub OwningModuleInfo: [u64; 16],
-}
-impl Copy for MIB_UDPROW_OWNER_MODULE {}
-impl Clone for MIB_UDPROW_OWNER_MODULE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MIB_UDPROW_OWNER_MODULE {
     type TypeKind = windows_core::CopyType;
@@ -7966,15 +5435,10 @@ impl Default for MIB_UDPROW_OWNER_MODULE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union MIB_UDPROW_OWNER_MODULE_0 {
     pub Anonymous: MIB_UDPROW_OWNER_MODULE_0_0,
     pub dwFlags: i32,
-}
-impl Copy for MIB_UDPROW_OWNER_MODULE_0 {}
-impl Clone for MIB_UDPROW_OWNER_MODULE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MIB_UDPROW_OWNER_MODULE_0 {
     type TypeKind = windows_core::CopyType;
@@ -7985,66 +5449,35 @@ impl Default for MIB_UDPROW_OWNER_MODULE_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDPROW_OWNER_MODULE_0_0 {
     pub _bitfield: i32,
-}
-impl Copy for MIB_UDPROW_OWNER_MODULE_0_0 {}
-impl Clone for MIB_UDPROW_OWNER_MODULE_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_UDPROW_OWNER_MODULE_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_UDPROW_OWNER_MODULE_0_0").field("_bitfield", &self._bitfield).finish()
-    }
 }
 impl windows_core::TypeKind for MIB_UDPROW_OWNER_MODULE_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_UDPROW_OWNER_MODULE_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl Eq for MIB_UDPROW_OWNER_MODULE_0_0 {}
 impl Default for MIB_UDPROW_OWNER_MODULE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDPROW_OWNER_PID {
     pub dwLocalAddr: u32,
     pub dwLocalPort: u32,
     pub dwOwningPid: u32,
 }
-impl Copy for MIB_UDPROW_OWNER_PID {}
-impl Clone for MIB_UDPROW_OWNER_PID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_UDPROW_OWNER_PID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_UDPROW_OWNER_PID").field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).field("dwOwningPid", &self.dwOwningPid).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_UDPROW_OWNER_PID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_UDPROW_OWNER_PID {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwLocalAddr == other.dwLocalAddr && self.dwLocalPort == other.dwLocalPort && self.dwOwningPid == other.dwOwningPid
-    }
-}
-impl Eq for MIB_UDPROW_OWNER_PID {}
 impl Default for MIB_UDPROW_OWNER_PID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDPSTATS {
     pub dwInDatagrams: u32,
     pub dwNoPorts: u32,
@@ -8052,32 +5485,16 @@ pub struct MIB_UDPSTATS {
     pub dwOutDatagrams: u32,
     pub dwNumAddrs: u32,
 }
-impl Copy for MIB_UDPSTATS {}
-impl Clone for MIB_UDPSTATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_UDPSTATS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_UDPSTATS").field("dwInDatagrams", &self.dwInDatagrams).field("dwNoPorts", &self.dwNoPorts).field("dwInErrors", &self.dwInErrors).field("dwOutDatagrams", &self.dwOutDatagrams).field("dwNumAddrs", &self.dwNumAddrs).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_UDPSTATS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_UDPSTATS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwInDatagrams == other.dwInDatagrams && self.dwNoPorts == other.dwNoPorts && self.dwInErrors == other.dwInErrors && self.dwOutDatagrams == other.dwOutDatagrams && self.dwNumAddrs == other.dwNumAddrs
-    }
-}
-impl Eq for MIB_UDPSTATS {}
 impl Default for MIB_UDPSTATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDPSTATS2 {
     pub dw64InDatagrams: u64,
     pub dwNoPorts: u32,
@@ -8085,71 +5502,33 @@ pub struct MIB_UDPSTATS2 {
     pub dw64OutDatagrams: u64,
     pub dwNumAddrs: u32,
 }
-impl Copy for MIB_UDPSTATS2 {}
-impl Clone for MIB_UDPSTATS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_UDPSTATS2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_UDPSTATS2").field("dw64InDatagrams", &self.dw64InDatagrams).field("dwNoPorts", &self.dwNoPorts).field("dwInErrors", &self.dwInErrors).field("dw64OutDatagrams", &self.dw64OutDatagrams).field("dwNumAddrs", &self.dwNumAddrs).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_UDPSTATS2 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_UDPSTATS2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dw64InDatagrams == other.dw64InDatagrams && self.dwNoPorts == other.dwNoPorts && self.dwInErrors == other.dwInErrors && self.dw64OutDatagrams == other.dw64OutDatagrams && self.dwNumAddrs == other.dwNumAddrs
-    }
-}
-impl Eq for MIB_UDPSTATS2 {}
 impl Default for MIB_UDPSTATS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDPTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_UDPROW; 1],
 }
-impl Copy for MIB_UDPTABLE {}
-impl Clone for MIB_UDPTABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_UDPTABLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_UDPTABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_UDPTABLE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_UDPTABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumEntries == other.dwNumEntries && self.table == other.table
-    }
-}
-impl Eq for MIB_UDPTABLE {}
 impl Default for MIB_UDPTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MIB_UDPTABLE2 {
     pub dwNumEntries: u32,
     pub table: [MIB_UDPROW2; 1],
-}
-impl Copy for MIB_UDPTABLE2 {}
-impl Clone for MIB_UDPTABLE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MIB_UDPTABLE2 {
     type TypeKind = windows_core::CopyType;
@@ -8160,15 +5539,10 @@ impl Default for MIB_UDPTABLE2 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MIB_UDPTABLE_OWNER_MODULE {
     pub dwNumEntries: u32,
     pub table: [MIB_UDPROW_OWNER_MODULE; 1],
-}
-impl Copy for MIB_UDPTABLE_OWNER_MODULE {}
-impl Clone for MIB_UDPTABLE_OWNER_MODULE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl windows_core::TypeKind for MIB_UDPTABLE_OWNER_MODULE {
     type TypeKind = windows_core::CopyType;
@@ -8179,30 +5553,14 @@ impl Default for MIB_UDPTABLE_OWNER_MODULE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDPTABLE_OWNER_PID {
     pub dwNumEntries: u32,
     pub table: [MIB_UDPROW_OWNER_PID; 1],
 }
-impl Copy for MIB_UDPTABLE_OWNER_PID {}
-impl Clone for MIB_UDPTABLE_OWNER_PID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MIB_UDPTABLE_OWNER_PID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MIB_UDPTABLE_OWNER_PID").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
-    }
-}
 impl windows_core::TypeKind for MIB_UDPTABLE_OWNER_PID {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for MIB_UDPTABLE_OWNER_PID {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumEntries == other.dwNumEntries && self.table == other.table
-    }
-}
-impl Eq for MIB_UDPTABLE_OWNER_PID {}
 impl Default for MIB_UDPTABLE_OWNER_PID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8210,6 +5568,7 @@ impl Default for MIB_UDPTABLE_OWNER_PID {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy)]
 pub struct MIB_UNICASTIPADDRESS_ROW {
     pub Address: super::super::Networking::WinSock::SOCKADDR_INET,
     pub InterfaceLuid: super::Ndis::NET_LUID_LH,
@@ -8225,14 +5584,6 @@ pub struct MIB_UNICASTIPADDRESS_ROW {
     pub CreationTimeStamp: i64,
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for MIB_UNICASTIPADDRESS_ROW {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for MIB_UNICASTIPADDRESS_ROW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for MIB_UNICASTIPADDRESS_ROW {
     type TypeKind = windows_core::CopyType;
 }
@@ -8244,17 +5595,10 @@ impl Default for MIB_UNICASTIPADDRESS_ROW {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+#[derive(Clone, Copy)]
 pub struct MIB_UNICASTIPADDRESS_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_UNICASTIPADDRESS_ROW; 1],
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Copy for MIB_UNICASTIPADDRESS_TABLE {}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl Clone for MIB_UNICASTIPADDRESS_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl windows_core::TypeKind for MIB_UNICASTIPADDRESS_TABLE {
@@ -8268,17 +5612,10 @@ impl Default for MIB_UNICASTIPADDRESS_TABLE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub struct NET_ADDRESS_INFO {
     pub Format: NET_ADDRESS_FORMAT,
     pub Anonymous: NET_ADDRESS_INFO_0,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for NET_ADDRESS_INFO {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for NET_ADDRESS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for NET_ADDRESS_INFO {
@@ -8292,19 +5629,12 @@ impl Default for NET_ADDRESS_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
 pub union NET_ADDRESS_INFO_0 {
     pub NamedAddress: NET_ADDRESS_INFO_0_0,
     pub Ipv4Address: super::super::Networking::WinSock::SOCKADDR_IN,
     pub Ipv6Address: super::super::Networking::WinSock::SOCKADDR_IN6,
     pub IpAddress: super::super::Networking::WinSock::SOCKADDR,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for NET_ADDRESS_INFO_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for NET_ADDRESS_INFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for NET_ADDRESS_INFO_0 {
@@ -8318,36 +5648,15 @@ impl Default for NET_ADDRESS_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NET_ADDRESS_INFO_0_0 {
     pub Address: [u16; 256],
     pub Port: [u16; 6],
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl Copy for NET_ADDRESS_INFO_0_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Clone for NET_ADDRESS_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl core::fmt::Debug for NET_ADDRESS_INFO_0_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NET_ADDRESS_INFO_0_0").field("Address", &self.Address).field("Port", &self.Port).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for NET_ADDRESS_INFO_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl PartialEq for NET_ADDRESS_INFO_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Address == other.Address && self.Port == other.Port
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Eq for NET_ADDRESS_INFO_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for NET_ADDRESS_INFO_0_0 {
     fn default() -> Self {
@@ -8355,6 +5664,7 @@ impl Default for NET_ADDRESS_INFO_0_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PFLOGFRAME {
     pub Timestamp: i64,
     pub pfeTypeOfFrame: PFFRAMETYPE,
@@ -8366,32 +5676,16 @@ pub struct PFLOGFRAME {
     pub dwIPIndex: u32,
     pub bPacketData: [u8; 1],
 }
-impl Copy for PFLOGFRAME {}
-impl Clone for PFLOGFRAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PFLOGFRAME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PFLOGFRAME").field("Timestamp", &self.Timestamp).field("pfeTypeOfFrame", &self.pfeTypeOfFrame).field("dwTotalSizeUsed", &self.dwTotalSizeUsed).field("dwFilterRule", &self.dwFilterRule).field("wSizeOfAdditionalData", &self.wSizeOfAdditionalData).field("wSizeOfIpHeader", &self.wSizeOfIpHeader).field("dwInterfaceName", &self.dwInterfaceName).field("dwIPIndex", &self.dwIPIndex).field("bPacketData", &self.bPacketData).finish()
-    }
-}
 impl windows_core::TypeKind for PFLOGFRAME {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PFLOGFRAME {
-    fn eq(&self, other: &Self) -> bool {
-        self.Timestamp == other.Timestamp && self.pfeTypeOfFrame == other.pfeTypeOfFrame && self.dwTotalSizeUsed == other.dwTotalSizeUsed && self.dwFilterRule == other.dwFilterRule && self.wSizeOfAdditionalData == other.wSizeOfAdditionalData && self.wSizeOfIpHeader == other.wSizeOfIpHeader && self.dwInterfaceName == other.dwInterfaceName && self.dwIPIndex == other.dwIPIndex && self.bPacketData == other.bPacketData
-    }
-}
-impl Eq for PFLOGFRAME {}
 impl Default for PFLOGFRAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PF_FILTER_DESCRIPTOR {
     pub dwFilterFlags: u32,
     pub dwRule: u32,
@@ -8407,76 +5701,30 @@ pub struct PF_FILTER_DESCRIPTOR {
     pub wSrcPortHighRange: u16,
     pub wDstPortHighRange: u16,
 }
-impl Copy for PF_FILTER_DESCRIPTOR {}
-impl Clone for PF_FILTER_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PF_FILTER_DESCRIPTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PF_FILTER_DESCRIPTOR")
-            .field("dwFilterFlags", &self.dwFilterFlags)
-            .field("dwRule", &self.dwRule)
-            .field("pfatType", &self.pfatType)
-            .field("SrcAddr", &self.SrcAddr)
-            .field("SrcMask", &self.SrcMask)
-            .field("DstAddr", &self.DstAddr)
-            .field("DstMask", &self.DstMask)
-            .field("dwProtocol", &self.dwProtocol)
-            .field("fLateBound", &self.fLateBound)
-            .field("wSrcPort", &self.wSrcPort)
-            .field("wDstPort", &self.wDstPort)
-            .field("wSrcPortHighRange", &self.wSrcPortHighRange)
-            .field("wDstPortHighRange", &self.wDstPortHighRange)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PF_FILTER_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PF_FILTER_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFilterFlags == other.dwFilterFlags && self.dwRule == other.dwRule && self.pfatType == other.pfatType && self.SrcAddr == other.SrcAddr && self.SrcMask == other.SrcMask && self.DstAddr == other.DstAddr && self.DstMask == other.DstMask && self.dwProtocol == other.dwProtocol && self.fLateBound == other.fLateBound && self.wSrcPort == other.wSrcPort && self.wDstPort == other.wDstPort && self.wSrcPortHighRange == other.wSrcPortHighRange && self.wDstPortHighRange == other.wDstPortHighRange
-    }
-}
-impl Eq for PF_FILTER_DESCRIPTOR {}
 impl Default for PF_FILTER_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PF_FILTER_STATS {
     pub dwNumPacketsFiltered: u32,
     pub info: PF_FILTER_DESCRIPTOR,
 }
-impl Copy for PF_FILTER_STATS {}
-impl Clone for PF_FILTER_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PF_FILTER_STATS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PF_FILTER_STATS").field("dwNumPacketsFiltered", &self.dwNumPacketsFiltered).field("info", &self.info).finish()
-    }
-}
 impl windows_core::TypeKind for PF_FILTER_STATS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PF_FILTER_STATS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNumPacketsFiltered == other.dwNumPacketsFiltered && self.info == other.info
-    }
-}
-impl Eq for PF_FILTER_STATS {}
 impl Default for PF_FILTER_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PF_INTERFACE_STATS {
     pub pvDriverContext: *mut core::ffi::c_void,
     pub dwFlags: u32,
@@ -8495,110 +5743,45 @@ pub struct PF_INTERFACE_STATS {
     pub dwLostLogEntries: u32,
     pub FilterInfo: [PF_FILTER_STATS; 1],
 }
-impl Copy for PF_INTERFACE_STATS {}
-impl Clone for PF_INTERFACE_STATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PF_INTERFACE_STATS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PF_INTERFACE_STATS")
-            .field("pvDriverContext", &self.pvDriverContext)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwInDrops", &self.dwInDrops)
-            .field("dwOutDrops", &self.dwOutDrops)
-            .field("eaInAction", &self.eaInAction)
-            .field("eaOutAction", &self.eaOutAction)
-            .field("dwNumInFilters", &self.dwNumInFilters)
-            .field("dwNumOutFilters", &self.dwNumOutFilters)
-            .field("dwFrag", &self.dwFrag)
-            .field("dwSpoof", &self.dwSpoof)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwReserved2", &self.dwReserved2)
-            .field("liSYN", &self.liSYN)
-            .field("liTotalLogged", &self.liTotalLogged)
-            .field("dwLostLogEntries", &self.dwLostLogEntries)
-            .field("FilterInfo", &self.FilterInfo)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for PF_INTERFACE_STATS {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PF_INTERFACE_STATS {
-    fn eq(&self, other: &Self) -> bool {
-        self.pvDriverContext == other.pvDriverContext && self.dwFlags == other.dwFlags && self.dwInDrops == other.dwInDrops && self.dwOutDrops == other.dwOutDrops && self.eaInAction == other.eaInAction && self.eaOutAction == other.eaOutAction && self.dwNumInFilters == other.dwNumInFilters && self.dwNumOutFilters == other.dwNumOutFilters && self.dwFrag == other.dwFrag && self.dwSpoof == other.dwSpoof && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2 && self.liSYN == other.liSYN && self.liTotalLogged == other.liTotalLogged && self.dwLostLogEntries == other.dwLostLogEntries && self.FilterInfo == other.FilterInfo
-    }
-}
-impl Eq for PF_INTERFACE_STATS {}
 impl Default for PF_INTERFACE_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PF_LATEBIND_INFO {
     pub SrcAddr: *mut u8,
     pub DstAddr: *mut u8,
     pub Mask: *mut u8,
 }
-impl Copy for PF_LATEBIND_INFO {}
-impl Clone for PF_LATEBIND_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PF_LATEBIND_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PF_LATEBIND_INFO").field("SrcAddr", &self.SrcAddr).field("DstAddr", &self.DstAddr).field("Mask", &self.Mask).finish()
-    }
-}
 impl windows_core::TypeKind for PF_LATEBIND_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PF_LATEBIND_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.SrcAddr == other.SrcAddr && self.DstAddr == other.DstAddr && self.Mask == other.Mask
-    }
-}
-impl Eq for PF_LATEBIND_INFO {}
 impl Default for PF_LATEBIND_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCPIP_OWNER_MODULE_BASIC_INFO {
     pub pModuleName: windows_core::PWSTR,
     pub pModulePath: windows_core::PWSTR,
 }
-impl Copy for TCPIP_OWNER_MODULE_BASIC_INFO {}
-impl Clone for TCPIP_OWNER_MODULE_BASIC_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TCPIP_OWNER_MODULE_BASIC_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TCPIP_OWNER_MODULE_BASIC_INFO").field("pModuleName", &self.pModuleName).field("pModulePath", &self.pModulePath).finish()
-    }
-}
 impl windows_core::TypeKind for TCPIP_OWNER_MODULE_BASIC_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TCPIP_OWNER_MODULE_BASIC_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pModuleName == other.pModuleName && self.pModulePath == other.pModulePath
-    }
-}
-impl Eq for TCPIP_OWNER_MODULE_BASIC_INFO {}
 impl Default for TCPIP_OWNER_MODULE_BASIC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_BANDWIDTH_ROD_v0 {
     pub OutboundBandwidth: u64,
     pub InboundBandwidth: u64,
@@ -8607,62 +5790,30 @@ pub struct TCP_ESTATS_BANDWIDTH_ROD_v0 {
     pub OutboundBandwidthPeaked: super::super::Foundation::BOOLEAN,
     pub InboundBandwidthPeaked: super::super::Foundation::BOOLEAN,
 }
-impl Copy for TCP_ESTATS_BANDWIDTH_ROD_v0 {}
-impl Clone for TCP_ESTATS_BANDWIDTH_ROD_v0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TCP_ESTATS_BANDWIDTH_ROD_v0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TCP_ESTATS_BANDWIDTH_ROD_v0").field("OutboundBandwidth", &self.OutboundBandwidth).field("InboundBandwidth", &self.InboundBandwidth).field("OutboundInstability", &self.OutboundInstability).field("InboundInstability", &self.InboundInstability).field("OutboundBandwidthPeaked", &self.OutboundBandwidthPeaked).field("InboundBandwidthPeaked", &self.InboundBandwidthPeaked).finish()
-    }
-}
 impl windows_core::TypeKind for TCP_ESTATS_BANDWIDTH_ROD_v0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TCP_ESTATS_BANDWIDTH_ROD_v0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.OutboundBandwidth == other.OutboundBandwidth && self.InboundBandwidth == other.InboundBandwidth && self.OutboundInstability == other.OutboundInstability && self.InboundInstability == other.InboundInstability && self.OutboundBandwidthPeaked == other.OutboundBandwidthPeaked && self.InboundBandwidthPeaked == other.InboundBandwidthPeaked
-    }
-}
-impl Eq for TCP_ESTATS_BANDWIDTH_ROD_v0 {}
 impl Default for TCP_ESTATS_BANDWIDTH_ROD_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_BANDWIDTH_RW_v0 {
     pub EnableCollectionOutbound: TCP_BOOLEAN_OPTIONAL,
     pub EnableCollectionInbound: TCP_BOOLEAN_OPTIONAL,
 }
-impl Copy for TCP_ESTATS_BANDWIDTH_RW_v0 {}
-impl Clone for TCP_ESTATS_BANDWIDTH_RW_v0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TCP_ESTATS_BANDWIDTH_RW_v0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TCP_ESTATS_BANDWIDTH_RW_v0").field("EnableCollectionOutbound", &self.EnableCollectionOutbound).field("EnableCollectionInbound", &self.EnableCollectionInbound).finish()
-    }
-}
 impl windows_core::TypeKind for TCP_ESTATS_BANDWIDTH_RW_v0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TCP_ESTATS_BANDWIDTH_RW_v0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EnableCollectionOutbound == other.EnableCollectionOutbound && self.EnableCollectionInbound == other.EnableCollectionInbound
-    }
-}
-impl Eq for TCP_ESTATS_BANDWIDTH_RW_v0 {}
 impl Default for TCP_ESTATS_BANDWIDTH_RW_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_DATA_ROD_v0 {
     pub DataBytesOut: u64,
     pub DataSegsOut: u64,
@@ -8679,198 +5830,87 @@ pub struct TCP_ESTATS_DATA_ROD_v0 {
     pub RcvNxt: u32,
     pub ThruBytesReceived: u64,
 }
-impl Copy for TCP_ESTATS_DATA_ROD_v0 {}
-impl Clone for TCP_ESTATS_DATA_ROD_v0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TCP_ESTATS_DATA_ROD_v0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TCP_ESTATS_DATA_ROD_v0")
-            .field("DataBytesOut", &self.DataBytesOut)
-            .field("DataSegsOut", &self.DataSegsOut)
-            .field("DataBytesIn", &self.DataBytesIn)
-            .field("DataSegsIn", &self.DataSegsIn)
-            .field("SegsOut", &self.SegsOut)
-            .field("SegsIn", &self.SegsIn)
-            .field("SoftErrors", &self.SoftErrors)
-            .field("SoftErrorReason", &self.SoftErrorReason)
-            .field("SndUna", &self.SndUna)
-            .field("SndNxt", &self.SndNxt)
-            .field("SndMax", &self.SndMax)
-            .field("ThruBytesAcked", &self.ThruBytesAcked)
-            .field("RcvNxt", &self.RcvNxt)
-            .field("ThruBytesReceived", &self.ThruBytesReceived)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for TCP_ESTATS_DATA_ROD_v0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TCP_ESTATS_DATA_ROD_v0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.DataBytesOut == other.DataBytesOut && self.DataSegsOut == other.DataSegsOut && self.DataBytesIn == other.DataBytesIn && self.DataSegsIn == other.DataSegsIn && self.SegsOut == other.SegsOut && self.SegsIn == other.SegsIn && self.SoftErrors == other.SoftErrors && self.SoftErrorReason == other.SoftErrorReason && self.SndUna == other.SndUna && self.SndNxt == other.SndNxt && self.SndMax == other.SndMax && self.ThruBytesAcked == other.ThruBytesAcked && self.RcvNxt == other.RcvNxt && self.ThruBytesReceived == other.ThruBytesReceived
-    }
-}
-impl Eq for TCP_ESTATS_DATA_ROD_v0 {}
 impl Default for TCP_ESTATS_DATA_ROD_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_DATA_RW_v0 {
     pub EnableCollection: super::super::Foundation::BOOLEAN,
-}
-impl Copy for TCP_ESTATS_DATA_RW_v0 {}
-impl Clone for TCP_ESTATS_DATA_RW_v0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TCP_ESTATS_DATA_RW_v0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TCP_ESTATS_DATA_RW_v0").field("EnableCollection", &self.EnableCollection).finish()
-    }
 }
 impl windows_core::TypeKind for TCP_ESTATS_DATA_RW_v0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TCP_ESTATS_DATA_RW_v0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EnableCollection == other.EnableCollection
-    }
-}
-impl Eq for TCP_ESTATS_DATA_RW_v0 {}
 impl Default for TCP_ESTATS_DATA_RW_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_FINE_RTT_ROD_v0 {
     pub RttVar: u32,
     pub MaxRtt: u32,
     pub MinRtt: u32,
     pub SumRtt: u32,
 }
-impl Copy for TCP_ESTATS_FINE_RTT_ROD_v0 {}
-impl Clone for TCP_ESTATS_FINE_RTT_ROD_v0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TCP_ESTATS_FINE_RTT_ROD_v0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TCP_ESTATS_FINE_RTT_ROD_v0").field("RttVar", &self.RttVar).field("MaxRtt", &self.MaxRtt).field("MinRtt", &self.MinRtt).field("SumRtt", &self.SumRtt).finish()
-    }
-}
 impl windows_core::TypeKind for TCP_ESTATS_FINE_RTT_ROD_v0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TCP_ESTATS_FINE_RTT_ROD_v0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.RttVar == other.RttVar && self.MaxRtt == other.MaxRtt && self.MinRtt == other.MinRtt && self.SumRtt == other.SumRtt
-    }
-}
-impl Eq for TCP_ESTATS_FINE_RTT_ROD_v0 {}
 impl Default for TCP_ESTATS_FINE_RTT_ROD_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_FINE_RTT_RW_v0 {
     pub EnableCollection: super::super::Foundation::BOOLEAN,
-}
-impl Copy for TCP_ESTATS_FINE_RTT_RW_v0 {}
-impl Clone for TCP_ESTATS_FINE_RTT_RW_v0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TCP_ESTATS_FINE_RTT_RW_v0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TCP_ESTATS_FINE_RTT_RW_v0").field("EnableCollection", &self.EnableCollection).finish()
-    }
 }
 impl windows_core::TypeKind for TCP_ESTATS_FINE_RTT_RW_v0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TCP_ESTATS_FINE_RTT_RW_v0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EnableCollection == other.EnableCollection
-    }
-}
-impl Eq for TCP_ESTATS_FINE_RTT_RW_v0 {}
 impl Default for TCP_ESTATS_FINE_RTT_RW_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_OBS_REC_ROD_v0 {
     pub CurRwinRcvd: u32,
     pub MaxRwinRcvd: u32,
     pub MinRwinRcvd: u32,
     pub WinScaleRcvd: u8,
 }
-impl Copy for TCP_ESTATS_OBS_REC_ROD_v0 {}
-impl Clone for TCP_ESTATS_OBS_REC_ROD_v0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TCP_ESTATS_OBS_REC_ROD_v0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TCP_ESTATS_OBS_REC_ROD_v0").field("CurRwinRcvd", &self.CurRwinRcvd).field("MaxRwinRcvd", &self.MaxRwinRcvd).field("MinRwinRcvd", &self.MinRwinRcvd).field("WinScaleRcvd", &self.WinScaleRcvd).finish()
-    }
-}
 impl windows_core::TypeKind for TCP_ESTATS_OBS_REC_ROD_v0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TCP_ESTATS_OBS_REC_ROD_v0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.CurRwinRcvd == other.CurRwinRcvd && self.MaxRwinRcvd == other.MaxRwinRcvd && self.MinRwinRcvd == other.MinRwinRcvd && self.WinScaleRcvd == other.WinScaleRcvd
-    }
-}
-impl Eq for TCP_ESTATS_OBS_REC_ROD_v0 {}
 impl Default for TCP_ESTATS_OBS_REC_ROD_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_OBS_REC_RW_v0 {
     pub EnableCollection: super::super::Foundation::BOOLEAN,
-}
-impl Copy for TCP_ESTATS_OBS_REC_RW_v0 {}
-impl Clone for TCP_ESTATS_OBS_REC_RW_v0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TCP_ESTATS_OBS_REC_RW_v0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TCP_ESTATS_OBS_REC_RW_v0").field("EnableCollection", &self.EnableCollection).finish()
-    }
 }
 impl windows_core::TypeKind for TCP_ESTATS_OBS_REC_RW_v0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TCP_ESTATS_OBS_REC_RW_v0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EnableCollection == other.EnableCollection
-    }
-}
-impl Eq for TCP_ESTATS_OBS_REC_RW_v0 {}
 impl Default for TCP_ESTATS_OBS_REC_RW_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_PATH_ROD_v0 {
     pub FastRetran: u32,
     pub Timeouts: u32,
@@ -8913,141 +5953,29 @@ pub struct TCP_ESTATS_PATH_ROD_v0 {
     pub MinMss: u32,
     pub SpuriousRtoDetections: u32,
 }
-impl Copy for TCP_ESTATS_PATH_ROD_v0 {}
-impl Clone for TCP_ESTATS_PATH_ROD_v0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TCP_ESTATS_PATH_ROD_v0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TCP_ESTATS_PATH_ROD_v0")
-            .field("FastRetran", &self.FastRetran)
-            .field("Timeouts", &self.Timeouts)
-            .field("SubsequentTimeouts", &self.SubsequentTimeouts)
-            .field("CurTimeoutCount", &self.CurTimeoutCount)
-            .field("AbruptTimeouts", &self.AbruptTimeouts)
-            .field("PktsRetrans", &self.PktsRetrans)
-            .field("BytesRetrans", &self.BytesRetrans)
-            .field("DupAcksIn", &self.DupAcksIn)
-            .field("SacksRcvd", &self.SacksRcvd)
-            .field("SackBlocksRcvd", &self.SackBlocksRcvd)
-            .field("CongSignals", &self.CongSignals)
-            .field("PreCongSumCwnd", &self.PreCongSumCwnd)
-            .field("PreCongSumRtt", &self.PreCongSumRtt)
-            .field("PostCongSumRtt", &self.PostCongSumRtt)
-            .field("PostCongCountRtt", &self.PostCongCountRtt)
-            .field("EcnSignals", &self.EcnSignals)
-            .field("EceRcvd", &self.EceRcvd)
-            .field("SendStall", &self.SendStall)
-            .field("QuenchRcvd", &self.QuenchRcvd)
-            .field("RetranThresh", &self.RetranThresh)
-            .field("SndDupAckEpisodes", &self.SndDupAckEpisodes)
-            .field("SumBytesReordered", &self.SumBytesReordered)
-            .field("NonRecovDa", &self.NonRecovDa)
-            .field("NonRecovDaEpisodes", &self.NonRecovDaEpisodes)
-            .field("AckAfterFr", &self.AckAfterFr)
-            .field("DsackDups", &self.DsackDups)
-            .field("SampleRtt", &self.SampleRtt)
-            .field("SmoothedRtt", &self.SmoothedRtt)
-            .field("RttVar", &self.RttVar)
-            .field("MaxRtt", &self.MaxRtt)
-            .field("MinRtt", &self.MinRtt)
-            .field("SumRtt", &self.SumRtt)
-            .field("CountRtt", &self.CountRtt)
-            .field("CurRto", &self.CurRto)
-            .field("MaxRto", &self.MaxRto)
-            .field("MinRto", &self.MinRto)
-            .field("CurMss", &self.CurMss)
-            .field("MaxMss", &self.MaxMss)
-            .field("MinMss", &self.MinMss)
-            .field("SpuriousRtoDetections", &self.SpuriousRtoDetections)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for TCP_ESTATS_PATH_ROD_v0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TCP_ESTATS_PATH_ROD_v0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.FastRetran == other.FastRetran
-            && self.Timeouts == other.Timeouts
-            && self.SubsequentTimeouts == other.SubsequentTimeouts
-            && self.CurTimeoutCount == other.CurTimeoutCount
-            && self.AbruptTimeouts == other.AbruptTimeouts
-            && self.PktsRetrans == other.PktsRetrans
-            && self.BytesRetrans == other.BytesRetrans
-            && self.DupAcksIn == other.DupAcksIn
-            && self.SacksRcvd == other.SacksRcvd
-            && self.SackBlocksRcvd == other.SackBlocksRcvd
-            && self.CongSignals == other.CongSignals
-            && self.PreCongSumCwnd == other.PreCongSumCwnd
-            && self.PreCongSumRtt == other.PreCongSumRtt
-            && self.PostCongSumRtt == other.PostCongSumRtt
-            && self.PostCongCountRtt == other.PostCongCountRtt
-            && self.EcnSignals == other.EcnSignals
-            && self.EceRcvd == other.EceRcvd
-            && self.SendStall == other.SendStall
-            && self.QuenchRcvd == other.QuenchRcvd
-            && self.RetranThresh == other.RetranThresh
-            && self.SndDupAckEpisodes == other.SndDupAckEpisodes
-            && self.SumBytesReordered == other.SumBytesReordered
-            && self.NonRecovDa == other.NonRecovDa
-            && self.NonRecovDaEpisodes == other.NonRecovDaEpisodes
-            && self.AckAfterFr == other.AckAfterFr
-            && self.DsackDups == other.DsackDups
-            && self.SampleRtt == other.SampleRtt
-            && self.SmoothedRtt == other.SmoothedRtt
-            && self.RttVar == other.RttVar
-            && self.MaxRtt == other.MaxRtt
-            && self.MinRtt == other.MinRtt
-            && self.SumRtt == other.SumRtt
-            && self.CountRtt == other.CountRtt
-            && self.CurRto == other.CurRto
-            && self.MaxRto == other.MaxRto
-            && self.MinRto == other.MinRto
-            && self.CurMss == other.CurMss
-            && self.MaxMss == other.MaxMss
-            && self.MinMss == other.MinMss
-            && self.SpuriousRtoDetections == other.SpuriousRtoDetections
-    }
-}
-impl Eq for TCP_ESTATS_PATH_ROD_v0 {}
 impl Default for TCP_ESTATS_PATH_ROD_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_PATH_RW_v0 {
     pub EnableCollection: super::super::Foundation::BOOLEAN,
-}
-impl Copy for TCP_ESTATS_PATH_RW_v0 {}
-impl Clone for TCP_ESTATS_PATH_RW_v0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TCP_ESTATS_PATH_RW_v0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TCP_ESTATS_PATH_RW_v0").field("EnableCollection", &self.EnableCollection).finish()
-    }
 }
 impl windows_core::TypeKind for TCP_ESTATS_PATH_RW_v0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TCP_ESTATS_PATH_RW_v0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EnableCollection == other.EnableCollection
-    }
-}
-impl Eq for TCP_ESTATS_PATH_RW_v0 {}
 impl Default for TCP_ESTATS_PATH_RW_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_REC_ROD_v0 {
     pub CurRwinSent: u32,
     pub MaxRwinSent: u32,
@@ -9064,137 +5992,58 @@ pub struct TCP_ESTATS_REC_ROD_v0 {
     pub MaxAppRQueue: usize,
     pub WinScaleSent: u8,
 }
-impl Copy for TCP_ESTATS_REC_ROD_v0 {}
-impl Clone for TCP_ESTATS_REC_ROD_v0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TCP_ESTATS_REC_ROD_v0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TCP_ESTATS_REC_ROD_v0")
-            .field("CurRwinSent", &self.CurRwinSent)
-            .field("MaxRwinSent", &self.MaxRwinSent)
-            .field("MinRwinSent", &self.MinRwinSent)
-            .field("LimRwin", &self.LimRwin)
-            .field("DupAckEpisodes", &self.DupAckEpisodes)
-            .field("DupAcksOut", &self.DupAcksOut)
-            .field("CeRcvd", &self.CeRcvd)
-            .field("EcnSent", &self.EcnSent)
-            .field("EcnNoncesRcvd", &self.EcnNoncesRcvd)
-            .field("CurReasmQueue", &self.CurReasmQueue)
-            .field("MaxReasmQueue", &self.MaxReasmQueue)
-            .field("CurAppRQueue", &self.CurAppRQueue)
-            .field("MaxAppRQueue", &self.MaxAppRQueue)
-            .field("WinScaleSent", &self.WinScaleSent)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for TCP_ESTATS_REC_ROD_v0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TCP_ESTATS_REC_ROD_v0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.CurRwinSent == other.CurRwinSent && self.MaxRwinSent == other.MaxRwinSent && self.MinRwinSent == other.MinRwinSent && self.LimRwin == other.LimRwin && self.DupAckEpisodes == other.DupAckEpisodes && self.DupAcksOut == other.DupAcksOut && self.CeRcvd == other.CeRcvd && self.EcnSent == other.EcnSent && self.EcnNoncesRcvd == other.EcnNoncesRcvd && self.CurReasmQueue == other.CurReasmQueue && self.MaxReasmQueue == other.MaxReasmQueue && self.CurAppRQueue == other.CurAppRQueue && self.MaxAppRQueue == other.MaxAppRQueue && self.WinScaleSent == other.WinScaleSent
-    }
-}
-impl Eq for TCP_ESTATS_REC_ROD_v0 {}
 impl Default for TCP_ESTATS_REC_ROD_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_REC_RW_v0 {
     pub EnableCollection: super::super::Foundation::BOOLEAN,
-}
-impl Copy for TCP_ESTATS_REC_RW_v0 {}
-impl Clone for TCP_ESTATS_REC_RW_v0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TCP_ESTATS_REC_RW_v0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TCP_ESTATS_REC_RW_v0").field("EnableCollection", &self.EnableCollection).finish()
-    }
 }
 impl windows_core::TypeKind for TCP_ESTATS_REC_RW_v0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TCP_ESTATS_REC_RW_v0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EnableCollection == other.EnableCollection
-    }
-}
-impl Eq for TCP_ESTATS_REC_RW_v0 {}
 impl Default for TCP_ESTATS_REC_RW_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_SEND_BUFF_ROD_v0 {
     pub CurRetxQueue: usize,
     pub MaxRetxQueue: usize,
     pub CurAppWQueue: usize,
     pub MaxAppWQueue: usize,
 }
-impl Copy for TCP_ESTATS_SEND_BUFF_ROD_v0 {}
-impl Clone for TCP_ESTATS_SEND_BUFF_ROD_v0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TCP_ESTATS_SEND_BUFF_ROD_v0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TCP_ESTATS_SEND_BUFF_ROD_v0").field("CurRetxQueue", &self.CurRetxQueue).field("MaxRetxQueue", &self.MaxRetxQueue).field("CurAppWQueue", &self.CurAppWQueue).field("MaxAppWQueue", &self.MaxAppWQueue).finish()
-    }
-}
 impl windows_core::TypeKind for TCP_ESTATS_SEND_BUFF_ROD_v0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TCP_ESTATS_SEND_BUFF_ROD_v0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.CurRetxQueue == other.CurRetxQueue && self.MaxRetxQueue == other.MaxRetxQueue && self.CurAppWQueue == other.CurAppWQueue && self.MaxAppWQueue == other.MaxAppWQueue
-    }
-}
-impl Eq for TCP_ESTATS_SEND_BUFF_ROD_v0 {}
 impl Default for TCP_ESTATS_SEND_BUFF_ROD_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_SEND_BUFF_RW_v0 {
     pub EnableCollection: super::super::Foundation::BOOLEAN,
-}
-impl Copy for TCP_ESTATS_SEND_BUFF_RW_v0 {}
-impl Clone for TCP_ESTATS_SEND_BUFF_RW_v0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TCP_ESTATS_SEND_BUFF_RW_v0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TCP_ESTATS_SEND_BUFF_RW_v0").field("EnableCollection", &self.EnableCollection).finish()
-    }
 }
 impl windows_core::TypeKind for TCP_ESTATS_SEND_BUFF_RW_v0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TCP_ESTATS_SEND_BUFF_RW_v0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EnableCollection == other.EnableCollection
-    }
-}
-impl Eq for TCP_ESTATS_SEND_BUFF_RW_v0 {}
 impl Default for TCP_ESTATS_SEND_BUFF_RW_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_SND_CONG_ROD_v0 {
     pub SndLimTransRwin: u32,
     pub SndLimTimeRwin: u32,
@@ -9215,164 +6064,64 @@ pub struct TCP_ESTATS_SND_CONG_ROD_v0 {
     pub MaxSsthresh: u32,
     pub MinSsthresh: u32,
 }
-impl Copy for TCP_ESTATS_SND_CONG_ROD_v0 {}
-impl Clone for TCP_ESTATS_SND_CONG_ROD_v0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TCP_ESTATS_SND_CONG_ROD_v0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TCP_ESTATS_SND_CONG_ROD_v0")
-            .field("SndLimTransRwin", &self.SndLimTransRwin)
-            .field("SndLimTimeRwin", &self.SndLimTimeRwin)
-            .field("SndLimBytesRwin", &self.SndLimBytesRwin)
-            .field("SndLimTransCwnd", &self.SndLimTransCwnd)
-            .field("SndLimTimeCwnd", &self.SndLimTimeCwnd)
-            .field("SndLimBytesCwnd", &self.SndLimBytesCwnd)
-            .field("SndLimTransSnd", &self.SndLimTransSnd)
-            .field("SndLimTimeSnd", &self.SndLimTimeSnd)
-            .field("SndLimBytesSnd", &self.SndLimBytesSnd)
-            .field("SlowStart", &self.SlowStart)
-            .field("CongAvoid", &self.CongAvoid)
-            .field("OtherReductions", &self.OtherReductions)
-            .field("CurCwnd", &self.CurCwnd)
-            .field("MaxSsCwnd", &self.MaxSsCwnd)
-            .field("MaxCaCwnd", &self.MaxCaCwnd)
-            .field("CurSsthresh", &self.CurSsthresh)
-            .field("MaxSsthresh", &self.MaxSsthresh)
-            .field("MinSsthresh", &self.MinSsthresh)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for TCP_ESTATS_SND_CONG_ROD_v0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TCP_ESTATS_SND_CONG_ROD_v0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.SndLimTransRwin == other.SndLimTransRwin && self.SndLimTimeRwin == other.SndLimTimeRwin && self.SndLimBytesRwin == other.SndLimBytesRwin && self.SndLimTransCwnd == other.SndLimTransCwnd && self.SndLimTimeCwnd == other.SndLimTimeCwnd && self.SndLimBytesCwnd == other.SndLimBytesCwnd && self.SndLimTransSnd == other.SndLimTransSnd && self.SndLimTimeSnd == other.SndLimTimeSnd && self.SndLimBytesSnd == other.SndLimBytesSnd && self.SlowStart == other.SlowStart && self.CongAvoid == other.CongAvoid && self.OtherReductions == other.OtherReductions && self.CurCwnd == other.CurCwnd && self.MaxSsCwnd == other.MaxSsCwnd && self.MaxCaCwnd == other.MaxCaCwnd && self.CurSsthresh == other.CurSsthresh && self.MaxSsthresh == other.MaxSsthresh && self.MinSsthresh == other.MinSsthresh
-    }
-}
-impl Eq for TCP_ESTATS_SND_CONG_ROD_v0 {}
 impl Default for TCP_ESTATS_SND_CONG_ROD_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_SND_CONG_ROS_v0 {
     pub LimCwnd: u32,
-}
-impl Copy for TCP_ESTATS_SND_CONG_ROS_v0 {}
-impl Clone for TCP_ESTATS_SND_CONG_ROS_v0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TCP_ESTATS_SND_CONG_ROS_v0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TCP_ESTATS_SND_CONG_ROS_v0").field("LimCwnd", &self.LimCwnd).finish()
-    }
 }
 impl windows_core::TypeKind for TCP_ESTATS_SND_CONG_ROS_v0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TCP_ESTATS_SND_CONG_ROS_v0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.LimCwnd == other.LimCwnd
-    }
-}
-impl Eq for TCP_ESTATS_SND_CONG_ROS_v0 {}
 impl Default for TCP_ESTATS_SND_CONG_ROS_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_SND_CONG_RW_v0 {
     pub EnableCollection: super::super::Foundation::BOOLEAN,
-}
-impl Copy for TCP_ESTATS_SND_CONG_RW_v0 {}
-impl Clone for TCP_ESTATS_SND_CONG_RW_v0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TCP_ESTATS_SND_CONG_RW_v0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TCP_ESTATS_SND_CONG_RW_v0").field("EnableCollection", &self.EnableCollection).finish()
-    }
 }
 impl windows_core::TypeKind for TCP_ESTATS_SND_CONG_RW_v0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TCP_ESTATS_SND_CONG_RW_v0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EnableCollection == other.EnableCollection
-    }
-}
-impl Eq for TCP_ESTATS_SND_CONG_RW_v0 {}
 impl Default for TCP_ESTATS_SND_CONG_RW_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_SYN_OPTS_ROS_v0 {
     pub ActiveOpen: super::super::Foundation::BOOLEAN,
     pub MssRcvd: u32,
     pub MssSent: u32,
 }
-impl Copy for TCP_ESTATS_SYN_OPTS_ROS_v0 {}
-impl Clone for TCP_ESTATS_SYN_OPTS_ROS_v0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TCP_ESTATS_SYN_OPTS_ROS_v0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TCP_ESTATS_SYN_OPTS_ROS_v0").field("ActiveOpen", &self.ActiveOpen).field("MssRcvd", &self.MssRcvd).field("MssSent", &self.MssSent).finish()
-    }
-}
 impl windows_core::TypeKind for TCP_ESTATS_SYN_OPTS_ROS_v0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TCP_ESTATS_SYN_OPTS_ROS_v0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ActiveOpen == other.ActiveOpen && self.MssRcvd == other.MssRcvd && self.MssSent == other.MssSent
-    }
-}
-impl Eq for TCP_ESTATS_SYN_OPTS_ROS_v0 {}
 impl Default for TCP_ESTATS_SYN_OPTS_ROS_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_RESERVE_PORT_RANGE {
     pub UpperRange: u16,
     pub LowerRange: u16,
 }
-impl Copy for TCP_RESERVE_PORT_RANGE {}
-impl Clone for TCP_RESERVE_PORT_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TCP_RESERVE_PORT_RANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TCP_RESERVE_PORT_RANGE").field("UpperRange", &self.UpperRange).field("LowerRange", &self.LowerRange).finish()
-    }
-}
 impl windows_core::TypeKind for TCP_RESERVE_PORT_RANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for TCP_RESERVE_PORT_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.UpperRange == other.UpperRange && self.LowerRange == other.LowerRange
-    }
-}
-impl Eq for TCP_RESERVE_PORT_RANGE {}
 impl Default for TCP_RESERVE_PORT_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

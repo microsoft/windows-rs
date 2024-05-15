@@ -1231,68 +1231,37 @@ impl core::fmt::Debug for WCS_PROFILE_MANAGEMENT_SCOPE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BlackInformation {
     pub fBlackOnly: super::super::Foundation::BOOL,
     pub blackWeight: f32,
 }
-impl Copy for BlackInformation {}
-impl Clone for BlackInformation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for BlackInformation {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("BlackInformation").field("fBlackOnly", &self.fBlackOnly).field("blackWeight", &self.blackWeight).finish()
-    }
-}
 impl windows_core::TypeKind for BlackInformation {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for BlackInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.fBlackOnly == other.fBlackOnly && self.blackWeight == other.blackWeight
-    }
-}
-impl Eq for BlackInformation {}
 impl Default for BlackInformation {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMYKCOLOR {
     pub cyan: u16,
     pub magenta: u16,
     pub yellow: u16,
     pub black: u16,
 }
-impl Copy for CMYKCOLOR {}
-impl Clone for CMYKCOLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for CMYKCOLOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("CMYKCOLOR").field("cyan", &self.cyan).field("magenta", &self.magenta).field("yellow", &self.yellow).field("black", &self.black).finish()
-    }
-}
 impl windows_core::TypeKind for CMYKCOLOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for CMYKCOLOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.cyan == other.cyan && self.magenta == other.magenta && self.yellow == other.yellow && self.black == other.black
-    }
-}
-impl Eq for CMYKCOLOR {}
 impl Default for CMYKCOLOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union COLOR {
     pub gray: GRAYCOLOR,
     pub rgb: RGBCOLOR,
@@ -1305,12 +1274,6 @@ pub union COLOR {
     pub hifi: HiFiCOLOR,
     pub Anonymous: COLOR_0,
 }
-impl Copy for COLOR {}
-impl Clone for COLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 impl windows_core::TypeKind for COLOR {
     type TypeKind = windows_core::CopyType;
 }
@@ -1320,30 +1283,14 @@ impl Default for COLOR {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COLOR_0 {
     pub reserved1: u32,
     pub reserved2: *mut core::ffi::c_void,
 }
-impl Copy for COLOR_0 {}
-impl Clone for COLOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for COLOR_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COLOR_0").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).finish()
-    }
-}
 impl windows_core::TypeKind for COLOR_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for COLOR_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2
-    }
-}
-impl Eq for COLOR_0 {}
 impl Default for COLOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1351,6 +1298,7 @@ impl Default for COLOR_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy, Debug)]
 pub struct COLORMATCHSETUPA {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -1373,38 +1321,6 @@ pub struct COLORMATCHSETUPA {
     pub lParamApplyCallback: super::super::Foundation::LPARAM,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for COLORMATCHSETUPA {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for COLORMATCHSETUPA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl core::fmt::Debug for COLORMATCHSETUPA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COLORMATCHSETUPA")
-            .field("dwSize", &self.dwSize)
-            .field("dwVersion", &self.dwVersion)
-            .field("dwFlags", &self.dwFlags)
-            .field("hwndOwner", &self.hwndOwner)
-            .field("pSourceName", &self.pSourceName)
-            .field("pDisplayName", &self.pDisplayName)
-            .field("pPrinterName", &self.pPrinterName)
-            .field("dwRenderIntent", &self.dwRenderIntent)
-            .field("dwProofingIntent", &self.dwProofingIntent)
-            .field("pMonitorProfile", &self.pMonitorProfile)
-            .field("ccMonitorProfile", &self.ccMonitorProfile)
-            .field("pPrinterProfile", &self.pPrinterProfile)
-            .field("ccPrinterProfile", &self.ccPrinterProfile)
-            .field("pTargetProfile", &self.pTargetProfile)
-            .field("ccTargetProfile", &self.ccTargetProfile)
-            .field("lParam", &self.lParam)
-            .field("lParamApplyCallback", &self.lParamApplyCallback)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::TypeKind for COLORMATCHSETUPA {
     type TypeKind = windows_core::CopyType;
 }
@@ -1416,6 +1332,7 @@ impl Default for COLORMATCHSETUPA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy, Debug)]
 pub struct COLORMATCHSETUPW {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -1438,38 +1355,6 @@ pub struct COLORMATCHSETUPW {
     pub lParamApplyCallback: super::super::Foundation::LPARAM,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Copy for COLORMATCHSETUPW {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Clone for COLORMATCHSETUPW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl core::fmt::Debug for COLORMATCHSETUPW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("COLORMATCHSETUPW")
-            .field("dwSize", &self.dwSize)
-            .field("dwVersion", &self.dwVersion)
-            .field("dwFlags", &self.dwFlags)
-            .field("hwndOwner", &self.hwndOwner)
-            .field("pSourceName", &self.pSourceName)
-            .field("pDisplayName", &self.pDisplayName)
-            .field("pPrinterName", &self.pPrinterName)
-            .field("dwRenderIntent", &self.dwRenderIntent)
-            .field("dwProofingIntent", &self.dwProofingIntent)
-            .field("pMonitorProfile", &self.pMonitorProfile)
-            .field("ccMonitorProfile", &self.ccMonitorProfile)
-            .field("pPrinterProfile", &self.pPrinterProfile)
-            .field("ccPrinterProfile", &self.ccPrinterProfile)
-            .field("pTargetProfile", &self.pTargetProfile)
-            .field("ccTargetProfile", &self.ccTargetProfile)
-            .field("lParam", &self.lParam)
-            .field("lParamApplyCallback", &self.lParamApplyCallback)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::TypeKind for COLORMATCHSETUPW {
     type TypeKind = windows_core::CopyType;
 }
@@ -1481,37 +1366,16 @@ impl Default for COLORMATCHSETUPW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMRCREATECOLORSPACE {
     pub emr: super::super::Graphics::Gdi::EMR,
     pub ihCS: u32,
     pub lcs: LOGCOLORSPACEA,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for EMRCREATECOLORSPACE {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for EMRCREATECOLORSPACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for EMRCREATECOLORSPACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EMRCREATECOLORSPACE").field("emr", &self.emr).field("ihCS", &self.ihCS).field("lcs", &self.lcs).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for EMRCREATECOLORSPACE {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for EMRCREATECOLORSPACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.emr == other.emr && self.ihCS == other.ihCS && self.lcs == other.lcs
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for EMRCREATECOLORSPACE {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for EMRCREATECOLORSPACE {
     fn default() -> Self {
@@ -1520,6 +1384,7 @@ impl Default for EMRCREATECOLORSPACE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMRCREATECOLORSPACEW {
     pub emr: super::super::Graphics::Gdi::EMR,
     pub ihCS: u32,
@@ -1529,31 +1394,9 @@ pub struct EMRCREATECOLORSPACEW {
     pub Data: [u8; 1],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for EMRCREATECOLORSPACEW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for EMRCREATECOLORSPACEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for EMRCREATECOLORSPACEW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("EMRCREATECOLORSPACEW").field("emr", &self.emr).field("ihCS", &self.ihCS).field("lcs", &self.lcs).field("dwFlags", &self.dwFlags).field("cbData", &self.cbData).field("Data", &self.Data).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for EMRCREATECOLORSPACEW {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for EMRCREATECOLORSPACEW {
-    fn eq(&self, other: &Self) -> bool {
-        self.emr == other.emr && self.ihCS == other.ihCS && self.lcs == other.lcs && self.dwFlags == other.dwFlags && self.cbData == other.cbData && self.Data == other.Data
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for EMRCREATECOLORSPACEW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for EMRCREATECOLORSPACEW {
     fn default() -> Self {
@@ -1561,6 +1404,7 @@ impl Default for EMRCREATECOLORSPACEW {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENUMTYPEA {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -1583,72 +1427,16 @@ pub struct ENUMTYPEA {
     pub dwCreator: u32,
     pub dwDeviceClass: u32,
 }
-impl Copy for ENUMTYPEA {}
-impl Clone for ENUMTYPEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ENUMTYPEA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ENUMTYPEA")
-            .field("dwSize", &self.dwSize)
-            .field("dwVersion", &self.dwVersion)
-            .field("dwFields", &self.dwFields)
-            .field("pDeviceName", &self.pDeviceName)
-            .field("dwMediaType", &self.dwMediaType)
-            .field("dwDitheringMode", &self.dwDitheringMode)
-            .field("dwResolution", &self.dwResolution)
-            .field("dwCMMType", &self.dwCMMType)
-            .field("dwClass", &self.dwClass)
-            .field("dwDataColorSpace", &self.dwDataColorSpace)
-            .field("dwConnectionSpace", &self.dwConnectionSpace)
-            .field("dwSignature", &self.dwSignature)
-            .field("dwPlatform", &self.dwPlatform)
-            .field("dwProfileFlags", &self.dwProfileFlags)
-            .field("dwManufacturer", &self.dwManufacturer)
-            .field("dwModel", &self.dwModel)
-            .field("dwAttributes", &self.dwAttributes)
-            .field("dwRenderingIntent", &self.dwRenderingIntent)
-            .field("dwCreator", &self.dwCreator)
-            .field("dwDeviceClass", &self.dwDeviceClass)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for ENUMTYPEA {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ENUMTYPEA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwVersion == other.dwVersion
-            && self.dwFields == other.dwFields
-            && self.pDeviceName == other.pDeviceName
-            && self.dwMediaType == other.dwMediaType
-            && self.dwDitheringMode == other.dwDitheringMode
-            && self.dwResolution == other.dwResolution
-            && self.dwCMMType == other.dwCMMType
-            && self.dwClass == other.dwClass
-            && self.dwDataColorSpace == other.dwDataColorSpace
-            && self.dwConnectionSpace == other.dwConnectionSpace
-            && self.dwSignature == other.dwSignature
-            && self.dwPlatform == other.dwPlatform
-            && self.dwProfileFlags == other.dwProfileFlags
-            && self.dwManufacturer == other.dwManufacturer
-            && self.dwModel == other.dwModel
-            && self.dwAttributes == other.dwAttributes
-            && self.dwRenderingIntent == other.dwRenderingIntent
-            && self.dwCreator == other.dwCreator
-            && self.dwDeviceClass == other.dwDeviceClass
-    }
-}
-impl Eq for ENUMTYPEA {}
 impl Default for ENUMTYPEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENUMTYPEW {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -1671,132 +1459,44 @@ pub struct ENUMTYPEW {
     pub dwCreator: u32,
     pub dwDeviceClass: u32,
 }
-impl Copy for ENUMTYPEW {}
-impl Clone for ENUMTYPEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for ENUMTYPEW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("ENUMTYPEW")
-            .field("dwSize", &self.dwSize)
-            .field("dwVersion", &self.dwVersion)
-            .field("dwFields", &self.dwFields)
-            .field("pDeviceName", &self.pDeviceName)
-            .field("dwMediaType", &self.dwMediaType)
-            .field("dwDitheringMode", &self.dwDitheringMode)
-            .field("dwResolution", &self.dwResolution)
-            .field("dwCMMType", &self.dwCMMType)
-            .field("dwClass", &self.dwClass)
-            .field("dwDataColorSpace", &self.dwDataColorSpace)
-            .field("dwConnectionSpace", &self.dwConnectionSpace)
-            .field("dwSignature", &self.dwSignature)
-            .field("dwPlatform", &self.dwPlatform)
-            .field("dwProfileFlags", &self.dwProfileFlags)
-            .field("dwManufacturer", &self.dwManufacturer)
-            .field("dwModel", &self.dwModel)
-            .field("dwAttributes", &self.dwAttributes)
-            .field("dwRenderingIntent", &self.dwRenderingIntent)
-            .field("dwCreator", &self.dwCreator)
-            .field("dwDeviceClass", &self.dwDeviceClass)
-            .finish()
-    }
-}
 impl windows_core::TypeKind for ENUMTYPEW {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for ENUMTYPEW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwVersion == other.dwVersion
-            && self.dwFields == other.dwFields
-            && self.pDeviceName == other.pDeviceName
-            && self.dwMediaType == other.dwMediaType
-            && self.dwDitheringMode == other.dwDitheringMode
-            && self.dwResolution == other.dwResolution
-            && self.dwCMMType == other.dwCMMType
-            && self.dwClass == other.dwClass
-            && self.dwDataColorSpace == other.dwDataColorSpace
-            && self.dwConnectionSpace == other.dwConnectionSpace
-            && self.dwSignature == other.dwSignature
-            && self.dwPlatform == other.dwPlatform
-            && self.dwProfileFlags == other.dwProfileFlags
-            && self.dwManufacturer == other.dwManufacturer
-            && self.dwModel == other.dwModel
-            && self.dwAttributes == other.dwAttributes
-            && self.dwRenderingIntent == other.dwRenderingIntent
-            && self.dwCreator == other.dwCreator
-            && self.dwDeviceClass == other.dwDeviceClass
-    }
-}
-impl Eq for ENUMTYPEW {}
 impl Default for ENUMTYPEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GENERIC3CHANNEL {
     pub ch1: u16,
     pub ch2: u16,
     pub ch3: u16,
 }
-impl Copy for GENERIC3CHANNEL {}
-impl Clone for GENERIC3CHANNEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GENERIC3CHANNEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GENERIC3CHANNEL").field("ch1", &self.ch1).field("ch2", &self.ch2).field("ch3", &self.ch3).finish()
-    }
-}
 impl windows_core::TypeKind for GENERIC3CHANNEL {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GENERIC3CHANNEL {
-    fn eq(&self, other: &Self) -> bool {
-        self.ch1 == other.ch1 && self.ch2 == other.ch2 && self.ch3 == other.ch3
-    }
-}
-impl Eq for GENERIC3CHANNEL {}
 impl Default for GENERIC3CHANNEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GRAYCOLOR {
     pub gray: u16,
-}
-impl Copy for GRAYCOLOR {}
-impl Clone for GRAYCOLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GRAYCOLOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GRAYCOLOR").field("gray", &self.gray).finish()
-    }
 }
 impl windows_core::TypeKind for GRAYCOLOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GRAYCOLOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.gray == other.gray
-    }
-}
-impl Eq for GRAYCOLOR {}
 impl Default for GRAYCOLOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GamutBoundaryDescription {
     pub pPrimaries: *mut PrimaryJabColors,
     pub cNeutralSamples: u32,
@@ -1805,32 +1505,16 @@ pub struct GamutBoundaryDescription {
     pub pPlausibleShell: *mut GamutShell,
     pub pPossibleShell: *mut GamutShell,
 }
-impl Copy for GamutBoundaryDescription {}
-impl Clone for GamutBoundaryDescription {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GamutBoundaryDescription {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GamutBoundaryDescription").field("pPrimaries", &self.pPrimaries).field("cNeutralSamples", &self.cNeutralSamples).field("pNeutralSamples", &self.pNeutralSamples).field("pReferenceShell", &self.pReferenceShell).field("pPlausibleShell", &self.pPlausibleShell).field("pPossibleShell", &self.pPossibleShell).finish()
-    }
-}
 impl windows_core::TypeKind for GamutBoundaryDescription {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GamutBoundaryDescription {
-    fn eq(&self, other: &Self) -> bool {
-        self.pPrimaries == other.pPrimaries && self.cNeutralSamples == other.cNeutralSamples && self.pNeutralSamples == other.pNeutralSamples && self.pReferenceShell == other.pReferenceShell && self.pPlausibleShell == other.pPlausibleShell && self.pPossibleShell == other.pPossibleShell
-    }
-}
-impl Eq for GamutBoundaryDescription {}
 impl Default for GamutBoundaryDescription {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GamutShell {
     pub JMin: f32,
     pub JMax: f32,
@@ -1839,55 +1523,22 @@ pub struct GamutShell {
     pub pVertices: *mut JabColorF,
     pub pTriangles: *mut GamutShellTriangle,
 }
-impl Copy for GamutShell {}
-impl Clone for GamutShell {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GamutShell {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GamutShell").field("JMin", &self.JMin).field("JMax", &self.JMax).field("cVertices", &self.cVertices).field("cTriangles", &self.cTriangles).field("pVertices", &self.pVertices).field("pTriangles", &self.pTriangles).finish()
-    }
-}
 impl windows_core::TypeKind for GamutShell {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GamutShell {
-    fn eq(&self, other: &Self) -> bool {
-        self.JMin == other.JMin && self.JMax == other.JMax && self.cVertices == other.cVertices && self.cTriangles == other.cTriangles && self.pVertices == other.pVertices && self.pTriangles == other.pTriangles
-    }
-}
-impl Eq for GamutShell {}
 impl Default for GamutShell {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GamutShellTriangle {
     pub aVertexIndex: [u32; 3],
-}
-impl Copy for GamutShellTriangle {}
-impl Clone for GamutShellTriangle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for GamutShellTriangle {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("GamutShellTriangle").field("aVertexIndex", &self.aVertexIndex).finish()
-    }
 }
 impl windows_core::TypeKind for GamutShellTriangle {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for GamutShellTriangle {
-    fn eq(&self, other: &Self) -> bool {
-        self.aVertexIndex == other.aVertexIndex
-    }
-}
-impl Eq for GamutShellTriangle {}
 impl Default for GamutShellTriangle {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1917,91 +1568,43 @@ impl windows_core::TypeKind for HCOLORSPACE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HiFiCOLOR {
     pub channel: [u8; 8],
-}
-impl Copy for HiFiCOLOR {}
-impl Clone for HiFiCOLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for HiFiCOLOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("HiFiCOLOR").field("channel", &self.channel).finish()
-    }
 }
 impl windows_core::TypeKind for HiFiCOLOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for HiFiCOLOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.channel == other.channel
-    }
-}
-impl Eq for HiFiCOLOR {}
 impl Default for HiFiCOLOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JChColorF {
     pub J: f32,
     pub C: f32,
     pub h: f32,
 }
-impl Copy for JChColorF {}
-impl Clone for JChColorF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for JChColorF {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("JChColorF").field("J", &self.J).field("C", &self.C).field("h", &self.h).finish()
-    }
-}
 impl windows_core::TypeKind for JChColorF {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for JChColorF {
-    fn eq(&self, other: &Self) -> bool {
-        self.J == other.J && self.C == other.C && self.h == other.h
-    }
-}
-impl Eq for JChColorF {}
 impl Default for JChColorF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JabColorF {
     pub J: f32,
     pub a: f32,
     pub b: f32,
 }
-impl Copy for JabColorF {}
-impl Clone for JabColorF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for JabColorF {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("JabColorF").field("J", &self.J).field("a", &self.a).field("b", &self.b).finish()
-    }
-}
 impl windows_core::TypeKind for JabColorF {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for JabColorF {
-    fn eq(&self, other: &Self) -> bool {
-        self.J == other.J && self.a == other.a && self.b == other.b
-    }
-}
-impl Eq for JabColorF {}
 impl Default for JabColorF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2009,6 +1612,7 @@ impl Default for JabColorF {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LOGCOLORSPACEA {
     pub lcsSignature: u32,
     pub lcsVersion: u32,
@@ -2022,31 +1626,9 @@ pub struct LOGCOLORSPACEA {
     pub lcsFilename: [i8; 260],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for LOGCOLORSPACEA {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for LOGCOLORSPACEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for LOGCOLORSPACEA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LOGCOLORSPACEA").field("lcsSignature", &self.lcsSignature).field("lcsVersion", &self.lcsVersion).field("lcsSize", &self.lcsSize).field("lcsCSType", &self.lcsCSType).field("lcsIntent", &self.lcsIntent).field("lcsEndpoints", &self.lcsEndpoints).field("lcsGammaRed", &self.lcsGammaRed).field("lcsGammaGreen", &self.lcsGammaGreen).field("lcsGammaBlue", &self.lcsGammaBlue).field("lcsFilename", &self.lcsFilename).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for LOGCOLORSPACEA {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for LOGCOLORSPACEA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lcsSignature == other.lcsSignature && self.lcsVersion == other.lcsVersion && self.lcsSize == other.lcsSize && self.lcsCSType == other.lcsCSType && self.lcsIntent == other.lcsIntent && self.lcsEndpoints == other.lcsEndpoints && self.lcsGammaRed == other.lcsGammaRed && self.lcsGammaGreen == other.lcsGammaGreen && self.lcsGammaBlue == other.lcsGammaBlue && self.lcsFilename == other.lcsFilename
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for LOGCOLORSPACEA {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for LOGCOLORSPACEA {
     fn default() -> Self {
@@ -2055,6 +1637,7 @@ impl Default for LOGCOLORSPACEA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LOGCOLORSPACEW {
     pub lcsSignature: u32,
     pub lcsVersion: u32,
@@ -2068,31 +1651,9 @@ pub struct LOGCOLORSPACEW {
     pub lcsFilename: [u16; 260],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for LOGCOLORSPACEW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for LOGCOLORSPACEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for LOGCOLORSPACEW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LOGCOLORSPACEW").field("lcsSignature", &self.lcsSignature).field("lcsVersion", &self.lcsVersion).field("lcsSize", &self.lcsSize).field("lcsCSType", &self.lcsCSType).field("lcsIntent", &self.lcsIntent).field("lcsEndpoints", &self.lcsEndpoints).field("lcsGammaRed", &self.lcsGammaRed).field("lcsGammaGreen", &self.lcsGammaGreen).field("lcsGammaBlue", &self.lcsGammaBlue).field("lcsFilename", &self.lcsFilename).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for LOGCOLORSPACEW {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for LOGCOLORSPACEW {
-    fn eq(&self, other: &Self) -> bool {
-        self.lcsSignature == other.lcsSignature && self.lcsVersion == other.lcsVersion && self.lcsSize == other.lcsSize && self.lcsCSType == other.lcsCSType && self.lcsIntent == other.lcsIntent && self.lcsEndpoints == other.lcsEndpoints && self.lcsGammaRed == other.lcsGammaRed && self.lcsGammaGreen == other.lcsGammaGreen && self.lcsGammaBlue == other.lcsGammaBlue && self.lcsFilename == other.lcsFilename
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for LOGCOLORSPACEW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for LOGCOLORSPACEW {
     fn default() -> Self {
@@ -2100,66 +1661,35 @@ impl Default for LOGCOLORSPACEW {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LabCOLOR {
     pub L: u16,
     pub a: u16,
     pub b: u16,
 }
-impl Copy for LabCOLOR {}
-impl Clone for LabCOLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for LabCOLOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("LabCOLOR").field("L", &self.L).field("a", &self.a).field("b", &self.b).finish()
-    }
-}
 impl windows_core::TypeKind for LabCOLOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for LabCOLOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.L == other.L && self.a == other.a && self.b == other.b
-    }
-}
-impl Eq for LabCOLOR {}
 impl Default for LabCOLOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NAMEDCOLOR {
     pub dwIndex: u32,
-}
-impl Copy for NAMEDCOLOR {}
-impl Clone for NAMEDCOLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NAMEDCOLOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NAMEDCOLOR").field("dwIndex", &self.dwIndex).finish()
-    }
 }
 impl windows_core::TypeKind for NAMEDCOLOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NAMEDCOLOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwIndex == other.dwIndex
-    }
-}
-impl Eq for NAMEDCOLOR {}
 impl Default for NAMEDCOLOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NAMED_PROFILE_INFO {
     pub dwFlags: u32,
     pub dwCount: u32,
@@ -2167,57 +1697,24 @@ pub struct NAMED_PROFILE_INFO {
     pub szPrefix: [i8; 32],
     pub szSuffix: [i8; 32],
 }
-impl Copy for NAMED_PROFILE_INFO {}
-impl Clone for NAMED_PROFILE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for NAMED_PROFILE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("NAMED_PROFILE_INFO").field("dwFlags", &self.dwFlags).field("dwCount", &self.dwCount).field("dwCountDevCoordinates", &self.dwCountDevCoordinates).field("szPrefix", &self.szPrefix).field("szSuffix", &self.szSuffix).finish()
-    }
-}
 impl windows_core::TypeKind for NAMED_PROFILE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for NAMED_PROFILE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.dwCount == other.dwCount && self.dwCountDevCoordinates == other.dwCountDevCoordinates && self.szPrefix == other.szPrefix && self.szSuffix == other.szSuffix
-    }
-}
-impl Eq for NAMED_PROFILE_INFO {}
 impl Default for NAMED_PROFILE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROFILE {
     pub dwType: u32,
     pub pProfileData: *mut core::ffi::c_void,
     pub cbDataSize: u32,
 }
-impl Copy for PROFILE {}
-impl Clone for PROFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PROFILE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROFILE").field("dwType", &self.dwType).field("pProfileData", &self.pProfileData).field("cbDataSize", &self.cbDataSize).finish()
-    }
-}
 impl windows_core::TypeKind for PROFILE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PROFILE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwType == other.dwType && self.pProfileData == other.pProfileData && self.cbDataSize == other.cbDataSize
-    }
-}
-impl Eq for PROFILE {}
 impl Default for PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2225,6 +1722,7 @@ impl Default for PROFILE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROFILEHEADER {
     pub phSize: u32,
     pub phCMMType: u32,
@@ -2245,49 +1743,9 @@ pub struct PROFILEHEADER {
     pub phReserved: [u8; 44],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl Copy for PROFILEHEADER {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Clone for PROFILEHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl core::fmt::Debug for PROFILEHEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PROFILEHEADER")
-            .field("phSize", &self.phSize)
-            .field("phCMMType", &self.phCMMType)
-            .field("phVersion", &self.phVersion)
-            .field("phClass", &self.phClass)
-            .field("phDataColorSpace", &self.phDataColorSpace)
-            .field("phConnectionSpace", &self.phConnectionSpace)
-            .field("phDateTime", &self.phDateTime)
-            .field("phSignature", &self.phSignature)
-            .field("phPlatform", &self.phPlatform)
-            .field("phProfileFlags", &self.phProfileFlags)
-            .field("phManufacturer", &self.phManufacturer)
-            .field("phModel", &self.phModel)
-            .field("phAttributes", &self.phAttributes)
-            .field("phRenderingIntent", &self.phRenderingIntent)
-            .field("phIlluminant", &self.phIlluminant)
-            .field("phCreator", &self.phCreator)
-            .field("phReserved", &self.phReserved)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::TypeKind for PROFILEHEADER {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl PartialEq for PROFILEHEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.phSize == other.phSize && self.phCMMType == other.phCMMType && self.phVersion == other.phVersion && self.phClass == other.phClass && self.phDataColorSpace == other.phDataColorSpace && self.phConnectionSpace == other.phConnectionSpace && self.phDateTime == other.phDateTime && self.phSignature == other.phSignature && self.phPlatform == other.phPlatform && self.phProfileFlags == other.phProfileFlags && self.phManufacturer == other.phManufacturer && self.phModel == other.phModel && self.phAttributes == other.phAttributes && self.phRenderingIntent == other.phRenderingIntent && self.phIlluminant == other.phIlluminant && self.phCreator == other.phCreator && self.phReserved == other.phReserved
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Eq for PROFILEHEADER {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for PROFILEHEADER {
     fn default() -> Self {
@@ -2295,6 +1753,7 @@ impl Default for PROFILEHEADER {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PrimaryJabColors {
     pub red: JabColorF,
     pub yellow: JabColorF,
@@ -2305,32 +1764,16 @@ pub struct PrimaryJabColors {
     pub black: JabColorF,
     pub white: JabColorF,
 }
-impl Copy for PrimaryJabColors {}
-impl Clone for PrimaryJabColors {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PrimaryJabColors {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PrimaryJabColors").field("red", &self.red).field("yellow", &self.yellow).field("green", &self.green).field("cyan", &self.cyan).field("blue", &self.blue).field("magenta", &self.magenta).field("black", &self.black).field("white", &self.white).finish()
-    }
-}
 impl windows_core::TypeKind for PrimaryJabColors {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PrimaryJabColors {
-    fn eq(&self, other: &Self) -> bool {
-        self.red == other.red && self.yellow == other.yellow && self.green == other.green && self.cyan == other.cyan && self.blue == other.blue && self.magenta == other.magenta && self.black == other.black && self.white == other.white
-    }
-}
-impl Eq for PrimaryJabColors {}
 impl Default for PrimaryJabColors {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PrimaryXYZColors {
     pub red: XYZColorF,
     pub yellow: XYZColorF,
@@ -2341,63 +1784,31 @@ pub struct PrimaryXYZColors {
     pub black: XYZColorF,
     pub white: XYZColorF,
 }
-impl Copy for PrimaryXYZColors {}
-impl Clone for PrimaryXYZColors {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PrimaryXYZColors {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PrimaryXYZColors").field("red", &self.red).field("yellow", &self.yellow).field("green", &self.green).field("cyan", &self.cyan).field("blue", &self.blue).field("magenta", &self.magenta).field("black", &self.black).field("white", &self.white).finish()
-    }
-}
 impl windows_core::TypeKind for PrimaryXYZColors {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for PrimaryXYZColors {
-    fn eq(&self, other: &Self) -> bool {
-        self.red == other.red && self.yellow == other.yellow && self.green == other.green && self.cyan == other.cyan && self.blue == other.blue && self.magenta == other.magenta && self.black == other.black && self.white == other.white
-    }
-}
-impl Eq for PrimaryXYZColors {}
 impl Default for PrimaryXYZColors {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RGBCOLOR {
     pub red: u16,
     pub green: u16,
     pub blue: u16,
 }
-impl Copy for RGBCOLOR {}
-impl Clone for RGBCOLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for RGBCOLOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("RGBCOLOR").field("red", &self.red).field("green", &self.green).field("blue", &self.blue).finish()
-    }
-}
 impl windows_core::TypeKind for RGBCOLOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for RGBCOLOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.red == other.red && self.green == other.green && self.blue == other.blue
-    }
-}
-impl Eq for RGBCOLOR {}
 impl Default for RGBCOLOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WCS_DEVICE_MHC2_CAPABILITIES {
     pub Size: u32,
     pub SupportsMhc2: super::super::Foundation::BOOL,
@@ -2405,149 +1816,68 @@ pub struct WCS_DEVICE_MHC2_CAPABILITIES {
     pub CscXyzMatrixRows: u32,
     pub CscXyzMatrixColumns: u32,
 }
-impl Copy for WCS_DEVICE_MHC2_CAPABILITIES {}
-impl Clone for WCS_DEVICE_MHC2_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WCS_DEVICE_MHC2_CAPABILITIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WCS_DEVICE_MHC2_CAPABILITIES").field("Size", &self.Size).field("SupportsMhc2", &self.SupportsMhc2).field("RegammaLutEntryCount", &self.RegammaLutEntryCount).field("CscXyzMatrixRows", &self.CscXyzMatrixRows).field("CscXyzMatrixColumns", &self.CscXyzMatrixColumns).finish()
-    }
-}
 impl windows_core::TypeKind for WCS_DEVICE_MHC2_CAPABILITIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WCS_DEVICE_MHC2_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.SupportsMhc2 == other.SupportsMhc2 && self.RegammaLutEntryCount == other.RegammaLutEntryCount && self.CscXyzMatrixRows == other.CscXyzMatrixRows && self.CscXyzMatrixColumns == other.CscXyzMatrixColumns
-    }
-}
-impl Eq for WCS_DEVICE_MHC2_CAPABILITIES {}
 impl Default for WCS_DEVICE_MHC2_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WCS_DEVICE_VCGT_CAPABILITIES {
     pub Size: u32,
     pub SupportsVcgt: super::super::Foundation::BOOL,
 }
-impl Copy for WCS_DEVICE_VCGT_CAPABILITIES {}
-impl Clone for WCS_DEVICE_VCGT_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for WCS_DEVICE_VCGT_CAPABILITIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("WCS_DEVICE_VCGT_CAPABILITIES").field("Size", &self.Size).field("SupportsVcgt", &self.SupportsVcgt).finish()
-    }
-}
 impl windows_core::TypeKind for WCS_DEVICE_VCGT_CAPABILITIES {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for WCS_DEVICE_VCGT_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.SupportsVcgt == other.SupportsVcgt
-    }
-}
-impl Eq for WCS_DEVICE_VCGT_CAPABILITIES {}
 impl Default for WCS_DEVICE_VCGT_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XYZCOLOR {
     pub X: u16,
     pub Y: u16,
     pub Z: u16,
 }
-impl Copy for XYZCOLOR {}
-impl Clone for XYZCOLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XYZCOLOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XYZCOLOR").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).finish()
-    }
-}
 impl windows_core::TypeKind for XYZCOLOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XYZCOLOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y && self.Z == other.Z
-    }
-}
-impl Eq for XYZCOLOR {}
 impl Default for XYZCOLOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XYZColorF {
     pub X: f32,
     pub Y: f32,
     pub Z: f32,
 }
-impl Copy for XYZColorF {}
-impl Clone for XYZColorF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for XYZColorF {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("XYZColorF").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).finish()
-    }
-}
 impl windows_core::TypeKind for XYZColorF {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for XYZColorF {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y && self.Z == other.Z
-    }
-}
-impl Eq for XYZColorF {}
 impl Default for XYZColorF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct YxyCOLOR {
     pub Y: u16,
     pub x: u16,
     pub y: u16,
 }
-impl Copy for YxyCOLOR {}
-impl Clone for YxyCOLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for YxyCOLOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("YxyCOLOR").field("Y", &self.Y).field("x", &self.x).field("y", &self.y).finish()
-    }
-}
 impl windows_core::TypeKind for YxyCOLOR {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for YxyCOLOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Y == other.Y && self.x == other.x && self.y == other.y
-    }
-}
-impl Eq for YxyCOLOR {}
 impl Default for YxyCOLOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -485,6 +485,7 @@ impl core::fmt::Debug for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct DMO_MEDIA_TYPE {
     pub majortype: windows_core::GUID,
     pub subtype: windows_core::GUID,
@@ -501,26 +502,16 @@ impl Clone for DMO_MEDIA_TYPE {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for DMO_MEDIA_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMO_MEDIA_TYPE").field("majortype", &self.majortype).field("subtype", &self.subtype).field("bFixedSizeSamples", &self.bFixedSizeSamples).field("bTemporalCompression", &self.bTemporalCompression).field("lSampleSize", &self.lSampleSize).field("formattype", &self.formattype).field("pUnk", &self.pUnk).field("cbFormat", &self.cbFormat).field("pbFormat", &self.pbFormat).finish()
-    }
-}
 impl windows_core::TypeKind for DMO_MEDIA_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMO_MEDIA_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.majortype == other.majortype && self.subtype == other.subtype && self.bFixedSizeSamples == other.bFixedSizeSamples && self.bTemporalCompression == other.bTemporalCompression && self.lSampleSize == other.lSampleSize && self.formattype == other.formattype && self.pUnk == other.pUnk && self.cbFormat == other.cbFormat && self.pbFormat == other.pbFormat
-    }
-}
-impl Eq for DMO_MEDIA_TYPE {}
 impl Default for DMO_MEDIA_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct DMO_OUTPUT_DATA_BUFFER {
     pub pBuffer: std::mem::ManuallyDrop<Option<IMediaBuffer>>,
     pub dwStatus: u32,
@@ -532,50 +523,23 @@ impl Clone for DMO_OUTPUT_DATA_BUFFER {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl core::fmt::Debug for DMO_OUTPUT_DATA_BUFFER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMO_OUTPUT_DATA_BUFFER").field("pBuffer", &self.pBuffer).field("dwStatus", &self.dwStatus).field("rtTimestamp", &self.rtTimestamp).field("rtTimelength", &self.rtTimelength).finish()
-    }
-}
 impl windows_core::TypeKind for DMO_OUTPUT_DATA_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMO_OUTPUT_DATA_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.pBuffer == other.pBuffer && self.dwStatus == other.dwStatus && self.rtTimestamp == other.rtTimestamp && self.rtTimelength == other.rtTimelength
-    }
-}
-impl Eq for DMO_OUTPUT_DATA_BUFFER {}
 impl Default for DMO_OUTPUT_DATA_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMO_PARTIAL_MEDIATYPE {
     pub r#type: windows_core::GUID,
     pub subtype: windows_core::GUID,
 }
-impl Copy for DMO_PARTIAL_MEDIATYPE {}
-impl Clone for DMO_PARTIAL_MEDIATYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for DMO_PARTIAL_MEDIATYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("DMO_PARTIAL_MEDIATYPE").field("type", &self.r#type).field("subtype", &self.subtype).finish()
-    }
-}
 impl windows_core::TypeKind for DMO_PARTIAL_MEDIATYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl PartialEq for DMO_PARTIAL_MEDIATYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.r#type == other.r#type && self.subtype == other.subtype
-    }
-}
-impl Eq for DMO_PARTIAL_MEDIATYPE {}
 impl Default for DMO_PARTIAL_MEDIATYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

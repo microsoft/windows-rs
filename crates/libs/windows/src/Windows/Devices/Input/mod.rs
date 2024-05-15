@@ -817,20 +817,10 @@ impl windows_core::RuntimeType for PointerDeviceType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Input.PointerDeviceType;i4)");
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MouseDelta {
     pub X: i32,
     pub Y: i32,
-}
-impl Copy for MouseDelta {}
-impl Clone for MouseDelta {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for MouseDelta {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("MouseDelta").field("X", &self.X).field("Y", &self.Y).finish()
-    }
 }
 impl windows_core::TypeKind for MouseDelta {
     type TypeKind = windows_core::CopyType;
@@ -838,18 +828,13 @@ impl windows_core::TypeKind for MouseDelta {
 impl windows_core::RuntimeType for MouseDelta {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Input.MouseDelta;i4;i4)");
 }
-impl PartialEq for MouseDelta {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y
-    }
-}
-impl Eq for MouseDelta {}
 impl Default for MouseDelta {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PointerDeviceUsage {
     pub UsagePage: u32,
     pub Usage: u32,
@@ -860,29 +845,12 @@ pub struct PointerDeviceUsage {
     pub Unit: u32,
     pub PhysicalMultiplier: f32,
 }
-impl Copy for PointerDeviceUsage {}
-impl Clone for PointerDeviceUsage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for PointerDeviceUsage {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("PointerDeviceUsage").field("UsagePage", &self.UsagePage).field("Usage", &self.Usage).field("MinLogical", &self.MinLogical).field("MaxLogical", &self.MaxLogical).field("MinPhysical", &self.MinPhysical).field("MaxPhysical", &self.MaxPhysical).field("Unit", &self.Unit).field("PhysicalMultiplier", &self.PhysicalMultiplier).finish()
-    }
-}
 impl windows_core::TypeKind for PointerDeviceUsage {
     type TypeKind = windows_core::CopyType;
 }
 impl windows_core::RuntimeType for PointerDeviceUsage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Input.PointerDeviceUsage;u4;u4;i4;i4;i4;i4;u4;f4)");
 }
-impl PartialEq for PointerDeviceUsage {
-    fn eq(&self, other: &Self) -> bool {
-        self.UsagePage == other.UsagePage && self.Usage == other.Usage && self.MinLogical == other.MinLogical && self.MaxLogical == other.MaxLogical && self.MinPhysical == other.MinPhysical && self.MaxPhysical == other.MaxPhysical && self.Unit == other.Unit && self.PhysicalMultiplier == other.PhysicalMultiplier
-    }
-}
-impl Eq for PointerDeviceUsage {}
 impl Default for PointerDeviceUsage {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
