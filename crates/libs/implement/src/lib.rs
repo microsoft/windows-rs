@@ -99,10 +99,10 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             }
 
             impl #generics ::windows_core::imp::ComObjectInterface<#interface_ident> for #impl_ident::#generics where #constraints {
-                fn get_interface(&self) -> ::windows_core::Ref<'_, #interface_ident> {
+                fn get_interface(&self) -> ::windows_core::InterfaceRef<'_, #interface_ident> {
                     unsafe {
-                        let vtable_ptr = &self.vtables.#offset;
-                        ::core::mem::transmute(vtable_ptr)
+                        let interface_ptr = &self.vtables.#offset;
+                        ::core::mem::transmute(interface_ptr)
                     }
                 }
             }

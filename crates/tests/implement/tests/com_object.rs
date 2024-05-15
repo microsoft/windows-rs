@@ -1,3 +1,4 @@
+use std::borrow::Borrow;
 use std::sync::atomic::{AtomicBool, Ordering::SeqCst};
 use std::sync::Arc;
 use windows_core::{implement, interface, ComObject, IUnknown, IUnknown_Vtbl};
@@ -13,6 +14,24 @@ struct MyApp {
     tombstone: Arc<Tombstone>,
 }
 
+impl Borrow<u32> for MyApp {
+    fn borrow(&self) -> &u32 {
+        &self.x
+    }
+}
+
+impl core::fmt::Debug for MyApp {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "x = {}", self.x)
+    }
+}
+
+impl core::fmt::Display for MyApp {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "x = {}", self.x)
+    }
+}
+
 impl Default for MyApp {
     fn default() -> Self {
         Self {
@@ -22,6 +41,27 @@ impl Default for MyApp {
     }
 }
 
+impl std::hash::Hash for MyApp {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        self.x.hash(state);
+    }
+}
+
+impl PartialEq<u32> for MyApp {
+    fn eq(&self, other: &u32) -> bool {
+        self.x == *other
+    }
+}
+
+impl PartialEq for MyApp {
+    fn eq(&self, other: &MyApp) -> bool {
+        self.x == other.x
+    }
+}
+
+impl Eq for MyApp {}
+
+/// This lets us detect when an object has been dropped.
 #[derive(Default)]
 struct Tombstone {
     cell: AtomicBool,
@@ -75,7 +115,7 @@ fn basic() {
     assert_eq!(unsafe { ifoo.get_x() }, 42);
 
     // check lifetimes
-    let tombstone = app.get().tombstone.clone();
+    let tombstone = app.tombstone.clone();
     assert!(!tombstone.is_dead());
 
     drop(app);
@@ -91,10 +131,10 @@ fn basic() {
 #[test]
 fn casting() {
     let app: ComObject<MyApp> = MyApp::new(42);
-    let tombstone = app.get().tombstone.clone();
+    let tombstone = app.tombstone.clone();
 
     let ifoo: IFoo = app.cast().unwrap();
-    assert_eq!(unsafe { app.get().get_x() }, 42);
+    assert_eq!(unsafe { app.get_x() }, 42);
 
     // check lifetimes
     assert!(!tombstone.is_dead());
@@ -120,12 +160,12 @@ fn clone() {
 #[test]
 fn get_mut() {
     let mut app: ComObject<MyApp> = MyApp::new(42);
-    assert_eq!(app.get().get_x_direct(), 42);
+    assert_eq!(app.get_x_direct(), 42);
 
     // refcount = 1
     app.get_mut().unwrap().set_x(50);
 
-    assert_eq!(app.get().get_x_direct(), 50);
+    assert_eq!(app.get_x_direct(), 50);
 
     let app2 = app.clone();
     // refcount = 2
@@ -140,7 +180,7 @@ fn get_mut() {
 #[test]
 fn try_take() {
     let app: ComObject<MyApp> = MyApp::new(42);
-    let tombstone = app.get().tombstone.clone();
+    let tombstone = app.tombstone.clone();
     // refcount = 1
 
     let app2 = app.clone();
@@ -171,11 +211,32 @@ fn try_take() {
 }
 
 #[test]
-fn object_interfaces() {
+fn as_interface() {
     let app = MyApp::new(42);
-    let ifoo_ref = app.borrow_interface::<IFoo>();
-    let ifoo = ifoo_ref.ok().unwrap();
+    let tombstone = app.tombstone.clone();
+
+    let ifoo = app.as_interface::<IFoo>();
     assert_eq!(unsafe { ifoo.get_x() }, 42);
+    assert!(!tombstone.is_dead());
+
+    drop(app);
+    assert!(tombstone.is_dead());
+}
+
+#[test]
+fn to_interface() {
+    let app = MyApp::new(42);
+    let tombstone = app.tombstone.clone();
+
+    let ifoo = app.to_interface::<IFoo>();
+    assert_eq!(unsafe { ifoo.get_x() }, 42);
+    assert!(!tombstone.is_dead());
+
+    drop(app);
+    assert!(!tombstone.is_dead());
+
+    drop(ifoo);
+    assert!(tombstone.is_dead());
 }
 
 #[test]
@@ -198,4 +259,34 @@ fn construct_with_into() {
     fn consume(_: ComObject<MyApp>) {}
 
     consume(MyApp::default().into())
+}
+
+#[test]
+fn debug() {
+    let app = MyApp::new(100);
+    let s = format!("{:?}", app);
+    assert_eq!(s, "x = 100");
+}
+
+#[test]
+fn display() {
+    let app = MyApp::new(200);
+    let s = format!("{}", app);
+    assert_eq!(s, "x = 200");
+}
+
+#[cfg(todo)]
+#[test]
+fn hashable() {
+    use std::collections::HashMap;
+
+    let mut map: HashMap<ComObject<MyApp>, &'static str> = HashMap::new();
+
+    map.insert(MyApp::new(100), "hello");
+    map.insert(MyApp::new(200), "world");
+
+    let i: &&str = map.get(&100).unwrap();
+    assert_eq!(*i, "hello");
+
+    assert!(map.get(&333).is_none());
 }
